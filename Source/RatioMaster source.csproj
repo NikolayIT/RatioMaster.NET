@@ -70,7 +70,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="0.30-history.txt" />
     <Compile Include="AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,7 +161,7 @@
     </Compile>
     <Compile Include="ProxyInfo.cs" />
     <Compile Include="RandomStringGenerator.cs" />
-    <Compile Include="torrentClient.cs" />
+    <Compile Include="TorrentClient.cs" />
     <Compile Include="TorrentInfo.cs" />
     <Compile Include="TrackerResponse.cs" />
     <Compile Include="RM.cs">
@@ -178,9 +177,6 @@
     <None Include="Resources\Main.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PanelBase.txt" />
-    <Content Include="HISTORY.TXT" />
-    <Content Include="0.20-history.txt" />
     <None Include="Package1.pkgxml" />
     <None Include="Resources\Dev by NRPG 160x80.jpg" />
   </ItemGroup>

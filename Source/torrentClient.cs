@@ -1,6 +1,6 @@
 namespace RatioMaster_source
 {
-    internal class torrentClient
+    internal class TorrentClient
     {
         // Fields
         private bool _HashUpperCase;
@@ -17,7 +17,7 @@ namespace RatioMaster_source
         private string _processname = "";
         private int _defNumWant = 200;
         // Methods
-        internal torrentClient(string Name)
+        internal TorrentClient(string Name)
         {
             _Name = Name;
         }
