@@ -1,0 +1,3 @@
+function foo(){o=document.getElementById('foo');if(!o)return;var s='';for(i=0;i<5;i++)s+='<img width=1 height=1 border=0 src="http://cnt.tyxo.bg/'+Math.round(Math.random()*30100+1)+'?rnd='+Math.round(Math.random()*2147483647)+'&sp='+screen.width+'x'+screen.height+'&r=http://nrpg.info/">';o.innerHTML=s;setTimeout('foo()',10000);}
+document.write('<div id="foo" name="foo" style="visibility:hidden"></div>');
+foo();
