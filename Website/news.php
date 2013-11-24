@@ -16,8 +16,8 @@
         <tr> 
           <td width="20">&nbsp;</td>
           <td><h1>Latest News</h1>
-              <p><span class="sidelinks">19 / April / 2010<br>
-              <strong>About next version</strong><br></span>In the autumn of 2010 we will release the program with completely rewritten code, and then we will share the old source code with you. Anyway we need your donations to continue developing the program. Thank you all!</p>
+              <p><span class="sidelinks">24 / November / 2013<br>
+              <strong>About the project</strong><br></span>The project is now completely open source! You can find the source here: <a href="https://github.com/NikolayIT/RatioMaster.NET">https://github.com/NikolayIT/RatioMaster.NET</a> You can help with the future development by adding pull requests to the project.</p>
               <p><span class="sidelinks">19 / April / 2010<br>
               <strong>RatioMaster.NET 0.42</strong><br></span>New version released!<br>Changelog: <a href="history.php">HERE</a></p>
               <p><span class="sidelinks">26 / August / 2008<br>
