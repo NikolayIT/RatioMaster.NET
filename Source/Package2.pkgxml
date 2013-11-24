@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <needsprepopulate>true</needsprepopulate>
+  <name></name>
+  <summary></summary>
+  <version></version>
+  <url></url>
+  <license></license>
+  <type>Winexe</type>
+  <description></description>
+  <createdesktopfile>false</createdesktopfile>
+  <icon></icon>
+  <categories></categories>
+  <group></group>
+  <filetree name="Application Root" writable="false">
+    <directories />
+    <files />
+  </filetree>
+  <dependencies>
+  </dependencies>
+  <provides>
+  </provides>
+  <autogeneraterelease>true</autogeneraterelease>
+  <release>.</release>
+  <preinstallscript />
+  <postinstallscript />
+  <preuninstallscript />
+  <postuninstallscript />
+  <minimummono>2.4.2</minimummono>
+</package>

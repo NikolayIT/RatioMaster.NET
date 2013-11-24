@@ -1,0 +1,75 @@
+---=== 0.20-alpha1 (0151) (09-07-2006) ===---
+- Global: Added new form: AboutForm
+- Global: RMForm is now control (RM)
+- Main: Added Main Form (MDI Container)
+- Main: Added menu (New, Settings, About, Exit, Sites..)
+- Main: Added status bar with versions
+- Main: Added TabContainer with all RatioMasters controls
+- RM: Removed about tab
+- AboutForm: Contain all information from old about tab
+---=== 0.20-alpha2 (0152) (10-07-2006) ===---
+- Main: Program has fixed size
+- Main: Added location and size info in status bar
+- Main: On load start 1 RM
+- RM: Some changes in registy load/save
+- RM: Fixed bug when open torrent
+- RM: Fixed bug when save logs
+- RM: some GUI fixes
+---=== 0.20-beta1 (0161) (11-07-2006) ===---
+- Main: Added remove tab function
+- Main: Fixed a lot of bugs in registry
+- Main: Fixed: Bug with tray baloon
+---=== 0.20-beta2 (0162) (12-07-2006) ===---
+- General: Code optimized for size (from 208 kb to 196 kb)
+- General: Code obfuscated - all variables renamed (EX: form TorrentClient to jh)
+- General: All classes are internal now (for more security)
+- Main: Maximize button disabled (special for hidden: program will not maximize!)
+- RM: Fixed settings (now load correctly) (10x to aaa for reporting)
+---=== 0.20-beta3 (0163) (13-07-2006) ===---
+- Main: Fixed items in context menu (added About)
+- Main: When close program stop every RatiMaster tab started
+- Main: Fixed: Errors when closing
+- RM: Fixed error when tracker don't support scraping
+- RM: Added option to select to generate new values or use current (HIGHLY RECOMMENDED TO BE SELECTED!)
+- RM: Now you can see peer ID and client key in boxes
+- RÌ: Fixed peer ID calculation
+- RÌ: Added abillity to set non-integer numbers in "Finished" box (WORK!)
+- RÌ: Fixed small bug when parsing float numbers
+- AboutForm: Fixed bug when initialize
+---=== 0.20-RC1 (0170) (14-07-2006) ===---
+- RM: Parse peerID and client key from runned uTorrent 1.6 (INCREDIBLE!!! AND WORK !!!)
+- RM: Default button fixed
+- NewVersionForm: Fixed some small bugs in GUI
+---=== 0.20-RC2 (0180) (14-07-2006) ===---
+- Global: Removed unused asseblies (for code optimization)
+- Main: Fixed menus
+- Main: Form caption changed ([name] + [version])
+- RM: Added new betatesters
+- RM: Added new client simulation: BitComet 0.57 (user request)
+- RM: Fixed bug in utorrent 1.6 memory reader (for key only)
+---=== 0.20-RC3-last (0190) (15-07-2006) ===---
+- Internal Realise Candidate
+- Fixed: Betatesters
+- Fixed: Grammar mistakes
+---=== 0.20 (0200) (16-07-2006) ===---
+- Global: Added new form: AboutForm
+- Global: RMForm is now control (RM)
+- Global: Code obfuscated, code optimized, all internal
+- Global: Removed unused asseblies (for code optimization)
+- Main: Added Main Form (MDI Container) with fixed size
+- Main: Added menu (New, Remove, Settings, Links, About, Exit...)
+- Main: Added status bar with versions
+- Main: Added TabContainer with all RatioMasters controls
+- RM: Parse peerID and client key from runned uTorrent 1.6
+- RM: Added new client simulation: BitComet 0.57
+- RM: Added option to select to generate new custom values or use current in regiistry
+- RÌ: Added abillity to set non-integer numbers in "Finished" box
+- RM: Now you can see peer ID and client key in boxes
+- RM: Fixed a lot of bugs in registry
+- RM: Fixed error when tracker don't support scraping
+- RÌ: Fixed peer ID calculation
+- RÌ: Fixed small bug when parsing float numbers
+- RM: Default button fixed
+- RM: Removed about tab
+- AboutForm: Contain all information from old about tab (added new betatesters)
+- NewVersionForm: Fixed some small bugs in GUI
