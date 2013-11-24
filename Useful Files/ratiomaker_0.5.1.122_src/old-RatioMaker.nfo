@@ -1,0 +1,179 @@
+
+
+   ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+   Û                                                                        Û
+   Û            °          °°°     °°°°            smplaoo@evonet.ro        Û
+   Û            °°      °°°°°     °°  °°     sa ma pupati la oo @ evonet ro Û
+   Û             °    °°°         °                                         Û
+   Û            °°  °°° °         °                                         Û
+   Û            °   °   °         °°           ²     ²    ²²²²²             Û
+   Û           °°       °          °°°         ²     ²    ²    ²            Û
+   Û    °      °        °            °°°       ²     ²    ²     ²           Û
+   Û    °°°   °°        °°            °°       ²     ²    ²     ²           Û
+   Û      °°°°°          °°            °       ²     ²    ²     ²           Û
+   Û                      °       °°°°°°       ²²   ²²    ²    ²            Û
+   Û                     °°          °°         ²²²²²     ²²²²²             Û
+   Û                                                                        Û
+   Û                                       ® Va sparge la nare ¯            Û
+   ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+
+
+
+   English information:
+   Get a .torrent from the tracker you want to work with. Open it in TorrentSpy
+   and copy the following fields to RatioMaker:
+   
+   TorrentSpy           =>          RatioMaker
+   -------------------------------------------
+   Tracker                         Tracker URL
+   SHA Hash                   Info hash (SHA1)
+   Total Bytes                     Total Bytes
+                             (remove the dots)
+                             
+   Total bytes can be estimated, as the exact value isn't used.
+   
+   For more information and usage tips, please read this thread:
+   
+   -- http://www.00de.de/showthread.php?t=21947 --
+   
+   
+   
+   Romanian information (old):
+   
+   Asa, ma rog. Ghid rapid de folosire:
+   
+   **E recomandat sa aveti clientul de BT -inchis- cand lucrati cu RatioMakeru**
+   Mai exact, sa nu aveti torrente deschise pe trackerul pe care vreti sa-l ...
+   manariti cu RatioMaker-ul, ca sa nu apara 2 peer_ids de la acelasi user/ip.
+   Masura e atat pentru protectia voastra cat si pentru functionarea adecvata
+   a programului (sa nu dea trackerul "you may only leech from 1 location").
+   
+   Client emulation inseamna ca programul genereaza un peer_id random dupa schema
+   clientului respectiv de BitTorrent si-l foloseste in tracker communications.
+   Asa, sa fie cat mai stealthy si mai greu de blocat.
+   Key-ul ala e random generated si e foarte bine asa, nu-i nevoie niciodata sa-l
+   schimbati. Poate doar daca e cumva blocat programul de tracker (mai stii?). La
+   fel si port-ul raportat trackerului, e random la fiecare folosire.
+   
+   
+   Pentru prosti:
+   - la tracker url se pune url-u trackerului, inclusiv announce.php si passkey
+   - la info hash se pune ala care se vede pe site-uri, in detaliul torrentului
+   - quantity ala e in MB si merge fractionar cu VIRGULA (ca deh, estem romani)
+   - recomand TorrentSpy, arata frumos si tracker-ul si info_hash-ul torrentelor
+   		asta in caz ca dispare hashu de pe site si raman prostii-n balta
+   		http://torrentspy.sourceforge.net/
+   
+   ChangeLog:
+   
+   0.5.1: - SOCKS proxy support (4A and 5)
+   
+   0.5: - delayed requesting - app doesn't connect 3 times in succesion, but adds
+   		a 300s delay after event=started. final 0.5 build will also include a few
+   		seconds delay between announce & event=stopped. progress bar included :)
+   	- add random X bytes to specified quantity to avoid a multiple of 1024^2
+   	- "key" generation now in sync with client emulation
+   	- fixed "left=" field by asking user for total bytes from TorrentSpy and
+   		working from that. yes, we do enough checks... i think...
+   	- made http protocol version sync with client emulation
+   	- port is default 6881, can be changed (SHOULD BE CHANGED!). also incl'd
+   		a small tcp server that actually opens that port, so trackers see you as
+   		connectable
+   	- added ABC 3.01 client emulation
+   	- some code optimization & bug fixes
+   
+   0.4:	- cod de autogenerare peer_id random dupa schemele BitComet 0.57,
+   	Tornado 3.0.12 si Azureus 2.3.0.0
+   	- scris exceptii pentru cand se strica programul. probabil nu le-am prins pe
+   		toate, dar mi se pare suficient
+   	- am scos consola
+   	- programul a trecut de la alpha la beta, cam asta e feature set-ul complet
+   	- bugfixarung
+   	- build 95 strica valorile fractionare, in build 97 le-am reparat
+   
+   0.3:	- adaugat optiune de inserat gigi la download, nu doar la upload, pentru
+   		cei care vor sa-si scada ratio-ul... sau poate pe al vreunei cunos-
+   		tinte? :D
+   	- bugfix-uri minore, mici optimizari de cod
+   	- adaugat emul de BitComet (statica, randgen e in todo)
+   
+   0.2: - prima versiune care chiar face ceva
+   	- separat campurile tracker url de info hash
+   	- port si key au valori random
+   	- bugfix nasol: User-Agent-ul era raportat aiurea (nu cel din optiuni)
+   	- emul static de BitTornado, randgen cand am chef
+   	- consola ca sa vad ce se intampla
+   		
+   0.1: - prototip de design, nu are functionalitate.
+   
+   
+   ToDo:
+   
+   - peer_id random generation pentru tornado, azu si bitcomet - done
+   - adaugat si alti clienti la emul list - done in 0.5
+   - scris chestie care sa apara la butonu de help - done
+   - prins exceptii pt toate erorile si posibile overflow-uri - done
+   - PE VIITOR, daca merita... POATE o sa bag un bdecoder direct in soft
+   	adica sa nu bagati manual tracker si hash, ci sa le ia din .torrent
+   	asa ca TorrentSpy-ul. dar probabil nu merita deranjul.
+   ----- TODO FOR 0.6:
+   - rewrite UI (needs it bad) - "Advanced settings"
+   - add "Specify delay between started and announce" ~300s
+   - add "Specify delay between announce and stopped" ~3-5s ?
+   - add repeated announcing, like report X MB every Y secs, thus resulting in
+   	a simulated upload speed of X*1024/Y KB/s :). this fits in with delays.
+   - enable SOCKS support in indy http client. add settings to "advanced"
+   
+   
+   Alte alea:
+   vizitati http://www.weblog.ro/ShareRect - eu am ras tare :)
+   sa traiasca otelulgalati33@yahoo.com din p15, daaa?
+   asa ca http://fuck.bash.ro/?action=viewquote&id=332
+   last but not least, multam lu herhe ca a ajutat cum a putut si el
+   
+   
+   astept sugestii, multumiri, dar mai ales injuraturi la smplaoo@evonet.ro
+   dar...
+   ...nu-mi irositi timpul.
+   
+   
+   
+     LEGAL STUFF:
+   
+Copyright (c) 2005, JTS-UD
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, 
+this list of conditions and the following disclaimer in the documentation and/or
+ other materials provided with the distribution.
+    * Neither the name of the JTS-UD nor the names of its contributors 
+may be used to endorse or promote products derived from this software without 
+specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR 
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (
+INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY 
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+   
+   TorrentSpy is also distributed with RatioMaker. TorrentSpy is licensed under
+   the GNU GPL, you can find it's text at http://www.gnu.org/. You can download
+   TorrentSpy's sources at http://torrentspy.sf.net/.
+   
+   
+   
+   BYE BYE FUCKTARDS!
+   
+   JTS-UD (yeah, whatever. ciocu mic si limba-n pizda)
+   
+   RatioMaker 0.5.0.113 (final) got released July 11, 2005 06:39:47 UTC
