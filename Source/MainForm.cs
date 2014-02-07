@@ -10,6 +10,8 @@ namespace RatioMaster_source
 {
     public partial class MainForm : Form
     {
+        public static bool _24h_format_enabled = false;
+
         readonly RMCollection<RM> data = new RMCollection<RM>();
         //RM current;
         int items = 0, allit = 0;
@@ -632,6 +634,11 @@ namespace RatioMaster_source
                     LoadSession(fileName);
                 }
             }
+        }
+
+        private void enable24hformat_Click(object sender, EventArgs e)
+        {
+            _24h_format_enabled = enable24hformat.Checked;
         }
     }
     internal enum TabType

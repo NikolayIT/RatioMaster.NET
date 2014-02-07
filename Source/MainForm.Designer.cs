@@ -85,6 +85,7 @@
             this.lblCodedBy = new System.Windows.Forms.ToolStripStatusLabel();
             this.saveSession = new System.Windows.Forms.SaveFileDialog();
             this.loadSession = new System.Windows.Forms.OpenFileDialog();
+            this.enable24hformat = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.menuRightClickTray.SuspendLayout();
             this.Status.SuspendLayout();
@@ -261,7 +262,8 @@
             this.chkMinimize,
             this.checkShowTrayBaloon,
             this.saveSettingsFromCurrentTabToolStripMenuItem,
-            this.closeToTrayToolStripMenuItem});
+            this.closeToTrayToolStripMenuItem,
+            this.enable24hformat});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -556,7 +558,7 @@
             // 
             this.lblCodedBy.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblCodedBy.Name = "lblCodedBy";
-            this.lblCodedBy.Size = new System.Drawing.Size(331, 17);
+            this.lblCodedBy.Size = new System.Drawing.Size(362, 17);
             this.lblCodedBy.Spring = true;
             this.lblCodedBy.Text = "Coded by: Nikolay.IT © 2005-2013";
             this.lblCodedBy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -571,6 +573,14 @@
             // 
             this.loadSession.Filter = "Sessions|*.session";
             this.loadSession.FileOk += new System.ComponentModel.CancelEventHandler(this.loadSession_FileOk);
+            // 
+            // enable24hformat
+            // 
+            this.enable24hformat.CheckOnClick = true;
+            this.enable24hformat.Name = "enable24hformat";
+            this.enable24hformat.Size = new System.Drawing.Size(232, 22);
+            this.enable24hformat.Text = "Enable 24h format";
+            this.enable24hformat.Click += new System.EventHandler(this.enable24hformat_Click);
             // 
             // MainForm
             // 
@@ -669,5 +679,6 @@
         private System.Windows.Forms.ToolStripMenuItem clearAllLogsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToTrayToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel lblCodedBy;
+        private System.Windows.Forms.ToolStripMenuItem enable24hformat;
     }
 }
