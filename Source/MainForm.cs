@@ -561,7 +561,7 @@ namespace RatioMaster_source
                 }
                 foreach (TabPage tabb in tab.TabPages)
                 {
-                    if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).updateTextBox(((RM)tabb.Controls[0]).uploadRate, value.ToString());
+                    if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).updateTextBox(((RM)tabb.Controls[0]).uploadRate, Convert.ToInt32(value));
                 }
             }
         }
@@ -582,7 +582,7 @@ namespace RatioMaster_source
                 }
                 foreach (TabPage tabb in tab.TabPages)
                 {
-                    if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).updateTextBox(((RM)tabb.Controls[0]).downloadRate, value.ToString());
+                    if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).updateTextBox(((RM)tabb.Controls[0]).downloadRate, Convert.ToInt32(value));
                 }
             }
         }
