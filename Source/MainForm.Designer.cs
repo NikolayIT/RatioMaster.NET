@@ -111,6 +111,7 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.newToolStripMenuItem.Text = "New RatioMaster";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
@@ -130,6 +131,7 @@
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.removeToolStripMenuItem.Text = "Close";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeCurrentToolStripMenuItem_Click);
@@ -439,6 +441,7 @@
             this.tab.Size = new System.Drawing.Size(969, 463);
             this.tab.TabIndex = 1;
             this.tab.SelectedIndexChanged += new System.EventHandler(this.tab_TabIndexChanged);
+            this.tab.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.renameCurrentTab_MouseDoubleClick);
             // 
             // lblCurrentVersion
             // 
@@ -501,7 +504,7 @@
             this.toolStripStatusLabel4,
             this.lblIp,
             this.lblCodedBy});
-            this.Status.Location = new System.Drawing.Point(0, 478);
+            this.Status.Location = new System.Drawing.Point(0, 479);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(959, 22);
             this.Status.TabIndex = 2;
@@ -558,9 +561,9 @@
             // 
             this.lblCodedBy.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblCodedBy.Name = "lblCodedBy";
-            this.lblCodedBy.Size = new System.Drawing.Size(362, 17);
+            this.lblCodedBy.Size = new System.Drawing.Size(331, 17);
             this.lblCodedBy.Spring = true;
-            this.lblCodedBy.Text = "Coded by: Nikolay.IT © 2005-2013";
+            this.lblCodedBy.Text = "Coded by: Nikolay.IT © 2005-2014";
             this.lblCodedBy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCodedBy.Click += new System.EventHandler(this.lblCodedBy_Click);
             // 
@@ -587,7 +590,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 500);
+            this.ClientSize = new System.Drawing.Size(959, 501);
             this.Controls.Add(this.Status);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.tab);

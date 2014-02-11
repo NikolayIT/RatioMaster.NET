@@ -53,15 +53,15 @@ namespace RatioMaster_source
             this.StartButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
             this.magneticPanel9 = new RatioMaster_source.MagneticPanel();
-            this.RandomDownloadTo = new System.Windows.Forms.TextBox();
-            this.RandomDownloadFrom = new System.Windows.Forms.TextBox();
+            this.RandomDownloadTo = new System.Windows.Forms.NumericUpDown();
+            this.RandomDownloadFrom = new System.Windows.Forms.NumericUpDown();
+            this.RandomUploadTo = new System.Windows.Forms.NumericUpDown();
+            this.RandomUploadFrom = new System.Windows.Forms.NumericUpDown();
             this.checkRandomUpload = new System.Windows.Forms.CheckBox();
             this.checkRandomDownload = new System.Windows.Forms.CheckBox();
             this.lblRandomUploadFrom = new System.Windows.Forms.Label();
-            this.RandomUploadTo = new System.Windows.Forms.TextBox();
             this.lblRandomUploadTo = new System.Windows.Forms.Label();
             this.lblRandomDownloadFrom = new System.Windows.Forms.Label();
-            this.RandomUploadFrom = new System.Windows.Forms.TextBox();
             this.lblRandomDownloadTo = new System.Windows.Forms.Label();
             this.magneticPanel8 = new RatioMaster_source.MagneticPanel();
             this.logWindow = new System.Windows.Forms.RichTextBox();
@@ -80,6 +80,7 @@ namespace RatioMaster_source
             this.customKey = new System.Windows.Forms.TextBox();
             this.keyLabel = new System.Windows.Forms.Label();
             this.magneticPanel6 = new RatioMaster_source.MagneticPanel();
+            this.interval = new System.Windows.Forms.NumericUpDown();
             this.lblStopAfter = new System.Windows.Forms.Label();
             this.cmbStopAfter = new System.Windows.Forms.ComboBox();
             this.txtStopValue = new System.Windows.Forms.TextBox();
@@ -89,18 +90,17 @@ namespace RatioMaster_source
             this.cmbVersion = new System.Windows.Forms.ComboBox();
             this.FileSizeLabel = new System.Windows.Forms.Label();
             this.cmbClient = new System.Windows.Forms.ComboBox();
-            this.interval = new System.Windows.Forms.TextBox();
             this.ClientLabel = new System.Windows.Forms.Label();
             this.magneticPanel5 = new RatioMaster_source.MagneticPanel();
+            this.downloadRate = new System.Windows.Forms.NumericUpDown();
+            this.uploadRate = new System.Windows.Forms.NumericUpDown();
+            this.txtRandDownMax = new System.Windows.Forms.NumericUpDown();
+            this.txtRandUpMin = new System.Windows.Forms.NumericUpDown();
             this.uploadRateLabel = new System.Windows.Forms.Label();
-            this.uploadRate = new System.Windows.Forms.TextBox();
-            this.txtRandDownMax = new System.Windows.Forms.TextBox();
+            this.txtRandUpMax = new System.Windows.Forms.NumericUpDown();
+            this.txtRandDownMin = new System.Windows.Forms.NumericUpDown();
             this.downloadRateLabel = new System.Windows.Forms.Label();
-            this.txtRandUpMax = new System.Windows.Forms.TextBox();
-            this.downloadRate = new System.Windows.Forms.TextBox();
-            this.txtRandDownMin = new System.Windows.Forms.TextBox();
             this.chkRandUP = new System.Windows.Forms.CheckBox();
-            this.txtRandUpMin = new System.Windows.Forms.TextBox();
             this.chkRandDown = new System.Windows.Forms.CheckBox();
             this.lblDownMax = new System.Windows.Forms.Label();
             this.lblUpMin = new System.Windows.Forms.Label();
@@ -133,10 +133,21 @@ namespace RatioMaster_source
             this.torrentFile = new System.Windows.Forms.TextBox();
             this.info.SuspendLayout();
             this.magneticPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RandomDownloadTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RandomDownloadFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RandomUploadTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RandomUploadFrom)).BeginInit();
             this.magneticPanel8.SuspendLayout();
             this.magneticPanel7.SuspendLayout();
             this.magneticPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.interval)).BeginInit();
             this.magneticPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.downloadRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uploadRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRandDownMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRandUpMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRandUpMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRandDownMin)).BeginInit();
             this.magneticPanel4.SuspendLayout();
             this.magneticPanel3.SuspendLayout();
             this.magneticPanel2.SuspendLayout();
@@ -166,7 +177,7 @@ namespace RatioMaster_source
             // lblUpdateIn
             // 
             this.lblUpdateIn.Name = "lblUpdateIn";
-            this.lblUpdateIn.Size = new System.Drawing.Size(57, 17);
+            this.lblUpdateIn.Size = new System.Drawing.Size(61, 17);
             this.lblUpdateIn.Text = "Update in:";
             // 
             // timerValue
@@ -178,7 +189,7 @@ namespace RatioMaster_source
             // lblRemTime
             // 
             this.lblRemTime.Name = "lblRemTime";
-            this.lblRemTime.Size = new System.Drawing.Size(58, 17);
+            this.lblRemTime.Size = new System.Drawing.Size(64, 17);
             this.lblRemTime.Text = "Remaning:";
             // 
             // RemaningWork
@@ -218,7 +229,7 @@ namespace RatioMaster_source
             // uploadCountLabel
             // 
             this.uploadCountLabel.Name = "uploadCountLabel";
-            this.uploadCountLabel.Size = new System.Drawing.Size(56, 17);
+            this.uploadCountLabel.Size = new System.Drawing.Size(61, 17);
             this.uploadCountLabel.Text = "Uploaded:";
             // 
             // uploadCount
@@ -230,7 +241,7 @@ namespace RatioMaster_source
             // downloadCountLabel
             // 
             this.downloadCountLabel.Name = "downloadCountLabel";
-            this.downloadCountLabel.Size = new System.Drawing.Size(70, 17);
+            this.downloadCountLabel.Size = new System.Drawing.Size(77, 17);
             this.downloadCountLabel.Text = "Downloaded:";
             // 
             // downloadCount
@@ -242,13 +253,13 @@ namespace RatioMaster_source
             // lableTorrentRatio
             // 
             this.lableTorrentRatio.Name = "lableTorrentRatio";
-            this.lableTorrentRatio.Size = new System.Drawing.Size(75, 17);
+            this.lableTorrentRatio.Size = new System.Drawing.Size(79, 17);
             this.lableTorrentRatio.Text = "Torrent Ratio:";
             // 
             // lblTorrentRatio
             // 
             this.lblTorrentRatio.Name = "lblTorrentRatio";
-            this.lblTorrentRatio.Size = new System.Drawing.Size(23, 17);
+            this.lblTorrentRatio.Size = new System.Drawing.Size(22, 17);
             this.lblTorrentRatio.Text = "0.0";
             // 
             // seedLabel
@@ -260,19 +271,19 @@ namespace RatioMaster_source
             // leechLabel
             // 
             this.leechLabel.Name = "leechLabel";
-            this.leechLabel.Size = new System.Drawing.Size(63, 17);
+            this.leechLabel.Size = new System.Drawing.Size(65, 17);
             this.leechLabel.Text = "Leechers: 0";
             // 
             // lblTotalTimeCap
             // 
             this.lblTotalTimeCap.Name = "lblTotalTimeCap";
-            this.lblTotalTimeCap.Size = new System.Drawing.Size(58, 17);
+            this.lblTotalTimeCap.Size = new System.Drawing.Size(64, 17);
             this.lblTotalTimeCap.Text = "Total time:";
             // 
             // lblTotalTime
             // 
             this.lblTotalTime.Name = "lblTotalTime";
-            this.lblTotalTime.Size = new System.Drawing.Size(35, 17);
+            this.lblTotalTime.Size = new System.Drawing.Size(34, 17);
             this.lblTotalTime.Text = "00:00";
             // 
             // serverUpdateTimer
@@ -340,17 +351,16 @@ namespace RatioMaster_source
             this.magneticPanel9.CaptionStartColor = System.Drawing.Color.Black;
             this.magneticPanel9.Controls.Add(this.RandomDownloadTo);
             this.magneticPanel9.Controls.Add(this.RandomDownloadFrom);
+            this.magneticPanel9.Controls.Add(this.RandomUploadTo);
+            this.magneticPanel9.Controls.Add(this.RandomUploadFrom);
             this.magneticPanel9.Controls.Add(this.checkRandomUpload);
             this.magneticPanel9.Controls.Add(this.checkRandomDownload);
             this.magneticPanel9.Controls.Add(this.lblRandomUploadFrom);
-            this.magneticPanel9.Controls.Add(this.RandomUploadTo);
             this.magneticPanel9.Controls.Add(this.lblRandomUploadTo);
             this.magneticPanel9.Controls.Add(this.lblRandomDownloadFrom);
-            this.magneticPanel9.Controls.Add(this.RandomUploadFrom);
             this.magneticPanel9.Controls.Add(this.lblRandomDownloadTo);
             this.magneticPanel9.ExpandSize = new System.Drawing.Size(472, 58);
             this.magneticPanel9.Location = new System.Drawing.Point(482, 125);
-            this.magneticPanel9.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel9.Name = "magneticPanel9";
             this.magneticPanel9.Size = new System.Drawing.Size(472, 58);
             this.magneticPanel9.TabIndex = 28;
@@ -358,21 +368,71 @@ namespace RatioMaster_source
             // 
             // RandomDownloadTo
             // 
-            this.RandomDownloadTo.BackColor = System.Drawing.Color.White;
             this.RandomDownloadTo.Location = new System.Drawing.Point(417, 28);
+            this.RandomDownloadTo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.RandomDownloadTo.Name = "RandomDownloadTo";
-            this.RandomDownloadTo.Size = new System.Drawing.Size(37, 20);
+            this.RandomDownloadTo.Size = new System.Drawing.Size(40, 20);
             this.RandomDownloadTo.TabIndex = 9;
-            this.RandomDownloadTo.Text = "50";
+            this.RandomDownloadTo.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
             // RandomDownloadFrom
             // 
-            this.RandomDownloadFrom.BackColor = System.Drawing.Color.White;
-            this.RandomDownloadFrom.Location = new System.Drawing.Point(338, 28);
+            this.RandomDownloadFrom.Location = new System.Drawing.Point(338, 29);
+            this.RandomDownloadFrom.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.RandomDownloadFrom.Name = "RandomDownloadFrom";
-            this.RandomDownloadFrom.Size = new System.Drawing.Size(37, 20);
+            this.RandomDownloadFrom.Size = new System.Drawing.Size(40, 20);
             this.RandomDownloadFrom.TabIndex = 7;
-            this.RandomDownloadFrom.Text = "10";
+            this.RandomDownloadFrom.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // RandomUploadTo
+            // 
+            this.RandomUploadTo.Location = new System.Drawing.Point(182, 29);
+            this.RandomUploadTo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.RandomUploadTo.Name = "RandomUploadTo";
+            this.RandomUploadTo.Size = new System.Drawing.Size(40, 20);
+            this.RandomUploadTo.TabIndex = 4;
+            this.RandomUploadTo.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // RandomUploadFrom
+            // 
+            this.RandomUploadFrom.Location = new System.Drawing.Point(103, 29);
+            this.RandomUploadFrom.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.RandomUploadFrom.Name = "RandomUploadFrom";
+            this.RandomUploadFrom.Size = new System.Drawing.Size(40, 20);
+            this.RandomUploadFrom.TabIndex = 2;
+            this.RandomUploadFrom.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
             // checkRandomUpload
             // 
@@ -405,15 +465,6 @@ namespace RatioMaster_source
             this.lblRandomUploadFrom.TabIndex = 1;
             this.lblRandomUploadFrom.Text = "Min:";
             // 
-            // RandomUploadTo
-            // 
-            this.RandomUploadTo.BackColor = System.Drawing.Color.White;
-            this.RandomUploadTo.Location = new System.Drawing.Point(182, 28);
-            this.RandomUploadTo.Name = "RandomUploadTo";
-            this.RandomUploadTo.Size = new System.Drawing.Size(37, 20);
-            this.RandomUploadTo.TabIndex = 4;
-            this.RandomUploadTo.Text = "100";
-            // 
             // lblRandomUploadTo
             // 
             this.lblRandomUploadTo.AutoSize = true;
@@ -431,15 +482,6 @@ namespace RatioMaster_source
             this.lblRandomDownloadFrom.Size = new System.Drawing.Size(27, 13);
             this.lblRandomDownloadFrom.TabIndex = 6;
             this.lblRandomDownloadFrom.Text = "Min:";
-            // 
-            // RandomUploadFrom
-            // 
-            this.RandomUploadFrom.BackColor = System.Drawing.Color.White;
-            this.RandomUploadFrom.Location = new System.Drawing.Point(103, 28);
-            this.RandomUploadFrom.Name = "RandomUploadFrom";
-            this.RandomUploadFrom.Size = new System.Drawing.Size(37, 20);
-            this.RandomUploadFrom.TabIndex = 2;
-            this.RandomUploadFrom.Text = "50";
             // 
             // lblRandomDownloadTo
             // 
@@ -461,7 +503,6 @@ namespace RatioMaster_source
             this.magneticPanel8.Controls.Add(this.btnSaveLog);
             this.magneticPanel8.ExpandSize = new System.Drawing.Size(472, 223);
             this.magneticPanel8.Location = new System.Drawing.Point(482, 189);
-            this.magneticPanel8.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel8.Name = "magneticPanel8";
             this.magneticPanel8.Size = new System.Drawing.Size(472, 223);
             this.magneticPanel8.TabIndex = 27;
@@ -537,7 +578,6 @@ namespace RatioMaster_source
             this.magneticPanel7.Controls.Add(this.keyLabel);
             this.magneticPanel7.ExpandSize = new System.Drawing.Size(473, 89);
             this.magneticPanel7.Location = new System.Drawing.Point(3, 283);
-            this.magneticPanel7.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel7.Name = "magneticPanel7";
             this.magneticPanel7.Size = new System.Drawing.Size(473, 89);
             this.magneticPanel7.TabIndex = 26;
@@ -639,6 +679,7 @@ namespace RatioMaster_source
             this.magneticPanel6.BevelStyle = RatioMaster_source.BevelStyles.Flat;
             this.magneticPanel6.CaptionEndColor = System.Drawing.Color.Red;
             this.magneticPanel6.CaptionStartColor = System.Drawing.Color.Black;
+            this.magneticPanel6.Controls.Add(this.interval);
             this.magneticPanel6.Controls.Add(this.lblStopAfter);
             this.magneticPanel6.Controls.Add(this.cmbStopAfter);
             this.magneticPanel6.Controls.Add(this.txtStopValue);
@@ -648,15 +689,30 @@ namespace RatioMaster_source
             this.magneticPanel6.Controls.Add(this.cmbVersion);
             this.magneticPanel6.Controls.Add(this.FileSizeLabel);
             this.magneticPanel6.Controls.Add(this.cmbClient);
-            this.magneticPanel6.Controls.Add(this.interval);
             this.magneticPanel6.Controls.Add(this.ClientLabel);
             this.magneticPanel6.ExpandSize = new System.Drawing.Size(473, 70);
             this.magneticPanel6.Location = new System.Drawing.Point(3, 207);
-            this.magneticPanel6.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel6.Name = "magneticPanel6";
             this.magneticPanel6.Size = new System.Drawing.Size(473, 70);
             this.magneticPanel6.TabIndex = 25;
             this.magneticPanel6.Text = "Options";
+            // 
+            // interval
+            // 
+            this.interval.Location = new System.Drawing.Point(99, 22);
+            this.interval.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.interval.Name = "interval";
+            this.interval.Size = new System.Drawing.Size(50, 20);
+            this.interval.TabIndex = 37;
+            this.interval.Value = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            0});
             // 
             // lblStopAfter
             // 
@@ -775,15 +831,6 @@ namespace RatioMaster_source
             this.cmbClient.TabIndex = 17;
             this.cmbClient.SelectedIndexChanged += new System.EventHandler(this.cmbClient_SelectedIndexChanged);
             // 
-            // interval
-            // 
-            this.interval.BackColor = System.Drawing.Color.White;
-            this.interval.Location = new System.Drawing.Point(106, 21);
-            this.interval.Name = "interval";
-            this.interval.Size = new System.Drawing.Size(43, 20);
-            this.interval.TabIndex = 15;
-            this.interval.Text = "1800";
-            // 
             // ClientLabel
             // 
             this.ClientLabel.AutoSize = true;
@@ -798,15 +845,15 @@ namespace RatioMaster_source
             this.magneticPanel5.BevelStyle = RatioMaster_source.BevelStyles.Flat;
             this.magneticPanel5.CaptionEndColor = System.Drawing.Color.Red;
             this.magneticPanel5.CaptionStartColor = System.Drawing.Color.Black;
-            this.magneticPanel5.Controls.Add(this.uploadRateLabel);
+            this.magneticPanel5.Controls.Add(this.downloadRate);
             this.magneticPanel5.Controls.Add(this.uploadRate);
             this.magneticPanel5.Controls.Add(this.txtRandDownMax);
-            this.magneticPanel5.Controls.Add(this.downloadRateLabel);
-            this.magneticPanel5.Controls.Add(this.txtRandUpMax);
-            this.magneticPanel5.Controls.Add(this.downloadRate);
-            this.magneticPanel5.Controls.Add(this.txtRandDownMin);
-            this.magneticPanel5.Controls.Add(this.chkRandUP);
             this.magneticPanel5.Controls.Add(this.txtRandUpMin);
+            this.magneticPanel5.Controls.Add(this.uploadRateLabel);
+            this.magneticPanel5.Controls.Add(this.txtRandUpMax);
+            this.magneticPanel5.Controls.Add(this.txtRandDownMin);
+            this.magneticPanel5.Controls.Add(this.downloadRateLabel);
+            this.magneticPanel5.Controls.Add(this.chkRandUP);
             this.magneticPanel5.Controls.Add(this.chkRandDown);
             this.magneticPanel5.Controls.Add(this.lblDownMax);
             this.magneticPanel5.Controls.Add(this.lblUpMin);
@@ -814,11 +861,78 @@ namespace RatioMaster_source
             this.magneticPanel5.Controls.Add(this.lblUpMax);
             this.magneticPanel5.ExpandSize = new System.Drawing.Size(473, 70);
             this.magneticPanel5.Location = new System.Drawing.Point(3, 131);
-            this.magneticPanel5.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel5.Name = "magneticPanel5";
             this.magneticPanel5.Size = new System.Drawing.Size(473, 70);
             this.magneticPanel5.TabIndex = 25;
             this.magneticPanel5.Text = "Speed Options";
+            // 
+            // downloadRate
+            // 
+            this.downloadRate.Location = new System.Drawing.Point(132, 45);
+            this.downloadRate.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.downloadRate.Name = "downloadRate";
+            this.downloadRate.Size = new System.Drawing.Size(57, 20);
+            this.downloadRate.TabIndex = 29;
+            this.downloadRate.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            // 
+            // uploadRate
+            // 
+            this.uploadRate.Location = new System.Drawing.Point(133, 21);
+            this.uploadRate.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.uploadRate.Name = "uploadRate";
+            this.uploadRate.Size = new System.Drawing.Size(57, 20);
+            this.uploadRate.TabIndex = 1;
+            this.uploadRate.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            // 
+            // txtRandDownMax
+            // 
+            this.txtRandDownMax.Location = new System.Drawing.Point(423, 46);
+            this.txtRandDownMax.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtRandDownMax.Name = "txtRandDownMax";
+            this.txtRandDownMax.Size = new System.Drawing.Size(47, 20);
+            this.txtRandDownMax.TabIndex = 34;
+            this.txtRandDownMax.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // txtRandUpMin
+            // 
+            this.txtRandUpMin.Location = new System.Drawing.Point(342, 21);
+            this.txtRandUpMin.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtRandUpMin.Name = "txtRandUpMin";
+            this.txtRandUpMin.Size = new System.Drawing.Size(47, 20);
+            this.txtRandUpMin.TabIndex = 3;
+            this.txtRandUpMin.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // uploadRateLabel
             // 
@@ -829,24 +943,39 @@ namespace RatioMaster_source
             this.uploadRateLabel.TabIndex = 0;
             this.uploadRateLabel.Text = "Upload Speed (kB/s):";
             // 
-            // uploadRate
+            // txtRandUpMax
             // 
-            this.uploadRate.BackColor = System.Drawing.Color.White;
-            this.uploadRate.Location = new System.Drawing.Point(133, 21);
-            this.uploadRate.Name = "uploadRate";
-            this.uploadRate.Size = new System.Drawing.Size(55, 20);
-            this.uploadRate.TabIndex = 1;
-            this.uploadRate.Text = "60";
-            this.uploadRate.TextChanged += new System.EventHandler(this.uploadRate_TextChanged);
+            this.txtRandUpMax.Location = new System.Drawing.Point(423, 22);
+            this.txtRandUpMax.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtRandUpMax.Name = "txtRandUpMax";
+            this.txtRandUpMax.Size = new System.Drawing.Size(47, 20);
+            this.txtRandUpMax.TabIndex = 6;
+            this.txtRandUpMax.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
-            // txtRandDownMax
+            // txtRandDownMin
             // 
-            this.txtRandDownMax.BackColor = System.Drawing.Color.White;
-            this.txtRandDownMax.Location = new System.Drawing.Point(427, 45);
-            this.txtRandDownMax.Name = "txtRandDownMax";
-            this.txtRandDownMax.Size = new System.Drawing.Size(43, 20);
-            this.txtRandDownMax.TabIndex = 13;
-            this.txtRandDownMax.Text = "10";
+            this.txtRandDownMin.Location = new System.Drawing.Point(342, 47);
+            this.txtRandDownMin.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtRandDownMin.Name = "txtRandDownMin";
+            this.txtRandDownMin.Size = new System.Drawing.Size(47, 20);
+            this.txtRandDownMin.TabIndex = 11;
+            this.txtRandDownMin.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // downloadRateLabel
             // 
@@ -856,34 +985,6 @@ namespace RatioMaster_source
             this.downloadRateLabel.Size = new System.Drawing.Size(124, 13);
             this.downloadRateLabel.TabIndex = 7;
             this.downloadRateLabel.Text = "Download Speed (kB/s):";
-            // 
-            // txtRandUpMax
-            // 
-            this.txtRandUpMax.BackColor = System.Drawing.Color.White;
-            this.txtRandUpMax.Location = new System.Drawing.Point(427, 21);
-            this.txtRandUpMax.Name = "txtRandUpMax";
-            this.txtRandUpMax.Size = new System.Drawing.Size(43, 20);
-            this.txtRandUpMax.TabIndex = 6;
-            this.txtRandUpMax.Text = "10";
-            // 
-            // downloadRate
-            // 
-            this.downloadRate.BackColor = System.Drawing.Color.White;
-            this.downloadRate.Location = new System.Drawing.Point(133, 45);
-            this.downloadRate.Name = "downloadRate";
-            this.downloadRate.Size = new System.Drawing.Size(55, 20);
-            this.downloadRate.TabIndex = 8;
-            this.downloadRate.Text = "25";
-            this.downloadRate.TextChanged += new System.EventHandler(this.downloadRate_TextChanged);
-            // 
-            // txtRandDownMin
-            // 
-            this.txtRandDownMin.BackColor = System.Drawing.Color.White;
-            this.txtRandDownMin.Location = new System.Drawing.Point(342, 45);
-            this.txtRandDownMin.Name = "txtRandDownMin";
-            this.txtRandDownMin.Size = new System.Drawing.Size(43, 20);
-            this.txtRandDownMin.TabIndex = 11;
-            this.txtRandDownMin.Text = "1";
             // 
             // chkRandUP
             // 
@@ -897,15 +998,6 @@ namespace RatioMaster_source
             this.chkRandUP.TabIndex = 2;
             this.chkRandUP.Text = "+ Random values:";
             this.chkRandUP.UseVisualStyleBackColor = true;
-            // 
-            // txtRandUpMin
-            // 
-            this.txtRandUpMin.BackColor = System.Drawing.Color.White;
-            this.txtRandUpMin.Location = new System.Drawing.Point(342, 21);
-            this.txtRandUpMin.Name = "txtRandUpMin";
-            this.txtRandUpMin.Size = new System.Drawing.Size(43, 20);
-            this.txtRandUpMin.TabIndex = 4;
-            this.txtRandUpMin.Text = "1";
             // 
             // chkRandDown
             // 
@@ -969,7 +1061,6 @@ namespace RatioMaster_source
             this.magneticPanel4.Controls.Add(this.hashLabel);
             this.magneticPanel4.ExpandSize = new System.Drawing.Size(473, 70);
             this.magneticPanel4.Location = new System.Drawing.Point(3, 55);
-            this.magneticPanel4.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel4.Name = "magneticPanel4";
             this.magneticPanel4.Size = new System.Drawing.Size(473, 70);
             this.magneticPanel4.TabIndex = 25;
@@ -1043,7 +1134,6 @@ namespace RatioMaster_source
             this.magneticPanel3.Controls.Add(this.textProxyUser);
             this.magneticPanel3.ExpandSize = new System.Drawing.Size(472, 70);
             this.magneticPanel3.Location = new System.Drawing.Point(482, 49);
-            this.magneticPanel3.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel3.Name = "magneticPanel3";
             this.magneticPanel3.Size = new System.Drawing.Size(472, 70);
             this.magneticPanel3.TabIndex = 6;
@@ -1153,7 +1243,6 @@ namespace RatioMaster_source
             this.magneticPanel2.Controls.Add(this.checkTCPListen);
             this.magneticPanel2.ExpandSize = new System.Drawing.Size(472, 40);
             this.magneticPanel2.Location = new System.Drawing.Point(482, 3);
-            this.magneticPanel2.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel2.Name = "magneticPanel2";
             this.magneticPanel2.Size = new System.Drawing.Size(472, 40);
             this.magneticPanel2.TabIndex = 6;
@@ -1205,7 +1294,6 @@ namespace RatioMaster_source
             this.magneticPanel1.Controls.Add(this.torrentFile);
             this.magneticPanel1.ExpandSize = new System.Drawing.Size(473, 46);
             this.magneticPanel1.Location = new System.Drawing.Point(3, 3);
-            this.magneticPanel1.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
             this.magneticPanel1.Name = "magneticPanel1";
             this.magneticPanel1.Size = new System.Drawing.Size(473, 46);
             this.magneticPanel1.TabIndex = 6;
@@ -1260,14 +1348,25 @@ namespace RatioMaster_source
             this.info.PerformLayout();
             this.magneticPanel9.ResumeLayout(false);
             this.magneticPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RandomDownloadTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RandomDownloadFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RandomUploadTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RandomUploadFrom)).EndInit();
             this.magneticPanel8.ResumeLayout(false);
             this.magneticPanel8.PerformLayout();
             this.magneticPanel7.ResumeLayout(false);
             this.magneticPanel7.PerformLayout();
             this.magneticPanel6.ResumeLayout(false);
             this.magneticPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.interval)).EndInit();
             this.magneticPanel5.ResumeLayout(false);
             this.magneticPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.downloadRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uploadRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRandDownMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRandUpMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRandUpMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRandDownMin)).EndInit();
             this.magneticPanel4.ResumeLayout(false);
             this.magneticPanel4.PerformLayout();
             this.magneticPanel3.ResumeLayout(false);
@@ -1283,10 +1382,6 @@ namespace RatioMaster_source
 
         #endregion
 
-        internal System.Windows.Forms.TextBox txtRandDownMax;
-        internal System.Windows.Forms.TextBox txtRandUpMax;
-        internal System.Windows.Forms.TextBox txtRandDownMin;
-        internal System.Windows.Forms.TextBox txtRandUpMin;
         internal System.Windows.Forms.Label lblDownMax;
         internal System.Windows.Forms.Label lblDownMin;
         internal System.Windows.Forms.Label lblUpMax;
@@ -1296,13 +1391,10 @@ namespace RatioMaster_source
         internal System.Windows.Forms.ComboBox cmbVersion;
         internal System.Windows.Forms.ComboBox cmbClient;
         internal System.Windows.Forms.Label ClientLabel;
-        internal System.Windows.Forms.TextBox interval;
         internal System.Windows.Forms.Label intervalLabel;
         internal System.Windows.Forms.Label FileSizeLabel;
         internal System.Windows.Forms.TextBox fileSize;
-        internal System.Windows.Forms.TextBox downloadRate;
         internal System.Windows.Forms.Label downloadRateLabel;
-        internal System.Windows.Forms.TextBox uploadRate;
         internal System.Windows.Forms.Label uploadRateLabel;
         internal System.Windows.Forms.TextBox txtTorrentSize;
         internal System.Windows.Forms.Label lblTorrentSize;
@@ -1371,20 +1463,27 @@ namespace RatioMaster_source
         internal System.Windows.Forms.Label keyLabel;
         private MagneticPanel magneticPanel8;
         private MagneticPanel magneticPanel9;
-        internal System.Windows.Forms.TextBox RandomDownloadTo;
-        internal System.Windows.Forms.TextBox RandomDownloadFrom;
         internal System.Windows.Forms.CheckBox checkRandomUpload;
         internal System.Windows.Forms.CheckBox checkRandomDownload;
         internal System.Windows.Forms.Label lblRandomUploadFrom;
-        internal System.Windows.Forms.TextBox RandomUploadTo;
         internal System.Windows.Forms.Label lblRandomUploadTo;
         internal System.Windows.Forms.Label lblRandomDownloadFrom;
-        internal System.Windows.Forms.TextBox RandomUploadFrom;
         internal System.Windows.Forms.Label lblRandomDownloadTo;
         internal System.Windows.Forms.ComboBox cmbStopAfter;
         private System.Windows.Forms.Label lblStopAfter;
         private System.Windows.Forms.ToolStripStatusLabel lblTotalTimeCap;
         private System.Windows.Forms.ToolStripStatusLabel lblTotalTime;
         internal System.Windows.Forms.CheckBox checkIgnoreFailureReason;
+        internal System.Windows.Forms.NumericUpDown txtRandUpMin;
+        internal System.Windows.Forms.NumericUpDown uploadRate;
+        internal System.Windows.Forms.NumericUpDown downloadRate;
+        internal System.Windows.Forms.NumericUpDown interval;
+        internal System.Windows.Forms.NumericUpDown RandomDownloadFrom;
+        internal System.Windows.Forms.NumericUpDown RandomDownloadTo;
+        internal System.Windows.Forms.NumericUpDown txtRandDownMax;
+        internal System.Windows.Forms.NumericUpDown RandomUploadFrom;
+        internal System.Windows.Forms.NumericUpDown txtRandUpMax;
+        internal System.Windows.Forms.NumericUpDown txtRandDownMin;
+        internal System.Windows.Forms.NumericUpDown RandomUploadTo;
     }
 }
