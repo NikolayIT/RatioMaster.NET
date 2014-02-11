@@ -181,6 +181,8 @@ namespace RatioMaster_source
             {
                 ((RM)tab.SelectedTab.Controls[0]).loadTorrentFileInfo(FileName);
             }
+            page1.ToolTipText = "Double click to rename this tab";
+            tab.ShowToolTips = true;
         }
         private void Remove()
         {
@@ -208,6 +210,11 @@ namespace RatioMaster_source
             }
         }
         private void renameCurrentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Prompt prompt = new Prompt("Please select new tab name", "Type new tab name:", tab.SelectedTab.Text);
+            if (prompt.ShowDialog() == DialogResult.OK) tab.SelectedTab.Text = prompt.Result;
+        }
+        private void renameCurrentTab_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Prompt prompt = new Prompt("Please select new tab name", "Type new tab name:", tab.SelectedTab.Text);
             if (prompt.ShowDialog() == DialogResult.OK) tab.SelectedTab.Text = prompt.Result;
