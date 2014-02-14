@@ -237,6 +237,23 @@
                     }
                 #endregion
                 #region uTorrent
+                case "uTorrent 3.3.2":
+                    {
+                        client.Name = "uTorrent 3.3.2";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3320\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3320-%18w" + GenerateIdString("random", 10, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3320-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 200000000;
+                        break;
+                    }
                 case "uTorrent 3.3.0":
                     {
                         client.Name = "uTorrent 3.3.0";
