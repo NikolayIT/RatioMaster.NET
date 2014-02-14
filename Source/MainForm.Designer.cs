@@ -615,7 +615,6 @@
             this.PerformLayout();
 
         }
-        private RatioMaster_source.MagneticPanel magneticPanel1;
 
         #endregion
 

@@ -17,8 +17,8 @@ namespace RatioMaster_source
         {
             version = "0430";
             publicVer = "0.43";
-            releaseDate = "??-1?-2013";
-            _userAgent = "RatioMaster.NET" + "/" + version + " (" + Environment.OSVersion.ToString() + "; .NET CLR " + Environment.Version.ToString() + "; " + Environment.UserName + "." + Environment.ProcessorCount + ")";
+            releaseDate = "??-02-2014";
+            _userAgent = "RatioMaster.NET" + "/" + version + " (" + Environment.OSVersion + "; .NET CLR " + Environment.Version + "; " + Environment.UserName + "." + Environment.ProcessorCount + ")";
             Log = log;
         }
         internal bool CheckNewVersion()

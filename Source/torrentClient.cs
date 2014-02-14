@@ -1,6 +1,6 @@
 namespace RatioMaster_source
 {
-    internal class TorrentClient
+    public class TorrentClient
     {
         // Fields
         private bool _HashUpperCase;

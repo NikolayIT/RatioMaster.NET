@@ -167,6 +167,7 @@
     <Compile Include="RandomStringGenerator.cs" />
     <Compile Include="RMCollection.cs" />
     <Compile Include="TorrentClient.cs" />
+    <Compile Include="TorrentClientFactory.cs" />
     <Compile Include="TorrentInfo.cs" />
     <Compile Include="TrackerResponse.cs" />
     <Compile Include="RM.cs">
