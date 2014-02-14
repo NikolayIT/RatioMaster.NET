@@ -111,6 +111,10 @@
     <Compile Include="PanelBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Peer.cs" />
+    <Compile Include="PeerList.cs" />
+    <Compile Include="ProcessMemoryReader.cs" />
+    <Compile Include="ProcessMemoryReaderApi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Prompt.cs">
       <SubType>Form</SubType>
@@ -161,6 +165,7 @@
     </Compile>
     <Compile Include="ProxyInfo.cs" />
     <Compile Include="RandomStringGenerator.cs" />
+    <Compile Include="RMCollection.cs" />
     <Compile Include="TorrentClient.cs" />
     <Compile Include="TorrentInfo.cs" />
     <Compile Include="TrackerResponse.cs" />
