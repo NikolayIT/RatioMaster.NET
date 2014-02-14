@@ -166,6 +166,7 @@
     <Compile Include="ProxyInfo.cs" />
     <Compile Include="RandomStringGenerator.cs" />
     <Compile Include="RMCollection.cs" />
+    <Compile Include="StringExtensions.cs" />
     <Compile Include="TorrentClient.cs" />
     <Compile Include="TorrentClientFactory.cs" />
     <Compile Include="TorrentInfo.cs" />
