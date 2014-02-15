@@ -1,24 +1,34 @@
-using BitTorrent;
-using System;
-using System.IO;
-using System.IO.Compression;
 namespace RatioMaster_source
 {
+    using System;
+    using System.IO;
+    using System.IO.Compression;
+
+    using BitTorrent;
+
     internal class TrackerResponse
     {
+        private bool chunkedEncoding;
+
+        internal bool doRedirect;
+
+        internal string RedirectionURL;
+
+        internal bool response_status_302;
+
         internal TrackerResponse(MemoryStream responseStream)
         {
             string text2;
-            this._headers = "";
-            this._body = "";
-            this._contentEncoding = "";
-            this._charset = "";
-            this.RedirectionURL = "";
-            Stream stream1 = new MemoryStream();
-            StreamReader reader1 = new StreamReader(responseStream);
+            this.Headers = string.Empty;
+            this.Body = string.Empty;
+            this.ContentEncoding = string.Empty;
+            this.Charset = string.Empty;
+            this.RedirectionURL = string.Empty;
+            var stream1 = new MemoryStream();
+            var reader1 = new StreamReader(responseStream);
             responseStream.Position = 0;
-            string text1 = this.getNewLineStr(reader1);
-            this._headers = "";
+            string text1 = this.GetNewLineStr(reader1);
+            this.Headers = string.Empty;
             do
             {
                 text2 = reader1.ReadLine();
@@ -39,37 +49,38 @@ namespace RatioMaster_source
                         num1 = text2.IndexOf("Content-Encoding: ");
                         if (num1 >= 0)
                         {
-                            this._contentEncoding = text2.Substring(num1 + 0x12).ToLower();
+                            this.ContentEncoding = text2.Substring(num1 + 0x12).ToLower();
                         }
                         else
                         {
                             num1 = text2.IndexOf("charset=");
                             if (num1 >= 0)
                             {
-                                this._charset = text2.Substring(num1 + 8).ToLower();
+                                this.Charset = text2.Substring(num1 + 8).ToLower();
                             }
                             else
                             {
                                 num1 = text2.IndexOf("Transfer-Encoding: chunked");
                                 if (num1 >= 0)
                                 {
-                                    this._chunkedEncoding = true;
+                                    this.chunkedEncoding = true;
                                 }
                             }
                         }
                     }
                 }
-                this._headers = this._headers + text2 + text1;
+
+                this.Headers = this.Headers + text2 + text1;
             }
             while (text2.Length != 0);
-            responseStream.Position = this._headers.Length;
-            if (this.response_status_302 && (this.RedirectionURL != ""))
+            responseStream.Position = this.Headers.Length;
+            if (this.response_status_302 && (this.RedirectionURL != string.Empty))
             {
                 this.doRedirect = true;
             }
             else
             {
-                if (!this._chunkedEncoding)
+                if (!this.chunkedEncoding)
                 {
                     byte[] buffer2 = new byte[responseStream.Length - responseStream.Position];
                     responseStream.Read(buffer2, 0, buffer2.Length);
@@ -77,7 +88,7 @@ namespace RatioMaster_source
                 }
                 else
                 {
-                    string text3 = "";
+                    string text3 = string.Empty;
                     text3 = reader1.ReadLine();
                     int num2 = Convert.ToInt32(text3.Split(new char[] { ' ' })[0], 0x10);
                     while (num2 > 0)
@@ -90,7 +101,7 @@ namespace RatioMaster_source
                         text3 = reader1.ReadLine();
                         try
                         {
-                            num2 = Convert.ToInt32(text3.Split(new char[] { ' ' })[0], 0x10);
+                            num2 = Convert.ToInt32(text3.Split(new[] { ' ' })[0], 0x10);
                             continue;
                         }
                         catch (Exception)
@@ -100,18 +111,29 @@ namespace RatioMaster_source
                         }
                     }
                 }
+
                 stream1.Position = 0;
-                this._dict = this.parseBEncodeDict((MemoryStream)stream1);
+                this.Dict = this.ParseBEncodeDict(stream1);
                 stream1.Position = 0;
-                StreamReader reader2 = new StreamReader(stream1);
-                this._body = reader2.ReadToEnd();
+                var reader2 = new StreamReader(stream1);
+                this.Body = reader2.ReadToEnd();
                 stream1.Dispose();
                 reader2.Dispose();
                 reader1.Dispose();
             }
         }
+        
+        internal string Body { get; private set; }
 
-        private string getNewLineStr(StreamReader streamReader)
+        internal string Charset { get; private set; }
+
+        internal string ContentEncoding { get; private set; }
+
+        internal ValueDictionary Dict { get; private set; }
+
+        internal string Headers { get; private set; }
+
+        private string GetNewLineStr(StreamReader streamReader)
         {
             char ch1;
             long num1 = streamReader.BaseStream.Position;
@@ -129,12 +151,12 @@ namespace RatioMaster_source
             return text1;
         }
 
-        private ValueDictionary parseBEncodeDict(MemoryStream responseStream)
+        private ValueDictionary ParseBEncodeDict(MemoryStream responseStream)
         {
             ValueDictionary dictionary1 = null;
-            if ((this._contentEncoding == "gzip") || (this._contentEncoding == "x-gzip"))
+            if ((this.ContentEncoding == "gzip") || (this.ContentEncoding == "x-gzip"))
             {
-                GZipStream stream1 = new GZipStream(responseStream, CompressionMode.Decompress);
+                var stream1 = new GZipStream(responseStream, CompressionMode.Decompress);
                 try
                 {
                     return (ValueDictionary)BEncode.Parse(stream1);
@@ -154,71 +176,19 @@ namespace RatioMaster_source
             return dictionary1;
         }
 
-        private void saveArrayToFile(byte[] arr, string filename)
+        private void SaveArrayToFile(byte[] arr, string filename)
         {
             FileStream stream1 = File.OpenWrite(filename);
             stream1.Write(arr, 0, arr.Length);
             stream1.Close();
         }
 
-        private void saveStreamToFile(MemoryStream ms, string filename)
+        private void SaveStreamToFile(MemoryStream ms, string filename)
         {
             FileStream stream1 = File.OpenWrite(filename);
             ms.WriteTo(stream1);
             stream1.Close();
         }
-
-
-        internal string Body
-        {
-            get
-            {
-                return this._body;
-            }
-        }
-
-        internal string Charset
-        {
-            get
-            {
-                return this._charset;
-            }
-        }
-
-        internal string ContentEncoding
-        {
-            get
-            {
-                return this._contentEncoding;
-            }
-        }
-
-        internal ValueDictionary Dict
-        {
-            get
-            {
-                return this._dict;
-            }
-        }
-
-        internal string Headers
-        {
-            get
-            {
-                return this._headers;
-            }
-        }
-
-
-        private string _body;
-        private string _charset;
-        private bool _chunkedEncoding;
-        private string _contentEncoding;
-        private ValueDictionary _dict;
-        private string _headers;
-        internal bool doRedirect;
-        internal string RedirectionURL;
-        internal bool response_status_302;
     }
 }
 

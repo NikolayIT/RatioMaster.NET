@@ -1,18 +1,18 @@
-using System;
-using System.Windows.Forms;
-
 namespace RatioMaster_source
 {
-    static class Program
+    using System;
+    using System.Windows.Forms;
+
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        internal static void Main()
         {
             Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
+            //// Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
     }

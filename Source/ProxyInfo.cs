@@ -1,13 +1,13 @@
-using BytesRoad.Net.Sockets;
-
 namespace RatioMaster_source
 {
+    using BytesRoad.Net.Sockets;
+
     internal struct ProxyInfo
     {
-        public ProxyType proxyType;
-        public string proxyServer;
-        public int proxyPort;
-        public byte[] proxyUser;
-        public byte[] proxyPassword;
+        public ProxyType ProxyType;
+        public string ProxyServer;
+        public int ProxyPort;
+        public byte[] ProxyUser;
+        public byte[] ProxyPassword;
     }
 }

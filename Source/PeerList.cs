@@ -4,25 +4,29 @@ namespace RatioMaster_source
 
     internal class PeerList : List<Peer>
     {
+        internal int maxPeersToShow;
+
+        internal int peerCounter;
+
         internal PeerList()
         {
             this.maxPeersToShow = 5;
         }
+
         public override string ToString()
         {
-            string text1;
-            text1 = "(" + this.Count + ") ";
-            foreach (Peer peer1 in this)
+            string result = string.Format("({0}) ", this.Count);
+            foreach (Peer peer in this)
             {
                 if (this.peerCounter < this.maxPeersToShow)
                 {
-                    text1 = text1 + peer1 + ";";
+                    result = result + peer + ";";
                 }
+
                 this.peerCounter++;
             }
-            return text1;
+
+            return result;
         }
-        internal int maxPeersToShow;
-        internal int peerCounter;
     }
 }

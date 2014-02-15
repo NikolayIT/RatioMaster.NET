@@ -1,90 +1,74 @@
-using System;
-using System.Net;
-using System.IO;
 namespace RatioMaster_source
 {
+    using System;
+    using System.IO;
+    using System.Net;
+
     internal class VersionChecker
     {
-        // Fields
-        internal string Log;
-        private readonly string publicVer;
-        private readonly string version;
-        private string remoteVersion;
-        private readonly string releaseDate;
-        private readonly string _userAgent;
-        // Methods
+        private readonly string userAgent;
+        
         internal VersionChecker(string log)
         {
-            version = "0430";
-            publicVer = "0.43";
-            releaseDate = "??-02-2014";
-            _userAgent = "RatioMaster.NET" + "/" + version + " (" + Environment.OSVersion + "; .NET CLR " + Environment.Version + "; " + Environment.UserName + "." + Environment.ProcessorCount + ")";
-            Log = log;
+            this.LocalVersion = "0430";
+            this.PublicVersion = "0.43";
+            this.ReleaseDate = "??-02-2014";
+            this.userAgent = "RatioMaster.NET" + "/" + this.LocalVersion + " (" + Environment.OSVersion + "; .NET CLR " + Environment.Version + "; " + Environment.UserName + "." + Environment.ProcessorCount + ")";
+            this.Log = log;
         }
+
+        // TODO: Replace with StringBuilder
+        public string Log { get; private set; }
+
+        internal string PublicVersion { get; private set; }
+
+        internal string LocalVersion { get; private set; }
+
+        internal string RemoteVersion { get; private set; }
+
+        internal string ReleaseDate { get; private set; }
+
         internal bool CheckNewVersion()
         {
             try
             {
-                bool ret = false;
-                string local = LocalVersion;
-                Log += "Local Version: " + local + "\n";
-                Log += "Checking for new version..." + "\n";
-                remoteVersion = GetVersion("http://ratiomaster.net/vc.php?v=" + version);
-                // mainForm.txtRemote.Text = remoteVersion;
-                if (remoteVersion.Length != 4)
+                bool result = false;
+                string local = this.LocalVersion;
+                this.Log = this.Log + ("Local Version: " + local + "\n");
+                this.Log = this.Log + ("Checking for new version..." + "\n");
+                this.RemoteVersion = this.GetVersion("http://ratiomaster.net/vc.php?v=" + this.LocalVersion);
+                //// mainForm.txtRemote.Text = remoteVersion;
+                if (this.RemoteVersion.Length != 4)
                 {
-                    remoteVersion = "error";
-                    Log += "Error checking new version!!!" + "\n" + "\n";
+                    this.RemoteVersion = "error";
+                    this.Log = this.Log + ("Error checking new version!!!" + "\n" + "\n");
                     return false;
                 }
-                Log += "Remote Version: " + remoteVersion + "\n" + "\n";
-                if (remoteVersion.CompareTo(local) > 0) ret = true;
-                return ret;
+
+                this.Log = this.Log + ("Remote Version: " + this.RemoteVersion + "\n" + "\n");
+                if (string.Compare(this.RemoteVersion, local, StringComparison.Ordinal) > 0)
+                {
+                    result = true;
+                }
+
+                return result;
             }
             catch (Exception exception1)
             {
-                Log += "Error checking for new version:\n" + exception1.Message + "\n";
+                this.Log = this.Log + ("Error checking for new version:\n" + exception1.Message + "\n");
                 return false;
             }
         }
-        // Properties
-        internal string PublicVersion
-        {
-            get
-            {
-                return publicVer;
-            }
-        }
-        internal string LocalVersion
-        {
-            get
-            {
-                return version;
-            }
-        }
-        internal string RemoteVersion
-        {
-            get
-            {
-                return remoteVersion;
-            }
-        }
-        internal string ReleaseDate
-        {
-            get
-            {
-                return releaseDate;
-            }
-        }
+
         private string GetVersion(string url)
         {
             try
             {
-                HttpWebRequest request1 = (HttpWebRequest)WebRequest.Create(url);
-                request1.UserAgent = _userAgent;
+                var request1 = (HttpWebRequest)WebRequest.Create(url);
+                request1.UserAgent = this.userAgent;
                 request1.Timeout = 2500;
-                HttpWebResponse response1 = (HttpWebResponse)request1.GetResponse();
-                StreamReader reader1 = new StreamReader(response1.GetResponseStream());
+                var response1 = (HttpWebResponse)request1.GetResponse();
+                var reader1 = new StreamReader(response1.GetResponseStream());
                 string data = reader1.ReadToEnd();
                 reader1.Close();
                 response1.Close();
@@ -92,9 +76,10 @@ namespace RatioMaster_source
             }
             catch (Exception exception1)
             {
-                Log+="Error in GetVersion(string url):\n" + exception1.Message + "\n";
+                this.Log = this.Log + ("Error in GetVersion(string url):\n" + exception1.Message + "\n");
             }
-            return "";
+
+            return string.Empty;
         }
     }
 }

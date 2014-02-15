@@ -27,7 +27,7 @@
         private int remWork = 0;
         internal string DefaultDirectory = "";
         private const string DefaultClient = "uTorrent";
-        private const string DefaultClientVersion = "3.3.0";
+        private const string DefaultClientVersion = "3.3.2";
         //internal delegate SocketEx createSocketCallback();
         internal delegate void SetTextCallback(string logLine);
         internal delegate void updateScrapCallback(string seedStr, string leechStr, string finishedStr);
@@ -201,7 +201,7 @@
         {
             try
             {
-                if (checkTCPListen.Checked && localListen == null && currentProxy.proxyType == ProxyType.None)
+                if (checkTCPListen.Checked && localListen == null && currentProxy.ProxyType == ProxyType.None)
                 {
                     localListen = new TcpListener(IPAddress.Any, int.Parse(currentTorrent.port));
                     try
@@ -1372,7 +1372,7 @@
             SocketEx sock = null;
             try
             {
-                sock = new SocketEx(currentProxy.proxyType, currentProxy.proxyServer, currentProxy.proxyPort, currentProxy.proxyUser, currentProxy.proxyPassword);
+                sock = new SocketEx(currentProxy.ProxyType, currentProxy.ProxyServer, currentProxy.ProxyPort, currentProxy.ProxyUser, currentProxy.ProxyPassword);
                 sock.SetTimeout(0x30d40);
             }
             catch (Exception sockError)
@@ -1388,36 +1388,36 @@
             switch (comboProxyType.SelectedIndex)
             {
                 case 0:
-                    curProxy.proxyType = ProxyType.None;
+                    curProxy.ProxyType = ProxyType.None;
                     break;
                 case 1:
-                    curProxy.proxyType = ProxyType.HttpConnect;
+                    curProxy.ProxyType = ProxyType.HttpConnect;
                     break;
                 case 2:
-                    curProxy.proxyType = ProxyType.Socks4;
+                    curProxy.ProxyType = ProxyType.Socks4;
                     break;
                 case 3:
-                    curProxy.proxyType = ProxyType.Socks4a;
+                    curProxy.ProxyType = ProxyType.Socks4a;
                     break;
                 case 4:
-                    curProxy.proxyType = ProxyType.Socks5;
+                    curProxy.ProxyType = ProxyType.Socks5;
                     break;
                 default:
-                    curProxy.proxyType = ProxyType.None;
+                    curProxy.ProxyType = ProxyType.None;
                     break;
             }
-            curProxy.proxyServer = textProxyHost.Text;
-            curProxy.proxyPort = textProxyPort.Text.ParseValidInt(0);
-            curProxy.proxyUser = _usedEnc.GetBytes(textProxyUser.Text);
-            curProxy.proxyPassword = _usedEnc.GetBytes(textProxyPass.Text);
+            curProxy.ProxyServer = textProxyHost.Text;
+            curProxy.ProxyPort = textProxyPort.Text.ParseValidInt(0);
+            curProxy.ProxyUser = _usedEnc.GetBytes(textProxyUser.Text);
+            curProxy.ProxyPassword = _usedEnc.GetBytes(textProxyPass.Text);
             // Add log info
             Encoding enc = System.Text.Encoding.ASCII;
             AddLogLine("PROXY INFO:");
-            AddLogLine("proxyType = " + curProxy.proxyType);
-            AddLogLine("proxyServer = " + curProxy.proxyServer);
-            AddLogLine("proxyPort = " + curProxy.proxyPort);
-            AddLogLine("proxyUser = " + enc.GetString(curProxy.proxyUser));
-            AddLogLine("proxyPassword = " + enc.GetString(curProxy.proxyPassword) + "\n" + "\n");
+            AddLogLine("proxyType = " + curProxy.ProxyType);
+            AddLogLine("proxyServer = " + curProxy.ProxyServer);
+            AddLogLine("proxyPort = " + curProxy.ProxyPort);
+            AddLogLine("proxyUser = " + enc.GetString(curProxy.ProxyUser));
+            AddLogLine("proxyPassword = " + enc.GetString(curProxy.ProxyPassword) + "\n" + "\n");
             return curProxy;
         }
         private TrackerResponse MakeWebRequestEx(Uri reqUri)

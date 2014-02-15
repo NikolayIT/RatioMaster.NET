@@ -114,7 +114,6 @@
     <Compile Include="Peer.cs" />
     <Compile Include="PeerList.cs" />
     <Compile Include="ProcessMemoryReader.cs" />
-    <Compile Include="ProcessMemoryReaderApi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Prompt.cs">
       <SubType>Form</SubType>
