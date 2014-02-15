@@ -12,14 +12,17 @@ namespace BitTorrent
         {
             dict = new Dictionary<string, BEncodeValue>();
         }
+
         internal void Add(string key, BEncodeValue value)
         {
             dict.Add(key, value);
         }
+
         internal bool Contains(string key)
         {
             return dict.ContainsKey(key);
         }
+
         public byte[] Encode()
         {
             Collection<byte> collection1 = new Collection<byte>();
@@ -46,6 +49,7 @@ namespace BitTorrent
             collection1.CopyTo(buffer1, 0);
             return buffer1;
         }
+
         public void Parse(Stream s)
         {
             for (byte num1 = (byte)s.ReadByte(); num1 != 0x65; num1 = (byte)s.ReadByte())
@@ -67,10 +71,12 @@ namespace BitTorrent
                 }
             }
         }
+
         internal void Remove(string key)
         {
             dict.Remove(key);
         }
+
         internal void SetStringValue(string key, string value)
         {
             if (Contains(value))
@@ -82,6 +88,7 @@ namespace BitTorrent
                 this[key] = new ValueString(value);
             }
         }
+
         internal BEncodeValue this[string key]
         {
             get
@@ -101,6 +108,7 @@ namespace BitTorrent
                 dict.Add(key, value);
             }
         }
+
         internal ICollection Keys
         {
             get
@@ -108,6 +116,7 @@ namespace BitTorrent
                 return dict.Keys;
             }
         }
+
         internal ICollection Values
         {
             get
@@ -115,7 +124,7 @@ namespace BitTorrent
                 return dict.Values;
             }
         }
+
         private Dictionary<string, BEncodeValue> dict;
     }
 }
-

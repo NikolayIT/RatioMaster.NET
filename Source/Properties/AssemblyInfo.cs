@@ -1,18 +1,17 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Resources;
+using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RatioMaster.NET")]
-[assembly: AssemblyDescription("The most powerful cheat/spoof program ever!!!")]
+[assembly: AssemblyDescription("The most powerful cheat/spoof torrent client simulator.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nikolay.IT")]
 [assembly: AssemblyProduct("RatioMaster.NET")]
-[assembly: AssemblyCopyright("Copyright © 2005-2010")]
-[assembly: AssemblyTrademark("Nikolay.IT © 2005-2010")]
+[assembly: AssemblyCopyright("Copyright © 2005-2014")]
+[assembly: AssemblyTrademark("Nikolay.IT © 2005-2014")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -30,6 +29,6 @@ using System.Resources;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.4.2.0")]
-[assembly: AssemblyFileVersion("0.4.2.0")]
+[assembly: AssemblyVersion("0.4.3.0")]
+[assembly: AssemblyFileVersion("0.4.3.0")]
 [assembly: NeutralResourcesLanguageAttribute("en")]

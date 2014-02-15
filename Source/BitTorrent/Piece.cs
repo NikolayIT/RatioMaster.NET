@@ -4,10 +4,13 @@ using System.IO;
 namespace BitTorrent
 {
     internal class Piece
-	{
+    {
         private Torrent torrent;
+
         private byte[] hash;
+
         private int pieceNumber;
+
         internal byte[] Bytes
         {
             get
@@ -23,30 +26,36 @@ namespace BitTorrent
 
         internal Torrent Torrent
         {
-            get { return torrent; }
+            get
+            {
+                return torrent;
+            }
         }
 
         internal byte[] Hash
         {
-            get { return hash; }
+            get
+            {
+                return hash;
+            }
         }
 
         internal int PieceNumber
         {
-            get { return pieceNumber;}
+            get
+            {
+                return pieceNumber;
+            }
         }
 
 
         internal Piece(Torrent parent, int pieceNumber)
-		{
+        {
             hash = new byte[20];
             this.pieceNumber = pieceNumber;
             torrent = parent;
 
-            Buffer.BlockCopy(((ValueString)torrent.Info["pieces"]).Bytes, pieceNumber*20, hash, 0, 20);
-            
-			
-		}
-
-	}
+            Buffer.BlockCopy(((ValueString)torrent.Info["pieces"]).Bytes, pieceNumber * 20, hash, 0, 20);
+        }
+    }
 }

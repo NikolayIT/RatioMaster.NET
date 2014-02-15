@@ -9,21 +9,31 @@ namespace BitTorrent
     internal interface BEncodeValue
     {
         byte[] Encode();
+
         void Parse(Stream p);
     }
+
     internal class TorrentException : Exception
     {
-        internal TorrentException(string message) : base(message) { }
+        internal TorrentException(string message)
+            : base(message)
+        {
+        }
     }
+
     internal class ValueList : BEncodeValue, IEnumerable, IEnumerator
     {
         internal Collection<BEncodeValue> values;
+
         internal int Position = -1;
+
         public IEnumerator GetEnumerator()
         {
             return this;
         }
+
         /* Needed since Implementing IEnumerator*/
+
         public bool MoveNext()
         {
             if (Position < values.Count - 1)
@@ -33,18 +43,25 @@ namespace BitTorrent
             }
             return false;
         }
+
         public void Reset()
         {
-            Position=-1;
+            Position = -1;
         }
+
         public object Current
         {
-            get { return values[Position]; }
+            get
+            {
+                return values[Position];
+            }
         }
+
         internal ValueList()
         {
             values = new Collection<BEncodeValue>();
         }
+
         public void Parse(Stream s)
         {
             byte current = (byte)s.ReadByte();
@@ -55,14 +72,18 @@ namespace BitTorrent
                 current = (byte)s.ReadByte();
             }
         }
+
         internal void Add(BEncodeValue value)
         {
             values.Add(value);
         }
+
         internal Collection<BEncodeValue> Values
         {
             get
-            { return values; }
+            {
+                return values;
+            }
             set
             {
                 values.Clear();
@@ -72,6 +93,7 @@ namespace BitTorrent
                 }
             }
         }
+
         internal BEncodeValue this[int index]
         {
             get
@@ -83,58 +105,66 @@ namespace BitTorrent
                 values[index] = value;
             }
         }
+
         public byte[] Encode()
         {
             Collection<byte> bytes = new Collection<byte>();
             bytes.Add((byte)'l');
 
-            foreach (BEncodeValue member in values)
-                foreach (byte b in member.Encode())
-                    bytes.Add(b);
+            foreach (BEncodeValue member in values) foreach (byte b in member.Encode()) bytes.Add(b);
 
             bytes.Add((byte)'e');
             byte[] newBytes = new Byte[bytes.Count];
 
-            for (int i = 0; i < bytes.Count; i++)
-                newBytes[i] = bytes[i];
+            for (int i = 0; i < bytes.Count; i++) newBytes[i] = bytes[i];
 
             return newBytes;
         }
     }
+
     internal class ValueString : BEncodeValue
     {
         private string v;
+
         private byte[] data;
 
         internal int Length
         {
-            get { return v.Length;  }
+            get
+            {
+                return v.Length;
+            }
         }
 
         internal byte[] Bytes
         {
             get
-            {   return data;  }
+            {
+                return data;
+            }
         }
 
         internal string String
         {
-            get { return v; }
-            set { 
+            get
+            {
+                return v;
+            }
+            set
+            {
                 v = value;
                 data = Encoding.GetEncoding(1252).GetBytes(v);
             }
         }
+
         public byte[] Encode()
         {
             string prefix = v.Length.ToString() + ":";
             byte[] tempBytes = Encoding.GetEncoding(1252).GetBytes(prefix);
 
             byte[] newBytes = new Byte[prefix.Length + data.Length];
-            for (int i = 0; i < prefix.Length; i++)
-                newBytes[i] = tempBytes[i];
-            for (int i = 0; i < data.Length; i++)
-                newBytes[i + prefix.Length] = data[i];
+            for (int i = 0; i < prefix.Length; i++) newBytes[i] = tempBytes[i];
+            for (int i = 0; i < data.Length; i++) newBytes[i + prefix.Length] = data[i];
             return newBytes;
         }
 
@@ -143,22 +173,20 @@ namespace BitTorrent
             String = StringValue;
         }
 
-        internal ValueString() { }
+        internal ValueString()
+        {
+        }
 
         public void Parse(Stream s)
         {
-            throw new TorrentException("Parse method not supported, the "
-                                + "first byte must be passed into the "
-                                + "string parse routine.");
+            throw new TorrentException(
+                "Parse method not supported, the " + "first byte must be passed into the " + "string parse routine.");
         }
 
         public void Parse(Stream s, byte firstByte)
         {
             string q = ((char)firstByte).ToString();
-            if (!Char.IsNumber(q[0]))
-                throw new TorrentException("\"" +
-                                    q
-                                    + "\" is not a string length number.");
+            if (!Char.IsNumber(q[0])) throw new TorrentException("\"" + q + "\" is not a string length number.");
 
             char current = (char)s.ReadByte();
             while (current != ':')
@@ -172,39 +200,57 @@ namespace BitTorrent
             v = Encoding.GetEncoding(1252).GetString(data); // store string also
         }
     }
+
     internal class ValueNumber : BEncodeValue
     {
         private string v;
+
         private byte[] data;
+
         internal string String
         {
-            get { return v; }
+            get
+            {
+                return v;
+            }
             set
             {
                 v = value;
                 data = Encoding.GetEncoding(1252).GetBytes(v);
             }
         }
+
         internal Int64 Integer
         {
-            get { return Int64.Parse(v); }
-            set { String = value.ToString(); }
+            get
+            {
+                return Int64.Parse(v);
+            }
+            set
+            {
+                String = value.ToString();
+            }
         }
+
         public byte[] Encode()
         {
             byte[] newByte = new Byte[data.Length + 2];
             newByte[0] = (byte)'i';
-            for (int i = 0; i < data.Length; i++)
-                newByte[i + 1] = data[i];
+            for (int i = 0; i < data.Length; i++) newByte[i + 1] = data[i];
             newByte[data.Length + 1] = (byte)'e';
             return newByte;
         }
+
         internal ValueNumber(Int64 number)
         {
             v = number.ToString();
             String = v;
         }
-        internal ValueNumber() { }
+
+        internal ValueNumber()
+        {
+        }
+
         public void Parse(Stream s)
         {
             string buffer = String.Empty;
@@ -217,44 +263,38 @@ namespace BitTorrent
             String = Int64.Parse(buffer).ToString();
         }
     }
+
     internal class BEncode
     {
-        internal BEncode() { }
+        internal BEncode()
+        {
+        }
+
         internal static BEncodeValue Parse(Stream d)
         {
             return Parse(d, (byte)d.ReadByte());
         }
+
         internal static string String(BEncodeValue v)
         {
-            if (v is ValueString)
-                return ((ValueString)v).String;
-            else if (v is ValueNumber)
-                return ((ValueNumber)v).String;
-            else
-                return null;
+            if (v is ValueString) return ((ValueString)v).String;
+            else if (v is ValueNumber) return ((ValueNumber)v).String;
+            else return null;
         }
+
         internal static BEncodeValue Parse(Stream d, byte firstByte)
         {
             BEncodeValue v;
             char first = (char)firstByte;
             // 
-            if (first == 'd')
-                v = new ValueDictionary();
-            else if (first == 'l')
-                v = new ValueList();
-            else if (first == 'i')
-                v = new ValueNumber();
-            else
-                v = new ValueString();
-            if (v is ValueString)
-                ((ValueString)v).Parse(d, (byte)first);
-            else
-                v.Parse(d);
+            if (first == 'd') v = new ValueDictionary();
+            else if (first == 'l') v = new ValueList();
+            else if (first == 'i') v = new ValueNumber();
+            else v = new ValueString();
+            if (v is ValueString) ((ValueString)v).Parse(d, (byte)first);
+            else v.Parse(d);
             return v;
         }
 
     }
 }
-
-
-
