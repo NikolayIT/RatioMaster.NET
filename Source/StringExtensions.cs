@@ -1,19 +1,19 @@
 ﻿namespace RatioMaster_source
 {
     using System;
+    using System.Globalization;
 
     public static class StringExtensions
     {
-        internal static double ParseDouble(this string str, double defVal)
+        internal static double ParseDouble(this string inputString, double defVal)
         {
             try
             {
-                System.Globalization.NumberFormatInfo ni;
-                System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InstalledUICulture;
-                ni = (System.Globalization.NumberFormatInfo)ci.NumberFormat.Clone();
-                ni.NumberDecimalSeparator = ",";
-                str = str.Replace(".", ",");
-                return double.Parse(str, ni);
+                var ci = CultureInfo.InstalledUICulture;
+                var numberFormatInfo = (NumberFormatInfo)ci.NumberFormat.Clone();
+                numberFormatInfo.NumberDecimalSeparator = ",";
+                inputString = inputString.Replace(".", ",");
+                return double.Parse(inputString, numberFormatInfo);
             }
             catch
             {
@@ -21,11 +21,11 @@
             }
         }
 
-        internal static int ParseValidInt(this string str, int defVal)
+        internal static int ParseValidInt(this string inputString, int defVal)
         {
             try
             {
-                return int.Parse(str);
+                return int.Parse(inputString);
             }
             catch (Exception)
             {
@@ -33,40 +33,38 @@
             }
         }
 
-        internal static Int64 parseValidInt64(this string str, Int64 defVal)
+        internal static long ParseValidInt64(this string inputString, long defaultValue)
         {
             try
             {
-                return Int64.Parse(str);
+                return long.Parse(inputString);
             }
             catch (Exception)
             {
-                return defVal;
+                return defaultValue;
             }
         }
 
-        internal static float parseValidFloat(this string str, float defVal)
+        internal static float ParseValidFloat(this string inputString, float defaultValue)
         {
             try
             {
-                return float.Parse(str.Replace(".", ","));
+                return float.Parse(inputString.Replace(".", ","));
             }
             catch (Exception)
             {
-                return defVal;
+                return defaultValue;
             }
         }
 
-        internal static string getValueDefault(this string value, string defValue)
+        internal static string GetValueDefault(this string inputString, string defaultValue)
         {
-            if (value == "")
+            if (inputString == string.Empty)
             {
-                return defValue;
+                return defaultValue;
             }
-            else
-            {
-                return value;
-            }
+            
+            return inputString;
         }
     }
 }
