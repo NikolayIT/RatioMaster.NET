@@ -181,10 +181,6 @@
     <None Include="Resources\Main.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Package1.pkgxml" />
-    <None Include="Resources\Dev by NRPG 160x80.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
