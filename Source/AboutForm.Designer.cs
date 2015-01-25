@@ -91,7 +91,7 @@ namespace RatioMaster_source
             this.linkForum.Size = new System.Drawing.Size(143, 13);
             this.linkForum.TabIndex = 5;
             this.linkForum.TabStop = true;
-            this.linkForum.Text = "http://nrpg.forumer.com";
+            this.linkForum.Text = Links.SupportForum;
             this.linkForum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForum_LinkClicked);
             // 
             // lblForumAdress
@@ -113,7 +113,7 @@ namespace RatioMaster_source
             this.linkWebSite.Size = new System.Drawing.Size(107, 13);
             this.linkWebSite.TabIndex = 1;
             this.linkWebSite.TabStop = true;
-            this.linkWebSite.Text = "http://ratiomaster.net";
+            this.linkWebSite.Text = Links.ProgramPage;
             this.linkWebSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkWebSite_LinkClicked);
             // 
             // lblWebSite
@@ -135,7 +135,7 @@ namespace RatioMaster_source
             this.linkEMail.Size = new System.Drawing.Size(87, 13);
             this.linkEMail.TabIndex = 7;
             this.linkEMail.TabStop = true;
-            this.linkEMail.Text = "admin@nikolay.it";
+            this.linkEMail.Text = Links.MailAdminNikolayIt;
             this.linkEMail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEMail_LinkClicked);
             // 
             // linkAuthorWebSite
@@ -147,7 +147,7 @@ namespace RatioMaster_source
             this.linkAuthorWebSite.Size = new System.Drawing.Size(79, 13);
             this.linkAuthorWebSite.TabIndex = 3;
             this.linkAuthorWebSite.TabStop = true;
-            this.linkAuthorWebSite.Text = "http://nikolay.it";
+            this.linkAuthorWebSite.Text = Links.AuthorPage;
             this.linkAuthorWebSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAuthorWebSite_LinkClicked);
             // 
             // lblInfoEMail

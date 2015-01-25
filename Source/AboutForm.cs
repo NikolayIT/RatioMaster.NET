@@ -22,43 +22,47 @@ namespace RatioMaster_source
         }
         private void linkEMail2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("mailto:nrpg666@yahoo.com");
+            Process.Start(Links.MailToNrpg666YahooCom);
         }
         private void linkForum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://nrpg.16.forumer.com/");
+            Process.Start(Links.SupportForum);
         }
         private void linkAuthorWebSite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://nikolay.it");
+            Process.Start(Links.AuthorPage);
         }
         private void linkEMail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("mailto:admin@nikolay.it");
+            Process.Start(Links.MailToAdminNikolayIt);
         }
         private void linkWebSite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://ratiomaster.net");
+            Process.Start(Links.ProgramPage);
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Process.Start("http://nikolay.it/");
+            Process.Start(Links.AuthorPage);
         }
         private void linkMDsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://www.moofdev.org/");
+            Process.Start(Links.MoofDev);
         }
         private void linkMDforums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://www.moofdev.org/forums/");
+            Process.Start(Links.MoofDevForums);
         }
+
+        //ToDo Links.MailToRatiomaster06YahooCom dublicate
         private void linkRMmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("mailto:ratiomaster_06@yahoo.com");
+            Process.Start(Links.MailToRatiomaster06YahooCom);
         }
+
+        //ToDo Links.MailToRatiomaster06YahooCom dublicate
         private void linkJTSmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("mailto:ratiomaster_06@yahoo.com");
+            Process.Start(Links.MailToRatiomaster06YahooCom);
         }
     }
 }

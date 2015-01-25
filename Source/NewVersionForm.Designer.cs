@@ -52,7 +52,7 @@ namespace RatioMaster_source
             this.linkSite.Size = new System.Drawing.Size(138, 13);
             this.linkSite.TabIndex = 2;
             this.linkSite.TabStop = true;
-            this.linkSite.Text = "http://ratiomaster.net/";
+            this.linkSite.Text = Links.ProgramPage;
             this.linkSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // lblGetItFrom

@@ -161,6 +161,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ProxyInfo.cs" />
+    <Compile Include="Links.cs" />
     <Compile Include="RandomStringGenerator.cs" />
     <Compile Include="RMCollection.cs" />
     <Compile Include="StringExtensions.cs" />

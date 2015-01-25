@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace RatioMaster_source
 {
     using System;
@@ -36,7 +38,7 @@ namespace RatioMaster_source
                 string local = this.LocalVersion;
                 this.Log = this.Log + ("Local Version: " + local + "\n");
                 this.Log = this.Log + ("Checking for new version..." + "\n");
-                this.RemoteVersion = this.GetVersion("http://ratiomaster.net/vc.php?v=" + this.LocalVersion);
+                this.RemoteVersion = this.GetVersion(Links.ProgramPageVersion + this.LocalVersion);
                 //// mainForm.txtRemote.Text = remoteVersion;
                 if (this.RemoteVersion.Length != 4)
                 {
