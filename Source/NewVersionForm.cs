@@ -13,7 +13,7 @@ namespace RatioMaster_source
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://ratiomaster.net");
+            Process.Start(Links.ProgramPage);
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -21,7 +21,7 @@ namespace RatioMaster_source
         }
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://nrpg.16.forumer.com");
+            Process.Start(Links.GitHubPage);
         }
     }
 }

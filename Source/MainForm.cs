@@ -129,11 +129,7 @@ namespace RatioMaster_source
         }
         private void goToProgramSiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("http://ratiomaster.net");
-        }
-        private void goToProgramForumToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process.Start("http://nrpg.forumer.com/");
+            Process.Start(Links.ProgramPage);
         }
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
@@ -225,23 +221,23 @@ namespace RatioMaster_source
         }
         private void goToProgramPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("http://ratiomaster.net");
+            Process.Start(Links.ProgramPage);
         }
-        private void goToSupportForumToolStripMenuItem_Click(object sender, EventArgs e)
+        private void goToGitHubPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("http://nrpg.16.forumer.com/");
+            Process.Start(Links.GitHubPage);
         }
         private void goToAuthorPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("http://nikolay.it");
+            Process.Start(Links.AuthorPage);
         }
         private void jOINToOurForumPleaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PG6NUT5YWYF82&lc=BG&item_name=RatioMaster%2eNET&item_number=RatioMaster%2eNET&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted");
+            Process.Start(Links.PayPal);
         }
         private void lblCodedBy_Click(object sender, EventArgs e)
         {
-            Process.Start("http://nikolay.it/");
+            Process.Start(Links.AuthorPage);
         }
         private void LoadSettings()
         {

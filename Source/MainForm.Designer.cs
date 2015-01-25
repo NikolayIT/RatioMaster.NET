@@ -55,7 +55,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goToProgramPageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.goToAuthorPageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.goToSupportForumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goToGitHubPageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.jOINToOurForumPleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
@@ -63,7 +63,7 @@
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.goToProgramSiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.goToProgramForumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goToGitHubPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -304,7 +304,7 @@
             this.aboutToolStripMenuItem,
             this.goToProgramPageToolStripMenuItem1,
             this.goToAuthorPageToolStripMenuItem1,
-            this.goToSupportForumToolStripMenuItem});
+            this.goToGitHubPageToolStripMenuItem1});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -330,12 +330,12 @@
             this.goToAuthorPageToolStripMenuItem1.Text = "Go to author page";
             this.goToAuthorPageToolStripMenuItem1.Click += new System.EventHandler(this.goToAuthorPageToolStripMenuItem_Click);
             // 
-            // goToSupportForumToolStripMenuItem
+            // goToGitHubPageToolStripMenuItem1
             // 
-            this.goToSupportForumToolStripMenuItem.Name = "goToSupportForumToolStripMenuItem";
-            this.goToSupportForumToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.goToSupportForumToolStripMenuItem.Text = "Go to support forum";
-            this.goToSupportForumToolStripMenuItem.Click += new System.EventHandler(this.goToSupportForumToolStripMenuItem_Click);
+            this.goToGitHubPageToolStripMenuItem1.Name = "goToGitHubPageToolStripMenuItem1";
+            this.goToGitHubPageToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
+            this.goToGitHubPageToolStripMenuItem1.Text = "Go to GitHub";
+            this.goToGitHubPageToolStripMenuItem1.Click += new System.EventHandler(this.goToGitHubPageToolStripMenuItem_Click);
             // 
             // jOINToOurForumPleaseToolStripMenuItem
             // 
@@ -373,7 +373,7 @@
             this.restoreToolStripMenuItem,
             this.toolStripMenuItem1,
             this.goToProgramSiteToolStripMenuItem,
-            this.goToProgramForumToolStripMenuItem,
+            this.goToGitHubPageToolStripMenuItem,
             this.toolStripMenuItem3,
             this.aboutToolStripMenuItem1,
             this.toolStripMenuItem2,
@@ -400,12 +400,12 @@
             this.goToProgramSiteToolStripMenuItem.Text = "Go to program site";
             this.goToProgramSiteToolStripMenuItem.Click += new System.EventHandler(this.goToProgramSiteToolStripMenuItem_Click);
             // 
-            // goToProgramForumToolStripMenuItem
+            // goToGitHubPageToolStripMenuItem
             // 
-            this.goToProgramForumToolStripMenuItem.Name = "goToProgramForumToolStripMenuItem";
-            this.goToProgramForumToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.goToProgramForumToolStripMenuItem.Text = "Go to program forum";
-            this.goToProgramForumToolStripMenuItem.Click += new System.EventHandler(this.goToProgramForumToolStripMenuItem_Click);
+            this.goToGitHubPageToolStripMenuItem.Name = "goToGitHubPageToolStripMenuItem1";
+            this.goToGitHubPageToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.goToGitHubPageToolStripMenuItem.Text = "Go to GitHub";
+            this.goToGitHubPageToolStripMenuItem.Click += new System.EventHandler(this.goToGitHubPageToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -628,7 +628,7 @@
         internal System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
         internal System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         internal System.Windows.Forms.ToolStripMenuItem goToProgramSiteToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem goToProgramForumToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripMenuItem goToGitHubPageToolStripMenuItem;
         internal System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         internal System.Windows.Forms.ToolStripMenuItem checkShowTrayBaloon;
@@ -666,7 +666,7 @@
         internal System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goToProgramPageToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem goToAuthorPageToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem goToSupportForumToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goToGitHubPageToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveCurrentSessionToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem allRatioMastersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem1;
