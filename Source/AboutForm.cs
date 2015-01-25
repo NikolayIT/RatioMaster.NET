@@ -24,9 +24,9 @@ namespace RatioMaster_source
         {
             Process.Start(Links.MailToNrpg666YahooCom);
         }
-        private void linkForum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkGitHubPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(Links.SupportForum);
+            Process.Start(Links.GitHubPage);
         }
         private void linkAuthorWebSite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

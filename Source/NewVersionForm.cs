@@ -21,7 +21,7 @@ namespace RatioMaster_source
         }
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(Links.SupportForum);
+            Process.Start(Links.GitHubPage);
         }
     }
 }

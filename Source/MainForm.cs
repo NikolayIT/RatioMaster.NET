@@ -131,10 +131,6 @@ namespace RatioMaster_source
         {
             Process.Start(Links.ProgramPage);
         }
-        private void goToProgramForumToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process.Start(Links.SupportForum);
-        }
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
             Exit();
@@ -227,9 +223,9 @@ namespace RatioMaster_source
         {
             Process.Start(Links.ProgramPage);
         }
-        private void goToSupportForumToolStripMenuItem_Click(object sender, EventArgs e)
+        private void goToGitHubPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start(Links.SupportForum);
+            Process.Start(Links.GitHubPage);
         }
         private void goToAuthorPageToolStripMenuItem_Click(object sender, EventArgs e)
         {

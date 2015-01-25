@@ -13,9 +13,9 @@
         public const string ProgramPageVersion = ProgramPage + "/vc.php?v=";
 
         /// <summary>
-        /// http://nrpg.16.forumer.com/
+        /// https://github.com/NikolayIT/RatioMaster.NET
         /// </summary>
-        public const string SupportForum = "http://nrpg.16.forumer.com/";
+        public const string GitHubPage = "https://github.com/NikolayIT/RatioMaster.NET";
 
         /// <summary>
         /// http://nikolay.it

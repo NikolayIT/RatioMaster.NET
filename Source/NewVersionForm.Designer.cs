@@ -32,7 +32,7 @@ namespace RatioMaster_source
             this.linkSite = new System.Windows.Forms.LinkLabel();
             this.lblGetItFrom = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
-            this.linkForum = new System.Windows.Forms.LinkLabel();
+            this.linkGitHub = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -76,22 +76,22 @@ namespace RatioMaster_source
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // linkForum
+            // linkGitHub
             // 
-            this.linkForum.AutoSize = true;
-            this.linkForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkForum.Location = new System.Drawing.Point(73, 78);
-            this.linkForum.Name = "linkForum";
-            this.linkForum.Size = new System.Drawing.Size(147, 15);
-            this.linkForum.TabIndex = 4;
-            this.linkForum.TabStop = true;
-            this.linkForum.Text = "Please join to our forum :)";
-            this.linkForum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
+            this.linkGitHub.AutoSize = true;
+            this.linkGitHub.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkGitHub.Location = new System.Drawing.Point(73, 78);
+            this.linkGitHub.Name = "linkGitHubPage";
+            this.linkGitHub.Size = new System.Drawing.Size(147, 15);
+            this.linkGitHub.TabIndex = 4;
+            this.linkGitHub.TabStop = true;
+            this.linkGitHub.Text = "Please join to GitHub:)";
+            this.linkGitHub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
             // NewVersionForm
             // 
             this.ClientSize = new System.Drawing.Size(292, 102);
-            this.Controls.Add(this.linkForum);
+            this.Controls.Add(this.linkGitHub);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblGetItFrom);
             this.Controls.Add(this.linkSite);
@@ -112,6 +112,6 @@ namespace RatioMaster_source
         private System.Windows.Forms.LinkLabel linkSite;
         private System.Windows.Forms.Label lblGetItFrom;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.LinkLabel linkForum;
+        private System.Windows.Forms.LinkLabel linkGitHub;
     }
 }

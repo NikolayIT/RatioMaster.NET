@@ -31,8 +31,8 @@ namespace RatioMaster_source
             this.label2 = new System.Windows.Forms.Label();
             this.lblProgramName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linkForum = new System.Windows.Forms.LinkLabel();
-            this.lblForumAdress = new System.Windows.Forms.Label();
+            this.linkGitHub = new System.Windows.Forms.LinkLabel();
+            this.lblGitHubAdress = new System.Windows.Forms.Label();
             this.linkWebSite = new System.Windows.Forms.LinkLabel();
             this.lblWebSite = new System.Windows.Forms.Label();
             this.linkEMail = new System.Windows.Forms.LinkLabel();
@@ -66,8 +66,8 @@ namespace RatioMaster_source
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.linkForum);
-            this.groupBox1.Controls.Add(this.lblForumAdress);
+            this.groupBox1.Controls.Add(this.linkGitHub);
+            this.groupBox1.Controls.Add(this.lblGitHubAdress);
             this.groupBox1.Controls.Add(this.linkWebSite);
             this.groupBox1.Controls.Add(this.lblWebSite);
             this.groupBox1.Controls.Add(this.linkEMail);
@@ -81,28 +81,28 @@ namespace RatioMaster_source
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Communication";
             // 
-            // linkForum
+            // linkGitHub
             // 
-            this.linkForum.AutoSize = true;
-            this.linkForum.Cursor = System.Windows.Forms.Cursors.Help;
-            this.linkForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkForum.Location = new System.Drawing.Point(272, 44);
-            this.linkForum.Name = "linkForum";
-            this.linkForum.Size = new System.Drawing.Size(143, 13);
-            this.linkForum.TabIndex = 5;
-            this.linkForum.TabStop = true;
-            this.linkForum.Text = Links.SupportForum;
-            this.linkForum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForum_LinkClicked);
+            this.linkGitHub.AutoSize = true;
+            this.linkGitHub.Cursor = System.Windows.Forms.Cursors.Help;
+            this.linkGitHub.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkGitHub.Location = new System.Drawing.Point(272, 44);
+            this.linkGitHub.Name = "linkGitHubPage";
+            this.linkGitHub.Size = new System.Drawing.Size(143, 13);
+            this.linkGitHub.TabIndex = 5;
+            this.linkGitHub.TabStop = true;
+            this.linkGitHub.Text = "RatioMaster.NET";
+            this.linkGitHub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkGitHubPage_LinkClicked);
             // 
-            // lblForumAdress
+            // lblGitHubAdress
             // 
-            this.lblForumAdress.AutoSize = true;
-            this.lblForumAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblForumAdress.Location = new System.Drawing.Point(221, 44);
-            this.lblForumAdress.Name = "lblForumAdress";
-            this.lblForumAdress.Size = new System.Drawing.Size(45, 13);
-            this.lblForumAdress.TabIndex = 4;
-            this.lblForumAdress.Text = "Forum:";
+            this.lblGitHubAdress.AutoSize = true;
+            this.lblGitHubAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblGitHubAdress.Location = new System.Drawing.Point(221, 44);
+            this.lblGitHubAdress.Name = "lblGitHubAdress";
+            this.lblGitHubAdress.Size = new System.Drawing.Size(45, 13);
+            this.lblGitHubAdress.TabIndex = 4;
+            this.lblGitHubAdress.Text = "GitHub:";
             // 
             // linkWebSite
             // 
@@ -208,8 +208,8 @@ namespace RatioMaster_source
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblProgramName;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.LinkLabel linkForum;
-        private System.Windows.Forms.Label lblForumAdress;
+        private System.Windows.Forms.LinkLabel linkGitHub;
+        private System.Windows.Forms.Label lblGitHubAdress;
         private System.Windows.Forms.LinkLabel linkWebSite;
         private System.Windows.Forms.Label lblWebSite;
         private System.Windows.Forms.LinkLabel linkEMail;
