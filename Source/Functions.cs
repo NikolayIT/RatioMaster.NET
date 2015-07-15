@@ -1,13 +1,18 @@
 namespace RatioMaster_source
 {
     using System.Net;
+    using System.Net.Sockets;
 
     internal static class Functions
     {
         internal static string GetIp()
         {
-            var ips = Dns.GetHostAddresses(Dns.GetHostName());
-            return ips[0].ToString();
+            foreach (var addr in Dns.GetHostEntry(string.Empty).AddressList)
+            {
+                if (addr.AddressFamily == AddressFamily.InterNetwork)
+                    return addr.ToString();
+            }
+            return "127.0.0.1";
         }
     }
 }

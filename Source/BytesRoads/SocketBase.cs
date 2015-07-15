@@ -156,11 +156,13 @@ namespace BytesRoad.Net.Sockets
 				throw new ArgumentException("Provided host structure do not contains addresses.", "host");
 			}
 
-			int addressNo = 0;
-			if(1 < host.AddressList.Length)
-				addressNo = _rand.Next(host.AddressList.Length - 1);
+			foreach (var addr in host.AddressList)
+			{
+				if (addr.AddressFamily == AddressFamily.InterNetwork)
+					return new IPEndPoint(addr, port);
+			}
 			
-			return new IPEndPoint(host.AddressList[addressNo], port);
+			return new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
 		}
 
 		protected void CheckDisposed()
