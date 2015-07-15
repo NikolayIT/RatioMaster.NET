@@ -419,7 +419,11 @@ namespace BytesRoad.Net.Sockets
 					throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
 					//throw new HostNotFoundException("Unable to resolve proxy name.");
 
-				IPEndPoint proxyEndPoint = ConstructEndPoint(proxyEntry, _proxyPort);
+				IPEndPoint proxyEndPoint;
+				if (_proxyServer.Equals("127.0.0.1"))
+					proxyEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), _proxyPort);
+				else
+					IPEndPoint proxyEndPoint = ConstructEndPoint(proxyEntry, _proxyPort);
 
 				//------------------------------------------
 				// Connect to proxy server
