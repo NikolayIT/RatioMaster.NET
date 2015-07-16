@@ -423,7 +423,7 @@ namespace BytesRoad.Net.Sockets
                 if (_proxyServer.Equals("127.0.0.1"))
                     proxyEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), _proxyPort);
                 else
-                    IPEndPoint proxyEndPoint = ConstructEndPoint(proxyEntry, _proxyPort);
+                    proxyEndPoint = ConstructEndPoint(proxyEntry, _proxyPort);
 
                 //------------------------------------------
                 // Connect to proxy server
