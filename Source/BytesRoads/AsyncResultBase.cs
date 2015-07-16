@@ -27,165 +27,165 @@ using System.Threading;
 using BytesRoad.Diag;
 namespace BytesRoad.Net.Sockets.Advanced
 {
-	/// <summary>
-	/// Summary description for AsyncResultBase.
-	/// </summary>
+    /// <summary>
+    /// Summary description for AsyncResultBase.
+    /// </summary>
     public class AsyncResultBase : IAsyncResult
-	{
-		object _callerState = null;
-		bool _completedSync = true;
-		ManualResetEvent _wait = null;
-		AsyncCallback _callback = null;
-		bool _isCompleted = false;
-		bool _isHandled = false;
-		Exception _exception = null;
-		int _startThreadId = -1;
+    {
+        object _callerState = null;
+        bool _completedSync = true;
+        ManualResetEvent _wait = null;
+        AsyncCallback _callback = null;
+        bool _isCompleted = false;
+        bool _isHandled = false;
+        Exception _exception = null;
+        int _startThreadId = -1;
 
 
 
-		internal AsyncResultBase(AsyncCallback cb, object callerState)
-		{
-			_callback = cb;
-			_callerState = callerState;
-			_startThreadId = Thread.CurrentThread.GetHashCode();
-		}
+        internal AsyncResultBase(AsyncCallback cb, object callerState)
+        {
+            _callback = cb;
+            _callerState = callerState;
+            _startThreadId = Thread.CurrentThread.GetHashCode();
+        }
 
-		internal void UpdateContext()
-		{
-			if(Thread.CurrentThread.GetHashCode() != _startThreadId)
-				_completedSync = false;
-		}
+        internal void UpdateContext()
+        {
+            if(Thread.CurrentThread.GetHashCode() != _startThreadId)
+                _completedSync = false;
+        }
 
-		/*internal void SetCompleted(bool completedSync)
-		{
-			SetCompleted();
-		}*/
+        /*internal void SetCompleted(bool completedSync)
+        {
+            SetCompleted();
+        }*/
 
-		internal void SetCompleted()
-		{
-			lock(this)  //sync with 'AsyncWaitHandle' property
-			{
-				UpdateContext();
-				_isCompleted = true;
-				if(null != _wait)
-					_wait.Set();
-			}
+        internal void SetCompleted()
+        {
+            lock(this)  //sync with 'AsyncWaitHandle' property
+            {
+                UpdateContext();
+                _isCompleted = true;
+                if(null != _wait)
+                    _wait.Set();
+            }
 
-			dumpActivityException();
+            dumpActivityException();
 
-			try
-			{
-				if(null != CallBack)
-					CallBack(this);
-			}
-			catch(Exception e)
-			{
-				NSTrace.WriteLineError("Exception in CB: " + e.ToString());
-				throw;
-			}
-		    /*
-			catch
-			{
-				NSTrace.WriteLineError("Non CLS exception in CB: " + Environment.StackTrace.ToString());
-				throw;
-			}
+            try
+            {
+                if(null != CallBack)
+                    CallBack(this);
+            }
+            catch(Exception e)
+            {
+                NSTrace.WriteLineError("Exception in CB: " + e.ToString());
+                throw;
+            }
+            /*
+            catch
+            {
+                NSTrace.WriteLineError("Non CLS exception in CB: " + Environment.StackTrace.ToString());
+                throw;
+            }
             */
-		}
+        }
 
-		void CloseWaitHandle()
-		{
-			lock(this)
-			{
-				if(null != _wait)
-				{
-					_wait.Close();
-					_wait = null;
-				}
-			}
-		}
+        void CloseWaitHandle()
+        {
+            lock(this)
+            {
+                if(null != _wait)
+                {
+                    _wait.Close();
+                    _wait = null;
+                }
+            }
+        }
 
-		void dumpActivityException()
-		{
-			Exception e = Exception;
-			if(null == e)
-				return;
-			
-			int tid = Thread.CurrentThread.GetHashCode();
-			string msg = string.Format("{0} ---------- Start Exception Info -----------------------------\n", tid);
-			msg += string.Format("{0} Activity: {1}\n", tid, ActivityName);
-			msg += string.Format("{0} Stack: {1}\n", tid, Environment.StackTrace.ToString());
-			msg += string.Format("{0} Exception: {1}\n", tid, e.ToString());
-			msg += string.Format("{0} ---------- End   Exception Info -----------------------------", tid);
+        void dumpActivityException()
+        {
+            Exception e = Exception;
+            if(null == e)
+                return;
+            
+            int tid = Thread.CurrentThread.GetHashCode();
+            string msg = string.Format("{0} ---------- Start Exception Info -----------------------------\n", tid);
+            msg += string.Format("{0} Activity: {1}\n", tid, ActivityName);
+            msg += string.Format("{0} Stack: {1}\n", tid, Environment.StackTrace.ToString());
+            msg += string.Format("{0} Exception: {1}\n", tid, e.ToString());
+            msg += string.Format("{0} ---------- End   Exception Info -----------------------------", tid);
 
-			NSTrace.WriteLineError(msg);
-		}
+            NSTrace.WriteLineError(msg);
+        }
 
 
-		#region Attributes
-		virtual internal string ActivityName 
-		{ 
-			get { return GetType().FullName; } 
-		}
+        #region Attributes
+        virtual internal string ActivityName 
+        { 
+            get { return GetType().FullName; } 
+        }
 
-		internal AsyncCallback CallBack
-		{
-			get { return _callback; }
-		}
+        internal AsyncCallback CallBack
+        {
+            get { return _callback; }
+        }
 
-		internal Exception Exception
-		{
-			get { return _exception; }
-			set { _exception = value; }
-		}
+        internal Exception Exception
+        {
+            get { return _exception; }
+            set { _exception = value; }
+        }
 
-		internal virtual bool IsHandled
-		{
-			get { return _isHandled; }
-			set 
-			{ 
-				if(value)
-				{
-					CloseWaitHandle();
-					_callerState = null;
-					_callback = null;
-				}
-				else
-				{
-					NSTrace.WriteLineError("IsHandled assigned 'false'");
-				}
-				_isHandled = value; 
-			}
-		}
-		#endregion
+        internal virtual bool IsHandled
+        {
+            get { return _isHandled; }
+            set 
+            { 
+                if(value)
+                {
+                    CloseWaitHandle();
+                    _callerState = null;
+                    _callback = null;
+                }
+                else
+                {
+                    NSTrace.WriteLineError("IsHandled assigned 'false'");
+                }
+                _isHandled = value; 
+            }
+        }
+        #endregion
 
-		#region IAsyncResult Members
-		public object AsyncState
-		{
-			get { return _callerState; }
-		}
+        #region IAsyncResult Members
+        public object AsyncState
+        {
+            get { return _callerState; }
+        }
 
-		public bool CompletedSynchronously
-		{
-			get { return _completedSync; }
-		}
+        public bool CompletedSynchronously
+        {
+            get { return _completedSync; }
+        }
 
-		public WaitHandle AsyncWaitHandle
-		{
-			get
-			{
-				lock(this) //sync with 'SetCompleted' method
-				{
-					if(null == _wait)
-						_wait = new ManualResetEvent(IsCompleted);
-				}
-				return _wait;
-			}
-		}
+        public WaitHandle AsyncWaitHandle
+        {
+            get
+            {
+                lock(this) //sync with 'SetCompleted' method
+                {
+                    if(null == _wait)
+                        _wait = new ManualResetEvent(IsCompleted);
+                }
+                return _wait;
+            }
+        }
 
-		public bool IsCompleted
-		{
-			get { return _isCompleted; }
-		}
-		#endregion
-	}
+        public bool IsCompleted
+        {
+            get { return _isCompleted; }
+        }
+        #endregion
+    }
 }
