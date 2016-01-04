@@ -759,6 +759,7 @@ namespace RatioMaster_source
             "Azureus",
             "Vuze",
             "BitTorrent",
+			"Transmission",
             "ABC",
             "BitLord",
             "BTuga",
