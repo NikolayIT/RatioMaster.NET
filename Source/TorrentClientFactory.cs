@@ -464,7 +464,7 @@
                 #region Transmission
                 case "Transmission 2.82 (14160)":
                     {
-                        client.Name = "Transmission 2.82 (14160)">;
+                        client.Name = "Transmission 2.82 (14160)";
                         client.HttpProtocol = "HTTP/1.1";
                         client.HashUpperCase = false;
                         client.Key = GenerateIdString("hex", 8, false, true);
