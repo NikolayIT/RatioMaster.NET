@@ -461,6 +461,25 @@
                         break;
                     }
                 #endregion
+                #region Transmission
+                case "Transmission 2.82 (14160)":
+                    {
+                        client.Name = "Transmission 2.82 (14160)";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "User-Agent: Transmission/2.82\r\nHost: {host}\r\nAccept: */*\r\nAccept-Encoding: gzip;q=1.0, deflate, identity\r\n";
+                        client.PeerID = "-TR2500-" + GenerateIdString("alphanumeric", 12, false, false);
+                        client.Query = "info_hash={infohash}&amp;peer_id={peerid}&amp;port={port}&amp;uploaded={uploaded}&amp;downloaded={downloaded}&amp;left={left}&amp;numwant={numwant}&amp;key={key}&amp;compact=1&amp;supportcrypto=1{event}";
+                        client.DefNumWant = 80;
+                        // client.Parse = true;
+                        client.SearchString = "&peer_id=-TR2500-";
+                        client.ProcessName = "Transmission";
+                        // client.StartOffset = 0;
+                        // client.MaxOffset = 200000000;
+                        break;
+                    }
+                #endregion
                 #region ABC
                 case "ABC 3.1":
                     {
