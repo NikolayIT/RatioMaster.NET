@@ -28,7 +28,6 @@ namespace RatioMaster_source
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.lblProgramName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.linkGitHub = new System.Windows.Forms.LinkLabel();
@@ -43,22 +42,11 @@ namespace RatioMaster_source
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(114, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(218, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Based on RatioMaster 1.4";
-            // 
             // lblProgramName
             // 
             this.lblProgramName.AutoSize = true;
             this.lblProgramName.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProgramName.Location = new System.Drawing.Point(71, 19);
+            this.lblProgramName.Location = new System.Drawing.Point(71, 27);
             this.lblProgramName.Name = "lblProgramName";
             this.lblProgramName.Size = new System.Drawing.Size(327, 44);
             this.lblProgramName.TabIndex = 0;
@@ -87,8 +75,8 @@ namespace RatioMaster_source
             this.linkGitHub.Cursor = System.Windows.Forms.Cursors.Help;
             this.linkGitHub.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.linkGitHub.Location = new System.Drawing.Point(272, 44);
-            this.linkGitHub.Name = "linkGitHubPage";
-            this.linkGitHub.Size = new System.Drawing.Size(143, 13);
+            this.linkGitHub.Name = "linkGitHub";
+            this.linkGitHub.Size = new System.Drawing.Size(104, 13);
             this.linkGitHub.TabIndex = 5;
             this.linkGitHub.TabStop = true;
             this.linkGitHub.Text = "RatioMaster.NET";
@@ -100,7 +88,7 @@ namespace RatioMaster_source
             this.lblGitHubAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblGitHubAdress.Location = new System.Drawing.Point(221, 44);
             this.lblGitHubAdress.Name = "lblGitHubAdress";
-            this.lblGitHubAdress.Size = new System.Drawing.Size(45, 13);
+            this.lblGitHubAdress.Size = new System.Drawing.Size(50, 13);
             this.lblGitHubAdress.TabIndex = 4;
             this.lblGitHubAdress.Text = "GitHub:";
             // 
@@ -113,7 +101,7 @@ namespace RatioMaster_source
             this.linkWebSite.Size = new System.Drawing.Size(107, 13);
             this.linkWebSite.TabIndex = 1;
             this.linkWebSite.TabStop = true;
-            this.linkWebSite.Text = Links.ProgramPage;
+            this.linkWebSite.Text = "http://ratiomaster.net";
             this.linkWebSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkWebSite_LinkClicked);
             // 
             // lblWebSite
@@ -132,10 +120,10 @@ namespace RatioMaster_source
             this.linkEMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.linkEMail.Location = new System.Drawing.Point(50, 44);
             this.linkEMail.Name = "linkEMail";
-            this.linkEMail.Size = new System.Drawing.Size(87, 13);
+            this.linkEMail.Size = new System.Drawing.Size(110, 13);
             this.linkEMail.TabIndex = 7;
             this.linkEMail.TabStop = true;
-            this.linkEMail.Text = Links.MailAdminNikolayIt;
+            this.linkEMail.Text = "ratiomaster@nikolay.it";
             this.linkEMail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEMail_LinkClicked);
             // 
             // linkAuthorWebSite
@@ -147,7 +135,7 @@ namespace RatioMaster_source
             this.linkAuthorWebSite.Size = new System.Drawing.Size(79, 13);
             this.linkAuthorWebSite.TabIndex = 3;
             this.linkAuthorWebSite.TabStop = true;
-            this.linkAuthorWebSite.Text = Links.AuthorPage;
+            this.linkAuthorWebSite.Text = "http://nikolay.it";
             this.linkAuthorWebSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAuthorWebSite_LinkClicked);
             // 
             // lblInfoEMail
@@ -188,7 +176,6 @@ namespace RatioMaster_source
             this.ClientSize = new System.Drawing.Size(467, 209);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblProgramName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AboutForm";
@@ -204,8 +191,6 @@ namespace RatioMaster_source
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblProgramName;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel linkGitHub;

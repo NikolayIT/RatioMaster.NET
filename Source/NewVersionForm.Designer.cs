@@ -32,27 +32,27 @@ namespace RatioMaster_source
             this.linkSite = new System.Windows.Forms.LinkLabel();
             this.lblGetItFrom = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
-            this.linkGitHub = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(12, 9);
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfo.Location = new System.Drawing.Point(8, 9);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(270, 13);
+            this.lblInfo.Size = new System.Drawing.Size(275, 13);
             this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "RatioMaster.NET inform you that there is new version!";
+            this.lblInfo.Text = "A new version of RatioMaster.NET is available!";
             // 
             // linkSite
             // 
             this.linkSite.AutoSize = true;
             this.linkSite.Location = new System.Drawing.Point(112, 30);
             this.linkSite.Name = "linkSite";
-            this.linkSite.Size = new System.Drawing.Size(138, 13);
+            this.linkSite.Size = new System.Drawing.Size(107, 13);
             this.linkSite.TabIndex = 2;
             this.linkSite.TabStop = true;
-            this.linkSite.Text = Links.ProgramPage;
+            this.linkSite.Text = "http://ratiomaster.net";
             this.linkSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // lblGetItFrom
@@ -76,22 +76,9 @@ namespace RatioMaster_source
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // linkGitHub
-            // 
-            this.linkGitHub.AutoSize = true;
-            this.linkGitHub.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkGitHub.Location = new System.Drawing.Point(73, 78);
-            this.linkGitHub.Name = "linkGitHubPage";
-            this.linkGitHub.Size = new System.Drawing.Size(147, 15);
-            this.linkGitHub.TabIndex = 4;
-            this.linkGitHub.TabStop = true;
-            this.linkGitHub.Text = "Please join to GitHub:)";
-            this.linkGitHub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
-            // 
             // NewVersionForm
             // 
-            this.ClientSize = new System.Drawing.Size(292, 102);
-            this.Controls.Add(this.linkGitHub);
+            this.ClientSize = new System.Drawing.Size(292, 86);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblGetItFrom);
             this.Controls.Add(this.linkSite);
@@ -112,6 +99,5 @@ namespace RatioMaster_source
         private System.Windows.Forms.LinkLabel linkSite;
         private System.Windows.Forms.Label lblGetItFrom;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.LinkLabel linkGitHub;
     }
 }

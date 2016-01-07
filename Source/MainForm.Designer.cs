@@ -51,6 +51,7 @@
             this.checkShowTrayBaloon = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSettingsFromCurrentTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enable24hformat = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goToProgramPageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +86,6 @@
             this.lblCodedBy = new System.Windows.Forms.ToolStripStatusLabel();
             this.saveSession = new System.Windows.Forms.SaveFileDialog();
             this.loadSession = new System.Windows.Forms.OpenFileDialog();
-            this.enable24hformat = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.menuRightClickTray.SuspendLayout();
             this.Status.SuspendLayout();
@@ -298,6 +298,14 @@
             this.closeToTrayToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.closeToTrayToolStripMenuItem.Text = "Close to tray";
             // 
+            // enable24hformat
+            // 
+            this.enable24hformat.CheckOnClick = true;
+            this.enable24hformat.Name = "enable24hformat";
+            this.enable24hformat.Size = new System.Drawing.Size(232, 22);
+            this.enable24hformat.Text = "Enable 24h format";
+            this.enable24hformat.Click += new System.EventHandler(this.enable24hformat_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -379,55 +387,55 @@
             this.toolStripMenuItem2,
             this.toolStripMenuItem4});
             this.menuRightClickTray.Name = "menuRightClickTray";
-            this.menuRightClickTray.Size = new System.Drawing.Size(189, 132);
+            this.menuRightClickTray.Size = new System.Drawing.Size(174, 132);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(185, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(170, 6);
             // 
             // goToProgramSiteToolStripMenuItem
             // 
             this.goToProgramSiteToolStripMenuItem.Name = "goToProgramSiteToolStripMenuItem";
-            this.goToProgramSiteToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.goToProgramSiteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.goToProgramSiteToolStripMenuItem.Text = "Go to program site";
             this.goToProgramSiteToolStripMenuItem.Click += new System.EventHandler(this.goToProgramSiteToolStripMenuItem_Click);
             // 
             // goToGitHubPageToolStripMenuItem
             // 
-            this.goToGitHubPageToolStripMenuItem.Name = "goToGitHubPageToolStripMenuItem1";
-            this.goToGitHubPageToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.goToGitHubPageToolStripMenuItem.Name = "goToGitHubPageToolStripMenuItem";
+            this.goToGitHubPageToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.goToGitHubPageToolStripMenuItem.Text = "Go to GitHub";
             this.goToGitHubPageToolStripMenuItem.Click += new System.EventHandler(this.goToGitHubPageToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(185, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(170, 6);
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(185, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(170, 6);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(188, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem4.Text = "EXIT";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
@@ -560,7 +568,7 @@
             this.lblCodedBy.Name = "lblCodedBy";
             this.lblCodedBy.Size = new System.Drawing.Size(362, 17);
             this.lblCodedBy.Spring = true;
-            this.lblCodedBy.Text = "Coded by: Nikolay.IT © 2005-2013";
+            this.lblCodedBy.Text = "Coded by: Nikolay.IT © 2005-2016";
             this.lblCodedBy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCodedBy.Click += new System.EventHandler(this.lblCodedBy_Click);
             // 
@@ -573,14 +581,6 @@
             // 
             this.loadSession.Filter = "Sessions|*.session";
             this.loadSession.FileOk += new System.ComponentModel.CancelEventHandler(this.loadSession_FileOk);
-            // 
-            // enable24hformat
-            // 
-            this.enable24hformat.CheckOnClick = true;
-            this.enable24hformat.Name = "enable24hformat";
-            this.enable24hformat.Size = new System.Drawing.Size(232, 22);
-            this.enable24hformat.Text = "Enable 24h format";
-            this.enable24hformat.Click += new System.EventHandler(this.enable24hformat_Click);
             // 
             // MainForm
             // 

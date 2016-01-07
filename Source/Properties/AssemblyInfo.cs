@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nikolay.IT")]
 [assembly: AssemblyProduct("RatioMaster.NET")]
-[assembly: AssemblyCopyright("Copyright © 2005-2014")]
-[assembly: AssemblyTrademark("Nikolay.IT © 2005-2014")]
+[assembly: AssemblyCopyright("Copyright © 2005-2016")]
+[assembly: AssemblyTrademark("Nikolay.IT © 2005-2016")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
