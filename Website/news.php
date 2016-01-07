@@ -16,14 +16,19 @@
         <tr> 
           <td width="20">&nbsp;</td>
           <td><h1>Latest News</h1>
+              <p><span class="sidelinks">08 / January / 2016<br>
+              <strong>RatioMaster.NET 0.43</strong><br></span>New version released!<br>Changelog: <a href="history.php">HERE</a></p>
+              
               <p><span class="sidelinks">24 / November / 2013<br>
               <strong>About the project</strong><br></span>The project is now completely open source! You can find the source here: <a href="https://github.com/NikolayIT/RatioMaster.NET">https://github.com/NikolayIT/RatioMaster.NET</a> You can help with the future development by adding pull requests to the project.</p>
+              
               <p><span class="sidelinks">19 / April / 2010<br>
               <strong>RatioMaster.NET 0.42</strong><br></span>New version released!<br>Changelog: <a href="history.php">HERE</a></p>
+              
               <p><span class="sidelinks">26 / August / 2008<br>
               <strong>Forum</strong><br></span><a href="http://nrpg.16.forumer.com/">Join our forum, please.</a></p>
-			<a href="http://www.softpedia.com/get/Internet/File-Sharing/NRPG-RatioMaster.shtml"><img src="http://www.softpedia.com/images/spyward/softpedia_clean_award_f.gif" border=0></a>
-		  </td>
+              <a href="http://www.softpedia.com/get/Internet/File-Sharing/NRPG-RatioMaster.shtml"><img src="http://www.softpedia.com/images/spyward/softpedia_clean_award_f.gif" border=0></a>
+          </td>
           <td width="20">&nbsp;</td>
         </tr>
       </table></td>

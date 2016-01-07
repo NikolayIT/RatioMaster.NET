@@ -2,7 +2,6 @@ body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #FFFFFF;
-
 }
 
 p {
@@ -26,7 +25,7 @@ h1 {
 
 a {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-   color: #FFFFFF;
+    color: #FFFFFF;
 	text-decoration: none;
 }
 
@@ -35,17 +34,20 @@ a:hover {
 	color: #FFFFFF;
 	text-decoration: underline;
 }
+
 .baselink {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #666666;
 	text-decoration: none;
 }
+
 td {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	color: #FFFFFF;
 }
+
 .sidelinks {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;

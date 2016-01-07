@@ -8,7 +8,7 @@ namespace RatioMaster_source
     {
         public const string LocalVersion = "0430";
         public const string PublicVersion = "0.43";
-        public const string ReleaseDate = "07-01-2016";
+        public const string ReleaseDate = "08-01-2016";
         private const string ProgramPageVersion = "http://ratiomaster.net/vc.php?v=";
 
         private readonly string userAgent;

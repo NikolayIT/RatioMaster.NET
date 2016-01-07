@@ -39,7 +39,7 @@ require_once("news.php");
 - RM: Added new client emulation: "BitComet 0.98"<br>
 - RM: "Azureus 3.0.3.4" fixed<br>
 - RM: Default client is now "uTorrent 1.7.7"</p><br>
-<a href="http://ratiomaster.net/HISTORY.TXT"><center>Full changelog here</center></a>
+<a href="https://raw.githubusercontent.com/NikolayIT/RatioMaster.NET/master/HISTORY.TXT"><center>Full changelog here</center></a>
 <p>&nbsp;</p></td>
 <?
 require_once("footer.php");
