@@ -10,8 +10,7 @@ RatioMaster.NET has hardcoded emulations for the most commonly used BitTorrent c
 <br><br>
 <b>* Download program *</b><br>
 <b>Windows version:</b><br>
-<a href="http://ratiomaster.net/files/RatioMaster.NET.rar"><u>Download program here</u></a><br>
-<a href="http://www.softpedia.com/get/Internet/File-Sharing/NRPG-RatioMaster.shtml"><u>Mirror download</u></a><br>
+<a href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip"><u>Download program here</u></a><br>
 For the program to work correctly you need <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851"><u>.NET Framework 4.0</u></a><br>
 <br>
 <b>Linux, Solaris, Mac OS X and Unix version:</b><br>
@@ -24,6 +23,9 @@ Website: <a href="http://ratiomaster.net/">http://ratiomaster.net/</a><br>
 GitHub: <a href="https://github.com/NikolayIT/RatioMaster.NET">https://github.com/NikolayIT/RatioMaster.NET</a><br>
 Author site: <a href="http://nikolay.it/">http://nikolay.it/</a><br>
 Author e-mail: <a href="mailto:ratiomaster@nikolay.it">ratiomaster@nikolay.it</a><br>
+<br><br>
+<b>* Published in *</b><br>
+<a href="http://www.softpedia.com/get/Internet/File-Sharing/NRPG-RatioMaster.shtml"><u>Softpedia</u></a><br>
 <br>
 </p><p>&nbsp;</p></td>
 <?php
