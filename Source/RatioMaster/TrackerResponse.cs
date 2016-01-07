@@ -122,7 +122,7 @@ namespace RatioMaster_source
                 reader1.Dispose();
             }
         }
-        
+
         internal string Body { get; private set; }
 
         internal string Charset { get; private set; }
@@ -147,6 +147,7 @@ namespace RatioMaster_source
             {
                 text1 = "\r\n";
             }
+
             streamReader.BaseStream.Position = num1;
             return text1;
         }
@@ -165,6 +166,7 @@ namespace RatioMaster_source
                 {
                 }
             }
+
             try
             {
                 dictionary1 = (ValueDictionary)BEncode.Parse(responseStream);
@@ -173,22 +175,8 @@ namespace RatioMaster_source
             {
                 Console.Write(exception1.StackTrace);
             }
+
             return dictionary1;
-        }
-
-        private void SaveArrayToFile(byte[] arr, string filename)
-        {
-            FileStream stream1 = File.OpenWrite(filename);
-            stream1.Write(arr, 0, arr.Length);
-            stream1.Close();
-        }
-
-        private void SaveStreamToFile(MemoryStream ms, string filename)
-        {
-            FileStream stream1 = File.OpenWrite(filename);
-            ms.WriteTo(stream1);
-            stream1.Close();
         }
     }
 }
-

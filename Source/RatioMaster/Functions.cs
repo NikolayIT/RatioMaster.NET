@@ -7,11 +7,14 @@ namespace RatioMaster_source
     {
         internal static string GetIp()
         {
-            foreach (var addr in Dns.GetHostEntry(string.Empty).AddressList)
+            foreach (var address in Dns.GetHostEntry(string.Empty).AddressList)
             {
-                if (addr.AddressFamily == AddressFamily.InterNetwork)
-                    return addr.ToString();
+                if (address.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return address.ToString();
+                }
             }
+
             return "127.0.0.1";
         }
     }

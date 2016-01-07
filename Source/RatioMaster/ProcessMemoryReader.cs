@@ -33,6 +33,7 @@ namespace RatioMaster_source
             {
                 return this.m_ReadProcess;
             }
+
             set
             {
                 this.m_ReadProcess = value;

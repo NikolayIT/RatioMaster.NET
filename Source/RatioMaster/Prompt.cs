@@ -1,33 +1,37 @@
-using System;
-using System.Windows.Forms;
-
 namespace RatioMaster_source
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class Prompt : Form
     {
-        internal string Result = "";
+        internal string Result = string.Empty;
+
         internal bool OK = false;
+
         public Prompt(string text, string labletext, string defvalue)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.Text = text;
-            label1.Text = labletext;
-            textBox1.Text = defvalue;
+            this.label1.Text = labletext;
+            this.textBox1.Text = defvalue;
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            Result = "";
+            this.Result = string.Empty;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Result = textBox1.Text;
+            this.Result = this.textBox1.Text;
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
-                button1_Click(null, null);
+                this.button1_Click(null, null);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

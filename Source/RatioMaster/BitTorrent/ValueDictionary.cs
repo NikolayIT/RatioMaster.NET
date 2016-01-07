@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-
-namespace BitTorrent
+﻿namespace BitTorrent
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.IO;
+
     internal class ValueDictionary : BEncodeValue
     {
         internal ValueDictionary()

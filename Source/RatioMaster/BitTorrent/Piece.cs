@@ -1,8 +1,8 @@
-using System;
-using System.IO;
-
 namespace BitTorrent
 {
+    using System;
+    using System.IO;
+
     internal class Piece
     {
         private Torrent torrent;

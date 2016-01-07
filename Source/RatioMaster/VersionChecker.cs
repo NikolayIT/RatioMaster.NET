@@ -1,5 +1,3 @@
-using System.Windows.Forms;
-
 namespace RatioMaster_source
 {
     using System;
@@ -9,12 +7,12 @@ namespace RatioMaster_source
     internal class VersionChecker
     {
         private readonly string userAgent;
-        
+
         internal VersionChecker(string log)
         {
             this.LocalVersion = "0430";
             this.PublicVersion = "0.43";
-            this.ReleaseDate = "??-02-2014";
+            this.ReleaseDate = "07-01-2016";
             this.userAgent = "RatioMaster.NET" + "/" + this.LocalVersion + " (" + Environment.OSVersion + "; .NET CLR " + Environment.Version + "; " + Environment.UserName + "." + Environment.ProcessorCount + ")";
             this.Log = log;
         }

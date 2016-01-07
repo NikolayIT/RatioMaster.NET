@@ -63,7 +63,7 @@
             {
                 return defaultValue;
             }
-            
+
             return inputString;
         }
     }

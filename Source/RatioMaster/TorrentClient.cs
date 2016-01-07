@@ -1,4 +1,4 @@
-namespace RatioMaster_source
+﻿namespace RatioMaster_source
 {
     public class TorrentClient
     {

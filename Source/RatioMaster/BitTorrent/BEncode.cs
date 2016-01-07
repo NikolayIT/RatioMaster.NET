@@ -1,11 +1,11 @@
-using System;
-using System.IO;
-using System.Collections;
-using System.Text;
-using System.Collections.ObjectModel;
-
 namespace BitTorrent
 {
+    using System;
+    using System.Collections;
+    using System.Collections.ObjectModel;
+    using System.IO;
+    using System.Text;
+
     internal interface BEncodeValue
     {
         byte[] Encode();

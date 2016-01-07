@@ -1,26 +1,27 @@
-using System;
-using System.Windows.Forms;
-using System.Diagnostics;
-
 namespace RatioMaster_source
 {
+    using System;
+    using System.Diagnostics;
+    using System.Windows.Forms;
+
     internal partial class AboutForm : Form
     {
         internal string version;
+
         internal AboutForm(string Ver)
         {
-            InitializeComponent();
-            version = Ver;
+            this.InitializeComponent();
+            this.version = Ver;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void AboutForm_Load(object sender, EventArgs e)
         {
-            Text += " version " + version;
+            this.Text += " version " + this.version;
         }
 
         private void linkGitHubPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
