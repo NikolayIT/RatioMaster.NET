@@ -27,7 +27,7 @@ Author e-mail: <a href="mailto:ratiomaster@nikolay.it">ratiomaster@nikolay.it</a
 <b>* Published in *</b><br>
 <a href="http://www.softpedia.com/get/Internet/File-Sharing/NRPG-RatioMaster.shtml"><u>Softpedia</u></a><br>
 <br>
-</p><p>&nbsp;</p></td>
+<div class="fb-page" data-href="https://www.facebook.com/RatioMaster" data-tabs="timeline" data-width="424" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/RatioMaster"><a href="https://www.facebook.com/RatioMaster">RatioMaster.NET</a></blockquote></div></div>
 <?php
 require_once("footer.php");
 ?>
