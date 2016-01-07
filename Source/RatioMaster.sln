@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatioMaster source", "RatioMaster source.csproj", "{C732F44B-C910-4C9B-A97F-38DFFAB3C957}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatioMaster", "RatioMaster.csproj", "{C732F44B-C910-4C9B-A97F-38DFFAB3C957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
