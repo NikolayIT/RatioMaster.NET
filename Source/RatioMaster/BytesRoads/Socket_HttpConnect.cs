@@ -82,6 +82,7 @@ namespace BytesRoad.Net.Sockets
                 get { return _hostPort; }
             }
         }
+
         class ReadReply_SO : AsyncResultBase
         {
             byte[] _buffer = new byte[512];
@@ -90,7 +91,6 @@ namespace BytesRoad.Net.Sockets
             internal ReadReply_SO(AsyncCallback cb, 
                 object state) : base(cb, state)
             {
-
             }
 
             internal byte[] Buffer

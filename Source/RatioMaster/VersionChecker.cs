@@ -4,39 +4,35 @@ namespace RatioMaster_source
     using System.IO;
     using System.Net;
 
-    internal class VersionChecker
+    public class VersionChecker
     {
+        public const string LocalVersion = "0430";
+        public const string PublicVersion = "0.43";
+        public const string ReleaseDate = "07-01-2016";
+        private const string ProgramPageVersion = "http://ratiomaster.net/vc.php?v=";
+
         private readonly string userAgent;
 
-        internal VersionChecker(string log)
+        public VersionChecker(string log)
         {
-            this.LocalVersion = "0430";
-            this.PublicVersion = "0.43";
-            this.ReleaseDate = "07-01-2016";
-            this.userAgent = "RatioMaster.NET" + "/" + this.LocalVersion + " (" + Environment.OSVersion + "; .NET CLR " + Environment.Version + "; " + Environment.UserName + "." + Environment.ProcessorCount + ")";
+            this.userAgent = "RatioMaster.NET"
+                             + $"/{LocalVersion} ({Environment.OSVersion}; .NET CLR {Environment.Version}; {Environment.UserName}.{Environment.ProcessorCount})";
             this.Log = log;
         }
 
         // TODO: Replace with StringBuilder
         public string Log { get; private set; }
 
-        internal string PublicVersion { get; private set; }
-
-        internal string LocalVersion { get; private set; }
-
         internal string RemoteVersion { get; private set; }
 
-        internal string ReleaseDate { get; private set; }
-
-        internal bool CheckNewVersion()
+        public bool CheckNewVersion()
         {
             try
             {
                 bool result = false;
-                string local = this.LocalVersion;
-                this.Log = this.Log + ("Local Version: " + local + "\n");
+                this.Log = this.Log + ("Local Version: " + LocalVersion + "\n");
                 this.Log = this.Log + ("Checking for new version..." + "\n");
-                this.RemoteVersion = this.GetVersion(Links.ProgramPageVersion + this.LocalVersion);
+                this.RemoteVersion = this.GetServerVersionId();
                 //// mainForm.txtRemote.Text = remoteVersion;
                 if (this.RemoteVersion.Length != 4)
                 {
@@ -46,7 +42,7 @@ namespace RatioMaster_source
                 }
 
                 this.Log = this.Log + ("Remote Version: " + this.RemoteVersion + "\n" + "\n");
-                if (string.Compare(this.RemoteVersion, local, StringComparison.Ordinal) > 0)
+                if (string.Compare(this.RemoteVersion, LocalVersion, StringComparison.Ordinal) > 0)
                 {
                     result = true;
                 }
@@ -60,23 +56,26 @@ namespace RatioMaster_source
             }
         }
 
-        private string GetVersion(string url)
+        public string GetServerVersionId()
         {
+            var url = ProgramPageVersion + LocalVersion;
             try
             {
                 var request1 = (HttpWebRequest)WebRequest.Create(url);
                 request1.UserAgent = this.userAgent;
                 request1.Timeout = 2500;
-                var response1 = (HttpWebResponse)request1.GetResponse();
-                var reader1 = new StreamReader(response1.GetResponseStream());
-                string data = reader1.ReadToEnd();
-                reader1.Close();
-                response1.Close();
-                return data;
+                using (var response1 = (HttpWebResponse)request1.GetResponse())
+                {
+                    using (var reader1 = new StreamReader(response1.GetResponseStream()))
+                    {
+                        var data = reader1.ReadToEnd();
+                        return data;
+                    }
+                }
             }
             catch (Exception exception1)
             {
-                this.Log = this.Log + ("Error in GetVersion(string url):\n" + exception1.Message + "\n");
+                this.Log = this.Log + "Error in GetVersion(string url):\n" + exception1.Message + "\n";
             }
 
             return string.Empty;

@@ -6,7 +6,7 @@ namespace BitTorrent
     using System.IO;
     using System.Text;
 
-    internal interface BEncodeValue
+    internal interface IBEncodeValue
     {
         byte[] Encode();
 
@@ -21,9 +21,9 @@ namespace BitTorrent
         }
     }
 
-    internal class ValueList : BEncodeValue, IEnumerable, IEnumerator
+    internal class ValueList : IBEncodeValue, IEnumerable, IEnumerator
     {
-        internal Collection<BEncodeValue> values;
+        internal Collection<IBEncodeValue> values;
 
         internal int Position = -1;
 
@@ -59,7 +59,7 @@ namespace BitTorrent
 
         internal ValueList()
         {
-            values = new Collection<BEncodeValue>();
+            values = new Collection<IBEncodeValue>();
         }
 
         public void Parse(Stream s)
@@ -67,18 +67,18 @@ namespace BitTorrent
             byte current = (byte)s.ReadByte();
             while ((char)current != 'e')
             {
-                BEncodeValue value = BEncode.Parse(s, current);
+                IBEncodeValue value = BEncode.Parse(s, current);
                 values.Add(value);
                 current = (byte)s.ReadByte();
             }
         }
 
-        internal void Add(BEncodeValue value)
+        internal void Add(IBEncodeValue value)
         {
             values.Add(value);
         }
 
-        internal Collection<BEncodeValue> Values
+        internal Collection<IBEncodeValue> Values
         {
             get
             {
@@ -87,14 +87,14 @@ namespace BitTorrent
             set
             {
                 values.Clear();
-                foreach (BEncodeValue val in value)
+                foreach (IBEncodeValue val in value)
                 {
                     value.Add(val);
                 }
             }
         }
 
-        internal BEncodeValue this[int index]
+        internal IBEncodeValue this[int index]
         {
             get
             {
@@ -111,7 +111,7 @@ namespace BitTorrent
             Collection<byte> bytes = new Collection<byte>();
             bytes.Add((byte)'l');
 
-            foreach (BEncodeValue member in values) foreach (byte b in member.Encode()) bytes.Add(b);
+            foreach (IBEncodeValue member in values) foreach (byte b in member.Encode()) bytes.Add(b);
 
             bytes.Add((byte)'e');
             byte[] newBytes = new Byte[bytes.Count];
@@ -122,7 +122,7 @@ namespace BitTorrent
         }
     }
 
-    internal class ValueString : BEncodeValue
+    internal class ValueString : IBEncodeValue
     {
         private string v;
 
@@ -201,7 +201,7 @@ namespace BitTorrent
         }
     }
 
-    internal class ValueNumber : BEncodeValue
+    internal class ValueNumber : IBEncodeValue
     {
         private string v;
 
@@ -270,21 +270,21 @@ namespace BitTorrent
         {
         }
 
-        internal static BEncodeValue Parse(Stream d)
+        internal static IBEncodeValue Parse(Stream d)
         {
             return Parse(d, (byte)d.ReadByte());
         }
 
-        internal static string String(BEncodeValue v)
+        internal static string String(IBEncodeValue v)
         {
             if (v is ValueString) return ((ValueString)v).String;
             else if (v is ValueNumber) return ((ValueNumber)v).String;
             else return null;
         }
 
-        internal static BEncodeValue Parse(Stream d, byte firstByte)
+        internal static IBEncodeValue Parse(Stream d, byte firstByte)
         {
-            BEncodeValue v;
+            IBEncodeValue v;
             char first = (char)firstByte;
             // 
             if (first == 'd') v = new ValueDictionary();
@@ -295,6 +295,5 @@ namespace BitTorrent
             else v.Parse(d);
             return v;
         }
-
     }
 }

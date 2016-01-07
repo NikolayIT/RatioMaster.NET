@@ -224,9 +224,8 @@ namespace BitTorrent
             if (SingleFile) ParseSingleFile();
             else ParseMultipleFiles();
             infohash = InfoHash;
-
         }
-        
+
         private void ParseSingleFile()
         {
             ValueDictionary info = (ValueDictionary)data["info"];
@@ -234,7 +233,7 @@ namespace BitTorrent
             TorrentFile f = new TorrentFile(((ValueNumber)info["length"]).Integer, ((ValueString)info["name"]).String);
             torrentFiles.Add(f);
         }
-        
+
         private void ParseMultipleFiles()
         {
             ValueDictionary info = (ValueDictionary)data["info"];
@@ -252,25 +251,11 @@ namespace BitTorrent
                     first = false;
                     path += vs.String;
                 }
+
                 _totalLength += (ulong)((ValueNumber)o["length"]).Integer;
                 TorrentFile f = new TorrentFile(((ValueNumber)o["length"]).Integer, path);
                 torrentFiles.Add(f);
             }
-        }
-        
-        internal bool OpenTorrent()
-        {
-            return OpenTorrent(localTorrentFile);
-        }
-
-
-    }
-
-    internal class IncompleteTorrentData : TorrentException
-    {
-        internal IncompleteTorrentData(string message)
-            : base(message)
-        {
         }
     }
 }

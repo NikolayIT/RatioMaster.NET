@@ -22,7 +22,7 @@ namespace RatioMaster_source
         internal MainForm()
         {
             InitializeComponent();
-            Text = "RatioMaster.NET " + versionChecker.PublicVersion;
+            Text = "RatioMaster.NET " + VersionChecker.PublicVersion;
         }
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -32,10 +32,10 @@ namespace RatioMaster_source
         {
             versionChecker = new VersionChecker(Log);
             if (versionChecker.CheckNewVersion()) verform.ShowDialog();
-            txtVersion.Text = versionChecker.PublicVersion;
+            txtVersion.Text = VersionChecker.PublicVersion;
             txtRemote.Text = versionChecker.RemoteVersion;
-            txtLocal.Text = versionChecker.LocalVersion;
-            txtReleaseDate.Text = versionChecker.ReleaseDate;
+            txtLocal.Text = VersionChecker.LocalVersion;
+            txtReleaseDate.Text = VersionChecker.ReleaseDate;
             Log += versionChecker.Log;
             //lblSize.Text = this.Width + "x" + this.Height;
             LoadSettings();
@@ -47,7 +47,7 @@ namespace RatioMaster_source
         }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutForm About = new AboutForm(versionChecker.PublicVersion);
+            AboutForm About = new AboutForm(VersionChecker.PublicVersion);
             About.ShowDialog();
         }
         private void winRestore()
@@ -266,7 +266,8 @@ namespace RatioMaster_source
                     // The key doesn't exist; create it / open it
                     reg = Registry.CurrentUser.CreateSubKey("Software\\RatioMaster.NET");
                 }
-                reg.SetValue("Version", versionChecker.PublicVersion, RegistryValueKind.String);
+
+                reg.SetValue("Version", VersionChecker.PublicVersion, RegistryValueKind.String);
                 reg.SetValue("NewValues", BtoI(RMdata.chkNewValues.Checked), RegistryValueKind.DWord);
                 reg.SetValue("BallonTip", BtoI(checkShowTrayBaloon.Checked), RegistryValueKind.DWord);
                 reg.SetValue("MinimizeToTray", BtoI(chkMinimize.Checked), RegistryValueKind.DWord);
@@ -354,7 +355,7 @@ namespace RatioMaster_source
         }
         internal void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AboutForm About = new AboutForm(versionChecker.PublicVersion);
+            AboutForm About = new AboutForm(VersionChecker.PublicVersion);
             About.ShowDialog();
         }
         private void startToolStripMenuItem_Click(object sender, EventArgs e)

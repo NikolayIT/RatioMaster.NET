@@ -11,28 +11,10 @@ namespace BitTorrent
             this.fileInfo = new FileInfo(path);
         }
 
-        internal long Length
-        {
-            get
-            {
-                return this.fileInfo.Length;
-            }
-        }
+        internal long Length => this.fileInfo.Length;
 
-        internal string Path
-        {
-            get
-            {
-                return this.fileInfo.FullName;
-            }
-        }
+        internal string Path => this.fileInfo.FullName;
 
-        internal string Name
-        {
-            get
-            {
-                return this.fileInfo.Name;
-            }
-        }
+        internal string Name => this.fileInfo.Name;
     }
 }

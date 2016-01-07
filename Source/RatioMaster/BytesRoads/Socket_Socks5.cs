@@ -1341,7 +1341,6 @@ namespace BytesRoad.Net.Sockets
                     cmd.Length,
                     new AsyncCallback(Connect_Write_End),
                     stateObj);
-
             }
             catch(Exception e)
             {
@@ -1566,7 +1565,6 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Read the response from proxy server. 
                 BeginReadVerifyReply(new AsyncCallback(Bind_Read_End), stateObj);
-
             }
             catch(Exception e)
             {

@@ -389,7 +389,6 @@ namespace BytesRoad.Net.Sockets
                     VerifyResponse();
                     stateObj.SetCompleted();
                 }
-
             }
             catch(Exception e)
             {

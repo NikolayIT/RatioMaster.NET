@@ -453,10 +453,13 @@ namespace BytesRoad.Net.Sockets
         /// <exception cref="System.NotSupportedException">
         /// any access to the property.
         /// </exception>
-        public override long Length 
+        public override long Length
         {
-            get { ThrowPropUnsupported("Length"); return 0; } 
- 
+            get
+            {
+                ThrowPropUnsupported("Length");
+                return 0;
+            }
         }
 
         /// <summary>

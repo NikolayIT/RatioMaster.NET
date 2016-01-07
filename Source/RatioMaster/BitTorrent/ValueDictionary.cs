@@ -6,14 +6,14 @@
     using System.Collections.ObjectModel;
     using System.IO;
 
-    internal class ValueDictionary : BEncodeValue
+    internal class ValueDictionary : IBEncodeValue
     {
         internal ValueDictionary()
         {
-            dict = new Dictionary<string, BEncodeValue>();
+            dict = new Dictionary<string, IBEncodeValue>();
         }
 
-        internal void Add(string key, BEncodeValue value)
+        internal void Add(string key, IBEncodeValue value)
         {
             dict.Add(key, value);
         }
@@ -60,7 +60,7 @@
                 }
                 ValueString text1 = new ValueString();
                 text1.Parse(s, num1);
-                BEncodeValue value1 = BEncode.Parse(s);
+                IBEncodeValue value1 = BEncode.Parse(s);
                 if (dict.ContainsKey(text1.String))
                 {
                     dict[text1.String] = value1;
@@ -89,7 +89,7 @@
             }
         }
 
-        internal BEncodeValue this[string key]
+        internal IBEncodeValue this[string key]
         {
             get
             {
@@ -125,6 +125,6 @@
             }
         }
 
-        private Dictionary<string, BEncodeValue> dict;
+        private Dictionary<string, IBEncodeValue> dict;
     }
 }
