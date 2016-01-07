@@ -1,4 +1,4 @@
----=== 0.43 (??-02-2014) ===---
+---=== 0.43 (08-01-2016) ===---
 - Global: The program is now open source and the source is available in https://github.com/NikolayIT/RatioMaster.NET
 - Global: Program built for .NET Framework version 4.0
 - Global: Program about form updated
@@ -6,7 +6,10 @@
 - RM: Added new client emulation: "uTorrent 3.3.2"
 - RM: Added new client emulation: "uTorrent 3.3.0"
 - RM: Added new client emulation: "uTorrent 3.2.0"
+- RM: Added new client emulation: "Transmission 2.82 (14160)"
 - RM: Default client is now "uTorrent 3.3.2"
+- RM: Proxies fixed for localhost (Thanks to ghost)
+- Code: A lot of code refactorings
 ---=== 0.42 (19-04-2010) ===---
 - RM: Program renamed from "NRPG RatioMaster" to "RatioMaster.NET"
 - RM: Program and author sites changed to "http://ratiomaster.net" and "http://nikolay.it"
