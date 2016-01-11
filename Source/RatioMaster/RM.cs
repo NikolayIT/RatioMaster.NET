@@ -1188,7 +1188,7 @@
                 }
                 if ((string)cmbStopAfter.SelectedItem == "When uploaded >")
                 {
-                    if (currentTorrent.uploaded > int.Parse(txtStopValue.Text) * 1024 * 1024) StopButton_Click(null, null);
+                    if (currentTorrent.uploaded > long.Parse(txtStopValue.Text) * 1024 * 1024) StopButton_Click(null, null);
                 }
                 if ((string)cmbStopAfter.SelectedItem == "When downloaded >")
                 {
