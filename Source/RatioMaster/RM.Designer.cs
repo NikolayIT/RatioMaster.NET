@@ -597,7 +597,7 @@ namespace RatioMaster_source
             this.chkNewValues.Name = "chkNewValues";
             this.chkNewValues.Size = new System.Drawing.Size(133, 17);
             this.chkNewValues.TabIndex = 29;
-            this.chkNewValues.Text = "Allways get new values";
+            this.chkNewValues.Text = "Always get new values";
             this.chkNewValues.UseVisualStyleBackColor = true;
             // 
             // label4
