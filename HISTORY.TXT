@@ -1,0 +1,365 @@
+---=== 0.43 (08-01-2016) ===---
+- Global: The program is now open source and the source is available in https://github.com/NikolayIT/RatioMaster.NET
+- Global: Program built for .NET Framework version 4.0
+- Global: Program information, links and about form updated
+- RM: Time displayed in logs can be now adjusted to a 24h format (Thanks to sywesk)
+- RM: Added new client emulation: "uTorrent 3.3.2"
+- RM: Added new client emulation: "uTorrent 3.3.0"
+- RM: Added new client emulation: "uTorrent 3.2.0"
+- RM: Added new client emulation: "Transmission 2.82 (14160)"
+- RM: Default client is now "uTorrent 3.3.2"
+- RM: Proxies fixed for localhost (Thanks to ghost)
+- Code: A lot of code refactorings
+---=== 0.42 (19-04-2010) ===---
+- RM: Program renamed from "NRPG RatioMaster" to "RatioMaster.NET"
+- RM: Program and author sites changed to "http://ratiomaster.net" and "http://nikolay.it"
+- RM: Added new client emulation: "uTorrent 2.0.1 (build 19078)"
+- RM: Added new client emulation: "uTorrent 1.8.5 (build 17414)"
+- RM: Added new client emulation: "BitComet 1.20"
+- RM: Added new type of clients: "Vuze"
+- RM: Added new client emulation: "Vuze 4.2.0.8"
+- RM: Added new client emulation: "BitSpirit 3.6.0.200"
+- RM: Added new client emulation: "Deluge 1.2.0"
+- RM: Default client is now "uTorrent 1.8.5 (build 17414)"
+---=== 0.41 (26-08-2008) ===---
+- RM: Fixed the memory reader on all Vista systems
+- RM: Some very small interface changes
+- RM: Some improvements in the version checker
+- RM: Added new client emulation: "uTorrent 1.8.0"
+- RM: Added new client emulation: "uTorrent 1.8.1-beta(11903)"
+- RM: Added new client emulation: "Azureus 3.1.1.0"
+- RM: Added new client emulation: "Azureus 3.0.5.0"
+- RM: Added new client emulation: "BitComet 1.03"
+- RM: Added new type of clients: "BitTorrent"
+- RM: Added new client emulation: "BitTorrent 6.0.3 (8642)"
+- RM: Added new type of clients: "Deluge"
+- RM: Added new client emulation: "Deluge 0.5.8.7"
+- RM: Added new client emulation: "Deluge 0.5.8.6"
+- RM: Default client is now "uTorrent 1.8.0"
+---=== 0.40 (30-01-2008) ===---
+- Global: Changed year in program (2008)
+- Global: Program built with Visual Studio 2008
+- RM: Added new client emulation: "uTorrent 1.7.6"
+- RM: Added new client emulation: "uTorrent 1.7.7"
+- RM: Added new client emulation: "uTorrent 1.8.0 (8205)"
+- RM: Added new client emulation: "Azureus 3.0.4.2"
+- RM: Added new client emulation: "BitComet 0.98"
+- RM: "Azureus 3.0.3.4" fixed
+- RM: Default client is now "uTorrent 1.7.7"
+---=== 0.39 (25-11-2007) ===---
+- RM: Fixed bugs with numwant and port values
+- RM: Fixed bug with BitComet clients
+- RM: Added new client emulation: "uTorrent 1.7.5"
+- RM: Added new client emulation: "uTorrent 1.8.0 (6415)"
+- RM: Added new client emulation: "Azureus 3.0.3.4"
+- RM: Added new client emulation: "BitComet 0.93"
+- RM: Added new client emulation: "BitComet 0.96"
+- RM: Default client is now "uTorrent 1.7.5"
+---=== 0.38 (07-09-2007) ===---
+- Global: Application optimized (should be little bit faster)
+- Global: Application size reduced with 12,6%
+- RM: Scroll log box to latest log message
+- RM: Added new client emulation: "uTorrent 1.7.4"
+- RM: Added new client emulation: "uTorrent 1.7.3"
+- RM: Added new client emulation: "Azureus 3.0.2.2"
+- RM: Added new client emulation: "BitComet 0.92"
+- RM: Added new type of clients: "KTorrent" (thanks to u1)
+- RM: Added new client emulation: "KTorrent 2.2.1" (thanks to u1)
+- RM: Added new type of clients: "Gnome BT" (thanks to u1)
+- RM: Added new client emulation: "Gnome BT 0.0.28-1" (thanks to u1)
+- RM: Default client is now "uTorrent 1.7.4"
+---=== 0.37 (27-07-2007) ===---
+- RM: Fixed possible security issue
+- RM: Removed a lot of the old versions of some torrent clients (for less RAM usage)
+- RM: A lot of small code optimizations
+- RM: Fixed bug with closing sockets
+- RM: ABC client bug fixed
+- RM: BitComet client bug fixed
+- RM: Added new client emulation: "uTorrent 1.7.2"
+- RM: Added new client emulation: "BitComet 0.91"
+- RM: Default client is now "uTorrent 1.7.2"
+---=== 0.36 (15-07-2007) ===---
+- RM: Browser control removed
+- RM: Menu colors fixed (like standart Windows colors)
+- RM: Added new setting: "Close to tray"
+- RM: Some small fixes in about form
+- RM: Default client is now "uTorrent 1.7.1"
+- RM: Program and author sites changed to "http://nrpg.info" and "http://ratiomaster.nrpg.info"
+- RM: Added new client emulation: "uTorrent 1.7.1"
+- RM: Added new client emulation: "uTorrent 1.7"
+- RM: Added new client emulation: "uTorrent 1.7.0-beta(2539)"
+- RM: Added new client emulation: "Azureus 3.0.1.6"
+- RM: Added new client emulation: "BitComet 0.90"
+- RM: Added new type of clients: "BitSpirit"
+- RM: Added new client emulation: "BitSpirit 3.1.0.077"
+---=== 0.35 (10-05-2007) ===---
+- RM: Added new client emulation: "uTorrent 1.7.0-beta(1703)"
+- RM: Added new client emulation: "Azureus 3.0.1.2"
+- RM: Added new client emulation: "Azureus 3.0.0.8"
+- RM: Added new client emulation: "BitComet 0.87"
+- RM: Added new client emulation: "BitComet 0.86"
+- RM: Added new client emulation: "BitComet 0.85"
+---=== 0.34 (17-02-2007) ===---
+- RM: Tracker connection problems fixed
+- RM: Tracker response bugs fixed
+- RM: Some memory optimizations
+- RM: Fixed security bug in BitComet (0.80+) emulations
+- RM: Default client is now "uTorrent 1.6.1"
+- RM: Added new client emulation: "uTorrent 1.6.1"
+- RM: Added new client emulation: "BitComet 0.84"
+---=== 0.33 (01-02-2007) ===---
+- RM: "Finished % bug" is now fixed!
+- RM: Some security bugs fixed
+- RM: Fixed some bugs when parsing number of peers from the clients
+- RM: Now every client have default value for number of peers
+- RM: You can select to load torrent file in a new tab or in the current tab when drag&drop
+- RM: Added new client emulation: "Azureus 2.5.0.4"
+- RM: Added new type of clients: "BitTyrant"
+- RM: Added new client emulation: "BitTyrant 1.1"
+---=== 0.32 (20-01-2007) ===---
+- RM: You can parse values from all running Azureus instances
+- RM: Added drag&drop support for torrent files (you can drag&drop one or more files)
+- RM: Added drag&drop support for session files (you can drag&drop one or more files)
+- RM: Added new stop condition: "When leechers/seeders <"
+- RM: When start torrent, program scrape data (not only when update)
+- RM: Fixed bugs with "numwant" values
+- RM: Fixed bug with finished percent
+- RM: Client version rearranged (newer versions are at the top of combo box)
+- RM: Added new client emulation: "Azureus 2.5.0.2"
+- RM: Added new client emulation: "BitComet 0.82"
+---=== 0.31 (05-01-2007) ===---
+- Global: Changed year in program (2007)
+- Global: New code compilation method
+- Global: Added loading screen
+- RM: Fixed some errors when parsing peers
+- RM: Some fixes in tracker response
+- RM: Added new client emulation: "BitComet 0.81"
+---=== 0.30 (15-12-2006) ===---
+- Global: You can save current tabs session and load it later with all settings!
+- Global: You can use browser (in new tab) in NRPG RatioMaster!
+- Global: All founded security bugs fixed!
+- Main: New main menu (added a lot of useful buttons, new menu color)
+- Main: A lot of fixes in tab names and tab orders and
+- Main: You can change current tabs name from main menu
+- Main: Added release date, IP label and number of tabs lable in the status bar
+- RM: New panels interface! Now you can show/hide elements in panel!
+- RM: Auto stop when you want (after time, when seeders or leechers < of some number, when uploaded or downloaded > of some value)
+- RM: Added "Ignore failure reason" in settings
+- RM: Added new parser system for clients data
+- RM: A lot of security fixes in TCP Listener!
+- RM: Fixed some bugs when send event to tracker
+- RM: No more flushing torrents
+- RM: Program sets upload speed to 0 and disable random speeds when there is no leechers in current torrent
+- RM: Added new item in status bar: "total time"
+- RM: You can use ',' and '.' as decimal points in finished box
+- RM: Log: now show proxy pass and user correctly
+- RM: You can parse values from all BitComet, uTorrent and ABC clients
+- RM: Added 2 new types of clients: "BitTornado" and "Burst"
+- RM: Added new client emulation: "BitTornado 0.3.17"
+- RM: Added new client emulation: "Burst 3.1.0b"
+- RM: Added new client emulation: "BitComet 0.79"
+- RM: Added new client emulation: "BitComet 0.80"
+---=== 0.23 (09-10-2006) ===---
+- RM: Now the program can add 'localip' in announce (for BitComet 0.72+ when stopping)
+- RM: Added new item in status bar - Local IP
+- RM: Parsing values improved
+- RM: Added new type of clients: "BTuga"
+- RM: Added new client emulation: "BTuga 2.1.8"
+- RM: Added new client emulation: "BitComet 0.71"
+- RM: Added new client emulation: "BitComet 0.72"
+- RM: Added new client emulation: "BitComet 0.73"
+- RM: Added new client emulation: "uTorrent 1.6.1-beta(483)"
+- RM: Parses peerID, key, port and numwant from running
+      - uTorrent 1.6.1 instance
+      - BitComet 0.71
+      - BitComet 0.72
+      - BitComet 0.73
+---=== 0.22 (28-08-2006) ===---
+- RM: Parsing from torrent clients optimized
+- RM: Added new client emulation: "Azureus 2.5.0.0"
+- RM: Added new type of clients: "BitLord"
+- RM: Added new client emulation: "BitLord 1.1"
+- Main: Program size fixed
+---=== 0.21 (02-08-2006) ===---
+- RM: "Number of peers" returned
+- RM: Parses peerID, key, port and numwant from running
+      - uTorrent 1.6 instance
+      - BitComet 0.70 instance
+- RM: Fixed error in BitComet emulations (every time numwant is 100)
+- RM: Default numwant is 200
+---=== 0.20 (16-07-2006) ===---
+- Global: Added new form: AboutForm
+- Global: RMForm is now control (RM)
+- Global: Code obfuscated, code optimized, all internal
+- Global: Removed unused assemblies (for code optimization)
+- Main: Supports multiple RatioMasters running in one instance.
+- Main: Added Main Form (MDI Container) with fixed size
+- Main: Added menu (New, Remove, Settings, Links, About, Exit...)
+- Main: Added status bar with version information
+- Main: Added TabContainer with all RatioMasters controls
+- RM: Automatically parses peer ID and client key from running uTorrent 1.6 instance
+- RM: Added new client simulation: BitComet 0.57
+- RM: Added option to select to generate new custom values or use current in registry
+- RM: Added ability to set non-integer numbers in "Finished" box
+- RM: Now you can see peer ID and client key in boxes
+- RM: Fixed a lot of bugs in registry
+- RM: Fixed error when tracker doesn't support scraping
+- RM: Fixed peer ID calculation
+- RM: Fixed small bug when parsing float numbers
+- RM: Default button fixed
+- RM: Removed about tab
+- AboutForm: Contains all information from old about tab (added new betatesters)
+- NewVersionForm: Fixed some small bugs in GUI
+---=== 0.14 (10-07-2006) ===---
+- Added: New client emulation: "uTorrent 1.6"
+- New: Added information about moofdev in about box
+- Fixed: client Azureus 2.4.0.3-beta fixed
+- Fixed: Fixed some bugs in save settings and default values
+- Changed: Cursors changed
+- Changed: Some changes in Interface
+- Changed: Default client - "uTorrent 1.6"
+- Changed: Default: On next update random speeds is disabled
+- Changed: Some changes in about box
+---=== 0.13 (01-07-2006) ===---
+- Added: New client emulation: "BitComet 0.69"
+- Added: New client emulation: "BitComet 0.70"
+- Added: New client emulation: "uTorrent 1.6-RC1"
+- New: Program save finished percent in registry
+- Fixed: Some bugs in request Scrape
+- Fixed: Security bug when stopping
+- Fixed: Picture in about box is now link to the forum
+---=== 0.12 (16-06-2006) ===---
+- New: Added status bar with all stats
+- Changed: A lot of optimizations in code!
+- Changed: Port moved to "Main settings"
+- Changed: Lots of UI changes
+- Changed: File size, downloaded and uploaded have new format
+- Changed: Some changes in "Advanced settings tab"
+- Changed: Program resized
+- Changed: Torrent ratio pecision = .2
+- Fixed: Bug when scraping
+- Fixed: Proxy encoding
+- Fixed: Web request encoding
+- Fixed: Bug: Don't parse custom key and custom peer ID
+- Fixed: Security bug
+- Fixed: Bugs in tray icon baloon
+- Fixed: Now don't start TCP listener when using proxy
+- Fixed: Default button bugs
+- Fixed: GUI: Tab indexes fixed
+- Removed: "stats box" (now in status bar)
+- Removed: "stats tab" (unusable)
+- Removed: "custom peers" - unusable
+- Removed: "custom user agent" - unusable
+- Removed: Some items from "about tab"
+---=== 0.11 (05-06-2006) ===---
+- Added: New client emulation: "BitComet 0.68"
+- Added: New client emulation: "2.4.0.3-beta"
+- New: Save/load more new settings to/from registry
+- Fixed: A lot of minor bugs
+- Changed: Default button - added some new default values
+- Changed: Interface: some small changes in tabs
+---=== 0.10 (15-05-2006) ===---
+- Added: New client emulation: "BitComet 0.67"
+- Added: New client emulation: "uTorrent 1.51-beta"
+- New: Random speeds on next tracker update
+- New: Added ability to select remaning work time
+- New: Added ability to select random speeds
+- New: Added new tab - "Stats"
+- New: Added client information in "Stats"
+- New: Added more torrent file information
+- New: Added ability to save log in file
+- New: Added button "View Beta Testers"
+- New: Now save/load a lot of new settings to/from registry
+- Fixed: Get tracker update interval from tracker
+- Fixed: Incorrect hash calculations
+- Fixed: Now program send non-integer numbers for up/down
+- Fixed: Fully fixed all bugs when exit program
+- Fixed: Some bugs in Tcp Listener code
+- Fixed: Bug with "Minimize to tray"
+- Fixed: A lot of minor bugs
+- Changed: Default client: uTorrent(latest stable version)
+- Changed: Default button - improved
+- Changed: Baloon tip - improved
+- Changed: Torrent name moved to "Stats" tab
+- Changed: Seeders/Leechers stats moves to "Stats" tab
+- Changed: Default: Don't scrape info for more secure
+- Changed: Some small changes in interface
+---=== 0.09 (04-05-2006) ===---
+- Added: New client emulation: "BitComet 0.65"
+- Added: New client emulation: "BitComet 0.66"
+- New: Save settings in system registry(main settings)
+- New: Added Baloon tip in SysTray
+- New: Added Option - Show baloon tip - default - false
+- New: Added Lable with Torrent ratio (uploaded / downloaded)
+- Fixed: Some bugs when change "upload and download speed" fields
+- Fixed: Some bugs when getting new version
+- Changed: SysTray menu - improved
+- Changed: Default button - improved
+- Changed: Request Scrap - default - true
+- Changed: Default client - "BitComet 0.66"
+---=== 0.08 (18-04-2006) ===---
+- Added: New client emulation: "BitComet 0.64"
+- Added: New client emulation: "uTorrent 1.42-beta"
+- New: Added "default button" in Advansed settings
+- Fixed: Finished lable now integer (in %)
+- Fixed: Sending "completed" event to tracker
+- Fixed: A lot of minor bugs
+- Fixed: Encoding fixed
+- Changed: Added pc info in log
+- Changed: Request Scrap - default - false
+- Changed: Default client - "BitComet 0.64"
+---=== 0.07 (12-04-2006) ===---
+- Added: New client emulation: "Azureus 2.4.0.2"
+- New: When select client - 1) select client 2) select client version
+- New: Added info for original author
+- Changed: MORE info in Log
+- Changed: Added time to log
+- Changed: A lot of changes in "About"
+- Fixed: Error when press Exit or Close
+- Fixed: Error in Scrape Info
+- Fixed: Bug in log - don't disable logging
+- Fixed: Next items when [tab] pressed
+- Fixed: A lot of minor bugs
+- Removed: Text box with latest news - not nessesery
+- Removed: Text box with latest main news - not nessesery
+- Removed: Auto test for latest beta version
+---=== 0.06 (07-04-2006) ===---
+- New: Now can change upload and download speed by changing their fields
+- New: Text box with latest news about NRPG RatioMaster
+- New: Text box with latest main news about NRPG RatioMaster
+- New: Text box with latest beta version
+- New: Added link to "NRPG Forum"
+- Changed: When new version - new form
+- Changed: When start - Non-editable items - Read only
+- Changed: Tracker - no more read only
+- Changed: All buttons - bolded
+- Changed: Some interface changes
+- Changed: Some changes in "About box"
+- Fixed: Bug in Torrent size (now in KB)
+- Fixed: Some minor bugs
+---=== 0.05 (03-04-2006) ===---
+- Added: New client emulation: "ABC 3.1"
+- Added: New client emulation: "BitComet 0.63"
+- Added: New client emulation: "uTorrent 1.5"
+- New: Added SysTray icon
+- New: Added context menu for SysTray icon ("Restore", "EXIT")
+- New: In Options: added option: on minimize hide to tray
+- New: New info for torrent: torrent size
+- New: New info for torrent: torrent name
+- Changed: HASH info - read only
+- Changed: Browse button: smaller and bolded
+- Changed: Default client - "BitComet 0.63"
+---=== 0.03 (31-03-2006) ===---
+- Changed: Some Torrent Emulation changes in source
+- Changed: "Torrent Clients box" now sorted
+- Fixed: Bug in "Finished lable" - show uploaded instead of downloaded
+- Fixed: Bug that don't stop "NRPG RatioMaster" from process
+- Fixed: Bug in "Remote Version lable" - show current version instead of remote version
+---=== 0.02 (28-03-2006) ===---
+- New: "Finished lable" now update every second
+- Removed: Microsoft.ReportViewer.Common.dll
+- Removed: Microsoft.ReportViewer.ProcessingObjectModel.dll
+- Removed: Microsoft.ReportViewer.WinForms.dll
+- Fixed: Some corrections in version checker
+---=== 0.01 (25-03-2006) ===---
+- First Release
