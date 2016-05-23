@@ -470,7 +470,7 @@
                         client.Key = GenerateIdString("hex", 8, false, true);
                         client.Headers = "User-Agent: Transmission/2.82\r\nHost: {host}\r\nAccept: */*\r\nAccept-Encoding: gzip;q=1.0, deflate, identity\r\n";
                         client.PeerID = "-TR2500-" + GenerateIdString("alphanumeric", 12, false, false);
-                        client.Query = "info_hash={infohash}&amp;peer_id={peerid}&amp;port={port}&amp;uploaded={uploaded}&amp;downloaded={downloaded}&amp;left={left}&amp;numwant={numwant}&amp;key={key}&amp;compact=1&amp;supportcrypto=1{event}";
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&key={key}&compact=1&supportcrypto=1{event}";
                         client.DefNumWant = 80;
                         // client.Parse = true;
                         client.SearchString = "&peer_id=-TR2500-";
@@ -487,7 +487,7 @@
                         client.Key = GenerateIdString("hex", 8, false, true);
                         client.Headers = "User-Agent: Transmission/2.92\r\nHost: {host}\r\nAccept: */*\r\nAccept-Encoding: gzip;q=1.0, deflate, identity\r\n";
                         client.PeerID = "-TR2920-" + GenerateIdString("alphanumeric", 12, false, false);
-                        client.Query = "info_hash={infohash}&amp;peer_id={peerid}&amp;port={port}&amp;uploaded={uploaded}&amp;downloaded={downloaded}&amp;left={left}&amp;numwant={numwant}&amp;key={key}&amp;compact=1&amp;supportcrypto=1{event}";
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&key={key}&compact=1&supportcrypto=1{event}";
                         client.DefNumWant = 80;
                         // client.Parse = true;
                         client.SearchString = "&peer_id=-TR2920-";
