@@ -399,7 +399,7 @@
 		    {
 			cmbVersion.Items.Add("2.82 (14160)");
 			cmbVersion.Items.Add("2.92 (14714)");
-			cmbVersion.SelectedItem = "2.82 (14160)";
+			cmbVersion.SelectedItem = "2.92 (14714)";
 			if (customPeersNum.Text == "0" || customPeersNum.Text == "") customPeersNum.Text = "200";
                         break;
 		    }
