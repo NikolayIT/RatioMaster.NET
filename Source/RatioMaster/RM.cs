@@ -395,13 +395,14 @@
                         if (customPeersNum.Text == "0" || customPeersNum.Text == "") customPeersNum.Text = "200";
                         break;
                     }
-				case "Transmission":
-					{
-						cmbVersion.Items.Add("2.82 (14160)");
-						cmbVersion.SelectedItem = "2.82 (14160)";
-						if (customPeersNum.Text == "0" || customPeersNum.Text == "") customPeersNum.Text = "200";
+		case "Transmission":
+		    {
+			cmbVersion.Items.Add("2.82 (14160)");
+			cmbVersion.Items.Add("2.92 (14714)");
+			cmbVersion.SelectedItem = "2.82 (14160)";
+			if (customPeersNum.Text == "0" || customPeersNum.Text == "") customPeersNum.Text = "200";
                         break;
-					}
+		    }
                 case "BitLord":
                     {
                         cmbVersion.Items.Add("1.1");
