@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Net;
@@ -44,6 +44,7 @@ namespace BytesRoad.Net.Sockets
         class Connect_SO : AsyncResultBase
         {
             int _port;
+
             internal Connect_SO(int port, AsyncCallback cb, object state) : base(cb, state)
             {
                 _port = port;
@@ -131,6 +132,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw e;
             }
+
             return stateObj;
         }
 
@@ -152,6 +154,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw e;
             }
+
             return stateObj;
         }
 
@@ -164,7 +167,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = Dns.EndGetHostByName(ar);
                 if(null == host)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve host name.");
 
                 EndPoint remoteEP = ConstructEndPoint(host, stateObj.Port);
                 _socket.BeginConnect(remoteEP,
@@ -190,6 +194,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 
@@ -225,6 +230,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
             return stateObj;
         }

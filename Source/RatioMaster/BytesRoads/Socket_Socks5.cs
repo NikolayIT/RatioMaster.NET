@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Net;
@@ -70,9 +70,11 @@ namespace BytesRoad.Net.Sockets
                 set { _reply = value; }
             }
         }
+
         class UsernamePassword_SO : AsyncResultBase
         {
             byte[] _reply = new byte[2];
+
             internal UsernamePassword_SO(AsyncCallback cb, object state)
                 : base(cb, state)
             {
@@ -83,6 +85,7 @@ namespace BytesRoad.Net.Sockets
                 get { return _reply; }
             }
         }
+
         class DoAuthentication_SO : AsyncResultBase
         {
             internal DoAuthentication_SO(AsyncCallback cb, object state)
@@ -246,14 +249,14 @@ namespace BytesRoad.Net.Sockets
 
         #endregion
 
-        //policy switches
+        // policy switches
         bool _resolveHostEnabled = true;
 
-        //remote host information
+        // remote host information
         string _remoteHost = null;
         int _remotePort = -1;
 
-        //End points
+        // End points
         EndPoint _localEndPoint = null;
         EndPoint _remoteEndPoint = null;
 
@@ -271,10 +274,12 @@ namespace BytesRoad.Net.Sockets
         { 
             get { return ProxyType.Socks5; } 
         }
+
         override internal EndPoint LocalEndPoint 
         { 
             get { return _localEndPoint; } 
         }
+
         override internal EndPoint RemoteEndPoint 
         { 
             get { return _remoteEndPoint; } 
@@ -312,10 +317,10 @@ namespace BytesRoad.Net.Sockets
             //------------------------------
             // Compose header
             //
-            cmd[0] = 5; //version
-            cmd[1] = cmdVal; //command
-            cmd[2] = 0; //reserved
-            cmd[3] = 1; //ATYPE - 1 for address as IP4
+            cmd[0] = 5; // version
+            cmd[1] = cmdVal; // command
+            cmd[2] = 0; // reserved
+            cmd[3] = 1; // ATYPE - 1 for address as IP4
 
             //------------------------------
             // Store IP address
@@ -348,10 +353,10 @@ namespace BytesRoad.Net.Sockets
             //----------------------------------
             // Compose header
             //
-            cmd[0] = 5; //version
-            cmd[1] = cmdVal; //command
-            cmd[2] = 0; //reserved
-            cmd[3] = 3; //domain name as address
+            cmd[0] = 5; // version
+            cmd[1] = cmdVal; // command
+            cmd[2] = 0; // reserved
+            cmd[3] = 3; // domain name as address
 
             //----------------------------------
             // Store host name as address
@@ -492,7 +497,7 @@ namespace BytesRoad.Net.Sockets
             
             //------------------------------
             // Compose the header
-            cmd[0] = 1; //version
+            cmd[0] = 1; // version
 
             //------------------------------
             // Store user name
@@ -588,6 +593,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 
@@ -615,21 +621,21 @@ namespace BytesRoad.Net.Sockets
             // exception.
             //
             byte method = reply[1];
-            if(0 == method) //no authentication required
+            if(0 == method) // no authentication required
             {
                 return AuthMethod.None;
             }
-            else if(2 == method) //Username/password
+            else if(2 == method) // Username/password
             {
                 return AuthMethod.UsernamePassword;
             }
-            else if(0xFF == method) //no acceptable methods
+            else if(0xFF == method) // no acceptable methods
             {
                 return AuthMethod.NoAcceptable;
             }
             else
             {
-                //it is a violation of protocol
+                // it is a violation of protocol
                 string msg = string.Format("Socks5 server requires not declared authentication method ({0}).", method);
                 throw new ProtocolViolationException(msg);
             }
@@ -646,14 +652,14 @@ namespace BytesRoad.Net.Sockets
             }
             else if(AuthMethod.NoAcceptable == method)
             {
-                //throw new AuthFailedException("No acceptable methods.");
+                // throw new AuthFailedException("No acceptable methods.");
                 throw new SocketException(SockErrors.WSAECONNREFUSED);
             }
             else
             {
-                //throw invalid operation because 
-                //method is unknown and execution should be stoped proir
-                //this point
+                // throw invalid operation because 
+                // method is unknown and execution should be stoped proir
+                // this point
                 throw new InvalidOperationException("Unknown authentication requested.");
             }
         }
@@ -671,7 +677,7 @@ namespace BytesRoad.Net.Sockets
             }
             else if(AuthMethod.NoAcceptable == method)
             {
-                //throw new AuthFailedException("No acceptable methods.");
+                // throw new AuthFailedException("No acceptable methods.");
                 throw new SocketException(SockErrors.WSAECONNREFUSED);
             }
             else if(AuthMethod.None != method)
@@ -682,6 +688,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.SetCompleted();
             }
+
             return stateObj;
         }
 
@@ -697,6 +704,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 
@@ -713,18 +721,19 @@ namespace BytesRoad.Net.Sockets
             if(useCredentials)
             {
                 cmd = new byte[4];
-                cmd[0] = 5; //version
-                cmd[1] = 2; //number of supported methods
-                cmd[2] = 0; //no authentication
-                cmd[3] = 2; //username/password
+                cmd[0] = 5; // version
+                cmd[1] = 2; // number of supported methods
+                cmd[2] = 0; // no authentication
+                cmd[3] = 2; // username/password
             }
             else
             {
                 cmd = new byte[3];
-                cmd[0] = 5; //version
-                cmd[1] = 1; //number of supported methods
-                cmd[2] = 0; //no authentication
+                cmd[0] = 5; // version
+                cmd[1] = 1; // number of supported methods
+                cmd[2] = 0; // no authentication
             }
+
             return cmd;
         }
 
@@ -757,6 +766,7 @@ namespace BytesRoad.Net.Sockets
                     useCredentials = true;
                     continue;
                 }
+
                 break;    
             }
 
@@ -867,6 +877,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 
@@ -916,15 +927,16 @@ namespace BytesRoad.Net.Sockets
                 msg = string.Format("Socks5: Reply code is unknown ({0}).", rep);
             msg.ToString();
             throw new SocketException(SockErrors.WSAECONNREFUSED);
-            //throw new ProxyErrorException(msg);
+
+            // throw new ProxyErrorException(msg);
         }
 
         int GetAddrFieldLength(byte[] reply)
         {
             byte atyp = reply[3];
-            if(1 == atyp) //IP4 address?
+            if(1 == atyp) // IP4 address?
                 return 4;
-            else if(3 == atyp) //domain name?
+            else if(3 == atyp) // domain name?
                 return 1 + reply[4];
             else if(4 == atyp)
                 return 16;
@@ -1014,6 +1026,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 
@@ -1041,6 +1054,7 @@ namespace BytesRoad.Net.Sockets
             {
                 SetProgress(false);
             }
+
             return this;
         }
 
@@ -1065,6 +1079,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw;
             }
+
             return stateObj;
         }
 
@@ -1081,6 +1096,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 
@@ -1138,7 +1154,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry  proxyEntry = GetHostByName(_proxyServer);
                 if(null == proxyEntry)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(proxyEntry, _proxyPort);
 
@@ -1165,9 +1182,9 @@ namespace BytesRoad.Net.Sockets
                 _remoteEndPoint = remoteEP;
 
                 //---------------------------------------
-                //I we unable to resolve remote host then
-                //store information - it will required
-                //later for BIND command.
+                // I we unable to resolve remote host then
+                // store information - it will required
+                // later for BIND command.
                 if(null == remoteEP)
                 {
                     _remotePort = hostPort;
@@ -1221,6 +1238,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw e;
             }
+
             return stateObj;
         }
 
@@ -1272,6 +1290,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw ex;
             }
+
             return stateObj;
         }
 
@@ -1284,7 +1303,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = EndGetHostByName(ar);
                 if(null == host)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
 
@@ -1380,9 +1400,9 @@ namespace BytesRoad.Net.Sockets
                 _remoteEndPoint = stateObj.RemoteEndPoint;
 
                 //---------------------------------------
-                //I we unable to resolve remote host then
-                //store information - it will required
-                //later for BIND command.
+                // I we unable to resolve remote host then
+                // store information - it will required
+                // later for BIND command.
                 if(null == stateObj.RemoteEndPoint)
                 {
                     _remotePort = stateObj.HostPort;
@@ -1393,6 +1413,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 
@@ -1416,7 +1437,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = GetHostByName(_proxyServer);
                 if(host == null)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy host name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
 
@@ -1440,7 +1462,7 @@ namespace BytesRoad.Net.Sockets
                 byte[] reply = ReadVerifyReply();
                 _localEndPoint = ExtractReplyAddr(reply);
 
-                //remote end point is unknown till accept
+                // remote end point is unknown till accept
                 _remoteEndPoint = null;
             }
             finally
@@ -1477,6 +1499,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw ex;
             }
+
             return stateObj;
         }
 
@@ -1489,7 +1512,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = EndGetHostByName(ar);
                 if(host == null)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy host name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
                 stateObj.ProxyIP = proxyEndPoint.Address;
@@ -1587,6 +1611,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 

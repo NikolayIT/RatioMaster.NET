@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Net;
@@ -53,6 +53,7 @@ namespace BytesRoad.Net.Sockets
             {
                 get { return _port; }
             }
+
             internal EndPoint RemoteEndPoint
             {
                 get { return _remoteEndPoint; }
@@ -117,7 +118,7 @@ namespace BytesRoad.Net.Sockets
 
         byte[] _response = new byte[8];
 
-        //End points
+        // End points
         EndPoint _localEndPoint = null;
         EndPoint _remoteEndPoint = null;
 
@@ -137,7 +138,9 @@ namespace BytesRoad.Net.Sockets
         { 
             get { return ProxyType.Socks4; } 
         }
+
         override internal EndPoint LocalEndPoint { get { return _localEndPoint; } }
+
         override internal EndPoint RemoteEndPoint { get { return _remoteEndPoint; } }
         #endregion
 
@@ -175,7 +178,8 @@ namespace BytesRoad.Net.Sockets
 
             if(null != msg)
                 throw new SocketException(SockErrors.WSAECONNREFUSED);
-                //throw new ProxyErrorException(msg);
+
+                // throw new ProxyErrorException(msg);
         }
 
         byte[] PrepareCmd(EndPoint remoteEP, byte cmdVal)
@@ -223,9 +227,9 @@ namespace BytesRoad.Net.Sockets
             ip &= 0xFFFFFFFF;
 
             //------------------------------------
-            //if ip addr all zeros we need to 
-            //substitute address of the proxy
-            //server
+            // if ip addr all zeros we need to 
+            // substitute address of the proxy
+            // server
             if(0 == ip)
                 return new IPEndPoint(proxyIP, port);
 
@@ -255,6 +259,7 @@ namespace BytesRoad.Net.Sockets
             {
                 SetProgress(false);
             }
+
             return this;
         }
 
@@ -283,6 +288,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw;
             }
+
             return stateObj;
         }
 
@@ -340,7 +346,8 @@ namespace BytesRoad.Net.Sockets
                 //
                 IPHostEntry  proxyEntry = GetHostByName(_proxyServer);
                 if(null == proxyEntry)
-                    //throw new HostNotFoundException("Unable to resolve proxy name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy name.");
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(proxyEntry, _proxyPort);
@@ -350,7 +357,7 @@ namespace BytesRoad.Net.Sockets
                 //
                 _socket.Connect(proxyEndPoint);
 
-                _localEndPoint = null; //CONNECT command doesn't provide us with local end point
+                _localEndPoint = null; // CONNECT command doesn't provide us with local end point
                 _remoteEndPoint = remoteEP;
 
                 //------------------------------------------
@@ -400,6 +407,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw e;
             }
+
             return stateObj;
         }
 
@@ -412,7 +420,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = EndGetHostByName(ar);
                 if(null == host)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve host name.");
 
                 stateObj.RemoteEndPoint = ConstructEndPoint(host, stateObj.Port);
 
@@ -453,6 +462,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw ex;
             }
+
             return stateObj;
         }
 
@@ -465,7 +475,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = EndGetHostByName(ar);
                 if(null == host)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
 
@@ -588,7 +599,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = GetHostByName(_proxyServer);
                 if(host == null)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy host name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
 
@@ -617,7 +629,7 @@ namespace BytesRoad.Net.Sockets
                 VerifyResponse();
                 _localEndPoint = ConstructBindEndPoint(proxyEndPoint.Address);
             
-                //remote end point doesn't provided for BIND command
+                // remote end point doesn't provided for BIND command
                 _remoteEndPoint = null;
             }
             finally
@@ -652,6 +664,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw ex;
             }
+
             return stateObj;
         }
 
@@ -664,7 +677,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = EndGetHostByName(ar);
                 if(host == null)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy host name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
                 stateObj.ProxyIP = proxyEndPoint.Address;

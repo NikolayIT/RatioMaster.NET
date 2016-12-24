@@ -27,6 +27,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "BitComet 1.03":
                     {
                         client.Name = "BitComet 1.03";
@@ -44,6 +45,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "BitComet 0.98":
                     {
                         client.Name = "BitComet 0.98";
@@ -61,6 +63,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "BitComet 0.96":
                     {
                         client.Name = "BitComet 0.96";
@@ -78,6 +81,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "BitComet 0.93":
                     {
                         client.Name = "BitComet 0.93";
@@ -95,6 +99,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "BitComet 0.92":
                     {
                         client.Name = "BitComet 0.92";
@@ -150,6 +155,7 @@
                         client.MaxOffset = 100000000;
                         break;
                     }
+
                 case "Azureus 3.0.5.0":
                     {
                         client.Name = "Azureus 3.0.5.0";
@@ -167,6 +173,7 @@
                         client.MaxOffset = 100000000;
                         break;
                     }
+
                 case "Azureus 3.0.4.2":
                     {
                         client.Name = "Azureus 3.0.4.2";
@@ -184,6 +191,7 @@
                         client.MaxOffset = 100000000;
                         break;
                     }
+
                 case "Azureus 3.0.3.4":
                     {
                         client.Name = "Azureus 3.0.3.4";
@@ -201,6 +209,7 @@
                         client.MaxOffset = 100000000;
                         break;
                     }
+
                 case "Azureus 3.0.2.2":
                     {
                         client.Name = "Azureus 3.0.2.2";
@@ -218,6 +227,7 @@
                         client.MaxOffset = 100000000;
                         break;
                     }
+
                 case "Azureus 2.5.0.4":
                     {
                         client.Name = "Azureus 2.5.0.4";
@@ -254,6 +264,7 @@
                         client.MaxOffset = 200000000;
                         break;
                     }
+
                 case "uTorrent 3.3.0":
                     {
                         client.Name = "uTorrent 3.3.0";
@@ -271,6 +282,7 @@
                         client.MaxOffset = 200000000;
                         break;
                     }
+
                 case "uTorrent 3.2.0":
                     {
                         client.Name = "uTorrent 3.2.0";
@@ -288,6 +300,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 2.0.1 (build 19078)":
                     {
                         client.Name = "uTorrent 2.0.1 (build 19078)";
@@ -305,6 +318,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 1.8.5 (build 17414)":
                     {
                         client.Name = "uTorrent 1.8.5 (build 17414)";
@@ -322,6 +336,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 1.8.1-beta(11903)":
                     {
                         client.Name = "uTorrent 1.8.1-beta(11903)";
@@ -339,6 +354,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 1.8.0":
                     {
                         client.Name = "uTorrent 1.8.0";
@@ -356,6 +372,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 1.7.7":
                     {
                         client.Name = "uTorrent 1.7.7";
@@ -373,6 +390,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 1.7.6":
                     {
                         client.Name = "uTorrent 1.7.6";
@@ -390,6 +408,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 1.7.5":
                     {
                         client.Name = "uTorrent 1.7.5";
@@ -407,6 +426,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 1.6.1":
                     {
                         client.Name = "uTorrent 1.6.1";
@@ -424,6 +444,7 @@
                         client.MaxOffset = 60000000;
                         break;
                     }
+
                 case "uTorrent 1.6":
                     {
                         client.Name = "uTorrent 1.6";
@@ -472,13 +493,16 @@
                         client.PeerID = "-TR2500-" + GenerateIdString("alphanumeric", 12, false, false);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&key={key}&compact=1&supportcrypto=1{event}";
                         client.DefNumWant = 80;
+
                         // client.Parse = true;
                         client.SearchString = "&peer_id=-TR2500-";
                         client.ProcessName = "Transmission";
+
                         // client.StartOffset = 0;
                         // client.MaxOffset = 200000000;
                         break;
                     }
+
                 case "Transmission 2.92 (14714)":
                     {
                         client.Name = "Transmission 2.92 (14714)";
@@ -489,9 +513,11 @@
                         client.PeerID = "-TR2920-" + GenerateIdString("alphanumeric", 12, false, false);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&key={key}&compact=1&supportcrypto=1{event}";
                         client.DefNumWant = 80;
+
                         // client.Parse = true;
                         client.SearchString = "&peer_id=-TR2920-";
                         client.ProcessName = "Transmission";
+
                         // client.StartOffset = 0;
                         // client.MaxOffset = 200000000;
                         break;
@@ -549,9 +575,10 @@
                         client.Headers = "Host: {host}\r\nAccept-Encoding: gzip\r\nUser-Agent: BitTornado/T-0.3.17\r\n";
                         client.PeerID = "T03H-----" + GenerateIdString("alphanumeric", 11, false, false);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&no_peer_id=1&compact=1{event}&key={key}";
-                        //client.Parse = true;
-                        //client.SearchString = "&peer_id=T03H-----";
-                        //client.ProcessName = "btdownloadgui";
+
+                        // client.Parse = true;
+                        // client.SearchString = "&peer_id=T03H-----";
+                        // client.ProcessName = "btdownloadgui";
                         break;
                     }
                 #endregion
@@ -595,6 +622,7 @@
                         client.DefNumWant = 200;
                         break;
                     }
+
                 case "BitSpirit 3.1.0.077":
                     {
                         client.Name = "BitSpirit 3.1.0.077";
@@ -626,6 +654,7 @@
                         client.MaxOffset = 100000000;
                         break;
                     }
+
                 case "Deluge 0.5.8.7":
                     {
                         client.Name = "Deluge 0.5.8.7";
@@ -643,6 +672,7 @@
                         client.MaxOffset = 100000000;
                         break;
                     }
+
                 case "Deluge 0.5.8.6":
                     {
                         client.Name = "Deluge 0.5.8.6";
@@ -707,6 +737,7 @@
                         break;
                     }
             }
+
             return client;
         }
 
@@ -721,32 +752,38 @@
                     text1 = stringGenerator.Generate(keyLength);
                     goto Label_00A2;
                 }
+
                 if (text2 == "numeric")
                 {
                     text1 = stringGenerator.Generate(keyLength, "0123456789".ToCharArray());
                     goto Label_00A2;
                 }
+
                 if (text2 == "random")
                 {
                     text1 = stringGenerator.Generate(keyLength, true);
                     goto Label_00A2;
                 }
+
                 if (text2 == "hex")
                 {
                     text1 = stringGenerator.Generate(keyLength, "0123456789ABCDEF".ToCharArray());
                     goto Label_00A2;
                 }
             }
+
             text1 = stringGenerator.Generate(keyLength);
         Label_00A2:
             if (urlencoding)
             {
                 return stringGenerator.Generate(text1, upperCase);
             }
+
             if (upperCase)
             {
                 text1 = text1.ToUpper();
             }
+
             return text1;
         }
     }

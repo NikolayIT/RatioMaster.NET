@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.IO;
@@ -574,6 +574,7 @@ namespace BytesRoad.Net.Sockets
                     num = _socket.Receive(buffer, offset+read, size-read);
                     read += num;
                 }
+
                 return read;
             }
             catch
@@ -714,6 +715,7 @@ namespace BytesRoad.Net.Sockets
                     stateObj.Exception = e;
                 stateObj.SetCompleted();
             }
+
             /*
             catch
             {
@@ -980,6 +982,7 @@ namespace BytesRoad.Net.Sockets
                     stateObj.Exception = e;
                 stateObj.SetCompleted();
             }
+
             /*
             catch
             {

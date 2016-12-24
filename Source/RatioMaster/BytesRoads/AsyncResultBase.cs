@@ -19,12 +19,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Threading;
 
 using BytesRoad.Diag;
+
 namespace BytesRoad.Net.Sockets.Advanced
 {
     /// <summary>
@@ -63,7 +64,7 @@ namespace BytesRoad.Net.Sockets.Advanced
 
         internal void SetCompleted()
         {
-            lock(this)  //sync with 'AsyncWaitHandle' property
+            lock(this)  // sync with 'AsyncWaitHandle' property
             {
                 UpdateContext();
                 _isCompleted = true;
@@ -83,6 +84,7 @@ namespace BytesRoad.Net.Sockets.Advanced
                 NSTrace.WriteLineError("Exception in CB: " + e.ToString());
                 throw;
             }
+
             /*
             catch
             {
@@ -141,6 +143,7 @@ namespace BytesRoad.Net.Sockets.Advanced
         internal virtual bool IsHandled
         {
             get { return _isHandled; }
+
             set 
             { 
                 if(value)
@@ -153,6 +156,7 @@ namespace BytesRoad.Net.Sockets.Advanced
                 {
                     NSTrace.WriteLineError("IsHandled assigned 'false'");
                 }
+
                 _isHandled = value; 
             }
         }
@@ -173,11 +177,12 @@ namespace BytesRoad.Net.Sockets.Advanced
         {
             get
             {
-                lock(this) //sync with 'SetCompleted' method
+                lock(this) // sync with 'SetCompleted' method
                 {
                     if(null == _wait)
                         _wait = new ManualResetEvent(IsCompleted);
                 }
+
                 return _wait;
             }
         }

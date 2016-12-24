@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Text;
@@ -39,9 +39,11 @@ namespace BytesRoad.Net.Sockets
         class Receive_SO : AsyncResultBase
         {
             int _read = 0;
+
             internal Receive_SO(AsyncCallback cb, object state) : base(cb, state)
             {
             }
+
             internal int Read
             {
                 get { return _read; }
@@ -157,10 +159,11 @@ namespace BytesRoad.Net.Sockets
         {
             if(0 == reply.Size)
                 throw new SocketException(SockErrors.WSAECONNREFUSED);
-                //throw new ProxyErrorException("Web proxy close the connection.");
 
-            //reply should be in following form:
-            //"HTTP/x.x xxx reason(\r)?\n"
+                // throw new ProxyErrorException("Web proxy close the connection.");
+
+            // reply should be in following form:
+            // "HTTP/x.x xxx reason(\r)?\n"
             string replyStr = Encoding.ASCII.GetString(reply.Data, 0, reply.Size);
             Match m = _replyRegEx.Match(replyStr);
 
@@ -181,7 +184,7 @@ namespace BytesRoad.Net.Sockets
 
         string GetBasicCredentials()
         {
-            int length = 1; //':'
+            int length = 1; // ':'
             if(null != _proxyUser)
                 length += _proxyUser.Length;
 
@@ -196,6 +199,7 @@ namespace BytesRoad.Net.Sockets
                 Array.Copy(_proxyUser, 0, cmd, 0, _proxyUser.Length);
                 length += _proxyUser.Length;
             }
+
             cmd[length++] = (byte)':';
             if(null != _proxyPassword)
             {
@@ -216,6 +220,7 @@ namespace BytesRoad.Net.Sockets
                 cmd += "Authorization: basic " + credentials + "\r\n";
                 cmd += "Proxy-Authorization: basic " + credentials + "\r\n";
             }
+
             cmd += "\r\n";
             return Encoding.ASCII.GetBytes(cmd);
         }
@@ -251,12 +256,12 @@ namespace BytesRoad.Net.Sockets
             const byte CR = 13;
             const byte LF = 10;
 
-            //the end of the buffer can't be there
+            // the end of the buffer can't be there
             if(size < 2)
                 return -1;
 
-            //here we need to find the end of http response
-            //it identified either by <CRLF><CRLF> or by <LF><LF>
+            // here we need to find the end of http response
+            // it identified either by <CRLF><CRLF> or by <LF><LF>
             for(int i=0;i<size;i++)
             {
                 bool checkLong = false;
@@ -291,6 +296,7 @@ namespace BytesRoad.Net.Sockets
                 else
                     break;
             }
+
             return -1;
         }
 
@@ -309,23 +315,25 @@ namespace BytesRoad.Net.Sockets
 
                 reply.Add(buf, 0, num);
 
-                //handle the end of reply
+                // handle the end of reply
                 int afterEndPos = FindReplyEnd(reply.Data, reply.Size);
                 if(afterEndPos > 0)
                 {
-                    if(afterEndPos < num) //read after reply finished?
+                    if(afterEndPos < num) // read after reply finished?
                     {
-                        //put data back into the buffer for further
-                        //processing in receive functions
+                        // put data back into the buffer for further
+                        // processing in receive functions
                         PutBufferData(buf, afterEndPos, num - afterEndPos);
                         reply.CutTail(num - afterEndPos);
                     }
+
                     break;
                 }
 
                 if(reply.Size > _maxReplySize)
                     throw new ProtocolViolationException("Web proxy reply exceed maximum length.");
             }
+
             return reply;
         }
 
@@ -355,19 +363,20 @@ namespace BytesRoad.Net.Sockets
                 {
                     stateObj.Reply.Add(stateObj.Buffer, 0, num);
 
-                    //handle the end of reply
+                    // handle the end of reply
                     int afterEndPos = FindReplyEnd(stateObj.Reply.Data, 
                         stateObj.Reply.Size);
 
                     if(afterEndPos > 0)
                     {
-                        if(afterEndPos < num) //read after reply finished?
+                        if(afterEndPos < num) // read after reply finished?
                         {
-                            //put data back into the buffer for further
-                            //processing in receive functions
+                            // put data back into the buffer for further
+                            // processing in receive functions
                             PutBufferData(stateObj.Buffer, afterEndPos, num - afterEndPos);
                             stateObj.Reply.CutTail(num - afterEndPos);
                         }
+
                         stateObj.SetCompleted();
                     }
                     else
@@ -417,7 +426,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry  proxyEntry = GetHostByName(_proxyServer);
                 if(null == proxyEntry)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy name.");
 
                 IPEndPoint proxyEndPoint;
                 if (_proxyServer.Equals("127.0.0.1"))
@@ -447,13 +457,13 @@ namespace BytesRoad.Net.Sockets
                     int code = AnalyzeReply(reply, out reason);
 
                     //------------------------------------------
-                    //is good return code?
+                    // is good return code?
                     if(code >= 200 && code <= 299)
                         return;
 
                     //------------------------------------------
-                    //If Proxy Authentication Required
-                    //but we do not issued it, then try again
+                    // If Proxy Authentication Required
+                    // but we do not issued it, then try again
                     if((407 == code) && 
                         !useCredentials && 
                         (_proxyUser != null))
@@ -462,8 +472,8 @@ namespace BytesRoad.Net.Sockets
                         continue;
                     }
 
-                    //string msg = string.Format("Connection refused by web proxy: {0} ({1}).", reason, code);
-                    //throw new ProxyErrorException(msg);
+                    // string msg = string.Format("Connection refused by web proxy: {0} ({1}).", reason, code);
+                    // throw new ProxyErrorException(msg);
                     throw new SocketException(SockErrors.WSAECONNREFUSED);
                 }
             }
@@ -529,6 +539,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw e;
             }
+
             return stateObj;
         }
 
@@ -541,7 +552,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry  proxyEntry = EndGetHostByName(ar);
                 if(null == proxyEntry)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(proxyEntry, _proxyPort);
 
@@ -616,7 +628,7 @@ namespace BytesRoad.Net.Sockets
                 int code = AnalyzeReply(reply, out reason);
 
                 //------------------------------------------
-                //is good return code?
+                // is good return code?
                 if(code >= 200 && code <= 299)
                 {
                     stateObj.SetCompleted();
@@ -626,8 +638,8 @@ namespace BytesRoad.Net.Sockets
                     (_proxyUser != null))
                 {
                     //------------------------------------------
-                    //If Proxy Authentication Required
-                    //but we do not issued it, then try again
+                    // If Proxy Authentication Required
+                    // but we do not issued it, then try again
 
                     stateObj.UseCredentials = true;
 
@@ -643,8 +655,8 @@ namespace BytesRoad.Net.Sockets
                 }
                 else
                 {
-                    //string msg = string.Format("Connection refused by web proxy: {0} ({1}).", reason, code);
-                    //throw new ProxyErrorException(msg);
+                    // string msg = string.Format("Connection refused by web proxy: {0} ({1}).", reason, code);
+                    // throw new ProxyErrorException(msg);
                     throw new SocketException(SockErrors.WSAECONNREFUSED);
                 }
             }
@@ -722,6 +734,7 @@ namespace BytesRoad.Net.Sockets
                     new AsyncCallback(Receive_End), 
                     stateObj);
             }
+
             return stateObj;
         }
 
@@ -737,6 +750,7 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj.Exception = e;
             }
+
             stateObj.SetCompleted();
         }
 
@@ -774,6 +788,7 @@ namespace BytesRoad.Net.Sockets
         {
             ThrowUnsupportException("Bind");
         }
+
         override internal IAsyncResult BeginBind(SocketBase baseSocket, AsyncCallback callback, object state)
         {
             ThrowUnsupportException("BeginBind");

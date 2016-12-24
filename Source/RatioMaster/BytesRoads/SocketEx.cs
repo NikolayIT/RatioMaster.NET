@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Net;
@@ -143,12 +143,15 @@ namespace BytesRoad.Net.Sockets
         Working,
         Timedout,
         Finished
-    };
+    }
+;
 
     internal abstract class IOp
     {
         abstract internal object Execute();
+
         abstract internal object BeginExecute(AsyncCallback cb, object state);
+
         abstract internal object EndExecute(IAsyncResult ar);
     }
 
@@ -417,6 +420,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _baseSocket.PreAuthenticate; 
             }
+
             set 
             { 
                 CheckDisposed();
@@ -533,6 +537,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _sendTimeout; 
             }
+
             set 
             { 
                 CheckDisposed();
@@ -565,6 +570,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _recvTimeout; 
             }
+
             set 
             { 
                 CheckDisposed();
@@ -597,6 +603,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _acceptTimeout; 
             }
+
             set 
             { 
                 CheckDisposed();
@@ -634,6 +641,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _connectTimeout; 
             }
+
             set 
             {
                 CheckDisposed();
@@ -690,13 +698,15 @@ namespace BytesRoad.Net.Sockets
                 if(_opState == OpState.Timedout)
                 {
                     throw new SocketException(SockErrors.WSAETIMEDOUT);
-                    //throw new SocketTimeoutException(null, e);
+
+                    // throw new SocketTimeoutException(null, e);
                 }
                 else
                 {
                     CheckDisposed();
                     _opState = OpState.Finished;
                 }
+
                 _timer.Change(Timeout.Infinite, Timeout.Infinite);
             }
         }
@@ -733,6 +743,7 @@ namespace BytesRoad.Net.Sockets
                 StopTimeoutTrack(e);
                 throw;
             }
+
             /*
             catch
             {
@@ -761,6 +772,7 @@ namespace BytesRoad.Net.Sockets
                 StopTimeoutTrack(e);
                 throw;
             }
+
             /*
             catch
             {
@@ -785,6 +797,7 @@ namespace BytesRoad.Net.Sockets
                 StopTimeoutTrack(e);
                 throw;
             }
+
             /*
             catch
             {
@@ -805,6 +818,7 @@ namespace BytesRoad.Net.Sockets
         class Accept_Op : IOp
         {
             SocketBase _baseSocket;
+
             internal Accept_Op(SocketBase baseSocket)
             {
                 _baseSocket = baseSocket;
@@ -1223,9 +1237,9 @@ namespace BytesRoad.Net.Sockets
         class Bind_Op: IOp
         {
             SocketBase _baseSocket;
-            SocketEx   _primConnSock; //primary connection (used for socks proxy)
+            SocketEx   _primConnSock; // primary connection (used for socks proxy)
 
-            //constructor used for async end
+            // constructor used for async end
             internal Bind_Op(SocketBase baseSocket)
             {
                 _baseSocket = baseSocket;

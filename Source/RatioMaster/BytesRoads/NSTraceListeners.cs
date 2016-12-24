@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Diagnostics;
@@ -162,7 +162,7 @@ namespace BytesRoad.Diag
         /// <value>
         /// The number of listeners in the list.
         /// </value>
-        public virtual int Count //ICollection member
+        public virtual int Count // ICollection member
         {
             get { return _listeners.Count; }
         }
@@ -219,6 +219,7 @@ namespace BytesRoad.Diag
                             return tl;
                     }
                 }
+
                 return null; 
             }
         }
@@ -294,7 +295,7 @@ namespace BytesRoad.Diag
         /// <summary>
         /// Clears all the listeners from the list.
         /// </summary>
-        public virtual void Clear() //IList member
+        public virtual void Clear() // IList member
         {
             _listeners.Clear();
         }
@@ -314,7 +315,7 @@ namespace BytesRoad.Diag
         /// <see cref="System.Diagnostics.TraceListener">TraceListener</see>    
         /// before you perform further operations.
         /// </remarks>
-        public bool Contains(TraceListener listener) //IList 
+        public bool Contains(TraceListener listener) // IList 
         {
             return _listeners.Contains(listener);
         }
@@ -332,7 +333,7 @@ namespace BytesRoad.Diag
         /// <param name="index">
         /// The starting index number in the current list to copy from. 
         /// </param>
-        public void CopyTo(TraceListener[] listeners, int index) //ICollection memeber
+        public void CopyTo(TraceListener[] listeners, int index) // ICollection memeber
         {
             _listeners.CopyTo(index, listeners, 0, _listeners.Count);
         }
@@ -354,7 +355,7 @@ namespace BytesRoad.Diag
         /// An enumerator of type 
         /// <see cref="System.Collections.IEnumerator">IEnumerator</see>.
         /// </returns>
-        public virtual IEnumerator GetEnumerator() //IEnumerable
+        public virtual IEnumerator GetEnumerator() // IEnumerable
         {
             return _listeners.GetEnumerator();
         }

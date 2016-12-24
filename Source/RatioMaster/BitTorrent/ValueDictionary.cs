@@ -32,6 +32,7 @@
             {
                 list1.Add(text1);
             }
+
             foreach (string text2 in list1)
             {
                 ValueString text3 = new ValueString(text2);
@@ -39,11 +40,13 @@
                 {
                     collection1.Add(num1);
                 }
+
                 foreach (byte num2 in dict[text2].Encode())
                 {
                     collection1.Add(num2);
                 }
             }
+
             collection1.Add(0x65);
             byte[] buffer1 = new byte[collection1.Count];
             collection1.CopyTo(buffer1, 0);
@@ -58,6 +61,7 @@
                 {
                     throw new TorrentException("Key expected to be a string.");
                 }
+
                 ValueString text1 = new ValueString();
                 text1.Parse(s, num1);
                 IBEncodeValue value1 = BEncode.Parse(s);
@@ -97,14 +101,17 @@
                 {
                     dict.Add(key, new ValueString(""));
                 }
+
                 return dict[key];
             }
+
             set
             {
                 if (dict.ContainsKey(key))
                 {
                     dict.Remove(key);
                 }
+
                 dict.Add(key, value);
             }
         }

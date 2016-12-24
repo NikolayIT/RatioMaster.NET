@@ -13,12 +13,16 @@ namespace RatioMaster_source
     {
         [Category("Property Changed"), Description("Occurs AllowCollapse property changed")]
         public event EventHandler AllowCollapseChanged;
+
         [Category("Property Changed"), Description("Occurs BevelStyle property changed")]
         public event EventHandler BevelStyleChanged;
+
         [Description("Occurs when the panel collapsed"), Category("Action")]
         public event EventHandler Collapsed;
+
         [Description("Occurs when the panel expanded"), Category("Action")]
         public event EventHandler Expanded;
+
         [Description("Occurs IsCollapse property changed"), Category("Property Changed")]
         public event EventHandler IsCollapseChanged;
 
@@ -106,6 +110,7 @@ namespace RatioMaster_source
             {
                 this.IsCollapsed = !this.IsCollapsed;
             }
+
             base.OnMouseDown(e);
         }
 
@@ -136,6 +141,7 @@ namespace RatioMaster_source
             {
                 return this.allowCollapse;
             }
+
             set
             {
                 if (value != this.allowCollapse)
@@ -154,6 +160,7 @@ namespace RatioMaster_source
             {
                 return this.bevelStyle;
             }
+
             set
             {
                 if (this.bevelStyle != value)
@@ -174,8 +181,10 @@ namespace RatioMaster_source
                 {
                     return base.Size;
                 }
+
                 return new Size(base.Width, this.fullHeight);
             }
+
             set
             {
                 if (!this.isCollapsed)
@@ -197,6 +206,7 @@ namespace RatioMaster_source
             {
                 return this.isCollapsed;
             }
+
             set
             {
                 if (this.isCollapsed != value)
@@ -220,6 +230,7 @@ namespace RatioMaster_source
             {
                 return base.Text;
             }
+
             set
             {
                 if (base.Text != value)
@@ -235,6 +246,7 @@ namespace RatioMaster_source
         private int fullHeight;
         private bool isCollapsed;
     }
+
     public enum BevelStyles
     {
         None,
@@ -248,21 +260,26 @@ namespace RatioMaster_source
         FrameRaised,
         FrameLowered
     }
+
     public enum PanelMarkerStyle
     {
         None,
         Arrow,
         PlusMinus
     }
+
     [ToolboxBitmap(typeof(MagneticPanel))]
     public class MagneticPanel : PanelBase
     {
         [Description("Occurs when the CaptionEndColor property changed"), Category("Property Changed")]
         public event EventHandler CaptionEndColorChanged;
+
         [Description("Occurs when the CaptionForeColor property changed"), Category("Property Changed")]
         public event EventHandler CaptionForeColorChanged;
+
         [Category("Property Changed"), Description("Occurs when the CaptionStartColor property changed")]
         public event EventHandler CaptionStartColorChanged;
+
         [Description("Occurs when the Marker property changed"), Category("Property Changed")]
         public event EventHandler MarkerChanged;
 
@@ -340,6 +357,7 @@ namespace RatioMaster_source
                         pen4 = pen1;
                         break;
                 }
+
                 g.DrawLine(pen3, point1.X, point1.Y, point1.X, point2.Y);
                 g.DrawLine(pen3, point1.X, point1.Y, point2.X, point1.Y);
                 g.DrawLine(pen4, point1.X, point2.Y, point2.X, point2.Y);
@@ -353,6 +371,7 @@ namespace RatioMaster_source
                         pen3 = pen4;
                         pen4 = pen5;
                     }
+
                     point1.X++;
                     point1.Y++;
                     point2.X--;
@@ -382,11 +401,13 @@ namespace RatioMaster_source
                 LinearGradientBrush brush1 = new LinearGradientBrush(rectangle1, color1, color2, LinearGradientMode.Horizontal);
                 g.FillRectangle(brush1, rectangle1);
             }
+
             int num2 = 20;
             if (this.Marker == PanelMarkerStyle.None)
             {
                 num2 = 5;
             }
+
             Point point1 = new Point(num1 / 2, num1 / 2);
             point1.X += 3;
             if (this.Marker == PanelMarkerStyle.Arrow)
@@ -404,9 +425,11 @@ namespace RatioMaster_source
                     Point[] pointArray2 = new Point[] { new Point(point1.X - 6, point1.Y - 3), new Point(point1.X + 6, point1.Y - 3), new Point(point1.X, point1.Y + 3) };
                     path1.AddLines(pointArray2);
                 }
+
                 path1.CloseFigure();
                 g.FillPath(new SolidBrush(color3), path1);
             }
+
             if (this.Marker == PanelMarkerStyle.PlusMinus)
             {
                 Rectangle rectangle2 = new Rectangle(point1.X - 4, point1.Y - 1, 9, 3);
@@ -417,6 +440,7 @@ namespace RatioMaster_source
                     g.FillRectangle(new SolidBrush(color3), rectangle3);
                 }
             }
+
             g.DrawString(this.Text, font1, new SolidBrush(color3), (float)num2, 2f);
         }
 
@@ -468,6 +492,7 @@ namespace RatioMaster_source
                 base.OnPaintBackground(pe);
                 pe.Graphics.EndContainer(container1);
             }
+
             this.DrawCaption(pe.Graphics);
             this.DrawBevel(pe.Graphics);
         }
@@ -495,6 +520,7 @@ namespace RatioMaster_source
             {
                 return this.captionEndColor;
             }
+
             set
             {
                 if (this.captionEndColor != value)
@@ -513,6 +539,7 @@ namespace RatioMaster_source
             {
                 return this.captionForeColor;
             }
+
             set
             {
                 if (this.captionForeColor != value)
@@ -531,6 +558,7 @@ namespace RatioMaster_source
             {
                 return this.captionStartColor;
             }
+
             set
             {
                 if (this.captionStartColor != value)
@@ -549,6 +577,7 @@ namespace RatioMaster_source
             {
                 return this.marker;
             }
+
             set
             {
                 if (this.marker != value)
