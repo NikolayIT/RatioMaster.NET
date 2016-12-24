@@ -101,7 +101,8 @@ namespace BytesRoad.Net.Sockets
             int _size;
             int _read = 0;
 
-            internal ReadWhole_SO(byte[] buffer,
+            internal ReadWhole_SO(
+                byte[] buffer,
                 int offset,
                 int size,
                 AsyncCallback cb, 
@@ -140,7 +141,8 @@ namespace BytesRoad.Net.Sockets
             byte[] _reply = new byte[2];
             bool _useCredentials;
 
-            internal Negotiation_SO(bool useCredentials,
+            internal Negotiation_SO(
+                bool useCredentials,
                 AsyncCallback cb, 
                 object state) : base(cb, state)
             {
@@ -166,7 +168,8 @@ namespace BytesRoad.Net.Sockets
             int _hostPort = -1;
             string _hostName = null;
 
-            internal Connect_SO(EndPoint remoteEndPoint,
+            internal Connect_SO(
+                EndPoint remoteEndPoint,
                 string hostName,
                 int hostPort,
                 AsyncCallback cb, 
@@ -206,7 +209,8 @@ namespace BytesRoad.Net.Sockets
             int _readBytes = 0;
             IPAddress _proxyIP = null;
 
-            internal Bind_SO(Socket_Socks5 baseSocket,
+            internal Bind_SO(
+                Socket_Socks5 baseSocket,
                 AsyncCallback cb, 
                 object state) : base(cb, state)
             {
@@ -235,7 +239,8 @@ namespace BytesRoad.Net.Sockets
         {
             int _readBytes = 0;
 
-            internal Accept_SO(AsyncCallback cb, 
+            internal Accept_SO(
+                AsyncCallback cb, 
                 object state) : base(cb, state)
             {
             }
@@ -296,10 +301,10 @@ namespace BytesRoad.Net.Sockets
                 throw new ArgumentException(msg, "reply");
             }
 
-            int port = (reply[8]<<8) | reply[9];
-            long ip = (reply[7]<<24)|
-                (reply[6]<<16)|
-                (reply[5]<<8)|
+            int port = (reply[8] << 8) | reply[9];
+            long ip = (reply[7] << 24) |
+                (reply[6] << 16) |
+                (reply[5] << 8) |
                 (reply[4]);
             ip &= 0xFFFFFFFF;
 
@@ -326,15 +331,15 @@ namespace BytesRoad.Net.Sockets
             // Store IP address
             //
             long ipAddr = ip.Address.Address;
-            cmd[4] = (byte)((ipAddr&0x000000FF));
-            cmd[5] = (byte)((ipAddr&0x0000FF00)>>8);
-            cmd[6] = (byte)((ipAddr&0x00FF0000)>>16);
-            cmd[7] = (byte)((ipAddr&0xFF000000)>>24);
+            cmd[4] = (byte)((ipAddr & 0x000000FF));
+            cmd[5] = (byte)((ipAddr & 0x0000FF00) >> 8);
+            cmd[6] = (byte)((ipAddr & 0x00FF0000) >> 16);
+            cmd[7] = (byte)((ipAddr & 0xFF000000) >> 24);
 
             //------------------------------
             // Store port
-            cmd[8] = (byte)((ip.Port&0xFF00)>>8);
-            cmd[9] = (byte)(ip.Port&0xFF);
+            cmd[8] = (byte)((ip.Port & 0xFF00) >> 8);
+            cmd[9] = (byte)(ip.Port & 0xFF);
         
             return cmd;
         }
@@ -348,7 +353,7 @@ namespace BytesRoad.Net.Sockets
             if(hostLength > 255)
                 throw new ArgumentException("Name of destination host cannot be more then 255 characters.", "remoteHost");
 
-            byte[] cmd = new byte[4+1+hostLength+2];
+            byte[] cmd = new byte[4 + 1 + hostLength + 2];
 
             //----------------------------------
             // Compose header
@@ -368,8 +373,8 @@ namespace BytesRoad.Net.Sockets
             //----------------------------------
             // Store the port
             //
-            cmd[5+hostLength] = (byte)((remotePort&0xFF00)>>8);
-            cmd[5+hostLength+1] = (byte)(remotePort&0xFF);
+            cmd[5 + hostLength] = (byte)((remotePort & 0xFF00) >> 8);
+            cmd[5 + hostLength + 1] = (byte)(remotePort & 0xFF);
 
             return cmd;
         }
@@ -402,10 +407,11 @@ namespace BytesRoad.Net.Sockets
         {
             int read = 0;
             while(read < size)
-                read += NStream.Read(buffer, offset+read, size-read);
+                read += NStream.Read(buffer, offset + read, size - read);
         }
 
-        IAsyncResult BeginReadWhole(byte[] buffer, 
+        IAsyncResult BeginReadWhole(
+            byte[] buffer, 
             int offset, 
             int size,
             AsyncCallback cb, 
@@ -430,7 +436,8 @@ namespace BytesRoad.Net.Sockets
                 stateObj.Read += NStream.EndRead(ar);
                 if(stateObj.Read < stateObj.Size)
                 {
-                    NStream.BeginRead(stateObj.Buffer,
+                    NStream.BeginRead(
+                        stateObj.Buffer,
                         stateObj.Offset + stateObj.Read,
                         stateObj.Size - stateObj.Read,
                         new AsyncCallback(ReadWhole_Read_End),
@@ -493,7 +500,7 @@ namespace BytesRoad.Net.Sockets
                     throw new ArgumentException("Proxy password cannot be more then 255 characters.", "ProxyPassword");
             }
 
-            byte[] cmd = new byte[1+1+userLength+1+passwordLength];
+            byte[] cmd = new byte[1 + 1 + userLength + 1 + passwordLength];
             
             //------------------------------
             // Compose the header
@@ -506,9 +513,9 @@ namespace BytesRoad.Net.Sockets
 
             //------------------------------
             // Store password if exists
-            cmd[2+userLength] = (byte)passwordLength;
+            cmd[2 + userLength] = (byte)passwordLength;
             if(passwordLength > 0)
-                Array.Copy(_proxyPassword, 0, cmd, 3+userLength, passwordLength);
+                Array.Copy(_proxyPassword, 0, cmd, 3 + userLength, passwordLength);
 
             return cmd;
         }
@@ -534,7 +541,8 @@ namespace BytesRoad.Net.Sockets
         }
 
 
-        IAsyncResult BeginSubNegotiation_UsernamePassword(AsyncCallback cb,
+        IAsyncResult BeginSubNegotiation_UsernamePassword(
+            AsyncCallback cb,
             object state)
         {
             //---------------------------------------
@@ -545,7 +553,8 @@ namespace BytesRoad.Net.Sockets
 
             //---------------------------------------
             // Send authentication information
-            NStream.BeginWrite(cmd, 
+            NStream.BeginWrite(
+                cmd, 
                 0, 
                 cmd.Length,
                 new AsyncCallback(SubUsernamePassword_Write_End),
@@ -564,7 +573,8 @@ namespace BytesRoad.Net.Sockets
 
                 //---------------------------------------
                 // Send authentication information
-                BeginReadWhole(stateObj.Reply, 
+                BeginReadWhole(
+                    stateObj.Reply, 
                     0, 
                     2,
                     new AsyncCallback(SubUsernamePassword_Read_End),
@@ -664,7 +674,8 @@ namespace BytesRoad.Net.Sockets
             }
         }
 
-        IAsyncResult BeginDoAuthentication(AuthMethod method,
+        IAsyncResult BeginDoAuthentication(
+            AuthMethod method,
             AsyncCallback cb, 
             object state)
         {
@@ -781,14 +792,16 @@ namespace BytesRoad.Net.Sockets
             if(null == _proxyUser)
                 useCredentials = false;
 
-            Negotiation_SO stateObj = new Negotiation_SO(useCredentials, 
+            Negotiation_SO stateObj = new Negotiation_SO(
+                useCredentials, 
                 callback, 
                 state);
 
             //-----------------------------------
             // Send negotiation request
             byte[] cmd = PrepareNegotiationCmd(stateObj.UseCredentials);
-            NStream.BeginWrite(cmd, 
+            NStream.BeginWrite(
+                cmd, 
                 0, 
                 cmd.Length,
                 new AsyncCallback(Negotiate_Write_End),
@@ -809,7 +822,8 @@ namespace BytesRoad.Net.Sockets
                 // Read negotiation reply with 
                 // supported methods
                 //
-                BeginReadWhole(stateObj.Reply, 
+                BeginReadWhole(
+                    stateObj.Reply, 
                     0, 
                     2,
                     new AsyncCallback(Negotiate_ReadWhole_End),
@@ -842,7 +856,8 @@ namespace BytesRoad.Net.Sockets
                     //-----------------------------------
                     // Send negotiation request
                     byte[] cmd = PrepareNegotiationCmd(stateObj.UseCredentials);
-                    NStream.BeginWrite(cmd, 
+                    NStream.BeginWrite(
+                        cmd, 
                         0, 
                         cmd.Length,
                         new AsyncCallback(Negotiate_Write_End),
@@ -853,7 +868,8 @@ namespace BytesRoad.Net.Sockets
                     //-----------------------------------
                     // Run appropriate authentication 
                     // method
-                    BeginDoAuthentication(authMethod, 
+                    BeginDoAuthentication(
+                        authMethod, 
                         new AsyncCallback(Negotiate_DoAuth_End),
                         stateObj);
                 }
@@ -1058,7 +1074,8 @@ namespace BytesRoad.Net.Sockets
             return this;
         }
 
-        override internal IAsyncResult BeginAccept(AsyncCallback callback, 
+        override internal IAsyncResult BeginAccept(
+            AsyncCallback callback, 
             object state)
         {
             CheckDisposed();
@@ -1197,7 +1214,8 @@ namespace BytesRoad.Net.Sockets
             }
         }
     
-        override internal IAsyncResult BeginConnect(string hostName,
+        override internal IAsyncResult BeginConnect(
+            string hostName,
             int hostPort, 
             AsyncCallback callback,
             object state)
@@ -1219,7 +1237,8 @@ namespace BytesRoad.Net.Sockets
                 {
                     //--------------------------------------
                     // Trying to resolve host name locally
-                    BeginGetHostByName(hostName,
+                    BeginGetHostByName(
+                        hostName,
                         new AsyncCallback(Connect_GetHost_Host_End),
                         stateObj);
                 }
@@ -1228,7 +1247,8 @@ namespace BytesRoad.Net.Sockets
                     //-------------------------------------
                     // Get end point for the proxy server
                     //
-                    BeginGetHostByName(_proxyServer,
+                    BeginGetHostByName(
+                        _proxyServer,
                         new AsyncCallback(Connect_GetHost_Proxy_End),
                         stateObj);
                 }
@@ -1255,7 +1275,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Get end point for the proxy server
                 //
-                BeginGetHostByName(_proxyServer,
+                BeginGetHostByName(
+                    _proxyServer,
                     new AsyncCallback(Connect_GetHost_Proxy_End),
                     stateObj);
             }
@@ -1281,7 +1302,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Get end point for the proxy server
                 //
-                BeginGetHostByName(_proxyServer,
+                BeginGetHostByName(
+                    _proxyServer,
                     new AsyncCallback(Connect_GetHost_Proxy_End),
                     stateObj);
             }
@@ -1311,7 +1333,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Connect to proxy server
                 //
-                _socket.BeginConnect(proxyEndPoint, 
+                _socket.BeginConnect(
+                    proxyEndPoint, 
                     new AsyncCallback(Connect_Connect_End),
                     stateObj);
             }
@@ -1352,11 +1375,13 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Send CONNECT command
                 //
-                byte[] cmd = PrepareConnectCmd(stateObj.RemoteEndPoint,
+                byte[] cmd = PrepareConnectCmd(
+                    stateObj.RemoteEndPoint,
                     stateObj.HostName,
                     stateObj.HostPort);
 
-                NStream.BeginWrite(cmd, 
+                NStream.BeginWrite(
+                    cmd, 
                     0, 
                     cmd.Length,
                     new AsyncCallback(Connect_Write_End),
@@ -1472,7 +1497,8 @@ namespace BytesRoad.Net.Sockets
         }
 
 
-        override internal IAsyncResult BeginBind(SocketBase baseSocket, 
+        override internal IAsyncResult BeginBind(
+            SocketBase baseSocket, 
             AsyncCallback callback, 
             object state)
         {
@@ -1490,7 +1516,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Get end point for the proxy server
                 //
-                BeginGetHostByName(_proxyServer,
+                BeginGetHostByName(
+                    _proxyServer,
                     new AsyncCallback(Bind_GetHost_End),
                     stateObj);
             }
@@ -1521,7 +1548,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Connect to proxy server
                 //
-                _socket.BeginConnect(proxyEndPoint, 
+                _socket.BeginConnect(
+                    proxyEndPoint, 
                     new AsyncCallback(Bind_Connect_End),
                     stateObj);
             }
@@ -1542,7 +1570,8 @@ namespace BytesRoad.Net.Sockets
 
                 //------------------------------------------
                 // Negotiate user
-                BeginNegotiate(new AsyncCallback(Bind_Negotiate_End), 
+                BeginNegotiate(
+                    new AsyncCallback(Bind_Negotiate_End), 
                     stateObj);
             }
             catch(Exception e)
@@ -1565,7 +1594,8 @@ namespace BytesRoad.Net.Sockets
                 //
                 byte[] cmd = PrepareBindCmd(stateObj.BaseSocket);
 
-                NStream.BeginWrite(cmd, 
+                NStream.BeginWrite(
+                    cmd, 
                     0, 
                     cmd.Length,
                     new AsyncCallback(Bind_Write_End),

@@ -54,7 +54,8 @@ namespace BytesRoad.Net.Sockets
             _socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, 1);
         }
 
-        protected SocketBase(string proxyServer, 
+        protected SocketBase(
+            string proxyServer, 
             int proxyPort, 
             byte[] proxyUser, 
             byte[] proxyPassword)

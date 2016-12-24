@@ -58,7 +58,7 @@ namespace BytesRoad.Net.Sockets
 
         void Reallocate(int requiredSize)
         {
-            int newSize = (_capacity > 0)?_capacity:1;
+            int newSize = (_capacity > 0) ? _capacity : 1;
             while(newSize < requiredSize)
                 newSize <<= 1;
 
@@ -82,7 +82,9 @@ namespace BytesRoad.Net.Sockets
             _size += data.Length;
         }
 
-        internal void Add(byte[] data, int offset)
+        internal void Add(
+            byte[] data,
+            int offset)
         {
             int copyNum = data.Length - offset;
             EnsureSpace(copyNum);

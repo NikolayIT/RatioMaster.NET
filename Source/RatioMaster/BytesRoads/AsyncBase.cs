@@ -69,13 +69,15 @@ namespace BytesRoad.Net.Sockets.Advanced
             HandleAsyncEnd(ar, arType, null, turnProgressOff);
         }*/
 
-        static internal void VerifyAsyncResult(IAsyncResult ar, 
+        static internal void VerifyAsyncResult(
+            IAsyncResult ar, 
             Type arType)
         {
             VerifyAsyncResult(ar, arType, null);
         }
 
-        static internal void VerifyAsyncResult(IAsyncResult ar, 
+        static internal void VerifyAsyncResult(
+            IAsyncResult ar, 
             Type arType,
             string metName)
         {
@@ -86,7 +88,8 @@ namespace BytesRoad.Net.Sockets.Advanced
                 metName = "End*";
 
             if(false == ar.GetType().Equals(arType))
-                throw new ArgumentException("asyncResult was not returned by a call to the " + 
+                throw new ArgumentException(
+                    "asyncResult was not returned by a call to the " + 
                     metName + " method.", "asyncResult");
 
             AsyncResultBase stateObj = (AsyncResultBase)ar;

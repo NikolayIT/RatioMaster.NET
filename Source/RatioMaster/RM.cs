@@ -23,7 +23,7 @@
         // Variables
         #region Variables
         private bool getnew = true;
-        private readonly Random rand = new Random(((int) DateTime.Now.Ticks));
+        private readonly Random rand = new Random(((int)DateTime.Now.Ticks));
         private int remWork = 0;
         internal string DefaultDirectory = "";
         private const string DefaultClient = "uTorrent";
@@ -616,7 +616,7 @@
             {
                 if (finishedPercent == 0)
                 {
-                    torrent.totalsize = (long) currentTorrentFile.totalLength;
+                    torrent.totalsize = (long)currentTorrentFile.totalLength;
                 }
                 else if (finishedPercent == 100)
                 {
@@ -1375,14 +1375,14 @@
             {
                 if (checkRandomUpload.Checked)
                 {
-                    uploadRate.Text = (RandomSP(RandomUploadFrom.Text, RandomUploadTo.Text, true)/1024).ToString();
+                    uploadRate.Text = (RandomSP(RandomUploadFrom.Text, RandomUploadTo.Text, true) / 1024).ToString();
 
                     // uploadRate.Text = ((int)random1.Next(int.Parse(RandomUploadFrom.Text), int.Parse(RandomUploadTo.Text)) + (int)single1).ToString();
                 }
 
                 if (checkRandomDownload.Checked)
                 {
-                    downloadRate.Text = (RandomSP(RandomDownloadFrom.Text, RandomDownloadTo.Text, true)/1024).ToString();
+                    downloadRate.Text = (RandomSP(RandomDownloadFrom.Text, RandomDownloadTo.Text, true) / 1024).ToString();
 
                     // downloadRate.Text = ((int)random1.Next(int.Parse(RandomDownloadFrom.Text), int.Parse(RandomDownloadTo.Text)) + (int)single2).ToString();
                 }

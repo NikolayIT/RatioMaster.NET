@@ -112,7 +112,8 @@ namespace BytesRoad.Net.Sockets
             _socket.Connect(remoteEP);
         }
 
-        override internal IAsyncResult BeginConnect(EndPoint remoteEP, 
+        override internal IAsyncResult BeginConnect(
+            EndPoint remoteEP, 
             AsyncCallback callback, 
             object state)
         {
@@ -123,7 +124,8 @@ namespace BytesRoad.Net.Sockets
             {
                 stateObj = new Connect_SO(-1, callback, state);
 
-                _socket.BeginConnect(remoteEP, 
+                _socket.BeginConnect(
+                    remoteEP, 
                     new AsyncCallback(Connect_End),
                     stateObj);
             }
@@ -136,7 +138,8 @@ namespace BytesRoad.Net.Sockets
             return stateObj;
         }
 
-        override internal IAsyncResult BeginConnect(string hostName, 
+        override internal IAsyncResult BeginConnect(
+            string hostName, 
             int port, 
             AsyncCallback callback, 
             object state)
@@ -147,7 +150,7 @@ namespace BytesRoad.Net.Sockets
             try
             {
                 stateObj = new Connect_SO(port, callback, state);
-                Dns.BeginGetHostByName(hostName, new AsyncCallback(GetHost_End), stateObj);
+                Dns.BeginGetHostEntry(hostName, new AsyncCallback(GetHost_End), stateObj);
             }
             catch(Exception e)
             {
@@ -164,14 +167,15 @@ namespace BytesRoad.Net.Sockets
             try
             {
                 stateObj.UpdateContext();
-                IPHostEntry host = Dns.EndGetHostByName(ar);
+                IPHostEntry host = Dns.EndGetHostEntry(ar);
                 if(null == host)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
 
                     // throw new HostNotFoundException("Unable to resolve host name.");
 
                 EndPoint remoteEP = ConstructEndPoint(host, stateObj.Port);
-                _socket.BeginConnect(remoteEP,
+                _socket.BeginConnect(
+                    remoteEP,
                     new AsyncCallback(Connect_End),
                     stateObj);
             }
@@ -214,7 +218,8 @@ namespace BytesRoad.Net.Sockets
             _socket.Bind(ep);
         }
 
-        override internal IAsyncResult BeginBind(SocketBase baseSocket, 
+        override internal IAsyncResult BeginBind(
+            SocketBase baseSocket, 
             AsyncCallback callback, 
             object state)
         {
