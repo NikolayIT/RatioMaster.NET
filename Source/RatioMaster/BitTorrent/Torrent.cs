@@ -90,10 +90,11 @@ namespace BitTorrent
         {
             get
             {
-                //if (data.Contains("info") == false)
-                //data.Add("info", new ValueDictionary());
+                // if (data.Contains("info") == false)
+                // data.Add("info", new ValueDictionary());
                 return BEncode.String(((ValueDictionary)data["info"])["name"]);
             }
+
             set
             {
                 if (data.Contains("info") == false) data.Add("info", new ValueDictionary());
@@ -107,6 +108,7 @@ namespace BitTorrent
             {
                 return BEncode.String(data["comment"]);
             }
+
             set
             {
                 data.SetStringValue("comment", value);
@@ -119,6 +121,7 @@ namespace BitTorrent
             {
                 return BEncode.String(data["announce"]);
             }
+
             set
             {
                 data.SetStringValue("announce", value);
@@ -131,6 +134,7 @@ namespace BitTorrent
             {
                 return BEncode.String(data["created by"]);
             }
+
             set
             {
                 data.SetStringValue("created by", value);
@@ -170,6 +174,7 @@ namespace BitTorrent
                 if (r != null) r.Close();
                 if (fs != null) fs.Close();
             }
+
             return hasOpened;
         }
         
@@ -213,12 +218,12 @@ namespace BitTorrent
             // Parse out the hash codes
             ParsePieceHashes(pieces.Bytes);
 
-            //if (info.Contains("length") == true)
+            // if (info.Contains("length") == true)
 
-            //if (data.Contains("files") == true)
-            //throw new Exception("This is not a single file");
+            // if (data.Contains("files") == true)
+            // throw new Exception("This is not a single file");
 
-            //SingleFile = true;
+            // SingleFile = true;
 
             // Determine what files are in the torrent
             if (SingleFile) ParseSingleFile();

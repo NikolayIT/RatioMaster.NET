@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Net;
@@ -143,12 +143,15 @@ namespace BytesRoad.Net.Sockets
         Working,
         Timedout,
         Finished
-    };
+    }
+;
 
     internal abstract class IOp
     {
         abstract internal object Execute();
+
         abstract internal object BeginExecute(AsyncCallback cb, object state);
+
         abstract internal object EndExecute(IAsyncResult ar);
     }
 
@@ -243,7 +246,8 @@ namespace BytesRoad.Net.Sockets
         /// <see cref="BytesRoad.Net.Sockets.SocketEx.Connect"/>
         /// method will fail.
         /// </remarks>
-        public SocketEx(ProxyType proxyType, 
+        public SocketEx(
+            ProxyType proxyType, 
             string proxyServer, 
             int proxyPort,
             byte[] proxyUser,
@@ -417,6 +421,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _baseSocket.PreAuthenticate; 
             }
+
             set 
             { 
                 CheckDisposed();
@@ -533,6 +538,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _sendTimeout; 
             }
+
             set 
             { 
                 CheckDisposed();
@@ -565,6 +571,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _recvTimeout; 
             }
+
             set 
             { 
                 CheckDisposed();
@@ -597,6 +604,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _acceptTimeout; 
             }
+
             set 
             { 
                 CheckDisposed();
@@ -634,6 +642,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 return _connectTimeout; 
             }
+
             set 
             {
                 CheckDisposed();
@@ -690,13 +699,15 @@ namespace BytesRoad.Net.Sockets
                 if(_opState == OpState.Timedout)
                 {
                     throw new SocketException(SockErrors.WSAETIMEDOUT);
-                    //throw new SocketTimeoutException(null, e);
+
+                    // throw new SocketTimeoutException(null, e);
                 }
                 else
                 {
                     CheckDisposed();
                     _opState = OpState.Finished;
                 }
+
                 _timer.Change(Timeout.Infinite, Timeout.Infinite);
             }
         }
@@ -733,6 +744,7 @@ namespace BytesRoad.Net.Sockets
                 StopTimeoutTrack(e);
                 throw;
             }
+
             /*
             catch
             {
@@ -761,6 +773,7 @@ namespace BytesRoad.Net.Sockets
                 StopTimeoutTrack(e);
                 throw;
             }
+
             /*
             catch
             {
@@ -785,6 +798,7 @@ namespace BytesRoad.Net.Sockets
                 StopTimeoutTrack(e);
                 throw;
             }
+
             /*
             catch
             {
@@ -805,6 +819,7 @@ namespace BytesRoad.Net.Sockets
         class Accept_Op : IOp
         {
             SocketBase _baseSocket;
+
             internal Accept_Op(SocketBase baseSocket)
             {
                 _baseSocket = baseSocket;
@@ -910,7 +925,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public IAsyncResult BeginAccept(AsyncCallback callback, object state)
         {
-            return (IAsyncResult)BeginTimeoutOp(_acceptTimeout, 
+            return (IAsyncResult)BeginTimeoutOp(
+                _acceptTimeout, 
                 new Accept_Op(_baseSocket), 
                 callback, 
                 state);
@@ -957,7 +973,8 @@ namespace BytesRoad.Net.Sockets
                 _baseSocket = baseSocket;
             }
 
-            internal ConnectOp(SocketBase baseSocket, 
+            internal ConnectOp(
+                SocketBase baseSocket, 
                 string hostName, 
                 int hostPort)
             {
@@ -1039,7 +1056,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public void Connect(string hostName, int hostPort)
         {
-            DoTimeoutOp(_connectTimeout, 
+            DoTimeoutOp(
+                _connectTimeout, 
                 new ConnectOp(_baseSocket, hostName, hostPort));
         }
 
@@ -1072,7 +1090,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public void Connect(EndPoint remoteEP)
         {
-            DoTimeoutOp(_connectTimeout, 
+            DoTimeoutOp(
+                _connectTimeout, 
                 new ConnectOp(_baseSocket, remoteEP));
         }
 
@@ -1124,12 +1143,14 @@ namespace BytesRoad.Net.Sockets
         ///<para>-or-</para>
         ///    <i>port</i> is greater than <see cref="System.Net.IPEndPoint.MaxPort">MaxPort</see>.
         /// </exception>
-        public IAsyncResult BeginConnect(string hostName, 
+        public IAsyncResult BeginConnect(
+            string hostName, 
                                         int port, 
                                         AsyncCallback callback, 
                                         object state)
         {
-            return (IAsyncResult)BeginTimeoutOp(_connectTimeout, 
+            return (IAsyncResult)BeginTimeoutOp(
+                _connectTimeout, 
                 new ConnectOp(_baseSocket, hostName, port), 
                 callback, state);
         }
@@ -1176,11 +1197,13 @@ namespace BytesRoad.Net.Sockets
         /// <exception cref="System.ArgumentNullException">
         /// The <i>remoteEP</i> parameter is <b>null</b> (<b>Nothing</b> in Visual Basic).
         /// </exception>
-        public IAsyncResult BeginConnect(EndPoint remoteEP, 
+        public IAsyncResult BeginConnect(
+            EndPoint remoteEP, 
                                         AsyncCallback callback, 
                                         object state)
         {
-            return (IAsyncResult)BeginTimeoutOp(_connectTimeout, 
+            return (IAsyncResult)BeginTimeoutOp(
+                _connectTimeout, 
                 new ConnectOp(_baseSocket, remoteEP), 
                 callback, 
                 state);
@@ -1223,9 +1246,9 @@ namespace BytesRoad.Net.Sockets
         class Bind_Op: IOp
         {
             SocketBase _baseSocket;
-            SocketEx   _primConnSock; //primary connection (used for socks proxy)
+            SocketEx   _primConnSock; // primary connection (used for socks proxy)
 
-            //constructor used for async end
+            // constructor used for async end
             internal Bind_Op(SocketBase baseSocket)
             {
                 _baseSocket = baseSocket;
@@ -1438,11 +1461,13 @@ namespace BytesRoad.Net.Sockets
         /// <exception cref="System.InvalidOperationException">
         /// The operation is unsupported.
         /// </exception>
-        public IAsyncResult BeginBind(SocketEx socket, 
+        public IAsyncResult BeginBind(
+            SocketEx socket, 
                                         AsyncCallback callback, 
                                         object state)
         {
-            return (IAsyncResult)BeginTimeoutOp(_connectTimeout,
+            return (IAsyncResult)BeginTimeoutOp(
+                _connectTimeout,
                 new Bind_Op(_baseSocket, socket),
                 callback,
                 state);
@@ -1587,7 +1612,8 @@ namespace BytesRoad.Net.Sockets
                 _baseSocket = baseSocket;
             }
 
-            internal Receive_Op(SocketBase baseSocket,
+            internal Receive_Op(
+                SocketBase baseSocket,
                 byte[] buffer, int offset, int size)
             {
                 _baseSocket = baseSocket;
@@ -1605,7 +1631,8 @@ namespace BytesRoad.Net.Sockets
 
             internal override object BeginExecute(AsyncCallback cb, object state)
             {
-                return _baseSocket.BeginReceive(_buffer,
+                return _baseSocket.BeginReceive(
+                    _buffer,
                     _offset,
                     _size,
                     cb,
@@ -1666,7 +1693,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public int Receive(byte[] buffer)
         {
-            return (int)DoTimeoutOp(_recvTimeout, 
+            return (int)DoTimeoutOp(
+                _recvTimeout, 
                 new Receive_Op(_baseSocket, buffer, 0, buffer.Length));
         }
 
@@ -1714,7 +1742,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public int Receive(byte[] buffer, int size)
         {
-            return (int)DoTimeoutOp(_recvTimeout, 
+            return (int)DoTimeoutOp(
+                _recvTimeout, 
                 new Receive_Op(_baseSocket, buffer, 0, size));
         }
 
@@ -1771,7 +1800,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public int Receive(byte[] buffer, int offset, int size)
         {
-            return (int)DoTimeoutOp(_recvTimeout, 
+            return (int)DoTimeoutOp(
+                _recvTimeout, 
                 new Receive_Op(_baseSocket, buffer, offset, size));
         }
 
@@ -1836,13 +1866,15 @@ namespace BytesRoad.Net.Sockets
         /// <i>size</i> is greater than the length of <i>buffer</i> minus 
         /// the value of the <i>offset</i> parameter.
         /// </exception>
-        public IAsyncResult BeginReceive(byte[] buffer,
+        public IAsyncResult BeginReceive(
+            byte[] buffer,
                                             int offset,
                                             int size,
                                             AsyncCallback callback,
                                             object state)
         {
-            return (IAsyncResult)BeginTimeoutOp(_recvTimeout, 
+            return (IAsyncResult)BeginTimeoutOp(
+                _recvTimeout, 
                 new Receive_Op(_baseSocket, buffer, offset, size),
                 callback, state);
         }
@@ -1978,7 +2010,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public int Send(byte[] buffer)
         {
-            return (int)DoTimeoutOp(_sendTimeout, 
+            return (int)DoTimeoutOp(
+                _sendTimeout, 
                 new Send_Op(_baseSocket, buffer, 0, buffer.Length));
         }
 
@@ -2017,7 +2050,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public int Send(byte[] buffer, int size)
         {
-            return (int)DoTimeoutOp(_sendTimeout, 
+            return (int)DoTimeoutOp(
+                _sendTimeout, 
                 new Send_Op(_baseSocket, buffer, 0, size));
         }
 
@@ -2065,7 +2099,8 @@ namespace BytesRoad.Net.Sockets
         /// </exception>
         public int Send(byte[] buffer, int offset, int size)
         {
-            return (int)DoTimeoutOp(_sendTimeout, 
+            return (int)DoTimeoutOp(
+                _sendTimeout, 
                 new Send_Op(_baseSocket, buffer, offset, size));
         }
 
@@ -2134,13 +2169,15 @@ namespace BytesRoad.Net.Sockets
         /// An error occurred when attempting to access
         /// the socket which is used to complete the requested operation.
         /// </exception>
-        public IAsyncResult BeginSend(byte[] buffer,
+        public IAsyncResult BeginSend(
+            byte[] buffer,
                                         int offset,
                                         int size,
                                         AsyncCallback callback,
                                         object state)
         {
-            return (IAsyncResult)BeginTimeoutOp(_sendTimeout, 
+            return (IAsyncResult)BeginTimeoutOp(
+                _sendTimeout, 
                 new Send_Op(_baseSocket, buffer, offset, size),
                 callback, state);
         }

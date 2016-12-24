@@ -41,6 +41,7 @@ namespace BitTorrent
                 ++Position;
                 return true;
             }
+
             return false;
         }
 
@@ -84,6 +85,7 @@ namespace BitTorrent
             {
                 return values;
             }
+
             set
             {
                 values.Clear();
@@ -100,6 +102,7 @@ namespace BitTorrent
             {
                 return values[index];
             }
+
             set
             {
                 values[index] = value;
@@ -150,6 +153,7 @@ namespace BitTorrent
             {
                 return v;
             }
+
             set
             {
                 v = value;
@@ -194,6 +198,7 @@ namespace BitTorrent
                 q += current.ToString();
                 current = (char)s.ReadByte();
             }
+
             int length = Int32.Parse(q);
             data = new Byte[length];
             s.Read(data, 0, length);
@@ -213,6 +218,7 @@ namespace BitTorrent
             {
                 return v;
             }
+
             set
             {
                 v = value;
@@ -226,6 +232,7 @@ namespace BitTorrent
             {
                 return Int64.Parse(v);
             }
+
             set
             {
                 String = value.ToString();
@@ -260,6 +267,7 @@ namespace BitTorrent
                 buffer += current.ToString();
                 current = (char)s.ReadByte();
             }
+
             String = Int64.Parse(buffer).ToString();
         }
     }
@@ -286,6 +294,7 @@ namespace BitTorrent
         {
             IBEncodeValue v;
             char first = (char)firstByte;
+
             // 
             if (first == 'd') v = new ValueDictionary();
             else if (first == 'l') v = new ValueList();

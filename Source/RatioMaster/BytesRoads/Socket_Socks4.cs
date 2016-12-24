@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Net;
@@ -40,7 +40,8 @@ namespace BytesRoad.Net.Sockets
             int _readBytes = 0;
             int _port = -1;
 
-            internal Connect_SO(EndPoint remoteEndPoint,
+            internal Connect_SO(
+                EndPoint remoteEndPoint,
                 int port,
                 AsyncCallback cb, 
                 object state) : base(cb, state)
@@ -53,6 +54,7 @@ namespace BytesRoad.Net.Sockets
             {
                 get { return _port; }
             }
+
             internal EndPoint RemoteEndPoint
             {
                 get { return _remoteEndPoint; }
@@ -72,7 +74,8 @@ namespace BytesRoad.Net.Sockets
             int _readBytes = 0;
             IPAddress _proxyIP = null;
 
-            internal Bind_SO(SocketBase baseSocket,
+            internal Bind_SO(
+                SocketBase baseSocket,
                 AsyncCallback cb, 
                 object state) : base(cb, state)
             {
@@ -101,7 +104,8 @@ namespace BytesRoad.Net.Sockets
         {
             int _readBytes = 0;
 
-            internal Accept_SO(AsyncCallback cb, 
+            internal Accept_SO(
+                AsyncCallback cb, 
                 object state) : base(cb, state)
             {
             }
@@ -117,7 +121,7 @@ namespace BytesRoad.Net.Sockets
 
         byte[] _response = new byte[8];
 
-        //End points
+        // End points
         EndPoint _localEndPoint = null;
         EndPoint _remoteEndPoint = null;
 
@@ -125,7 +129,8 @@ namespace BytesRoad.Net.Sockets
             string proxyServer,
             int proxyPort,
             byte[] proxyUser) 
-            : base(proxyServer, 
+            : base(
+                proxyServer, 
             proxyPort, 
             proxyUser,
             null)
@@ -137,7 +142,9 @@ namespace BytesRoad.Net.Sockets
         { 
             get { return ProxyType.Socks4; } 
         }
+
         override internal EndPoint LocalEndPoint { get { return _localEndPoint; } }
+
         override internal EndPoint RemoteEndPoint { get { return _remoteEndPoint; } }
         #endregion
 
@@ -175,7 +182,8 @@ namespace BytesRoad.Net.Sockets
 
             if(null != msg)
                 throw new SocketException(SockErrors.WSAECONNREFUSED);
-                //throw new ProxyErrorException(msg);
+
+                // throw new ProxyErrorException(msg);
         }
 
         byte[] PrepareCmd(EndPoint remoteEP, byte cmdVal)
@@ -185,17 +193,17 @@ namespace BytesRoad.Net.Sockets
                 userLength = _proxyUser.Length;
 
             IPEndPoint ip = (IPEndPoint)remoteEP;
-            byte[] cmd = new byte[8+userLength+1];
+            byte[] cmd = new byte[8 + userLength + 1];
             cmd[0] = 4;
             cmd[1] = cmdVal;
-            cmd[2] = (byte)((ip.Port&0xFF00)>>8);
-            cmd[3] = (byte)(ip.Port&0xFF);
+            cmd[2] = (byte)((ip.Port & 0xFF00) >> 8);
+            cmd[3] = (byte)(ip.Port & 0xFF);
 
             long ipAddr = ip.Address.Address;
-            cmd[7] = (byte)((ipAddr&0xFF000000)>>24);
-            cmd[6] = (byte)((ipAddr&0x00FF0000)>>16);
-            cmd[5] = (byte)((ipAddr&0x0000FF00)>>8);
-            cmd[4] = (byte)((ipAddr&0x000000FF));
+            cmd[7] = (byte)((ipAddr & 0xFF000000) >> 24);
+            cmd[6] = (byte)((ipAddr & 0x00FF0000) >> 16);
+            cmd[5] = (byte)((ipAddr & 0x0000FF00) >> 8);
+            cmd[4] = (byte)((ipAddr & 0x000000FF));
 
             if(userLength > 0)
                 Array.Copy(_proxyUser, 0, cmd, 8, userLength);
@@ -215,17 +223,17 @@ namespace BytesRoad.Net.Sockets
 
         IPEndPoint ConstructBindEndPoint(IPAddress proxyIP)
         {
-            int port = (_response[2]<<8) | _response[3] ;
-            long ip = (_response[7]<<24)|
-                (_response[6]<<16)|
-                (_response[5]<<8)|
+            int port = (_response[2] << 8) | _response[3] ;
+            long ip = (_response[7] << 24) |
+                (_response[6] << 16) |
+                (_response[5] << 8) |
                 (_response[4]);
             ip &= 0xFFFFFFFF;
 
             //------------------------------------
-            //if ip addr all zeros we need to 
-            //substitute address of the proxy
-            //server
+            // if ip addr all zeros we need to 
+            // substitute address of the proxy
+            // server
             if(0 == ip)
                 return new IPEndPoint(proxyIP, port);
 
@@ -244,7 +252,8 @@ namespace BytesRoad.Net.Sockets
                 int read = 0;
                 while(read < 8)
                 {
-                    read += NStream.Read(_response, 
+                    read += NStream.Read(
+                        _response, 
                         read, 
                         _response.Length - read);
                 }
@@ -255,10 +264,12 @@ namespace BytesRoad.Net.Sockets
             {
                 SetProgress(false);
             }
+
             return this;
         }
 
-        override internal IAsyncResult BeginAccept(AsyncCallback callback, 
+        override internal IAsyncResult BeginAccept(
+            AsyncCallback callback, 
             object state)
         {
             CheckDisposed();
@@ -272,7 +283,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Read the second response from proxy server. 
                 //
-                NStream.BeginRead(_response, 
+                NStream.BeginRead(
+                    _response, 
                     0, 
                     8, 
                     new AsyncCallback(Accept_Read_End),
@@ -283,6 +295,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw;
             }
+
             return stateObj;
         }
 
@@ -299,7 +312,8 @@ namespace BytesRoad.Net.Sockets
                     //------------------------------------
                     // Continue read the response from proxy server. 
                     //
-                    NStream.BeginRead(_response, 
+                    NStream.BeginRead(
+                        _response, 
                         stateObj.ReadBytes, 
                         8 - stateObj.ReadBytes, 
                         new AsyncCallback(Accept_Read_End),
@@ -340,7 +354,8 @@ namespace BytesRoad.Net.Sockets
                 //
                 IPHostEntry  proxyEntry = GetHostByName(_proxyServer);
                 if(null == proxyEntry)
-                    //throw new HostNotFoundException("Unable to resolve proxy name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy name.");
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(proxyEntry, _proxyPort);
@@ -350,7 +365,7 @@ namespace BytesRoad.Net.Sockets
                 //
                 _socket.Connect(proxyEndPoint);
 
-                _localEndPoint = null; //CONNECT command doesn't provide us with local end point
+                _localEndPoint = null; // CONNECT command doesn't provide us with local end point
                 _remoteEndPoint = remoteEP;
 
                 //------------------------------------------
@@ -365,7 +380,8 @@ namespace BytesRoad.Net.Sockets
                 int read = 0;
                 while(read < 8)
                 {
-                    read += NStream.Read(_response, 
+                    read += NStream.Read(
+                        _response, 
                         read, 
                         _response.Length - read);
                 }
@@ -379,7 +395,8 @@ namespace BytesRoad.Net.Sockets
         }
 
     
-        override internal IAsyncResult BeginConnect(string hostName,
+        override internal IAsyncResult BeginConnect(
+            string hostName,
             int port, 
             AsyncCallback callback,
             object state)
@@ -391,7 +408,8 @@ namespace BytesRoad.Net.Sockets
             try
             {
                 stateObj = new Connect_SO(null, port, callback, state);
-                BeginGetHostByName(hostName,
+                BeginGetHostByName(
+                    hostName,
                     new AsyncCallback(Connect_GetHost_Host_End),
                     stateObj);
             }
@@ -400,6 +418,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw e;
             }
+
             return stateObj;
         }
 
@@ -412,14 +431,16 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = EndGetHostByName(ar);
                 if(null == host)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve host name.");
 
                 stateObj.RemoteEndPoint = ConstructEndPoint(host, stateObj.Port);
 
                 //------------------------------------
                 // Get end point for the proxy server
                 //
-                BeginGetHostByName(_proxyServer,
+                BeginGetHostByName(
+                    _proxyServer,
                     new AsyncCallback(Connect_GetHost_Proxy_End),
                     stateObj);
             }
@@ -444,7 +465,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Get end point for the proxy server
                 //
-                BeginGetHostByName(_proxyServer,
+                BeginGetHostByName(
+                    _proxyServer,
                     new AsyncCallback(Connect_GetHost_Proxy_End),
                     stateObj);
             }
@@ -453,6 +475,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw ex;
             }
+
             return stateObj;
         }
 
@@ -465,14 +488,16 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = EndGetHostByName(ar);
                 if(null == host)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
 
                 //------------------------------------
                 // Connect to proxy server
                 //
-                _socket.BeginConnect(proxyEndPoint, 
+                _socket.BeginConnect(
+                    proxyEndPoint, 
                     new AsyncCallback(Connect_Connect_End),
                     stateObj);
             }
@@ -499,7 +524,8 @@ namespace BytesRoad.Net.Sockets
                 //
                 byte[] cmd = PrepareConnectCmd(stateObj.RemoteEndPoint);
 
-                NStream.BeginWrite(cmd, 
+                NStream.BeginWrite(
+                    cmd, 
                     0, 
                     cmd.Length,
                     new AsyncCallback(Connect_Write_End),
@@ -523,7 +549,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Read the response from proxy server. 
                 //
-                NStream.BeginRead(_response, 
+                NStream.BeginRead(
+                    _response, 
                     0, 
                     8, 
                     new AsyncCallback(Connect_Read_End),
@@ -550,7 +577,8 @@ namespace BytesRoad.Net.Sockets
                     //------------------------------------
                     // Read the response from proxy server. 
                     //
-                    NStream.BeginRead(_response, 
+                    NStream.BeginRead(
+                        _response, 
                         stateObj.ReadBytes, 
                         8 - stateObj.ReadBytes, 
                         new AsyncCallback(Connect_Read_End),
@@ -588,7 +616,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = GetHostByName(_proxyServer);
                 if(host == null)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy host name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
 
@@ -609,7 +638,8 @@ namespace BytesRoad.Net.Sockets
                 int read = 0;
                 while(read < 8)
                 {
-                    read += NStream.Read(_response, 
+                    read += NStream.Read(
+                        _response, 
                         read, 
                         _response.Length - read);
                 }
@@ -617,7 +647,7 @@ namespace BytesRoad.Net.Sockets
                 VerifyResponse();
                 _localEndPoint = ConstructBindEndPoint(proxyEndPoint.Address);
             
-                //remote end point doesn't provided for BIND command
+                // remote end point doesn't provided for BIND command
                 _remoteEndPoint = null;
             }
             finally
@@ -627,7 +657,8 @@ namespace BytesRoad.Net.Sockets
         }
 
 
-        override internal IAsyncResult BeginBind(SocketBase baseSocket, 
+        override internal IAsyncResult BeginBind(
+            SocketBase baseSocket, 
             AsyncCallback callback, 
             object state)
         {
@@ -643,7 +674,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Get end point for the proxy server
                 //
-                BeginGetHostByName(_proxyServer,
+                BeginGetHostByName(
+                    _proxyServer,
                     new AsyncCallback(Bind_GetHost_End),
                     stateObj);
             }
@@ -652,6 +684,7 @@ namespace BytesRoad.Net.Sockets
                 SetProgress(false);
                 throw ex;
             }
+
             return stateObj;
         }
 
@@ -664,7 +697,8 @@ namespace BytesRoad.Net.Sockets
                 IPHostEntry host = EndGetHostByName(ar);
                 if(host == null)
                     throw new SocketException(SockErrors.WSAHOST_NOT_FOUND);
-                    //throw new HostNotFoundException("Unable to resolve proxy host name.");
+
+                    // throw new HostNotFoundException("Unable to resolve proxy host name.");
 
                 IPEndPoint proxyEndPoint = ConstructEndPoint(host, _proxyPort);
                 stateObj.ProxyIP = proxyEndPoint.Address;
@@ -672,7 +706,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Connect to proxy server
                 //
-                _socket.BeginConnect(proxyEndPoint, 
+                _socket.BeginConnect(
+                    proxyEndPoint, 
                     new AsyncCallback(Bind_Connect_End),
                     stateObj);
             }
@@ -696,7 +731,8 @@ namespace BytesRoad.Net.Sockets
                 //
                 byte[] cmd = PrepareBindCmd(stateObj.BaseSocket);
 
-                NStream.BeginWrite(cmd, 
+                NStream.BeginWrite(
+                    cmd, 
                     0, 
                     cmd.Length,
                     new AsyncCallback(Bind_Write_End),
@@ -720,7 +756,8 @@ namespace BytesRoad.Net.Sockets
                 //------------------------------------
                 // Read the response from proxy server. 
                 //
-                NStream.BeginRead(_response, 
+                NStream.BeginRead(
+                    _response, 
                     0, 
                     8, 
                     new AsyncCallback(Bind_Read_End),
@@ -747,7 +784,8 @@ namespace BytesRoad.Net.Sockets
                     //------------------------------------
                     // Read the response from proxy server. 
                     //
-                    NStream.BeginRead(_response, 
+                    NStream.BeginRead(
+                        _response, 
                         stateObj.ReadBytes, 
                         8 - stateObj.ReadBytes, 
                         new AsyncCallback(Bind_Read_End),

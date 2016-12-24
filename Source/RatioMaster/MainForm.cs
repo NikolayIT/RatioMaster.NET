@@ -13,21 +13,28 @@ namespace RatioMaster_source
         public static bool _24h_format_enabled = false;
 
         readonly RMCollection<RM> data = new RMCollection<RM>();
-        //RM current;
-        int items = 0, allit = 0;
+
+        // RM current;
+        int items = 0;
+
+        // RM current;
+        int allit = 0;
         bool trayIconBaloonIsUp = false;
         private VersionChecker versionChecker = new VersionChecker("");
         internal NewVersionForm verform = new NewVersionForm();
         string Log = "";
+
         internal MainForm()
         {
             InitializeComponent();
             Text = "RatioMaster.NET " + VersionChecker.PublicVersion;
         }
+
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Add("");
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             versionChecker = new VersionChecker(Log);
@@ -37,19 +44,23 @@ namespace RatioMaster_source
             txtLocal.Text = VersionChecker.LocalVersion;
             txtReleaseDate.Text = VersionChecker.ReleaseDate;
             Log += versionChecker.Log;
-            //lblSize.Text = this.Width + "x" + this.Height;
+
+            // lblSize.Text = this.Width + "x" + this.Height;
             LoadSettings();
-            //trayIcon.Text += versionChecker.PublicVersion;
-            //trayIcon.BalloonTipTitle += " " + versionChecker.PublicVersion;
+
+            // trayIcon.Text += versionChecker.PublicVersion;
+            // trayIcon.BalloonTipTitle += " " + versionChecker.PublicVersion;
             Add("");
             lblIp.Text = Functions.GetIp();
             tab_TabIndexChanged(null, null);
         }
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm About = new AboutForm(VersionChecker.PublicVersion);
             About.ShowDialog();
         }
+
         private void winRestore()
         {
             if (WindowState == FormWindowState.Minimized)
@@ -58,17 +69,20 @@ namespace RatioMaster_source
                 WindowState = FormWindowState.Normal;
                 trayIcon.Visible = false;
             }
+
             // Activate the form.
             Activate();
             Focus();
         }
+
         private void MainForm_Move(object sender, EventArgs e)
         {
             if (this == null)
-            { //This happen on create.
+            { // This happen on create.
                 return;
             }
-            //If we are minimizing the form then hide it so it doesn't show up on the task bar
+
+            // If we are minimizing the form then hide it so it doesn't show up on the task bar
             if (WindowState == FormWindowState.Minimized && chkMinimize.Checked)
             {
                 Hide();
@@ -76,11 +90,13 @@ namespace RatioMaster_source
             }
             else
             {
-                //any other windows state show it.
+                // any other windows state show it.
                 Show();
             }
-            //lblLocation.Text = this.Location.X + "x" + this.Location.Y;
+
+            // lblLocation.Text = this.Location.X + "x" + this.Location.Y;
         }
+
         private void Exit()
         {
             if (GetTabType(tab.SelectedTab) == TabType.RatioMaster) SaveSettings((RM)tab.SelectedTab.Controls[0]);
@@ -88,14 +104,17 @@ namespace RatioMaster_source
             {
                 if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).StopButton_Click(null, null);
             }
+
             Application.Exit();
             Process.GetCurrentProcess().Kill();
         }
+
         private static TabType GetTabType(TabPage page)
         {
-            //string name = page.Controls[0].ToString();
+            // string name = page.Controls[0].ToString();
             return TabType.RatioMaster;
         }
+
         #region Tray items
         private void trayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -104,10 +123,12 @@ namespace RatioMaster_source
                 winRestore();
             }
         }
+
         private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             winRestore();
         }
+
         private void trayIcon_MouseMove(object sender, MouseEventArgs e)
         {
             if (checkShowTrayBaloon.Checked && trayIconBaloonIsUp == false)
@@ -124,52 +145,63 @@ namespace RatioMaster_source
                         trayIcon.BalloonTipText += tabb.Text + " - Not opened!" + "\n";
                     }
                 }
+
                 trayIcon.ShowBalloonTip(0);
             }
         }
+
         private void goToProgramSiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(Links.ProgramPage);
         }
+
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
             Exit();
         }
+
         private void trayIcon_BalloonTipClicked(object sender, EventArgs e)
         {
             trayIconBaloonIsUp = false;
         }
+
         private void trayIcon_BalloonTipClosed(object sender, EventArgs e)
         {
             trayIconBaloonIsUp = false;
         }
+
         private void trayIcon_BalloonTipShown(object sender, EventArgs e)
         {
             trayIconBaloonIsUp = true;
         }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Exit();
         }
+
         #endregion
         #region Tabs
         private void EditCurrent(string FileName)
         {
             ((RM)tab.SelectedTab.Controls[0]).loadTorrentFileInfo(FileName);
         }
+
         private void Add(string FileName)
         {
             items++;
             allit++;
             RM rm1 = new RM();
             data.Add(rm1);
-            //current = rm1;
+
+            // current = rm1;
             TabPage page1 = new TabPage("RM " + allit.ToString());
             page1.Name = "RM" + items.ToString();
             page1.Controls.Add(rm1);
-            //page1.Enter += new EventHandler(this.TabPage_Enter);
-            //page1.BorderStyle = BorderStyle.FixedSingle;
-            //page1.BackColor = Color.White;
+
+            // page1.Enter += new EventHandler(this.TabPage_Enter);
+            // page1.BorderStyle = BorderStyle.FixedSingle;
+            // page1.BackColor = Color.White;
             tab.Controls.Add(page1);
             tab.SelectedTab = page1;
             lblTabs.Text = allit.ToString();
@@ -177,7 +209,11 @@ namespace RatioMaster_source
             {
                 ((RM)tab.SelectedTab.Controls[0]).loadTorrentFileInfo(FileName);
             }
+
+            page1.ToolTipText = "Double click to rename this tab";
+            tab.ShowToolTips = true;
         }
+
         private void Remove()
         {
             if (tab.TabPages.Count < 2) return;
@@ -187,10 +223,12 @@ namespace RatioMaster_source
                 ((RM)tab.SelectedTab.Controls[0]).StopButton_Click(null, null);
                 allit--;
             }
+
             tab.TabPages.Remove(tab.SelectedTab);
             tab.SelectedIndex = last;
             lblTabs.Text = allit.ToString();
         }
+
         private void RenameTabs()
         {
             int curr = 0;
@@ -203,42 +241,58 @@ namespace RatioMaster_source
                 }
             }
         }
+
         private void renameCurrentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Prompt prompt = new Prompt("Please select new tab name", "Type new tab name:", tab.SelectedTab.Text);
             if (prompt.ShowDialog() == DialogResult.OK) tab.SelectedTab.Text = prompt.Result;
         }
+
+        private void renameCurrentTab_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Prompt prompt = new Prompt("Please select new tab name", "Type new tab name:", tab.SelectedTab.Text);
+            if (prompt.ShowDialog() == DialogResult.OK) tab.SelectedTab.Text = prompt.Result;
+        }
+
         private void removeCurrentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Remove();
             RenameTabs();
         }
+
         #endregion
         private void MainForm_Resize(object sender, EventArgs e)
         {
             tab.Size = new Size(Width - 8, Height - 80);
-            //lblSize.Text = this.Width + "x" + this.Height;
+
+            // lblSize.Text = this.Width + "x" + this.Height;
         }
+
         private void goToProgramPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(Links.ProgramPage);
         }
+
         private void goToGitHubPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(Links.GitHubPage);
         }
+
         private void goToAuthorPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(Links.AuthorPage);
         }
+
         private void jOINToOurForumPleaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(Links.PayPal);
         }
+
         private void lblCodedBy_Click(object sender, EventArgs e)
         {
             Process.Start(Links.AuthorPage);
         }
+
         private void LoadSettings()
         {
             RegistryKey reg = Registry.CurrentUser.OpenSubKey("Software\\RatioMaster.NET", true);
@@ -248,14 +302,16 @@ namespace RatioMaster_source
                 Registry.CurrentUser.CreateSubKey("Software\\RatioMaster.NET");
                 return;
             }
+
             try
             {
-                checkShowTrayBaloon.Checked = ItoB((int) reg.GetValue("BallonTip", false));
-                chkMinimize.Checked = ItoB((int) reg.GetValue("MinimizeToTray", true));
-                closeToTrayToolStripMenuItem.Checked = ItoB((int) reg.GetValue("CloseToTray", true));
+                checkShowTrayBaloon.Checked = ItoB((int)reg.GetValue("BallonTip", false));
+                chkMinimize.Checked = ItoB((int)reg.GetValue("MinimizeToTray", true));
+                closeToTrayToolStripMenuItem.Checked = ItoB((int)reg.GetValue("CloseToTray", true));
             }
             catch { }
         }
+
         private void SaveSettings(RM RMdata)
         {
             try
@@ -282,6 +338,7 @@ namespace RatioMaster_source
                 reg.SetValue("TCPlistener", BtoI(RMdata.checkTCPListen.Checked), RegistryValueKind.DWord);
                 reg.SetValue("ScrapeInfo", BtoI(RMdata.checkRequestScrap.Checked), RegistryValueKind.DWord);
                 reg.SetValue("EnableLog", BtoI(RMdata.checkLogEnabled.Checked), RegistryValueKind.DWord);
+
                 // Radnom value
                 reg.SetValue("GetRandUp", BtoI(RMdata.chkRandUP.Checked), RegistryValueKind.DWord);
                 reg.SetValue("GetRandDown", BtoI(RMdata.chkRandDown.Checked), RegistryValueKind.DWord);
@@ -289,20 +346,24 @@ namespace RatioMaster_source
                 reg.SetValue("MaxRandUp", RMdata.txtRandUpMax.Text, RegistryValueKind.String);
                 reg.SetValue("MinRandDown", RMdata.txtRandDownMin.Text, RegistryValueKind.String);
                 reg.SetValue("MaxRandDown", RMdata.txtRandDownMax.Text, RegistryValueKind.String);
+
                 // Custom values
                 reg.SetValue("CustomKey", RMdata.customKey.Text, RegistryValueKind.String);
                 reg.SetValue("CustomPeerID", RMdata.customPeerID.Text, RegistryValueKind.String);
                 reg.SetValue("CustomPeers", RMdata.customPeersNum.Text, RegistryValueKind.String);
                 reg.SetValue("CustomPort", RMdata.customPort.Text, RegistryValueKind.String);
+
                 // Stop after...
                 reg.SetValue("StopWhen", RMdata.cmbStopAfter.SelectedItem, RegistryValueKind.String);
                 reg.SetValue("StopAfter", RMdata.txtStopValue.Text, RegistryValueKind.String);
+
                 // Proxy
                 reg.SetValue("ProxyType", RMdata.comboProxyType.SelectedItem, RegistryValueKind.String);
                 reg.SetValue("ProxyAdress", RMdata.textProxyHost.Text, RegistryValueKind.String);
                 reg.SetValue("ProxyUser", RMdata.textProxyUser.Text, RegistryValueKind.String);
                 reg.SetValue("ProxyPass", RMdata.textProxyPass.Text, RegistryValueKind.String);
                 reg.SetValue("ProxyPort", RMdata.textProxyPort.Text, RegistryValueKind.String);
+
                 // Radnom value on next
                 reg.SetValue("GetRandUpNext", BtoI(RMdata.checkRandomUpload.Checked), RegistryValueKind.DWord);
                 reg.SetValue("GetRandDownNext", BtoI(RMdata.checkRandomDownload.Checked), RegistryValueKind.DWord);
@@ -317,6 +378,7 @@ namespace RatioMaster_source
                 Log += "Error in SetSettings(): " + e.Message + "\n";
             }
         }
+
         internal static Int64 parseValidInt64(string str, Int64 defVal)
         {
             try
@@ -324,6 +386,7 @@ namespace RatioMaster_source
             catch (Exception)
             { return defVal; }
         }
+
         internal static int ParseValidInt(string str, int defVal)
         {
             try
@@ -331,17 +394,20 @@ namespace RatioMaster_source
             catch (Exception)
             { return defVal; }
         }
+
         internal static int BtoI(bool b)
         {
             if (b) return 1;
             else return 0;
         }
+
         internal static bool ItoB(int param)
         {
             if (param == 0) return false;
             if (param == 1) return true;
             return true;
         }
+
         internal void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (closeToTrayToolStripMenuItem.Checked && chkMinimize.Checked)
@@ -353,32 +419,39 @@ namespace RatioMaster_source
             }
             else Exit();
         }
+
         internal void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             AboutForm About = new AboutForm(VersionChecker.PublicVersion);
             About.ShowDialog();
         }
+
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (GetTabType(tab.SelectedTab) == TabType.RatioMaster) ((RM)tab.SelectedTab.Controls[0]).StartButton_Click(null, null);
         }
+
         private void manualUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (GetTabType(tab.SelectedTab) == TabType.RatioMaster) ((RM)tab.SelectedTab.Controls[0]).manualUpdateButton_Click(null, null);
         }
+
         private void stopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (GetTabType(tab.SelectedTab) == TabType.RatioMaster) ((RM)tab.SelectedTab.Controls[0]).StopButton_Click(null, null);
         }
+
         #region Sessions
         bool startthem = false;
         bool stopthem = false;
+
         private static void AppendItem(XmlDocument aXmlDoc, XmlElement aXmlElement, string Value, string Name)
         {
             XmlElement itemElement = aXmlDoc.CreateElement(Name);
             itemElement.InnerText = Value;
             aXmlElement.AppendChild(itemElement);
         }
+
         private static void NewMainItem(XmlDocument aXmlDoc, XmlElement aXmlElement, RM data, string name)
         {
             AppendItem(aXmlDoc, aXmlElement, name, "Name");
@@ -414,26 +487,31 @@ namespace RatioMaster_source
             AppendItem(aXmlDoc, aXmlElement, data.RandomDownloadTo.Text, "NextUpdateDownloadTo");
             AppendItem(aXmlDoc, aXmlElement, data.checkIgnoreFailureReason.Checked.ToString(), "IgnoreFailureReason");
         }
+
         private void saveCurrentSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             stopthem = true;
             saveSession.ShowDialog();
         }
+
         private void loadSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             startthem = false;
             loadSession.ShowDialog();
         }
+
         private void loadSessionAndStartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             startthem = true;
             loadSession.ShowDialog();
         }
+
         private void saveCurrentSessionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             stopthem = false;
             saveSession.ShowDialog();
         }
+
         private void SaveSession(string Path)
         {
             XmlDocument doc = new XmlDocument();
@@ -449,8 +527,10 @@ namespace RatioMaster_source
                     NewMainItem(doc, child, (RM)tabb.Controls[0], tabb.Text);
                 }
             }
+
             doc.Save(Path);
         }
+
         private void LoadSession(string Path)
         {
             XmlDocument doc = new XmlDocument();
@@ -494,16 +574,20 @@ namespace RatioMaster_source
                 ((RM)tab.SelectedTab.Controls[0]).checkIgnoreFailureReason.Checked = bool.Parse(node["IgnoreFailureReason"].InnerText);
                 if (startthem) ((RM)tab.SelectedTab.Controls[0]).StartButton_Click(null, null);
             }
+
             RenameTabs();
         }
+
         private void saveSession_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveSession(saveSession.FileName);
         }
+
         private void loadSession_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             LoadSession(loadSession.FileName);
         }
+
         #endregion
         #region All RatioMasters menu
         private void startToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -513,6 +597,7 @@ namespace RatioMaster_source
                 if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).StartButton_Click(null, null);
             }
         }
+
         private void stopToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             foreach (TabPage tabb in tab.TabPages)
@@ -520,6 +605,7 @@ namespace RatioMaster_source
                 if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).StopButton_Click(null, null);
             }
         }
+
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (TabPage tabb in tab.TabPages)
@@ -527,6 +613,7 @@ namespace RatioMaster_source
                 if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).manualUpdateButton_Click(null, null);
             }
         }
+
         private void clearAllLogsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (TabPage tabb in tab.TabPages)
@@ -534,6 +621,7 @@ namespace RatioMaster_source
                 if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).clearLogButton_Click(null, null);
             }
         }
+
         private void setUploadSpeedToToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Prompt prompt = new Prompt("Please type valid integer value", "Type new upload speed for all tabs:", "100");
@@ -549,12 +637,14 @@ namespace RatioMaster_source
                     MessageBox.Show("Invalid value!\nTry again!", "Error");
                     return;
                 }
+
                 foreach (TabPage tabb in tab.TabPages)
                 {
                     if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).updateTextBox(((RM)tabb.Controls[0]).uploadRate, value.ToString());
                 }
             }
         }
+
         private void setDownloadSpeedToToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Prompt prompt = new Prompt("Please type valid integer value", "Type new download speed for all tabs:", "100");
@@ -570,17 +660,20 @@ namespace RatioMaster_source
                     MessageBox.Show("Invalid value!\nTry again!", "Error");
                     return;
                 }
+
                 foreach (TabPage tabb in tab.TabPages)
                 {
                     if (GetTabType(tabb) == TabType.RatioMaster) ((RM)tabb.Controls[0]).updateTextBox(((RM)tabb.Controls[0]).downloadRate, value.ToString());
                 }
             }
         }
+
         #endregion
         private void saveSettingsFromCurrentTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (GetTabType(tab.SelectedTab) == TabType.RatioMaster) SaveSettings((RM)tab.SelectedTab.Controls[0]);
         }
+
         private void tab_TabIndexChanged(object sender, EventArgs e)
         {
             /*
@@ -602,11 +695,13 @@ namespace RatioMaster_source
             }
              */
         }
+
         private static string GetFileExtenstion(string File)
         {
             FileInfo info = new FileInfo(File);
             return info.Extension;
         }
+
         private void MainForm_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop, false))
@@ -614,11 +709,12 @@ namespace RatioMaster_source
                 e.Effect = DragDropEffects.All;
             }
         }
+
         private void MainForm_DragDrop(object sender, DragEventArgs e)
         {
             foreach (string fileName in (string[])e.Data.GetData(DataFormats.FileDrop))
             {
-                //MessageBox.Show(fileName + "\n" + GetFileExtenstion(fileName), "Debug");
+                // MessageBox.Show(fileName + "\n" + GetFileExtenstion(fileName), "Debug");
                 if (GetFileExtenstion(fileName) == ".torrent")
                 {
                     if (MessageBox.Show("You have successfuly loaded this torrent file:\n" + fileName + "\nDo you want to load this torrent file in a new tab?", "File loaded!", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) Add(fileName);
@@ -638,6 +734,7 @@ namespace RatioMaster_source
             _24h_format_enabled = enable24hformat.Checked;
         }
     }
+
     internal enum TabType
     {
         RatioMaster = 1,

@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.Net;
@@ -41,7 +41,7 @@ namespace BytesRoad.Net.Sockets
 
         bool _disposed = false;
 
-        //Proxy attributes
+        // Proxy attributes
         protected string _proxyServer = null;
         protected int _proxyPort = -1;
         protected byte[] _proxyUser = null;
@@ -54,7 +54,8 @@ namespace BytesRoad.Net.Sockets
             _socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, 1);
         }
 
-        protected SocketBase(string proxyServer, 
+        protected SocketBase(
+            string proxyServer, 
             int proxyPort, 
             byte[] proxyUser, 
             byte[] proxyPassword)
@@ -95,6 +96,7 @@ namespace BytesRoad.Net.Sockets
                 return _stream;
             }
         }
+
         internal Socket SystemSocket
         {
             get { return _socket; }
@@ -107,7 +109,9 @@ namespace BytesRoad.Net.Sockets
         }
 
         abstract internal ProxyType ProxyType { get; }
+
         abstract internal EndPoint LocalEndPoint { get; } 
+
         abstract internal EndPoint RemoteEndPoint { get; }
 
         #endregion
@@ -124,6 +128,7 @@ namespace BytesRoad.Net.Sockets
             {
                 host = null;
             }
+
             return host;
         }
 
@@ -143,6 +148,7 @@ namespace BytesRoad.Net.Sockets
             {
                 host = null;
             }
+
             return host;
         }
         #endregion
@@ -174,7 +180,9 @@ namespace BytesRoad.Net.Sockets
 
         #region Accept functions (abstract)
         abstract internal SocketBase Accept();
+
         abstract internal IAsyncResult BeginAccept(AsyncCallback callback, object state);
+
         abstract internal SocketBase EndAccept(IAsyncResult asyncResult);
         #endregion
 
@@ -202,13 +210,17 @@ namespace BytesRoad.Net.Sockets
         abstract internal void Connect(EndPoint remoteEP);
 
         abstract internal IAsyncResult BeginConnect(string hostName, int port, AsyncCallback callback, object state);
+
         abstract internal IAsyncResult BeginConnect(EndPoint remoteEP, AsyncCallback callback, object state);
+
         abstract internal void EndConnect(IAsyncResult asyncResult);
         #endregion
 
         #region Bind functions (abstract)
         abstract internal void Bind(SocketBase socket);
+
         abstract internal IAsyncResult BeginBind(SocketBase socket, AsyncCallback callback, object state);
+
         abstract internal void EndBind(IAsyncResult ar); 
         #endregion
 

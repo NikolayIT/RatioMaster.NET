@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 
@@ -39,7 +39,7 @@ namespace BytesRoad.Net.Sockets.Advanced
         
         virtual internal void SetProgress(bool progress)
         {
-            //prevent from nested calls
+            // prevent from nested calls
             lock(this)
             {
                 if(progress)
@@ -69,13 +69,15 @@ namespace BytesRoad.Net.Sockets.Advanced
             HandleAsyncEnd(ar, arType, null, turnProgressOff);
         }*/
 
-        static internal void VerifyAsyncResult(IAsyncResult ar, 
+        static internal void VerifyAsyncResult(
+            IAsyncResult ar, 
             Type arType)
         {
             VerifyAsyncResult(ar, arType, null);
         }
 
-        static internal void VerifyAsyncResult(IAsyncResult ar, 
+        static internal void VerifyAsyncResult(
+            IAsyncResult ar, 
             Type arType,
             string metName)
         {
@@ -86,7 +88,8 @@ namespace BytesRoad.Net.Sockets.Advanced
                 metName = "End*";
 
             if(false == ar.GetType().Equals(arType))
-                throw new ArgumentException("asyncResult was not returned by a call to the " + 
+                throw new ArgumentException(
+                    "asyncResult was not returned by a call to the " + 
                     metName + " method.", "asyncResult");
 
             AsyncResultBase stateObj = (AsyncResultBase)ar;
@@ -114,10 +117,11 @@ namespace BytesRoad.Net.Sockets.Advanced
 
             if(null != stateObj.Exception)
             {
-                //dumpActivityException(stateObj);
+                // dumpActivityException(stateObj);
                 throw stateObj.Exception;
             }
         }
+
         /*
         void dumpActivityException(AsyncResultBase ar)
         {

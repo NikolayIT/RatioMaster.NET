@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-//========================================================================== 
+// ========================================================================== 
 // Changed by: NRPG
 using System;
 using System.IO;
@@ -80,7 +80,8 @@ namespace BytesRoad.Net.Sockets
             int _size = 0;
             byte[] _buffer = null;
 
-            internal Read_SO(byte[] buffer,
+            internal Read_SO(
+                byte[] buffer,
                 int offset, 
                 int size, 
                 AsyncCallback cb, 
@@ -120,7 +121,8 @@ namespace BytesRoad.Net.Sockets
             int _size = 0;
             byte[] _buffer = null;
 
-            internal Write_SO(byte[] buffer,
+            internal Write_SO(
+                byte[] buffer,
                 int offset, 
                 int size, 
                 AsyncCallback cb, 
@@ -357,7 +359,7 @@ namespace BytesRoad.Net.Sockets
         { 
             get 
             { 
-                return (_access&FileAccess.Read) == FileAccess.Read; 
+                return (_access & FileAccess.Read) == FileAccess.Read; 
             } 
         }
 
@@ -396,7 +398,7 @@ namespace BytesRoad.Net.Sockets
         { 
             get 
             { 
-                return (_access&FileAccess.Write) == FileAccess.Write;  
+                return (_access & FileAccess.Write) == FileAccess.Write;  
             } 
         }
 
@@ -432,7 +434,7 @@ namespace BytesRoad.Net.Sockets
                 CheckDisposed();
                 try
                 {
-                    return _socket.Available>0; 
+                    return _socket.Available > 0; 
                 }
                 catch
                 {
@@ -571,9 +573,10 @@ namespace BytesRoad.Net.Sockets
                 int num = 1;
                 while((num > 0) && (read < size))
                 {
-                    num = _socket.Receive(buffer, offset+read, size-read);
+                    num = _socket.Receive(buffer, offset + read, size - read);
                     read += num;
                 }
+
                 return read;
             }
             catch
@@ -652,7 +655,8 @@ namespace BytesRoad.Net.Sockets
         /// <i>size</i> is greater than the length of <i>buffer</i> minus 
         /// the value of the <i>offset</i> parameter.
         /// </exception>
-        public override IAsyncResult BeginRead(byte[] buffer,
+        public override IAsyncResult BeginRead(
+            byte[] buffer,
             int offset,
             int size,
             AsyncCallback callback,
@@ -663,13 +667,15 @@ namespace BytesRoad.Net.Sockets
             _asyncCtx.SetProgress(true);
             try
             {
-                Read_SO stateObj = new Read_SO(buffer, 
+                Read_SO stateObj = new Read_SO(
+                    buffer, 
                     offset, 
                     size,
                     callback,
                     state);
 
-                return _socket.BeginReceive(buffer, 
+                return _socket.BeginReceive(
+                    buffer, 
                     offset, 
                     size, 
                     new AsyncCallback(Read_End),
@@ -695,7 +701,8 @@ namespace BytesRoad.Net.Sockets
                 stateObj.Read += read;
                 if((read > 0) && (stateObj.Read < stateObj.Size))
                 {
-                    _socket.BeginReceive(stateObj.Buffer, 
+                    _socket.BeginReceive(
+                        stateObj.Buffer, 
                         stateObj.Offset + stateObj.Read, 
                         stateObj.Size - stateObj.Read, 
                         new AsyncCallback(Read_End),
@@ -714,6 +721,7 @@ namespace BytesRoad.Net.Sockets
                     stateObj.Exception = e;
                 stateObj.SetCompleted();
             }
+
             /*
             catch
             {
@@ -841,7 +849,8 @@ namespace BytesRoad.Net.Sockets
                 int sent = 0;
                 while(sent < size)
                 {
-                    sent += _socket.Send(buffer, 
+                    sent += _socket.Send(
+                        buffer, 
                         offset + sent, 
                         size - sent);
                 }
@@ -918,7 +927,8 @@ namespace BytesRoad.Net.Sockets
         /// </note>
         /// 
         /// </remarks>
-        public override IAsyncResult BeginWrite(byte[] buffer,
+        public override IAsyncResult BeginWrite(
+            byte[] buffer,
             int offset,
             int size,
             AsyncCallback callback,
@@ -929,13 +939,15 @@ namespace BytesRoad.Net.Sockets
             _asyncCtx.SetProgress(true);
             try
             {
-                Write_SO stateObj =  new Write_SO(buffer,
+                Write_SO stateObj =  new Write_SO(
+                    buffer,
                     offset,
                     size, 
                     callback, 
                     state);
 
-                return _socket.BeginSend(buffer, 
+                return _socket.BeginSend(
+                    buffer, 
                     offset, 
                     size,
                     new AsyncCallback(Send_End),
@@ -961,7 +973,8 @@ namespace BytesRoad.Net.Sockets
                 stateObj.Sent += sent;
                 if(stateObj.Sent < stateObj.Size)
                 {
-                    _socket.BeginSend(stateObj.Buffer, 
+                    _socket.BeginSend(
+                        stateObj.Buffer, 
                         stateObj.Offset + stateObj.Sent, 
                         stateObj.Size - stateObj.Sent, 
                         new AsyncCallback(Send_End),
@@ -980,6 +993,7 @@ namespace BytesRoad.Net.Sockets
                     stateObj.Exception = e;
                 stateObj.SetCompleted();
             }
+
             /*
             catch
             {
