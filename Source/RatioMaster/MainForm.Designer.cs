@@ -111,6 +111,7 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T);
             this.newToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.newToolStripMenuItem.Text = "New RatioMaster";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
@@ -130,6 +131,7 @@
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.ShortcutKeys = (System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W);
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.removeToolStripMenuItem.Text = "Close";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeCurrentToolStripMenuItem_Click);
@@ -438,6 +440,7 @@
             this.toolStripMenuItem4.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem4.Text = "EXIT";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            this.tab.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.renameCurrentTab_MouseDoubleClick);
             // 
             // tab
             // 
