@@ -935,7 +935,7 @@
                                 updateScrapStats(BEncode.String(dictionary1["complete"]), BEncode.String(dictionary1["incomplete"]), "");
 
                                 decimal leechers = BEncode.String(dictionary1["incomplete"]).ParseValidInt(0);
-                                if (leechers == 0)
+                                if (leechers == 0 && noLeechers.Checked)
                                 {
                                     AddLogLine("Min number of leechers reached... setting upload speed to 0");
                                     updateTextBox(uploadRate, "0");
@@ -1134,7 +1134,7 @@
                                 AddLogLine("incomplete: " + BEncode.String(dictionary2["incomplete"]));
                                 updateScrapStats(BEncode.String(dictionary2["complete"]), BEncode.String(dictionary2["incomplete"]), BEncode.String(dictionary2["downloaded"]));
                                 decimal leechers = BEncode.String(dictionary2["incomplete"]).ParseValidInt(-1);
-                                if (Leechers != -1  && (leechers == 0))
+                                if (Leechers != -1  && (leechers == 0) && noLeechers.Checked)
                                 {
                                     AddLogLine("Min number of leechers reached... setting upload speed to 0");
                                     updateTextBox(uploadRate, "0");

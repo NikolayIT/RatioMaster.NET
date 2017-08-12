@@ -128,6 +128,7 @@ namespace RatioMaster_source
             this.checkIgnoreFailureReason = new System.Windows.Forms.CheckBox();
             this.checkRequestScrap = new System.Windows.Forms.CheckBox();
             this.checkTCPListen = new System.Windows.Forms.CheckBox();
+            this.noLeechers = new System.Windows.Forms.CheckBox();
             this.magneticPanel1 = new RatioMaster_source.MagneticPanel();
             this.browseButton = new System.Windows.Forms.Button();
             this.torrentFile = new System.Windows.Forms.TextBox();
@@ -650,6 +651,7 @@ namespace RatioMaster_source
             this.magneticPanel6.Controls.Add(this.cmbClient);
             this.magneticPanel6.Controls.Add(this.interval);
             this.magneticPanel6.Controls.Add(this.ClientLabel);
+            this.magneticPanel6.Controls.Add(this.noLeechers);
             this.magneticPanel6.ExpandSize = new System.Drawing.Size(473, 70);
             this.magneticPanel6.Location = new System.Drawing.Point(3, 207);
             this.magneticPanel6.Marker = RatioMaster_source.PanelMarkerStyle.Arrow;
@@ -1197,6 +1199,18 @@ namespace RatioMaster_source
             this.checkTCPListen.Text = "Use TCP listener";
             this.checkTCPListen.UseVisualStyleBackColor = true;
             // 
+            // noLeechers
+            this.noLeechers.AutoSize = true;
+            this.noLeechers.Checked = true;
+            this.noLeechers.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.noLeechers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noLeechers.Location = new System.Drawing.Point(342, 50);
+            this.noLeechers.Name = "noLeechers";
+            this.noLeechers.Size = new System.Drawing.Size(102, 17);
+            this.noLeechers.TabIndex = 0;
+            this.noLeechers.Text = "Stop if no leechers";
+            this.noLeechers.UseVisualStyleBackColor = true;
+            //
             // magneticPanel1
             // 
             this.magneticPanel1.BevelStyle = RatioMaster_source.BevelStyles.Flat;
@@ -1316,6 +1330,7 @@ namespace RatioMaster_source
         internal System.Windows.Forms.TextBox txtStopValue;
         internal System.Windows.Forms.Label lblRemWork;
         internal System.Windows.Forms.CheckBox checkTCPListen;
+        internal System.Windows.Forms.CheckBox noLeechers;
         internal System.Windows.Forms.CheckBox checkRequestScrap;
         internal System.Windows.Forms.Button btnDefault;
         internal System.Windows.Forms.Label labelProxyType;
