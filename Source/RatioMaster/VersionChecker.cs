@@ -9,7 +9,7 @@ namespace RatioMaster_source
         public const string LocalVersion = "0430";
         public const string PublicVersion = "0.43";
         public const string ReleaseDate = "08-01-2016";
-        private const string ProgramPageVersion = "http://ratiomaster.net/vc.php?v=";
+        private const string ProgramPageVersion = "https://github.com/NikolayIT/RatioMaster.NET/releases/latest";
 
         private readonly string userAgent;
 
@@ -58,20 +58,16 @@ namespace RatioMaster_source
 
         public string GetServerVersionId()
         {
-            var url = ProgramPageVersion + LocalVersion;
+            var url = ProgramPageVersion;
             try
             {
                 var request1 = (HttpWebRequest)WebRequest.Create(url);
                 request1.UserAgent = this.userAgent;
                 request1.Timeout = 2500;
-                using (var response1 = (HttpWebResponse)request1.GetResponse())
-                {
-                    using (var reader1 = new StreamReader(response1.GetResponseStream()))
-                    {
-                        var data = reader1.ReadToEnd();
-                        return data;
-                    }
-                }
+                var response1 = request1.GetResponse();
+                var data = response1.ResponseUri.ToString();
+                data = data.Substring(data.Length - 4, 4);
+                return data;
             }
             catch (Exception exception1)
             {
