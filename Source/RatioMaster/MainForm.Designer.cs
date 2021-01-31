@@ -571,7 +571,7 @@
             this.lblCodedBy.Name = "lblCodedBy";
             this.lblCodedBy.Size = new System.Drawing.Size(362, 17);
             this.lblCodedBy.Spring = true;
-            this.lblCodedBy.Text = "Coded by: Nikolay.IT © 2005-2016";
+            this.lblCodedBy.Text = "Coded by: Nikolay.IT © 2005-2017";
             this.lblCodedBy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCodedBy.Click += new System.EventHandler(this.lblCodedBy_Click);
             // 
@@ -598,8 +598,8 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(975, 539);
-            this.MinimumSize = new System.Drawing.Size(975, 539);
+            this.MaximumSize = new System.Drawing.Size(1130, 575);
+            this.MinimumSize = new System.Drawing.Size(1130, 575);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "error";
