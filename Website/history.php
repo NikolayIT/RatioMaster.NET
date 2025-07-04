@@ -3,6 +3,12 @@ require_once("header.php");
 require_once("news.php");
 ?>
 <td valign="top"> <h1>Program changelog:</h1>
+<p><b>---=== 0.44 (04-07-2025) ===---</b><br>
+- Global: The program is now open source and the source is available in <a href="https://github.com/NikolayIT/RatioMaster.NET">https://github.com/NikolayIT/RatioMaster.NET</a><br>
+- Global: Program built for .NET Framework version 4.0<br>
+- Global: Program information, links and about form updated<br>
+- RM: Added new client emulation: "uTorrent 3.6.0"<br>
+- RM: Default client is now "uTorrent 3.6.0"<br></p>
 <p><b>---=== 0.43 (08-01-2016) ===---</b><br>
 - Global: The program is now open source and the source is available in <a href="https://github.com/NikolayIT/RatioMaster.NET">https://github.com/NikolayIT/RatioMaster.NET</a><br>
 - Global: Program built for .NET Framework version 4.0<br>

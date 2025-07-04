@@ -27,7 +27,7 @@
         private int remWork = 0;
         internal string DefaultDirectory = "";
         private const string DefaultClient = "uTorrent";
-        private const string DefaultClientVersion = "3.3.2";
+        private const string DefaultClientVersion = "3.6.0";
 
         // internal delegate SocketEx createSocketCallback();
         internal delegate void SetTextCallback(string logLine);
@@ -410,6 +410,7 @@
 
                 case "uTorrent":
                     {
+                        cmbVersion.Items.Add("3.6.0");
                         cmbVersion.Items.Add("3.3.2");
                         cmbVersion.Items.Add("3.3.0");
                         cmbVersion.Items.Add("3.2.0");
@@ -422,7 +423,7 @@
                         cmbVersion.Items.Add("1.7.5");
                         cmbVersion.Items.Add("1.6.1");
                         cmbVersion.Items.Add("1.6");
-                        cmbVersion.SelectedItem = "3.3.2";
+                        cmbVersion.SelectedItem = "3.6.0";
                         if (customPeersNum.Text == "0" || customPeersNum.Text == "") customPeersNum.Text = "200";
                         break;
                     }

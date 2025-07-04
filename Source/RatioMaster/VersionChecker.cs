@@ -6,9 +6,9 @@ namespace RatioMaster_source
 
     public class VersionChecker
     {
-        public const string LocalVersion = "0430";
-        public const string PublicVersion = "0.43";
-        public const string ReleaseDate = "08-01-2016";
+        public const string LocalVersion = "0440";
+        public const string PublicVersion = "0.44";
+        public const string ReleaseDate = "04-07-2025";
         private const string ProgramPageVersion = "http://ratiomaster.net/vc.php?v=";
 
         private readonly string userAgent;

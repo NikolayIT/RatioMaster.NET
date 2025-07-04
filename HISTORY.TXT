@@ -1,3 +1,8 @@
+---=== 0.44 (04-07-2025) ===---
+- Global: The program is now open source and the source is available in https://github.com/NikolayIT/RatioMaster.NET
+- Global: Program built for .NET Framework version 4.0
+- Global: Program information, links and about form updated
+- RM: Added new client emulation: "uTorrent 3.6.0"
 ---=== 0.43 (08-01-2016) ===---
 - Global: The program is now open source and the source is available in https://github.com/NikolayIT/RatioMaster.NET
 - Global: Program built for .NET Framework version 4.0
