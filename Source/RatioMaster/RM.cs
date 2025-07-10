@@ -527,6 +527,14 @@
                         break;
                     }
 
+                case "qBittorrent":
+                    {
+                        cmbVersion.Items.Add("5.1.2");
+                        cmbVersion.SelectedItem = "5.1.2";
+                        if (customPeersNum.Text == "0" || customPeersNum.Text == "") customPeersNum.Text = "200";
+                        break;
+                    }
+
                 default:
                     {
                         cmbClient.SelectedItem = DefaultClient;

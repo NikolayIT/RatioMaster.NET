@@ -16,7 +16,7 @@
                         client.HttpProtocol = "HTTP/1.1";
                         client.HashUpperCase = true;
                         client.Key = GenerateIdString("numeric", 5, false, false);
-                        client.Headers = "Host: {host}\r\nConnection: close\r\nAccpet: */*\r\nAccept-Encoding: gzip\r\nUser-Agent: BitComet/1.20.3.25\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n";
+                        client.Headers = "Host: {host}\r\nConnection: close\r\nAccept: */*\r\nAccept-Encoding: gzip\r\nUser-Agent: BitComet/1.20.3.25\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n";
                         client.PeerID = "-BC0120-" + GenerateIdString("random", 12, true, true);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}";
                         client.DefNumWant = 200;
@@ -34,7 +34,7 @@
                         client.HttpProtocol = "HTTP/1.1";
                         client.HashUpperCase = true;
                         client.Key = GenerateIdString("numeric", 5, false, false);
-                        client.Headers = "Host: {host}\r\nConnection: close\r\nAccpet: */*\r\nAccept-Encoding: gzip\r\nUser-Agent: BitComet/1.3.7.17\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n";
+                        client.Headers = "Host: {host}\r\nConnection: close\r\nAccept: */*\r\nAccept-Encoding: gzip\r\nUser-Agent: BitComet/1.3.7.17\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n";
                         client.PeerID = "-BC0103-" + GenerateIdString("random", 12, true, true);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}";
                         client.DefNumWant = 200;
@@ -716,6 +716,25 @@
                         client.PeerID = "M3-4-2--" + GenerateIdString("alphanumeric", 12, false, false);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&key={key}&uploaded={uploaded}&downloaded={downloaded}&left={left}&compact=1{event}";
                         client.DefNumWant = 100;
+                        break;
+                    }
+                #endregion
+                #region qBittorrent
+                case "qBittorrent 5.1.2":
+                    {
+                        client.Name = "qBittorrent 5.1.2";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("numeric", 8, false, false);
+                        client.Headers = "User-Agent: qBittorrent/5.1.2\r\nAccept-Encoding: gzip\r\nAccept: */*\r\nHost: {host}\r\nConnection: close\n\r";
+                        client.PeerID = "-qB5120-" + GenerateIdString("alphanumeric", 12, false, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1&supportcrypto=1&redundant=0";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-qB5120-";
+                        client.ProcessName = "qbittorent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 100000000;
                         break;
                     }
                 #endregion
