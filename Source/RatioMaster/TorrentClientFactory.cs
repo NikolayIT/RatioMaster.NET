@@ -16,7 +16,7 @@
                         client.HttpProtocol = "HTTP/1.1";
                         client.HashUpperCase = true;
                         client.Key = GenerateIdString("numeric", 5, false, false);
-                        client.Headers = "Host: {host}\r\nConnection: close\r\nAccpet: */*\r\nAccept-Encoding: gzip\r\nUser-Agent: BitComet/1.20.3.25\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n";
+                        client.Headers = "Host: {host}\r\nConnection: close\r\nAccept: */*\r\nAccept-Encoding: gzip\r\nUser-Agent: BitComet/1.20.3.25\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n";
                         client.PeerID = "-BC0120-" + GenerateIdString("random", 12, true, true);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}";
                         client.DefNumWant = 200;
@@ -34,7 +34,7 @@
                         client.HttpProtocol = "HTTP/1.1";
                         client.HashUpperCase = true;
                         client.Key = GenerateIdString("numeric", 5, false, false);
-                        client.Headers = "Host: {host}\r\nConnection: close\r\nAccpet: */*\r\nAccept-Encoding: gzip\r\nUser-Agent: BitComet/1.3.7.17\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n";
+                        client.Headers = "Host: {host}\r\nConnection: close\r\nAccept: */*\r\nAccept-Encoding: gzip\r\nUser-Agent: BitComet/1.3.7.17\r\nPragma: no-cache\r\nCache-Control: no-cache\r\n";
                         client.PeerID = "-BC0103-" + GenerateIdString("random", 12, true, true);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}";
                         client.DefNumWant = 200;
