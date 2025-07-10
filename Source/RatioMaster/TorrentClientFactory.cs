@@ -725,9 +725,9 @@
                         client.Name = "qBittorrent 5.1.2";
                         client.HttpProtocol = "HTTP/1.1";
                         client.HashUpperCase = false;
-                        client.Key = GenerateIdString("numeric", 8, false, false);
+                        client.Key = GenerateIdString("hex", 8, false, true);
                         client.Headers = "User-Agent: qBittorrent/5.1.2\r\nAccept-Encoding: gzip\r\nAccept: */*\r\nHost: {host}\r\nConnection: close\n\r";
-                        client.PeerID = "-qB5120-" + GenerateIdString("alphanumeric", 12, false, false);
+                        client.PeerID = "-qB5120-" + GenerateIdString("random", 12, false, false);
                         client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1&supportcrypto=1&redundant=0";
                         client.DefNumWant = 200;
                         client.Parse = true;
