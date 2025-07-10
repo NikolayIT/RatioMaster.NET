@@ -769,7 +769,8 @@ namespace RatioMaster_source
             "BitSpirit",
             "Deluge",
             "KTorrent",
-            "Gnome BT"});
+            "Gnome BT",
+            "qBittorrent"});
             this.cmbClient.Location = new System.Drawing.Point(197, 20);
             this.cmbClient.Name = "cmbClient";
             this.cmbClient.Size = new System.Drawing.Size(139, 21);
