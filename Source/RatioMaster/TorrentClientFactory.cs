@@ -265,6 +265,132 @@
                         break;
                     }
 
+                case "uTorrent 3.5.5":
+                    {
+                        client.Name = "uTorrent 3.5.5";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3550\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3550-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3550-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 200000000;
+                        break;
+                    }
+
+                case "uTorrent 3.5.3":
+                    {
+                        client.Name = "uTorrent 3.5.3";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3530\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3530-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3530-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 200000000;
+                        break;
+                    }
+
+                case "uTorrent 3.5.1":
+                    {
+                        client.Name = "uTorrent 3.5.1";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3510\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3510-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3510-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 200000000;
+                        break;
+                    }
+
+                case "uTorrent 3.5.0":
+                    {
+                        client.Name = "uTorrent 3.5.0";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3500\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3500-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3500-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 200000000;
+                        break;
+                    }
+
+                case "uTorrent 3.4.9":
+                    {
+                        client.Name = "uTorrent 3.4.9";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3490\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3490-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3490-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 200000000;
+                        break;
+                    }
+
+                case "uTorrent 3.4.2":
+                    {
+                        client.Name = "uTorrent 3.4.2";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3420\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3420-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3420-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 200000000;
+                        break;
+                    }
+
+                case "uTorrent 3.4.0":
+                    {
+                        client.Name = "uTorrent 3.4.0";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3400\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3400-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3400-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 200000000;
+                        break;
+                    }
+
                 case "uTorrent 3.3.2":
                     {
                         client.Name = "uTorrent 3.3.2";
@@ -313,6 +439,150 @@
                         client.DefNumWant = 200;
                         client.Parse = true;
                         client.SearchString = "&peer_id=-UT3200-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 60000000;
+                        break;
+                    }
+
+                case "uTorrent 3.1.3":
+                    {
+                        client.Name = "uTorrent 3.1.3";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3130\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3130-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3130-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 60000000;
+                        break;
+                    }
+
+                case "uTorrent 3.1.0":
+                    {
+                        client.Name = "uTorrent 3.1.0";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3100\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3100-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3100-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 60000000;
+                        break;
+                    }
+
+                case "uTorrent 3.0.0":
+                    {
+                        client.Name = "uTorrent 3.0.0";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/3000\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT3000-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT3000-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 60000000;
+                        break;
+                    }
+
+                case "uTorrent 2.2.1":
+                    {
+                        client.Name = "uTorrent 2.2.1";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/2210\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT2210-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT2210-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 60000000;
+                        break;
+                    }
+
+                case "uTorrent 2.2.0":
+                    {
+                        client.Name = "uTorrent 2.2.0";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/2200\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT2200-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT2200-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 60000000;
+                        break;
+                    }
+
+                case "uTorrent 2.0.4":
+                    {
+                        client.Name = "uTorrent 2.0.4";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/2040\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT2040-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT2040-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 60000000;
+                        break;
+                    }
+
+                case "uTorrent 2.0.2":
+                    {
+                        client.Name = "uTorrent 2.0.2";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/2020\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT2020-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT2020-";
+                        client.ProcessName = "uTorrent";
+                        client.StartOffset = 0;
+                        client.MaxOffset = 60000000;
+                        break;
+                    }
+
+                case "uTorrent 2.0.0":
+                    {
+                        client.Name = "uTorrent 2.0.0";
+                        client.HttpProtocol = "HTTP/1.1";
+                        client.HashUpperCase = false;
+                        client.Key = GenerateIdString("hex", 8, false, true);
+                        client.Headers = "Host: {host}\r\nUser-Agent: uTorrent/2000\r\nAccept-Encoding: gzip\r\n";
+                        client.PeerID = "-UT2000-" + GenerateIdString("random", 12, true, false);
+                        client.Query = "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1";
+                        client.DefNumWant = 200;
+                        client.Parse = true;
+                        client.SearchString = "&peer_id=-UT2000-";
                         client.ProcessName = "uTorrent";
                         client.StartOffset = 0;
                         client.MaxOffset = 60000000;

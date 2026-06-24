@@ -411,10 +411,25 @@
                 case "uTorrent":
                     {
                         cmbVersion.Items.Add("3.6.0");
+                        cmbVersion.Items.Add("3.5.5");
+                        cmbVersion.Items.Add("3.5.3");
+                        cmbVersion.Items.Add("3.5.1");
+                        cmbVersion.Items.Add("3.5.0");
+                        cmbVersion.Items.Add("3.4.9");
+                        cmbVersion.Items.Add("3.4.2");
+                        cmbVersion.Items.Add("3.4.0");
                         cmbVersion.Items.Add("3.3.2");
                         cmbVersion.Items.Add("3.3.0");
                         cmbVersion.Items.Add("3.2.0");
+                        cmbVersion.Items.Add("3.1.3");
+                        cmbVersion.Items.Add("3.1.0");
+                        cmbVersion.Items.Add("3.0.0");
+                        cmbVersion.Items.Add("2.2.1");
+                        cmbVersion.Items.Add("2.2.0");
+                        cmbVersion.Items.Add("2.0.4");
+                        cmbVersion.Items.Add("2.0.2");
                         cmbVersion.Items.Add("2.0.1 (build 19078)");
+                        cmbVersion.Items.Add("2.0.0");
                         cmbVersion.Items.Add("1.8.5 (build 17414)");
                         cmbVersion.Items.Add("1.8.1-beta(11903)");
                         cmbVersion.Items.Add("1.8.0");
