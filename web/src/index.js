@@ -6,11 +6,15 @@
 //   2. Redirect the old PHP page URLs to the new single page.
 // Everything else is served from ./public by Cloudflare's static assets.
 
-// User-Agent sent by the app (VersionChecker.cs):
+// User-Agent sent by 0.43 and earlier (VersionChecker.cs):
 //   RatioMaster.NET/0430 (Microsoft Windows NT 10.0.26200.0; .NET CLR 4.0.30319.42000; <username>.<cpu count>)
 // Builds before 0.42 identify as "NRPG RatioMaster/0410 (...)" and still check in.
-// The username is deliberately parsed out and never stored.
-const APP_USER_AGENT = /^(?:RatioMaster\.NET|NRPG RatioMaster)\/(\d{4}) \((.*?); \.NET CLR ([^;]+); (.*)\.(\d+)\)$/;
+// That format carries the Windows user name, which is deliberately parsed out and never stored.
+const LEGACY_USER_AGENT = /^(?:RatioMaster\.NET|NRPG RatioMaster)\/(\d{4}) \((.*?); \.NET CLR ([^;]+); (.*)\.(\d+)\)$/;
+
+// User-Agent sent by 1.0 and later (UpdateChecker.cs). It carries no user name:
+//   RatioMaster.NET/1000 (Microsoft Windows 10.0.26200; X64; .NET 10.0.11; 32)
+const CURRENT_USER_AGENT = /^RatioMaster\.NET\/(\d{4}) \((.*?); ([^;]+); \.NET ([^;]+); (\d+)\)$/;
 
 const LEGACY_REDIRECTS = {
   "/index.php": "/",
@@ -56,12 +60,18 @@ async function logVersionCheck(request, env, clientVersion) {
   if (!env.DB) return;
   try {
     const rawUserAgent = request.headers.get("user-agent") || "";
-    const parsed = APP_USER_AGENT.exec(rawUserAgent);
-    // App User-Agent with the username removed; anything else is kept as sent (capped).
-    const userAgent = parsed
-      ? `${rawUserAgent.slice(0, rawUserAgent.indexOf("/"))}/${parsed[1]} (${parsed[2]}; .NET CLR ${parsed[3]}; ${parsed[5]})`
-      : rawUserAgent.slice(0, 500);
-    const version = clientVersion || (parsed ? parsed[1] : null);
+    const legacy = LEGACY_USER_AGENT.exec(rawUserAgent);
+    const current = CURRENT_USER_AGENT.exec(rawUserAgent);
+
+    // The legacy format is rewritten without the user name; the current one already has none.
+    let userAgent;
+    if (legacy) {
+      userAgent = `${rawUserAgent.slice(0, rawUserAgent.indexOf("/"))}/${legacy[1]} (${legacy[2]}; .NET CLR ${legacy[3]}; ${legacy[5]})`;
+    } else {
+      userAgent = rawUserAgent.slice(0, 500);
+    }
+
+    const version = clientVersion || (legacy ? legacy[1] : current ? current[1] : null);
 
     await env.DB.prepare(
       "INSERT INTO version_checks (client_version, country, ip, user_agent) VALUES (?1, ?2, ?3, ?4)"
