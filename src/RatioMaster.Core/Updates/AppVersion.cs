@@ -17,6 +17,8 @@ public static class AppVersion
 
     public const string ForumUrl = "https://github.com/NikolayIT/RatioMaster.NET/discussions";
 
+    public const string BugReportUrl = "https://github.com/NikolayIT/RatioMaster.NET/issues/new";
+
     public const string SupportEmail = "ratiomaster@nikolay.it";
 
     public const string DonateUrl =

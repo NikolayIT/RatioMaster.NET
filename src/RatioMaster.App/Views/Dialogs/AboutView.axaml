@@ -31,7 +31,7 @@
     <TextBlock TextWrapping="Wrap"
                Text="Fakes the upload and download a BitTorrent tracker sees, without downloading or uploading anything." />
 
-    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="4">
+    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="4">
       <TextBlock Grid.Row="0" Grid.Column="0" Text="Website" Classes="label subtle" />
       <HyperlinkButton Grid.Row="0" Grid.Column="1" Classes="about"
                        Content="{Binding Website}" Command="{Binding OpenCommand}" CommandParameter="{Binding Website}" />
@@ -41,8 +41,14 @@
       <TextBlock Grid.Row="2" Grid.Column="0" Text="Forums" Classes="label subtle" />
       <HyperlinkButton Grid.Row="2" Grid.Column="1" Classes="about"
                        Content="{Binding Forum}" Command="{Binding OpenCommand}" CommandParameter="{Binding Forum}" />
-      <TextBlock Grid.Row="3" Grid.Column="0" Text="E-mail" Classes="label subtle" />
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="Report a bug" Classes="label subtle" />
       <HyperlinkButton Grid.Row="3" Grid.Column="1" Classes="about"
+                       Content="{Binding BugReport}" Command="{Binding OpenCommand}" CommandParameter="{Binding BugReport}" />
+      <TextBlock Grid.Row="4" Grid.Column="0" Text="Donate" Classes="label subtle" />
+      <HyperlinkButton Grid.Row="4" Grid.Column="1" Classes="about"
+                       Content="Support the project through PayPal" Command="{Binding DonateCommand}" />
+      <TextBlock Grid.Row="5" Grid.Column="0" Text="E-mail" Classes="label subtle" />
+      <HyperlinkButton Grid.Row="5" Grid.Column="1" Classes="about"
                        Content="{Binding Email}" Command="{Binding EmailCommand}" />
     </Grid>
 

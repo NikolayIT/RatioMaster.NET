@@ -22,6 +22,8 @@ public sealed partial class AboutViewModel(IUrlLauncher launcher) : DialogViewMo
 
     public string Forum => AppVersion.ForumUrl;
 
+    public string BugReport => AppVersion.BugReportUrl;
+
     public string Email => AppVersion.SupportEmail;
 
     public string Copyright => "Copyright © 2006-2026 Nikolay Kostov. MIT licensed.";
