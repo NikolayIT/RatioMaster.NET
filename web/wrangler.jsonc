@@ -9,7 +9,7 @@
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
-    "run_worker_first": ["/vc.php", "/version.html", "/*.php", "/HISTORY.TXT", "/files/RatioMaster.NET.zip", "/files/RatioMaster.NET.rar"],
+    "run_worker_first": ["/vc.php", "/version.html", "/*.php", "/HISTORY.TXT", "/files/RatioMaster.NET.zip", "/files/RatioMaster.NET.rar", "/admin", "/admin/*"],
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
@@ -19,6 +19,9 @@
   "vars": {
     "CURRENT_VERSION": "0430"
   },
+
+  // Secrets (not in this file): ADMIN_PASSWORD protects /admin.
+  //   npx wrangler secret put ADMIN_PASSWORD      (locally: ADMIN_PASSWORD=... in .dev.vars)
 
   // Every version check is logged here. Create the database once with
   // `npm run db:create`, paste the id it prints below, then `npm run db:migrate`.

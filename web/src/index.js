@@ -1,10 +1,13 @@
 // ratiomaster.net Worker.
 //
-// Two jobs:
+// Three jobs:
 //   1. Answer the update check that every RatioMaster.NET install performs
 //      (GET /vc.php?v=NNNN, older builds GET /version.html) and log it to D1.
 //   2. Redirect the old PHP page URLs to the new single page.
+//   3. Serve the password-protected statistics page at /admin (see admin.js).
 // Everything else is served from ./public by Cloudflare's static assets.
+
+import { handleAdmin } from "./admin.js";
 
 // User-Agent sent by 0.43 and earlier (VersionChecker.cs):
 //   RatioMaster.NET/0430 (Microsoft Windows NT 10.0.26200.0; .NET CLR 4.0.30319.42000; <username>.<cpu count>)
@@ -41,6 +44,10 @@ export default {
           "cache-control": "no-store",
         },
       });
+    }
+
+    if (path === "/admin" || path === "/admin/") {
+      return handleAdmin(request, env);
     }
 
     const target = LEGACY_REDIRECTS[path];

@@ -4,6 +4,7 @@ The website of RatioMaster.NET, hosted on Cloudflare Workers.
 
 - `public/` is the static site. Cloudflare serves it directly from its static assets storage; those requests never run the Worker.
 - `src/index.js` is the Worker. It answers the update check that every installed copy performs (`GET /vc.php?v=NNNN`, older builds `GET /version.html`), logs each check to a D1 database, and 301-redirects the old PHP page URLs to the new page.
+- `src/admin.js` renders `/admin`, a password-protected page with the last 10,000 version checks by date, country and version.
 - `migrations/` holds the D1 schema, applied with Wrangler.
 - `public/files/` and `public/alpha/` keep the download archives that were only ever on the old server.
 
@@ -27,7 +28,8 @@ curl -I http://localhost:8787/features.php        # 301 to /#features
 1. `npx wrangler login`
 2. `npm run db:create` and paste the printed `database_id` into `wrangler.jsonc`.
 3. `npm run db:migrate`
-4. `npm run deploy` for the first deployment. Every later push to `master` deploys automatically once the Git integration is connected:
+4. `npx wrangler secret put ADMIN_PASSWORD` and type the password for `/admin`.
+5. `npm run deploy` for the first deployment. Every later push to `master` deploys automatically once the Git integration is connected:
    Workers & Pages -> ratiomaster-net -> Settings -> Build -> connect the GitHub repo, root directory `web`, no build command, deploy command `npx wrangler deploy`.
 
 ## Cut-over from the old server
@@ -52,7 +54,9 @@ curl -sSI https://ratiomaster.net/                   # 200
 
 ## Looking at the statistics
 
-D1 -> ratiomaster-net -> Console in the dashboard, or `npx wrangler d1 execute ratiomaster-net --remote --command "..."`.
+https://ratiomaster.net/admin shows the last 10,000 version checks by date, country and version. Click a day or a version, or use the form, to narrow the window to one version and/or one day (`?version=0430&day=2026-09-06`). It asks for a password (HTTP Basic auth; the user name does not matter) and checks it against the `ADMIN_PASSWORD` secret. Change the password with `npx wrangler secret put ADMIN_PASSWORD`. For `npm run dev`, put `ADMIN_PASSWORD=...` in `web/.dev.vars` (ignored by git).
+
+The page reads the newest rows by id, which needs no sort and no index. Anything else goes through D1 -> ratiomaster-net -> Console in the dashboard, or `npx wrangler d1 execute ratiomaster-net --remote --command "..."`.
 
 ```sql
 -- `checked_at` is unix seconds (UTC). There is no index, so every query scans the whole table; expect a few seconds.
