@@ -7,24 +7,35 @@
 
   <Border Classes="panel">
     <Panel>
-      <TextBlock Text="Select a torrent to see its details." Classes="subtle"
-                 HorizontalAlignment="Center" VerticalAlignment="Center"
-                 IsVisible="{Binding $self.DataContext, Converter={x:Static ObjectConverters.IsNull}}" />
+      <StackPanel Spacing="6" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  IsVisible="{Binding $self.DataContext, Converter={x:Static ObjectConverters.IsNull}}">
+        <PathIcon Data="{StaticResource IconInfo}" Width="22" Height="22" Opacity="0.35" HorizontalAlignment="Center" />
+        <TextBlock Text="Select a torrent to see its details" Classes="subtle" HorizontalAlignment="Center" />
+      </StackPanel>
 
-      <TabControl IsVisible="{Binding $self.DataContext, Converter={x:Static ObjectConverters.IsNotNull}}">
+      <TabControl Padding="0" IsVisible="{Binding $self.DataContext, Converter={x:Static ObjectConverters.IsNotNull}}">
+        <TabControl.Styles>
+          <Style Selector="TabControl > TabItem:nth-child(1)">
+            <Setter Property="Margin" Value="6,0,2,0" />
+          </Style>
+        </TabControl.Styles>
+
         <TabItem Header="General">
           <controls:TorrentGeneralView />
         </TabItem>
         <TabItem Header="Settings">
           <DockPanel>
-            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="8"
-                        HorizontalAlignment="Right" Margin="8">
-              <TextBlock Classes="subtle" VerticalAlignment="Center"
-                         IsVisible="{Binding Settings.IsLocked}"
-                         Text="Stop the torrent to change the locked settings." />
-              <Button Content="Revert" Command="{Binding RevertSettingsCommand}" />
-              <Button Content="Apply" Classes="accent" Command="{Binding ApplySettingsCommand}" />
-            </StackPanel>
+            <Border DockPanel.Dock="Bottom" Padding="10,8" BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="0,1,0,0">
+              <Grid ColumnDefinitions="*,Auto">
+                <TextBlock Grid.Column="0" Classes="subtle" VerticalAlignment="Center"
+                           IsVisible="{Binding Settings.IsLocked}"
+                           Text="Stop the torrent to change the locked settings." />
+                <StackPanel Grid.Column="1" Classes="dialog-buttons">
+                  <Button Content="Revert" Command="{Binding RevertSettingsCommand}" />
+                  <Button Content="Apply" Classes="accent" Command="{Binding ApplySettingsCommand}" />
+                </StackPanel>
+              </Grid>
+            </Border>
             <controls:TorrentSettingsView DataContext="{Binding Settings}" />
           </DockPanel>
         </TabItem>

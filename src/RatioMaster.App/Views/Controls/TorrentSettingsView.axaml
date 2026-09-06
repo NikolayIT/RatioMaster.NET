@@ -9,6 +9,9 @@
       <Setter Property="Margin" Value="0,0,0,6" />
       <Setter Property="HorizontalAlignment" Value="Stretch" />
     </Style>
+    <Style Selector="Expander /template/ ToggleButton#ExpanderHeader">
+      <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
     <Style Selector="TextBox.num">
       <Setter Property="Width" Value="90" />
     </Style>
@@ -18,7 +21,7 @@
   </UserControl.Styles>
 
   <ScrollViewer>
-    <StackPanel Spacing="2" Margin="4">
+    <StackPanel Spacing="2" Margin="8,8,8,4">
 
       <!-- Client emulation -->
       <Expander Header="Client" IsExpanded="True">

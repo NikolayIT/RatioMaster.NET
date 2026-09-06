@@ -1,43 +1,191 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-  <!-- Compact torrent list -->
+  <Styles.Resources>
+    <ResourceDictionary>
+      <!-- Numeric columns: right-aligned cells and headers. -->
+      <ControlTheme x:Key="DataGridCellNumeric" TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+      </ControlTheme>
+      <DataTemplate x:Key="DataGridHeaderNumeric" x:CompileBindings="False">
+        <TextBlock Text="{Binding}" TextAlignment="Right" HorizontalAlignment="Stretch" />
+      </DataTemplate>
+    </ResourceDictionary>
+  </Styles.Resources>
+
+  <!-- ===== Torrent list ===================================================== -->
+
   <Style Selector="DataGrid.torrents">
-    <Setter Property="RowHeight" Value="26" />
-    <Setter Property="GridLinesVisibility" Value="Horizontal" />
+    <Setter Property="RowHeight" Value="28" />
+    <Setter Property="GridLinesVisibility" Value="None" />
     <Setter Property="HeadersVisibility" Value="Column" />
     <Setter Property="CanUserReorderColumns" Value="True" />
     <Setter Property="CanUserResizeColumns" Value="True" />
     <Setter Property="CanUserSortColumns" Value="True" />
     <Setter Property="IsReadOnly" Value="True" />
     <Setter Property="SelectionMode" Value="Extended" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Background" Value="Transparent" />
+  </Style>
+
+  <Style Selector="DataGrid.torrents DataGridColumnHeader">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="MinHeight" Value="30" />
+    <Setter Property="Padding" Value="8,0,4,0" />
+    <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
+    <Setter Property="Background" Value="{DynamicResource HeaderBackgroundBrush}" />
   </Style>
 
   <Style Selector="DataGrid.torrents DataGridCell">
+    <Setter Property="FontSize" Value="13" />
+    <Setter Property="MinHeight" Value="0" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Padding" Value="8,0" />
   </Style>
 
-  <!-- Toolbar -->
+  <!-- Long names are trimmed with an ellipsis instead of being cut off. -->
+  <Style Selector="DataGrid.torrents DataGridCell TextBlock">
+    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+  </Style>
+
+  <Style Selector="DataGrid.torrents DataGridRow:nth-child(2n)">
+    <Setter Property="Background" Value="{DynamicResource RowAlternateBrush}" />
+  </Style>
+
+  <!-- Secondary grids (tracker history) -->
+  <Style Selector="DataGrid.compact">
+    <Setter Property="RowHeight" Value="26" />
+    <Setter Property="GridLinesVisibility" Value="None" />
+    <Setter Property="HeadersVisibility" Value="Column" />
+    <Setter Property="IsReadOnly" Value="True" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Background" Value="Transparent" />
+  </Style>
+
+  <Style Selector="DataGrid.compact DataGridColumnHeader">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="MinHeight" Value="28" />
+    <Setter Property="Padding" Value="8,0,4,0" />
+    <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
+  </Style>
+
+  <Style Selector="DataGrid.compact DataGridCell">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="MinHeight" Value="0" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
+
+  <Style Selector="DataGrid.compact DataGridCell TextBlock">
+    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+  </Style>
+
+  <!-- ===== Toolbar ========================================================== -->
+
+  <Style Selector="Border.toolbar">
+    <Setter Property="Padding" Value="8,5" />
+    <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="Background" Value="{DynamicResource ChromeBackgroundBrush}" />
+  </Style>
+
   <Style Selector="Button.toolbar">
-    <Setter Property="Padding" Value="10,6" />
+    <Setter Property="Padding" Value="9,6" />
+    <Setter Property="MinHeight" Value="32" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="VerticalAlignment" Value="Center" />
   </Style>
 
   <Style Selector="Button.toolbar:disabled">
-    <Setter Property="Opacity" Value="0.4" />
+    <Setter Property="Opacity" Value="0.45" />
+  </Style>
+
+  <Style Selector="Button.toolbar > StackPanel">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="7" />
+  </Style>
+
+  <Style Selector="Button.toolbar TextBlock">
+    <Setter Property="VerticalAlignment" Value="Center" />
   </Style>
 
   <Style Selector="PathIcon.toolbar">
     <Setter Property="Width" Value="16" />
     <Setter Property="Height" Value="16" />
+    <Setter Property="VerticalAlignment" Value="Center" />
   </Style>
 
-  <!-- Section headings inside the settings editor -->
+  <Style Selector="Rectangle.toolbar-separator">
+    <Setter Property="Width" Value="1" />
+    <Setter Property="Height" Value="20" />
+    <Setter Property="Margin" Value="6,0" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Fill" Value="{DynamicResource PanelBorderBrush}" />
+  </Style>
+
+  <!-- Small icon-only buttons used in panel headers (e.g. close the details pane). -->
+  <Style Selector="Button.icon">
+    <Setter Property="Padding" Value="6" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="4" />
+  </Style>
+
+  <Style Selector="Button.icon PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+
+  <!-- ===== Details pane ===================================================== -->
+
+  <Style Selector="GridSplitter.details">
+    <Setter Property="Height" Value="6" />
+    <Setter Property="MinHeight" Value="6" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="ResizeDirection" Value="Rows" />
+  </Style>
+
+  <Style Selector="GridSplitter.details:pointerover">
+    <Setter Property="Background" Value="{DynamicResource SplitterHoverBrush}" />
+  </Style>
+
+  <Style Selector="Border.panel">
+    <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
+    <Setter Property="BorderThickness" Value="0,1,0,0" />
+    <Setter Property="Background" Value="{DynamicResource ChromeBackgroundBrush}" />
+  </Style>
+
+  <!-- Compact tab strip for the details pane and the dialogs. -->
+  <Style Selector="TabControl">
+    <Setter Property="Padding" Value="0" />
+  </Style>
+
+  <Style Selector="TabItem">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="MinHeight" Value="36" />
+    <Setter Property="Padding" Value="12,6,12,4" />
+    <Setter Property="Margin" Value="0,0,2,0" />
+  </Style>
+
+  <Style Selector="TabItem:selected">
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+
+  <Style Selector="TabItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+
+  <!-- ===== Forms ============================================================ -->
+
   <Style Selector="TextBlock.section">
     <Setter Property="FontWeight" Value="SemiBold" />
-    <Setter Property="Margin" Value="0,12,0,4" />
+    <Setter Property="Margin" Value="0,10,0,4" />
   </Style>
 
   <Style Selector="TextBlock.subtle">
@@ -49,34 +197,105 @@
     <Setter Property="Margin" Value="0,0,8,0" />
   </Style>
 
-  <!-- Key/value grid in the General tab -->
-  <Style Selector="SelectableTextBlock.value">
-    <Setter Property="TextWrapping" Value="Wrap" />
-    <Setter Property="Margin" Value="0,1" />
+  <Style Selector="TextBlock.mono, SelectableTextBlock.mono">
+    <Setter Property="FontFamily" Value="Cascadia Mono,Consolas,Menlo,DejaVu Sans Mono,monospace" />
   </Style>
 
-  <!-- Status bar -->
+  <!-- Key/value grid in the General tab -->
+  <Style Selector="TextBlock.key">
+    <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
+    <Setter Property="Margin" Value="0,2,14,2" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+  </Style>
+
+  <Style Selector="SelectableTextBlock.value">
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="Margin" Value="0,2,20,2" />
+  </Style>
+
+  <!-- Expanders in the settings editor -->
+  <Style Selector="Expander.settings">
+    <Setter Property="Margin" Value="0,0,0,6" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="MinHeight" Value="36" />
+  </Style>
+
+  <Style Selector="Expander.settings /template/ ToggleButton#ExpanderHeader">
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+
+  <!-- Dialog button rows -->
+  <Style Selector="StackPanel.dialog-buttons">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="8" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+  </Style>
+
+  <Style Selector="StackPanel.dialog-buttons > Button">
+    <Setter Property="MinWidth" Value="96" />
+  </Style>
+
+  <!-- ===== Status bar ======================================================= -->
+
   <Style Selector="Border.statusbar">
     <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
     <Setter Property="BorderThickness" Value="0,1,0,0" />
-    <Setter Property="Padding" Value="10,4" />
+    <Setter Property="Padding" Value="10,5" />
+    <Setter Property="Background" Value="{DynamicResource ChromeBackgroundBrush}" />
   </Style>
 
-  <Style Selector="Border.panel">
-    <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
-    <Setter Property="BorderThickness" Value="0,1,0,0" />
+  <Style Selector="Border.statusbar TextBlock">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="VerticalAlignment" Value="Center" />
   </Style>
 
-  <!-- Log list -->
+  <Style Selector="Border.statusbar Rectangle.separator">
+    <Setter Property="Width" Value="1" />
+    <Setter Property="Height" Value="14" />
+    <Setter Property="Margin" Value="12,0" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Fill" Value="{DynamicResource PanelBorderBrush}" />
+  </Style>
+
+  <Style Selector="Border.statusbar HyperlinkButton">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="Padding" Value="4,0" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+
+  <!-- ===== Log ============================================================== -->
+
   <Style Selector="ListBox.log">
     <Setter Property="FontFamily" Value="Cascadia Mono,Consolas,Menlo,DejaVu Sans Mono,monospace" />
     <Setter Property="FontSize" Value="12" />
     <Setter Property="SelectionMode" Value="Multiple" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="0,2" />
   </Style>
 
   <Style Selector="ListBox.log ListBoxItem">
-    <Setter Property="Padding" Value="6,0" />
-    <Setter Property="MinHeight" Value="18" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="MinHeight" Value="20" />
+  </Style>
+
+  <!-- Panel-level toolbars (log, tracker) -->
+  <Style Selector="Border.panel-toolbar">
+    <Setter Property="Padding" Value="8,5" />
+    <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+  </Style>
+
+  <Style Selector="Border.panel-toolbar Button">
+    <Setter Property="Padding" Value="10,4" />
+    <Setter Property="MinHeight" Value="28" />
+  </Style>
+
+  <Style Selector="Border.panel-toolbar TextBox">
+    <Setter Property="MinHeight" Value="28" />
+  </Style>
+
+  <Style Selector="Border.panel-toolbar CheckBox">
+    <Setter Property="MinHeight" Value="28" />
   </Style>
 
 </Styles>

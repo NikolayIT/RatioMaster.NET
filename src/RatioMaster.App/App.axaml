@@ -22,6 +22,14 @@
         <ResourceInclude Source="avares://RatioMaster.NET/Styles/Colors.axaml" />
         <ResourceInclude Source="avares://RatioMaster.NET/Assets/Icons.axaml" />
       </ResourceDictionary.MergedDictionaries>
+
+      <!-- Fluent sizing overrides: the stock expanders and sort icons are sized for touch. -->
+      <x:Double x:Key="ExpanderMinHeight">36</x:Double>
+      <Thickness x:Key="ExpanderHeaderPadding">12,0,0,0</Thickness>
+      <Thickness x:Key="ExpanderContentPadding">12,10</Thickness>
+      <Thickness x:Key="ExpanderChevronMargin">12,0,8,0</Thickness>
+      <x:Double x:Key="ExpanderChevronButtonSize">28</x:Double>
+      <x:Double x:Key="DataGridSortIconMinWidth">0</x:Double>
     </ResourceDictionary>
   </Application.Resources>
 

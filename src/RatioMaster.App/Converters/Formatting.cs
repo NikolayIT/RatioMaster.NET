@@ -53,12 +53,12 @@ public static class Formatting
 
     public static string Duration(TimeSpan? value) => value is { } v ? Duration(v) : Unknown;
 
-    /// <summary>The ratio to two decimals, or "NaN" before enough has been downloaded (as in 0.43).</summary>
+    /// <summary>The ratio to two decimals, or a dash until enough has been downloaded to compute one.</summary>
     public static string Ratio(double? value) =>
-        value is { } v ? v.ToString("0.00", CultureInfo.CurrentCulture) : "NaN";
+        value is { } v && double.IsFinite(v) ? v.ToString("0.00", CultureInfo.CurrentCulture) : Unknown;
 
     public static string Percent(double value) =>
-        value.ToString("0.00", CultureInfo.CurrentCulture) + " %";
+        value.ToString("0.0", CultureInfo.CurrentCulture) + "%";
 
     public static string Count(int? value) =>
         value is { } v ? v.ToString(CultureInfo.CurrentCulture) : Unknown;
@@ -74,7 +74,10 @@ public static class Formatting
         return Uri.TryCreate(url, UriKind.Absolute, out var uri) ? uri.Host : url;
     }
 
-    /// <summary>Formats a timestamp honouring the 24-hour setting.</summary>
-    public static string Time(DateTimeOffset value, bool use24Hour) =>
-        value.ToString(use24Hour ? "HH:mm:ss" : "hh:mm:ss", CultureInfo.CurrentCulture);
+    /// <summary>
+    /// Formats a timestamp: a 24-hour clock when forced by the setting, otherwise the system's own long time
+    /// format (which already reflects the user's 12/24-hour preference and AM/PM designators).
+    /// </summary>
+    public static string Time(DateTimeOffset value, bool force24Hour) =>
+        value.ToString(force24Hour ? "HH:mm:ss" : CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern, CultureInfo.CurrentCulture);
 }

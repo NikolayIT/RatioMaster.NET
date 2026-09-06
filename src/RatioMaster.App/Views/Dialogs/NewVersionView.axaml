@@ -3,11 +3,11 @@
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
              x:Class="RatioMaster.App.Views.Dialogs.NewVersionView"
              x:DataType="vm:NewVersionViewModel"
-             Width="460">
-  <StackPanel Margin="20" Spacing="16">
+             Width="480">
+  <StackPanel Margin="20" Spacing="20">
     <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
-    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
-      <Button Content="Download" MinWidth="100" IsDefault="True" Classes="accent" Command="{Binding DownloadCommand}" />
+    <StackPanel Classes="dialog-buttons">
+      <Button Content="Download" IsDefault="True" Classes="accent" Command="{Binding DownloadCommand}" />
       <Button Content="Remind me later" Command="{Binding LaterCommand}" IsCancel="True" />
       <Button Content="Skip this version" Command="{Binding SkipCommand}" />
     </StackPanel>

@@ -3,8 +3,17 @@
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
              x:Class="RatioMaster.App.Views.Dialogs.AboutView"
              x:DataType="vm:AboutViewModel"
-             Width="460">
-  <StackPanel Margin="22" Spacing="12">
+             Width="560">
+
+  <UserControl.Styles>
+    <Style Selector="HyperlinkButton.about">
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+  </UserControl.Styles>
+
+  <StackPanel Margin="20" Spacing="14">
     <StackPanel Orientation="Horizontal" Spacing="14">
       <Image Source="avares://RatioMaster.NET/Assets/app.png" Width="56" Height="56" VerticalAlignment="Top" />
       <StackPanel Spacing="2">
@@ -22,26 +31,26 @@
     <TextBlock TextWrapping="Wrap"
                Text="Fakes the upload and download a BitTorrent tracker sees, without downloading or uploading anything." />
 
-    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" >
-      <TextBlock Grid.Row="0" Grid.Column="0" Text="Website" Classes="label" />
-      <Button Grid.Row="0" Grid.Column="1" Classes="toolbar" Padding="0" HorizontalAlignment="Left"
-              Content="{Binding Website}" Command="{Binding OpenCommand}" CommandParameter="{Binding Website}" />
-      <TextBlock Grid.Row="1" Grid.Column="0" Text="GitHub" Classes="label" />
-      <Button Grid.Row="1" Grid.Column="1" Classes="toolbar" Padding="0" HorizontalAlignment="Left"
-              Content="{Binding GitHub}" Command="{Binding OpenCommand}" CommandParameter="{Binding GitHub}" />
-      <TextBlock Grid.Row="2" Grid.Column="0" Text="Forums" Classes="label" />
-      <Button Grid.Row="2" Grid.Column="1" Classes="toolbar" Padding="0" HorizontalAlignment="Left"
-              Content="{Binding Forum}" Command="{Binding OpenCommand}" CommandParameter="{Binding Forum}" />
-      <TextBlock Grid.Row="3" Grid.Column="0" Text="E-mail" Classes="label" />
-      <Button Grid.Row="3" Grid.Column="1" Classes="toolbar" Padding="0" HorizontalAlignment="Left"
-              Content="{Binding Email}" Command="{Binding EmailCommand}" />
+    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="4">
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="Website" Classes="label subtle" />
+      <HyperlinkButton Grid.Row="0" Grid.Column="1" Classes="about"
+                       Content="{Binding Website}" Command="{Binding OpenCommand}" CommandParameter="{Binding Website}" />
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="GitHub" Classes="label subtle" />
+      <HyperlinkButton Grid.Row="1" Grid.Column="1" Classes="about"
+                       Content="{Binding GitHub}" Command="{Binding OpenCommand}" CommandParameter="{Binding GitHub}" />
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="Forums" Classes="label subtle" />
+      <HyperlinkButton Grid.Row="2" Grid.Column="1" Classes="about"
+                       Content="{Binding Forum}" Command="{Binding OpenCommand}" CommandParameter="{Binding Forum}" />
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="E-mail" Classes="label subtle" />
+      <HyperlinkButton Grid.Row="3" Grid.Column="1" Classes="about"
+                       Content="{Binding Email}" Command="{Binding EmailCommand}" />
     </Grid>
 
     <TextBlock Text="{Binding Copyright}" Classes="subtle" TextWrapping="Wrap" />
 
-    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+    <StackPanel Classes="dialog-buttons" Margin="0,4,0,0">
       <Button Content="Donate" Command="{Binding DonateCommand}" />
-      <Button Content="Close" MinWidth="90" IsDefault="True" IsCancel="True" Command="{Binding CloseDialogCommand}" />
+      <Button Content="Close" IsDefault="True" IsCancel="True" Command="{Binding CloseDialogCommand}" />
     </StackPanel>
   </StackPanel>
 </UserControl>

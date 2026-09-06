@@ -7,28 +7,40 @@
              x:DataType="vm:LogViewModel">
 
   <DockPanel>
-    <Border DockPanel.Dock="Top" Padding="8,6" BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="0,0,0,1">
-      <Grid ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto">
-        <CheckBox Grid.Column="0" Content="Enabled" IsChecked="{Binding IsEnabled}" Margin="0,0,12,0" />
-        <CheckBox Grid.Column="1" Content="Auto-scroll" IsChecked="{Binding AutoScroll}" Margin="0,0,12,0" />
-        <TextBox Grid.Column="2" PlaceholderText="Filter" Text="{Binding FilterText}" MaxWidth="280" HorizontalAlignment="Left" />
-        <Button Grid.Column="3" Content="Copy" Command="{Binding CopyAllCommand}" Margin="6,0,0,0" />
-        <Button Grid.Column="4" Content="Save..." Command="{Binding SaveCommand}" Margin="6,0,0,0" />
-        <Button Grid.Column="5" Content="Clear" Command="{Binding ClearCommand}" Margin="6,0,0,0" />
+    <Border DockPanel.Dock="Top" Classes="panel-toolbar">
+      <Grid ColumnDefinitions="Auto,Auto,*,Auto">
+        <CheckBox Grid.Column="0" Content="Enabled" IsChecked="{Binding IsEnabled}" Margin="0,0,14,0" />
+        <CheckBox Grid.Column="1" Content="Auto-scroll" IsChecked="{Binding AutoScroll}" Margin="0,0,14,0" />
+        <TextBox Grid.Column="2" PlaceholderText="Filter" Text="{Binding FilterText}" MaxWidth="260" HorizontalAlignment="Left">
+          <TextBox.InnerLeftContent>
+            <PathIcon Data="{StaticResource IconSearch}" Width="12" Height="12" Margin="8,0,0,0" Opacity="0.6" />
+          </TextBox.InnerLeftContent>
+        </TextBox>
+        <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="6">
+          <Button Content="Copy" Command="{Binding CopyAllCommand}" />
+          <Button Content="Save..." Command="{Binding SaveCommand}" />
+          <Button Content="Clear" Command="{Binding ClearCommand}" />
+        </StackPanel>
       </Grid>
     </Border>
 
-    <ListBox Name="Lines" Classes="log" ItemsSource="{Binding Entries}">
-      <ListBox.ItemTemplate>
-        <DataTemplate x:DataType="logging:LogEntry">
-          <TextBlock TextWrapping="NoWrap"
-                     Foreground="{Binding Level, Converter={x:Static conv:Converters.LogBrush}}">
-            <Run Text="{Binding Time, Converter={x:Static conv:LogTimeConverter.Instance}, Mode=OneWay}"
-                 Foreground="{DynamicResource LogTimeBrush}" />
-            <Run Text="{Binding Text}" />
-          </TextBlock>
-        </DataTemplate>
-      </ListBox.ItemTemplate>
-    </ListBox>
+    <Panel>
+      <ListBox Name="Lines" Classes="log" ItemsSource="{Binding Entries}">
+        <ListBox.ItemTemplate>
+          <DataTemplate x:DataType="logging:LogEntry">
+            <TextBlock TextWrapping="NoWrap"
+                       Foreground="{Binding Level, Converter={x:Static conv:Converters.LogBrush}}">
+              <Run Text="{Binding Time, Converter={x:Static conv:LogTimeConverter.Instance}, Mode=OneWay}"
+                   Foreground="{DynamicResource LogTimeBrush}" />
+              <Run Text="{Binding Text}" />
+            </TextBlock>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+
+      <TextBlock Text="Nothing logged yet" Classes="subtle"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                 IsVisible="{Binding !Entries.Count}" />
+    </Panel>
   </DockPanel>
 </UserControl>

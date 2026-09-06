@@ -6,6 +6,8 @@
         WindowStartupLocation="CenterOwner"
         ShowInTaskbar="False"
         CanResize="False"
+        CanMinimize="False"
+        CanMaximize="False"
         Icon="avares://RatioMaster.NET/Assets/app.ico">
   <!-- The content view is resolved from the dialog's view model by the view locator. -->
   <ContentControl Name="Host" />

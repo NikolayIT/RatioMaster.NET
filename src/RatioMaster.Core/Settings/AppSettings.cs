@@ -23,9 +23,9 @@ public sealed record WindowPlacement
 
     public double? Y { get; set; }
 
-    public double Width { get; set; } = 1100;
+    public double Width { get; set; } = 1340;
 
-    public double Height { get; set; } = 700;
+    public double Height { get; set; } = 820;
 
     public bool IsMaximized { get; set; }
 }
@@ -84,7 +84,7 @@ public sealed record AppSettings
 
     public WindowPlacement Window { get; set; } = new();
 
-    public double DetailsPaneHeight { get; set; } = 260;
+    public double DetailsPaneHeight { get; set; } = 300;
 
     public IReadOnlyList<ColumnLayout> Columns { get; set; } = [];
 

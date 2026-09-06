@@ -673,7 +673,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private async Task ShowAboutAsync() => await _dialogs.ShowAsync(new AboutViewModel(_launcher));
+    private async Task ShowAboutAsync() => await _dialogs.ShowAsync(new AboutViewModel(_launcher) { Title = "About RatioMaster.NET" });
 
     [RelayCommand]
     private async Task OpenUrlAsync(string? url)
