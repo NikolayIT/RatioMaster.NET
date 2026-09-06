@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=RatioMaster.NET
+Comment=Fake the upload and download a BitTorrent tracker sees
+Exec=RatioMaster.NET
+Icon=ratiomaster
+Categories=Network;P2P;
+Terminal=false

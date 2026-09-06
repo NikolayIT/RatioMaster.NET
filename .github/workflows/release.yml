@@ -1,0 +1,82 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Publish ${{ matrix.rid }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: windows-latest, rid: win-x64 }
+          - { os: windows-latest, rid: win-arm64 }
+          - { os: ubuntu-latest,  rid: linux-x64 }
+          - { os: ubuntu-latest,  rid: linux-arm64 }
+          - { os: macos-latest,   rid: osx-x64 }
+          - { os: macos-latest,   rid: osx-arm64 }
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: src/global.json
+
+      # Self-contained single file; the publish settings live in the project file.
+      - name: Publish
+        shell: bash
+        run: >
+          dotnet publish src/RatioMaster.App/RatioMaster.App.csproj
+          --configuration Release
+          --runtime ${{ matrix.rid }}
+          --output publish/${{ matrix.rid }}
+
+      - name: Package (Windows)
+        if: startsWith(matrix.rid, 'win')
+        shell: bash
+        run: 7z a -tzip RatioMaster.NET-${{ matrix.rid }}.zip ./publish/${{ matrix.rid }}/RatioMaster.NET.exe
+
+      - name: Package (Linux)
+        if: startsWith(matrix.rid, 'linux')
+        shell: bash
+        run: |
+          staging=staging/RatioMaster.NET
+          mkdir -p "$staging"
+          cp publish/${{ matrix.rid }}/RatioMaster.NET "$staging/"
+          chmod +x "$staging/RatioMaster.NET"
+          cp src/RatioMaster.App/Assets/app.png "$staging/ratiomaster.png"
+          cp build/packaging/RatioMaster.NET.desktop "$staging/"
+          tar -czf RatioMaster.NET-${{ matrix.rid }}.tar.gz -C staging RatioMaster.NET
+
+      - name: Package (macOS app bundle)
+        if: startsWith(matrix.rid, 'osx')
+        shell: bash
+        run: |
+          bundle="staging/RatioMaster.NET.app"
+          mkdir -p "$bundle/Contents/MacOS" "$bundle/Contents/Resources"
+          cp publish/${{ matrix.rid }}/RatioMaster.NET "$bundle/Contents/MacOS/"
+          chmod +x "$bundle/Contents/MacOS/RatioMaster.NET"
+          cp src/RatioMaster.App/Assets/app.icns "$bundle/Contents/Resources/RatioMaster.icns"
+          cp build/packaging/Info.plist "$bundle/Contents/Info.plist"
+          # Ad-hoc signature so Gatekeeper does not refuse to start it outright.
+          codesign --force --deep --sign - "$bundle"
+          ditto -c -k --keepParent "$bundle" RatioMaster.NET-${{ matrix.rid }}.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RatioMaster.NET-${{ matrix.rid }}
+          path: RatioMaster.NET-${{ matrix.rid }}.*
+
+      - name: Attach to the release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: RatioMaster.NET-${{ matrix.rid }}.*

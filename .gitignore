@@ -109,3 +109,9 @@ UpgradeLog*.XML
 
 # Exclude PHP file containing database passwords
 vc.php
+
+# npm
+node_modules/
+
+# Visual Studio workspace state
+.vs/

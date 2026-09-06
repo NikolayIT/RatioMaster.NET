@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: src/global.json
+
+      - name: Restore
+        run: dotnet restore src/RatioMaster.slnx
+
+      - name: Build
+        run: dotnet build src/RatioMaster.slnx --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test src/RatioMaster.slnx --configuration Release --no-build

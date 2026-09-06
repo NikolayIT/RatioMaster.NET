@@ -1,0 +1,9 @@
+{
+  "name": "ratiomaster-icons",
+  "private": true,
+  "description": "Renders icon.svg into the application icon assets. Run: npm install && python make-icons.py",
+  "type": "module",
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}
