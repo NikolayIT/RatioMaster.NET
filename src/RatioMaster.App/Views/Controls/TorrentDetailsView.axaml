@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
+             xmlns:controls="clr-namespace:RatioMaster.App.Views.Controls"
+             x:Class="RatioMaster.App.Views.Controls.TorrentDetailsView"
+             x:DataType="vm:TorrentItemViewModel">
+
+  <Border Classes="panel">
+    <Panel>
+      <TextBlock Text="Select a torrent to see its details." Classes="subtle"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                 IsVisible="{Binding $self.DataContext, Converter={x:Static ObjectConverters.IsNull}}" />
+
+      <TabControl IsVisible="{Binding $self.DataContext, Converter={x:Static ObjectConverters.IsNotNull}}">
+        <TabItem Header="General">
+          <controls:TorrentGeneralView />
+        </TabItem>
+        <TabItem Header="Settings">
+          <DockPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="8"
+                        HorizontalAlignment="Right" Margin="8">
+              <TextBlock Classes="subtle" VerticalAlignment="Center"
+                         IsVisible="{Binding Settings.IsLocked}"
+                         Text="Stop the torrent to change the locked settings." />
+              <Button Content="Revert" Command="{Binding RevertSettingsCommand}" />
+              <Button Content="Apply" Classes="accent" Command="{Binding ApplySettingsCommand}" />
+            </StackPanel>
+            <controls:TorrentSettingsView DataContext="{Binding Settings}" />
+          </DockPanel>
+        </TabItem>
+        <TabItem Header="Log">
+          <controls:LogView DataContext="{Binding Log}" />
+        </TabItem>
+        <TabItem Header="Tracker">
+          <controls:TrackerHistoryView DataContext="{Binding Tracker}" />
+        </TabItem>
+      </TabControl>
+    </Panel>
+  </Border>
+</UserControl>

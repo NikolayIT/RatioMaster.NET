@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
+             xmlns:controls="clr-namespace:RatioMaster.App.Views.Controls"
+             x:Class="RatioMaster.App.Views.Dialogs.SettingsView"
+             x:DataType="vm:SettingsViewModel"
+             Width="680" Height="560">
+
+  <DockPanel Margin="16">
+
+    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="8"
+                HorizontalAlignment="Right" Margin="0,14,0,0">
+      <Button Content="Save" MinWidth="100" IsDefault="True" Classes="accent" Command="{Binding SaveCommand}" />
+      <Button Content="Cancel" MinWidth="100" IsCancel="True" Command="{Binding CancelCommand}" />
+    </StackPanel>
+
+    <TabControl>
+
+      <TabItem Header="General">
+        <StackPanel Spacing="10" Margin="8">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <TextBlock Text="Theme" Classes="label" Width="120" />
+            <ComboBox Width="180" ItemsSource="{x:Static vm:SettingsViewModel.Themes}" SelectedItem="{Binding Theme}" />
+          </StackPanel>
+          <CheckBox Content="Use a 24-hour clock in logs" IsChecked="{Binding Use24HourTime}" />
+          <CheckBox Content="Check for updates on startup" IsChecked="{Binding CheckForUpdatesOnStartup}" />
+          <CheckBox Content="Restore the last session on startup" IsChecked="{Binding RestoreLastSessionOnStartup}" />
+          <CheckBox Content="Add torrents without showing the Add dialog" IsChecked="{Binding AddTorrentsWithoutDialog}" />
+          <CheckBox Content="Start torrents immediately after adding them" IsChecked="{Binding StartTorrentsImmediately}" />
+          <CheckBox Content="Ask before removing a running torrent" IsChecked="{Binding ConfirmRemovingRunningTorrents}" />
+        </StackPanel>
+      </TabItem>
+
+      <TabItem Header="Tray">
+        <StackPanel Spacing="10" Margin="8">
+          <CheckBox Content="Minimize to the tray" IsChecked="{Binding MinimizeToTray}" />
+          <CheckBox Content="Close to the tray instead of quitting" IsChecked="{Binding CloseToTray}" />
+          <CheckBox Content="List the torrents in the tray tooltip" IsChecked="{Binding ShowTorrentListInTrayTooltip}" />
+          <CheckBox Content="Start minimized" IsChecked="{Binding StartMinimized}" />
+          <TextBlock Classes="subtle" TextWrapping="Wrap" Margin="0,8,0,0"
+                     Text="On Linux the tray needs a StatusNotifier host (KDE, or GNOME with the AppIndicator extension). Without one the window stays minimized instead of hiding." />
+        </StackPanel>
+      </TabItem>
+
+      <TabItem Header="Torrent defaults">
+        <DockPanel>
+          <TextBlock DockPanel.Dock="Top" Classes="subtle" Margin="8,4"
+                     Text="New torrents start from these settings." />
+          <controls:TorrentSettingsView DataContext="{Binding Defaults}" />
+        </DockPanel>
+      </TabItem>
+
+      <TabItem Header="Clients">
+        <StackPanel Spacing="10" Margin="8">
+          <TextBlock Text="{Binding ClientSummary}" TextWrapping="Wrap" />
+          <SelectableTextBlock Text="{Binding UserClientsPath}" FontFamily="Cascadia Mono,Consolas,monospace"
+                               TextWrapping="Wrap" />
+          <TextBlock Classes="subtle" TextWrapping="Wrap"
+                     Text="The file uses the same shape as the built-in catalog. Entries with an existing name replace it; new names are added. Restart the application to pick up changes." />
+          <TextBlock Text="Configuration folder" Classes="section" />
+          <SelectableTextBlock Text="{Binding ConfigDirectory}" FontFamily="Cascadia Mono,Consolas,monospace"
+                               TextWrapping="Wrap" />
+        </StackPanel>
+      </TabItem>
+
+    </TabControl>
+  </DockPanel>
+</UserControl>

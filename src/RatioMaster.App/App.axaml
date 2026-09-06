@@ -1,0 +1,51 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RatioMaster.App"
+             xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
+             x:Class="RatioMaster.App.App"
+             x:DataType="vm:MainWindowViewModel"
+             RequestedThemeVariant="Default">
+
+  <Application.DataTemplates>
+    <local:ViewLocator />
+  </Application.DataTemplates>
+
+  <Application.Styles>
+    <FluentTheme />
+    <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
+    <StyleInclude Source="avares://RatioMaster.NET/Styles/Controls.axaml" />
+  </Application.Styles>
+
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://RatioMaster.NET/Styles/Colors.axaml" />
+        <ResourceInclude Source="avares://RatioMaster.NET/Assets/Icons.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+
+  <TrayIcon.Icons>
+    <TrayIcons>
+      <TrayIcon Icon="avares://RatioMaster.NET/Assets/app.ico"
+                ToolTipText="{Binding TrayToolTip}"
+                Command="{Binding RestoreCommand}">
+        <TrayIcon.Menu>
+          <NativeMenu>
+            <NativeMenuItem Header="Show RatioMaster.NET" Command="{Binding RestoreCommand}" />
+            <NativeMenuItemSeparator />
+            <NativeMenuItem Header="Start all" Command="{Binding StartAllCommand}" />
+            <NativeMenuItem Header="Stop all" Command="{Binding StopAllCommand}" />
+            <NativeMenuItemSeparator />
+            <NativeMenuItem Header="Website" Command="{Binding OpenUrlCommand}" CommandParameter="https://ratiomaster.net" />
+            <NativeMenuItem Header="GitHub" Command="{Binding OpenUrlCommand}" CommandParameter="https://github.com/NikolayIT/RatioMaster.NET" />
+            <NativeMenuItem Header="About" Command="{Binding ShowAboutCommand}" />
+            <NativeMenuItemSeparator />
+            <NativeMenuItem Header="Exit" Command="{Binding ExitCommand}" />
+          </NativeMenu>
+        </TrayIcon.Menu>
+      </TrayIcon>
+    </TrayIcons>
+  </TrayIcon.Icons>
+
+</Application>

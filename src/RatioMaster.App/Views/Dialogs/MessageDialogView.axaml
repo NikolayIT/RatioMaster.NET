@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
+             x:Class="RatioMaster.App.Views.Dialogs.MessageDialogView"
+             x:DataType="vm:MessageDialogViewModel">
+  <StackPanel Margin="20" Spacing="18" MaxWidth="520">
+    <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
+    <ItemsControl ItemsSource="{Binding Buttons}" HorizontalAlignment="Right">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <StackPanel Orientation="Horizontal" Spacing="8" />
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+        <DataTemplate x:DataType="vm:DialogButton">
+          <Button Content="{Binding Label}"
+                  MinWidth="90"
+                  IsDefault="{Binding IsDefault}"
+                  IsCancel="{Binding IsCancel}"
+                  Command="{Binding $parent[ItemsControl].((vm:MessageDialogViewModel)DataContext).ChooseCommand}"
+                  CommandParameter="{Binding Result}" />
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+  </StackPanel>
+</UserControl>

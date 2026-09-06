@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
+             xmlns:conv="clr-namespace:RatioMaster.App.Converters"
+             xmlns:tracker="clr-namespace:RatioMaster.Core.Tracker;assembly=RatioMaster.Core"
+             x:Class="RatioMaster.App.Views.Controls.TrackerHistoryView"
+             x:DataType="vm:TrackerHistoryViewModel">
+
+  <Grid ColumnDefinitions="*,6,320">
+
+    <DataGrid Grid.Column="0"
+              ItemsSource="{Binding Exchanges}"
+              SelectedItem="{Binding Selected}"
+              IsReadOnly="True"
+              GridLinesVisibility="Horizontal"
+              HeadersVisibility="Column">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Time" Width="90"
+                            Binding="{Binding Timestamp, Converter={x:Static conv:LogTimeConverter.Instance}}" />
+        <DataGridTextColumn Header="Event" Width="90" Binding="{Binding Kind}" />
+        <DataGridTextColumn Header="Result" Width="*" Binding="{Binding Result}" />
+        <DataGridTextColumn Header="Interval" Width="70" Binding="{Binding Interval}" />
+        <DataGridTextColumn Header="Seeds" Width="60" Binding="{Binding Complete}" />
+        <DataGridTextColumn Header="Leechers" Width="70" Binding="{Binding Incomplete}" />
+        <DataGridTextColumn Header="Peers" Width="60" Binding="{Binding PeerCount}" />
+        <DataGridTextColumn Header="ms" Width="60" Binding="{Binding DurationMs, StringFormat={}{0:0}}" />
+      </DataGrid.Columns>
+    </DataGrid>
+
+    <GridSplitter Grid.Column="1" Width="6" ResizeDirection="Columns" />
+
+    <ScrollViewer Grid.Column="2" Padding="10,8">
+      <StackPanel Spacing="8" DataContext="{Binding Selected}" x:DataType="tracker:TrackerExchange">
+        <TextBlock Text="Request" Classes="section" />
+        <SelectableTextBlock Text="{Binding RequestUrl}" TextWrapping="Wrap"
+                             FontFamily="Cascadia Mono,Consolas,monospace" FontSize="11" />
+        <TextBlock Text="Response headers" Classes="section" />
+        <SelectableTextBlock Text="{Binding ResponseHeaders}" TextWrapping="Wrap"
+                             FontFamily="Cascadia Mono,Consolas,monospace" FontSize="11" />
+      </StackPanel>
+    </ScrollViewer>
+
+  </Grid>
+</UserControl>

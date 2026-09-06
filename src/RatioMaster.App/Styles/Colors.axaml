@@ -1,0 +1,40 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <ResourceDictionary.ThemeDictionaries>
+
+    <ResourceDictionary x:Key="Light">
+      <SolidColorBrush x:Key="StatusIdleBrush" Color="#8A8A8A" />
+      <SolidColorBrush x:Key="StatusDownloadingBrush" Color="#1565C0" />
+      <SolidColorBrush x:Key="StatusSeedingBrush" Color="#2E7D32" />
+      <SolidColorBrush x:Key="StatusUpdatingBrush" Color="#0277BD" />
+      <SolidColorBrush x:Key="StatusStoppingBrush" Color="#EF6C00" />
+      <SolidColorBrush x:Key="StatusStoppedBrush" Color="#6E6E6E" />
+      <SolidColorBrush x:Key="StatusErrorBrush" Color="#C62828" />
+      <SolidColorBrush x:Key="LogInfoBrush" Color="#333333" />
+      <SolidColorBrush x:Key="LogWarningBrush" Color="#B26A00" />
+      <SolidColorBrush x:Key="LogErrorBrush" Color="#C62828" />
+      <SolidColorBrush x:Key="LogTimeBrush" Color="#8A8A8A" />
+      <SolidColorBrush x:Key="SubtleTextBrush" Color="#6E6E6E" />
+      <SolidColorBrush x:Key="PanelBorderBrush" Color="#D8D8D8" />
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="Dark">
+      <SolidColorBrush x:Key="StatusIdleBrush" Color="#9E9E9E" />
+      <SolidColorBrush x:Key="StatusDownloadingBrush" Color="#64B5F6" />
+      <SolidColorBrush x:Key="StatusSeedingBrush" Color="#81C784" />
+      <SolidColorBrush x:Key="StatusUpdatingBrush" Color="#4FC3F7" />
+      <SolidColorBrush x:Key="StatusStoppingBrush" Color="#FFB74D" />
+      <SolidColorBrush x:Key="StatusStoppedBrush" Color="#9E9E9E" />
+      <SolidColorBrush x:Key="StatusErrorBrush" Color="#EF9A9A" />
+      <SolidColorBrush x:Key="LogInfoBrush" Color="#DDDDDD" />
+      <SolidColorBrush x:Key="LogWarningBrush" Color="#FFCC80" />
+      <SolidColorBrush x:Key="LogErrorBrush" Color="#EF9A9A" />
+      <SolidColorBrush x:Key="LogTimeBrush" Color="#909090" />
+      <SolidColorBrush x:Key="SubtleTextBrush" Color="#A0A0A0" />
+      <SolidColorBrush x:Key="PanelBorderBrush" Color="#3A3A3A" />
+    </ResourceDictionary>
+
+  </ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>

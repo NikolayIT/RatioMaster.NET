@@ -1,0 +1,89 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
+             xmlns:conv="clr-namespace:RatioMaster.App.Converters"
+             x:Class="RatioMaster.App.Views.Controls.TorrentGeneralView"
+             x:DataType="vm:TorrentItemViewModel">
+
+  <UserControl.Styles>
+    <Style Selector="TextBlock.k">
+      <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
+      <Setter Property="Margin" Value="0,1,12,1" />
+    </Style>
+  </UserControl.Styles>
+
+  <ScrollViewer Padding="12,8">
+    <Grid ColumnDefinitions="Auto,*,Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" Classes="k" />
+      <SelectableTextBlock Grid.Row="0" Grid.Column="1" Classes="value" Text="{Binding DisplayName}" />
+      <TextBlock Grid.Row="0" Grid.Column="2" Text="Status" Classes="k" />
+      <SelectableTextBlock Grid.Row="0" Grid.Column="3" Classes="value" Text="{Binding StatusText}" />
+
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="Info hash" Classes="k" />
+      <SelectableTextBlock Grid.Row="1" Grid.Column="1" Classes="value" FontFamily="Cascadia Mono,Consolas,monospace"
+                           Text="{Binding InfoHashHex}" />
+      <TextBlock Grid.Row="1" Grid.Column="2" Text="Size" Classes="k" />
+      <SelectableTextBlock Grid.Row="1" Grid.Column="3" Classes="value"
+                           Text="{Binding TotalSize, Converter={x:Static conv:Converters.Bytes}}" />
+
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="Tracker" Classes="k" />
+      <SelectableTextBlock Grid.Row="2" Grid.Column="1" Classes="value" Text="{Binding TrackerUrl}" />
+      <TextBlock Grid.Row="2" Grid.Column="2" Text="Client" Classes="k" />
+      <SelectableTextBlock Grid.Row="2" Grid.Column="3" Classes="value" Text="{Binding ClientName}" />
+
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="Torrent file" Classes="k" />
+      <SelectableTextBlock Grid.Row="3" Grid.Column="1" Classes="value" Text="{Binding TorrentPath}" />
+      <TextBlock Grid.Row="3" Grid.Column="2" Text="Proxy" Classes="k" />
+      <SelectableTextBlock Grid.Row="3" Grid.Column="3" Classes="value" Text="{Binding ProxyText}" />
+
+      <TextBlock Grid.Row="4" Grid.Column="0" Text="Peer ID" Classes="k" />
+      <SelectableTextBlock Grid.Row="4" Grid.Column="1" Classes="value" FontFamily="Cascadia Mono,Consolas,monospace"
+                           Text="{Binding PeerIdInUse}" />
+      <TextBlock Grid.Row="4" Grid.Column="2" Text="Key / port / peers" Classes="k" />
+      <SelectableTextBlock Grid.Row="4" Grid.Column="3" Classes="value">
+        <SelectableTextBlock.Text>
+          <MultiBinding StringFormat="{}{0} / {1} / {2}">
+            <Binding Path="KeyInUse" />
+            <Binding Path="PortInUse" />
+            <Binding Path="NumWantInUse" />
+          </MultiBinding>
+        </SelectableTextBlock.Text>
+      </SelectableTextBlock>
+
+      <TextBlock Grid.Row="5" Grid.Column="0" Text="Uploaded" Classes="k" />
+      <SelectableTextBlock Grid.Row="5" Grid.Column="1" Classes="value"
+                           Text="{Binding Uploaded, Converter={x:Static conv:Converters.Bytes}}" />
+      <TextBlock Grid.Row="5" Grid.Column="2" Text="Downloaded" Classes="k" />
+      <SelectableTextBlock Grid.Row="5" Grid.Column="3" Classes="value"
+                           Text="{Binding Downloaded, Converter={x:Static conv:Converters.Bytes}}" />
+
+      <TextBlock Grid.Row="6" Grid.Column="0" Text="Ratio" Classes="k" />
+      <SelectableTextBlock Grid.Row="6" Grid.Column="1" Classes="value"
+                           Text="{Binding Ratio, Converter={x:Static conv:Converters.Ratio}}" />
+      <TextBlock Grid.Row="6" Grid.Column="2" Text="Seeders / leechers" Classes="k" />
+      <SelectableTextBlock Grid.Row="6" Grid.Column="3" Classes="value">
+        <SelectableTextBlock.Text>
+          <MultiBinding StringFormat="{}{0} / {1}">
+            <Binding Path="Seeders" Converter="{x:Static conv:Converters.Count}" />
+            <Binding Path="Leechers" Converter="{x:Static conv:Converters.Count}" />
+          </MultiBinding>
+        </SelectableTextBlock.Text>
+      </SelectableTextBlock>
+
+      <TextBlock Grid.Row="7" Grid.Column="0" Text="Total time" Classes="k" />
+      <SelectableTextBlock Grid.Row="7" Grid.Column="1" Classes="value"
+                           Text="{Binding TotalRunningTime, Converter={x:Static conv:Converters.Duration}}" />
+      <TextBlock Grid.Row="7" Grid.Column="2" Text="Next update / stop" Classes="k" />
+      <SelectableTextBlock Grid.Row="7" Grid.Column="3" Classes="value">
+        <SelectableTextBlock.Text>
+          <MultiBinding StringFormat="{}{0} · {1}">
+            <Binding Path="NextUpdateIn" Converter="{x:Static conv:Converters.Duration}" />
+            <Binding Path="StopConditionText" />
+          </MultiBinding>
+        </SelectableTextBlock.Text>
+      </SelectableTextBlock>
+
+    </Grid>
+  </ScrollViewer>
+</UserControl>

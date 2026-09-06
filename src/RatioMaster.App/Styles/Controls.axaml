@@ -1,0 +1,82 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <!-- Compact torrent list -->
+  <Style Selector="DataGrid.torrents">
+    <Setter Property="RowHeight" Value="26" />
+    <Setter Property="GridLinesVisibility" Value="Horizontal" />
+    <Setter Property="HeadersVisibility" Value="Column" />
+    <Setter Property="CanUserReorderColumns" Value="True" />
+    <Setter Property="CanUserResizeColumns" Value="True" />
+    <Setter Property="CanUserSortColumns" Value="True" />
+    <Setter Property="IsReadOnly" Value="True" />
+    <Setter Property="SelectionMode" Value="Extended" />
+  </Style>
+
+  <Style Selector="DataGrid.torrents DataGridCell">
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
+
+  <!-- Toolbar -->
+  <Style Selector="Button.toolbar">
+    <Setter Property="Padding" Value="10,6" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+  </Style>
+
+  <Style Selector="Button.toolbar:disabled">
+    <Setter Property="Opacity" Value="0.4" />
+  </Style>
+
+  <Style Selector="PathIcon.toolbar">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+  </Style>
+
+  <!-- Section headings inside the settings editor -->
+  <Style Selector="TextBlock.section">
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="Margin" Value="0,12,0,4" />
+  </Style>
+
+  <Style Selector="TextBlock.subtle">
+    <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
+  </Style>
+
+  <Style Selector="TextBlock.label">
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Margin" Value="0,0,8,0" />
+  </Style>
+
+  <!-- Key/value grid in the General tab -->
+  <Style Selector="SelectableTextBlock.value">
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="Margin" Value="0,1" />
+  </Style>
+
+  <!-- Status bar -->
+  <Style Selector="Border.statusbar">
+    <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
+    <Setter Property="BorderThickness" Value="0,1,0,0" />
+    <Setter Property="Padding" Value="10,4" />
+  </Style>
+
+  <Style Selector="Border.panel">
+    <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
+    <Setter Property="BorderThickness" Value="0,1,0,0" />
+  </Style>
+
+  <!-- Log list -->
+  <Style Selector="ListBox.log">
+    <Setter Property="FontFamily" Value="Cascadia Mono,Consolas,Menlo,DejaVu Sans Mono,monospace" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="SelectionMode" Value="Multiple" />
+  </Style>
+
+  <Style Selector="ListBox.log ListBoxItem">
+    <Setter Property="Padding" Value="6,0" />
+    <Setter Property="MinHeight" Value="18" />
+  </Style>
+
+</Styles>
