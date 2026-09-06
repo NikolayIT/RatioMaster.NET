@@ -19,6 +19,9 @@ const LEGACY_USER_AGENT = /^(?:RatioMaster\.NET|NRPG RatioMaster)\/(\d{4}) \((.*
 //   RatioMaster.NET/1000 (Microsoft Windows 10.0.26200; X64; .NET 10.0.11; 32)
 const CURRENT_USER_AGENT = /^RatioMaster\.NET\/(\d{4}) \((.*?); ([^;]+); \.NET ([^;]+); (\d+)\)$/;
 
+// The newest build. Every old download URL below ends up here; change it when a new version ships.
+const LATEST_BUILD = "https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip";
+
 const LEGACY_REDIRECTS = {
   "/index.php": "/",
   "/news.php": "/#news",
@@ -26,11 +29,13 @@ const LEGACY_REDIRECTS = {
   "/history.php": "/#changelog",
   "/screens.php": "/#screenshots",
   "/HISTORY.TXT": "https://raw.githubusercontent.com/NikolayIT/RatioMaster.NET/master/HISTORY.TXT",
-  // Same 0.43 build as the GitHub release (the Mono archive held the same binaries);
-  // the copies on the old server were never linked from the site but are linked from other sites.
-  "/files/RatioMaster.NET.zip": "https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip",
-  "/files/RatioMaster.NET.rar": "https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip",
-  "/files/RatioMaster.NET-mono.rar": "https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip",
+  // Archives that used to sit on the old server. They were never linked from the site
+  // but other sites link them, so they lead to the newest build instead of 404.
+  "/files/RatioMaster.NET.zip": LATEST_BUILD,
+  "/files/RatioMaster.NET.rar": LATEST_BUILD,
+  "/files/RatioMaster.NET-mono.rar": LATEST_BUILD,
+  "/alpha/0.50-alpha1.rar": LATEST_BUILD,
+  "/alpha/0.50-alpha2.rar": LATEST_BUILD,
 };
 
 export default {

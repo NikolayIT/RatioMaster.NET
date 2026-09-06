@@ -49,7 +49,8 @@ curl -sSI https://ratiomaster.net/                   # 200
 
 1. Change `CURRENT_VERSION` in `wrangler.jsonc` to the new four-digit version (for example `0500`).
 2. Update the download link, version number, changelog and news in `public/index.html`.
-3. Push to `master`.
+3. Point `LATEST_BUILD` in `src/index.js` at the new release archive; the old download URLs redirect there.
+4. Push to `master`.
 
 ## Looking at the statistics
 

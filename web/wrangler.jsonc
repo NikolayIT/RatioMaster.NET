@@ -9,7 +9,7 @@
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
-    "run_worker_first": ["/vc.php", "/version.html", "/*.php", "/HISTORY.TXT", "/files/*", "/admin", "/admin/*"],
+    "run_worker_first": ["/vc.php", "/version.html", "/*.php", "/HISTORY.TXT", "/files/*", "/alpha/*", "/admin", "/admin/*"],
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
