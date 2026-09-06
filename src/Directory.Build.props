@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <Deterministic>true</Deterministic>
+    <DebugType>embedded</DebugType>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <Version>1.0.0</Version>
+    <Authors>Nikolay Kostov</Authors>
+    <Company>Nikolay.IT</Company>
+    <Product>RatioMaster.NET</Product>
+    <Copyright>Copyright © 2006-2026 Nikolay Kostov</Copyright>
+    <RepositoryUrl>https://github.com/NikolayIT/RatioMaster.NET</RepositoryUrl>
+    <PackageProjectUrl>https://ratiomaster.net</PackageProjectUrl>
+  </PropertyGroup>
+</Project>

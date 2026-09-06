@@ -1,0 +1,415 @@
+{
+  "default": "uTorrent 3.3.2",
+  "clients": [
+    {
+      "name": "uTorrent 3.3.2", "family": "uTorrent", "version": "3.3.2",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT3320-%18w", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/3320", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT3320-", "startOffset": 0, "maxOffset": 200000000 }
+    },
+    {
+      "name": "uTorrent 3.3.0", "family": "uTorrent", "version": "3.3.0",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT3300-%b9s", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/3300", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT3300-", "startOffset": 0, "maxOffset": 200000000 }
+    },
+    {
+      "name": "uTorrent 3.2.0", "family": "uTorrent", "version": "3.2.0",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT3200-z8%00.", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/3200", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT3200-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 2.0.1 (build 19078)", "family": "uTorrent", "version": "2.0.1 (build 19078)",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT2010-%86J", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/2010(19078)", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT2010-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 1.8.5 (build 17414)", "family": "uTorrent", "version": "1.8.5 (build 17414)",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT1850-%06D", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/1850(17414)", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1850-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 1.8.1-beta(11903)", "family": "uTorrent", "version": "1.8.1-beta(11903)",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT181B-%7f.", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/181B(11903)", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT181B-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 1.8.0", "family": "uTorrent", "version": "1.8.0",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT1800-%25.", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/1800", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1800-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 1.7.7", "family": "uTorrent", "version": "1.7.7",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT1770-%f3%9f", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/1770", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1770-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 1.7.6", "family": "uTorrent", "version": "1.7.6",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT1760-%b3%9e", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/1760", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1760-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 1.7.5", "family": "uTorrent", "version": "1.7.5",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT1750-%fa%91", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/1750", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1750-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 1.6.1", "family": "uTorrent", "version": "1.6.1",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT1610-%ea%81", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/1610", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1610-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "uTorrent 1.6", "family": "uTorrent", "version": "1.6",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT1600-%d9%81", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/1600", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1600-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+
+    {
+      "name": "BitComet 1.20", "family": "BitComet", "version": "1.20",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "numeric", "length": 5, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-BC0120-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
+      "headers": ["Host: {host}", "Connection: close", "Accept: */*", "Accept-Encoding: gzip", "User-Agent: BitComet/1.20.3.25", "Pragma: no-cache", "Cache-Control: no-cache"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "BitComet", "searchString": "&peer_id=-BC0120-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "BitComet 1.03", "family": "BitComet", "version": "1.03",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "numeric", "length": 5, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-BC0103-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
+      "headers": ["Host: {host}", "Connection: close", "Accept: */*", "Accept-Encoding: gzip", "User-Agent: BitComet/1.3.7.17", "Pragma: no-cache", "Cache-Control: no-cache"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "BitComet", "searchString": "&peer_id=-BC0103-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "BitComet 0.98", "family": "BitComet", "version": "0.98",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "numeric", "length": 5, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-BC0098-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
+      "headers": ["Accept: */*", "Accept-Encoding: gzip", "Connection: close", "Host: {host}", "User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)\u001e"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "BitComet", "searchString": "&peer_id=-BC0098-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "BitComet 0.96", "family": "BitComet", "version": "0.96",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "numeric", "length": 5, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-BC0096-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
+      "headers": ["Accept: */*", "Accept-Encoding: gzip", "Connection: close", "Host: {host}", "User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)\u001e"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "BitComet", "searchString": "&peer_id=-BC0096-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "BitComet 0.93", "family": "BitComet", "version": "0.93",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "numeric", "length": 5, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-BC0093-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
+      "headers": ["Accept: */*", "Accept-Encoding: gzip", "Connection: close", "Host: {host}", "User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)\u001e"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "BitComet", "searchString": "&peer_id=-BC0093-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+    {
+      "name": "BitComet 0.92", "family": "BitComet", "version": "0.92",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "numeric", "length": 5, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-BC0092-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
+      "headers": ["Accept: */*", "Accept-Encoding: gzip", "Connection: close", "Host: {host}", "User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)\u001e"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "BitComet", "searchString": "&peer_id=-BC0092-", "startOffset": 0, "maxOffset": 60000000 }
+    },
+
+    {
+      "name": "Azureus 3.1.1.0", "family": "Azureus", "version": "3.1.1.0",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-AZ3110-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Azureus 3.1.1.0;Windows XP;Java 1.6.0_07", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
+      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
+      "defaultNumWant": 50,
+      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3110-", "startOffset": 0, "maxOffset": 100000000 }
+    },
+    {
+      "name": "Azureus 3.0.5.0", "family": "Azureus", "version": "3.0.5.0",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-AZ3050-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Azureus 3.0.5.0;Windows XP;Java 1.6.0_05", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2", "Content-type: application/x-www-form-urlencoded"],
+      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
+      "defaultNumWant": 50,
+      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3050-", "startOffset": 0, "maxOffset": 100000000 }
+    },
+    {
+      "name": "Azureus 3.0.4.2", "family": "Azureus", "version": "3.0.4.2",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-AZ3042-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Azureus 3.0.4.2;Windows XP;Java 1.5.0_07", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2", "Content-type: application/x-www-form-urlencoded"],
+      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
+      "defaultNumWant": 50,
+      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3042-", "startOffset": 0, "maxOffset": 100000000 }
+    },
+    {
+      "name": "Azureus 3.0.3.4", "family": "Azureus", "version": "3.0.3.4",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-AZ3034-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Azureus 3.0.3.4;Windows XP;Java 1.6.0_03", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
+      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
+      "defaultNumWant": 50,
+      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3034-", "startOffset": 0, "maxOffset": 100000000 }
+    },
+    {
+      "name": "Azureus 3.0.2.2", "family": "Azureus", "version": "3.0.2.2",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-AZ3022-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Azureus 3.0.2.2;Windows XP;Java 1.6.0_01", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
+      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
+      "defaultNumWant": 50,
+      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3022-", "startOffset": 0, "maxOffset": 100000000 }
+    },
+    {
+      "name": "Azureus 2.5.0.4", "family": "Azureus", "version": "2.5.0.4",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-AZ2504-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Azureus 2.5.0.4;Windows XP;Java 1.5.0_10", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2", "Content-type: application/x-www-form-urlencoded"],
+      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
+      "defaultNumWant": 50,
+      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ2504-", "startOffset": 0, "maxOffset": 100000000 }
+    },
+
+    {
+      "name": "Vuze 4.2.0.8", "family": "Vuze", "version": "4.2.0.8",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-AZ4208-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Azureus 4.2.0.8;Windows XP;Java 1.6.0_05", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
+      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
+      "defaultNumWant": 50,
+      "memoryScan": { "processName": "azureus", "searchString": "&peer_id=-AZ4208-", "startOffset": 0, "maxOffset": 100000000 }
+    },
+
+    {
+      "name": "BitTorrent 6.0.3 (8642)", "family": "BitTorrent", "version": "6.0.3 (8642)",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "M6-0-3--", "type": "random", "length": 12, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: BitTorrent/6030", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200
+    },
+
+    {
+      "name": "Transmission 2.82 (14160)", "family": "Transmission", "version": "2.82 (14160)",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-TR2500-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Transmission/2.82", "Host: {host}", "Accept: */*", "Accept-Encoding: gzip;q=1.0, deflate, identity"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&key={key}&compact=1&supportcrypto=1{event}",
+      "defaultNumWant": 80
+    },
+    {
+      "name": "Transmission 2.92 (14714)", "family": "Transmission", "version": "2.92 (14714)",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-TR2920-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Transmission/2.92", "Host: {host}", "Accept: */*", "Accept-Encoding: gzip;q=1.0, deflate, identity"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&key={key}&compact=1&supportcrypto=1{event}",
+      "defaultNumWant": 80
+    },
+
+    {
+      "name": "ABC 3.1", "family": "ABC", "version": "3.1",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 6, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "A310--", "type": "alphanumeric", "length": 14, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: ABC/ABC-3.1.0", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&trackerid=48&no_peer_id=1&compact=1{event}&key={key}",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "abc", "searchString": "&peer_id=A310--", "startOffset": 10000000, "maxOffset": 25000000 }
+    },
+
+    {
+      "name": "BitLord 1.1", "family": "BitLord", "version": "1.1",
+      "httpProtocol": "HTTP/1.0", "hashUpperCase": true,
+      "key": { "type": "numeric", "length": 4, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "exbc%01%01LORDCz%03%92", "type": "random", "length": 6, "urlEncode": true, "upperCase": true },
+      "headers": ["User-Agent: BitTorrent/3.4.2", "Connection: close", "Accept-Encoding: gzip, deflate", "Host: {host}", "Cache-Control: no-cache"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant=200&compact=1&no_peer_id=1&key={key}{event}",
+      "defaultNumWant": 200
+    },
+
+    {
+      "name": "BTuga 2.1.8", "family": "BTuga", "version": "2.1.8",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 6, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "R26---", "type": "alphanumeric", "length": 14, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: BTuga/Revolution-2.6"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&no_peer_id=1&compact=1{event}&key={key}",
+      "defaultNumWant": 200
+    },
+
+    {
+      "name": "BitTornado 0.3.17", "family": "BitTornado", "version": "0.3.17",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 6, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "T03H-----", "type": "alphanumeric", "length": 11, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: BitTornado/T-0.3.17"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&no_peer_id=1&compact=1{event}&key={key}",
+      "defaultNumWant": 200
+    },
+
+    {
+      "name": "Burst 3.1.0b", "family": "Burst", "version": "3.1.0b",
+      "httpProtocol": "HTTP/1.0", "hashUpperCase": true,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "Mbrst1-1-3", "type": "hex", "length": 10, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: BitTorrent/brst1.1.3"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&key={key}&uploaded={uploaded}&downloaded={downloaded}&left={left}&compact=1{event}",
+      "defaultNumWant": 200
+    },
+
+    {
+      "name": "BitTyrant 1.1", "family": "BitTyrant", "version": "1.1",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "AZ2500BT", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: AzureusBitTyrant 2.5.0.0BitTyrant;Windows XP;Java 1.5.0_10", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2", "Proxy-Connection: keep-alive", "Content-type: application/x-www-form-urlencoded"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}",
+      "defaultNumWant": 50
+    },
+
+    {
+      "name": "BitSpirit 3.6.0.200", "family": "BitSpirit", "version": "3.6.0.200",
+      "httpProtocol": "HTTP/1.0", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "%2dSP3602", "type": "random", "length": 13, "urlEncode": true, "upperCase": false },
+      "headers": ["User-Agent: BTSP/3602", "Host: {host}", "Accept_Encoding: gzip", "Connection: close"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&key={key}&compact=1&numwant={numwant}&no_peer_id=1",
+      "defaultNumWant": 200
+    },
+    {
+      "name": "BitSpirit 3.1.0.077", "family": "BitSpirit", "version": "3.1.0.077",
+      "httpProtocol": "HTTP/1.0", "hashUpperCase": false,
+      "key": { "type": "numeric", "length": 3, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "%00%03BS", "type": "random", "length": 16, "urlEncode": true, "upperCase": false },
+      "headers": ["User-Agent: BitTorrent/4.1.2", "Host: {host}", "Accept-Encoding: gzip", "Connection: close"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&key={key}&compact=1&numwant={numwant}",
+      "defaultNumWant": 200
+    },
+
+    {
+      "name": "Deluge 1.2.0", "family": "Deluge", "version": "1.2.0",
+      "httpProtocol": "HTTP/1.0", "hashUpperCase": false,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-DE1200-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: Deluge 1.2.0", "Connection: close", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&key={key}&compact=1&numwant={numwant}&supportcrypto=1&no_peer_id=1",
+      "defaultNumWant": 200
+    },
+    {
+      "name": "Deluge 0.5.8.7", "family": "Deluge", "version": "0.5.8.7",
+      "httpProtocol": "HTTP/1.0", "hashUpperCase": false,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-DE0587-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: Deluge 0.5.8.7"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&key={key}&compact=1&numwant={numwant}&supportcrypto=1&no_peer_id=1",
+      "defaultNumWant": 200
+    },
+    {
+      "name": "Deluge 0.5.8.6", "family": "Deluge", "version": "0.5.8.6",
+      "httpProtocol": "HTTP/1.0", "hashUpperCase": false,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-DE0586-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: Deluge 0.5.8.6"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&key={key}&compact=1&numwant={numwant}&supportcrypto=1&no_peer_id=1",
+      "defaultNumWant": 200
+    },
+
+    {
+      "name": "KTorrent 2.2.1", "family": "KTorrent", "version": "2.2.1",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "numeric", "length": 10, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-KT2210-", "type": "numeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: ktorrent/2.2.1", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2", "Accept-Encoding: x-gzip, x-deflate, gzip, deflate", "Host: {host}", "Connection: Keep-Alive"],
+      "query": "peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&compact=1&numwant={numwant}&key={key}{event}&info_hash={infohash}",
+      "defaultNumWant": 100
+    },
+
+    {
+      "name": "Gnome BT 0.0.28-1", "family": "Gnome BT", "version": "0.0.28-1",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "M3-4-2--", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: Python-urllib/2.5", "Connection: close", "Accept-Encoding: gzip"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&key={key}&uploaded={uploaded}&downloaded={downloaded}&left={left}&compact=1{event}",
+      "defaultNumWant": 100
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>RatioMaster.Core</RootNamespace>
+    <AssemblyName>RatioMaster.Core</AssemblyName>
+    <Description>RatioMaster.NET core: bencode, torrent files, client emulation profiles, tracker protocol, session engine.</Description>
+    <!-- Required by the LibraryImport source generator used for the Windows process-memory reader. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Clients\clients.json" LogicalName="RatioMaster.Core.Clients.clients.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="RatioMaster.Core.Tests" />
+  </ItemGroup>
+
+</Project>
