@@ -3,6 +3,7 @@
         xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
         xmlns:conv="clr-namespace:RatioMaster.App.Converters"
         xmlns:controls="clr-namespace:RatioMaster.App.Views.Controls"
+        xmlns:updates="clr-namespace:RatioMaster.Core.Updates;assembly=RatioMaster.Core"
         x:Class="RatioMaster.App.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="RatioMaster.NET"
@@ -78,6 +79,8 @@
         <MenuItem Header="Program website" Command="{Binding OpenUrlCommand}" CommandParameter="https://ratiomaster.net" />
         <MenuItem Header="GitHub" Command="{Binding OpenUrlCommand}" CommandParameter="https://github.com/NikolayIT/RatioMaster.NET" />
         <MenuItem Header="Forums" Command="{Binding OpenUrlCommand}" CommandParameter="https://github.com/NikolayIT/RatioMaster.NET/discussions" />
+        <MenuItem Header="Report a bug" Command="{Binding OpenUrlCommand}" CommandParameter="{x:Static updates:AppVersion.BugReportUrl}" />
+        <MenuItem Header="Donate" Command="{Binding OpenUrlCommand}" CommandParameter="{x:Static updates:AppVersion.DonateUrl}" />
         <Separator />
         <MenuItem Header="Check for updates" Command="{Binding CheckForUpdatesCommand}" />
         <MenuItem Header="About RatioMaster.NET" Command="{Binding ShowAboutCommand}" />
