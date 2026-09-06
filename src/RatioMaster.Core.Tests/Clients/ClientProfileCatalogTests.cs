@@ -1,4 +1,5 @@
 using RatioMaster.Core.Clients;
+using RatioMaster.Core.Sessions;
 
 namespace RatioMaster.Core.Tests.Clients;
 
@@ -9,7 +10,8 @@ public class ClientProfileCatalogTests
     [Fact]
     public void LoadsAllProfilesFromTheBuiltInCatalog()
     {
-        Assert.Equal(41, Catalog.Profiles.Count);
+        // 41 inherited from 0.43 plus qBittorrent.
+        Assert.Equal(42, Catalog.Profiles.Count);
     }
 
     [Fact]
@@ -20,19 +22,20 @@ public class ClientProfileCatalogTests
     }
 
     [Fact]
-    public void DefaultIsUTorrent332()
+    public void DefaultIsTheCurrentQBittorrent()
     {
-        Assert.Equal("uTorrent 3.3.2", Catalog.DefaultName);
-        Assert.Equal("uTorrent 3.3.2", Catalog.Default.Name);
+        Assert.Equal("qBittorrent 5.2.3", Catalog.DefaultName);
+        Assert.Equal("qBittorrent 5.2.3", Catalog.Default.Name);
+        Assert.Equal(TorrentSettings.DefaultClientName, Catalog.DefaultName);
     }
 
     [Fact]
-    public void FamiliesMatchTheOldClientComboOrder()
+    public void FamiliesAreListedNewestFirst()
     {
         string[] expected =
         [
-            "uTorrent", "BitComet", "Azureus", "Vuze", "BitTorrent", "Transmission", "ABC", "BitLord",
-            "BTuga", "BitTornado", "Burst", "BitTyrant", "BitSpirit", "Deluge", "KTorrent", "Gnome BT",
+            "qBittorrent", "uTorrent", "BitComet", "Azureus", "Vuze", "BitTorrent", "Transmission", "ABC",
+            "BitLord", "BTuga", "BitTornado", "Burst", "BitTyrant", "BitSpirit", "Deluge", "KTorrent", "Gnome BT",
         ];
         Assert.Equal(expected, Catalog.Families);
     }
@@ -83,6 +86,28 @@ public class ClientProfileCatalogTests
         Assert.Equal("uTorrent", p.MemoryScan!.ProcessName);
         Assert.Equal("&peer_id=-UT3320-", p.MemoryScan.SearchString);
         Assert.Equal(200_000_000, p.MemoryScan.MaxOffset);
+    }
+
+    [Fact]
+    public void QBittorrentMatchesLibtorrentsAnnounce()
+    {
+        // Derived from libtorrent RC_2_0: http_tracker_connection.cpp builds the query,
+        // http_connection.cpp the headers, generate_fingerprint the peer id prefix.
+        var p = Catalog.GetByName("qBittorrent 5.2.3");
+
+        Assert.Equal("-qB5230-", p.PeerIdPrefix);
+        Assert.Equal(RandomValueKind.UrlSafe, p.PeerId.Type);
+        Assert.Equal(12, p.PeerId.Length);
+        Assert.False(p.PeerId.UrlEncode);
+        Assert.False(p.HashUpperCase);
+        Assert.Equal(RandomValueKind.Hex, p.Key.Type);
+        Assert.Equal(8, p.Key.Length);
+        Assert.True(p.Key.UpperCase);
+        Assert.Equal(
+            ["Host: {host}", "User-Agent: qBittorrent/5.2.3", "Accept-Encoding: gzip", "Connection: close"],
+            p.Headers);
+        Assert.EndsWith("&compact=1&no_peer_id=1&supportcrypto=1&redundant=0", p.Query, StringComparison.Ordinal);
+        Assert.Null(p.MemoryScan);
     }
 
     [Fact]
@@ -148,13 +173,13 @@ public class ClientProfileCatalogTests
         try
         {
             var catalog = ClientProfileCatalog.Load(path);
-            Assert.Equal(42, catalog.Profiles.Count);
+            Assert.Equal(43, catalog.Profiles.Count);
             Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.3.2").PeerIdPrefix);
             Assert.Equal(99, catalog.GetByName("uTorrent 3.3.2").DefaultNumWant);
             Assert.True(catalog.Contains("MyClient 1.0"));
             Assert.Contains("MyClient", catalog.Families);
             // Default still resolves.
-            Assert.Equal("uTorrent 3.3.2", catalog.DefaultName);
+            Assert.Equal("qBittorrent 5.2.3", catalog.DefaultName);
         }
         finally
         {

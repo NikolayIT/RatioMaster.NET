@@ -30,6 +30,38 @@ public class ClientIdentityGeneratorTests
     }
 
     [Fact]
+    public void UrlSafeKindUsesLibtorrentsAlphabetAndNeedsNoEncoding()
+    {
+        // libtorrent url_random: 0-9 A-Z a-z and -_.!~*(), chosen so the peer id is never escaped.
+        const string alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_.!~*()";
+        var generator = new ClientIdentityGenerator(new DeterministicRandomSource(4));
+
+        var value = generator.GenerateValue(new RandomValueSpec { Type = RandomValueKind.UrlSafe, Length = 12 });
+
+        Assert.Equal(12, value.Length);
+        Assert.All(value, c => Assert.Contains(c, alphabet));
+        // Never percent-encoded, so what is generated is what reaches the tracker.
+        Assert.Equal(value, PercentEncoding.Encode(value).Replace("%2d", "-", StringComparison.Ordinal)
+            .Replace("%5f", "_", StringComparison.Ordinal).Replace("%2e", ".", StringComparison.Ordinal)
+            .Replace("%21", "!", StringComparison.Ordinal).Replace("%7e", "~", StringComparison.Ordinal)
+            .Replace("%2a", "*", StringComparison.Ordinal).Replace("%28", "(", StringComparison.Ordinal)
+            .Replace("%29", ")", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public void QBittorrentIdentityLooksLikeTheRealClient()
+    {
+        var profile = ClientProfileCatalog.Load().GetByName("qBittorrent 5.2.3");
+        var identity = new ClientIdentityGenerator(new DeterministicRandomSource(11)).Generate(profile);
+
+        // 8-character fingerprint plus 12 random characters is a 20-byte peer id, as libtorrent builds it.
+        Assert.Equal(20, identity.PeerId.Length);
+        Assert.StartsWith("-qB5230-", identity.PeerId, StringComparison.Ordinal);
+        Assert.DoesNotContain('%', identity.PeerId);
+        Assert.Equal(8, identity.Key.Length);
+    }
+
+    [Fact]
     public void RandomKindPercentEncodesNonAlphanumericBytes()
     {
         var random = new ScriptedRandomSource(ints: [(int)'A', 0x00, 0xFF, 0x20]);

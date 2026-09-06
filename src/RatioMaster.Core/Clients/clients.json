@@ -1,6 +1,15 @@
 {
-  "default": "uTorrent 3.3.2",
+  "default": "qBittorrent 5.2.3",
   "clients": [
+    {
+      "name": "qBittorrent 5.2.3", "family": "qBittorrent", "version": "5.2.3",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-qB5230-", "type": "urlSafe", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: qBittorrent/5.2.3", "Accept-Encoding: gzip", "Connection: close"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1&supportcrypto=1&redundant=0",
+      "defaultNumWant": 200
+    },
     {
       "name": "uTorrent 3.3.2", "family": "uTorrent", "version": "3.3.2",
       "httpProtocol": "HTTP/1.1", "hashUpperCase": false,

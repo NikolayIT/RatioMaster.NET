@@ -14,4 +14,10 @@ public enum RandomValueKind
 
     /// <summary>Upper-case hexadecimal: 0-9, A-F.</summary>
     Hex,
+
+    /// <summary>
+    /// libtorrent's url_random alphabet: letters, digits and -_.!~*(). Every character is URL-safe,
+    /// so the value is never percent-encoded. Used by qBittorrent and other libtorrent clients.
+    /// </summary>
+    UrlSafe,
 }

@@ -18,7 +18,7 @@ public sealed record TorrentSettings
     {
     }
 
-    public const string DefaultClientName = "uTorrent 3.3.2";
+    public const string DefaultClientName = "qBittorrent 5.2.3";
 
     /// <summary>The emulated client profile name.</summary>
     public string ClientName { get; set; } = DefaultClientName;
