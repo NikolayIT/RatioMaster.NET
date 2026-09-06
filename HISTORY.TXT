@@ -1,3 +1,26 @@
+---=== 1.0.0 (06-09-2026) ===---
+- Global: complete rewrite on .NET 10; the program now runs on Windows, Linux and macOS
+- Global: single self-contained file, nothing to install and no .NET Framework needed
+- Global: new Avalonia interface - one row per torrent with a details pane, replacing the tabbed layout
+- Global: light and dark themes, following the system by default
+- Global: removed the bundled GPL BytesRoad socket library; all networking is plain .NET now
+- RM: https trackers are supported (the old raw socket code could not do TLS at all)
+- RM: IPv6 trackers are supported
+- RM: proxies rewritten: HTTP CONNECT, SOCKS4, SOCKS4a and SOCKS5 with username/password
+- RM: client emulations moved out of the code into clients.json, so they can be added without a rebuild
+- RM: a clients.json in the configuration folder can add or override emulations
+- RM: tracker announce interval is now honoured up to 24 hours instead of being capped at 1 hour
+- RM: new Tracker tab showing every announce and scrape with its request, response and timing
+- RM: log is virtualised, so a long-running torrent no longer slows the interface down
+- RM: settings and sessions are JSON; settings moved out of the registry
+- RM: settings from 0.43 are imported from the registry on first run
+- RM: session files written by 0.43 still load
+- RM: the last session is restored on startup
+- RM: the update check uses https and no longer sends your Windows user name
+- RM: fixed malformed request headers in the BitTyrant, KTorrent, BitSpirit and Gnome BT emulations
+- RM: fixed the Deluge emulations sending the event parameter twice
+- Code: the core is a separate library with no interface dependencies, covered by 199 tests
+
 ---=== 0.43 (08-01-2016) ===---
 - Global: The program is now open source and the source is available in https://github.com/NikolayIT/RatioMaster.NET
 - Global: Program built for .NET Framework version 4.0
