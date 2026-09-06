@@ -1,0 +1,20 @@
+{
+  "name": "ratiomaster-net-web",
+  "private": true,
+  "type": "module",
+  "description": "ratiomaster.net: static site plus the version-check endpoint, on Cloudflare Workers",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create ratiomaster-net",
+    "db:migrate:local": "wrangler d1 migrations apply ratiomaster-net --local",
+    "db:migrate": "wrangler d1 migrations apply ratiomaster-net --remote"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "workerd@1.20260903.1": true
+  }
+}

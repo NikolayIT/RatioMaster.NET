@@ -1,0 +1,44 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ratiomaster-net",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+
+  // Static site. Only the paths listed in run_worker_first reach the Worker;
+  // everything else is served straight from ./public by Cloudflare.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/vc.php", "/version.html", "/*.php", "/HISTORY.TXT", "/files/RatioMaster.NET.zip", "/files/RatioMaster.NET.rar"],
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+
+  // Version reported to old installs by /vc.php and /version.html.
+  // Bump this when a new release is published.
+  "vars": {
+    "CURRENT_VERSION": "0430"
+  },
+
+  // Every version check is logged here. Create the database once with
+  // `npm run db:create`, paste the id it prints below, then `npm run db:migrate`.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ratiomaster-net",
+      "database_id": "22d562f6-5149-4988-863c-1ec5f991e350"
+    }
+  ],
+
+  "observability": {
+    "enabled": true
+  }
+
+  // Attach ratiomaster.net and www.ratiomaster.net from the dashboard on
+  // cut-over day (Workers & Pages -> ratiomaster-net -> Settings -> Domains & Routes),
+  // then uncomment so the config stays the source of truth:
+  ,"routes": [
+    { "pattern": "ratiomaster.net", "custom_domain": true },
+    { "pattern": "www.ratiomaster.net", "custom_domain": true }
+  ]
+}

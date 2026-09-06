@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RatioMaster.NET</title>
+  <meta name="description" content="RatioMaster.NET is a small standalone application which fakes upload and download stats of a torrent to almost all BitTorrent trackers.">
+  <meta name="author" content="Nikolay Kostov (Nikolay.IT)">
+  <meta property="og:title" content="RatioMaster.NET">
+  <meta property="og:description" content="Fakes upload and download stats of a torrent to almost all BitTorrent trackers. Open source, Windows and Mono.">
+  <meta property="og:url" content="https://ratiomaster.net/">
+  <meta property="og:image" content="https://ratiomaster.net/img/screenshot-1.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="top">
+  <nav class="wrap nav">
+    <a class="brand" href="/" aria-label="RatioMaster.NET home">
+      <svg class="mark" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true" focusable="false">
+        <rect x="5" y="5" width="22" height="22" rx="4" transform="rotate(45 16 16)" fill="#ff9d00"/>
+        <path d="M16 7.5 L23 15.5 H19.5 V24.5 H12.5 V15.5 H9 Z" fill="#2a2b1f"/>
+      </svg>
+      <span class="word">RatioMaster<em>.NET</em></span>
+    </a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#changelog">Changelog</a></li>
+      <li><a href="https://github.com/NikolayIT/RatioMaster.NET">GitHub</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="wrap layout">
+
+  <aside class="side">
+    <section id="donate">
+      <h2>We need your donations!</h2>
+      <p>RatioMaster.NET has been free since 2005. If it is useful to you, a donation keeps it going.</p>
+      <p>
+        <a class="btn primary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=PG6NUT5YWYF82&amp;lc=BG&amp;item_name=RatioMaster%2eNET&amp;item_number=RatioMaster%2eNET&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">Donate with PayPal</a>
+        <a class="btn" href="https://github.com/sponsors/NikolayIT">GitHub Sponsors</a>
+      </p>
+    </section>
+
+    <section id="news">
+      <h2>Latest news</h2>
+      <ul class="news">
+        <li>
+          <time datetime="2016-01-08">8 January 2016</time>
+          <strong>RatioMaster.NET 0.43</strong>
+          New version released!<br>
+          <a href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip">Download</a> &middot; <a href="#changelog">Changelog</a>
+        </li>
+        <li>
+          <time datetime="2013-11-24">24 November 2013</time>
+          <strong>Open sourced!</strong>
+          The project is now completely open source. The code is on <a href="https://github.com/NikolayIT/RatioMaster.NET">GitHub</a> and pull requests are welcome.
+        </li>
+        <li>
+          <time datetime="2010-04-19">19 April 2010</time>
+          <strong>RatioMaster.NET 0.42</strong>
+          New version released!<br>
+          <a href="#changelog">Changelog</a>
+        </li>
+      </ul>
+    </section>
+  </aside>
+
+  <main class="content">
+
+    <section id="download">
+      <h1>RatioMaster.NET <span class="version">0.43</span></h1>
+      <p class="lead">RatioMaster.NET is a small standalone application which fakes upload and download stats of a torrent to almost all BitTorrent trackers.</p>
+      <p>This means that it does <strong>not</strong> rely on your BitTorrent client (uTorrent, Azureus, BitComet, ABC and others) and it will <strong>not</strong> download or upload the files of a torrent. It can only fake the download and upload statistics reported to the tracker.</p>
+      <p>RatioMaster.NET has built-in emulations of the most commonly used BitTorrent clients: uTorrent, BitComet, Azureus, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant and BitSpirit.</p>
+
+      <div class="downloads">
+        <div class="dl">
+          <h3>Windows version</h3>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip">Download the program</a>
+          <p class="hint">For the program to work you need <a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net40">.NET Framework 4.0</a> or newer.</p>
+        </div>
+        <div class="dl">
+          <h3>Linux, Solaris, Mac OS X and Unix version</h3>
+          <a class="btn" href="/files/RatioMaster.NET-mono.rar">Download the program</a>
+          <a class="btn" href="https://linux.softpedia.com/get/Internet/HTTP-WWW-/NRPG-RatioMaster-28929.shtml">Mirror download</a>
+          <p class="hint">For the program to work you need <a href="https://www.mono-project.com/download/stable/">Mono</a>.</p>
+        </div>
+      </div>
+      <p class="hint">All versions and the source code are on <a href="https://github.com/NikolayIT/RatioMaster.NET/releases">GitHub Releases</a>. The program is open source under the <a href="https://github.com/NikolayIT/RatioMaster.NET/blob/master/LICENSE">MIT License</a>.</p>
+    </section>
+
+    <section id="features">
+      <h2>Program features</h2>
+      <ul class="features">
+        <li>Supports multiple torrents running in one instance.</li>
+        <li>Multi-OS support: Windows, Linux, Solaris, Mac OS X and Unix.</li>
+        <li>Automatically loads the torrent info from the torrent file.</li>
+        <li>Tab sessions: save the current session and load it later.</li>
+        <li>Very strong protection against anti-cheat scripts.</li>
+        <li>Good, user-friendly interface with drag and drop support for files.</li>
+        <li>Parses all data from all running uTorrent, Azureus, BitComet and ABC instances.</li>
+        <li>Selectable upload and download speeds.</li>
+        <li>Optional random values for upload and download speeds on every tracker update.</li>
+        <li>Selectable tracker response interval (the program gets this value from the tracker automatically).</li>
+        <li>Lots of client simulations available: the latest versions of uTorrent, BitComet, Azureus, Vuze, BitTorrent, BitLord, ABC, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent, GnomeBT and Transmission.</li>
+        <li>Shows uploaded, downloaded, tracker update intervals and more, all in real time.</li>
+        <li>Support for custom announce and client simulation parameters.</li>
+        <li>Good error protection.</li>
+        <li>Supports different types of proxies: HTTP, SOCKS4, SOCKS4a and SOCKS5.</li>
+        <li>Keeps a log. If any errors occur you can send the log and I will try to fix the problem.</li>
+        <li>Informs you about new versions.</li>
+        <li>Works with almost all BitTorrent trackers.</li>
+        <li>And many other great features!</li>
+      </ul>
+    </section>
+
+    <section id="screenshots">
+      <h2>Program screenshots</h2>
+      <div class="shots">
+        <figure><img src="/img/screenshot-1.png" width="975" height="539" loading="lazy" alt="RatioMaster.NET 0.42 main window with a torrent loaded and the tracker log"><figcaption>Main window on Windows with a torrent running</figcaption></figure>
+        <figure><img src="/img/screenshot-2.png" width="975" height="539" loading="lazy" alt="RatioMaster.NET 0.42 with two torrent tabs open, setting the upload speed for all tabs"><figcaption>Two torrents in tabs, changing the upload speed for all of them at once</figcaption></figure>
+        <figure><img src="/img/screenshot-linux.png" width="981" height="566" loading="lazy" alt="NRPG RatioMaster 0.36 running on Linux under Mono"><figcaption>Running on Linux under Mono (older 0.36 build)</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="changelog">
+      <h2>Program changelog</h2>
+
+      <article class="release">
+        <h3>0.43 <time datetime="2016-01-08">8 January 2016</time></h3>
+        <ul>
+          <li>Global: the program is now open source and the source is available on <a href="https://github.com/NikolayIT/RatioMaster.NET">GitHub</a>.</li>
+          <li>Global: program built for .NET Framework 4.0.</li>
+          <li>Global: program information, links and the About form updated.</li>
+          <li>RM: time displayed in logs can now be adjusted to a 24h format (thanks to sywesk).</li>
+          <li>RM: new client emulations: uTorrent 3.3.2, uTorrent 3.3.0, uTorrent 3.2.0, Transmission 2.82 (14160).</li>
+          <li>RM: default client is now uTorrent 3.3.2.</li>
+          <li>RM: proxies fixed for localhost (thanks to ghost).</li>
+          <li>Code: a lot of refactoring.</li>
+        </ul>
+      </article>
+
+      <details class="release">
+        <summary><h3>0.42 <time datetime="2010-04-19">19 April 2010</time></h3></summary>
+        <ul>
+          <li>RM: program renamed from "NRPG RatioMaster" to "RatioMaster.NET".</li>
+          <li>RM: program and author sites changed to ratiomaster.net and nikolay.it.</li>
+          <li>RM: new client emulations: uTorrent 2.0.1 (build 19078), uTorrent 1.8.5 (build 17414), BitComet 1.20, Vuze 4.2.0.8, BitSpirit 3.6.0.200, Deluge 1.2.0.</li>
+          <li>RM: new client type: Vuze.</li>
+          <li>RM: default client is now uTorrent 1.8.5 (build 17414).</li>
+        </ul>
+      </details>
+
+      <details class="release">
+        <summary><h3>0.41 <time datetime="2008-08-26">26 August 2008</time></h3></summary>
+        <ul>
+          <li>RM: fixed the memory reader on all Vista systems.</li>
+          <li>RM: some very small interface changes.</li>
+          <li>RM: some improvements in the version checker.</li>
+          <li>RM: new client emulations: uTorrent 1.8.0, uTorrent 1.8.1-beta (11903), Azureus 3.1.1.0, Azureus 3.0.5.0, BitComet 1.03, BitTorrent 6.0.3 (8642), Deluge 0.5.8.7, Deluge 0.5.8.6.</li>
+          <li>RM: new client types: BitTorrent, Deluge.</li>
+          <li>RM: default client is now uTorrent 1.8.0.</li>
+        </ul>
+      </details>
+
+      <p class="hint">The full changelog since 2005 is in <a href="https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT">HISTORY.TXT</a>.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact information</h2>
+      <ul class="plain">
+        <li>Website: <a href="https://ratiomaster.net/">https://ratiomaster.net/</a></li>
+        <li>GitHub: <a href="https://github.com/NikolayIT/RatioMaster.NET">https://github.com/NikolayIT/RatioMaster.NET</a></li>
+        <li>Bugs and ideas: <a href="https://github.com/NikolayIT/RatioMaster.NET/issues">GitHub issues</a></li>
+        <li>Author site: <a href="https://nikolay.it/">https://nikolay.it/</a></li>
+        <li>Author e-mail: <a href="mailto:ratiomaster@nikolay.it">ratiomaster@nikolay.it</a></li>
+        <li>Facebook: <a href="https://www.facebook.com/RatioMaster">facebook.com/RatioMaster</a></li>
+      </ul>
+      <h2>Published in</h2>
+      <ul class="plain">
+        <li><a href="https://www.softpedia.com/get/Internet/File-Sharing/NRPG-RatioMaster.shtml">Softpedia</a></li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer class="wrap foot">
+  <p><a href="https://nikolay.it/">Nikolay.IT</a> 2005&ndash;2026 &middot; Released under the MIT License</p>
+</footer>
+
+<!-- Cloudflare Web Analytics: paste the beacon snippet from the dashboard here once enabled. -->
+</body>
+</html>
