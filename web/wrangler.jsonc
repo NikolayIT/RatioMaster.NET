@@ -17,7 +17,7 @@
   // Version reported to old installs by /vc.php and /version.html.
   // Bump this when a new release is published.
   "vars": {
-    "CURRENT_VERSION": "0430"
+    "CURRENT_VERSION": "1000"
   },
 
   // Secrets (not in this file): ADMIN_PASSWORD protects /admin.

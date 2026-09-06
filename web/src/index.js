@@ -20,7 +20,7 @@ const LEGACY_USER_AGENT = /^(?:RatioMaster\.NET|NRPG RatioMaster)\/(\d{4}) \((.*
 const CURRENT_USER_AGENT = /^RatioMaster\.NET\/(\d{4}) \((.*?); ([^;]+); \.NET ([^;]+); (\d+)\)$/;
 
 // The newest build. Every old download URL below ends up here; change it when a new version ships.
-const LATEST_BUILD = "https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip";
+const LATEST_BUILD = "https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-win-x64.zip";
 
 const LEGACY_REDIRECTS = {
   "/index.php": "/",

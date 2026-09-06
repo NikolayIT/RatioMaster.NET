@@ -7,7 +7,7 @@
   <meta name="description" content="RatioMaster.NET is a small standalone application which fakes upload and download stats of a torrent to almost all BitTorrent trackers.">
   <meta name="author" content="Nikolay Kostov (Nikolay.IT)">
   <meta property="og:title" content="RatioMaster.NET">
-  <meta property="og:description" content="Fakes upload and download stats of a torrent to almost all BitTorrent trackers. Open source, Windows and Mono.">
+  <meta property="og:description" content="Fakes upload and download stats of a torrent to almost all BitTorrent trackers. Open source, for Windows, Linux and macOS.">
   <meta property="og:url" content="https://ratiomaster.net/">
   <meta property="og:image" content="https://ratiomaster.net/img/screenshot-1.png">
   <link rel="icon" href="/favicon.ico">
@@ -50,6 +50,12 @@
       <h2>Latest news</h2>
       <ul class="news">
         <li>
+          <time datetime="2026-09-06">6 September 2026</time>
+          <strong>RatioMaster.NET 1.0</strong>
+          A complete rewrite: one self-contained file for Windows, Linux and macOS, https trackers, a new interface with light and dark themes, and a qBittorrent emulation.<br>
+          <a href="#download">Download</a> &middot; <a href="#changelog">Changelog</a>
+        </li>
+        <li>
           <time datetime="2016-01-08">8 January 2016</time>
           <strong>RatioMaster.NET 0.43</strong>
           New version released!<br>
@@ -73,22 +79,29 @@
   <main class="content">
 
     <section id="download">
-      <h1>RatioMaster.NET <span class="version">0.43</span></h1>
+      <h1>RatioMaster.NET <span class="version">1.0</span></h1>
       <p class="lead">RatioMaster.NET is a small standalone application which fakes upload and download stats of a torrent to almost all BitTorrent trackers.</p>
-      <p>This means that it does <strong>not</strong> rely on your BitTorrent client (uTorrent, Azureus, BitComet, ABC and others) and it will <strong>not</strong> download or upload the files of a torrent. It can only fake the download and upload statistics reported to the tracker.</p>
-      <p>RatioMaster.NET has built-in emulations of the most commonly used BitTorrent clients: uTorrent, BitComet, Azureus, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant and BitSpirit.</p>
+      <p>This means that it does <strong>not</strong> rely on your BitTorrent client (qBittorrent, uTorrent, Azureus, BitComet and others) and it will <strong>not</strong> download or upload the files of a torrent. It can only fake the download and upload statistics reported to the tracker.</p>
+      <p>RatioMaster.NET has built-in emulations of 42 versions of the most commonly used BitTorrent clients: qBittorrent, uTorrent, BitComet, Azureus, Vuze, BitTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent and Gnome BT. Version 1.0 is a single self-contained file: nothing to install, no .NET Framework and no Mono.</p>
 
       <div class="downloads">
         <div class="dl">
-          <h3>Windows version</h3>
-          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip">Download the program</a>
-          <p class="hint">For the program to work you need <a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net40">.NET Framework 4.0</a> or newer.</p>
+          <h3>Windows 10 and 11</h3>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-win-x64.zip">Download for Windows</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-win-arm64.zip">Windows on ARM</a>
+          <p class="hint">Unzip and run <code>RatioMaster.NET.exe</code>. Settings from 0.43 are picked up on the first start.</p>
         </div>
         <div class="dl">
-          <h3>Linux, Solaris, Mac OS X and Unix version</h3>
-          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip">Download the program</a>
-          <a class="btn" href="https://linux.softpedia.com/get/Internet/HTTP-WWW-/NRPG-RatioMaster-28929.shtml">Mirror download</a>
-          <p class="hint">For the program to work you need <a href="https://www.mono-project.com/download/stable/">Mono</a>.</p>
+          <h3>Linux</h3>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-linux-x64.tar.gz">Download for Linux x64</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-linux-arm64.tar.gz">Linux ARM64</a>
+          <p class="hint">Needs <code>libfontconfig1</code>, <code>libx11-6</code>, <code>libice6</code> and <code>libsm6</code>, which most desktops already have.</p>
+        </div>
+        <div class="dl">
+          <h3>macOS 12 and newer</h3>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-osx-arm64.zip">Download for Apple silicon</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-osx-x64.zip">Intel Mac</a>
+          <p class="hint">The app is not notarized: right-click it and choose Open the first time, or run <code>xattr -dr com.apple.quarantine RatioMaster.NET.app</code>.</p>
         </div>
       </div>
       <p class="hint">All versions and the source code are on <a href="https://github.com/NikolayIT/RatioMaster.NET/releases">GitHub Releases</a>. The program is open source under the <a href="https://github.com/NikolayIT/RatioMaster.NET/blob/master/LICENSE">MIT License</a>.</p>
@@ -97,34 +110,31 @@
     <section id="features">
       <h2>Program features</h2>
       <ul class="features">
-        <li>Supports multiple torrents running in one instance.</li>
-        <li>Multi-OS support: Windows, Linux, Solaris, Mac OS X and Unix.</li>
-        <li>Automatically loads the torrent info from the torrent file.</li>
-        <li>Tab sessions: save the current session and load it later.</li>
-        <li>Very strong protection against anti-cheat scripts.</li>
-        <li>Good, user-friendly interface with drag and drop support for files.</li>
-        <li>Parses all data from all running uTorrent, Azureus, BitComet and ABC instances.</li>
-        <li>Selectable upload and download speeds.</li>
-        <li>Optional random values for upload and download speeds on every tracker update.</li>
-        <li>Selectable tracker response interval (the program gets this value from the tracker automatically).</li>
-        <li>Lots of client simulations available: the latest versions of uTorrent, BitComet, Azureus, Vuze, BitTorrent, BitLord, ABC, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent, GnomeBT and Transmission.</li>
-        <li>Shows uploaded, downloaded, tracker update intervals and more, all in real time.</li>
-        <li>Support for custom announce and client simulation parameters.</li>
-        <li>Good error protection.</li>
-        <li>Supports different types of proxies: HTTP, SOCKS4, SOCKS4a and SOCKS5.</li>
-        <li>Keeps a log. If any errors occur you can send the log and I will try to fix the problem.</li>
+        <li>Runs any number of torrents at once, each with its own client emulation and speeds.</li>
+        <li>Windows, Linux and macOS, as one self-contained file with nothing to install.</li>
+        <li>Automatically loads the torrent info from the torrent file; drag and drop torrents and sessions onto the window.</li>
+        <li>Sessions: save the current torrents with their settings and load them later; the last session is restored on startup.</li>
+        <li>Very strong protection against anti-cheat scripts: byte-exact emulation of 42 client versions across 17 families, including qBittorrent, uTorrent, BitComet, Azureus, Vuze, BitTorrent, Transmission and Deluge.</li>
+        <li>Copies the peer id, key, port and peer count out of a running uTorrent, Azureus, BitComet or ABC.</li>
+        <li>Selectable upload and download speeds, with optional random jitter and a fresh random speed on every tracker update.</li>
+        <li>Honours the tracker's announce interval, scrapes for seeders and leechers, and follows redirects.</li>
+        <li>Stops automatically after a time, or when seeders, leechers, uploaded, downloaded or the leecher/seeder ratio crosses a limit.</li>
+        <li>Answers incoming peer handshakes on the announced port so the torrent looks connectable.</li>
+        <li>Works with <code>http</code> and <code>https</code> trackers, over IPv4 and IPv6, directly or through an HTTP CONNECT, SOCKS4, SOCKS4a or SOCKS5 proxy.</li>
+        <li>Shows uploaded, downloaded, ratio, speeds, swarm size and the next update, all in real time.</li>
+        <li>Keeps a per-torrent log and a record of every tracker exchange with its request, response and timing.</li>
+        <li>Light and dark themes, following the system by default.</li>
+        <li>Custom announce values and your own client emulations through a <code>clients.json</code> file.</li>
         <li>Informs you about new versions.</li>
         <li>Works with almost all BitTorrent trackers.</li>
-        <li>And many other great features!</li>
       </ul>
     </section>
 
     <section id="screenshots">
       <h2>Program screenshots</h2>
       <div class="shots">
-        <figure><img src="/img/screenshot-1.png" width="975" height="539" loading="lazy" alt="RatioMaster.NET 0.42 main window with a torrent loaded and the tracker log"><figcaption>Main window on Windows with a torrent running</figcaption></figure>
-        <figure><img src="/img/screenshot-2.png" width="975" height="539" loading="lazy" alt="RatioMaster.NET 0.42 with two torrent tabs open, setting the upload speed for all tabs"><figcaption>Two torrents in tabs, changing the upload speed for all of them at once</figcaption></figure>
-        <figure><img src="/img/screenshot-linux.png" width="981" height="566" loading="lazy" alt="NRPG RatioMaster 0.36 running on Linux under Mono"><figcaption>Running on Linux under Mono (older 0.36 build)</figcaption></figure>
+        <figure><img src="/img/screenshot-1.png" width="1184" height="750" loading="lazy" alt="RatioMaster.NET 1.0 main window with a torrent in the list and the details pane open"><figcaption>Main window in the dark theme: the torrent list and the details pane</figcaption></figure>
+        <figure><img src="/img/screenshot-2.png" width="642" height="610" loading="lazy" alt="RatioMaster.NET 1.0 Add torrent dialog with the client, speed and tracker settings"><figcaption>Adding a torrent: client emulation, speeds, tracker and schedule</figcaption></figure>
       </div>
     </section>
 
@@ -132,7 +142,31 @@
       <h2>Program changelog</h2>
 
       <article class="release">
-        <h3>0.43 <time datetime="2016-01-08">8 January 2016</time></h3>
+        <h3>1.0.0 <time datetime="2026-09-06">6 September 2026</time></h3>
+        <ul>
+          <li>Global: complete rewrite on .NET 10; the program now runs on Windows, Linux and macOS.</li>
+          <li>Global: single self-contained file, nothing to install and no .NET Framework needed.</li>
+          <li>Global: new interface with one row per torrent and a details pane, replacing the tabbed layout.</li>
+          <li>Global: light and dark themes, following the system by default.</li>
+          <li>Global: removed the bundled GPL BytesRoad socket library; all networking is plain .NET now.</li>
+          <li>RM: https trackers are supported (the old raw socket code could not do TLS at all).</li>
+          <li>RM: IPv6 trackers are supported.</li>
+          <li>RM: proxies rewritten: HTTP CONNECT, SOCKS4, SOCKS4a and SOCKS5 with username/password.</li>
+          <li>RM: new client emulation: qBittorrent 5.2.3, the default for new installs.</li>
+          <li>RM: client emulations moved out of the code into clients.json, so they can be added without a rebuild; a clients.json in the configuration folder can add or override emulations.</li>
+          <li>RM: tracker announce interval is now honoured up to 24 hours instead of being capped at 1 hour.</li>
+          <li>RM: new Tracker tab showing every announce and scrape with its request, response and timing.</li>
+          <li>RM: log is virtualised, so a long-running torrent no longer slows the interface down.</li>
+          <li>RM: settings and sessions are JSON; settings moved out of the registry. Settings from 0.43 are imported on first run and session files written by 0.43 still load.</li>
+          <li>RM: the last session is restored on startup.</li>
+          <li>RM: the update check uses https and no longer sends your Windows user name.</li>
+          <li>RM: fixed malformed request headers in the BitTyrant, KTorrent, BitSpirit and Gnome BT emulations, and the Deluge emulations sending the event parameter twice.</li>
+          <li>Code: the core is a separate library with no interface dependencies, covered by 255 tests.</li>
+        </ul>
+      </article>
+
+      <details class="release">
+        <summary><h3>0.43 <time datetime="2016-01-08">8 January 2016</time></h3></summary>
         <ul>
           <li>Global: the program is now open source and the source is available on <a href="https://github.com/NikolayIT/RatioMaster.NET">GitHub</a>.</li>
           <li>Global: program built for .NET Framework 4.0.</li>
@@ -143,7 +177,7 @@
           <li>RM: proxies fixed for localhost (thanks to ghost).</li>
           <li>Code: a lot of refactoring.</li>
         </ul>
-      </article>
+      </details>
 
       <details class="release">
         <summary><h3>0.42 <time datetime="2010-04-19">19 April 2010</time></h3></summary>
