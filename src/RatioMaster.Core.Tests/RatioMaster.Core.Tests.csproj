@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Tracker\RequestGoldens.txt" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RatioMaster.Core\RatioMaster.Core.csproj" />
   </ItemGroup>
 

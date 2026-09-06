@@ -152,15 +152,11 @@ public class RequestGoldenTests
                 return candidate;
             }
 
-            var sibling = Path.Combine(directory.FullName, "Tracker", GoldenFileName);
-            if (File.Exists(sibling))
-            {
-                return sibling;
-            }
-
             directory = directory.Parent;
         }
 
-        throw new FileNotFoundException($"{GoldenFileName} was not found.");
+        throw new FileNotFoundException(
+            $"{GoldenFileName} was not found. The tests read it from the repository so that regenerating "
+            + "it updates the file under source control, not a copy in the output directory.");
     }
 }
