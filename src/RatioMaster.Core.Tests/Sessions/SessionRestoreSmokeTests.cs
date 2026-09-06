@@ -91,7 +91,7 @@ public class SessionRestoreSmokeTests
         Assert.NotNull(settings);
         Assert.True(settings!.CheckForUpdatesOnStartup);
         Assert.True(settings.RestoreLastSessionOnStartup);
-        Assert.True(settings.MinimizeToTray);
+        Assert.Equal(RatioMaster.Core.Settings.AppSettings.TrayIsReliable, settings.MinimizeToTray); // off by default on Linux
         Assert.Equal(1800, settings.DefaultTorrentSettings.IntervalSeconds);
         Assert.NotNull(settings.DefaultTorrentSettings.Stop);
         Assert.NotNull(settings.DefaultTorrentSettings.Proxy);
