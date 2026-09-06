@@ -103,6 +103,7 @@ h3 { font-size: 1.02rem; margin-bottom: 8px; color: var(--text); }
 /* Downloads */
 .downloads { display: flex; flex-wrap: wrap; gap: 20px; margin: 24px 0 16px; }
 .dl { flex: 1 1 260px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+.dl:first-child { flex-basis: 100%; } /* Windows spans the row; Linux and macOS share the next one */
 .btn {
   display: inline-block;
   padding: 8px 16px;
