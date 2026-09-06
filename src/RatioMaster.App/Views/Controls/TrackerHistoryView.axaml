@@ -14,22 +14,22 @@
                 SelectedItem="{Binding Selected}">
         <DataGrid.Columns>
           <DataGridTextColumn Header="Time" Width="85"
-                              Binding="{Binding Timestamp, Converter={x:Static conv:LogTimeConverter.Instance}}" />
-          <DataGridTextColumn Header="Event" Width="85" Binding="{Binding Kind}" />
-          <DataGridTextColumn Header="Result" Width="*" Binding="{Binding Result}" />
-          <DataGridTextColumn Header="Interval" Width="75" Binding="{Binding Interval}"
+                              Binding="{Binding Timestamp, Mode=OneWay, Converter={x:Static conv:LogTimeConverter.Instance}}" />
+          <DataGridTextColumn Header="Event" Width="85" Binding="{Binding Kind, Mode=OneWay}" />
+          <DataGridTextColumn Header="Result" Width="*" Binding="{Binding Result, Mode=OneWay}" />
+          <DataGridTextColumn Header="Interval" Width="75" Binding="{Binding Interval, Mode=OneWay}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
-          <DataGridTextColumn Header="Seeds" Width="65" Binding="{Binding Complete}"
+          <DataGridTextColumn Header="Seeds" Width="65" Binding="{Binding Complete, Mode=OneWay}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
-          <DataGridTextColumn Header="Leechers" Width="80" Binding="{Binding Incomplete}"
+          <DataGridTextColumn Header="Leechers" Width="80" Binding="{Binding Incomplete, Mode=OneWay}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
-          <DataGridTextColumn Header="Peers" Width="65" Binding="{Binding PeerCount}"
+          <DataGridTextColumn Header="Peers" Width="65" Binding="{Binding PeerCount, Mode=OneWay}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
-          <DataGridTextColumn Header="Latency" Width="80" Binding="{Binding DurationMs, StringFormat={}{0:0} ms}"
+          <DataGridTextColumn Header="Latency" Width="80" Binding="{Binding DurationMs, Mode=OneWay, StringFormat={}{0:0} ms}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
         </DataGrid.Columns>

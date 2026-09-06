@@ -14,9 +14,12 @@ internal sealed class FakeTracker : IAsyncDisposable
     private readonly Queue<byte[]> _responses;
     private readonly ConcurrentQueue<string> _requests = new();
 
-    private FakeTracker(TcpListener listener, IEnumerable<byte[]> responses)
+    private readonly bool _keepAlive;
+
+    private FakeTracker(TcpListener listener, IEnumerable<byte[]> responses, bool keepAlive)
     {
         _listener = listener;
+        _keepAlive = keepAlive;
         Port = ((IPEndPoint)listener.LocalEndpoint).Port;
         _responses = new Queue<byte[]>(responses);
         _serve = ServeAsync(_cts.Token);
@@ -32,7 +35,41 @@ internal sealed class FakeTracker : IAsyncDisposable
     {
         var listener = new TcpListener(IPAddress.Loopback, 0);
         listener.Start();
-        return new FakeTracker(listener, responses);
+        return new FakeTracker(listener, responses, keepAlive: false);
+    }
+
+    /// <summary>
+    /// Like <see cref="Start"/>, but the server keeps every connection open after answering, the way
+    /// Cloudflare and nginx front ends do for HTTP/1.1 clients. The client must rely on the message framing.
+    /// </summary>
+    public static FakeTracker StartKeepAlive(params byte[][] responses)
+    {
+        var listener = new TcpListener(IPAddress.Loopback, 0);
+        listener.Start();
+        return new FakeTracker(listener, responses, keepAlive: true);
+    }
+
+    /// <summary>Builds a keep-alive response framed by Content-Length only.</summary>
+    public static byte[] KeepAliveResponse(byte[] body, string? extraHeaders = null)
+    {
+        var header = $"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {body.Length}\r\n{extraHeaders}Connection: keep-alive\r\n\r\n";
+        return [.. Encoding.Latin1.GetBytes(header), .. body];
+    }
+
+    /// <summary>Builds a keep-alive response with the body split into two chunks.</summary>
+    public static byte[] ChunkedKeepAliveResponse(byte[] body)
+    {
+        var half = body.Length / 2;
+        var first = body[..half];
+        var second = body[half..];
+        var header = "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nTransfer-Encoding: chunked\r\nConnection: keep-alive\r\n\r\n";
+        return
+        [
+            .. Encoding.Latin1.GetBytes(header),
+            .. Encoding.ASCII.GetBytes($"{first.Length:x}\r\n"), .. first, .. "\r\n"u8.ToArray(),
+            .. Encoding.ASCII.GetBytes($"{second.Length:x}\r\n"), .. second, .. "\r\n"u8.ToArray(),
+            .. "0\r\n\r\n"u8.ToArray(),
+        ];
     }
 
     /// <summary>Builds a raw HTTP response with a bencode body and Connection: close.</summary>
@@ -93,6 +130,12 @@ internal sealed class FakeTracker : IAsyncDisposable
 
                 await stream.WriteAsync(response, cancellationToken).ConfigureAwait(false);
                 await stream.FlushAsync(cancellationToken).ConfigureAwait(false);
+
+                if (_keepAlive)
+                {
+                    // Hold the connection open until the tracker is disposed, like a real keep-alive server.
+                    await Task.Delay(Timeout.Infinite, cancellationToken).ConfigureAwait(false);
+                }
             }
         }
         catch (Exception ex) when (ex is IOException or SocketException or OperationCanceledException or ObjectDisposedException)

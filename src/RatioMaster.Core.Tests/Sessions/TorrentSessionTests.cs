@@ -366,6 +366,22 @@ public class TorrentSessionTests
     }
 
     [Fact]
+    public async Task NoConnectionRetriesWithinAMinuteInsteadOfWaitingTheFullInterval()
+    {
+        var (session, tracker) = Create(configureTracker: t => t.AnnounceError = new TrackerException("timed out"));
+        await session.StartAsync(Ct);
+
+        Assert.Equal(TimeSpan.FromSeconds(TorrentSession.RetryDelaySeconds), session.Snapshot.NextUpdateIn);
+
+        // Once the tracker answers, the retry announce happens on its own and the counters start moving.
+        tracker.AnnounceError = null;
+        await TickAsync(session, TorrentSession.RetryDelaySeconds + 1);
+        Assert.Contains(tracker.Announces, a => a.Event == TrackerEvent.None);
+        await TickAsync(session, 1);
+        Assert.True(session.Snapshot.Uploaded > 0);
+    }
+
+    [Fact]
     public async Task StopAsyncSendsTheStoppedAnnounce()
     {
         var (session, tracker) = Create();

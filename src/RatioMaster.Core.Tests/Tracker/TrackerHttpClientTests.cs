@@ -49,6 +49,48 @@ public class TrackerHttpClientTests
     }
 
     [Fact]
+    public async Task ReturnsAsSoonAsTheMessageIsCompleteOnAKeepAliveConnection()
+    {
+        // Cloudflare-style front ends never close the connection after an HTTP/1.1 request; the uTorrent
+        // profile does not send Connection: close, so the reader must stop at the declared length.
+        await using var tracker = FakeTracker.StartKeepAlive(FakeTracker.KeepAliveResponse(AnnounceBody()));
+        var client = new TrackerHttpClient(options: new TrackerHttpClientOptions { Timeout = TimeSpan.FromSeconds(20) });
+
+        var started = System.Diagnostics.Stopwatch.StartNew();
+        var response = await client.GetAsync($"{tracker.BaseUrl}/announce", Profile, ProxySettings.None, Timeout);
+
+        Assert.True(started.Elapsed < TimeSpan.FromSeconds(5), $"took {started.Elapsed}");
+        Assert.Equal(1800, AnnounceResponse.Parse(response.Dictionary!).Interval);
+    }
+
+    [Fact]
+    public async Task ReadsAChunkedBodyOnAKeepAliveConnection()
+    {
+        await using var tracker = FakeTracker.StartKeepAlive(FakeTracker.ChunkedKeepAliveResponse(AnnounceBody()));
+        var client = new TrackerHttpClient(options: new TrackerHttpClientOptions { Timeout = TimeSpan.FromSeconds(20) });
+
+        var started = System.Diagnostics.Stopwatch.StartNew();
+        var response = await client.GetAsync($"{tracker.BaseUrl}/announce", Profile, ProxySettings.None, Timeout);
+
+        Assert.True(started.Elapsed < TimeSpan.FromSeconds(5), $"took {started.Elapsed}");
+        Assert.Equal(5, AnnounceResponse.Parse(response.Dictionary!).Complete);
+    }
+
+    [Fact]
+    public async Task ReportsATimeoutAsATrackerError()
+    {
+        // The headers promise more body than ever arrives and the server keeps the socket open.
+        var truncated = FakeTracker.KeepAliveResponse(AnnounceBody(), "Content-Length: 4096\r\n");
+        await using var tracker = FakeTracker.StartKeepAlive(truncated);
+        var client = new TrackerHttpClient(options: new TrackerHttpClientOptions { Timeout = TimeSpan.FromSeconds(1) });
+
+        var error = await Assert.ThrowsAsync<TrackerException>(async () =>
+            await client.GetAsync($"{tracker.BaseUrl}/announce", Profile, ProxySettings.None, Timeout));
+
+        Assert.Contains("did not respond", error.Message, StringComparison.Ordinal);
+    }
+
+    [Fact]
     public async Task ThrowsOnEmptyResponse()
     {
         await using var tracker = FakeTracker.Start(Array.Empty<byte>());

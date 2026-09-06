@@ -188,7 +188,7 @@
                   ItemsSource="{Binding TorrentsView}"
                   SelectedItem="{Binding SelectedTorrent}">
           <DataGrid.Columns>
-            <DataGridTextColumn Header="Name" Binding="{Binding DisplayName}" Width="*" MinWidth="180" />
+            <DataGridTextColumn Header="Name" Binding="{Binding DisplayName, Mode=OneWay}" Width="*" MinWidth="180" />
             <DataGridTemplateColumn Header="Status" Width="115" MinWidth="80" SortMemberPath="State">
               <DataGridTemplateColumn.CellTemplate>
                 <DataTemplate x:DataType="vm:TorrentItemViewModel">
@@ -202,7 +202,7 @@
                 </DataTemplate>
               </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>
-            <DataGridTextColumn Header="Client" Binding="{Binding ClientName}" Width="130" MinWidth="60" />
+            <DataGridTextColumn Header="Client" Binding="{Binding ClientName, Mode=OneWay}" Width="130" MinWidth="60" />
             <DataGridTemplateColumn Header="Progress" Width="110" MinWidth="70" SortMemberPath="Progress">
               <DataGridTemplateColumn.CellTemplate>
                 <DataTemplate x:DataType="vm:TorrentItemViewModel">
@@ -217,50 +217,50 @@
             <DataGridTextColumn Header="Uploaded" Width="90" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding Uploaded, Converter={x:Static conv:Converters.Bytes}}"
+                                Binding="{Binding Uploaded, Mode=OneWay, Converter={x:Static conv:Converters.Bytes}}"
                                 SortMemberPath="Uploaded" />
             <DataGridTextColumn Header="Downloaded" Width="105" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding Downloaded, Converter={x:Static conv:Converters.Bytes}}"
+                                Binding="{Binding Downloaded, Mode=OneWay, Converter={x:Static conv:Converters.Bytes}}"
                                 SortMemberPath="Downloaded" />
             <DataGridTextColumn Header="Ratio" Width="62" MinWidth="40"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding Ratio, Converter={x:Static conv:Converters.Ratio}}"
+                                Binding="{Binding Ratio, Mode=OneWay, Converter={x:Static conv:Converters.Ratio}}"
                                 SortMemberPath="Ratio" />
             <DataGridTextColumn Header="Up speed" Width="90" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding UploadRate, Converter={x:Static conv:Converters.Speed}}"
+                                Binding="{Binding UploadRate, Mode=OneWay, Converter={x:Static conv:Converters.Speed}}"
                                 SortMemberPath="UploadRate" />
             <DataGridTextColumn Header="Down speed" Width="105" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding DownloadRate, Converter={x:Static conv:Converters.Speed}}"
+                                Binding="{Binding DownloadRate, Mode=OneWay, Converter={x:Static conv:Converters.Speed}}"
                                 SortMemberPath="DownloadRate" />
             <DataGridTextColumn Header="Seeds" Width="68" MinWidth="40"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding Seeders, Converter={x:Static conv:Converters.Count}}"
+                                Binding="{Binding Seeders, Mode=OneWay, Converter={x:Static conv:Converters.Count}}"
                                 SortMemberPath="Seeders" />
             <DataGridTextColumn Header="Leechers" Width="85" MinWidth="40"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding Leechers, Converter={x:Static conv:Converters.Count}}"
+                                Binding="{Binding Leechers, Mode=OneWay, Converter={x:Static conv:Converters.Count}}"
                                 SortMemberPath="Leechers" />
             <DataGridTextColumn Header="Update in" Width="88" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding NextUpdateIn, Converter={x:Static conv:Converters.Duration}}"
+                                Binding="{Binding NextUpdateIn, Mode=OneWay, Converter={x:Static conv:Converters.Duration}}"
                                 SortMemberPath="NextUpdateIn" />
             <DataGridTextColumn Header="Total time" Width="90" MinWidth="50" IsVisible="False"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
-                                Binding="{Binding TotalRunningTime, Converter={x:Static conv:Converters.Duration}}"
+                                Binding="{Binding TotalRunningTime, Mode=OneWay, Converter={x:Static conv:Converters.Duration}}"
                                 SortMemberPath="TotalRunningTime" />
             <DataGridTextColumn Header="Tracker" Width="160" MinWidth="60" IsVisible="False"
-                                Binding="{Binding TrackerHost}" SortMemberPath="TrackerHost" />
+                                Binding="{Binding TrackerHost, Mode=OneWay}" SortMemberPath="TrackerHost" />
           </DataGrid.Columns>
 
           <DataGrid.ContextMenu>

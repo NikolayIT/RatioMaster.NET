@@ -49,7 +49,16 @@ public sealed class TrackerHttpClient
         {
             using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
             timeoutCts.CancelAfter(_options.Timeout);
-            var response = await SendOnceAsync(uri, profile, proxy, timeoutCts.Token).ConfigureAwait(false);
+            TrackerResponse response;
+            try
+            {
+                response = await SendOnceAsync(uri, profile, proxy, timeoutCts.Token).ConfigureAwait(false);
+            }
+            catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
+            {
+                // Our own timeout, not the caller cancelling: report it like any other tracker failure.
+                throw new TrackerException($"The tracker did not respond within {_options.Timeout.TotalSeconds:0} seconds.");
+            }
 
             if (response.IsRedirect && redirect < _options.MaxRedirects)
             {
@@ -71,7 +80,7 @@ public sealed class TrackerHttpClient
             await stream.WriteAsync(request, cancellationToken).ConfigureAwait(false);
             await stream.FlushAsync(cancellationToken).ConfigureAwait(false);
 
-            var body = await ReadToEndAsync(stream, cancellationToken).ConfigureAwait(false);
+            var body = await ReadResponseAsync(stream, cancellationToken).ConfigureAwait(false);
             if (body.Length == 0)
             {
                 throw new TrackerException("The tracker response was empty.");
@@ -102,7 +111,12 @@ public sealed class TrackerHttpClient
             $"Could not connect to {uri.Host}:{uri.Port} after {_options.ConnectAttempts} attempts.", lastError!);
     }
 
-    private static async Task<byte[]> ReadToEndAsync(Stream stream, CancellationToken cancellationToken)
+    /// <summary>
+    /// Reads one HTTP response. Stops as soon as the message is complete according to its Content-Length or
+    /// chunked framing, because keep-alive servers never close the connection; responses without framing
+    /// are read until the server closes (HTTP/1.0 style).
+    /// </summary>
+    private static async Task<byte[]> ReadResponseAsync(Stream stream, CancellationToken cancellationToken)
     {
         using var output = new MemoryStream();
         var buffer = new byte[ReadBufferSize];
@@ -115,6 +129,10 @@ public sealed class TrackerHttpClient
             }
 
             output.Write(buffer, 0, read);
+            if (HttpMessageFraming.IsComplete(output.GetBuffer().AsSpan(0, (int)output.Length)))
+            {
+                break;
+            }
         }
 
         return output.ToArray();

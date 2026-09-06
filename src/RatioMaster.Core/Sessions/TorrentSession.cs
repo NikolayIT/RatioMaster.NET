@@ -19,6 +19,9 @@ public sealed class TorrentSession : IAsyncDisposable
     private const int MaxIntervalSeconds = 24 * 60 * 60;
     private const long RatioMinimumDownloadedBytes = 100 * 1024;
 
+    /// <summary>After an announce that got no answer, try again this soon instead of waiting the full interval.</summary>
+    internal const int RetryDelaySeconds = 60;
+
     private readonly TorrentDescriptor _descriptor;
     private readonly ClientProfile _profile;
     private readonly ClientIdentity _identity;
@@ -462,8 +465,20 @@ public sealed class TorrentSession : IAsyncDisposable
         catch (Exception ex) when (ex is TrackerException or IOException or ProxyException)
         {
             Log(LogLevel.Warning, $"No connection to tracker: {ex.Message}");
+            ScheduleRetry();
             return null;
         }
+    }
+
+    /// <summary>Pulls the next announce forward so a tracker that did not answer is retried within a minute.</summary>
+    private void ScheduleRetry()
+    {
+        lock (_gate)
+        {
+            _elapsedInInterval = Math.Max(_elapsedInInterval, _currentInterval - RetryDelaySeconds);
+        }
+
+        Log(LogLevel.Info, $"Will retry in {RetryDelaySeconds} seconds.");
     }
 
     private void ApplyAnnounceResponse(AnnounceResponse response)
