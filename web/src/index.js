@@ -26,9 +26,11 @@ const LEGACY_REDIRECTS = {
   "/history.php": "/#changelog",
   "/screens.php": "/#screenshots",
   "/HISTORY.TXT": "https://raw.githubusercontent.com/NikolayIT/RatioMaster.NET/master/HISTORY.TXT",
-  // Same 0.43 build as the GitHub release; the copies on the old server were never linked.
+  // Same 0.43 build as the GitHub release (the Mono archive held the same binaries);
+  // the copies on the old server were never linked from the site but are linked from other sites.
   "/files/RatioMaster.NET.zip": "https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip",
   "/files/RatioMaster.NET.rar": "https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip",
+  "/files/RatioMaster.NET-mono.rar": "https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip",
 };
 
 export default {

@@ -6,7 +6,6 @@ The website of RatioMaster.NET, hosted on Cloudflare Workers.
 - `src/index.js` is the Worker. It answers the update check that every installed copy performs (`GET /vc.php?v=NNNN`, older builds `GET /version.html`), logs each check to a D1 database, and 301-redirects the old PHP page URLs to the new page.
 - `src/admin.js` renders `/admin`, a password-protected page with the last 10,000 version checks by date, country and version.
 - `migrations/` holds the D1 schema, applied with Wrangler.
-- `public/files/` and `public/alpha/` keep the download archives that were only ever on the old server.
 
 ## Local development
 
