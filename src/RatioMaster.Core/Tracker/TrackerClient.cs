@@ -51,7 +51,7 @@ public sealed class TrackerClient : ITrackerClient
             };
             return new TrackerAnnounceOutcome(response, exchange);
         }
-        catch (Exception ex) when (ex is TrackerException or ProxyException or IOException)
+        catch (Exception ex) when (IsTrackerFailure(ex, cancellationToken))
         {
             throw new TrackerException($"Announce to {trackerUrl} failed: {ex.Message}", ex);
         }
@@ -81,23 +81,38 @@ public sealed class TrackerClient : ITrackerClient
 
         var started = Stopwatch.GetTimestamp();
         var http = WithCertificatePolicy(ignoreCertificateErrors);
-        var raw = await http.GetAsync(url, profile, proxy, cancellationToken).ConfigureAwait(false);
-        var response = raw.Dictionary is not null ? ScrapeResponse.Parse(raw.Dictionary, infoHash) : null;
-        var exchange = new TrackerExchange
+        try
         {
-            Timestamp = timestamp,
-            Kind = "scrape",
-            RequestUrl = url,
-            ResponseHeaders = raw.RawHeaders,
-            Complete = response?.Complete,
-            Incomplete = response?.Incomplete,
-            DurationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds,
-            Error = response?.FailureReason,
-        };
-        return new TrackerScrapeOutcome(response, exchange);
+            var raw = await http.GetAsync(url, profile, proxy, cancellationToken).ConfigureAwait(false);
+            var response = raw.Dictionary is not null ? ScrapeResponse.Parse(raw.Dictionary, infoHash) : null;
+            var exchange = new TrackerExchange
+            {
+                Timestamp = timestamp,
+                Kind = "scrape",
+                RequestUrl = url,
+                ResponseHeaders = raw.RawHeaders,
+                Complete = response?.Complete,
+                Incomplete = response?.Incomplete,
+                DurationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds,
+                Error = response?.FailureReason,
+            };
+            return new TrackerScrapeOutcome(response, exchange);
+        }
+        catch (Exception ex) when (IsTrackerFailure(ex, cancellationToken))
+        {
+            throw new TrackerException($"Scrape of {trackerUrl} failed: {ex.Message}", ex);
+        }
     }
 
+    /// <summary>
+    /// Every way a request can go wrong (refused connection, TLS, proxy, malformed reply, a bug in the
+    /// transport) is one thing to the engine: this announce did not happen, try again later. Only the
+    /// caller's own cancellation passes through unchanged.
+    /// </summary>
+    private static bool IsTrackerFailure(Exception ex, CancellationToken cancellationToken) =>
+        ex is not OperationCanceledException || !cancellationToken.IsCancellationRequested;
+
     private TrackerHttpClient WithCertificatePolicy(bool ignoreCertificateErrors) => ignoreCertificateErrors
-        ? new TrackerHttpClient(options: new TrackerHttpClientOptions { IgnoreCertificateErrors = true })
+        ? _http.WithIgnoredCertificateErrors()
         : _http;
 }

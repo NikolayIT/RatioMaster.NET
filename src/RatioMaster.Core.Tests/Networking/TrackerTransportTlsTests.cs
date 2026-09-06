@@ -54,6 +54,35 @@ public class TrackerTransportTlsTests
                 "127.0.0.1", server.Port, useTls: true, ignoreCertificateErrors: false, ProxySettings.None, Timeout));
     }
 
+    [Fact]
+    public async Task HttpClientReportsAnUntrustedCertificateAsATrackerError()
+    {
+        // A private tracker with a self-signed certificate is common. The refusal must surface as the
+        // tracker error the engine knows how to show, not as an AuthenticationException nobody catches.
+        using var certificate = CreateSelfSignedCertificate();
+        await using var server = LoopbackServer.Start(async (stream, ct) =>
+        {
+            await using var ssl = new SslStream(stream, leaveInnerStreamOpen: false);
+            try
+            {
+                await ssl.AuthenticateAsServerAsync(certificate, clientCertificateRequired: false, checkCertificateRevocation: false);
+            }
+            catch (Exception)
+            {
+                // The client aborts the handshake; ignore on the server side.
+            }
+        });
+
+        var profile = RatioMaster.Core.Clients.ClientProfileCatalog.Load().GetByName("uTorrent 3.3.2");
+        var client = new RatioMaster.Core.Tracker.TrackerHttpClient(options: new RatioMaster.Core.Tracker.TrackerHttpClientOptions { ConnectAttempts = 3 });
+
+        var error = await Assert.ThrowsAsync<RatioMaster.Core.Tracker.TrackerException>(async () =>
+            await client.GetAsync($"https://127.0.0.1:{server.Port}/announce", profile, ProxySettings.None, Timeout));
+
+        Assert.Contains("not trusted", error.Message, StringComparison.Ordinal);
+        Assert.IsType<AuthenticationException>(error.InnerException);
+    }
+
     private static X509Certificate2 CreateSelfSignedCertificate()
     {
         using var rsa = RSA.Create(2048);

@@ -112,4 +112,18 @@ public class PeerListenerTests
             blocker.Stop();
         }
     }
+
+    [Fact]
+    public async Task LogsWhenTheListenerIsClosed()
+    {
+        var messages = new List<string>();
+        var listener = new PeerListener(GetFreePort(), MakeInfoHash(4), PeerId, messages.Add);
+        Assert.True(listener.Start());
+
+        await listener.DisposeAsync();
+
+        Assert.False(listener.IsListening);
+        Assert.Contains(messages, m => m.Contains("Started TCP listener", StringComparison.Ordinal));
+        Assert.Contains(messages, m => m.Contains("TCP listener closed", StringComparison.Ordinal));
+    }
 }

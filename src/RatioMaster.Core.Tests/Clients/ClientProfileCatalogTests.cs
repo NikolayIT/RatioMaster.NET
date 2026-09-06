@@ -187,6 +187,42 @@ public class ClientProfileCatalogTests
         }
     }
 
+    [Theory]
+    [InlineData("{ this is not json")]
+    [InlineData("""{ "clients": [ { "name": "Broken 1.0", "family": "Broken" } ] }""")]
+    public void LoadFallsBackToTheBuiltInCatalogWhenTheUserFileIsBroken(string userJson)
+    {
+        // A broken user file used to throw out of Load and crash the application at startup.
+        var path = Path.Combine(Path.GetTempPath(), "rm-clients-" + Guid.NewGuid().ToString("N") + ".json");
+        File.WriteAllText(path, userJson);
+        try
+        {
+            Assert.ThrowsAny<Exception>(() => ClientProfileCatalog.Load(path));
+
+            var catalog = ClientProfileCatalog.Load(path, out var error);
+
+            Assert.NotNull(error);
+            Assert.Equal(Catalog.Profiles.Count, catalog.Profiles.Count);
+            Assert.Equal("qBittorrent 5.2.3", catalog.DefaultName);
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [Fact]
+    public void LoadReportsNoErrorForAMissingOrValidUserFile()
+    {
+        var missing = ClientProfileCatalog.Load(Path.Combine(Path.GetTempPath(), "rm-missing-" + Guid.NewGuid().ToString("N") + ".json"), out var error);
+        Assert.Null(error);
+        Assert.Equal(Catalog.Profiles.Count, missing.Profiles.Count);
+
+        var none = ClientProfileCatalog.Load(null, out var noFileError);
+        Assert.Null(noFileError);
+        Assert.Equal(Catalog.Profiles.Count, none.Profiles.Count);
+    }
+
     [Fact]
     public void ParseRejectsDuplicateNames()
     {

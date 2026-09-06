@@ -70,12 +70,9 @@ public sealed class PeerListener : IAsyncDisposable
             {
                 socket = await listener.AcceptSocketAsync(cancellationToken).ConfigureAwait(false);
             }
-            catch (OperationCanceledException)
+            catch (Exception ex) when (ex is OperationCanceledException or SocketException or ObjectDisposedException)
             {
-                break;
-            }
-            catch (SocketException)
-            {
+                // Cancelled, or the listener was stopped underneath the pending accept: either way we are done.
                 break;
             }
 
@@ -159,6 +156,7 @@ public sealed class PeerListener : IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
+        var wasListening = IsListening;
         if (_cts is not null)
         {
             await _cts.CancelAsync().ConfigureAwait(false);
@@ -172,7 +170,7 @@ public sealed class PeerListener : IAsyncDisposable
             {
                 await _acceptLoop.ConfigureAwait(false);
             }
-            catch (Exception ex) when (ex is OperationCanceledException or SocketException)
+            catch (Exception ex) when (ex is OperationCanceledException or SocketException or ObjectDisposedException)
             {
                 // Expected during shutdown.
             }
@@ -182,7 +180,7 @@ public sealed class PeerListener : IAsyncDisposable
         _listener = null;
         _cts = null;
         _acceptLoop = null;
-        if (IsListening)
+        if (wasListening)
         {
             _log?.Invoke("TCP listener closed");
         }

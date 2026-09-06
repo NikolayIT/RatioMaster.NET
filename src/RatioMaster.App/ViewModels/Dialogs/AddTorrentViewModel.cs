@@ -52,6 +52,7 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
     private string _displayName = string.Empty;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(TrackerWarning))]
     private string _trackerUrl = string.Empty;
 
     [ObservableProperty]
@@ -91,6 +92,29 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
     };
 
     public bool CanAdd => Torrents.Count > 0;
+
+    /// <summary>
+    /// Why the chosen tracker cannot be announced to (no tracker, udp://, malformed), or null when it is fine.
+    /// The torrent can still be added; it just needs another tracker before it can start.
+    /// </summary>
+    public string? TrackerWarning
+    {
+        get
+        {
+            if (IsSingle)
+            {
+                return Core.Tracker.TrackerUrl.Validate(TrackerUrl);
+            }
+
+            var unsupported = Torrents.Count(t => !Core.Tracker.TrackerUrl.IsValid(t.File.Announce));
+            return unsupported switch
+            {
+                0 => null,
+                1 => "One of these torrents has no http or https tracker and will not be able to start.",
+                _ => $"{unsupported} of these torrents have no http or https tracker and will not be able to start.",
+            };
+        }
+    }
 
     /// <summary>Parses the given .torrent paths and adds them to the dialog.</summary>
     public void AddFiles(IEnumerable<string> paths)
@@ -132,13 +156,14 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
         OnPropertyChanged(nameof(HasTorrents));
         OnPropertyChanged(nameof(IsSingle));
         OnPropertyChanged(nameof(Summary));
+        OnPropertyChanged(nameof(TrackerWarning));
         AddCommand.NotifyCanExecuteChanged();
     }
 
     [RelayCommand]
     private async Task BrowseAsync()
     {
-        var paths = await _files.PickTorrentFilesAsync(_defaults.ClientName is null ? null : null);
+        var paths = await _files.PickTorrentFilesAsync();
         if (paths.Count > 0)
         {
             AddFiles(paths);
@@ -152,7 +177,7 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
         var requests = new List<AddTorrentRequest>(Torrents.Count);
         foreach (var torrent in Torrents)
         {
-            var trackerUrl = IsSingle && !string.IsNullOrWhiteSpace(TrackerUrl) ? TrackerUrl : torrent.File.Announce;
+            var trackerUrl = IsSingle && !string.IsNullOrWhiteSpace(TrackerUrl) ? TrackerUrl.Trim() : torrent.File.Announce;
             var name = IsSingle && !string.IsNullOrWhiteSpace(DisplayName) ? DisplayName : torrent.Name;
             requests.Add(new AddTorrentRequest(
                 TorrentDescriptor.FromFile(torrent.File, trackerUrl),

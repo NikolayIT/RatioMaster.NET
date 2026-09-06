@@ -133,16 +133,21 @@ public sealed class TorrentSession : IAsyncDisposable
         }
     }
 
-    /// <summary>Starts the background run loop (started announce, per-second ticks, stopped announce on cancel).</summary>
+    /// <summary>
+    /// Starts the background run loop (started announce, per-second ticks, stopped announce on cancel).
+    /// A session that stopped on its own (stop condition, tracker error) can be started again.
+    /// </summary>
     public void Start()
     {
-        if (_loop is not null)
+        if (_loop is { IsCompleted: false })
         {
             return;
         }
 
-        _loopCts = new CancellationTokenSource();
-        _loop = Task.Run(() => RunAsync(_loopCts.Token));
+        _loopCts?.Dispose();
+        var cts = new CancellationTokenSource();
+        _loopCts = cts;
+        _loop = Task.Run(() => RunAsync(cts.Token));
     }
 
     /// <summary>Stops the run loop and sends the stopped announce.</summary>
@@ -219,6 +224,13 @@ public sealed class TorrentSession : IAsyncDisposable
         {
             // Cancelled by StopAsync; fall through to the stopped announce.
         }
+        catch (Exception ex)
+        {
+            // Nothing may leave the loop dead while the session still looks like it is running: report the
+            // failure the way a tracker error is reported, so the user sees it and can start again.
+            Log(LogLevel.Error, $"Unexpected error: {ex.Message}");
+            await StopWithReasonAsync($"unexpected error: {ex.Message}", isError: true, CancellationToken.None).ConfigureAwait(false);
+        }
         finally
         {
             if (_state is not (TorrentSessionState.Stopped or TorrentSessionState.Error))
@@ -251,8 +263,15 @@ public sealed class TorrentSession : IAsyncDisposable
             InitializeSizeFromFinishedPercent();
         }
 
-        LocalIp = await _localIpProvider.GetLocalIpAsync(cancellationToken).ConfigureAwait(false);
         SetState(TorrentSessionState.Starting);
+        if (TrackerUrl.Validate(_descriptor.TrackerUrl) is { } problem)
+        {
+            // There is nothing to announce to, so no stopped announce either.
+            await StopWithReasonAsync(problem, isError: true, cancellationToken, announceStopped: false).ConfigureAwait(false);
+            return;
+        }
+
+        LocalIp = await _localIpProvider.GetLocalIpAsync(cancellationToken).ConfigureAwait(false);
         OpenListener();
 
         var response = await DoAnnounceAsync(TrackerEvent.Started, cancellationToken).ConfigureAwait(false);
@@ -595,7 +614,7 @@ public sealed class TorrentSession : IAsyncDisposable
         }
     }
 
-    private async Task StopWithReasonAsync(string? reason, bool isError, CancellationToken cancellationToken)
+    private async Task StopWithReasonAsync(string? reason, bool isError, CancellationToken cancellationToken, bool announceStopped = true)
     {
         lock (_gate)
         {
@@ -610,7 +629,11 @@ public sealed class TorrentSession : IAsyncDisposable
 
         SetState(TorrentSessionState.Stopping);
         await CloseListenerAsync().ConfigureAwait(false);
-        await SendStoppedAsync(cancellationToken).ConfigureAwait(false);
+        if (announceStopped)
+        {
+            await SendStoppedAsync(cancellationToken).ConfigureAwait(false);
+        }
+
         if (reason is not null)
         {
             Log(isError ? LogLevel.Error : LogLevel.Info, $"Stopped: {reason}");
@@ -628,8 +651,9 @@ public sealed class TorrentSession : IAsyncDisposable
                 _profile, _descriptor.TrackerUrl, values, TrackerEvent.Stopped, _settings.Proxy, _settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
             TrackerExchangeCompleted?.Invoke(this, outcome.Exchange);
         }
-        catch (Exception ex) when (ex is TrackerException or IOException or ProxyException or OperationCanceledException)
+        catch (Exception ex)
         {
+            // The stopped announce is best effort: whatever went wrong, the session still ends.
             Log(LogLevel.Warning, $"Stopped announce failed: {ex.Message}");
         }
     }

@@ -66,12 +66,7 @@ public sealed class TrackerTransport : ITrackerTransport
 
     private static async Task<Socket> ConnectSocketAsync(string host, int port, CancellationToken cancellationToken)
     {
-        // Dual-stack socket so IPv6-only trackers work; DualMode maps IPv4 targets automatically.
-        var socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp)
-        {
-            DualMode = true,
-            NoDelay = true,
-        };
+        var socket = CreateSocket(Socket.OSSupportsIPv6);
         try
         {
             await socket.ConnectAsync(host, port, cancellationToken).ConfigureAwait(false);
@@ -82,6 +77,24 @@ public sealed class TrackerTransport : ITrackerTransport
             socket.Dispose();
             throw;
         }
+    }
+
+    /// <summary>
+    /// A dual-stack socket so IPv6-only trackers work (DualMode maps IPv4 targets automatically), or a plain
+    /// IPv4 socket on machines where IPv6 is switched off, where creating an IPv6 socket fails outright.
+    /// </summary>
+    internal static Socket CreateSocket(bool ipv6Supported)
+    {
+        if (!ipv6Supported)
+        {
+            return new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp) { NoDelay = true };
+        }
+
+        return new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp)
+        {
+            DualMode = true,
+            NoDelay = true,
+        };
     }
 
     private static async Task<SslStream> AuthenticateTlsAsync(Stream inner, string host, bool ignoreCertificateErrors, CancellationToken cancellationToken)

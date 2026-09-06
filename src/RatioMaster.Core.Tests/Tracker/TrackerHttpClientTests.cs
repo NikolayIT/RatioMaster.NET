@@ -111,6 +111,49 @@ public class TrackerHttpClientTests
             await client.GetAsync($"http://127.0.0.1:{deadPort}/announce", Profile, ProxySettings.None, Timeout));
     }
 
+    [Theory]
+    [InlineData("udp://tracker.test:1337/announce", "udp://")]
+    [InlineData("tracker.test/announce", "not a valid tracker URL")]
+    [InlineData("http://exa mple/announce", "not a valid tracker URL")]
+    public async Task RejectsUrlsItCannotAnnounceToAsATrackerError(string url, string expectedText)
+    {
+        // These used to escape as UriFormatException, or as a pointless TCP connect to a UDP tracker.
+        var client = new TrackerHttpClient(options: new TrackerHttpClientOptions { ConnectAttempts = 1 });
+
+        var error = await Assert.ThrowsAsync<TrackerException>(async () =>
+            await client.GetAsync(url, Profile, ProxySettings.None, Timeout));
+
+        Assert.Contains(expectedText, error.Message, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task ReturnsARedirectItCannotFollowInsteadOfThrowing()
+    {
+        await using var tracker = FakeTracker.Start(
+            FakeTracker.Redirect("http://[not-a-host/announce"),
+            FakeTracker.BencodeResponse(AnnounceBody()));
+        var client = new TrackerHttpClient();
+
+        var response = await client.GetAsync($"{tracker.BaseUrl}/announce", Profile, ProxySettings.None, Timeout);
+
+        Assert.Equal(302, response.StatusCode);
+        Assert.Single(tracker.Requests);
+    }
+
+    [Fact]
+    public async Task DoesNotFollowARedirectToANonHttpScheme()
+    {
+        await using var tracker = FakeTracker.Start(
+            FakeTracker.Redirect("udp://tracker.test:1337/announce"),
+            FakeTracker.BencodeResponse(AnnounceBody()));
+        var client = new TrackerHttpClient();
+
+        var response = await client.GetAsync($"{tracker.BaseUrl}/announce", Profile, ProxySettings.None, Timeout);
+
+        Assert.Equal(302, response.StatusCode);
+        Assert.Single(tracker.Requests);
+    }
+
     private static int GetClosedPort()
     {
         var probe = new System.Net.Sockets.TcpListener(System.Net.IPAddress.Loopback, 0);

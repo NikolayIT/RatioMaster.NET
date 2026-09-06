@@ -33,7 +33,7 @@ public partial class App : Application
             // Hiding the last window must not quit the app (close-to-tray).
             desktop.ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            _services = BuildServices();
+            _services = BuildServices(out var catalogWarning);
             var settingsStore = _services.GetRequiredService<ISettingsStore>();
             ImportLegacySettingsOnce(settingsStore);
 
@@ -44,7 +44,13 @@ public partial class App : Application
 
             var window = new MainWindow { DataContext = viewModel };
             _services.GetRequiredService<IMainWindowProvider>().Window = window;
-            ((NotificationService)_services.GetRequiredService<INotificationService>()).Attach(window);
+            var notifications = (NotificationService)_services.GetRequiredService<INotificationService>();
+            notifications.Attach(window);
+            if (catalogWarning is not null)
+            {
+                // A broken user clients.json must not stop the app; say so once the window can show it.
+                window.Opened += (_, _) => notifications.ShowWarning("Custom clients.json ignored", catalogWarning);
+            }
 
             viewModel.ExitRequested += async (_, _) => await ShutdownAsync(desktop);
             viewModel.RestoreRequested += (_, _) => window.RestoreFromTray();
@@ -53,6 +59,18 @@ public partial class App : Application
                 e.Cancel = true;
                 await ShutdownAsync(desktop);
             };
+
+            // macOS: clicking the Dock icon while the window is hidden in the menu bar brings it back.
+            if (TryGetFeature(typeof(IActivatableLifetime)) is IActivatableLifetime activatable)
+            {
+                activatable.Activated += (_, e) =>
+                {
+                    if (e.Kind == ActivationKind.Reopen)
+                    {
+                        window.RestoreFromTray();
+                    }
+                };
+            }
 
             desktop.MainWindow = window;
             if (viewModel.Settings.StartMinimized)
@@ -105,12 +123,12 @@ public partial class App : Application
         }
     }
 
-    private static ServiceProvider BuildServices()
+    private static ServiceProvider BuildServices(out string? catalogWarning)
     {
         var services = new ServiceCollection();
 
         AppPaths.EnsureConfigDirectory();
-        var catalog = ClientProfileCatalog.Load(AppPaths.UserClientsFile);
+        var catalog = ClientProfileCatalog.Load(AppPaths.UserClientsFile, out catalogWarning);
 
         services.AddSingleton(catalog);
         services.AddSingleton<ISettingsStore>(_ => new SettingsStore());

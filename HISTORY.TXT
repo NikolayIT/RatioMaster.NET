@@ -19,7 +19,7 @@
 - RM: the update check uses https and no longer sends your Windows user name
 - RM: fixed malformed request headers in the BitTyrant, KTorrent, BitSpirit and Gnome BT emulations
 - RM: fixed the Deluge emulations sending the event parameter twice
-- Code: the core is a separate library with no interface dependencies, covered by 199 tests
+- Code: the core is a separate library with no interface dependencies, covered by 255 tests
 
 ---=== 0.43 (08-01-2016) ===---
 - Global: The program is now open source and the source is available in https://github.com/NikolayIT/RatioMaster.NET

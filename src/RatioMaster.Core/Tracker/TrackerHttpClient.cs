@@ -1,4 +1,5 @@
 using System.Net.Sockets;
+using System.Security.Authentication;
 using RatioMaster.Core.Clients;
 using RatioMaster.Core.Networking;
 
@@ -37,6 +38,11 @@ public sealed class TrackerHttpClient
         _options = options ?? new TrackerHttpClientOptions();
     }
 
+    /// <summary>The same client (transport, attempts, timeout) with certificate validation switched off.</summary>
+    public TrackerHttpClient WithIgnoredCertificateErrors() => _options.IgnoreCertificateErrors
+        ? this
+        : new TrackerHttpClient(_transport, _options with { IgnoreCertificateErrors = true });
+
     /// <summary>Sends a GET for <paramref name="url"/> using the client's headers, following redirects.</summary>
     public async Task<TrackerResponse> GetAsync(string url, ClientProfile profile, ProxySettings proxy, CancellationToken cancellationToken)
     {
@@ -44,7 +50,7 @@ public sealed class TrackerHttpClient
         ArgumentNullException.ThrowIfNull(profile);
         ArgumentNullException.ThrowIfNull(proxy);
 
-        var uri = new Uri(url, UriKind.Absolute);
+        var uri = ParseUrl(url);
         for (var redirect = 0; ; redirect++)
         {
             using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
@@ -60,14 +66,28 @@ public sealed class TrackerHttpClient
                 throw new TrackerException($"The tracker did not respond within {_options.Timeout.TotalSeconds:0} seconds.");
             }
 
-            if (response.IsRedirect && redirect < _options.MaxRedirects)
+            // A redirect that cannot be followed (unparsable Location, or not http) is returned as it is.
+            if (response.IsRedirect
+                && redirect < _options.MaxRedirects
+                && Uri.TryCreate(uri, response.Location, out var next)
+                && TrackerUrl.IsHttp(next))
             {
-                uri = new Uri(uri, response.Location!);
+                uri = next;
                 continue;
             }
 
             return response;
         }
+    }
+
+    private static Uri ParseUrl(string url)
+    {
+        if (TrackerUrl.Validate(url) is { } problem)
+        {
+            throw new TrackerException(problem);
+        }
+
+        return new Uri(url.Trim(), UriKind.Absolute);
     }
 
     private async Task<TrackerResponse> SendOnceAsync(Uri uri, ClientProfile profile, ProxySettings proxy, CancellationToken cancellationToken)
@@ -100,6 +120,13 @@ public sealed class TrackerHttpClient
             {
                 return await _transport.ConnectAsync(
                     uri.Host, uri.Port, useTls, _options.IgnoreCertificateErrors, proxy, cancellationToken).ConfigureAwait(false);
+            }
+            catch (AuthenticationException ex)
+            {
+                // The connection worked but the certificate was refused; another attempt cannot change that.
+                throw new TrackerException(
+                    $"The TLS certificate of {uri.Host} is not trusted: {ex.Message} " +
+                    "Turn on \"Ignore TLS certificate errors\" in the torrent settings if you trust this tracker.", ex);
             }
             catch (Exception ex) when (ex is SocketException or IOException or ProxyException)
             {

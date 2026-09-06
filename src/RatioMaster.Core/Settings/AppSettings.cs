@@ -68,9 +68,14 @@ public sealed record AppSettings
 
     public bool AddTorrentsWithoutDialog { get; set; }
 
-    public bool MinimizeToTray { get; set; } = true;
+    /// <summary>
+    /// Off by default on Linux: the tray icon needs a StatusNotifier host (KDE, or GNOME with the AppIndicator
+    /// extension), and without one a hidden window cannot be brought back.
+    /// </summary>
+    public bool MinimizeToTray { get; set; } = TrayIsReliable;
 
-    public bool CloseToTray { get; set; } = true;
+    /// <inheritdoc cref="MinimizeToTray"/>
+    public bool CloseToTray { get; set; } = TrayIsReliable;
 
     public bool ShowTorrentListInTrayTooltip { get; set; }
 
@@ -91,4 +96,7 @@ public sealed record AppSettings
 
     /// <summary>Whether the Add dialog's "start immediately" box is ticked by default.</summary>
     public bool StartTorrentsImmediately { get; set; } = true;
+
+    /// <summary>Windows and macOS always have a tray (menu bar); Linux desktops often do not.</summary>
+    public static bool TrayIsReliable => !OperatingSystem.IsLinux();
 }

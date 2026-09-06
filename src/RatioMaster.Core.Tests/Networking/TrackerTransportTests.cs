@@ -240,4 +240,17 @@ public class TrackerTransportTests
         await Assert.ThrowsAsync<ProxyException>(async () =>
             await Transport.ConnectAsync("host.test", 80, useTls: false, ignoreCertificateErrors: false, proxy, Timeout));
     }
+
+    [Fact]
+    public void UsesAPlainIpv4SocketWhenTheSystemHasNoIpv6()
+    {
+        // With IPv6 disabled at the OS level, creating an InterNetworkV6 socket throws, which used to make
+        // every tracker unreachable.
+        using var ipv4 = TrackerTransport.CreateSocket(ipv6Supported: false);
+        Assert.Equal(System.Net.Sockets.AddressFamily.InterNetwork, ipv4.AddressFamily);
+
+        using var dual = TrackerTransport.CreateSocket(ipv6Supported: true);
+        Assert.Equal(System.Net.Sockets.AddressFamily.InterNetworkV6, dual.AddressFamily);
+        Assert.True(dual.DualMode);
+    }
 }

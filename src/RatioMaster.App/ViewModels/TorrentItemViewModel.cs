@@ -176,6 +176,9 @@ public sealed partial class TorrentItemViewModel : ViewModelBase
     /// <summary>Raised when the row wants to be removed from the list.</summary>
     public event EventHandler? RemoveRequested;
 
+    /// <summary>Raised when the settings in effect changed, so the session autosave can pick them up.</summary>
+    public event EventHandler? SettingsChanged;
+
     /// <summary>Called every second on the UI thread by the main view model.</summary>
     public void Refresh()
     {
@@ -254,6 +257,7 @@ public sealed partial class TorrentItemViewModel : ViewModelBase
         OnPropertyChanged(nameof(ClientName));
         OnPropertyChanged(nameof(StopConditionText));
         OnPropertyChanged(nameof(ProxyText));
+        SettingsChanged?.Invoke(this, EventArgs.Empty);
     }
 
     /// <summary>Discards editor changes and reloads from the settings in effect.</summary>
@@ -323,6 +327,8 @@ public sealed partial class TorrentItemViewModel : ViewModelBase
             _settings = _settings with { UploadRateBytes = upload };
             Settings.UploadKb = upload / 1024d;
         }
+
+        SettingsChanged?.Invoke(this, EventArgs.Empty);
     }
 
     partial void OnDisplayNameChanged(string value) => OnPropertyChanged(nameof(Log));

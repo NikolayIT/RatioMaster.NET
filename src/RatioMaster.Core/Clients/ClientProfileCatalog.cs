@@ -32,7 +32,7 @@ public sealed class ClientProfileCatalog
 
     public ClientProfile Default => _byName[DefaultName];
 
-    /// <summary>Loads the built-in catalog, then merges a user file when present.</summary>
+    /// <summary>Loads the built-in catalog, then merges a user file when present. Throws when the user file is unusable.</summary>
     public static ClientProfileCatalog Load(string? userFilePath = null)
     {
         var document = ReadEmbedded();
@@ -43,6 +43,24 @@ public sealed class ClientProfileCatalog
         }
 
         return FromDocument(document);
+    }
+
+    /// <summary>
+    /// Like <see cref="Load(string?)"/>, but a broken user file never prevents the catalog from loading: the
+    /// built-in profiles are returned and <paramref name="userFileError"/> says what was wrong with the file.
+    /// </summary>
+    public static ClientProfileCatalog Load(string? userFilePath, out string? userFileError)
+    {
+        try
+        {
+            userFileError = null;
+            return Load(userFilePath);
+        }
+        catch (Exception ex) when (userFilePath is not null && ex is InvalidOperationException or JsonException)
+        {
+            userFileError = ex.Message;
+            return Load();
+        }
     }
 
     /// <summary>Parses a catalog from JSON text (used by tests and the user-file loader).</summary>

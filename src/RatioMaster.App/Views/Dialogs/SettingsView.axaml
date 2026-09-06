@@ -42,7 +42,7 @@
             <CheckBox Content="List the torrents in the tray tooltip" IsChecked="{Binding ShowTorrentListInTrayTooltip}" />
             <CheckBox Content="Start minimized" IsChecked="{Binding StartMinimized}" />
             <TextBlock Classes="subtle" TextWrapping="Wrap" Margin="0,8,0,0"
-                       Text="On Linux the tray needs a StatusNotifier host (KDE, or GNOME with the AppIndicator extension). Without one the window stays minimized instead of hiding." />
+                       Text="On Linux the tray icon needs a StatusNotifier host (KDE, or GNOME with the AppIndicator extension). Without one a hidden window cannot be brought back, so these two options are off by default there." />
           </StackPanel>
         </TabItem>
 

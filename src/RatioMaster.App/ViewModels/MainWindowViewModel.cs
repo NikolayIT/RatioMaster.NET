@@ -324,6 +324,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase
     {
         var item = new TorrentItemViewModel(descriptor, settings, displayName, _factory, _dispatcher, _clipboard, _launcher, _files);
         item.RemoveRequested += async (s, _) => await RemoveAsync((TorrentItemViewModel)s!);
+        item.SettingsChanged += (_, _) => SaveLastSession();
         return item;
     }
 
@@ -378,13 +379,14 @@ public sealed partial class MainWindowViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private async Task StopSelectedAsync()
-    {
-        foreach (var torrent in Targets.Where(t => t.IsRunning))
-        {
-            await torrent.StopAsync();
-        }
-    }
+    private async Task StopSelectedAsync() => await StopAllOfAsync(Targets);
+
+    /// <summary>
+    /// Stops torrents side by side rather than one after another: each stop waits for its stopped announce,
+    /// which can take a minute on a tracker that does not answer.
+    /// </summary>
+    private static Task StopAllOfAsync(IEnumerable<TorrentItemViewModel> torrents) =>
+        Task.WhenAll(torrents.Where(t => t.IsRunning).Select(t => t.StopAsync()));
 
     [RelayCommand]
     private void UpdateSelected()
@@ -404,10 +406,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase
             return;
         }
 
-        foreach (var torrent in targets)
-        {
-            await RemoveWithoutAskingAsync(torrent);
-        }
+        await Task.WhenAll(targets.Select(RemoveWithoutAskingAsync));
     }
 
     /// <summary>Removes one torrent after asking; used by the row's own Remove request.</summary>
@@ -507,13 +506,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private async Task StopAllAsync()
-    {
-        foreach (var torrent in Torrents.Where(t => t.IsRunning))
-        {
-            await torrent.StopAsync();
-        }
-    }
+    private async Task StopAllAsync() => await StopAllOfAsync(Torrents);
 
     [RelayCommand]
     private void UpdateAll()

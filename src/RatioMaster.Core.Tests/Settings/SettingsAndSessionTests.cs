@@ -21,6 +21,24 @@ public class SettingsAndSessionTests : IDisposable
     }
 
     [Fact]
+    public void TrayOptionsDefaultOffOnLinuxOnly()
+    {
+        // Linux desktops often have no tray host, and a window hidden into a missing tray cannot be recovered.
+        var expected = !OperatingSystem.IsLinux();
+        var defaults = new AppSettings();
+
+        Assert.Equal(expected, defaults.MinimizeToTray);
+        Assert.Equal(expected, defaults.CloseToTray);
+        Assert.Equal(expected, AppSettings.TrayIsReliable);
+
+        // A settings file that does not mention them gets the same platform default.
+        var loaded = System.Text.Json.JsonSerializer.Deserialize("""{ "theme": "Dark" }""", CoreJsonContext.Default.AppSettings);
+        Assert.NotNull(loaded);
+        Assert.Equal(expected, loaded.MinimizeToTray);
+        Assert.Equal(expected, loaded.CloseToTray);
+    }
+
+    [Fact]
     public void SettingsRoundTrip()
     {
         var store = new SettingsStore(PathFor("settings.json"));

@@ -479,6 +479,71 @@ public class TorrentSessionTests
         Assert.Equal(2.0, session.Snapshot.Ratio);
     }
 
+    [Theory]
+    [InlineData("udp://tracker.test:1337/announce", "udp://")]
+    [InlineData("", "no tracker URL")]
+    [InlineData("tracker.test/announce", "not a valid tracker URL")]
+    public async Task AnUnsupportedTrackerUrlEndsInErrorWithoutAnyAnnounce(string trackerUrl, string expectedReason)
+    {
+        var tracker = new FakeTrackerClient();
+        var descriptor = new TorrentDescriptor { InfoHash = InfoHash, TotalLength = 1000, TrackerUrl = trackerUrl };
+        var session = new TorrentSession(descriptor, Profile, Identity(), QuietSettings(), tracker, new FakeLocalIpProvider(), new ScriptedRandomSource(), new FakeClock());
+
+        await session.StartAsync(Ct);
+
+        Assert.Equal(TorrentSessionState.Error, session.State);
+        Assert.Contains(expectedReason, session.Snapshot.StopReason, StringComparison.Ordinal);
+        Assert.Empty(tracker.Announces); // neither started nor stopped: there is nothing to talk to
+        Assert.Equal(0, tracker.ScrapeCount);
+    }
+
+    [Fact]
+    public async Task AnUnexpectedTrackerFailureEndsInErrorInsteadOfKillingTheRunLoop()
+    {
+        // Only TrackerException is expected from a tracker client; anything else used to fault the background
+        // task silently, leaving the session "Starting" forever and rethrowing from StopAsync.
+        var (session, tracker) = Create(configureTracker: t => t.AnnounceError = new InvalidOperationException("boom"));
+
+        session.Start();
+        await WaitUntilAsync(() => session.State == TorrentSessionState.Error, TimeSpan.FromSeconds(10));
+        await session.StopAsync(Ct);
+
+        Assert.Equal(TorrentSessionState.Error, session.State);
+        Assert.Contains("boom", session.Snapshot.StopReason, StringComparison.Ordinal);
+        Assert.Contains(tracker.Announces, a => a.Event == TrackerEvent.Stopped); // the stopped announce was still attempted
+    }
+
+    [Fact]
+    public async Task CanBeStartedAgainAfterStoppingOnItsOwn()
+    {
+        var settings = QuietSettings() with { Stop = new StopCondition { Type = StopConditionType.AfterSeconds, Value = 1 } };
+        var (session, tracker) = Create(settings);
+
+        session.Start();
+        await WaitUntilAsync(() => session.State == TorrentSessionState.Stopped, TimeSpan.FromSeconds(10));
+
+        session.Start();
+        await WaitUntilAsync(() => tracker.Announces.Count(a => a.Event == TrackerEvent.Started) == 2, TimeSpan.FromSeconds(10));
+        await WaitUntilAsync(() => session.State == TorrentSessionState.Stopped, TimeSpan.FromSeconds(10));
+        await session.StopAsync(Ct);
+
+        Assert.Equal(2, tracker.Announces.Count(a => a.Event == TrackerEvent.Stopped));
+    }
+
+    private static async Task WaitUntilAsync(Func<bool> condition, TimeSpan timeout)
+    {
+        var deadline = DateTime.UtcNow + timeout;
+        while (!condition())
+        {
+            if (DateTime.UtcNow > deadline)
+            {
+                throw new TimeoutException("The condition was not met in time.");
+            }
+
+            await Task.Delay(50, Ct);
+        }
+    }
+
     private static int GetFreePort()
     {
         var probe = new TcpListener(IPAddress.Loopback, 0);

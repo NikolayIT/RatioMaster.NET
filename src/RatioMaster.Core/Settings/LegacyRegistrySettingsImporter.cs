@@ -50,6 +50,9 @@ public sealed class WindowsLegacyRegistryReader : ILegacyRegistryReader, IDispos
 /// </summary>
 public static class LegacyRegistrySettingsImporter
 {
+    /// <summary>The emulation RatioMaster.NET 0.43 selected out of the box.</summary>
+    public const string LegacyDefaultClientName = "uTorrent 3.3.2";
+
     /// <summary>Returns the baseline with the legacy values applied, or null when there is nothing to import.</summary>
     public static AppSettings? TryImport(ILegacyRegistryReader reader, AppSettings? baseline = null)
     {
@@ -62,11 +65,14 @@ public static class LegacyRegistrySettingsImporter
         var settings = baseline ?? new AppSettings();
         var defaults = settings.DefaultTorrentSettings;
 
+        // 0.43 shipped with uTorrent 3.3.2 selected. A user who never changed it gets today's default rather
+        // than a client from 2013; a deliberate choice of any other emulation is kept.
         var client = reader.GetString("Client");
         var clientVersion = reader.GetString("ClientVersion");
-        var clientName = string.IsNullOrWhiteSpace(client)
+        var oldClientName = $"{client} {clientVersion}".Trim();
+        var clientName = string.IsNullOrWhiteSpace(client) || string.Equals(oldClientName, LegacyDefaultClientName, StringComparison.Ordinal)
             ? defaults.ClientName
-            : $"{client} {clientVersion}".Trim();
+            : oldClientName;
 
         var alwaysNewValues = Bool(reader, "NewValues", true);
 

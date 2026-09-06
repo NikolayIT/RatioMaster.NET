@@ -45,8 +45,9 @@
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName}" />
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Tracker" Classes="label" />
-            <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"
-                      ItemsSource="{Binding TrackerUrls}" SelectedItem="{Binding TrackerUrl}" />
+            <!-- Editable: the torrent's trackers are offered, but any http(s) announce URL can be typed. -->
+            <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" IsEditable="True"
+                      ItemsSource="{Binding TrackerUrls}" Text="{Binding TrackerUrl}" />
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Details" Classes="label" />
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Spacing="14">
@@ -55,6 +56,9 @@
               <SelectableTextBlock Classes="subtle mono" FontSize="12" Text="{Binding Selected.InfoHash}" VerticalAlignment="Center" />
             </StackPanel>
           </Grid>
+
+          <TextBlock Text="{Binding TrackerWarning}" Foreground="{DynamicResource LogWarningBrush}" TextWrapping="Wrap"
+                     IsVisible="{Binding TrackerWarning, Converter={x:Static ObjectConverters.IsNotNull}}" />
         </StackPanel>
       </Border>
 
