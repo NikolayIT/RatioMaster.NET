@@ -27,9 +27,6 @@ public sealed partial class SettingsViewModel : DialogViewModel<AppSettings>
     private bool _addTorrentsWithoutDialog;
 
     [ObservableProperty]
-    private bool _confirmRemovingRunningTorrents;
-
-    [ObservableProperty]
     private bool _startTorrentsImmediately;
 
     [ObservableProperty]
@@ -54,7 +51,6 @@ public sealed partial class SettingsViewModel : DialogViewModel<AppSettings>
         _checkForUpdatesOnStartup = settings.CheckForUpdatesOnStartup;
         _restoreLastSessionOnStartup = settings.RestoreLastSessionOnStartup;
         _addTorrentsWithoutDialog = settings.AddTorrentsWithoutDialog;
-        _confirmRemovingRunningTorrents = settings.ConfirmRemovingRunningTorrents;
         _startTorrentsImmediately = settings.StartTorrentsImmediately;
         _minimizeToTray = settings.MinimizeToTray;
         _closeToTray = settings.CloseToTray;
@@ -87,7 +83,6 @@ public sealed partial class SettingsViewModel : DialogViewModel<AppSettings>
         CheckForUpdatesOnStartup = CheckForUpdatesOnStartup,
         RestoreLastSessionOnStartup = RestoreLastSessionOnStartup,
         AddTorrentsWithoutDialog = AddTorrentsWithoutDialog,
-        ConfirmRemovingRunningTorrents = ConfirmRemovingRunningTorrents,
         StartTorrentsImmediately = StartTorrentsImmediately,
         MinimizeToTray = MinimizeToTray,
         CloseToTray = CloseToTray,

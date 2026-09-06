@@ -32,7 +32,6 @@
             <CheckBox Content="Restore the last session on startup" IsChecked="{Binding RestoreLastSessionOnStartup}" />
             <CheckBox Content="Add torrents without showing the Add dialog" IsChecked="{Binding AddTorrentsWithoutDialog}" />
             <CheckBox Content="Start torrents immediately after adding them" IsChecked="{Binding StartTorrentsImmediately}" />
-            <CheckBox Content="Ask before removing a running torrent" IsChecked="{Binding ConfirmRemovingRunningTorrents}" />
           </StackPanel>
         </TabItem>
 

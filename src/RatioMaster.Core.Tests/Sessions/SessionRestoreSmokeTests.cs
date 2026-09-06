@@ -92,7 +92,6 @@ public class SessionRestoreSmokeTests
         Assert.True(settings!.CheckForUpdatesOnStartup);
         Assert.True(settings.RestoreLastSessionOnStartup);
         Assert.True(settings.MinimizeToTray);
-        Assert.True(settings.ConfirmRemovingRunningTorrents);
         Assert.Equal(1800, settings.DefaultTorrentSettings.IntervalSeconds);
         Assert.NotNull(settings.DefaultTorrentSettings.Stop);
         Assert.NotNull(settings.DefaultTorrentSettings.Proxy);

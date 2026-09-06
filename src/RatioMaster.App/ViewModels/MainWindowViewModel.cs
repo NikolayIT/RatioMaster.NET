@@ -398,26 +398,56 @@ public sealed partial class MainWindowViewModel : ViewModelBase
     [RelayCommand]
     private async Task RemoveSelectedAsync()
     {
-        foreach (var torrent in Targets.ToList())
+        var targets = Targets.ToList();
+        if (targets.Count == 0 || !await ConfirmRemovalAsync(targets))
         {
-            await RemoveAsync(torrent);
+            return;
+        }
+
+        foreach (var torrent in targets)
+        {
+            await RemoveWithoutAskingAsync(torrent);
         }
     }
 
+    /// <summary>Removes one torrent after asking; used by the row's own Remove request.</summary>
     private async Task RemoveAsync(TorrentItemViewModel torrent)
     {
-        if (torrent.IsRunning && _settings.ConfirmRemovingRunningTorrents)
+        if (await ConfirmRemovalAsync([torrent]))
         {
-            var confirmed = await _dialogs.ConfirmAsync(
-                "Remove torrent",
-                $"{torrent.DisplayName} is running. Stop it and remove it from the list?",
-                "Remove");
-            if (!confirmed)
+            await RemoveWithoutAskingAsync(torrent);
+        }
+    }
+
+    /// <summary>One question for the whole selection, mentioning how many torrents will be stopped first.</summary>
+    private Task<bool> ConfirmRemovalAsync(IReadOnlyList<TorrentItemViewModel> targets)
+    {
+        var running = targets.Count(t => t.IsRunning);
+        string message;
+        if (targets.Count == 1)
+        {
+            message = $"Remove {targets[0].DisplayName} from the list?";
+            if (running > 0)
             {
-                return;
+                message += " It is running and will be stopped first.";
             }
         }
+        else
+        {
+            message = $"Remove these {targets.Count} torrents from the list?";
+            message += running switch
+            {
+                0 => string.Empty,
+                1 => " One of them is running and will be stopped first.",
+                _ => $" {running} of them are running and will be stopped first.",
+            };
+        }
 
+        return _dialogs.ConfirmAsync(targets.Count == 1 ? "Remove torrent" : "Remove torrents", message, "Remove");
+    }
+
+    private async Task RemoveWithoutAskingAsync(TorrentItemViewModel torrent)
+    {
         await torrent.StopAsync();
         await torrent.DisposeSessionAsync();
         Torrents.Remove(torrent);

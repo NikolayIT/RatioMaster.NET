@@ -68,8 +68,6 @@ public sealed record AppSettings
 
     public bool AddTorrentsWithoutDialog { get; set; }
 
-    public bool ConfirmRemovingRunningTorrents { get; set; } = true;
-
     public bool MinimizeToTray { get; set; } = true;
 
     public bool CloseToTray { get; set; } = true;
