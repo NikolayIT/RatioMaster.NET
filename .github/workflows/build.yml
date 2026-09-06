@@ -29,4 +29,5 @@ jobs:
         run: dotnet build src/RatioMaster.slnx --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test src/RatioMaster.slnx --configuration Release --no-build
+        working-directory: src
+        run: dotnet test --solution RatioMaster.slnx --configuration Release --no-build

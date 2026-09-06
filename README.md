@@ -40,9 +40,10 @@ Grab the archive for your system from the [latest release](https://github.com/Ni
 Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```
-dotnet build src/RatioMaster.slnx
-dotnet test src/RatioMaster.slnx
-dotnet run --project src/RatioMaster.App
+cd src
+dotnet build RatioMaster.slnx
+dotnet test --solution RatioMaster.slnx
+dotnet run --project RatioMaster.App
 ```
 
 To produce a single self-contained binary (the publish settings live in the project file):

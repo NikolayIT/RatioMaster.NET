@@ -5,8 +5,7 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <OutputType>Exe</OutputType>
-    <!-- xunit.v3 runs on Microsoft.Testing.Platform; opt into the new `dotnet test` experience (required on the .NET 10 SDK). -->
-    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <!-- xunit.v3 runs on Microsoft.Testing.Platform; `dotnet test` is switched to it in global.json (required on the .NET 10 SDK). -->
     <UseVSTest>false</UseVSTest>
   </PropertyGroup>
 
