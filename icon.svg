@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 1100" width="1100" height="1100">
+<defs>
+<path id="plate" d="M488.48 75.52A87 87 0 0 1 611.52 75.52L1024.48 488.48A87 87 0 0 1 1024.48 611.52L611.52 1024.48A87 87 0 0 1 488.48 1024.48L75.52 611.52A87 87 0 0 1 75.52 488.48Z"/>
+<path id="ring" fill="none" stroke-width="18" d="M512.17 103.33A53.5 53.5 0 0 1 587.83 103.33L996.67 512.17A53.5 53.5 0 0 1 996.67 587.83L587.83 996.67A53.5 53.5 0 0 1 512.17 996.67L103.33 587.83A53.5 53.5 0 0 1 103.33 512.17Z"/>
+<path id="arrow" d="M550 319L678 421L678 517L612.5 473L612.5 781L487.5 781L487.5 473L422 517L422 421Z"/>
+<clipPath id="gloss"><path d="M30 -10H1070V565.8C1000.67 588.1 931.33 591.04 862 584.15C792.67 577.27 723.33 560.47 654 540.6C584.67 520.72 515.33 497.67 446 477.14C376.67 456.6 307.33 438.49 238 428.91C168.67 419.34 99.33 418.2 30 433.6Z"/></clipPath>
+</defs>
+<path d="M487.07 62.93A89 89 0 0 1 612.93 62.93L1037.07 487.07A89 89 0 0 1 1037.07 612.93L612.93 1037.07A89 89 0 0 1 487.07 1037.07L62.93 612.93A89 89 0 0 1 62.93 487.07Z" fill="#bbc01c"/>
+<use xlink:href="#plate" href="#plate" fill="#e6e500"/>
+<use xlink:href="#ring" href="#ring" stroke="#000"/>
+<use xlink:href="#arrow" href="#arrow" fill="#000"/>
+<g clip-path="url(#gloss)">
+<use xlink:href="#plate" href="#plate" fill="#ff0"/>
+<use xlink:href="#ring" href="#ring" stroke="#323232"/>
+<use xlink:href="#arrow" href="#arrow" fill="#323232"/>
+</g>
+</svg>
