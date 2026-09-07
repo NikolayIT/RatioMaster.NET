@@ -52,11 +52,11 @@ namespace RatioMaster.Core.Tests.Sessions
         [Fact]
         public void CreatesASessionForTheResolvedProfile()
         {
-            var session = CreateFactory().Create(Descriptor, new TorrentSettings { ClientName = "Deluge 1.2.0" });
+            var session = CreateFactory().Create(Descriptor, new TorrentSettings { ClientName = "Deluge 2.1.1" });
 
-            Assert.Equal("Deluge 1.2.0", session.Profile.Name);
+            Assert.Equal("Deluge 2.1.1", session.Profile.Name);
             Assert.Equal(TorrentSessionState.Idle, session.State);
-            Assert.StartsWith("-DE1200-", session.Identity.PeerId, StringComparison.Ordinal);
+            Assert.StartsWith("-DE211s-", session.Identity.PeerId, StringComparison.Ordinal);
         }
 
         [Fact]

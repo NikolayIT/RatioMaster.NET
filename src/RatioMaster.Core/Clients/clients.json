@@ -312,30 +312,12 @@
     },
 
     {
-      "name": "Deluge 1.2.0", "family": "Deluge", "version": "1.2.0",
-      "httpProtocol": "HTTP/1.0", "hashUpperCase": false,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-DE1200-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: Deluge 1.2.0", "Connection: close", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&key={key}&compact=1&numwant={numwant}&supportcrypto=1&no_peer_id=1",
-      "defaultNumWant": 200
-    },
-    {
-      "name": "Deluge 0.5.8.7", "family": "Deluge", "version": "0.5.8.7",
-      "httpProtocol": "HTTP/1.0", "hashUpperCase": false,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-DE0587-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: Deluge 0.5.8.7"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&key={key}&compact=1&numwant={numwant}&supportcrypto=1&no_peer_id=1",
-      "defaultNumWant": 200
-    },
-    {
-      "name": "Deluge 0.5.8.6", "family": "Deluge", "version": "0.5.8.6",
-      "httpProtocol": "HTTP/1.0", "hashUpperCase": false,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-DE0586-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: Deluge 0.5.8.6"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&key={key}&compact=1&numwant={numwant}&supportcrypto=1&no_peer_id=1",
+      "name": "Deluge 2.1.1", "family": "Deluge", "version": "2.1.1",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-DE211s-", "type": "urlSafe", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: Deluge/2.1.1 libtorrent/1.2.15.0", "Accept-Encoding: gzip", "Connection: close"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1&supportcrypto=1&redundant=0",
       "defaultNumWant": 200
     },
 

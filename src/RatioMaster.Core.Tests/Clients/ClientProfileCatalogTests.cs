@@ -10,9 +10,10 @@ namespace RatioMaster.Core.Tests.Clients
         [Fact]
         public void LoadsAllProfilesFromTheBuiltInCatalog()
         {
-            // 41 inherited from 0.43, minus the ten obsolete uTorrent 1.x-3.2 ones, plus the emulations added since:
-            // qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5.
-            Assert.Equal(36, Catalog.Profiles.Count);
+            // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
+            // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
+            // Transmission 2.94 and 3.00, Deluge 2.1.1.
+            Assert.Equal(34, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -50,7 +51,7 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("BitTorrent", new[] { "6.0.3 (8642)" })]
         [InlineData("Transmission", new[] { "2.94", "3.00" })]
         [InlineData("BitSpirit", new[] { "3.6.0.200", "3.1.0.077" })]
-        [InlineData("Deluge", new[] { "1.2.0", "0.5.8.7", "0.5.8.6" })]
+        [InlineData("Deluge", new[] { "2.1.1" })]
         public void VersionsPerFamilyMatchTheOldUi(string family, string[] expected)
         {
             Assert.Equal(expected, Catalog.VersionsOf(family));
@@ -63,7 +64,7 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal(18, Catalog.Profiles.Count(p => p.CanScanMemory));
 
             Assert.True(Catalog.GetByName("uTorrent 3.3.2").CanScanMemory);
-            Assert.False(Catalog.GetByName("Deluge 1.2.0").CanScanMemory);
+            Assert.False(Catalog.GetByName("Deluge 2.1.1").CanScanMemory);
             Assert.False(Catalog.GetByName("BitTorrent 6.0.3 (8642)").CanScanMemory);
             Assert.False(Catalog.GetByName("Transmission 3.00").CanScanMemory);
         }
@@ -222,9 +223,9 @@ namespace RatioMaster.Core.Tests.Clients
         public void DelugeQueryDoesNotDuplicateTheEventParameter()
         {
             // 0.43 used "&event={event}", which produced "&event=&event=started"; real Deluge sends it once.
-            var query = Catalog.GetByName("Deluge 1.2.0").Query;
+            var query = Catalog.GetByName("Deluge 2.1.1").Query;
             Assert.DoesNotContain("&event={event}", query, StringComparison.Ordinal);
-            Assert.Contains("{left}{event}&key=", query, StringComparison.Ordinal);
+            Assert.Contains("&key={key}{event}&numwant=", query, StringComparison.Ordinal);
         }
 
         [Fact]
@@ -266,7 +267,7 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(37, catalog.Profiles.Count);
+                Assert.Equal(35, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.3.2").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.3.2").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));

@@ -81,7 +81,7 @@ namespace RatioMaster.Core.Tests.MemoryScan
         public void ReturnsNullForProfilesThatCannotBeScanned()
         {
             var scanner = new ClientValueScanner(new FakeProcessMemoryScanner(Encoding.ASCII.GetBytes("&peer_id=-DE1200-x&")));
-            Assert.Null(scanner.TryScan(Catalog.GetByName("Deluge 1.2.0"), Fallback));
+            Assert.Null(scanner.TryScan(Catalog.GetByName("Deluge 2.1.1"), Fallback));
         }
 
         [Fact]

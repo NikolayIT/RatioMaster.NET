@@ -1070,90 +1070,34 @@ Connection: close<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
 
-=== Deluge 1.2.0 ===
+=== Deluge 2.1.1 ===
 --- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE1200-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=started&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE211s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
 Host: tracker.test<CR>
-User-Agent: Deluge 1.2.0<CR>
-Connection: close<CR>
+User-Agent: Deluge/2.1.1 libtorrent/1.2.15.0<CR>
 Accept-Encoding: gzip<CR>
+Connection: close<CR>
 <CR>
 --- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE1200-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE211s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
 Host: tracker.test<CR>
-User-Agent: Deluge 1.2.0<CR>
-Connection: close<CR>
+User-Agent: Deluge/2.1.1 libtorrent/1.2.15.0<CR>
 Accept-Encoding: gzip<CR>
+Connection: close<CR>
 <CR>
 --- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE1200-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=completed&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE211s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
 Host: tracker.test<CR>
-User-Agent: Deluge 1.2.0<CR>
+User-Agent: Deluge/2.1.1 libtorrent/1.2.15.0<CR>
+Accept-Encoding: gzip<CR>
 Connection: close<CR>
-Accept-Encoding: gzip<CR>
 <CR>
 --- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE1200-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=stopped&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE211s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
 Host: tracker.test<CR>
-User-Agent: Deluge 1.2.0<CR>
+User-Agent: Deluge/2.1.1 libtorrent/1.2.15.0<CR>
+Accept-Encoding: gzip<CR>
 Connection: close<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== Deluge 0.5.8.7 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE0587-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=started&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
-Host: tracker.test<CR>
-Accept-Encoding: gzip<CR>
-User-Agent: Deluge 0.5.8.7<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE0587-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
-Host: tracker.test<CR>
-Accept-Encoding: gzip<CR>
-User-Agent: Deluge 0.5.8.7<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE0587-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=completed&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
-Host: tracker.test<CR>
-Accept-Encoding: gzip<CR>
-User-Agent: Deluge 0.5.8.7<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE0587-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=stopped&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
-Host: tracker.test<CR>
-Accept-Encoding: gzip<CR>
-User-Agent: Deluge 0.5.8.7<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== Deluge 0.5.8.6 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE0586-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=started&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
-Host: tracker.test<CR>
-Accept-Encoding: gzip<CR>
-User-Agent: Deluge 0.5.8.6<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE0586-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
-Host: tracker.test<CR>
-Accept-Encoding: gzip<CR>
-User-Agent: Deluge 0.5.8.6<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE0586-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=completed&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
-Host: tracker.test<CR>
-Accept-Encoding: gzip<CR>
-User-Agent: Deluge 0.5.8.6<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE0586-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=stopped&key=KEY01234&compact=1&numwant=200&supportcrypto=1&no_peer_id=1 HTTP/1.0<CR>
-Host: tracker.test<CR>
-Accept-Encoding: gzip<CR>
-User-Agent: Deluge 0.5.8.6<CR>
 <CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6

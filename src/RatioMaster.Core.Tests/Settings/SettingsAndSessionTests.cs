@@ -50,7 +50,7 @@ namespace RatioMaster.Core.Tests.Settings
                 Columns = [new ColumnLayout { Name = "Name", Width = 200, DisplayIndex = 1, IsVisible = true }],
                 DefaultTorrentSettings = new TorrentSettings
                 {
-                    ClientName = "Deluge 1.2.0",
+                    ClientName = "Deluge 2.1.1",
                     UploadRateBytes = 123 * 1024,
                     Stop = new StopCondition { Type = StopConditionType.UploadedAboveMb, Value = 500 },
                     Proxy = new ProxySettings { Type = ProxyType.Socks5, Host = "p.example", Port = 1080, Username = "u" },
@@ -64,7 +64,7 @@ namespace RatioMaster.Core.Tests.Settings
             Assert.Equal(settings with { Columns = [] }, loaded with { Columns = [] });
             Assert.Equal(settings.Columns, loaded.Columns);
             Assert.Equal(AppTheme.Dark, loaded.Theme);
-            Assert.Equal("Deluge 1.2.0", loaded.DefaultTorrentSettings.ClientName);
+            Assert.Equal("Deluge 2.1.1", loaded.DefaultTorrentSettings.ClientName);
             Assert.Equal(ProxyType.Socks5, loaded.DefaultTorrentSettings.Proxy.Type);
             Assert.Equal(StopConditionType.UploadedAboveMb, loaded.DefaultTorrentSettings.Stop.Type);
         }
