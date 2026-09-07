@@ -225,8 +225,8 @@ public class TorrentSessionTests
     [Fact]
     public async Task ZeroLeechersPauseTheUploadByDefault()
     {
-        // Issue #16 / #42: uploading when nobody is downloading may get accounts banned, so the
-        // default is to pause, and nothing must be reported as uploaded while paused.
+        // Issue #16 / #42: a tracker can notice upload with no leechers, one of the things that may get
+        // an account banned, so the default is to pause and nothing is reported as uploaded meanwhile.
         var logs = new List<LogEntry>();
         var (session, tracker) = Create(configureTracker: t => t.Incomplete = 0);
         session.LogEmitted += (_, e) => logs.Add(e);

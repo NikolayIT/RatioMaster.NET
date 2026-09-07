@@ -68,7 +68,7 @@
 
           <CheckBox Content="Pause the upload while the tracker reports no leechers"
                     IsChecked="{Binding StopUploadWhenNoLeechers}" />
-          <TextBlock Text="Recommended. Uploading when nobody is downloading may get accounts banned."
+          <TextBlock Text="Recommended. A tracker can notice upload with no leechers, one of the things that may get an account banned."
                      Classes="subtle" Margin="28,-4,0,0" />
 
           <Separator />
