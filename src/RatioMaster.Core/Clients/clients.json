@@ -35,7 +35,7 @@
       "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "peerId": { "prefix": "-UT3320-%18w", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/3320", "Accept-Encoding: gzip"],
+      "headers": ["Host: {host}", "User-Agent: uTorrent/3320(30488)", "Accept-Encoding: gzip", "Connection: Close"],
       "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
       "defaultNumWant": 200,
       "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT3320-", "startOffset": 0, "maxOffset": 200000000 }
@@ -45,7 +45,7 @@
       "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "peerId": { "prefix": "-UT3300-%b9s", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/3300", "Accept-Encoding: gzip"],
+      "headers": ["Host: {host}", "User-Agent: uTorrent/3300(29625)", "Accept-Encoding: gzip", "Connection: Close"],
       "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
       "defaultNumWant": 200,
       "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT3300-", "startOffset": 0, "maxOffset": 200000000 }

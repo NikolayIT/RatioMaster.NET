@@ -81,7 +81,9 @@ public class ClientProfileCatalogTests
         Assert.Equal(RandomValueKind.Random, p.PeerId.Type);
         Assert.Equal(10, p.PeerId.Length);
         Assert.True(p.PeerId.UrlEncode);
-        Assert.Equal(["Host: {host}", "User-Agent: uTorrent/3320", "Accept-Encoding: gzip"], p.Headers);
+        // 0.43 sent "uTorrent/3320" with no build and no Connection header; every real uTorrent carries the
+        // build (0.43's own 2.0.1 entry, the SB-Innovation 3.2.3 file, 3.4.8+ captures) and 3.x sends Connection: Close.
+        Assert.Equal(["Host: {host}", "User-Agent: uTorrent/3320(30488)", "Accept-Encoding: gzip", "Connection: Close"], p.Headers);
         Assert.Equal(200, p.DefaultNumWant);
         Assert.Equal("uTorrent", p.MemoryScan!.ProcessName);
         Assert.Equal("&peer_id=-UT3320-", p.MemoryScan.SearchString);
@@ -123,6 +125,40 @@ public class ClientProfileCatalogTests
         Assert.Equal(200, p.DefaultNumWant);
         Assert.Equal("uTorrent", p.MemoryScan!.ProcessName);
         Assert.Equal("&peer_id=" + prefix, p.MemoryScan.SearchString);
+    }
+
+    [Theory]
+    [InlineData("uTorrent 3.3.2", 30488)]
+    [InlineData("uTorrent 3.3.0", 29625)]
+    public void OlderUTorrentUserAgentsCarryTheBuildEncodedInThePeerId(string name, int build)
+    {
+        var p = Catalog.GetByName(name);
+        Assert.Equal(build, BuildFromPrefix(p.PeerIdPrefix));
+
+        var digits = p.Version.Replace(".", string.Empty, StringComparison.Ordinal) + "0";
+        Assert.Contains($"User-Agent: uTorrent/{digits}({build})", p.Headers);
+        Assert.Equal("Connection: Close", p.Headers[^1]);
+    }
+
+    /// <summary>Decodes the two bytes after "-UTxxxx-" (percent-escaped or literal ASCII) as a little-endian build number.</summary>
+    private static int BuildFromPrefix(string prefix)
+    {
+        var bytes = new List<byte>();
+        for (var i = 8; i < prefix.Length;)
+        {
+            if (prefix[i] == '%')
+            {
+                bytes.Add(Convert.ToByte(prefix.Substring(i + 1, 2), 16));
+                i += 3;
+            }
+            else
+            {
+                bytes.Add((byte)prefix[i]);
+                i++;
+            }
+        }
+
+        return bytes.Count == 2 ? bytes[0] | (bytes[1] << 8) : -1;
     }
 
     [Fact]
