@@ -46,7 +46,7 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("Azureus", new[] { "3.1.1.0", "3.0.5.0", "3.0.4.2", "3.0.3.4", "3.0.2.2", "2.5.0.4" })]
         [InlineData("Vuze", new[] { "4.2.0.8" })]
         [InlineData("BitTorrent", new[] { "6.0.3 (8642)" })]
-        [InlineData("Transmission", new[] { "2.82 (14160)", "2.92 (14714)" })]
+        [InlineData("Transmission", new[] { "2.94", "3.00" })]
         [InlineData("BitSpirit", new[] { "3.6.0.200", "3.1.0.077" })]
         [InlineData("Deluge", new[] { "1.2.0", "0.5.8.7", "0.5.8.6" })]
         public void VersionsPerFamilyMatchTheOldUi(string family, string[] expected)
@@ -63,7 +63,7 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.True(Catalog.GetByName("uTorrent 3.3.2").CanScanMemory);
             Assert.False(Catalog.GetByName("Deluge 1.2.0").CanScanMemory);
             Assert.False(Catalog.GetByName("BitTorrent 6.0.3 (8642)").CanScanMemory);
-            Assert.False(Catalog.GetByName("Transmission 2.92 (14714)").CanScanMemory);
+            Assert.False(Catalog.GetByName("Transmission 3.00").CanScanMemory);
         }
 
         [Fact]
@@ -192,14 +192,28 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Theory]
-        [InlineData("Transmission 2.82 (14160)", "-TR2820-", "User-Agent: Transmission/2.82")]
-        [InlineData("Transmission 2.92 (14714)", "-TR2920-", "User-Agent: Transmission/2.92")]
+        [InlineData("Transmission 2.94", "-TR2940-", "User-Agent: Transmission/2.94")]
+        [InlineData("Transmission 3.00", "-TR3000-", "User-Agent: Transmission/3.00")]
         public void TransmissionPeerIdMatchesItsUserAgent(string name, string prefix, string userAgent)
         {
-            // 0.43 announced Transmission 2.82 with the 2.50 peer id, a mismatch a tracker can reject (issue #25).
+            // 0.43 announced Transmission 2.82 with the 2.50 peer id, a mismatch a tracker can reject (issue #25),
+            // so the prefix and the user agent have to keep naming the same release.
             var p = Catalog.GetByName(name);
             Assert.Equal(prefix, p.PeerIdPrefix);
             Assert.Contains(userAgent, p.Headers);
+
+            // The suffix carries a check digit, so it cannot be drawn character by character like the others.
+            Assert.Equal(RandomValueKind.TransmissionChecksum, p.PeerId.Type);
+            Assert.Equal(12, p.PeerId.Length);
+            Assert.Equal(RandomValueKind.HexRange, p.Key.Type);
+        }
+
+        [Fact]
+        public void TransmissionKeepsEachReleasesOwnAcceptEncoding()
+        {
+            // 3.00 dropped the q-values 2.94 sent; both are what the real client puts on the wire.
+            Assert.Contains("Accept-Encoding: gzip;q=1.0, deflate, identity", Catalog.GetByName("Transmission 2.94").Headers);
+            Assert.Contains("Accept-Encoding: deflate, gzip", Catalog.GetByName("Transmission 3.00").Headers);
         }
 
         [Fact]

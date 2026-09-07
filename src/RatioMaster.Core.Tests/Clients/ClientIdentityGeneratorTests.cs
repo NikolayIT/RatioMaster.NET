@@ -62,6 +62,63 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal(8, identity.Key.Length);
         }
 
+        /// <summary>
+        /// tr_peerIdInit makes the base-36 values of the twelve suffix characters add up to a multiple of 36.
+        /// A tracker can check that, so every peer id we generate has to satisfy it, not just most of them.
+        /// </summary>
+        [Fact]
+        public void TransmissionSuffixAlwaysCarriesAValidCheckDigit()
+        {
+            const string pool = "0123456789abcdefghijklmnopqrstuvwxyz";
+            var generator = new ClientIdentityGenerator(new DeterministicRandomSource(2024));
+            var spec = new RandomValueSpec { Type = RandomValueKind.TransmissionChecksum, Length = 12 };
+
+            for (var i = 0; i < 2000; i++)
+            {
+                var suffix = generator.GenerateValue(spec);
+
+                Assert.Equal(12, suffix.Length);
+                Assert.All(suffix, c => Assert.Contains(c, pool));
+                Assert.Equal(0, suffix.Sum(c => pool.IndexOf(c, StringComparison.Ordinal)) % 36);
+            }
+        }
+
+        [Fact]
+        public void TransmissionProfileProducesARealLookingPeerId()
+        {
+            const string pool = "0123456789abcdefghijklmnopqrstuvwxyz";
+            var profile = ClientProfileCatalog.Load().GetByName("Transmission 3.00");
+            var identity = new ClientIdentityGenerator(new DeterministicRandomSource(9)).Generate(profile);
+
+            Assert.Equal(20, identity.PeerId.Length);
+            Assert.StartsWith("-TR3000-", identity.PeerId, StringComparison.Ordinal);
+
+            // The prefix is not part of the sum; only the twelve generated characters are.
+            var suffix = identity.PeerId["-TR3000-".Length..];
+            Assert.Equal(0, suffix.Sum(c => pool.IndexOf(c, StringComparison.Ordinal)) % 36);
+        }
+
+        /// <summary>Transmission prints its key with "%x": lower case, no padding, so the length varies.</summary>
+        [Fact]
+        public void HexRangeKeyIsLowerCaseAndNeverZeroPadded()
+        {
+            var generator = new ClientIdentityGenerator(new DeterministicRandomSource(5));
+            var spec = new RandomValueSpec { Type = RandomValueKind.HexRange };
+
+            for (var i = 0; i < 500; i++)
+            {
+                var key = generator.GenerateValue(spec);
+
+                Assert.InRange(key.Length, 1, 8);
+                Assert.Equal(key.ToLowerInvariant(), key);
+                Assert.All(key, c => Assert.Contains(c, "0123456789abcdef"));
+                if (key.Length > 1)
+                {
+                    Assert.NotEqual('0', key[0]);
+                }
+            }
+        }
+
         [Fact]
         public void RandomKindPercentEncodesNonAlphanumericBytes()
         {

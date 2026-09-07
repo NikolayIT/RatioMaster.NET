@@ -20,5 +20,19 @@ namespace RatioMaster.Core.Clients
         /// so the value is never percent-encoded. Used by qBittorrent and other libtorrent clients.
         /// </summary>
         UrlSafe,
+
+        /// <summary>
+        /// Transmission's peer id suffix: lower-case base-36 characters whose values sum to a multiple of 36,
+        /// the last character being the check digit that makes them do so. Ported from tr_peerIdInit in
+        /// libtransmission/session.c, so a tracker that verifies the check digit sees a valid peer id.
+        /// </summary>
+        TransmissionChecksum,
+
+        /// <summary>
+        /// A random 31-bit integer as lower-case hexadecimal with no leading zeros, so the length varies.
+        /// Transmission's announce key: <c>tr_rand_int(INT_MAX)</c> printed with "%x" (announcer-http.c).
+        /// The spec's length is ignored.
+        /// </summary>
+        HexRange,
     }
 }
