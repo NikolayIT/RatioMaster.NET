@@ -1,60 +1,61 @@
-using System.Diagnostics;
-using System.Runtime.Versioning;
-
-namespace RatioMaster.Core.MemoryScan;
-
-/// <summary>
-/// Best-effort reader using /proc/&lt;pid&gt;/mem. Needs the same user (or ptrace permission), so it can
-/// legitimately fail; callers fall back to generated values.
-/// </summary>
-[SupportedOSPlatform("linux")]
-public sealed class LinuxProcessMemoryScanner : IProcessMemoryScanner
+namespace RatioMaster.Core.MemoryScan
 {
-    public bool IsSupported => true;
+    using System.Diagnostics;
+    using System.Runtime.Versioning;
 
-    public ProcessMemorySession? Open(string processName)
+    /// <summary>
+    /// Best-effort reader using /proc/&lt;pid&gt;/mem. Needs the same user (or ptrace permission), so it can
+    /// legitimately fail; callers fall back to generated values.
+    /// </summary>
+    [SupportedOSPlatform("linux")]
+    public sealed class LinuxProcessMemoryScanner : IProcessMemoryScanner
     {
-        ArgumentException.ThrowIfNullOrEmpty(processName);
-        var process = Process.GetProcessesByName(processName).FirstOrDefault();
-        if (process is null)
-        {
-            return null;
-        }
+        public bool IsSupported => true;
 
-        using (process)
+        public ProcessMemorySession? Open(string processName)
         {
-            try
-            {
-                var stream = new FileStream($"/proc/{process.Id}/mem", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                return new Session(stream);
-            }
-            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or ArgumentException)
+            ArgumentException.ThrowIfNullOrEmpty(processName);
+            var process = Process.GetProcessesByName(processName).FirstOrDefault();
+            if (process is null)
             {
                 return null;
             }
-        }
-    }
 
-    private sealed class Session(FileStream stream) : ProcessMemorySession
-    {
-        public override int Read(long address, byte[] buffer)
-        {
-            try
+            using (process)
             {
-                stream.Seek(address, SeekOrigin.Begin);
-                return stream.Read(buffer, 0, buffer.Length);
-            }
-            catch (Exception ex) when (ex is IOException or ArgumentOutOfRangeException or NotSupportedException)
-            {
-                // Unmapped region: skip it.
-                return 0;
+                try
+                {
+                    var stream = new FileStream($"/proc/{process.Id}/mem", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    return new Session(stream);
+                }
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or ArgumentException)
+                {
+                    return null;
+                }
             }
         }
 
-        public override void Dispose()
+        private sealed class Session(FileStream stream) : ProcessMemorySession
         {
-            stream.Dispose();
-            base.Dispose();
+            public override int Read(long address, byte[] buffer)
+            {
+                try
+                {
+                    stream.Seek(address, SeekOrigin.Begin);
+                    return stream.Read(buffer, 0, buffer.Length);
+                }
+                catch (Exception ex) when (ex is IOException or ArgumentOutOfRangeException or NotSupportedException)
+                {
+                    // Unmapped region: skip it.
+                    return 0;
+                }
+            }
+
+            public override void Dispose()
+            {
+                stream.Dispose();
+                base.Dispose();
+            }
         }
     }
 }

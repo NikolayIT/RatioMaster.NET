@@ -1,8 +1,9 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Dialogs;
-
-public partial class AboutView : UserControl
+namespace RatioMaster.App.Views.Dialogs
 {
-    public AboutView() => this.InitializeComponent();
+    using Avalonia.Controls;
+
+    public partial class AboutView : UserControl
+    {
+        public AboutView() => this.InitializeComponent();
+    }
 }

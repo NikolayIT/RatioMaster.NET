@@ -1,8 +1,9 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Dialogs;
-
-public partial class NewVersionView : UserControl
+namespace RatioMaster.App.Views.Dialogs
 {
-    public NewVersionView() => this.InitializeComponent();
+    using Avalonia.Controls;
+
+    public partial class NewVersionView : UserControl
+    {
+        public NewVersionView() => this.InitializeComponent();
+    }
 }

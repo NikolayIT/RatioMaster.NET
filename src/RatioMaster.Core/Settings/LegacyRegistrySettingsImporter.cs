@@ -1,91 +1,93 @@
-using System.Runtime.Versioning;
-using Microsoft.Win32;
-using RatioMaster.Core.Networking;
-using RatioMaster.Core.Sessions;
-
-namespace RatioMaster.Core.Settings;
-
-/// <summary>
-/// One-time migration of the 0.43 registry settings into <see cref="AppSettings"/>, so upgrading users
-/// keep their defaults.
-/// </summary>
-public static class LegacyRegistrySettingsImporter
+namespace RatioMaster.Core.Settings
 {
-    /// <summary>The emulation RatioMaster.NET 0.43 selected out of the box.</summary>
-    public const string LegacyDefaultClientName = "uTorrent 3.3.2";
+    using System.Runtime.Versioning;
 
-    /// <summary>Returns the baseline with the legacy values applied, or null when there is nothing to import.</summary>
-    public static AppSettings? TryImport(ILegacyRegistryReader reader, AppSettings? baseline = null)
+    using Microsoft.Win32;
+    using RatioMaster.Core.Networking;
+    using RatioMaster.Core.Sessions;
+
+    /// <summary>
+    /// One-time migration of the 0.43 registry settings into <see cref="AppSettings"/>, so upgrading users
+    /// keep their defaults.
+    /// </summary>
+    public static class LegacyRegistrySettingsImporter
     {
-        ArgumentNullException.ThrowIfNull(reader);
-        if (!reader.Exists || reader.GetString("Version") is null)
+        /// <summary>The emulation RatioMaster.NET 0.43 selected out of the box.</summary>
+        public const string LegacyDefaultClientName = "uTorrent 3.3.2";
+
+        /// <summary>Returns the baseline with the legacy values applied, or null when there is nothing to import.</summary>
+        public static AppSettings? TryImport(ILegacyRegistryReader reader, AppSettings? baseline = null)
         {
-            return null;
+            ArgumentNullException.ThrowIfNull(reader);
+            if (!reader.Exists || reader.GetString("Version") is null)
+            {
+                return null;
+            }
+
+            var settings = baseline ?? new AppSettings();
+            var defaults = settings.DefaultTorrentSettings;
+
+            // 0.43 shipped with uTorrent 3.3.2 selected. A user who never changed it gets today's default rather
+            // than a client from 2013; a deliberate choice of any other emulation is kept.
+            var client = reader.GetString("Client");
+            var clientVersion = reader.GetString("ClientVersion");
+            var oldClientName = $"{client} {clientVersion}".Trim();
+            var clientName = string.IsNullOrWhiteSpace(client) || string.Equals(oldClientName, LegacyDefaultClientName, StringComparison.Ordinal)
+                ? defaults.ClientName
+                : oldClientName;
+
+            var alwaysNewValues = Bool(reader, "NewValues", true);
+
+            return settings with
+            {
+                ShowTorrentListInTrayTooltip = Bool(reader, "BallonTip", settings.ShowTorrentListInTrayTooltip),
+                MinimizeToTray = Bool(reader, "MinimizeToTray", settings.MinimizeToTray),
+                CloseToTray = Bool(reader, "CloseToTray", settings.CloseToTray),
+                LastTorrentDirectory = NullIfEmpty(reader.GetString("Directory")) ?? settings.LastTorrentDirectory,
+                DefaultTorrentSettings = defaults with
+                {
+                    ClientName = clientName,
+                    IdentityMode = alwaysNewValues ? IdentityMode.Automatic : IdentityMode.Custom,
+                    CustomKey = NullIfEmpty(reader.GetString("CustomKey")),
+                    CustomPeerId = NullIfEmpty(reader.GetString("CustomPeerID")),
+                    CustomPort = NullIfEmpty(reader.GetString("CustomPort")),
+                    CustomNumWant = NullIfEmpty(reader.GetString("CustomPeers")),
+                    UploadRateBytes = LegacyValueParser.KilobytesToBytes(reader.GetString("UploadRate"), defaults.UploadRateBytes / 1024),
+                    DownloadRateBytes = LegacyValueParser.KilobytesToBytes(reader.GetString("DownloadRate"), defaults.DownloadRateBytes / 1024),
+                    IntervalSeconds = LegacyValueParser.ParseInt(reader.GetString("Interval"), defaults.IntervalSeconds),
+                    FinishedPercent = LegacyValueParser.ParseDouble(reader.GetString("fileSize"), defaults.FinishedPercent),
+                    UseTcpListener = Bool(reader, "TCPlistener", defaults.UseTcpListener),
+                    RequestScrape = Bool(reader, "ScrapeInfo", defaults.RequestScrape),
+                    EnableLog = Bool(reader, "EnableLog", defaults.EnableLog),
+                    IgnoreFailureReason = Bool(reader, "IgnoreFailureReason", defaults.IgnoreFailureReason),
+                    UploadRandomEnabled = Bool(reader, "GetRandUp", defaults.UploadRandomEnabled),
+                    UploadRandomMinKb = LegacyValueParser.ParseInt(reader.GetString("MinRandUp"), defaults.UploadRandomMinKb),
+                    UploadRandomMaxKb = LegacyValueParser.ParseInt(reader.GetString("MaxRandUp"), defaults.UploadRandomMaxKb),
+                    DownloadRandomEnabled = Bool(reader, "GetRandDown", defaults.DownloadRandomEnabled),
+                    DownloadRandomMinKb = LegacyValueParser.ParseInt(reader.GetString("MinRandDown"), defaults.DownloadRandomMinKb),
+                    DownloadRandomMaxKb = LegacyValueParser.ParseInt(reader.GetString("MaxRandDown"), defaults.DownloadRandomMaxKb),
+                    NextUpdateRandomUpload = Bool(reader, "GetRandUpNext", defaults.NextUpdateRandomUpload),
+                    NextUpdateUploadMinKb = LegacyValueParser.ParseInt(reader.GetString("MinRandUpNext"), defaults.NextUpdateUploadMinKb),
+                    NextUpdateUploadMaxKb = LegacyValueParser.ParseInt(reader.GetString("MaxRandUpNext"), defaults.NextUpdateUploadMaxKb),
+                    NextUpdateRandomDownload = Bool(reader, "GetRandDownNext", defaults.NextUpdateRandomDownload),
+                    NextUpdateDownloadMinKb = LegacyValueParser.ParseInt(reader.GetString("MinRandDownNext"), defaults.NextUpdateDownloadMinKb),
+                    NextUpdateDownloadMaxKb = LegacyValueParser.ParseInt(reader.GetString("MaxRandDownNext"), defaults.NextUpdateDownloadMaxKb),
+                    Stop = LegacyValueParser.ParseStopCondition(reader.GetString("StopWhen"), reader.GetString("StopAfter")),
+                    Proxy = new ProxySettings
+                    {
+                        Type = LegacyValueParser.ParseProxyType(reader.GetString("ProxyType")),
+                        Host = reader.GetString("ProxyAdress") ?? string.Empty,
+                        Port = LegacyValueParser.ParseInt(reader.GetString("ProxyPort"), 0),
+                        Username = reader.GetString("ProxyUser") ?? string.Empty,
+                        Password = reader.GetString("ProxyPass") ?? string.Empty,
+                    },
+                },
+            };
         }
 
-        var settings = baseline ?? new AppSettings();
-        var defaults = settings.DefaultTorrentSettings;
+        private static bool Bool(ILegacyRegistryReader reader, string name, bool fallback) =>
+            reader.GetInt(name) is { } value ? value != 0 : fallback;
 
-        // 0.43 shipped with uTorrent 3.3.2 selected. A user who never changed it gets today's default rather
-        // than a client from 2013; a deliberate choice of any other emulation is kept.
-        var client = reader.GetString("Client");
-        var clientVersion = reader.GetString("ClientVersion");
-        var oldClientName = $"{client} {clientVersion}".Trim();
-        var clientName = string.IsNullOrWhiteSpace(client) || string.Equals(oldClientName, LegacyDefaultClientName, StringComparison.Ordinal)
-            ? defaults.ClientName
-            : oldClientName;
-
-        var alwaysNewValues = Bool(reader, "NewValues", true);
-
-        return settings with
-        {
-            ShowTorrentListInTrayTooltip = Bool(reader, "BallonTip", settings.ShowTorrentListInTrayTooltip),
-            MinimizeToTray = Bool(reader, "MinimizeToTray", settings.MinimizeToTray),
-            CloseToTray = Bool(reader, "CloseToTray", settings.CloseToTray),
-            LastTorrentDirectory = NullIfEmpty(reader.GetString("Directory")) ?? settings.LastTorrentDirectory,
-            DefaultTorrentSettings = defaults with
-            {
-                ClientName = clientName,
-                IdentityMode = alwaysNewValues ? IdentityMode.Automatic : IdentityMode.Custom,
-                CustomKey = NullIfEmpty(reader.GetString("CustomKey")),
-                CustomPeerId = NullIfEmpty(reader.GetString("CustomPeerID")),
-                CustomPort = NullIfEmpty(reader.GetString("CustomPort")),
-                CustomNumWant = NullIfEmpty(reader.GetString("CustomPeers")),
-                UploadRateBytes = LegacyValueParser.KilobytesToBytes(reader.GetString("UploadRate"), defaults.UploadRateBytes / 1024),
-                DownloadRateBytes = LegacyValueParser.KilobytesToBytes(reader.GetString("DownloadRate"), defaults.DownloadRateBytes / 1024),
-                IntervalSeconds = LegacyValueParser.ParseInt(reader.GetString("Interval"), defaults.IntervalSeconds),
-                FinishedPercent = LegacyValueParser.ParseDouble(reader.GetString("fileSize"), defaults.FinishedPercent),
-                UseTcpListener = Bool(reader, "TCPlistener", defaults.UseTcpListener),
-                RequestScrape = Bool(reader, "ScrapeInfo", defaults.RequestScrape),
-                EnableLog = Bool(reader, "EnableLog", defaults.EnableLog),
-                IgnoreFailureReason = Bool(reader, "IgnoreFailureReason", defaults.IgnoreFailureReason),
-                UploadRandomEnabled = Bool(reader, "GetRandUp", defaults.UploadRandomEnabled),
-                UploadRandomMinKb = LegacyValueParser.ParseInt(reader.GetString("MinRandUp"), defaults.UploadRandomMinKb),
-                UploadRandomMaxKb = LegacyValueParser.ParseInt(reader.GetString("MaxRandUp"), defaults.UploadRandomMaxKb),
-                DownloadRandomEnabled = Bool(reader, "GetRandDown", defaults.DownloadRandomEnabled),
-                DownloadRandomMinKb = LegacyValueParser.ParseInt(reader.GetString("MinRandDown"), defaults.DownloadRandomMinKb),
-                DownloadRandomMaxKb = LegacyValueParser.ParseInt(reader.GetString("MaxRandDown"), defaults.DownloadRandomMaxKb),
-                NextUpdateRandomUpload = Bool(reader, "GetRandUpNext", defaults.NextUpdateRandomUpload),
-                NextUpdateUploadMinKb = LegacyValueParser.ParseInt(reader.GetString("MinRandUpNext"), defaults.NextUpdateUploadMinKb),
-                NextUpdateUploadMaxKb = LegacyValueParser.ParseInt(reader.GetString("MaxRandUpNext"), defaults.NextUpdateUploadMaxKb),
-                NextUpdateRandomDownload = Bool(reader, "GetRandDownNext", defaults.NextUpdateRandomDownload),
-                NextUpdateDownloadMinKb = LegacyValueParser.ParseInt(reader.GetString("MinRandDownNext"), defaults.NextUpdateDownloadMinKb),
-                NextUpdateDownloadMaxKb = LegacyValueParser.ParseInt(reader.GetString("MaxRandDownNext"), defaults.NextUpdateDownloadMaxKb),
-                Stop = LegacyValueParser.ParseStopCondition(reader.GetString("StopWhen"), reader.GetString("StopAfter")),
-                Proxy = new ProxySettings
-                {
-                    Type = LegacyValueParser.ParseProxyType(reader.GetString("ProxyType")),
-                    Host = reader.GetString("ProxyAdress") ?? string.Empty,
-                    Port = LegacyValueParser.ParseInt(reader.GetString("ProxyPort"), 0),
-                    Username = reader.GetString("ProxyUser") ?? string.Empty,
-                    Password = reader.GetString("ProxyPass") ?? string.Empty,
-                },
-            },
-        };
+        private static string? NullIfEmpty(string? value) => string.IsNullOrWhiteSpace(value) ? null : value;
     }
-
-    private static bool Bool(ILegacyRegistryReader reader, string name, bool fallback) =>
-        reader.GetInt(name) is { } value ? value != 0 : fallback;
-
-    private static string? NullIfEmpty(string? value) => string.IsNullOrWhiteSpace(value) ? null : value;
 }

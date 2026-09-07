@@ -1,8 +1,9 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Controls;
-
-public partial class TrackerHistoryView : UserControl
+namespace RatioMaster.App.Views.Controls
 {
-    public TrackerHistoryView() => this.InitializeComponent();
+    using Avalonia.Controls;
+
+    public partial class TrackerHistoryView : UserControl
+    {
+        public TrackerHistoryView() => this.InitializeComponent();
+    }
 }

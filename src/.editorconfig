@@ -12,7 +12,7 @@ trim_trailing_whitespace = true
 indent_size = 2
 
 [*.cs]
-csharp_style_namespace_declarations = file_scoped:warning
+csharp_style_namespace_declarations = block_scoped:warning
 csharp_prefer_braces = true:warning
 csharp_style_var_for_built_in_types = true:suggestion
 csharp_style_var_when_type_is_apparent = true:suggestion
@@ -42,8 +42,6 @@ dotnet_diagnostic.CA1416.severity = error
 
 # Handled better by the IDExxxx rules and the dotnet_style_* preferences above.
 dotnet_diagnostic.SA1121.severity = none   # use built-in type alias; IDE0049 covers it
-dotnet_diagnostic.SA1200.severity = none   # usings inside namespace; file-scoped namespaces are used everywhere
-dotnet_diagnostic.SA1516.severity = none   # blank line between elements; formatter's job
 
 # Documentation: public API is documented where it earns a comment, not by quota.
 dotnet_diagnostic.SA1600.severity = none

@@ -1,11 +1,12 @@
-using System.Threading.Tasks;
-
-namespace RatioMaster.App.Services.Abstractions;
-
-/// <summary>Opens URLs and folders in the desktop's default handler.</summary>
-public interface IUrlLauncher
+namespace RatioMaster.App.Services.Abstractions
 {
-    Task OpenUrlAsync(string url);
+    using System.Threading.Tasks;
 
-    Task RevealFileAsync(string path);
+    /// <summary>Opens URLs and folders in the desktop's default handler.</summary>
+    public interface IUrlLauncher
+    {
+        Task OpenUrlAsync(string url);
+
+        Task RevealFileAsync(string path);
+    }
 }

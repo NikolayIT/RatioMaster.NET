@@ -1,118 +1,120 @@
-using System.Diagnostics;
-using RatioMaster.Core.Abstractions;
-using RatioMaster.Core.Clients;
-using RatioMaster.Core.Networking;
-
-namespace RatioMaster.Core.Tracker;
-
-/// <summary>The production <see cref="ITrackerClient"/>: builds URLs and requests over <see cref="TrackerHttpClient"/>.</summary>
-public sealed class TrackerClient : ITrackerClient
+namespace RatioMaster.Core.Tracker
 {
-    private readonly TrackerHttpClient http;
-    private readonly ISystemClock clock;
+    using System.Diagnostics;
 
-    public TrackerClient(TrackerHttpClient? http = null, ISystemClock? clock = null)
+    using RatioMaster.Core.Abstractions;
+    using RatioMaster.Core.Clients;
+    using RatioMaster.Core.Networking;
+
+    /// <summary>The production <see cref="ITrackerClient"/>: builds URLs and requests over <see cref="TrackerHttpClient"/>.</summary>
+    public sealed class TrackerClient : ITrackerClient
     {
-        this.http = http ?? new TrackerHttpClient();
-        this.clock = clock ?? SystemClock.Instance;
-    }
+        private readonly TrackerHttpClient http;
+        private readonly ISystemClock clock;
 
-    public async Task<TrackerAnnounceOutcome> AnnounceAsync(
-        ClientProfile profile,
-        string trackerUrl,
-        AnnounceValues values,
-        TrackerEvent trackerEvent,
-        ProxySettings proxy,
-        bool ignoreCertificateErrors,
-        CancellationToken cancellationToken)
-    {
-        var url = AnnounceUrlBuilder.Build(trackerUrl, profile.Query, values, trackerEvent);
-        var started = Stopwatch.GetTimestamp();
-        var http = this.WithCertificatePolicy(ignoreCertificateErrors);
-
-        try
+        public TrackerClient(TrackerHttpClient? http = null, ISystemClock? clock = null)
         {
-            var raw = await http.GetAsync(url, profile, proxy, cancellationToken).ConfigureAwait(false);
-            var response = raw.Dictionary is not null
-                ? AnnounceResponse.Parse(raw.Dictionary)
-                : AnnounceResponse.Parse(new Bencode.BencodeDictionary());
-            var exchange = new TrackerExchange
+            this.http = http ?? new TrackerHttpClient();
+            this.clock = clock ?? SystemClock.Instance;
+        }
+
+        public async Task<TrackerAnnounceOutcome> AnnounceAsync(
+            ClientProfile profile,
+            string trackerUrl,
+            AnnounceValues values,
+            TrackerEvent trackerEvent,
+            ProxySettings proxy,
+            bool ignoreCertificateErrors,
+            CancellationToken cancellationToken)
+        {
+            var url = AnnounceUrlBuilder.Build(trackerUrl, profile.Query, values, trackerEvent);
+            var started = Stopwatch.GetTimestamp();
+            var http = this.WithCertificatePolicy(ignoreCertificateErrors);
+
+            try
             {
-                Timestamp = this.clock.Now,
-                Kind = trackerEvent == TrackerEvent.None ? "announce" : trackerEvent.ToString().ToLowerInvariant(),
-                RequestUrl = url,
-                ResponseHeaders = raw.RawHeaders,
-                Interval = response.Interval,
-                Complete = response.Complete,
-                Incomplete = response.Incomplete,
-                PeerCount = response.Peers.Count,
-                DurationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds,
-                Error = response.FailureReason,
-            };
-            return new TrackerAnnounceOutcome(response, exchange);
-        }
-        catch (Exception ex) when (IsTrackerFailure(ex, cancellationToken))
-        {
-            throw new TrackerException($"Announce to {trackerUrl} failed: {ex.Message}", ex);
-        }
-    }
-
-    public async Task<TrackerScrapeOutcome> ScrapeAsync(
-        ClientProfile profile,
-        string trackerUrl,
-        string infoHashEncoded,
-        byte[] infoHash,
-        ProxySettings proxy,
-        bool ignoreCertificateErrors,
-        CancellationToken cancellationToken)
-    {
-        var url = ScrapeUrlBuilder.TryBuild(trackerUrl, infoHashEncoded);
-        var timestamp = this.clock.Now;
-        if (url is null)
-        {
-            return new TrackerScrapeOutcome(null, new TrackerExchange
+                var raw = await http.GetAsync(url, profile, proxy, cancellationToken).ConfigureAwait(false);
+                var response = raw.Dictionary is not null
+                    ? AnnounceResponse.Parse(raw.Dictionary)
+                    : AnnounceResponse.Parse(new Bencode.BencodeDictionary());
+                var exchange = new TrackerExchange
+                {
+                    Timestamp = this.clock.Now,
+                    Kind = trackerEvent == TrackerEvent.None ? "announce" : trackerEvent.ToString().ToLowerInvariant(),
+                    RequestUrl = url,
+                    ResponseHeaders = raw.RawHeaders,
+                    Interval = response.Interval,
+                    Complete = response.Complete,
+                    Incomplete = response.Incomplete,
+                    PeerCount = response.Peers.Count,
+                    DurationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds,
+                    Error = response.FailureReason,
+                };
+                return new TrackerAnnounceOutcome(response, exchange);
+            }
+            catch (Exception ex) when (IsTrackerFailure(ex, cancellationToken))
             {
-                Timestamp = timestamp,
-                Kind = "scrape",
-                RequestUrl = trackerUrl,
-                Error = "This tracker does not support scrape.",
-            });
+                throw new TrackerException($"Announce to {trackerUrl} failed: {ex.Message}", ex);
+            }
         }
 
-        var started = Stopwatch.GetTimestamp();
-        var http = this.WithCertificatePolicy(ignoreCertificateErrors);
-        try
+        public async Task<TrackerScrapeOutcome> ScrapeAsync(
+            ClientProfile profile,
+            string trackerUrl,
+            string infoHashEncoded,
+            byte[] infoHash,
+            ProxySettings proxy,
+            bool ignoreCertificateErrors,
+            CancellationToken cancellationToken)
         {
-            var raw = await http.GetAsync(url, profile, proxy, cancellationToken).ConfigureAwait(false);
-            var response = raw.Dictionary is not null ? ScrapeResponse.Parse(raw.Dictionary, infoHash) : null;
-            var exchange = new TrackerExchange
+            var url = ScrapeUrlBuilder.TryBuild(trackerUrl, infoHashEncoded);
+            var timestamp = this.clock.Now;
+            if (url is null)
             {
-                Timestamp = timestamp,
-                Kind = "scrape",
-                RequestUrl = url,
-                ResponseHeaders = raw.RawHeaders,
-                Complete = response?.Complete,
-                Incomplete = response?.Incomplete,
-                DurationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds,
-                Error = response?.FailureReason,
-            };
-            return new TrackerScrapeOutcome(response, exchange);
+                return new TrackerScrapeOutcome(null, new TrackerExchange
+                {
+                    Timestamp = timestamp,
+                    Kind = "scrape",
+                    RequestUrl = trackerUrl,
+                    Error = "This tracker does not support scrape.",
+                });
+            }
+
+            var started = Stopwatch.GetTimestamp();
+            var http = this.WithCertificatePolicy(ignoreCertificateErrors);
+            try
+            {
+                var raw = await http.GetAsync(url, profile, proxy, cancellationToken).ConfigureAwait(false);
+                var response = raw.Dictionary is not null ? ScrapeResponse.Parse(raw.Dictionary, infoHash) : null;
+                var exchange = new TrackerExchange
+                {
+                    Timestamp = timestamp,
+                    Kind = "scrape",
+                    RequestUrl = url,
+                    ResponseHeaders = raw.RawHeaders,
+                    Complete = response?.Complete,
+                    Incomplete = response?.Incomplete,
+                    DurationMs = Stopwatch.GetElapsedTime(started).TotalMilliseconds,
+                    Error = response?.FailureReason,
+                };
+                return new TrackerScrapeOutcome(response, exchange);
+            }
+            catch (Exception ex) when (IsTrackerFailure(ex, cancellationToken))
+            {
+                throw new TrackerException($"Scrape of {trackerUrl} failed: {ex.Message}", ex);
+            }
         }
-        catch (Exception ex) when (IsTrackerFailure(ex, cancellationToken))
-        {
-            throw new TrackerException($"Scrape of {trackerUrl} failed: {ex.Message}", ex);
-        }
+
+        /// <summary>
+        /// Every way a request can go wrong (refused connection, TLS, proxy, malformed reply, a bug in the
+        /// transport) is one thing to the engine: this announce did not happen, try again later. Only the
+        /// caller's own cancellation passes through unchanged.
+        /// </summary>
+        private static bool IsTrackerFailure(Exception ex, CancellationToken cancellationToken) =>
+            ex is not OperationCanceledException || !cancellationToken.IsCancellationRequested;
+
+        private TrackerHttpClient WithCertificatePolicy(bool ignoreCertificateErrors) => ignoreCertificateErrors
+            ? this.http.WithIgnoredCertificateErrors()
+            : this.http;
     }
-
-    /// <summary>
-    /// Every way a request can go wrong (refused connection, TLS, proxy, malformed reply, a bug in the
-    /// transport) is one thing to the engine: this announce did not happen, try again later. Only the
-    /// caller's own cancellation passes through unchanged.
-    /// </summary>
-    private static bool IsTrackerFailure(Exception ex, CancellationToken cancellationToken) =>
-        ex is not OperationCanceledException || !cancellationToken.IsCancellationRequested;
-
-    private TrackerHttpClient WithCertificatePolicy(bool ignoreCertificateErrors) => ignoreCertificateErrors
-        ? this.http.WithIgnoredCertificateErrors()
-        : this.http;
 }

@@ -1,22 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using Avalonia.Controls;
-using Avalonia.Controls.Notifications;
-using Avalonia.Platform.Storage;
-using Avalonia.Threading;
-using RatioMaster.App.Services.Abstractions;
-
-namespace RatioMaster.App.Services;
-
-/// <summary>Marshals onto Avalonia's UI thread.</summary>
-public sealed class AvaloniaDispatcher : IUiDispatcher
+namespace RatioMaster.App.Services
 {
-    public bool IsOnUiThread => Dispatcher.UIThread.CheckAccess();
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Threading.Tasks;
 
-    public void Post(Action action) => Dispatcher.UIThread.Post(action);
+    using Avalonia.Controls;
+    using Avalonia.Controls.Notifications;
+    using Avalonia.Platform.Storage;
+    using Avalonia.Threading;
+    using RatioMaster.App.Services.Abstractions;
 
-    public Task InvokeAsync(Action action) => Dispatcher.UIThread.InvokeAsync(action).GetTask();
+    /// <summary>Marshals onto Avalonia's UI thread.</summary>
+    public sealed class AvaloniaDispatcher : IUiDispatcher
+    {
+        public bool IsOnUiThread => Dispatcher.UIThread.CheckAccess();
+
+        public void Post(Action action) => Dispatcher.UIThread.Post(action);
+
+        public Task InvokeAsync(Action action) => Dispatcher.UIThread.InvokeAsync(action).GetTask();
+    }
 }

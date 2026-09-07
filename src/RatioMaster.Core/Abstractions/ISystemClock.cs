@@ -1,14 +1,15 @@
-namespace RatioMaster.Core.Abstractions;
-
-/// <summary>Source of the current time, replaceable in tests.</summary>
-public interface ISystemClock
+namespace RatioMaster.Core.Abstractions
 {
-    DateTimeOffset Now { get; }
-}
+    /// <summary>Source of the current time, replaceable in tests.</summary>
+    public interface ISystemClock
+    {
+        DateTimeOffset Now { get; }
+    }
 
-public sealed class SystemClock : ISystemClock
-{
-    public static SystemClock Instance { get; } = new();
+    public sealed class SystemClock : ISystemClock
+    {
+        public static SystemClock Instance { get; } = new();
 
-    public DateTimeOffset Now => DateTimeOffset.Now;
+        public DateTimeOffset Now => DateTimeOffset.Now;
+    }
 }

@@ -1,12 +1,13 @@
-using System.Text.Json;
-using System.Text.Json.Serialization;
-
-namespace RatioMaster.Core.Clients;
-
-/// <summary>The on-disk shape of clients.json.</summary>
-internal sealed record ClientCatalogDocument
+namespace RatioMaster.Core.Clients
 {
-    public string? Default { get; set; }
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
 
-    public List<ClientProfileEntry> Clients { get; set; } = [];
+    /// <summary>The on-disk shape of clients.json.</summary>
+    internal sealed record ClientCatalogDocument
+    {
+        public string? Default { get; set; }
+
+        public List<ClientProfileEntry> Clients { get; set; } = [];
+    }
 }

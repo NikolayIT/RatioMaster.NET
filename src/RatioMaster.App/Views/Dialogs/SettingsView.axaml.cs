@@ -1,8 +1,9 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Dialogs;
-
-public partial class SettingsView : UserControl
+namespace RatioMaster.App.Views.Dialogs
 {
-    public SettingsView() => this.InitializeComponent();
+    using Avalonia.Controls;
+
+    public partial class SettingsView : UserControl
+    {
+        public SettingsView() => this.InitializeComponent();
+    }
 }

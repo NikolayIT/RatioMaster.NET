@@ -1,9 +1,10 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Services.Abstractions;
-
-/// <summary>Gives services access to the main window (for dialogs, pickers and the clipboard).</summary>
-public interface IMainWindowProvider
+namespace RatioMaster.App.Services.Abstractions
 {
-    Window? Window { get; set; }
+    using Avalonia.Controls;
+
+    /// <summary>Gives services access to the main window (for dialogs, pickers and the clipboard).</summary>
+    public interface IMainWindowProvider
+    {
+        Window? Window { get; set; }
+    }
 }

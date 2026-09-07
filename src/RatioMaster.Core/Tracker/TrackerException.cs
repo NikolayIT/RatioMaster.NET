@@ -1,15 +1,16 @@
-namespace RatioMaster.Core.Tracker;
-
-/// <summary>Thrown when a tracker request cannot be completed.</summary>
-public sealed class TrackerException : Exception
+namespace RatioMaster.Core.Tracker
 {
-    public TrackerException(string message)
-        : base(message)
+    /// <summary>Thrown when a tracker request cannot be completed.</summary>
+    public sealed class TrackerException : Exception
     {
-    }
+        public TrackerException(string message)
+            : base(message)
+        {
+        }
 
-    public TrackerException(string message, Exception innerException)
-        : base(message, innerException)
-    {
+        public TrackerException(string message, Exception innerException)
+            : base(message, innerException)
+        {
+        }
     }
 }

@@ -1,17 +1,19 @@
-using System.Text.Json.Serialization;
-
-namespace RatioMaster.Core.Sessions;
-
-/// <summary>A saved session: the list of torrents with their settings.</summary>
-public sealed record SessionDocument
+namespace RatioMaster.Core.Sessions
 {
-    public const int CurrentVersion = 2;
-    [JsonConstructor]
-    public SessionDocument()
+    using System.Text.Json.Serialization;
+
+    /// <summary>A saved session: the list of torrents with their settings.</summary>
+    public sealed record SessionDocument
     {
+        public const int CurrentVersion = 2;
+
+        [JsonConstructor]
+        public SessionDocument()
+        {
+        }
+
+        public int Version { get; set; } = CurrentVersion;
+
+        public List<SessionEntry> Torrents { get; set; } = [];
     }
-
-    public int Version { get; set; } = CurrentVersion;
-
-    public List<SessionEntry> Torrents { get; set; } = [];
 }

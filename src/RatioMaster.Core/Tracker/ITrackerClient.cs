@@ -1,26 +1,27 @@
-using RatioMaster.Core.Clients;
-using RatioMaster.Core.Networking;
-
-namespace RatioMaster.Core.Tracker;
-
-/// <summary>Announce and scrape at the level the session engine needs. Fakeable for tests.</summary>
-public interface ITrackerClient
+namespace RatioMaster.Core.Tracker
 {
-    Task<TrackerAnnounceOutcome> AnnounceAsync(
-        ClientProfile profile,
-        string trackerUrl,
-        AnnounceValues values,
-        TrackerEvent trackerEvent,
-        ProxySettings proxy,
-        bool ignoreCertificateErrors,
-        CancellationToken cancellationToken);
+    using RatioMaster.Core.Clients;
+    using RatioMaster.Core.Networking;
 
-    Task<TrackerScrapeOutcome> ScrapeAsync(
-        ClientProfile profile,
-        string trackerUrl,
-        string infoHashEncoded,
-        byte[] infoHash,
-        ProxySettings proxy,
-        bool ignoreCertificateErrors,
-        CancellationToken cancellationToken);
+    /// <summary>Announce and scrape at the level the session engine needs. Fakeable for tests.</summary>
+    public interface ITrackerClient
+    {
+        Task<TrackerAnnounceOutcome> AnnounceAsync(
+            ClientProfile profile,
+            string trackerUrl,
+            AnnounceValues values,
+            TrackerEvent trackerEvent,
+            ProxySettings proxy,
+            bool ignoreCertificateErrors,
+            CancellationToken cancellationToken);
+
+        Task<TrackerScrapeOutcome> ScrapeAsync(
+            ClientProfile profile,
+            string trackerUrl,
+            string infoHashEncoded,
+            byte[] infoHash,
+            ProxySettings proxy,
+            bool ignoreCertificateErrors,
+            CancellationToken cancellationToken);
+    }
 }

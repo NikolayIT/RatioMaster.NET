@@ -1,8 +1,9 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Dialogs;
-
-public partial class MessageDialogView : UserControl
+namespace RatioMaster.App.Views.Dialogs
 {
-    public MessageDialogView() => this.InitializeComponent();
+    using Avalonia.Controls;
+
+    public partial class MessageDialogView : UserControl
+    {
+        public MessageDialogView() => this.InitializeComponent();
+    }
 }

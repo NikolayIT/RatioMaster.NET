@@ -1,46 +1,48 @@
-using System;
-using System.Linq;
-using Avalonia.Controls;
-using RatioMaster.App.ViewModels;
-
-namespace RatioMaster.App.Views.Controls;
-
-public partial class LogView : UserControl
+namespace RatioMaster.App.Views.Controls
 {
-    private LogViewModel? viewModel;
+    using System;
+    using System.Linq;
 
-    public LogView()
-    {
-        this.InitializeComponent();
-        this.DataContextChanged += this.OnDataContextChanged;
-        this.DetachedFromVisualTree += (_, _) => this.Unsubscribe();
-    }
+    using Avalonia.Controls;
+    using RatioMaster.App.ViewModels;
 
-    private void OnDataContextChanged(object? sender, EventArgs e)
+    public partial class LogView : UserControl
     {
-        this.Unsubscribe();
-        if (this.DataContext is LogViewModel viewModel)
+        private LogViewModel? viewModel;
+
+        public LogView()
         {
-            this.viewModel = viewModel;
-            this.viewModel.LinesAppended += this.OnLinesAppended;
+            this.InitializeComponent();
+            this.DataContextChanged += this.OnDataContextChanged;
+            this.DetachedFromVisualTree += (_, _) => this.Unsubscribe();
         }
-    }
 
-    private void Unsubscribe()
-    {
-        if (this.viewModel is not null)
+        private void OnDataContextChanged(object? sender, EventArgs e)
         {
-            this.viewModel.LinesAppended -= this.OnLinesAppended;
-            this.viewModel = null;
+            this.Unsubscribe();
+            if (this.DataContext is LogViewModel viewModel)
+            {
+                this.viewModel = viewModel;
+                this.viewModel.LinesAppended += this.OnLinesAppended;
+            }
         }
-    }
 
-    private void OnLinesAppended(object? sender, EventArgs e)
-    {
-        // Keep the newest line in view while auto-scroll is on.
-        if (this.viewModel?.Entries.LastOrDefault() is { } last)
+        private void Unsubscribe()
         {
-            this.Lines.ScrollIntoView(last);
+            if (this.viewModel is not null)
+            {
+                this.viewModel.LinesAppended -= this.OnLinesAppended;
+                this.viewModel = null;
+            }
+        }
+
+        private void OnLinesAppended(object? sender, EventArgs e)
+        {
+            // Keep the newest line in view while auto-scroll is on.
+            if (this.viewModel?.Entries.LastOrDefault() is { } last)
+            {
+                this.Lines.ScrollIntoView(last);
+            }
         }
     }
 }

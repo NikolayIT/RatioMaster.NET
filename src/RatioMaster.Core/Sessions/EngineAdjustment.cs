@@ -1,9 +1,10 @@
-namespace RatioMaster.Core.Sessions;
-
-/// <summary>An automatic change the engine made that the UI should reflect (interval override, upload forced to 0).</summary>
-public sealed record EngineAdjustment
+namespace RatioMaster.Core.Sessions
 {
-    public int? IntervalSeconds { get; init; }
+    /// <summary>An automatic change the engine made that the UI should reflect (interval override, upload forced to 0).</summary>
+    public sealed record EngineAdjustment
+    {
+        public int? IntervalSeconds { get; init; }
 
-    public required string Reason { get; init; }
+        public required string Reason { get; init; }
+    }
 }

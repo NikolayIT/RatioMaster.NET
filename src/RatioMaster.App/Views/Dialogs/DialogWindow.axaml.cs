@@ -1,12 +1,13 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Dialogs;
-
-public partial class DialogWindow : Window
+namespace RatioMaster.App.Views.Dialogs
 {
-    public DialogWindow()
+    using Avalonia.Controls;
+
+    public partial class DialogWindow : Window
     {
-        this.InitializeComponent();
-        this.DataContextChanged += (_, _) => this.Host.Content = this.DataContext;
+        public DialogWindow()
+        {
+            this.InitializeComponent();
+            this.DataContextChanged += (_, _) => this.Host.Content = this.DataContext;
+        }
     }
 }

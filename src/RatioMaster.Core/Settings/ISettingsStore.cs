@@ -1,13 +1,14 @@
-using System.Text.Json;
-
-namespace RatioMaster.Core.Settings;
-
-/// <summary>Reads and writes <see cref="AppSettings"/> as JSON, replacing the old registry storage.</summary>
-public interface ISettingsStore
+namespace RatioMaster.Core.Settings
 {
-    string FilePath { get; }
+    using System.Text.Json;
 
-    AppSettings Load();
+    /// <summary>Reads and writes <see cref="AppSettings"/> as JSON, replacing the old registry storage.</summary>
+    public interface ISettingsStore
+    {
+        string FilePath { get; }
 
-    void Save(AppSettings settings);
+        AppSettings Load();
+
+        void Save(AppSettings settings);
+    }
 }

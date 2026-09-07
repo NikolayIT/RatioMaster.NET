@@ -1,8 +1,9 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Controls;
-
-public partial class TorrentSettingsView : UserControl
+namespace RatioMaster.App.Views.Controls
 {
-    public TorrentSettingsView() => this.InitializeComponent();
+    using Avalonia.Controls;
+
+    public partial class TorrentSettingsView : UserControl
+    {
+        public TorrentSettingsView() => this.InitializeComponent();
+    }
 }

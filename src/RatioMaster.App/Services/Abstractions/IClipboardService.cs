@@ -1,9 +1,10 @@
-using System.Threading.Tasks;
-
-namespace RatioMaster.App.Services.Abstractions;
-
-/// <summary>Copies text to the system clipboard.</summary>
-public interface IClipboardService
+namespace RatioMaster.App.Services.Abstractions
 {
-    Task SetTextAsync(string text);
+    using System.Threading.Tasks;
+
+    /// <summary>Copies text to the system clipboard.</summary>
+    public interface IClipboardService
+    {
+        Task SetTextAsync(string text);
+    }
 }

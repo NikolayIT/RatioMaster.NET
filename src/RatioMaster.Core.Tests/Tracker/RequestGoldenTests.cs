@@ -1,163 +1,165 @@
-using System.Text;
-using RatioMaster.Core.Clients;
-using RatioMaster.Core.Tracker;
-
-namespace RatioMaster.Core.Tests.Tracker;
-
-/// <summary>
-/// Pins the exact bytes every emulation puts on the wire. The whole point of the program is that a
-/// tracker cannot tell these requests from the real client's, so the full request line, header order,
-/// header spelling and query order are all part of the contract, not implementation detail.
-///
-/// These goldens were taken from RatioMaster.NET 0.43 and verified against its TorrentClientFactory
-/// before that source was removed, so they are the reference for what a tracker expects to see.
-/// Quirks are deliberate: BitComet 0.98 and older carry a stray 0x1E byte in the user agent that 0.43
-/// has always sent. Changing any of this changes how every user's traffic is fingerprinted.
-///
-/// The expected text lives in Tracker/RequestGoldens.txt. When a change is intended, run
-/// <see cref="WriteGoldenFile"/> (temporarily un-skipped) and review the diff before committing it.
-/// </summary>
-public class RequestGoldenTests
+namespace RatioMaster.Core.Tests.Tracker
 {
-    private const string GoldenFileName = "RequestGoldens.txt";
+    using System.Text;
 
-    private static readonly ClientProfileCatalog Catalog = ClientProfileCatalog.Load();
+    using RatioMaster.Core.Clients;
+    using RatioMaster.Core.Tracker;
 
-    private static byte[] SampleInfoHash { get; } = Enumerable.Range(0, 20).Select(i => (byte)((i * 11) + 5)).ToArray();
-
-    [Fact]
-    public void EveryProfileProducesTheExpectedRequestBytes()
+    /// <summary>
+    /// Pins the exact bytes every emulation puts on the wire. The whole point of the program is that a
+    /// tracker cannot tell these requests from the real client's, so the full request line, header order,
+    /// header spelling and query order are all part of the contract, not implementation detail.
+    ///
+    /// These goldens were taken from RatioMaster.NET 0.43 and verified against its TorrentClientFactory
+    /// before that source was removed, so they are the reference for what a tracker expects to see.
+    /// Quirks are deliberate: BitComet 0.98 and older carry a stray 0x1E byte in the user agent that 0.43
+    /// has always sent. Changing any of this changes how every user's traffic is fingerprinted.
+    ///
+    /// The expected text lives in Tracker/RequestGoldens.txt. When a change is intended, run
+    /// <see cref="WriteGoldenFile"/> (temporarily un-skipped) and review the diff before committing it.
+    /// </summary>
+    public class RequestGoldenTests
     {
-        var actual = BuildAll();
-        var expected = File.ReadAllText(FindGoldenFile()).ReplaceLineEndings("\n");
+        private const string GoldenFileName = "RequestGoldens.txt";
 
-        Assert.Equal(expected, actual);
-    }
+        private static readonly ClientProfileCatalog Catalog = ClientProfileCatalog.Load();
 
-    [Fact]
-    public void EveryProfileIsCoveredByTheGoldens()
-    {
-        var golden = File.ReadAllText(FindGoldenFile());
-        foreach (var profile in Catalog.Profiles)
+        private static byte[] SampleInfoHash { get; } = Enumerable.Range(0, 20).Select(i => (byte)((i * 11) + 5)).ToArray();
+
+        [Fact]
+        public void EveryProfileProducesTheExpectedRequestBytes()
         {
-            Assert.Contains("=== " + profile.Name + " ===", golden, StringComparison.Ordinal);
-        }
-    }
+            var actual = BuildAll();
+            var expected = File.ReadAllText(FindGoldenFile()).ReplaceLineEndings("\n");
 
-    [Fact]
-    public void RequestsAreWellFormedHttp()
-    {
-        foreach (var profile in Catalog.Profiles)
-        {
-            var text = HttpRequestWriter.BuildRequestText("/announce?x=1", "tracker.test", profile);
-
-            Assert.StartsWith("GET /announce?x=1 " + profile.HttpProtocol + "\r\n", text, StringComparison.Ordinal);
-            Assert.EndsWith("\r\n\r\n", text, StringComparison.Ordinal);
-
-            // Exactly one blank line, and it terminates the headers.
-            Assert.Equal(text.Length, text.IndexOf("\r\n\r\n", StringComparison.Ordinal) + 4);
-            Assert.DoesNotContain("{host}", text, StringComparison.Ordinal);
-        }
-    }
-
-    [Fact]
-    public void EveryProfileSendsAHostHeaderExactlyOnce()
-    {
-        foreach (var profile in Catalog.Profiles)
-        {
-            var hostHeaders = profile.Headers.Count(h => h.StartsWith("Host:", StringComparison.OrdinalIgnoreCase));
-            Assert.Equal(1, hostHeaders);
-        }
-    }
-
-    /// <summary>Regenerates the golden file. Un-skip, run, review the diff, then skip again.</summary>
-    [Fact(Skip = "Only run deliberately to accept an intended change to the emulations.")]
-    public void WriteGoldenFile() => File.WriteAllText(FindGoldenFile(), BuildAll());
-
-    /// <summary>Fixed identity so the goldens are stable; the generators are tested separately.</summary>
-    private static AnnounceValues Values(ClientProfile profile) => new()
-    {
-        InfoHashEncoded = InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase),
-        PeerId = profile.PeerIdPrefix + "PEERIDSUFFIX",
-        Port = "45678",
-        Uploaded = 1_073_741_824,
-        Downloaded = 536_870_912,
-        Left = 268_435_456,
-        Key = "KEY01234",
-        NumWant = profile.DefaultNumWant.ToString(System.Globalization.CultureInfo.InvariantCulture),
-        LocalIp = "192.168.1.50",
-    };
-
-    private static string BuildAll()
-    {
-        var builder = new StringBuilder();
-        builder.Append("# Byte-exact tracker requests for every client emulation.\n");
-        builder.Append("# Generated by RequestGoldenTests.WriteGoldenFile. CR is shown as <CR>, LF ends each line.\n");
-        builder.Append("# Control bytes inside header values are shown as <XX>.\n");
-
-        foreach (var profile in Catalog.Profiles)
-        {
-            builder.Append("\n=== ").Append(profile.Name).Append(" ===\n");
-            foreach (var trackerEvent in new[] { TrackerEvent.Started, TrackerEvent.None, TrackerEvent.Completed, TrackerEvent.Stopped })
-            {
-                var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile.Query, Values(profile), trackerEvent);
-                var pathAndQuery = url["http://tracker.test".Length..];
-                var request = HttpRequestWriter.BuildRequestText(pathAndQuery, "tracker.test", profile);
-
-                builder.Append("--- ").Append(trackerEvent).Append(" ---\n");
-                builder.Append(Visible(request));
-            }
-
-            var scrape = ScrapeUrlBuilder.TryBuild("http://tracker.test/announce", InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase));
-            builder.Append("--- Scrape ---\n").Append(scrape ?? "(not supported)").Append('\n');
+            Assert.Equal(expected, actual);
         }
 
-        return builder.ToString();
-    }
-
-    /// <summary>Renders the request so every byte is visible and diffable in a text file.</summary>
-    private static string Visible(string request)
-    {
-        var builder = new StringBuilder(request.Length + 32);
-        foreach (var c in request)
+        [Fact]
+        public void EveryProfileIsCoveredByTheGoldens()
         {
-            if (c == '\r')
+            var golden = File.ReadAllText(FindGoldenFile());
+            foreach (var profile in Catalog.Profiles)
             {
-                builder.Append("<CR>");
-            }
-            else if (c == '\n')
-            {
-                builder.Append('\n');
-            }
-            else if (char.IsControl(c))
-            {
-                builder.Append('<').Append(((int)c).ToString("X2")).Append('>');
-            }
-            else
-            {
-                builder.Append(c);
+                Assert.Contains("=== " + profile.Name + " ===", golden, StringComparison.Ordinal);
             }
         }
 
-        return builder.ToString();
-    }
-
-    private static string FindGoldenFile()
-    {
-        var directory = new DirectoryInfo(AppContext.BaseDirectory);
-        while (directory is not null)
+        [Fact]
+        public void RequestsAreWellFormedHttp()
         {
-            var candidate = Path.Combine(directory.FullName, "src", "RatioMaster.Core.Tests", "Tracker", GoldenFileName);
-            if (File.Exists(candidate))
+            foreach (var profile in Catalog.Profiles)
             {
-                return candidate;
-            }
+                var text = HttpRequestWriter.BuildRequestText("/announce?x=1", "tracker.test", profile);
 
-            directory = directory.Parent;
+                Assert.StartsWith("GET /announce?x=1 " + profile.HttpProtocol + "\r\n", text, StringComparison.Ordinal);
+                Assert.EndsWith("\r\n\r\n", text, StringComparison.Ordinal);
+
+                // Exactly one blank line, and it terminates the headers.
+                Assert.Equal(text.Length, text.IndexOf("\r\n\r\n", StringComparison.Ordinal) + 4);
+                Assert.DoesNotContain("{host}", text, StringComparison.Ordinal);
+            }
         }
 
-        throw new FileNotFoundException(
-            $"{GoldenFileName} was not found. The tests read it from the repository so that regenerating "
-            + "it updates the file under source control, not a copy in the output directory.");
+        [Fact]
+        public void EveryProfileSendsAHostHeaderExactlyOnce()
+        {
+            foreach (var profile in Catalog.Profiles)
+            {
+                var hostHeaders = profile.Headers.Count(h => h.StartsWith("Host:", StringComparison.OrdinalIgnoreCase));
+                Assert.Equal(1, hostHeaders);
+            }
+        }
+
+        /// <summary>Regenerates the golden file. Un-skip, run, review the diff, then skip again.</summary>
+        [Fact(Skip = "Only run deliberately to accept an intended change to the emulations.")]
+        public void WriteGoldenFile() => File.WriteAllText(FindGoldenFile(), BuildAll());
+
+        /// <summary>Fixed identity so the goldens are stable; the generators are tested separately.</summary>
+        private static AnnounceValues Values(ClientProfile profile) => new()
+        {
+            InfoHashEncoded = InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase),
+            PeerId = profile.PeerIdPrefix + "PEERIDSUFFIX",
+            Port = "45678",
+            Uploaded = 1_073_741_824,
+            Downloaded = 536_870_912,
+            Left = 268_435_456,
+            Key = "KEY01234",
+            NumWant = profile.DefaultNumWant.ToString(System.Globalization.CultureInfo.InvariantCulture),
+            LocalIp = "192.168.1.50",
+        };
+
+        private static string BuildAll()
+        {
+            var builder = new StringBuilder();
+            builder.Append("# Byte-exact tracker requests for every client emulation.\n");
+            builder.Append("# Generated by RequestGoldenTests.WriteGoldenFile. CR is shown as <CR>, LF ends each line.\n");
+            builder.Append("# Control bytes inside header values are shown as <XX>.\n");
+
+            foreach (var profile in Catalog.Profiles)
+            {
+                builder.Append("\n=== ").Append(profile.Name).Append(" ===\n");
+                foreach (var trackerEvent in new[] { TrackerEvent.Started, TrackerEvent.None, TrackerEvent.Completed, TrackerEvent.Stopped })
+                {
+                    var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile.Query, Values(profile), trackerEvent);
+                    var pathAndQuery = url["http://tracker.test".Length..];
+                    var request = HttpRequestWriter.BuildRequestText(pathAndQuery, "tracker.test", profile);
+
+                    builder.Append("--- ").Append(trackerEvent).Append(" ---\n");
+                    builder.Append(Visible(request));
+                }
+
+                var scrape = ScrapeUrlBuilder.TryBuild("http://tracker.test/announce", InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase));
+                builder.Append("--- Scrape ---\n").Append(scrape ?? "(not supported)").Append('\n');
+            }
+
+            return builder.ToString();
+        }
+
+        /// <summary>Renders the request so every byte is visible and diffable in a text file.</summary>
+        private static string Visible(string request)
+        {
+            var builder = new StringBuilder(request.Length + 32);
+            foreach (var c in request)
+            {
+                if (c == '\r')
+                {
+                    builder.Append("<CR>");
+                }
+                else if (c == '\n')
+                {
+                    builder.Append('\n');
+                }
+                else if (char.IsControl(c))
+                {
+                    builder.Append('<').Append(((int)c).ToString("X2")).Append('>');
+                }
+                else
+                {
+                    builder.Append(c);
+                }
+            }
+
+            return builder.ToString();
+        }
+
+        private static string FindGoldenFile()
+        {
+            var directory = new DirectoryInfo(AppContext.BaseDirectory);
+            while (directory is not null)
+            {
+                var candidate = Path.Combine(directory.FullName, "src", "RatioMaster.Core.Tests", "Tracker", GoldenFileName);
+                if (File.Exists(candidate))
+                {
+                    return candidate;
+                }
+
+                directory = directory.Parent;
+            }
+
+            throw new FileNotFoundException(
+                $"{GoldenFileName} was not found. The tests read it from the repository so that regenerating "
+                + "it updates the file under source control, not a copy in the output directory.");
+        }
     }
 }

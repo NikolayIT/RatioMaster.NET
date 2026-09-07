@@ -1,31 +1,32 @@
-using RatioMaster.Core.Torrents;
-
-namespace RatioMaster.Core.Sessions;
-
-/// <summary>The torrent facts the session engine needs, independent of the .torrent file object.</summary>
-public sealed record TorrentDescriptor
+namespace RatioMaster.Core.Sessions
 {
-    public required byte[] InfoHash { get; init; }
+    using RatioMaster.Core.Torrents;
 
-    public required long TotalLength { get; init; }
-
-    public required string TrackerUrl { get; init; }
-
-    public string Name { get; init; } = string.Empty;
-
-    /// <summary>Gets the local .torrent path, when the torrent was loaded from disk.</summary>
-    public string? FilePath { get; init; }
-
-    public static TorrentDescriptor FromFile(TorrentFile file, string? trackerUrl = null)
+    /// <summary>The torrent facts the session engine needs, independent of the .torrent file object.</summary>
+    public sealed record TorrentDescriptor
     {
-        ArgumentNullException.ThrowIfNull(file);
-        return new TorrentDescriptor
+        public required byte[] InfoHash { get; init; }
+
+        public required long TotalLength { get; init; }
+
+        public required string TrackerUrl { get; init; }
+
+        public string Name { get; init; } = string.Empty;
+
+        /// <summary>Gets the local .torrent path, when the torrent was loaded from disk.</summary>
+        public string? FilePath { get; init; }
+
+        public static TorrentDescriptor FromFile(TorrentFile file, string? trackerUrl = null)
         {
-            InfoHash = file.GetInfoHashBytes(),
-            TotalLength = file.TotalLength,
-            TrackerUrl = trackerUrl ?? file.Announce,
-            Name = file.Name,
-            FilePath = file.Path,
-        };
+            ArgumentNullException.ThrowIfNull(file);
+            return new TorrentDescriptor
+            {
+                InfoHash = file.GetInfoHashBytes(),
+                TotalLength = file.TotalLength,
+                TrackerUrl = trackerUrl ?? file.Announce,
+                Name = file.Name,
+                FilePath = file.Path,
+            };
+        }
     }
 }

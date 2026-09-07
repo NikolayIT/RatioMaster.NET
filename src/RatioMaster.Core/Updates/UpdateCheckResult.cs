@@ -1,16 +1,17 @@
-using System.Globalization;
-using System.Net.Http;
-
-namespace RatioMaster.Core.Updates;
-
-/// <summary>The outcome of one update check.</summary>
-public sealed record UpdateCheckResult
+namespace RatioMaster.Core.Updates
 {
-    public string? RemoteVersion { get; init; }
+    using System.Globalization;
+    using System.Net.Http;
 
-    public bool UpdateAvailable { get; init; }
+    /// <summary>The outcome of one update check.</summary>
+    public sealed record UpdateCheckResult
+    {
+        public string? RemoteVersion { get; init; }
 
-    public string? Error { get; init; }
+        public bool UpdateAvailable { get; init; }
 
-    public bool Succeeded => this.Error is null;
+        public string? Error { get; init; }
+
+        public bool Succeeded => this.Error is null;
+    }
 }

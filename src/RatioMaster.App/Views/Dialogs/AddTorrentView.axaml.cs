@@ -1,8 +1,9 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Dialogs;
-
-public partial class AddTorrentView : UserControl
+namespace RatioMaster.App.Views.Dialogs
 {
-    public AddTorrentView() => this.InitializeComponent();
+    using Avalonia.Controls;
+
+    public partial class AddTorrentView : UserControl
+    {
+        public AddTorrentView() => this.InitializeComponent();
+    }
 }

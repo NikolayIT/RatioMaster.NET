@@ -1,30 +1,31 @@
-using System.Text.Json.Serialization;
-
-namespace RatioMaster.Core.Sessions;
-
-/// <summary>The auto-stop trigger types (the old "Stop after" combo).</summary>
-public enum StopConditionType
+namespace RatioMaster.Core.Sessions
 {
-    Never,
-    AfterSeconds,
-    SeedersBelow,
-    LeechersBelow,
-    UploadedAboveMb,
-    DownloadedAboveMb,
-    LeecherSeederRatioBelow,
-}
+    using System.Text.Json.Serialization;
 
-/// <summary>An auto-stop condition.</summary>
-public sealed record StopCondition
-{
-    [JsonConstructor]
-    public StopCondition()
+    /// <summary>The auto-stop trigger types (the old "Stop after" combo).</summary>
+    public enum StopConditionType
     {
+        Never,
+        AfterSeconds,
+        SeedersBelow,
+        LeechersBelow,
+        UploadedAboveMb,
+        DownloadedAboveMb,
+        LeecherSeederRatioBelow,
     }
 
-    public static StopCondition Never { get; } = new() { Type = StopConditionType.Never };
+    /// <summary>An auto-stop condition.</summary>
+    public sealed record StopCondition
+    {
+        [JsonConstructor]
+        public StopCondition()
+        {
+        }
 
-    public StopConditionType Type { get; set; } = StopConditionType.Never;
+        public static StopCondition Never { get; } = new() { Type = StopConditionType.Never };
 
-    public double Value { get; set; }
+        public StopConditionType Type { get; set; } = StopConditionType.Never;
+
+        public double Value { get; set; }
+    }
 }

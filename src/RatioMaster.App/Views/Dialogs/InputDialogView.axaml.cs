@@ -1,17 +1,18 @@
-using Avalonia.Controls;
-
-namespace RatioMaster.App.Views.Dialogs;
-
-public partial class InputDialogView : UserControl
+namespace RatioMaster.App.Views.Dialogs
 {
-    public InputDialogView()
+    using Avalonia.Controls;
+
+    public partial class InputDialogView : UserControl
     {
-        this.InitializeComponent();
-        this.Loaded += (_, _) =>
+        public InputDialogView()
         {
-            var box = this.FindControl<TextBox>("ValueBox");
-            box?.Focus();
-            box?.SelectAll();
-        };
+            this.InitializeComponent();
+            this.Loaded += (_, _) =>
+            {
+                var box = this.FindControl<TextBox>("ValueBox");
+                box?.Focus();
+                box?.SelectAll();
+            };
+        }
     }
 }

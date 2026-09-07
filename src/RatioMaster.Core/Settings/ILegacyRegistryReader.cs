@@ -1,16 +1,18 @@
-using System.Runtime.Versioning;
-using Microsoft.Win32;
-using RatioMaster.Core.Networking;
-using RatioMaster.Core.Sessions;
-
-namespace RatioMaster.Core.Settings;
-
-/// <summary>Reads the values RatioMaster.NET 0.43 stored under HKCU\Software\RatioMaster.NET.</summary>
-public interface ILegacyRegistryReader
+namespace RatioMaster.Core.Settings
 {
-    bool Exists { get; }
+    using System.Runtime.Versioning;
 
-    string? GetString(string name);
+    using Microsoft.Win32;
+    using RatioMaster.Core.Networking;
+    using RatioMaster.Core.Sessions;
 
-    int? GetInt(string name);
+    /// <summary>Reads the values RatioMaster.NET 0.43 stored under HKCU\Software\RatioMaster.NET.</summary>
+    public interface ILegacyRegistryReader
+    {
+        bool Exists { get; }
+
+        string? GetString(string name);
+
+        int? GetInt(string name);
+    }
 }
