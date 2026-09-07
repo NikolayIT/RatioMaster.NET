@@ -13,7 +13,7 @@ namespace RatioMaster.Core.Tests.Clients
             // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
             // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
             // Transmission 2.94 and 3.00, Deluge 2.1.1.
-            Assert.Equal(28, Catalog.Profiles.Count);
+            Assert.Equal(29, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace RatioMaster.Core.Tests.Clients
         {
             string[] expected =
             [
-                "qBittorrent", "uTorrent", "BitComet", "Vuze", "BitTorrent", "Transmission", "ABC",
+                "qBittorrent", "uTorrent", "BitComet", "Vuze", "BitTorrent", "rTorrent", "Transmission", "ABC",
                 "BitLord", "BTuga", "BitTornado", "Burst", "BitTyrant", "BitSpirit", "Deluge", "KTorrent", "Gnome BT",
             ];
             Assert.Equal(expected, Catalog.Families);
@@ -48,6 +48,7 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
         [InlineData("Vuze", new[] { "5.7.5.0" })]
         [InlineData("BitTorrent", new[] { "6.0.3 (8642)" })]
+        [InlineData("rTorrent", new[] { "0.9.6" })]
         [InlineData("Transmission", new[] { "2.94", "3.00" })]
         [InlineData("BitSpirit", new[] { "3.6.0.200", "3.1.0.077" })]
         [InlineData("Deluge", new[] { "2.1.1" })]
@@ -266,7 +267,7 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(29, catalog.Profiles.Count);
+                Assert.Equal(30, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.3.2").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.3.2").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));

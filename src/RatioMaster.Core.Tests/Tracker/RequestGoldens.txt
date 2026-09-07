@@ -522,6 +522,38 @@ Accept-Encoding: gzip<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
 
+=== rTorrent 0.9.6 ===
+--- Started ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=started HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: rtorrent/0.9.6/0.13.6<CR>
+Accept: */*<CR>
+Accept-Encoding: deflate, gzip<CR>
+<CR>
+--- None ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: rtorrent/0.9.6/0.13.6<CR>
+Accept: */*<CR>
+Accept-Encoding: deflate, gzip<CR>
+<CR>
+--- Completed ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=completed HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: rtorrent/0.9.6/0.13.6<CR>
+Accept: */*<CR>
+Accept-Encoding: deflate, gzip<CR>
+<CR>
+--- Stopped ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=stopped HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: rtorrent/0.9.6/0.13.6<CR>
+Accept: */*<CR>
+Accept-Encoding: deflate, gzip<CR>
+<CR>
+--- Scrape ---
+http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
+
 === Transmission 2.94 ===
 --- Started ---
 GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2940-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1&event=started HTTP/1.1<CR>
