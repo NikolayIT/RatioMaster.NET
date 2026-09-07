@@ -62,6 +62,23 @@ namespace RatioMaster.Core.Tests.Tracker
             Assert.Contains("numwant=0", stopped, StringComparison.Ordinal);
         }
 
+        /// <summary>Every client we emulate asks for no peers when it leaves, whatever it asks for while running.</summary>
+        [Theory]
+        [InlineData("200")]
+        [InlineData("80")]
+        [InlineData("175")]
+        public void StoppingAlwaysAsksForNoPeers(string numWant)
+        {
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+
+            var running = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(numWant), TrackerEvent.None);
+            Assert.Contains("numwant=" + numWant, running, StringComparison.Ordinal);
+
+            var stopped = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(numWant), TrackerEvent.Stopped);
+            Assert.Contains("numwant=0", stopped, StringComparison.Ordinal);
+            Assert.DoesNotContain("numwant=" + numWant + "&", stopped, StringComparison.Ordinal);
+        }
+
         [Fact]
         public void UsesAmpersandWhenTheTrackerAlreadyHasAQuery()
         {

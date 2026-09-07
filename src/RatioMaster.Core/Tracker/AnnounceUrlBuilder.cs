@@ -26,11 +26,11 @@ namespace RatioMaster.Core.Tracker
 
             url += query;
 
-            var numWant = values.NumWant;
-            if (numWant == "0" && trackerEvent != TrackerEvent.Stopped)
-            {
-                numWant = "200";
-            }
+            // A client that is leaving has no use for peers, so every real one asks for none on the last
+            // announce. Otherwise an unset numwant means "as many as usual", which is 200.
+            var numWant = trackerEvent == TrackerEvent.Stopped
+                ? "0"
+                : values.NumWant == "0" ? "200" : values.NumWant;
 
             return url
                 .Replace("{infohash}", values.InfoHashEncoded, StringComparison.Ordinal)
