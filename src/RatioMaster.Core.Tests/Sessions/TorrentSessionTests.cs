@@ -579,6 +579,57 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.Equal(2, tracker.Announces.Count(a => a.Event == TrackerEvent.Stopped));
         }
 
+        /// <summary>
+        /// uTorrent makes up a new tracker key every ten minutes, so a long run has to do the same; announcing
+        /// one key for hours is exactly the kind of thing a tracker can notice.
+        /// </summary>
+        [Fact]
+        public async Task TheKeyRollsWhileRunningForClientsThatDoThat()
+        {
+            var settings = QuietSettings() with { IntervalSeconds = 60 };
+            var (session, tracker) = Create(
+                settings,
+                configureTracker: t => t.Interval = 60,
+                identity: Identity() with { Source = ClientIdentitySource.Generated });
+
+            await session.StartAsync(Ct);
+
+            // Eleven minutes of announces, one a minute.
+            await TickAsync(session, 11 * 60);
+
+            var keys = tracker.Announces.Select(a => a.Values.Key).ToList();
+            Assert.Equal("KEY12345", keys[0]);
+            Assert.True(keys.Distinct(StringComparer.Ordinal).Count() > 1, "the key never changed");
+
+            // Whatever it rolls to still has to look like the profile's key: eight upper-case hex digits.
+            // The first one is the fixture's, so only the generated ones are checked.
+            var rolled = keys.Where(k => k != "KEY12345").ToList();
+            Assert.NotEmpty(rolled);
+            Assert.All(rolled, k => Assert.Equal(8, k.Length));
+            Assert.All(rolled, k => Assert.All(k, c => Assert.Contains(c, "0123456789ABCDEF")));
+
+            // The peer id and port belong to the session and must not move with it.
+            Assert.All(tracker.Announces, a => Assert.Equal("-UT3320-abcdefghijkl", a.Values.PeerId));
+            Assert.All(tracker.Announces, a => Assert.Equal("50000", a.Values.Port));
+        }
+
+        [Theory]
+        [InlineData(ClientIdentitySource.Custom)]
+        [InlineData(ClientIdentitySource.CopiedFromProcess)]
+        public async Task AKeyTheUserChoseOrWeReadFromTheClientIsNeverRolled(ClientIdentitySource source)
+        {
+            var settings = QuietSettings() with { IntervalSeconds = 60 };
+            var (session, tracker) = Create(
+                settings,
+                configureTracker: t => t.Interval = 60,
+                identity: Identity() with { Source = source });
+
+            await session.StartAsync(Ct);
+            await TickAsync(session, 11 * 60);
+
+            Assert.All(tracker.Announces, a => Assert.Equal("KEY12345", a.Values.Key));
+        }
+
         private static ClientIdentity Identity(string port = "50000") => new()
         {
             PeerId = "-UT3320-abcdefghijkl",

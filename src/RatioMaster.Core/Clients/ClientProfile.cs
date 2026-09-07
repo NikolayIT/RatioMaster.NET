@@ -24,6 +24,12 @@ namespace RatioMaster.Core.Clients
         /// <summary>Gets the spec for the tracker "key" value.</summary>
         public required RandomValueSpec Key { get; init; }
 
+        /// <summary>Gets how often a new key is generated while the torrent runs.</summary>
+        public KeyRefreshPolicy KeyRefresh { get; init; } = KeyRefreshPolicy.Never;
+
+        /// <summary>Gets the key lifetime in minutes, used when <see cref="KeyRefresh"/> is timed.</summary>
+        public int KeyRefreshMinutes { get; init; } = 10;
+
         /// <summary>Gets the fixed peer id prefix (may contain literal %xx escapes).</summary>
         public required string PeerIdPrefix { get; init; }
 

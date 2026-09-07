@@ -18,6 +18,11 @@ namespace RatioMaster.Core.Clients
 
         public RandomValueSpec? Key { get; set; }
 
+        [JsonConverter(typeof(JsonStringEnumConverter<KeyRefreshPolicy>))]
+        public KeyRefreshPolicy KeyRefresh { get; set; } = KeyRefreshPolicy.Never;
+
+        public int? KeyRefreshMinutes { get; set; }
+
         public PeerIdSpecEntry? PeerId { get; set; }
 
         public List<string>? Headers { get; set; }
@@ -50,6 +55,8 @@ namespace RatioMaster.Core.Clients
                 HttpProtocol = this.HttpProtocol,
                 HashUpperCase = this.HashUpperCase,
                 Key = this.Key,
+                KeyRefresh = this.KeyRefresh,
+                KeyRefreshMinutes = this.KeyRefreshMinutes ?? 10,
                 PeerIdPrefix = this.PeerId.Prefix ?? string.Empty,
                 PeerId = new RandomValueSpec
                 {

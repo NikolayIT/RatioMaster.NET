@@ -24,13 +24,13 @@ namespace RatioMaster.Core.Sessions
 
         private readonly TorrentDescriptor descriptor;
         private readonly ClientProfile profile;
-        private readonly ClientIdentity identity;
         private readonly ITrackerClient tracker;
         private readonly ILocalIpProvider localIpProvider;
         private readonly IRandomSource random;
         private readonly ISystemClock clock;
         private readonly Lock gate = new();
 
+        private ClientIdentity identity;
         private TorrentSettings settings;
         private TorrentSessionState state = TorrentSessionState.Idle;
         private string? stopReason;
@@ -53,6 +53,9 @@ namespace RatioMaster.Core.Sessions
 
         private int? seeders;
         private int? leechers;
+
+        /// <summary>When the current key was generated, for the clients that roll theirs while running.</summary>
+        private int keyGeneratedAtSecond;
 
         private PeerListener? listener;
         private CancellationTokenSource? loopCts;
@@ -234,6 +237,7 @@ namespace RatioMaster.Core.Sessions
                 this.uploaded = 0;
                 this.downloaded = 0;
                 this.totalRunningSeconds = 0;
+                this.keyGeneratedAtSecond = 0;
                 this.elapsedInInterval = 0;
                 this.haveInitialPeers = false;
                 this.shouldStop = false;
@@ -472,10 +476,39 @@ namespace RatioMaster.Core.Sessions
             return (long)kb * 1024;
         }
 
+        /// <summary>
+        /// Rolls the tracker key when the emulated client would have. uTorrent and BitTorrent make up a new one
+        /// every ten minutes, so a session that announced the same key for hours would not look like them.
+        /// Only a generated identity rotates: a key read out of the real client's memory, or typed by the user,
+        /// is theirs to keep. The caller holds the gate, so this reports back rather than logging itself.
+        /// </summary>
+        private bool RefreshKeyIfDue()
+        {
+            if (this.profile.KeyRefresh != KeyRefreshPolicy.Timed
+                || this.identity.Source != ClientIdentitySource.Generated)
+            {
+                return false;
+            }
+
+            var lifetimeSeconds = Math.Max(1, this.profile.KeyRefreshMinutes) * 60;
+            if (this.totalRunningSeconds - this.keyGeneratedAtSecond < lifetimeSeconds)
+            {
+                return false;
+            }
+
+            this.keyGeneratedAtSecond = this.totalRunningSeconds;
+            this.identity = this.identity with { Key = new ClientIdentityGenerator(this.random).GenerateValue(this.profile.Key) };
+            return true;
+        }
+
         private AnnounceValues BuildAnnounceValues()
         {
+            bool keyRolled;
+            AnnounceValues values;
             lock (this.gate)
             {
+                keyRolled = this.RefreshKeyIfDue();
+
                 this.uploaded = AnnounceMath.RoundDown(this.uploaded, AnnounceMath.UploadedDenominator);
                 this.downloaded = AnnounceMath.RoundDown(this.downloaded, AnnounceMath.DownloadedDenominator);
                 if (this.left > 0)
@@ -483,7 +516,7 @@ namespace RatioMaster.Core.Sessions
                     this.left = this.totalSize - this.downloaded;
                 }
 
-                return new AnnounceValues
+                values = new AnnounceValues
                 {
                     InfoHashEncoded = InfoHashEncoder.Encode(this.descriptor.InfoHash, this.profile.HashUpperCase),
                     PeerId = this.identity.PeerId,
@@ -496,6 +529,14 @@ namespace RatioMaster.Core.Sessions
                     LocalIp = this.LocalIp,
                 };
             }
+
+            // Outside the gate: the log event runs whatever a subscriber hooked up to it.
+            if (keyRolled)
+            {
+                this.Log(LogLevel.Info, "Generated a new tracker key, as the emulated client does.");
+            }
+
+            return values;
         }
 
         private async Task<AnnounceResponse?> DoAnnounceAsync(TrackerEvent trackerEvent, CancellationToken cancellationToken)

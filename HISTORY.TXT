@@ -10,6 +10,7 @@
 - RM: Added new client emulation: "uTorrent 3.5.4" (build 44498), and removed the obsolete 3.3.2 and 3.3.0 ones; a saved torrent that used one of them now runs with the default client
 - RM: Fixed the random bytes in the peer id of the uTorrent, BitComet, BitSpirit, BitLord and rTorrent emulations: they were drawn from 0-254, so a peer id could contain a zero byte and could never contain 0xff. The real clients use 1-255
 - RM: The stopped announce now asks for no peers (numwant=0), as every real client does; it used to keep asking for the usual 200 or 80 on the way out
+- RM: The uTorrent and BitTorrent emulations now generate a new tracker key every 10 minutes while a torrent runs, as the real clients do; the key used to stay the same for the whole session, which stood out on a long seed. A key you typed yourself, or one read out of a running client, is never changed
 - RM: Added new client emulations: "Transmission 2.94" and "Transmission 3.00", replacing 2.82 and 2.92
 - RM: Fixed the Transmission peer id, which was random where the real client's is not: its last character is a check digit that makes the twelve generated characters add up to a multiple of 36, so roughly 35 out of every 36 peer ids we sent could be spotted as fake. The peer id and the announce key now follow tr_peerIdInit and "&key=%x" from the Transmission sources
 - RM: Removed the obsolete uTorrent 3.2.0, 2.0.1, 1.8.5, 1.8.1-beta, 1.8.0, 1.7.7, 1.7.6, 1.7.5, 1.6.1 and 1.6 emulations; a saved torrent that used one of them now runs with the default client
