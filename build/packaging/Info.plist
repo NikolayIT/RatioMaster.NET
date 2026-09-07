@@ -5,8 +5,8 @@
   <key>CFBundleName</key><string>RatioMaster.NET</string>
   <key>CFBundleDisplayName</key><string>RatioMaster.NET</string>
   <key>CFBundleIdentifier</key><string>net.ratiomaster.app</string>
-  <key>CFBundleVersion</key><string>1.0.0</string>
-  <key>CFBundleShortVersionString</key><string>1.0.0</string>
+  <key>CFBundleVersion</key><string>1.1.0</string>
+  <key>CFBundleShortVersionString</key><string>1.1.0</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleExecutable</key><string>RatioMaster.NET</string>
   <key>CFBundleIconFile</key><string>RatioMaster.icns</string>

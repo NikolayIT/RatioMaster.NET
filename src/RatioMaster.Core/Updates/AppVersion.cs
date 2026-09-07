@@ -4,12 +4,12 @@ namespace RatioMaster.Core.Updates
     public static class AppVersion
     {
         /// <summary>Human-readable version shown in the UI.</summary>
-        public const string Public = "1.0.0";
+        public const string Public = "1.1.0";
 
         /// <summary>The four-digit id sent to and compared against /vc.php. Ordinal comparison, so it stays above "0430".</summary>
-        public const string CheckId = "1000";
+        public const string CheckId = "1100";
 
-        public const string ReleaseDate = "2026-09-06";
+        public const string ReleaseDate = "2026-09-07";
 
         public const string WebsiteUrl = "https://ratiomaster.net";
 

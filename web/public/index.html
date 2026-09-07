@@ -50,6 +50,12 @@
       <h2>Latest news</h2>
       <ul class="news">
         <li>
+          <time datetime="2026-09-07">7 September 2026</time>
+          <strong>RatioMaster.NET 1.1</strong>
+          The client emulations were checked against the real clients&rsquo; source code and brought up to date: current qBittorrent, Deluge, Vuze, BitTorrent and uTorrent builds, a new rTorrent emulation, and a fixed Transmission peer id.<br>
+          <a href="#download">Download</a> &middot; <a href="#changelog">Changelog</a>
+        </li>
+        <li>
           <time datetime="2026-09-06">6 September 2026</time>
           <strong>RatioMaster.NET 1.0</strong>
           A complete rewrite: one self-contained file for Windows, Linux and macOS, https trackers, a new interface with light and dark themes, and a qBittorrent emulation.<br>
@@ -79,28 +85,28 @@
   <main class="content">
 
     <section id="download">
-      <h1>RatioMaster.NET <span class="version">1.0</span></h1>
+      <h1>RatioMaster.NET <span class="version">1.1</span></h1>
       <p class="lead">RatioMaster.NET is a small standalone application which fakes upload and download stats of a torrent to almost all BitTorrent trackers.</p>
       <p>This means that it does <strong>not</strong> rely on your BitTorrent client (qBittorrent, uTorrent, Azureus, BitComet and others) and it will <strong>not</strong> download or upload the files of a torrent. It can only fake the download and upload statistics reported to the tracker.</p>
-      <p>RatioMaster.NET has built-in emulations of 42 versions of the most commonly used BitTorrent clients: qBittorrent, uTorrent, BitComet, Azureus, Vuze, BitTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent and Gnome BT. Version 1.0 is a single self-contained file: nothing to install, no .NET Framework and no Mono.</p>
+      <p>RatioMaster.NET has built-in emulations of 28 versions of the most commonly used BitTorrent clients: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent and Gnome BT. Version 1.1 is a single self-contained file: nothing to install, no .NET Framework and no Mono.</p>
 
       <div class="downloads">
         <div class="dl">
           <h3>Windows 10 and 11</h3>
-          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-win-x64.zip">Download for Windows</a>
-          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-win-arm64.zip">Windows on ARM</a>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.1.0/RatioMaster.NET-win-x64.zip">Download for Windows</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.1.0/RatioMaster.NET-win-arm64.zip">Windows on ARM</a>
           <p class="hint">Unzip and run <code>RatioMaster.NET.exe</code>. Settings from 0.43 are picked up on the first start.</p>
         </div>
         <div class="dl">
           <h3>Linux</h3>
-          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-linux-x64.tar.gz">Download for Linux x64</a>
-          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-linux-arm64.tar.gz">Linux ARM64</a>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.1.0/RatioMaster.NET-linux-x64.tar.gz">Download for Linux x64</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.1.0/RatioMaster.NET-linux-arm64.tar.gz">Linux ARM64</a>
           <p class="hint">Needs <code>libfontconfig1</code>, <code>libx11-6</code>, <code>libice6</code> and <code>libsm6</code>, which most desktops already have.</p>
         </div>
         <div class="dl">
           <h3>macOS 12 and newer</h3>
-          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-osx-arm64.zip">Download for Apple silicon</a>
-          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.0.0/RatioMaster.NET-osx-x64.zip">Intel Mac</a>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.1.0/RatioMaster.NET-osx-arm64.zip">Download for Apple silicon</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.1.0/RatioMaster.NET-osx-x64.zip">Intel Mac</a>
           <p class="hint">The app is not notarized: right-click it and choose Open the first time, or run <code>xattr -dr com.apple.quarantine RatioMaster.NET.app</code>.</p>
         </div>
       </div>
@@ -114,7 +120,7 @@
         <li>Windows, Linux and macOS, as one self-contained file with nothing to install.</li>
         <li>Automatically loads the torrent info from the torrent file; drag and drop torrents and sessions onto the window.</li>
         <li>Sessions: save the current torrents with their settings and load them later; the last session is restored on startup.</li>
-        <li>Very strong protection against anti-cheat scripts: byte-exact emulation of 42 client versions across 17 families, including qBittorrent, uTorrent, BitComet, Azureus, Vuze, BitTorrent, Transmission and Deluge.</li>
+        <li>Very strong protection against anti-cheat scripts: byte-exact emulation of 28 client versions across 17 families, including qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission and Deluge. Each one is checked against the real client’s own source code, and 1.1 dropped the emulations of clients nobody runs any more rather than keeping a bigger number that was partly wrong.</li>
         <li>Copies the peer id, key, port and peer count out of a running uTorrent, Azureus, BitComet or ABC.</li>
         <li>Selectable upload and download speeds, with optional random jitter and a fresh random speed on every tracker update.</li>
         <li>Honours the tracker's announce interval, scrapes for seeders and leechers, and follows redirects.</li>
@@ -140,6 +146,20 @@
 
     <section id="changelog">
       <h2>Program changelog</h2>
+
+      <article class="release">
+        <h3>1.1.0 <time datetime="2026-09-07">7 September 2026</time></h3>
+        <ul>
+          <li>RM: new option &ldquo;Pause the upload while the tracker reports no leechers&rdquo;, on by default. With nobody downloading there is nobody to upload to, so reporting upload anyway is the easiest way to get noticed.</li>
+          <li>RM: fixed the Transmission peer id. The real client ends it with a check digit that makes the twelve generated characters add up to a multiple of 36; ours were random, so roughly 35 out of every 36 peer ids we sent could be spotted as fake.</li>
+          <li>RM: the uTorrent and BitTorrent emulations now generate a new tracker key every 10 minutes while a torrent runs, as the real clients do. The key used to stay the same for the whole session, which stood out on a long seed.</li>
+          <li>RM: the stopped announce now asks for no peers (numwant=0), as every real client does.</li>
+          <li>RM: new emulations: qBittorrent 5.1.4 and 4.6.7, uTorrent 3.5.4, Deluge 2.1.1, Vuze 5.7.5.0, BitTorrent 7.10.3, Transmission 2.94 and 3.00, and a new rTorrent 0.9.6.</li>
+          <li>RM: removed the emulations of clients that are long out of use: six Azureus versions, Vuze 4.2.0.8, Deluge 1.2.0 and 0.5.x, uTorrent 3.3.2 and 3.3.0, BitTorrent 6.0.3 and Transmission 2.82 and 2.92. A saved torrent that used one of them now runs with the default client.</li>
+          <li>RM: fixed the random bytes in several peer ids being drawn from 0-254, so they could contain a zero byte and could never contain 0xff; the real clients use 1-255.</li>
+          <li>Code: the emulations are now checked against the BitTorrent clients&rsquo; own published source code, and every announce is pinned byte for byte by a test.</li>
+        </ul>
+      </article>
 
       <article class="release">
         <h3>1.0.0 <time datetime="2026-09-06">6 September 2026</time></h3>
