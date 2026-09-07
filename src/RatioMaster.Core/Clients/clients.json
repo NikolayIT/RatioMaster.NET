@@ -198,7 +198,7 @@
       "name": "Transmission 2.82 (14160)", "family": "Transmission", "version": "2.82 (14160)",
       "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-TR2500-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-TR2820-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["User-Agent: Transmission/2.82", "Host: {host}", "Accept: */*", "Accept-Encoding: gzip;q=1.0, deflate, identity"],
       "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&key={key}&compact=1&supportcrypto=1{event}",
       "defaultNumWant": 80

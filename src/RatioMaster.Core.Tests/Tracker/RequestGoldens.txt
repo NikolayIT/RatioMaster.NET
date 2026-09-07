@@ -688,28 +688,28 @@ http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c
 
 === Transmission 2.82 (14160) ===
 --- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2500-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1&event=started HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2820-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1&event=started HTTP/1.1<CR>
 User-Agent: Transmission/2.82<CR>
 Host: tracker.test<CR>
 Accept: */*<CR>
 Accept-Encoding: gzip;q=1.0, deflate, identity<CR>
 <CR>
 --- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2500-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1 HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2820-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1 HTTP/1.1<CR>
 User-Agent: Transmission/2.82<CR>
 Host: tracker.test<CR>
 Accept: */*<CR>
 Accept-Encoding: gzip;q=1.0, deflate, identity<CR>
 <CR>
 --- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2500-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1&event=completed HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2820-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1&event=completed HTTP/1.1<CR>
 User-Agent: Transmission/2.82<CR>
 Host: tracker.test<CR>
 Accept: */*<CR>
 Accept-Encoding: gzip;q=1.0, deflate, identity<CR>
 <CR>
 --- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2500-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1&event=stopped HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-TR2820-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=80&key=KEY01234&compact=1&supportcrypto=1&event=stopped HTTP/1.1<CR>
 User-Agent: Transmission/2.82<CR>
 Host: tracker.test<CR>
 Accept: */*<CR>

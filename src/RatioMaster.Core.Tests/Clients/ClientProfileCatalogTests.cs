@@ -210,6 +210,17 @@ public class ClientProfileCatalogTests
         Assert.Equal("azureus", Catalog.GetByName("Vuze 4.2.0.8").MemoryScan!.ProcessName);
     }
 
+    [Theory]
+    [InlineData("Transmission 2.82 (14160)", "-TR2820-", "User-Agent: Transmission/2.82")]
+    [InlineData("Transmission 2.92 (14714)", "-TR2920-", "User-Agent: Transmission/2.92")]
+    public void TransmissionPeerIdMatchesItsUserAgent(string name, string prefix, string userAgent)
+    {
+        // 0.43 announced Transmission 2.82 with the 2.50 peer id, a mismatch a tracker can reject (issue #25).
+        var p = Catalog.GetByName(name);
+        Assert.Equal(prefix, p.PeerIdPrefix);
+        Assert.Contains(userAgent, p.Headers);
+    }
+
     [Fact]
     public void DelugeQueryDoesNotDuplicateTheEventParameter()
     {

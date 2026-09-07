@@ -2,6 +2,7 @@
 - RM: Added new client emulation: "uTorrent 3.6.0" (build 46828), taken from a real announce: build number in the peer id, uTorrent/360(...)(46828) user agent, Connection: Close
 - RM: Added new client emulation: "uTorrent 3.5.5" (build 46074), taken from a real announce in the same way
 - RM: Fixed the uTorrent 3.3.2 and 3.3.0 emulations: the user agent now carries the build number, uTorrent/3320(30488) and uTorrent/3300(29625), and the Connection: Close header is sent, as the real client does
+- RM: Fixed the Transmission 2.82 emulation announcing with the Transmission 2.50 peer id (-TR2500-); it now sends -TR2820- to match its user agent
 - RM: Removed the obsolete uTorrent 3.2.0, 2.0.1, 1.8.5, 1.8.1-beta, 1.8.0, 1.7.7, 1.7.6, 1.7.5, 1.6.1 and 1.6 emulations; a saved torrent that used one of them now runs with the default client
 ---=== 1.0.0 (06-09-2026) ===---
 - Global: complete rewrite on .NET 10; the program now runs on Windows, Linux and macOS
