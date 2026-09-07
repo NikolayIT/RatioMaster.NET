@@ -11,8 +11,8 @@ namespace RatioMaster.Core.Tests.Clients
         public void LoadsAllProfilesFromTheBuiltInCatalog()
         {
             // 41 inherited from 0.43, minus the ten obsolete uTorrent 1.x-3.2 ones, plus the emulations added since:
-            // qBittorrent 5.2.3 and 4.6.7, uTorrent 3.6.0 and 3.5.5.
-            Assert.Equal(35, Catalog.Profiles.Count);
+            // qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5.
+            Assert.Equal(36, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Theory]
-        [InlineData("qBittorrent", new[] { "5.2.3", "4.6.7" })]
+        [InlineData("qBittorrent", new[] { "5.2.3", "5.1.4", "4.6.7" })]
         [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.3.2", "3.3.0" })]
         [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
         [InlineData("Azureus", new[] { "3.1.1.0", "3.0.5.0", "3.0.4.2", "3.0.3.4", "3.0.2.2", "2.5.0.4" })]
@@ -266,7 +266,7 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(36, catalog.Profiles.Count);
+                Assert.Equal(37, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.3.2").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.3.2").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));

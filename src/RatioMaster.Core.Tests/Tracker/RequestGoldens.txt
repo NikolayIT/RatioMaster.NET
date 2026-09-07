@@ -34,6 +34,38 @@ Connection: close<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
 
+=== qBittorrent 5.1.4 ===
+--- Started ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-qB5140-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: qBittorrent/5.1.4<CR>
+Accept-Encoding: gzip<CR>
+Connection: close<CR>
+<CR>
+--- None ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-qB5140-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: qBittorrent/5.1.4<CR>
+Accept-Encoding: gzip<CR>
+Connection: close<CR>
+<CR>
+--- Completed ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-qB5140-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: qBittorrent/5.1.4<CR>
+Accept-Encoding: gzip<CR>
+Connection: close<CR>
+<CR>
+--- Stopped ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-qB5140-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: qBittorrent/5.1.4<CR>
+Accept-Encoding: gzip<CR>
+Connection: close<CR>
+<CR>
+--- Scrape ---
+http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
+
 === qBittorrent 4.6.7 ===
 --- Started ---
 GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-qB4670-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
