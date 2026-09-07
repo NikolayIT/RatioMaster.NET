@@ -3,7 +3,7 @@
 - RM: Added new client emulation: "uTorrent 3.6.0" (build 46828), taken from a real announce: build number in the peer id, uTorrent/360(...)(46828) user agent, Connection: Close
 - RM: Added new client emulation: "uTorrent 3.5.5" (build 46074), taken from a real announce in the same way
 - RM: Fixed the uTorrent 3.3.2 and 3.3.0 emulations: the user agent now carries the build number, uTorrent/3320(30488) and uTorrent/3300(29625), and the Connection: Close header is sent, as the real client does
-- RM: Fixed the Transmission 2.82 emulation announcing with the Transmission 2.50 peer id (-TR2500-); it now sends -TR2820- to match its user agent
+- RM: Added new client emulation: "qBittorrent 4.6.7"
 - RM: Added new client emulations: "Transmission 2.94" and "Transmission 3.00", replacing 2.82 and 2.92
 - RM: Fixed the Transmission peer id, which was random where the real client's is not: its last character is a check digit that makes the twelve generated characters add up to a multiple of 36, so roughly 35 out of every 36 peer ids we sent could be spotted as fake. The peer id and the announce key now follow tr_peerIdInit and "&key=%x" from the Transmission sources
 - RM: Removed the obsolete uTorrent 3.2.0, 2.0.1, 1.8.5, 1.8.1-beta, 1.8.0, 1.7.7, 1.7.6, 1.7.5, 1.6.1 and 1.6 emulations; a saved torrent that used one of them now runs with the default client
