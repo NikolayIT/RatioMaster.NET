@@ -74,7 +74,7 @@ public sealed record TorrentSettings
 
     /// <summary>
     /// Pause the upload while the tracker reports no leechers (issue #16). There is nobody to upload to,
-    /// and uploading anyway is what private trackers ban accounts for, so this is on by default. The
+    /// and uploading anyway may get an account banned on a private tracker, so this is on by default. The
     /// upload resumes on its own once the tracker reports leechers again.
     /// </summary>
     public bool StopUploadWhenNoLeechers { get; set; } = true;

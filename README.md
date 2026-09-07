@@ -29,7 +29,7 @@ Grab the archive for your system from the [latest release](https://github.com/Ni
 - Honours the tracker's announce interval, scrapes for seeders and leechers, and follows redirects.
 - Stops automatically after a time, or when seeders, leechers, uploaded, downloaded or the
   leecher/seeder ratio crosses a limit.
-- Pauses the upload while the tracker reports no leechers, since uploading to nobody is what gets
+- Pauses the upload while the tracker reports no leechers, since uploading to nobody may get
   accounts banned; can be switched off per torrent.
 - Answers incoming peer handshakes on the announced port so the torrent looks connectable.
 - Connects directly or through an HTTP CONNECT, SOCKS4, SOCKS4a or SOCKS5 proxy, and supports
