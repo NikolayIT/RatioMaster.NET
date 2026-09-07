@@ -154,34 +154,6 @@ Accept-Encoding: gzip<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
 
-=== uTorrent 3.2.0 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3200-z8%00.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/3200<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3200-z8%00.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/3200<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3200-z8%00.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/3200<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3200-z8%00.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/3200<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
 === BitComet 1.20 ===
 --- Started ---
 GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-BC0120-PEERIDSUFFIX&port=45678&port_type=wan&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=200&compact=1&no_peer_id=1&key=KEY01234&event=started HTTP/1.1<CR>

@@ -50,16 +50,6 @@
       "defaultNumWant": 200,
       "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT3300-", "startOffset": 0, "maxOffset": 200000000 }
     },
-    {
-      "name": "uTorrent 3.2.0", "family": "uTorrent", "version": "3.2.0",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT3200-z8%00.", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/3200", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT3200-", "startOffset": 0, "maxOffset": 60000000 }
-    },
 
     {
       "name": "BitComet 1.20", "family": "BitComet", "version": "1.20",

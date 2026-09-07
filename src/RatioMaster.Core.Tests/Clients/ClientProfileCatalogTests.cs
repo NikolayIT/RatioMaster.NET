@@ -10,8 +10,8 @@ public class ClientProfileCatalogTests
     [Fact]
     public void LoadsAllProfilesFromTheBuiltInCatalog()
     {
-        // 41 inherited from 0.43, minus the nine obsolete uTorrent 1.x/2.x ones, plus qBittorrent, uTorrent 3.6.0 and 3.5.5.
-        Assert.Equal(35, Catalog.Profiles.Count);
+        // 41 inherited from 0.43, minus the ten obsolete uTorrent 1.x-3.2 ones, plus qBittorrent, uTorrent 3.6.0 and 3.5.5.
+        Assert.Equal(34, Catalog.Profiles.Count);
     }
 
     [Fact]
@@ -41,7 +41,7 @@ public class ClientProfileCatalogTests
     }
 
     [Theory]
-    [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.3.2", "3.3.0", "3.2.0" })]
+    [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.3.2", "3.3.0" })]
     [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
     [InlineData("Azureus", new[] { "3.1.1.0", "3.0.5.0", "3.0.4.2", "3.0.3.4", "3.0.2.2", "2.5.0.4" })]
     [InlineData("Vuze", new[] { "4.2.0.8" })]
@@ -57,8 +57,8 @@ public class ClientProfileCatalogTests
     [Fact]
     public void OnlyParseableClientsHaveAMemoryScanSpec()
     {
-        // uTorrent (5) + BitComet (6) + Azureus (6) + Vuze (1) + ABC (1) = 19; the rest cannot be read from a process.
-        Assert.Equal(19, Catalog.Profiles.Count(p => p.CanScanMemory));
+        // uTorrent (4) + BitComet (6) + Azureus (6) + Vuze (1) + ABC (1) = 18; the rest cannot be read from a process.
+        Assert.Equal(18, Catalog.Profiles.Count(p => p.CanScanMemory));
 
         Assert.True(Catalog.GetByName("uTorrent 3.3.2").CanScanMemory);
         Assert.False(Catalog.GetByName("Deluge 1.2.0").CanScanMemory);
@@ -126,9 +126,9 @@ public class ClientProfileCatalogTests
     }
 
     [Fact]
-    public void UTorrentPeerIdsAreExactlyTwentyBytesForTheCapturedVersions()
+    public void UTorrentPeerIdsAreExactlyTwentyBytes()
     {
-        foreach (var name in new[] { "uTorrent 3.6.0", "uTorrent 3.5.5", "uTorrent 3.3.2", "uTorrent 3.3.0" })
+        foreach (var name in Catalog.Profiles.Where(p => p.Family == "uTorrent").Select(p => p.Name))
         {
             var p = Catalog.GetByName(name);
             // The prefix is ASCII with %XX escapes, so every escape is one byte on the wire.
@@ -222,7 +222,7 @@ public class ClientProfileCatalogTests
         try
         {
             var catalog = ClientProfileCatalog.Load(path);
-            Assert.Equal(36, catalog.Profiles.Count);
+            Assert.Equal(35, catalog.Profiles.Count);
             Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.3.2").PeerIdPrefix);
             Assert.Equal(99, catalog.GetByName("uTorrent 3.3.2").DefaultNumWant);
             Assert.True(catalog.Contains("MyClient 1.0"));
