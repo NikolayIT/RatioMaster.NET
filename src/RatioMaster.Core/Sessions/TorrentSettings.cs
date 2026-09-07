@@ -1,5 +1,5 @@
-using RatioMaster.Core.Networking;
 using System.Text.Json.Serialization;
+using RatioMaster.Core.Networking;
 
 namespace RatioMaster.Core.Sessions;
 

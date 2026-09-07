@@ -81,6 +81,7 @@ public class ClientProfileCatalogTests
         Assert.Equal(RandomValueKind.Random, p.PeerId.Type);
         Assert.Equal(10, p.PeerId.Length);
         Assert.True(p.PeerId.UrlEncode);
+
         // 0.43 sent "uTorrent/3320" with no build and no Connection header; every real uTorrent carries the
         // build (0.43's own 2.0.1 entry, the SB-Innovation 3.2.3 file, 3.4.8+ captures) and 3.x sends Connection: Close.
         Assert.Equal(["Host: {host}", "User-Agent: uTorrent/3320(30488)", "Accept-Encoding: gzip", "Connection: Close"], p.Headers);
@@ -113,7 +114,7 @@ public class ClientProfileCatalogTests
         Assert.False(p.PeerId.UpperCase);
 
         var shortVersion = prefix.Substring(3, 3);
-        var userAgent = $"User-Agent: uTorrent/{shortVersion}({versionConstant * 65536 + build})({build})";
+        var userAgent = $"User-Agent: uTorrent/{shortVersion}({(versionConstant * 65536) + build})({build})";
         Assert.Equal(["Host: {host}", userAgent, "Accept-Encoding: gzip", "Connection: Close"], p.Headers);
 
         // Same query as every uTorrent since 2.0, which the captures confirm.
@@ -167,6 +168,7 @@ public class ClientProfileCatalogTests
         foreach (var name in Catalog.Profiles.Where(p => p.Family == "uTorrent").Select(p => p.Name))
         {
             var p = Catalog.GetByName(name);
+
             // The prefix is ASCII with %XX escapes, so every escape is one byte on the wire.
             var prefixBytes = System.Text.RegularExpressions.Regex.Replace(p.PeerIdPrefix, "%[0-9a-fA-F]{2}", "?").Length;
             Assert.Equal(20, prefixBytes + p.PeerId.Length);
@@ -274,6 +276,7 @@ public class ClientProfileCatalogTests
             Assert.Equal(99, catalog.GetByName("uTorrent 3.3.2").DefaultNumWant);
             Assert.True(catalog.Contains("MyClient 1.0"));
             Assert.Contains("MyClient", catalog.Families);
+
             // Default still resolves.
             Assert.Equal("qBittorrent 5.2.3", catalog.DefaultName);
         }

@@ -15,6 +15,8 @@
     <!-- Tests -->
     <PackageVersion Include="xunit.v3" Version="4.0.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.0" />
+    <!-- Analyzers -->
+    <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
     
   </ItemGroup>
 </Project>

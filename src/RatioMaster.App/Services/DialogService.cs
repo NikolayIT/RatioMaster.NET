@@ -52,11 +52,13 @@ public sealed class DialogService(IMainWindowProvider windows) : IDialogService
 
     public async Task<bool> ConfirmAsync(string title, string message, string okText = "OK", string cancelText = "Cancel")
     {
-        var result = await ShowAsync(new MessageDialogViewModel(title, message,
-        [
-            new DialogButton(okText, "ok", IsDefault: true),
-            new DialogButton(cancelText, "cancel", IsCancel: true),
-        ]));
+        var result = await ShowAsync(new MessageDialogViewModel(
+            title,
+            message,
+            [
+                new DialogButton(okText, "ok", IsDefault: true),
+                new DialogButton(cancelText, "cancel", IsCancel: true),
+            ]));
 
         return result == "ok";
     }

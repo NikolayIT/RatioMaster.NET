@@ -6,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AnalysisLevel>latest</AnalysisLevel>
+    <!-- Required for the XML comment analyzers to run at all (SA0001); CS1591 stays off because
+         members are documented where a comment earns its place, not everywhere. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
     <Deterministic>true</Deterministic>
     <DebugType>embedded</DebugType>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
@@ -18,4 +22,14 @@
     <RepositoryUrl>https://github.com/NikolayIT/RatioMaster.NET</RepositoryUrl>
     <PackageProjectUrl>https://ratiomaster.net</PackageProjectUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" PrivateAssets="all">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>

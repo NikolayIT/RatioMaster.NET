@@ -37,7 +37,7 @@ public class RequestGoldenTests
         LocalIp = "192.168.1.50",
     };
 
-    private static byte[] SampleInfoHash { get; } = Enumerable.Range(0, 20).Select(i => (byte)(i * 11 + 5)).ToArray();
+    private static byte[] SampleInfoHash { get; } = Enumerable.Range(0, 20).Select(i => (byte)((i * 11) + 5)).ToArray();
 
     [Fact]
     public void EveryProfileProducesTheExpectedRequestBytes()
@@ -67,6 +67,7 @@ public class RequestGoldenTests
 
             Assert.StartsWith("GET /announce?x=1 " + profile.HttpProtocol + "\r\n", text, StringComparison.Ordinal);
             Assert.EndsWith("\r\n\r\n", text, StringComparison.Ordinal);
+
             // Exactly one blank line, and it terminates the headers.
             Assert.Equal(text.Length, text.IndexOf("\r\n\r\n", StringComparison.Ordinal) + 4);
             Assert.DoesNotContain("{host}", text, StringComparison.Ordinal);

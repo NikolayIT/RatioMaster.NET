@@ -88,6 +88,7 @@ public class TrackerTransportTlsTests
         using var rsa = RSA.Create(2048);
         var request = new CertificateRequest("CN=localhost", rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
         using var ephemeral = request.CreateSelfSigned(DateTimeOffset.UtcNow.AddDays(-1), DateTimeOffset.UtcNow.AddDays(1));
+
         // Round-trip through PFX so the private key is usable for server authentication on Windows.
         return X509CertificateLoader.LoadPkcs12(ephemeral.Export(X509ContentType.Pfx), null);
     }

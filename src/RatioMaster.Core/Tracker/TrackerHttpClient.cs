@@ -126,7 +126,8 @@ public sealed class TrackerHttpClient
                 // The connection worked but the certificate was refused; another attempt cannot change that.
                 throw new TrackerException(
                     $"The TLS certificate of {uri.Host} is not trusted: {ex.Message} " +
-                    "Turn on \"Ignore TLS certificate errors\" in the torrent settings if you trust this tracker.", ex);
+                    "Turn on \"Ignore TLS certificate errors\" in the torrent settings if you trust this tracker.",
+                    ex);
             }
             catch (Exception ex) when (ex is SocketException or IOException or ProxyException)
             {

@@ -63,7 +63,7 @@ internal static class TorrentBuilder
         var bytes = new byte[count * 20];
         for (var i = 0; i < bytes.Length; i++)
         {
-            bytes[i] = (byte)(i * 7 + 3);
+            bytes[i] = (byte)((i * 7) + 3);
         }
 
         return bytes;

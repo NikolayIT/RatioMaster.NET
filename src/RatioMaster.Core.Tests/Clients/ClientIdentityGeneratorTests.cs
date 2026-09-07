@@ -40,6 +40,7 @@ public class ClientIdentityGeneratorTests
 
         Assert.Equal(12, value.Length);
         Assert.All(value, c => Assert.Contains(c, alphabet));
+
         // Never percent-encoded, so what is generated is what reaches the tracker.
         Assert.Equal(value, PercentEncoding.Encode(value).Replace("%2d", "-", StringComparison.Ordinal)
             .Replace("%5f", "_", StringComparison.Ordinal).Replace("%2e", ".", StringComparison.Ordinal)

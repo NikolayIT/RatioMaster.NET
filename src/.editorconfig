@@ -20,3 +20,49 @@ csharp_style_var_elsewhere = true:suggestion
 dotnet_sort_system_directives_first = true
 dotnet_style_qualification_for_field = false:suggestion
 dotnet_diagnostic.CA1416.severity = error
+
+# ---- Analyzers -------------------------------------------------------------
+# StyleCop.Analyzers is referenced for the layout and readability rules that the built-in
+# .NET analyzers and the IDExxxx rules do not cover. Anything the modern analyzers already
+# handle, and anything that argues with the style this codebase is written in, is off here
+# rather than "fixed" by churning 144 files.
+
+# Handled better by the IDExxxx rules and the dotnet_style_* preferences above.
+dotnet_diagnostic.SA1101.severity = none   # "this." prefix; see dotnet_style_qualification_for_field = false
+dotnet_diagnostic.SA1121.severity = none   # use built-in type alias; IDE0049 covers it
+dotnet_diagnostic.SA1200.severity = none   # usings inside namespace; file-scoped namespaces are used everywhere
+dotnet_diagnostic.SA1516.severity = none   # blank line between elements; formatter's job
+
+# The naming this project uses: _camelCase private fields, the .NET convention since Core 1.0.
+dotnet_diagnostic.SA1309.severity = none
+
+# Documentation: public API is documented where it earns a comment, not by quota.
+dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1601.severity = none
+dotnet_diagnostic.SA1602.severity = none
+dotnet_diagnostic.SA1633.severity = none   # file headers; the repo has none and does not want them
+dotnet_diagnostic.SA1642.severity = none
+dotnet_diagnostic.SA1643.severity = none
+dotnet_diagnostic.SA1611.severity = none   # a param tag per parameter, whether or not it says anything
+dotnet_diagnostic.SA1615.severity = none   # ditto for returns
+dotnet_diagnostic.SA1623.severity = none   # "Gets or sets ..." boilerplate in front of every property summary
+
+# Element ordering. The files here group by feature (a public entry point next to the private
+# helpers it calls) which reads better than a strict access-modifier sort.
+dotnet_diagnostic.SA1201.severity = none
+dotnet_diagnostic.SA1202.severity = none
+dotnet_diagnostic.SA1203.severity = none
+dotnet_diagnostic.SA1204.severity = none
+dotnet_diagnostic.SA1214.severity = none
+
+# Small helper types, converters and records live next to what uses them.
+dotnet_diagnostic.SA1402.severity = none
+dotnet_diagnostic.SA1649.severity = none
+
+# The "// ---- Section ----" banners that split the longer files are meant to have a blank
+# line on both sides; SA1515 (blank line before a comment) stays on and is honoured.
+dotnet_diagnostic.SA1512.severity = none
+
+# Left on and fixed: SA1407 (arithmetic precedence), SA1117 (parameter wrapping),
+# SA1208/SA1210 (using order), SA1507/SA1515 (blank lines), SA1413 (trailing commas),
+# and the rest of the SA1xxx layout and spacing rules.

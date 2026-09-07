@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 namespace RatioMaster.App.ViewModels.Dialogs;
 
 /// <summary>Base for dialogs: carries a title and completes with a result when closed.</summary>
+/// <typeparam name="TResult">What the dialog hands back when it closes; null when it was dismissed.</typeparam>
 public abstract class DialogViewModel<TResult> : ViewModelBase
 {
     private readonly TaskCompletionSource<TResult?> _completion =

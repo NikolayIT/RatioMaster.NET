@@ -39,6 +39,7 @@ public class SessionRestoreSmokeTests
         Assert.Equal("http://tracker.example.org:6969/announce", entry.TrackerUrl);
         Assert.Equal("uTorrent 3.3.2", entry.Settings.ClientName);
         Assert.Equal(61440, entry.Settings.UploadRateBytes);
+
         // Unspecified values fall back to the defaults.
         Assert.Equal(1800, entry.Settings.IntervalSeconds);
         Assert.True(entry.Settings.RequestScrape);
@@ -77,6 +78,7 @@ public class SessionRestoreSmokeTests
         Assert.Equal(TorrentSettings.DefaultClientName, direct.ClientName);
         Assert.True(direct.RequestScrape);
         Assert.True(direct.UseTcpListener);
+
         // These are reference types: before the fix they came back null and crashed the session restore.
         Assert.NotNull(direct.Stop);
         Assert.NotNull(direct.Proxy);

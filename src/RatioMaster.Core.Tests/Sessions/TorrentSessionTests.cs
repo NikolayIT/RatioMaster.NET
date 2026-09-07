@@ -14,7 +14,7 @@ public class TorrentSessionTests
 {
     private const long KiB = 1024;
     private static readonly ClientProfile Profile = ClientProfileCatalog.Load().GetByName("uTorrent 3.3.2");
-    private static readonly byte[] InfoHash = Enumerable.Range(0, 20).Select(i => (byte)(i * 3 + 1)).ToArray();
+    private static readonly byte[] InfoHash = Enumerable.Range(0, 20).Select(i => (byte)((i * 3) + 1)).ToArray();
 
     private static CancellationToken Ct => TestContext.Current.CancellationToken;
 
@@ -107,7 +107,7 @@ public class TorrentSessionTests
         var stats = session.Snapshot;
         Assert.Equal(3 * 60 * KiB, stats.Uploaded);
         Assert.Equal(3 * 30 * KiB, stats.Downloaded);
-        Assert.Equal(1_000_000 - 3 * 30 * KiB, stats.Left);
+        Assert.Equal(1_000_000 - (3 * 30 * KiB), stats.Left);
         Assert.Equal(TimeSpan.FromSeconds(3), stats.TotalRunningTime);
         Assert.Equal(3 * 30 * KiB / 1_000_000.0 * 100, stats.FinishedPercent, 6);
         Assert.Null(stats.Ratio); // below 100 KB downloaded
@@ -122,8 +122,8 @@ public class TorrentSessionTests
 
         await TickAsync(session, 1);
 
-        Assert.Equal(60 * KiB + 7, session.Snapshot.Uploaded);
-        Assert.Equal(30 * KiB + 3, session.Snapshot.Downloaded);
+        Assert.Equal((60 * KiB) + 7, session.Snapshot.Uploaded);
+        Assert.Equal((30 * KiB) + 3, session.Snapshot.Downloaded);
     }
 
     [Fact]
@@ -136,7 +136,7 @@ public class TorrentSessionTests
 
         await TickAsync(session, 1);
 
-        Assert.Equal(60 * KiB + 4 * KiB, session.Snapshot.Uploaded);
+        Assert.Equal((60 * KiB) + (4 * KiB), session.Snapshot.Uploaded);
     }
 
     [Fact]
@@ -527,6 +527,7 @@ public class TorrentSessionTests
     public async Task NextUpdateRandomSpeedsApplyBeforeTheAnnounce()
     {
         var settings = QuietSettings() with { NextUpdateRandomUpload = true, NextUpdateUploadMinKb = 10, NextUpdateUploadMaxKb = 50 };
+
         // Two zero jitters for the growth step, then 20 for the next-update upload speed.
         var random = new ScriptedRandomSource(ints: [0, 0, 20]);
         var (session, _) = Create(settings, random: random);

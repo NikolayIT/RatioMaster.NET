@@ -23,6 +23,7 @@ internal static class HttpConnectProxy
         await stream.FlushAsync(cancellationToken).ConfigureAwait(false);
 
         var statusLine = await ReadHeaderTerminatedResponseAsync(stream, cancellationToken).ConfigureAwait(false);
+
         // Expect "HTTP/1.x 200 ...".
         var parts = statusLine.Split(' ', 3);
         if (parts.Length < 2 || parts[1] != "200")

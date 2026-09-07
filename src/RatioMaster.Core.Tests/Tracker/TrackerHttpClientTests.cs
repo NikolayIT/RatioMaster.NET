@@ -1,8 +1,8 @@
 using RatioMaster.Core.Bencode;
 using RatioMaster.Core.Clients;
 using RatioMaster.Core.Networking;
-using RatioMaster.Core.Tracker;
 using RatioMaster.Core.Tests.Fakes;
+using RatioMaster.Core.Tracker;
 
 namespace RatioMaster.Core.Tests.Tracker;
 
