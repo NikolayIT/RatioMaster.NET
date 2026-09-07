@@ -162,64 +162,32 @@ Connection: Close<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
 
-=== uTorrent 3.3.2 ===
+=== uTorrent 3.5.4 ===
 --- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3320-%18wPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT354S-%d2%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
 Host: tracker.test<CR>
-User-Agent: uTorrent/3320(30488)<CR>
+User-Agent: uTorrent/354(111783378)(44498)<CR>
 Accept-Encoding: gzip<CR>
 Connection: Close<CR>
 <CR>
 --- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3320-%18wPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT354S-%d2%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
 Host: tracker.test<CR>
-User-Agent: uTorrent/3320(30488)<CR>
+User-Agent: uTorrent/354(111783378)(44498)<CR>
 Accept-Encoding: gzip<CR>
 Connection: Close<CR>
 <CR>
 --- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3320-%18wPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT354S-%d2%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
 Host: tracker.test<CR>
-User-Agent: uTorrent/3320(30488)<CR>
+User-Agent: uTorrent/354(111783378)(44498)<CR>
 Accept-Encoding: gzip<CR>
 Connection: Close<CR>
 <CR>
 --- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3320-%18wPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT354S-%d2%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
 Host: tracker.test<CR>
-User-Agent: uTorrent/3320(30488)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 3.3.0 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3300-%b9sPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/3300(29625)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3300-%b9sPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/3300(29625)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3300-%b9sPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/3300(29625)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3300-%b9sPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/3300(29625)<CR>
+User-Agent: uTorrent/354(111783378)(44498)<CR>
 Accept-Encoding: gzip<CR>
 Connection: Close<CR>
 <CR>

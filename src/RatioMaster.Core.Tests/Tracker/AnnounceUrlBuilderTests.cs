@@ -10,7 +10,7 @@ namespace RatioMaster.Core.Tests.Tracker
         [Fact]
         public void BuildsTheExpectedUTorrentStartedUrl()
         {
-            var profile = Catalog.GetByName("uTorrent 3.3.2");
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
             var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile.Query, Values(), TrackerEvent.Started);
 
             Assert.Equal(
@@ -21,7 +21,7 @@ namespace RatioMaster.Core.Tests.Tracker
         [Fact]
         public void UpdateEventOmitsTheEventParameter()
         {
-            var profile = Catalog.GetByName("uTorrent 3.3.2");
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
             var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile.Query, Values(), TrackerEvent.None);
             Assert.Contains("&key=ABCD1234&numwant=200", url, StringComparison.Ordinal);
             Assert.DoesNotContain("event=", url, StringComparison.Ordinal);
@@ -54,7 +54,7 @@ namespace RatioMaster.Core.Tests.Tracker
         [Fact]
         public void ZeroNumWantBecomes200ExceptWhenStopping()
         {
-            var profile = Catalog.GetByName("uTorrent 3.3.2");
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
             var update = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values("0"), TrackerEvent.None);
             Assert.Contains("numwant=200", update, StringComparison.Ordinal);
 
@@ -65,7 +65,7 @@ namespace RatioMaster.Core.Tests.Tracker
         [Fact]
         public void UsesAmpersandWhenTheTrackerAlreadyHasAQuery()
         {
-            var profile = Catalog.GetByName("uTorrent 3.3.2");
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
             var url = AnnounceUrlBuilder.Build("http://t/announce?passkey=secret", profile.Query, Values(), TrackerEvent.None);
             Assert.StartsWith("http://t/announce?passkey=secret&info_hash=", url, StringComparison.Ordinal);
         }

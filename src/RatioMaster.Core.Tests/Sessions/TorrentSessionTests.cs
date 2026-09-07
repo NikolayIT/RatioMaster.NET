@@ -14,7 +14,7 @@ namespace RatioMaster.Core.Tests.Sessions
     public class TorrentSessionTests
     {
         private const long KiB = 1024;
-        private static readonly ClientProfile Profile = ClientProfileCatalog.Load().GetByName("uTorrent 3.3.2");
+        private static readonly ClientProfile Profile = ClientProfileCatalog.Load().GetByName("uTorrent 3.6.0");
         private static readonly byte[] InfoHash = Enumerable.Range(0, 20).Select(i => (byte)((i * 3) + 1)).ToArray();
 
         private static CancellationToken Ct => TestContext.Current.CancellationToken;

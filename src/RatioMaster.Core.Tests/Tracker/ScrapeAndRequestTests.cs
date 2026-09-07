@@ -30,13 +30,13 @@ namespace RatioMaster.Core.Tests.Tracker
         [Fact]
         public void BuildsRequestTextWithHostAndBlankLineTermination()
         {
-            var profile = Catalog.GetByName("uTorrent 3.3.2");
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
             var text = HttpRequestWriter.BuildRequestText("/announce?x=1", "tracker.host", profile);
 
             Assert.Equal(
                 "GET /announce?x=1 HTTP/1.1\r\n" +
                 "Host: tracker.host\r\n" +
-                "User-Agent: uTorrent/3320(30488)\r\n" +
+                "User-Agent: uTorrent/360(113358572)(46828)\r\n" +
                 "Accept-Encoding: gzip\r\n" +
                 "Connection: Close\r\n" +
                 "\r\n",
@@ -59,7 +59,7 @@ namespace RatioMaster.Core.Tests.Tracker
         [Fact]
         public void BuildsRequestBytesAsLatin1()
         {
-            var profile = Catalog.GetByName("uTorrent 3.3.2");
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
             var bytes = HttpRequestWriter.BuildRequest("/announce", "h", profile);
             Assert.Equal(HttpRequestWriter.BuildRequestText("/announce", "h", profile), Encoding.Latin1.GetString(bytes));
         }

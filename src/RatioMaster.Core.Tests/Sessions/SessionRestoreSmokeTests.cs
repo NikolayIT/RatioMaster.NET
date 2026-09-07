@@ -22,7 +22,7 @@ namespace RatioMaster.Core.Tests.Sessions
               "torrentPath": "C:\\temp\\ubuntu-24.torrent",
               "trackerUrl": "http://tracker.example.org:6969/announce",
               "settings": {
-                "clientName": "uTorrent 3.3.2",
+                "clientName": "uTorrent 3.6.0",
                 "uploadRateBytes": 61440,
                 "downloadRateBytes": 30720
               }
@@ -37,7 +37,7 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.Equal("ubuntu-24", entry.Name);
             Assert.Equal(@"C:\temp\ubuntu-24.torrent", entry.TorrentPath);
             Assert.Equal("http://tracker.example.org:6969/announce", entry.TrackerUrl);
-            Assert.Equal("uTorrent 3.3.2", entry.Settings.ClientName);
+            Assert.Equal("uTorrent 3.6.0", entry.Settings.ClientName);
             Assert.Equal(61440, entry.Settings.UploadRateBytes);
 
             // Unspecified values fall back to the defaults.

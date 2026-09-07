@@ -21,13 +21,13 @@ namespace RatioMaster.Core.Tests.MemoryScan
         public void CopiesTheValuesOutOfTheRunningClient()
         {
             var memory = MemoryWith(
-                "GET /announce?info_hash=%aa&peer_id=-UT3320-abc123&port=54321&uploaded=0&downloaded=0&key=DEADBEEF&numwant=175&compact=1 HTTP/1.1");
+                "GET /announce?info_hash=%aa&peer_id=-UT360S-abc123&port=54321&uploaded=0&downloaded=0&key=DEADBEEF&numwant=175&compact=1 HTTP/1.1");
             var scanner = new ClientValueScanner(new FakeProcessMemoryScanner(memory));
 
-            var identity = scanner.TryScan(Catalog.GetByName("uTorrent 3.3.2"), Fallback);
+            var identity = scanner.TryScan(Catalog.GetByName("uTorrent 3.6.0"), Fallback);
 
             Assert.NotNull(identity);
-            Assert.Equal("-UT3320-abc123", identity!.PeerId);
+            Assert.Equal("-UT360S-abc123", identity!.PeerId);
             Assert.Equal("DEADBEEF", identity.Key);
             Assert.Equal("54321", identity.Port);
             Assert.Equal("175", identity.NumWant);
@@ -37,13 +37,13 @@ namespace RatioMaster.Core.Tests.MemoryScan
         [Fact]
         public void FallsBackForFieldsThatAreNotPresent()
         {
-            var memory = MemoryWith("&peer_id=-UT3320-onlypeer&compact=1 x", padding: 0);
+            var memory = MemoryWith("&peer_id=-UT360S-onlypeer&compact=1 x", padding: 0);
             var scanner = new ClientValueScanner(new FakeProcessMemoryScanner(memory));
 
-            var identity = scanner.TryScan(Catalog.GetByName("uTorrent 3.3.2"), Fallback);
+            var identity = scanner.TryScan(Catalog.GetByName("uTorrent 3.6.0"), Fallback);
 
             Assert.NotNull(identity);
-            Assert.Equal("-UT3320-onlypeer", identity!.PeerId);
+            Assert.Equal("-UT360S-onlypeer", identity!.PeerId);
             Assert.Equal("FALLBACK", identity.Key);
             Assert.Equal("1", identity.Port);
             Assert.Equal("200", identity.NumWant);
@@ -52,10 +52,10 @@ namespace RatioMaster.Core.Tests.MemoryScan
         [Fact]
         public void UsesTheProfileDefaultWhenNumWantIsNotANumber()
         {
-            var memory = MemoryWith("&peer_id=-UT3320-abc&numwant=lots&compact=1 x", padding: 0);
+            var memory = MemoryWith("&peer_id=-UT360S-abc&numwant=lots&compact=1 x", padding: 0);
             var scanner = new ClientValueScanner(new FakeProcessMemoryScanner(memory));
 
-            var identity = scanner.TryScan(Catalog.GetByName("uTorrent 3.3.2"), Fallback);
+            var identity = scanner.TryScan(Catalog.GetByName("uTorrent 3.6.0"), Fallback);
 
             Assert.Equal("200", identity!.NumWant);
         }
@@ -64,7 +64,7 @@ namespace RatioMaster.Core.Tests.MemoryScan
         public void ReturnsNullWhenTheMarkerIsNotFound()
         {
             var scanner = new ClientValueScanner(new FakeProcessMemoryScanner(Encoding.ASCII.GetBytes("nothing here")));
-            Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.3.2"), Fallback));
+            Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.6.0"), Fallback));
         }
 
         [Fact]
@@ -73,7 +73,7 @@ namespace RatioMaster.Core.Tests.MemoryScan
             var scanner = new ClientValueScanner(new FakeProcessMemoryScanner([], canOpen: false));
             var messages = new List<string>();
 
-            Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.3.2"), Fallback, messages.Add));
+            Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.6.0"), Fallback, messages.Add));
             Assert.Contains(messages, m => m.Contains("No uTorrent process found", StringComparison.Ordinal));
         }
 
@@ -89,7 +89,7 @@ namespace RatioMaster.Core.Tests.MemoryScan
         {
             var scanner = new ClientValueScanner(NullProcessMemoryScanner.Instance);
             Assert.False(scanner.IsSupported);
-            Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.3.2"), Fallback));
+            Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.6.0"), Fallback));
         }
 
         private static byte[] MemoryWith(string announce, int padding = 70_000)

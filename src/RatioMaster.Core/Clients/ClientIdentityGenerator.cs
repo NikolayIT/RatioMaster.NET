@@ -73,7 +73,7 @@ namespace RatioMaster.Core.Clients
                     RandomValueKind.Numeric => this.Pick(Digits),
                     RandomValueKind.Hex => this.Pick(HexDigits),
                     RandomValueKind.UrlSafe => this.Pick(UrlSafe),
-                    RandomValueKind.Random => (char)this.random.Next(255),
+                    RandomValueKind.Random => (char)this.random.Next(1, 256),
                     _ => this.Pick(Alphanumeric),
                 });
             }

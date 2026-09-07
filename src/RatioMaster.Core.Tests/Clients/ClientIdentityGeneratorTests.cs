@@ -164,12 +164,12 @@ namespace RatioMaster.Core.Tests.Clients
         public void GenerateBuildsPeerIdFromPrefixAndKeyAndPortInRange()
         {
             var catalog = ClientProfileCatalog.Load();
-            var profile = catalog.GetByName("uTorrent 3.3.2");
+            var profile = catalog.GetByName("uTorrent 3.6.0");
             var generator = new ClientIdentityGenerator(new DeterministicRandomSource(1234));
 
             var identity = generator.Generate(profile);
 
-            Assert.StartsWith("-UT3320-%18w", identity.PeerId, StringComparison.Ordinal);
+            Assert.StartsWith("-UT360S-%ec%b6", identity.PeerId, StringComparison.Ordinal);
             Assert.Equal(8, identity.Key.Length);
             Assert.Equal("200", identity.NumWant);
             Assert.Equal(ClientIdentitySource.Generated, identity.Source);

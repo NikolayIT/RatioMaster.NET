@@ -66,9 +66,12 @@ namespace RatioMaster.Core.Tests.Settings
             // 0.43 preselected uTorrent 3.3.2; keeping it would hand every upgrading user a 2013 client.
             var untouched = TypicalOldInstall().Set("Client", "uTorrent").Set("ClientVersion", "3.3.2");
             Assert.Equal(TorrentSettings.DefaultClientName, LegacyRegistrySettingsImporter.TryImport(untouched)!.DefaultTorrentSettings.ClientName);
+
+            // The constant names what 0.43 shipped, which stays true whether or not we still carry that emulation.
             Assert.Equal("uTorrent 3.3.2", LegacyRegistrySettingsImporter.LegacyDefaultClientName);
 
-            // A different uTorrent build was a deliberate choice and stays.
+            // A different client was a deliberate choice, so the name is kept even once the emulation is gone;
+            // the catalog falls back to the default when it cannot resolve it.
             var chosen = TypicalOldInstall().Set("Client", "uTorrent").Set("ClientVersion", "3.3.0");
             Assert.Equal("uTorrent 3.3.0", LegacyRegistrySettingsImporter.TryImport(chosen)!.DefaultTorrentSettings.ClientName);
         }

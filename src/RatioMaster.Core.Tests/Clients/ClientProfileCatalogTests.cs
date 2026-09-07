@@ -13,7 +13,7 @@ namespace RatioMaster.Core.Tests.Clients
             // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
             // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
             // Transmission 2.94 and 3.00, Deluge 2.1.1.
-            Assert.Equal(29, Catalog.Profiles.Count);
+            Assert.Equal(28, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace RatioMaster.Core.Tests.Clients
 
         [Theory]
         [InlineData("qBittorrent", new[] { "5.2.3", "5.1.4", "4.6.7" })]
-        [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.3.2", "3.3.0" })]
+        [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.5.4" })]
         [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
         [InlineData("Vuze", new[] { "5.7.5.0" })]
         [InlineData("BitTorrent", new[] { "7.10.3 (44429)" })]
@@ -60,38 +60,13 @@ namespace RatioMaster.Core.Tests.Clients
         [Fact]
         public void OnlyParseableClientsHaveAMemoryScanSpec()
         {
-            // uTorrent (4) + BitComet (6) + Vuze (1) + ABC (1) = 12; the rest cannot be read from a process.
-            Assert.Equal(12, Catalog.Profiles.Count(p => p.CanScanMemory));
+            // uTorrent (3) + BitComet (6) + Vuze (1) + ABC (1) = 11; the rest cannot be read from a process.
+            Assert.Equal(11, Catalog.Profiles.Count(p => p.CanScanMemory));
 
-            Assert.True(Catalog.GetByName("uTorrent 3.3.2").CanScanMemory);
+            Assert.True(Catalog.GetByName("uTorrent 3.6.0").CanScanMemory);
             Assert.False(Catalog.GetByName("Deluge 2.1.1").CanScanMemory);
             Assert.False(Catalog.GetByName("BitTorrent 7.10.3 (44429)").CanScanMemory);
             Assert.False(Catalog.GetByName("Transmission 3.00").CanScanMemory);
-        }
-
-        [Fact]
-        public void UTorrent332ProfileHasTheExpectedEmulation()
-        {
-            var p = Catalog.GetByName("uTorrent 3.3.2");
-            Assert.Equal("uTorrent", p.Family);
-            Assert.Equal("3.3.2", p.Version);
-            Assert.Equal("HTTP/1.1", p.HttpProtocol);
-            Assert.False(p.HashUpperCase);
-            Assert.Equal(RandomValueKind.Hex, p.Key.Type);
-            Assert.Equal(8, p.Key.Length);
-            Assert.True(p.Key.UpperCase);
-            Assert.Equal("-UT3320-%18w", p.PeerIdPrefix);
-            Assert.Equal(RandomValueKind.Random, p.PeerId.Type);
-            Assert.Equal(10, p.PeerId.Length);
-            Assert.True(p.PeerId.UrlEncode);
-
-            // 0.43 sent "uTorrent/3320" with no build and no Connection header; every real uTorrent carries the
-            // build (0.43's own 2.0.1 entry, the SB-Innovation 3.2.3 file, 3.4.8+ captures) and 3.x sends Connection: Close.
-            Assert.Equal(["Host: {host}", "User-Agent: uTorrent/3320(30488)", "Accept-Encoding: gzip", "Connection: Close"], p.Headers);
-            Assert.Equal(200, p.DefaultNumWant);
-            Assert.Equal("uTorrent", p.MemoryScan!.ProcessName);
-            Assert.Equal("&peer_id=-UT3320-", p.MemoryScan.SearchString);
-            Assert.Equal(200_000_000, p.MemoryScan.MaxOffset);
         }
 
         /// <summary>
@@ -104,6 +79,7 @@ namespace RatioMaster.Core.Tests.Clients
         [Theory]
         [InlineData("uTorrent 3.6.0", "-UT360S-", 46828, 1729)]
         [InlineData("uTorrent 3.5.5", "-UT355S-", 46074, 1707)]
+        [InlineData("uTorrent 3.5.4", "-UT354S-", 44498, 1705)]
         public void ModernUTorrentEncodesItsBuildLikeTheRealClient(string name, string prefix, int build, int versionConstant)
         {
             var p = Catalog.GetByName(name);
@@ -111,6 +87,9 @@ namespace RatioMaster.Core.Tests.Clients
 
             var expectedPrefix = prefix + "%" + (build & 0xFF).ToString("x2") + "%" + (build >> 8).ToString("x2");
             Assert.Equal(expectedPrefix, p.PeerIdPrefix);
+
+            // Read back the other way round too, so the two bytes really do decode to the build.
+            Assert.Equal(build, BuildFromPrefix(p.PeerIdPrefix));
             Assert.Equal(RandomValueKind.Random, p.PeerId.Type);
             Assert.Equal(10, p.PeerId.Length);
             Assert.True(p.PeerId.UrlEncode);
@@ -121,7 +100,7 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal(["Host: {host}", userAgent, "Accept-Encoding: gzip", "Connection: Close"], p.Headers);
 
             // Same query as every uTorrent since 2.0, which the captures confirm.
-            Assert.Equal(Catalog.GetByName("uTorrent 3.3.2").Query, p.Query);
+            Assert.Equal(Catalog.GetByName("uTorrent 3.6.0").Query, p.Query);
             Assert.Equal(RandomValueKind.Hex, p.Key.Type);
             Assert.Equal(8, p.Key.Length);
             Assert.True(p.Key.UpperCase);
@@ -129,19 +108,6 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal(200, p.DefaultNumWant);
             Assert.Equal("uTorrent", p.MemoryScan!.ProcessName);
             Assert.Equal("&peer_id=" + prefix, p.MemoryScan.SearchString);
-        }
-
-        [Theory]
-        [InlineData("uTorrent 3.3.2", 30488)]
-        [InlineData("uTorrent 3.3.0", 29625)]
-        public void OlderUTorrentUserAgentsCarryTheBuildEncodedInThePeerId(string name, int build)
-        {
-            var p = Catalog.GetByName(name);
-            Assert.Equal(build, BuildFromPrefix(p.PeerIdPrefix));
-
-            var digits = p.Version.Replace(".", string.Empty, StringComparison.Ordinal) + "0";
-            Assert.Contains($"User-Agent: uTorrent/{digits}({build})", p.Headers);
-            Assert.Equal("Connection: Close", p.Headers[^1]);
         }
 
         [Fact]
@@ -244,7 +210,7 @@ namespace RatioMaster.Core.Tests.Clients
         {
           "clients": [
             {
-              "name": "uTorrent 3.3.2", "family": "uTorrent", "version": "3.3.2",
+              "name": "uTorrent 3.6.0", "family": "uTorrent", "version": "3.3.2",
               "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
               "key": { "type": "hex", "length": 8 },
               "peerId": { "prefix": "-XX0000-", "type": "random", "length": 10, "urlEncode": true },
@@ -267,9 +233,9 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(30, catalog.Profiles.Count);
-                Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.3.2").PeerIdPrefix);
-                Assert.Equal(99, catalog.GetByName("uTorrent 3.3.2").DefaultNumWant);
+                Assert.Equal(29, catalog.Profiles.Count);
+                Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.6.0").PeerIdPrefix);
+                Assert.Equal(99, catalog.GetByName("uTorrent 3.6.0").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));
                 Assert.Contains("MyClient", catalog.Families);
 

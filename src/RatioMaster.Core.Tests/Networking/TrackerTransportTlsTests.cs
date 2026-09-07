@@ -74,7 +74,7 @@ namespace RatioMaster.Core.Tests.Networking
                 }
             });
 
-            var profile = RatioMaster.Core.Clients.ClientProfileCatalog.Load().GetByName("uTorrent 3.3.2");
+            var profile = RatioMaster.Core.Clients.ClientProfileCatalog.Load().GetByName("uTorrent 3.6.0");
             var client = new RatioMaster.Core.Tracker.TrackerHttpClient(options: new RatioMaster.Core.Tracker.TrackerHttpClientOptions { ConnectAttempts = 3 });
 
             var error = await Assert.ThrowsAsync<RatioMaster.Core.Tracker.TrackerException>(async () =>

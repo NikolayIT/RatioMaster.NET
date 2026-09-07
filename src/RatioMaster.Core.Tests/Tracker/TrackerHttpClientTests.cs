@@ -8,7 +8,7 @@ namespace RatioMaster.Core.Tests.Tracker
 
     public class TrackerHttpClientTests
     {
-        private static readonly ClientProfile Profile = ClientProfileCatalog.Load().GetByName("uTorrent 3.3.2");
+        private static readonly ClientProfile Profile = ClientProfileCatalog.Load().GetByName("uTorrent 3.6.0");
 
         private static CancellationToken Timeout => new CancellationTokenSource(TimeSpan.FromSeconds(15)).Token;
 
@@ -25,7 +25,7 @@ namespace RatioMaster.Core.Tests.Tracker
             Assert.Equal(5, announce.Complete);
             Assert.Single(tracker.Requests);
             Assert.StartsWith("GET /announce?info_hash=%aa HTTP/1.1", tracker.Requests.First(), StringComparison.Ordinal);
-            Assert.Contains("User-Agent: uTorrent/3320", tracker.Requests.First(), StringComparison.Ordinal);
+            Assert.Contains("User-Agent: uTorrent/360", tracker.Requests.First(), StringComparison.Ordinal);
         }
 
         [Fact]

@@ -9,7 +9,10 @@ namespace RatioMaster.Core.Clients
         /// <summary>Digits only: 0-9.</summary>
         Numeric,
 
-        /// <summary>Arbitrary bytes 0..254, meant to be percent-encoded.</summary>
+        /// <summary>
+        /// Arbitrary bytes 1..255, meant to be percent-encoded. The range matches the real clients, which fill
+        /// the tail of the peer id from [\x01-\xff]: a NUL would end the string and 0xff has to be reachable.
+        /// </summary>
         Random,
 
         /// <summary>Upper-case hexadecimal: 0-9, A-F.</summary>

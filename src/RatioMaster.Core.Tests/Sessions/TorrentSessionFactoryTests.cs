@@ -20,10 +20,10 @@ namespace RatioMaster.Core.Tests.Sessions
         [Fact]
         public void GeneratesAnIdentityForAutomaticMode()
         {
-            var identity = CreateFactory().CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.3.2" });
+            var identity = CreateFactory().CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.6.0" });
 
             Assert.Equal(ClientIdentitySource.Generated, identity.Source);
-            Assert.StartsWith("-UT3320-", identity.PeerId, StringComparison.Ordinal);
+            Assert.StartsWith("-UT360S-", identity.PeerId, StringComparison.Ordinal);
             Assert.Equal("200", identity.NumWant);
         }
 
@@ -32,7 +32,7 @@ namespace RatioMaster.Core.Tests.Sessions
         {
             var settings = new TorrentSettings
             {
-                ClientName = "uTorrent 3.3.2",
+                ClientName = "uTorrent 3.6.0",
                 IdentityMode = IdentityMode.Custom,
                 CustomPeerId = "-UT3320-mypeerid",
                 CustomPort = "45000",
