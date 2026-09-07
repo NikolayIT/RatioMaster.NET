@@ -131,75 +131,14 @@
     },
 
     {
-      "name": "Azureus 3.1.1.0", "family": "Azureus", "version": "3.1.1.0",
+      "name": "Vuze 5.7.5.0", "family": "Vuze", "version": "5.7.5.0",
       "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
       "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-AZ3110-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["User-Agent: Azureus 3.1.1.0;Windows XP;Java 1.6.0_07", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
+      "peerId": { "prefix": "-AZ5750-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
+      "headers": ["User-Agent: Azureus 5.7.5.0;Windows 10;Java 1.8.0_121", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
       "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
-      "defaultNumWant": 50,
-      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3110-", "startOffset": 0, "maxOffset": 100000000 }
-    },
-    {
-      "name": "Azureus 3.0.5.0", "family": "Azureus", "version": "3.0.5.0",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-AZ3050-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["User-Agent: Azureus 3.0.5.0;Windows XP;Java 1.6.0_05", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2", "Content-type: application/x-www-form-urlencoded"],
-      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
-      "defaultNumWant": 50,
-      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3050-", "startOffset": 0, "maxOffset": 100000000 }
-    },
-    {
-      "name": "Azureus 3.0.4.2", "family": "Azureus", "version": "3.0.4.2",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-AZ3042-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["User-Agent: Azureus 3.0.4.2;Windows XP;Java 1.5.0_07", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2", "Content-type: application/x-www-form-urlencoded"],
-      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
-      "defaultNumWant": 50,
-      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3042-", "startOffset": 0, "maxOffset": 100000000 }
-    },
-    {
-      "name": "Azureus 3.0.3.4", "family": "Azureus", "version": "3.0.3.4",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-AZ3034-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["User-Agent: Azureus 3.0.3.4;Windows XP;Java 1.6.0_03", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
-      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
-      "defaultNumWant": 50,
-      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3034-", "startOffset": 0, "maxOffset": 100000000 }
-    },
-    {
-      "name": "Azureus 3.0.2.2", "family": "Azureus", "version": "3.0.2.2",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-AZ3022-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["User-Agent: Azureus 3.0.2.2;Windows XP;Java 1.6.0_01", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
-      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
-      "defaultNumWant": 50,
-      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ3022-", "startOffset": 0, "maxOffset": 100000000 }
-    },
-    {
-      "name": "Azureus 2.5.0.4", "family": "Azureus", "version": "2.5.0.4",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-AZ2504-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["User-Agent: Azureus 2.5.0.4;Windows XP;Java 1.5.0_10", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2", "Content-type: application/x-www-form-urlencoded"],
-      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
-      "defaultNumWant": 50,
-      "memoryScan": { "processName": "Azureus", "searchString": "&peer_id=-AZ2504-", "startOffset": 0, "maxOffset": 100000000 }
-    },
-
-    {
-      "name": "Vuze 4.2.0.8", "family": "Vuze", "version": "4.2.0.8",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
-      "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-AZ4208-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
-      "headers": ["User-Agent: Azureus 4.2.0.8;Windows XP;Java 1.6.0_05", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
-      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0{event}&numwant={numwant}&no_peer_id=1&compact=1&key={key}&azver=3",
-      "defaultNumWant": 50,
-      "memoryScan": { "processName": "azureus", "searchString": "&peer_id=-AZ4208-", "startOffset": 0, "maxOffset": 100000000 }
+      "defaultNumWant": 100,
+      "memoryScan": { "processName": "azureus", "searchString": "&peer_id=-AZ5750-", "startOffset": 0, "maxOffset": 100000000 }
     },
 
     {

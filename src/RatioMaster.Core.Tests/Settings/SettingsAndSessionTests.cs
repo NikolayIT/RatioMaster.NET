@@ -127,7 +127,7 @@ namespace RatioMaster.Core.Tests.Settings
                         Name = "Ubuntu",
                         TorrentPath = @"C:\torrents\ubuntu.torrent",
                         TrackerUrl = "http://tracker.test/announce",
-                        Settings = new TorrentSettings { ClientName = "Vuze 4.2.0.8", FinishedPercent = 42.5 },
+                        Settings = new TorrentSettings { ClientName = "Vuze 5.7.5.0", FinishedPercent = 42.5 },
                     },
                 ],
             };
@@ -138,7 +138,7 @@ namespace RatioMaster.Core.Tests.Settings
             Assert.Equal(SessionDocument.CurrentVersion, loaded.Version);
             var entry = Assert.Single(loaded.Torrents);
             Assert.Equal("Ubuntu", entry.Name);
-            Assert.Equal("Vuze 4.2.0.8", entry.Settings.ClientName);
+            Assert.Equal("Vuze 5.7.5.0", entry.Settings.ClientName);
             Assert.Equal(42.5, entry.Settings.FinishedPercent);
             Assert.Equal("http://tracker.test/announce", entry.TrackerUrl);
         }

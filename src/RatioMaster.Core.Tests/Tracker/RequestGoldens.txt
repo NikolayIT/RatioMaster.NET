@@ -458,262 +458,34 @@ User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
 
-=== Azureus 3.1.1.0 ===
+=== Vuze 5.7.5.0 ===
 --- Started ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3110-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=started&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.1.1.0;Windows XP;Java 1.6.0_07<CR>
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ5750-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=started&numwant=100&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
+User-Agent: Azureus 5.7.5.0;Windows 10;Java 1.8.0_121<CR>
 Connection: close<CR>
 Accept-Encoding: gzip<CR>
 Host: tracker.test<CR>
 Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
 <CR>
 --- None ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3110-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.1.1.0;Windows XP;Java 1.6.0_07<CR>
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ5750-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&numwant=100&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
+User-Agent: Azureus 5.7.5.0;Windows 10;Java 1.8.0_121<CR>
 Connection: close<CR>
 Accept-Encoding: gzip<CR>
 Host: tracker.test<CR>
 Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
 <CR>
 --- Completed ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3110-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=completed&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.1.1.0;Windows XP;Java 1.6.0_07<CR>
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ5750-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=completed&numwant=100&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
+User-Agent: Azureus 5.7.5.0;Windows 10;Java 1.8.0_121<CR>
 Connection: close<CR>
 Accept-Encoding: gzip<CR>
 Host: tracker.test<CR>
 Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
 <CR>
 --- Stopped ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3110-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=stopped&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.1.1.0;Windows XP;Java 1.6.0_07<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
-
-=== Azureus 3.0.5.0 ===
---- Started ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3050-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=started&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.5.0;Windows XP;Java 1.6.0_05<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3050-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.5.0;Windows XP;Java 1.6.0_05<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3050-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=completed&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.5.0;Windows XP;Java 1.6.0_05<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3050-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=stopped&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.5.0;Windows XP;Java 1.6.0_05<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
-
-=== Azureus 3.0.4.2 ===
---- Started ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3042-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=started&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.4.2;Windows XP;Java 1.5.0_07<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3042-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.4.2;Windows XP;Java 1.5.0_07<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3042-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=completed&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.4.2;Windows XP;Java 1.5.0_07<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3042-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=stopped&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.4.2;Windows XP;Java 1.5.0_07<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
-
-=== Azureus 3.0.3.4 ===
---- Started ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3034-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=started&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.3.4;Windows XP;Java 1.6.0_03<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3034-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.3.4;Windows XP;Java 1.6.0_03<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3034-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=completed&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.3.4;Windows XP;Java 1.6.0_03<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3034-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=stopped&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.3.4;Windows XP;Java 1.6.0_03<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
-
-=== Azureus 3.0.2.2 ===
---- Started ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3022-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=started&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.2.2;Windows XP;Java 1.6.0_01<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3022-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.2.2;Windows XP;Java 1.6.0_01<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3022-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=completed&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.2.2;Windows XP;Java 1.6.0_01<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ3022-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=stopped&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 3.0.2.2;Windows XP;Java 1.6.0_01<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
-
-=== Azureus 2.5.0.4 ===
---- Started ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ2504-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=started&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 2.5.0.4;Windows XP;Java 1.5.0_10<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ2504-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 2.5.0.4;Windows XP;Java 1.5.0_10<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ2504-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=completed&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 2.5.0.4;Windows XP;Java 1.5.0_10<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ2504-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=stopped&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 2.5.0.4;Windows XP;Java 1.5.0_10<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-Content-type: application/x-www-form-urlencoded<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
-
-=== Vuze 4.2.0.8 ===
---- Started ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ4208-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=started&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 4.2.0.8;Windows XP;Java 1.6.0_05<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ4208-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 4.2.0.8;Windows XP;Java 1.6.0_05<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ4208-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=completed&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 4.2.0.8;Windows XP;Java 1.6.0_05<CR>
-Connection: close<CR>
-Accept-Encoding: gzip<CR>
-Host: tracker.test<CR>
-Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ4208-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=stopped&numwant=50&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
-User-Agent: Azureus 4.2.0.8;Windows XP;Java 1.6.0_05<CR>
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-AZ5750-PEERIDSUFFIX&supportcrypto=1&port=45678&azudp=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&event=stopped&numwant=100&no_peer_id=1&compact=1&key=KEY01234&azver=3 HTTP/1.1<CR>
+User-Agent: Azureus 5.7.5.0;Windows 10;Java 1.8.0_121<CR>
 Connection: close<CR>
 Accept-Encoding: gzip<CR>
 Host: tracker.test<CR>

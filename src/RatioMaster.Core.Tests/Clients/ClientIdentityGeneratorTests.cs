@@ -180,7 +180,7 @@ namespace RatioMaster.Core.Tests.Clients
         [Fact]
         public void GenerationIsReproducibleForTheSameSeed()
         {
-            var profile = ClientProfileCatalog.Load().GetByName("Azureus 3.1.1.0");
+            var profile = ClientProfileCatalog.Load().GetByName("Vuze 5.7.5.0");
             var a = new ClientIdentityGenerator(new DeterministicRandomSource(7)).Generate(profile);
             var b = new ClientIdentityGenerator(new DeterministicRandomSource(7)).Generate(profile);
             Assert.Equal(a, b);
