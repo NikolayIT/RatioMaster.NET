@@ -9,58 +9,60 @@ namespace RatioMaster.App.ViewModels.Dialogs;
 /// <summary>Application settings: general behaviour, tray, torrent defaults and the client catalog.</summary>
 public sealed partial class SettingsViewModel : DialogViewModel<AppSettings>
 {
-    private readonly AppSettings _original;
+    private readonly AppSettings original;
 
     [ObservableProperty]
-    private AppTheme _theme;
+    private AppTheme theme;
 
     [ObservableProperty]
-    private bool _use24HourTime;
+    private bool use24HourTime;
 
     [ObservableProperty]
-    private bool _checkForUpdatesOnStartup;
+    private bool checkForUpdatesOnStartup;
 
     [ObservableProperty]
-    private bool _restoreLastSessionOnStartup;
+    private bool restoreLastSessionOnStartup;
 
     [ObservableProperty]
-    private bool _addTorrentsWithoutDialog;
+    private bool addTorrentsWithoutDialog;
 
     [ObservableProperty]
-    private bool _startTorrentsImmediately;
+    private bool startTorrentsImmediately;
 
     [ObservableProperty]
-    private bool _minimizeToTray;
+    private bool minimizeToTray;
 
     [ObservableProperty]
-    private bool _closeToTray;
+    private bool closeToTray;
 
     [ObservableProperty]
-    private bool _showTorrentListInTrayTooltip;
+    private bool showTorrentListInTrayTooltip;
 
     [ObservableProperty]
-    private bool _startMinimized;
+    private bool startMinimized;
 
     public SettingsViewModel(AppSettings settings, TorrentSettingsViewModel defaults, ClientProfileCatalog catalog)
     {
-        Title = "Settings";
-        _original = settings;
-        Defaults = defaults;
-        _theme = settings.Theme;
-        _use24HourTime = settings.Use24HourTime;
-        _checkForUpdatesOnStartup = settings.CheckForUpdatesOnStartup;
-        _restoreLastSessionOnStartup = settings.RestoreLastSessionOnStartup;
-        _addTorrentsWithoutDialog = settings.AddTorrentsWithoutDialog;
-        _startTorrentsImmediately = settings.StartTorrentsImmediately;
-        _minimizeToTray = settings.MinimizeToTray;
-        _closeToTray = settings.CloseToTray;
-        _showTorrentListInTrayTooltip = settings.ShowTorrentListInTrayTooltip;
-        _startMinimized = settings.StartMinimized;
+        this.Title = "Settings";
+        this.original = settings;
+        this.Defaults = defaults;
+        this.theme = settings.Theme;
+        this.use24HourTime = settings.Use24HourTime;
+        this.checkForUpdatesOnStartup = settings.CheckForUpdatesOnStartup;
+        this.restoreLastSessionOnStartup = settings.RestoreLastSessionOnStartup;
+        this.addTorrentsWithoutDialog = settings.AddTorrentsWithoutDialog;
+        this.startTorrentsImmediately = settings.StartTorrentsImmediately;
+        this.minimizeToTray = settings.MinimizeToTray;
+        this.closeToTray = settings.CloseToTray;
+        this.showTorrentListInTrayTooltip = settings.ShowTorrentListInTrayTooltip;
+        this.startMinimized = settings.StartMinimized;
 
-        ClientCount = catalog.Profiles.Count;
-        UserClientsPath = AppPaths.UserClientsFile;
-        ConfigDirectory = AppPaths.ConfigDirectory;
+        this.ClientCount = catalog.Profiles.Count;
+        this.UserClientsPath = AppPaths.UserClientsFile;
+        this.ConfigDirectory = AppPaths.ConfigDirectory;
     }
+
+    public static IReadOnlyList<AppTheme> Themes { get; } = [AppTheme.System, AppTheme.Light, AppTheme.Dark];
 
     public TorrentSettingsViewModel Defaults { get; }
 
@@ -70,27 +72,25 @@ public sealed partial class SettingsViewModel : DialogViewModel<AppSettings>
 
     public string ConfigDirectory { get; }
 
-    public static IReadOnlyList<AppTheme> Themes { get; } = [AppTheme.System, AppTheme.Light, AppTheme.Dark];
-
     public string ClientSummary =>
-        $"{ClientCount} client emulations are loaded. Add or override them by creating this file:";
+        $"{this.ClientCount} client emulations are loaded. Add or override them by creating this file:";
 
     [RelayCommand]
-    private void Save() => Close(_original with
+    private void Save() => this.Close(this.original with
     {
-        Theme = Theme,
-        Use24HourTime = Use24HourTime,
-        CheckForUpdatesOnStartup = CheckForUpdatesOnStartup,
-        RestoreLastSessionOnStartup = RestoreLastSessionOnStartup,
-        AddTorrentsWithoutDialog = AddTorrentsWithoutDialog,
-        StartTorrentsImmediately = StartTorrentsImmediately,
-        MinimizeToTray = MinimizeToTray,
-        CloseToTray = CloseToTray,
-        ShowTorrentListInTrayTooltip = ShowTorrentListInTrayTooltip,
-        StartMinimized = StartMinimized,
-        DefaultTorrentSettings = Defaults.ToSettings(),
+        Theme = this.Theme,
+        Use24HourTime = this.Use24HourTime,
+        CheckForUpdatesOnStartup = this.CheckForUpdatesOnStartup,
+        RestoreLastSessionOnStartup = this.RestoreLastSessionOnStartup,
+        AddTorrentsWithoutDialog = this.AddTorrentsWithoutDialog,
+        StartTorrentsImmediately = this.StartTorrentsImmediately,
+        MinimizeToTray = this.MinimizeToTray,
+        CloseToTray = this.CloseToTray,
+        ShowTorrentListInTrayTooltip = this.ShowTorrentListInTrayTooltip,
+        StartMinimized = this.StartMinimized,
+        DefaultTorrentSettings = this.Defaults.ToSettings(),
     });
 
     [RelayCommand]
-    private void Cancel() => Close(null);
+    private void Cancel() => this.Close(null);
 }

@@ -8,13 +8,13 @@ namespace RatioMaster.Core.Tracker;
 /// <summary>The production <see cref="ITrackerClient"/>: builds URLs and requests over <see cref="TrackerHttpClient"/>.</summary>
 public sealed class TrackerClient : ITrackerClient
 {
-    private readonly TrackerHttpClient _http;
-    private readonly ISystemClock _clock;
+    private readonly TrackerHttpClient http;
+    private readonly ISystemClock clock;
 
     public TrackerClient(TrackerHttpClient? http = null, ISystemClock? clock = null)
     {
-        _http = http ?? new TrackerHttpClient();
-        _clock = clock ?? SystemClock.Instance;
+        this.http = http ?? new TrackerHttpClient();
+        this.clock = clock ?? SystemClock.Instance;
     }
 
     public async Task<TrackerAnnounceOutcome> AnnounceAsync(
@@ -28,7 +28,7 @@ public sealed class TrackerClient : ITrackerClient
     {
         var url = AnnounceUrlBuilder.Build(trackerUrl, profile.Query, values, trackerEvent);
         var started = Stopwatch.GetTimestamp();
-        var http = WithCertificatePolicy(ignoreCertificateErrors);
+        var http = this.WithCertificatePolicy(ignoreCertificateErrors);
 
         try
         {
@@ -38,7 +38,7 @@ public sealed class TrackerClient : ITrackerClient
                 : AnnounceResponse.Parse(new Bencode.BencodeDictionary());
             var exchange = new TrackerExchange
             {
-                Timestamp = _clock.Now,
+                Timestamp = this.clock.Now,
                 Kind = trackerEvent == TrackerEvent.None ? "announce" : trackerEvent.ToString().ToLowerInvariant(),
                 RequestUrl = url,
                 ResponseHeaders = raw.RawHeaders,
@@ -67,7 +67,7 @@ public sealed class TrackerClient : ITrackerClient
         CancellationToken cancellationToken)
     {
         var url = ScrapeUrlBuilder.TryBuild(trackerUrl, infoHashEncoded);
-        var timestamp = _clock.Now;
+        var timestamp = this.clock.Now;
         if (url is null)
         {
             return new TrackerScrapeOutcome(null, new TrackerExchange
@@ -80,7 +80,7 @@ public sealed class TrackerClient : ITrackerClient
         }
 
         var started = Stopwatch.GetTimestamp();
-        var http = WithCertificatePolicy(ignoreCertificateErrors);
+        var http = this.WithCertificatePolicy(ignoreCertificateErrors);
         try
         {
             var raw = await http.GetAsync(url, profile, proxy, cancellationToken).ConfigureAwait(false);
@@ -113,6 +113,6 @@ public sealed class TrackerClient : ITrackerClient
         ex is not OperationCanceledException || !cancellationToken.IsCancellationRequested;
 
     private TrackerHttpClient WithCertificatePolicy(bool ignoreCertificateErrors) => ignoreCertificateErrors
-        ? _http.WithIgnoredCertificateErrors()
-        : _http;
+        ? this.http.WithIgnoredCertificateErrors()
+        : this.http;
 }

@@ -8,28 +8,28 @@ namespace RatioMaster.Core.Tests.Fakes;
 /// <summary>An in-process HTTP tracker: serves a queue of raw responses and records the requests it received.</summary>
 internal sealed class FakeTracker : IAsyncDisposable
 {
-    private readonly TcpListener _listener;
-    private readonly Task _serve;
-    private readonly CancellationTokenSource _cts = new();
-    private readonly Queue<byte[]> _responses;
-    private readonly ConcurrentQueue<string> _requests = new();
+    private readonly TcpListener listener;
+    private readonly Task serve;
+    private readonly CancellationTokenSource cts = new();
+    private readonly Queue<byte[]> responses;
+    private readonly ConcurrentQueue<string> requests = new();
 
-    private readonly bool _keepAlive;
+    private readonly bool keepAlive;
 
     private FakeTracker(TcpListener listener, IEnumerable<byte[]> responses, bool keepAlive)
     {
-        _listener = listener;
-        _keepAlive = keepAlive;
-        Port = ((IPEndPoint)listener.LocalEndpoint).Port;
-        _responses = new Queue<byte[]>(responses);
-        _serve = ServeAsync(_cts.Token);
+        this.listener = listener;
+        this.keepAlive = keepAlive;
+        this.Port = ((IPEndPoint)listener.LocalEndpoint).Port;
+        this.responses = new Queue<byte[]>(responses);
+        this.serve = this.ServeAsync(this.cts.Token);
     }
 
     public int Port { get; }
 
-    public string BaseUrl => $"http://127.0.0.1:{Port}";
+    public string BaseUrl => $"http://127.0.0.1:{this.Port}";
 
-    public IReadOnlyCollection<string> Requests => _requests.ToArray();
+    public IReadOnlyCollection<string> Requests => this.requests.ToArray();
 
     public static FakeTracker Start(params byte[][] responses)
     {
@@ -94,6 +94,22 @@ internal sealed class FakeTracker : IAsyncDisposable
         return Encoding.Latin1.GetBytes(text);
     }
 
+    public async ValueTask DisposeAsync()
+    {
+        await this.cts.CancelAsync().ConfigureAwait(false);
+        this.listener.Stop();
+        try
+        {
+            await this.serve.ConfigureAwait(false);
+        }
+        catch (Exception ex) when (ex is OperationCanceledException or SocketException)
+        {
+            // Expected during shutdown.
+        }
+
+        this.cts.Dispose();
+    }
+
     private async Task ServeAsync(CancellationToken cancellationToken)
     {
         while (!cancellationToken.IsCancellationRequested)
@@ -101,14 +117,14 @@ internal sealed class FakeTracker : IAsyncDisposable
             Socket socket;
             try
             {
-                socket = await _listener.AcceptSocketAsync(cancellationToken).ConfigureAwait(false);
+                socket = await this.listener.AcceptSocketAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
                 break;
             }
 
-            _ = HandleAsync(socket, cancellationToken);
+            _ = this.HandleAsync(socket, cancellationToken);
         }
     }
 
@@ -120,18 +136,18 @@ internal sealed class FakeTracker : IAsyncDisposable
             await using (var stream = new NetworkStream(socket, ownsSocket: false))
             {
                 var request = await LoopbackServer.ReadHttpHeadersAsync(stream, cancellationToken).ConfigureAwait(false);
-                _requests.Enqueue(request);
+                this.requests.Enqueue(request);
 
                 byte[] response;
-                lock (_responses)
+                lock (this.responses)
                 {
-                    response = _responses.Count > 0 ? _responses.Dequeue() : Encoding.Latin1.GetBytes("HTTP/1.1 500 No response\r\nConnection: close\r\n\r\n");
+                    response = this.responses.Count > 0 ? this.responses.Dequeue() : Encoding.Latin1.GetBytes("HTTP/1.1 500 No response\r\nConnection: close\r\n\r\n");
                 }
 
                 await stream.WriteAsync(response, cancellationToken).ConfigureAwait(false);
                 await stream.FlushAsync(cancellationToken).ConfigureAwait(false);
 
-                if (_keepAlive)
+                if (this.keepAlive)
                 {
                     // Hold the connection open until the tracker is disposed, like a real keep-alive server.
                     await Task.Delay(Timeout.Infinite, cancellationToken).ConfigureAwait(false);
@@ -142,21 +158,5 @@ internal sealed class FakeTracker : IAsyncDisposable
         {
             // A test that stops early is fine.
         }
-    }
-
-    public async ValueTask DisposeAsync()
-    {
-        await _cts.CancelAsync().ConfigureAwait(false);
-        _listener.Stop();
-        try
-        {
-            await _serve.ConfigureAwait(false);
-        }
-        catch (Exception ex) when (ex is OperationCanceledException or SocketException)
-        {
-            // Expected during shutdown.
-        }
-
-        _cts.Dispose();
     }
 }

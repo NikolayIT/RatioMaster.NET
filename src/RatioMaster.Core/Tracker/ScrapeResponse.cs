@@ -8,10 +8,10 @@ public sealed class ScrapeResponse
 {
     private ScrapeResponse(string? failureReason, int? complete, int? downloaded, int? incomplete)
     {
-        FailureReason = failureReason;
-        Complete = complete;
-        Downloaded = downloaded;
-        Incomplete = incomplete;
+        this.FailureReason = failureReason;
+        this.Complete = complete;
+        this.Downloaded = downloaded;
+        this.Incomplete = incomplete;
     }
 
     public string? FailureReason { get; }
@@ -24,7 +24,7 @@ public sealed class ScrapeResponse
     /// <summary>Leechers.</summary>
     public int? Incomplete { get; }
 
-    public bool HasFailure => !string.IsNullOrEmpty(FailureReason);
+    public bool HasFailure => !string.IsNullOrEmpty(this.FailureReason);
 
     public static ScrapeResponse Parse(BencodeDictionary dictionary, ReadOnlySpan<byte> infoHash)
     {

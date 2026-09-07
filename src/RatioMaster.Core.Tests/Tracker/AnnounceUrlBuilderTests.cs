@@ -7,19 +7,6 @@ public class AnnounceUrlBuilderTests
 {
     private static readonly ClientProfileCatalog Catalog = ClientProfileCatalog.Load();
 
-    private static AnnounceValues Values(string numWant = "200") => new()
-    {
-        InfoHashEncoded = "%aa%bb",
-        PeerId = "-UT3320-xyz",
-        Port = "12345",
-        Uploaded = 16384,
-        Downloaded = 16,
-        Left = 100,
-        Key = "ABCD1234",
-        NumWant = numWant,
-        LocalIp = "1.2.3.4",
-    };
-
     [Fact]
     public void BuildsTheExpectedUTorrentStartedUrl()
     {
@@ -106,4 +93,17 @@ public class AnnounceUrlBuilderTests
         Assert.Equal(48, AnnounceMath.RoundDown(63, AnnounceMath.DownloadedDenominator));
         Assert.Equal(0, AnnounceMath.RoundDown(0, AnnounceMath.UploadedDenominator));
     }
+
+    private static AnnounceValues Values(string numWant = "200") => new()
+    {
+        InfoHashEncoded = "%aa%bb",
+        PeerId = "-UT3320-xyz",
+        Port = "12345",
+        Uploaded = 16384,
+        Downloaded = 16,
+        Left = 100,
+        Key = "ABCD1234",
+        NumWant = numWant,
+        LocalIp = "1.2.3.4",
+    };
 }

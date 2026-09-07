@@ -4,5 +4,5 @@ namespace RatioMaster.Core.Tracker;
 public sealed record TrackerPeer(string Ip, int Port, string? PeerId = null)
 {
     public override string ToString() =>
-        PeerId is { Length: > 0 } ? $"{Ip}:{Port}(PeerID={PeerId})" : $"{Ip}:{Port}";
+        this.PeerId is { Length: > 0 } ? $"{this.Ip}:{this.Port}(PeerID={this.PeerId})" : $"{this.Ip}:{this.Port}";
 }

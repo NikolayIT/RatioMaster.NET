@@ -19,82 +19,124 @@ public partial class MainWindow : Window
     /// <summary>The torrent list keeps at least this much room whatever the pane height.</summary>
     private const double ListMinHeight = 120;
 
-    private MainWindowViewModel? _viewModel;
-    private double _detailsPaneHeight = 300;
-    private PixelPoint? _normalPosition;
-    private Size? _normalSize;
+    private MainWindowViewModel? viewModel;
+    private double detailsPaneHeight = 300;
+    private PixelPoint? normalPosition;
+    private Size? normalSize;
 
     public MainWindow()
     {
-        InitializeComponent();
+        this.InitializeComponent();
 
         DragDrop.SetAllowDrop(this, true);
-        AddHandler(DragDrop.DragOverEvent, OnDragOver);
-        AddHandler(DragDrop.DropEvent, OnDrop);
+        this.AddHandler(DragDrop.DragOverEvent, OnDragOver);
+        this.AddHandler(DragDrop.DropEvent, this.OnDrop);
 
-        TorrentGrid.SelectionChanged += OnGridSelectionChanged;
-        DetailsSplitter.DragCompleted += OnDetailsSplitterDragCompleted;
-        ContentGrid.SizeChanged += (_, _) => ApplyDetailsPaneHeight();
-        SearchBox.KeyDown += OnSearchBoxKeyDown;
-        DataContextChanged += OnDataContextChanged;
-        PropertyChanged += OnWindowPropertyChanged;
-        PositionChanged += OnPositionChanged;
+        this.TorrentGrid.SelectionChanged += this.OnGridSelectionChanged;
+        this.DetailsSplitter.DragCompleted += this.OnDetailsSplitterDragCompleted;
+        this.ContentGrid.SizeChanged += (_, _) => this.ApplyDetailsPaneHeight();
+        this.SearchBox.KeyDown += this.OnSearchBoxKeyDown;
+        this.DataContextChanged += this.OnDataContextChanged;
+        this.PropertyChanged += this.OnWindowPropertyChanged;
+        this.PositionChanged += this.OnPositionChanged;
 
-        BuildColumnsMenu();
+        this.BuildColumnsMenu();
     }
 
-    private MainWindowViewModel? ViewModel => _viewModel;
+    private MainWindowViewModel? ViewModel => this.viewModel;
 
-    private RowDefinition DetailsRow => ContentGrid.RowDefinitions[2];
+    private RowDefinition DetailsRow => this.ContentGrid.RowDefinitions[2];
 
-    private DataGridColumn NameColumn => TorrentGrid.Columns[0];
+    private DataGridColumn NameColumn => this.TorrentGrid.Columns[0];
 
     /// <summary>Brings the window back from the tray or the taskbar.</summary>
     public void RestoreFromTray()
     {
-        Show();
-        WindowState = WindowState.Normal;
-        Activate();
-        Focus();
+        this.Show();
+        this.WindowState = WindowState.Normal;
+        this.Activate();
+        this.Focus();
+    }
+
+    protected override void OnClosing(WindowClosingEventArgs e)
+    {
+        this.SavePlacement();
+
+        // Close to tray keeps the torrents announcing; quitting happens through File > Exit or the tray menu.
+        if (!e.IsProgrammatic && this.ViewModel is { } viewModel && viewModel.Settings.CloseToTray)
+        {
+            e.Cancel = true;
+            this.Hide();
+            return;
+        }
+
+        base.OnClosing(e);
+    }
+
+    // ---- Keyboard -----------------------------------------------------------
+
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        if (e.Key == Key.F && e.KeyModifiers == KeyModifiers.Control)
+        {
+            this.SearchBox.Focus();
+            this.SearchBox.SelectAll();
+            e.Handled = true;
+            return;
+        }
+
+        base.OnKeyDown(e);
+    }
+
+    // ---- Columns ------------------------------------------------------------
+
+    private static string ColumnName(DataGridColumn column) => column.Header?.ToString() ?? string.Empty;
+
+    // ---- Drag and drop ------------------------------------------------------
+
+    private static void OnDragOver(object? sender, DragEventArgs e)
+    {
+        e.DragEffects = e.DataTransfer.Contains(DataFormat.File) ? DragDropEffects.Copy : DragDropEffects.None;
+        e.Handled = true;
     }
 
     // ---- View model wiring ----------------------------------------------
 
     private void OnDataContextChanged(object? sender, EventArgs e)
     {
-        if (_viewModel is not null)
+        if (this.viewModel is not null)
         {
-            _viewModel.PropertyChanged -= OnViewModelPropertyChanged;
+            this.viewModel.PropertyChanged -= this.OnViewModelPropertyChanged;
         }
 
-        _viewModel = DataContext as MainWindowViewModel;
-        if (_viewModel is null)
+        this.viewModel = this.DataContext as MainWindowViewModel;
+        if (this.viewModel is null)
         {
             return;
         }
 
-        _viewModel.PropertyChanged += OnViewModelPropertyChanged;
+        this.viewModel.PropertyChanged += this.OnViewModelPropertyChanged;
 
-        var settings = _viewModel.Settings;
-        RestorePlacement(settings.Window);
-        _detailsPaneHeight = Math.Max(DetailsPaneMinHeight, settings.DetailsPaneHeight);
-        ApplyDetailsPaneHeight();
-        ApplyColumnLayout(settings.Columns);
+        var settings = this.viewModel.Settings;
+        this.RestorePlacement(settings.Window);
+        this.detailsPaneHeight = Math.Max(DetailsPaneMinHeight, settings.DetailsPaneHeight);
+        this.ApplyDetailsPaneHeight();
+        this.ApplyColumnLayout(settings.Columns);
     }
 
     private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(MainWindowViewModel.IsDetailsPaneVisible))
         {
-            ApplyDetailsPaneHeight();
+            this.ApplyDetailsPaneHeight();
         }
     }
 
     private void OnGridSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if (ViewModel is { } viewModel)
+        if (this.ViewModel is { } viewModel)
         {
-            viewModel.SetSelection(TorrentGrid.SelectedItems?.OfType<TorrentItemViewModel>() ?? []);
+            viewModel.SetSelection(this.TorrentGrid.SelectedItems?.OfType<TorrentItemViewModel>() ?? []);
         }
     }
 
@@ -106,16 +148,16 @@ public partial class MainWindow : Window
     /// </summary>
     private void ApplyDetailsPaneHeight()
     {
-        var row = DetailsRow;
-        if (ViewModel is { IsDetailsPaneVisible: false })
+        var row = this.DetailsRow;
+        if (this.ViewModel is { IsDetailsPaneVisible: false })
         {
             row.MinHeight = 0;
             row.Height = new GridLength(0, GridUnitType.Pixel);
             return;
         }
 
-        var height = _detailsPaneHeight;
-        var available = ContentGrid.Bounds.Height - DetailsSplitter.Bounds.Height - ListMinHeight;
+        var height = this.detailsPaneHeight;
+        var available = this.ContentGrid.Bounds.Height - this.DetailsSplitter.Bounds.Height - ListMinHeight;
         if (available >= DetailsPaneMinHeight)
         {
             height = Math.Min(height, available);
@@ -127,10 +169,10 @@ public partial class MainWindow : Window
 
     private void OnDetailsSplitterDragCompleted(object? sender, VectorEventArgs e)
     {
-        _detailsPaneHeight = DetailsRow.ActualHeight;
-        if (ViewModel is { } viewModel)
+        this.detailsPaneHeight = this.DetailsRow.ActualHeight;
+        if (this.ViewModel is { } viewModel)
         {
-            viewModel.ApplySettings(viewModel.Settings with { DetailsPaneHeight = _detailsPaneHeight });
+            viewModel.ApplySettings(viewModel.Settings with { DetailsPaneHeight = this.detailsPaneHeight });
         }
     }
 
@@ -138,25 +180,25 @@ public partial class MainWindow : Window
 
     private void RestorePlacement(WindowPlacement placement)
     {
-        if (placement.Width >= MinWidth && placement.Height >= MinHeight)
+        if (placement.Width >= this.MinWidth && placement.Height >= this.MinHeight)
         {
-            Width = placement.Width;
-            Height = placement.Height;
+            this.Width = placement.Width;
+            this.Height = placement.Height;
         }
 
-        if (placement is { X: { } x, Y: { } y } && IsOnScreen(new PixelPoint((int)x, (int)y)))
+        if (placement is { X: { } x, Y: { } y } && this.IsOnScreen(new PixelPoint((int)x, (int)y)))
         {
-            WindowStartupLocation = WindowStartupLocation.Manual;
-            Position = new PixelPoint((int)x, (int)y);
+            this.WindowStartupLocation = WindowStartupLocation.Manual;
+            this.Position = new PixelPoint((int)x, (int)y);
         }
         else
         {
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         if (placement.IsMaximized)
         {
-            WindowState = WindowState.Maximized;
+            this.WindowState = WindowState.Maximized;
         }
     }
 
@@ -166,7 +208,7 @@ public partial class MainWindow : Window
         {
             // The title bar must land on a monitor, otherwise the window would come back off-screen.
             var probe = new PixelPoint(point.X + 80, point.Y + 30);
-            return Screens.All.Any(screen => screen.WorkingArea.Contains(probe));
+            return this.Screens.All.Any(screen => screen.WorkingArea.Contains(probe));
         }
         catch (Exception)
         {
@@ -176,90 +218,71 @@ public partial class MainWindow : Window
 
     private void OnPositionChanged(object? sender, PixelPointEventArgs e)
     {
-        if (WindowState == WindowState.Normal && IsVisible)
+        if (this.WindowState == WindowState.Normal && this.IsVisible)
         {
-            _normalPosition = e.Point;
+            this.normalPosition = e.Point;
         }
     }
 
     private void OnWindowPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
     {
-        if (e.Property == ClientSizeProperty && WindowState == WindowState.Normal)
+        if (e.Property == ClientSizeProperty && this.WindowState == WindowState.Normal)
         {
-            _normalSize = ClientSize;
+            this.normalSize = this.ClientSize;
             return;
         }
 
-        if (e.Property != WindowStateProperty || ViewModel is not { } viewModel)
+        if (e.Property != WindowStateProperty || this.ViewModel is not { } viewModel)
         {
             return;
         }
 
-        if (WindowState == WindowState.Minimized && viewModel.Settings.MinimizeToTray)
+        if (this.WindowState == WindowState.Minimized && viewModel.Settings.MinimizeToTray)
         {
-            Hide();
+            this.Hide();
         }
     }
 
     private void SavePlacement()
     {
-        if (ViewModel is not { } viewModel)
+        if (this.ViewModel is not { } viewModel)
         {
             return;
         }
 
-        var size = _normalSize ?? ClientSize;
-        var position = _normalPosition ?? Position;
+        var size = this.normalSize ?? this.ClientSize;
+        var position = this.normalPosition ?? this.Position;
         var placement = new WindowPlacement
         {
             X = position.X,
             Y = position.Y,
             Width = size.Width,
             Height = size.Height,
-            IsMaximized = WindowState == WindowState.Maximized,
+            IsMaximized = this.WindowState == WindowState.Maximized,
         };
 
         viewModel.ApplySettings(viewModel.Settings with
         {
             Window = placement,
-            DetailsPaneHeight = _detailsPaneHeight,
-            Columns = CaptureColumnLayout(),
+            DetailsPaneHeight = this.detailsPaneHeight,
+            Columns = this.CaptureColumnLayout(),
         });
     }
-
-    protected override void OnClosing(WindowClosingEventArgs e)
-    {
-        SavePlacement();
-
-        // Close to tray keeps the torrents announcing; quitting happens through File > Exit or the tray menu.
-        if (!e.IsProgrammatic && ViewModel is { } viewModel && viewModel.Settings.CloseToTray)
-        {
-            e.Cancel = true;
-            Hide();
-            return;
-        }
-
-        base.OnClosing(e);
-    }
-
-    // ---- Columns ------------------------------------------------------------
-
-    private static string ColumnName(DataGridColumn column) => column.Header?.ToString() ?? string.Empty;
 
     /// <summary>Fills View > Columns with a check item per column; the Name column cannot be hidden.</summary>
     private void BuildColumnsMenu()
     {
-        foreach (var column in TorrentGrid.Columns)
+        foreach (var column in this.TorrentGrid.Columns)
         {
             var item = new MenuItem
             {
                 Header = ColumnName(column),
                 ToggleType = MenuItemToggleType.CheckBox,
-                IsEnabled = column != NameColumn,
+                IsEnabled = column != this.NameColumn,
                 StaysOpenOnClick = true,
             };
             item[!MenuItem.IsCheckedProperty] = column[!!DataGridColumn.IsVisibleProperty];
-            ColumnsMenu.Items.Add(item);
+            this.ColumnsMenu.Items.Add(item);
         }
     }
 
@@ -270,7 +293,7 @@ public partial class MainWindow : Window
             return;
         }
 
-        var columns = TorrentGrid.Columns;
+        var columns = this.TorrentGrid.Columns;
         var byName = new Dictionary<string, ColumnLayout>(StringComparer.Ordinal);
         foreach (var layout in layouts)
         {
@@ -284,7 +307,7 @@ public partial class MainWindow : Window
                 continue;
             }
 
-            column.IsVisible = layout.IsVisible || column == NameColumn;
+            column.IsVisible = layout.IsVisible || column == this.NameColumn;
             if (layout.Width >= 40 && !column.Width.IsStar)
             {
                 column.Width = new DataGridLength(layout.Width);
@@ -307,7 +330,7 @@ public partial class MainWindow : Window
     }
 
     private List<ColumnLayout> CaptureColumnLayout() =>
-        TorrentGrid.Columns.Select(column => new ColumnLayout
+        this.TorrentGrid.Columns.Select(column => new ColumnLayout
         {
             Name = ColumnName(column),
             IsVisible = column.IsVisible,
@@ -315,43 +338,20 @@ public partial class MainWindow : Window
             DisplayIndex = column.DisplayIndex,
         }).ToList();
 
-    // ---- Keyboard -----------------------------------------------------------
-
-    protected override void OnKeyDown(KeyEventArgs e)
-    {
-        if (e.Key == Key.F && e.KeyModifiers == KeyModifiers.Control)
-        {
-            SearchBox.Focus();
-            SearchBox.SelectAll();
-            e.Handled = true;
-            return;
-        }
-
-        base.OnKeyDown(e);
-    }
-
     private void OnSearchBoxKeyDown(object? sender, KeyEventArgs e)
     {
         if (e.Key == Key.Escape)
         {
-            SearchBox.Clear();
-            TorrentGrid.Focus();
+            this.SearchBox.Clear();
+            this.TorrentGrid.Focus();
             e.Handled = true;
         }
-    }
-
-    // ---- Drag and drop ------------------------------------------------------
-
-    private static void OnDragOver(object? sender, DragEventArgs e)
-    {
-        e.DragEffects = e.DataTransfer.Contains(DataFormat.File) ? DragDropEffects.Copy : DragDropEffects.None;
-        e.Handled = true;
     }
 
     private async void OnDrop(object? sender, DragEventArgs e)
     {
         e.Handled = true;
-        if (ViewModel is not { } viewModel)
+        if (this.ViewModel is not { } viewModel)
         {
             return;
         }

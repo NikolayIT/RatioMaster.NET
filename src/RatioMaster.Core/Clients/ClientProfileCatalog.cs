@@ -10,19 +10,19 @@ public sealed class ClientProfileCatalog
 {
     private const string EmbeddedResourceName = "RatioMaster.Core.Clients.clients.json";
 
-    private readonly Dictionary<string, ClientProfile> _byName;
-    private readonly List<ClientProfile> _profiles;
+    private readonly Dictionary<string, ClientProfile> byName;
+    private readonly List<ClientProfile> profiles;
 
     private ClientProfileCatalog(List<ClientProfile> profiles, string defaultName)
     {
-        _profiles = profiles;
-        _byName = profiles.ToDictionary(p => p.Name, StringComparer.Ordinal);
-        DefaultName = defaultName;
-        Families = profiles.Select(p => p.Family).Distinct(StringComparer.Ordinal).ToArray();
+        this.profiles = profiles;
+        this.byName = profiles.ToDictionary(p => p.Name, StringComparer.Ordinal);
+        this.DefaultName = defaultName;
+        this.Families = profiles.Select(p => p.Family).Distinct(StringComparer.Ordinal).ToArray();
     }
 
     /// <summary>All profiles in catalog order (family order, newest version first per family).</summary>
-    public IReadOnlyList<ClientProfile> Profiles => _profiles;
+    public IReadOnlyList<ClientProfile> Profiles => this.profiles;
 
     /// <summary>Distinct family names in catalog order.</summary>
     public IReadOnlyList<string> Families { get; }
@@ -30,7 +30,7 @@ public sealed class ClientProfileCatalog
     /// <summary>The name of the default profile.</summary>
     public string DefaultName { get; }
 
-    public ClientProfile Default => _byName[DefaultName];
+    public ClientProfile Default => this.byName[this.DefaultName];
 
     /// <summary>Loads the built-in catalog, then merges a user file when present. Throws when the user file is unusable.</summary>
     public static ClientProfileCatalog Load(string? userFilePath = null)
@@ -70,19 +70,19 @@ public sealed class ClientProfileCatalog
         return FromDocument(document);
     }
 
-    public bool Contains(string name) => _byName.ContainsKey(name);
+    public bool Contains(string name) => this.byName.ContainsKey(name);
 
     public ClientProfile GetByName(string name)
     {
         ArgumentNullException.ThrowIfNull(name);
-        return _byName.TryGetValue(name, out var profile) ? profile : Default;
+        return this.byName.TryGetValue(name, out var profile) ? profile : this.Default;
     }
 
-    public bool TryGet(string name, out ClientProfile profile) => _byName.TryGetValue(name, out profile!);
+    public bool TryGet(string name, out ClientProfile profile) => this.byName.TryGetValue(name, out profile!);
 
     /// <summary>Versions available for a family, in catalog order.</summary>
     public IReadOnlyList<string> VersionsOf(string family) =>
-        _profiles.Where(p => string.Equals(p.Family, family, StringComparison.Ordinal)).Select(p => p.Version).ToArray();
+        this.profiles.Where(p => string.Equals(p.Family, family, StringComparison.Ordinal)).Select(p => p.Version).ToArray();
 
     private static ClientProfileCatalog FromDocument(ClientCatalogDocument document)
     {

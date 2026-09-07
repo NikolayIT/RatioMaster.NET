@@ -11,22 +11,6 @@ using RatioMaster.App.Services.Abstractions;
 
 namespace RatioMaster.App.Services;
 
-/// <summary>Marshals onto Avalonia's UI thread.</summary>
-public sealed class AvaloniaDispatcher : IUiDispatcher
-{
-    public bool IsOnUiThread => Dispatcher.UIThread.CheckAccess();
-
-    public void Post(Action action) => Dispatcher.UIThread.Post(action);
-
-    public Task InvokeAsync(Action action) => Dispatcher.UIThread.InvokeAsync(action).GetTask();
-}
-
-/// <summary>Holds the main window so services can reach the current TopLevel.</summary>
-public sealed class MainWindowProvider : IMainWindowProvider
-{
-    public Window? Window { get; set; }
-}
-
 /// <summary>File pickers over <see cref="IStorageProvider"/>.</summary>
 public sealed class FileDialogService(IMainWindowProvider windows) : IFileDialogService
 {
@@ -154,63 +138,5 @@ public sealed class FileDialogService(IMainWindowProvider windows) : IFileDialog
         }
 
         return paths;
-    }
-}
-
-/// <summary>Opens links and reveals files with the desktop's default handler.</summary>
-public sealed class UrlLauncher(IMainWindowProvider windows) : IUrlLauncher
-{
-    public async Task OpenUrlAsync(string url)
-    {
-        var launcher = windows.Window?.Launcher;
-        if (launcher is not null && Uri.TryCreate(url, UriKind.Absolute, out var uri))
-        {
-            await launcher.LaunchUriAsync(uri);
-        }
-    }
-
-    public async Task RevealFileAsync(string path)
-    {
-        if (string.IsNullOrWhiteSpace(path))
-        {
-            return;
-        }
-
-        var directory = Directory.Exists(path) ? path : Path.GetDirectoryName(path);
-        if (string.IsNullOrEmpty(directory) || !Directory.Exists(directory))
-        {
-            return;
-        }
-
-        var launcher = windows.Window?.Launcher;
-        if (launcher is not null)
-        {
-            await launcher.LaunchDirectoryInfoAsync(new DirectoryInfo(directory));
-        }
-    }
-}
-
-/// <summary>Shows toasts inside the main window.</summary>
-public sealed class NotificationService : INotificationService
-{
-    private WindowNotificationManager? _manager;
-
-    public void Attach(Window window) =>
-        _manager = new WindowNotificationManager(window) { Position = NotificationPosition.BottomRight, MaxItems = 4 };
-
-    public void ShowInformation(string title, string message) => Show(title, message, NotificationType.Information);
-
-    public void ShowWarning(string title, string message) => Show(title, message, NotificationType.Warning);
-
-    private void Show(string title, string message, NotificationType type)
-    {
-        if (Dispatcher.UIThread.CheckAccess())
-        {
-            _manager?.Show(new Notification(title, message, type));
-        }
-        else
-        {
-            Dispatcher.UIThread.Post(() => _manager?.Show(new Notification(title, message, type)));
-        }
     }
 }

@@ -141,27 +141,6 @@ public class ClientProfileCatalogTests
         Assert.Equal("Connection: Close", p.Headers[^1]);
     }
 
-    /// <summary>Decodes the two bytes after "-UTxxxx-" (percent-escaped or literal ASCII) as a little-endian build number.</summary>
-    private static int BuildFromPrefix(string prefix)
-    {
-        var bytes = new List<byte>();
-        for (var i = 8; i < prefix.Length;)
-        {
-            if (prefix[i] == '%')
-            {
-                bytes.Add(Convert.ToByte(prefix.Substring(i + 1, 2), 16));
-                i += 3;
-            }
-            else
-            {
-                bytes.Add((byte)prefix[i]);
-                i++;
-            }
-        }
-
-        return bytes.Count == 2 ? bytes[0] | (bytes[1] << 8) : -1;
-    }
-
     [Fact]
     public void UTorrentPeerIdsAreExactlyTwentyBytes()
     {
@@ -334,5 +313,26 @@ public class ClientProfileCatalogTests
         }
         """;
         Assert.Throws<InvalidOperationException>(() => ClientProfileCatalog.Parse(json));
+    }
+
+    /// <summary>Decodes the two bytes after "-UTxxxx-" (percent-escaped or literal ASCII) as a little-endian build number.</summary>
+    private static int BuildFromPrefix(string prefix)
+    {
+        var bytes = new List<byte>();
+        for (var i = 8; i < prefix.Length;)
+        {
+            if (prefix[i] == '%')
+            {
+                bytes.Add(Convert.ToByte(prefix.Substring(i + 1, 2), 16));
+                i += 3;
+            }
+            else
+            {
+                bytes.Add((byte)prefix[i]);
+                i++;
+            }
+        }
+
+        return bytes.Count == 2 ? bytes[0] | (bytes[1] << 8) : -1;
     }
 }

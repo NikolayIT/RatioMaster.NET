@@ -44,13 +44,13 @@ internal sealed class FakeTrackerClient : ITrackerClient
         bool ignoreCertificateErrors,
         CancellationToken cancellationToken)
     {
-        Announces.Add((trackerEvent, values));
-        if (AnnounceError is not null)
+        this.Announces.Add((trackerEvent, values));
+        if (this.AnnounceError is not null)
         {
-            throw AnnounceError;
+            throw this.AnnounceError;
         }
 
-        var response = AnnounceOverride?.Invoke(trackerEvent) ?? BuildAnnounce();
+        var response = this.AnnounceOverride?.Invoke(trackerEvent) ?? this.BuildAnnounce();
         var exchange = new TrackerExchange
         {
             Timestamp = DateTimeOffset.UnixEpoch,
@@ -74,20 +74,20 @@ internal sealed class FakeTrackerClient : ITrackerClient
         bool ignoreCertificateErrors,
         CancellationToken cancellationToken)
     {
-        ScrapeCount++;
+        this.ScrapeCount++;
         var exchange = new TrackerExchange { Timestamp = DateTimeOffset.UnixEpoch, Kind = "scrape", RequestUrl = trackerUrl };
-        if (!ScrapeSupported)
+        if (!this.ScrapeSupported)
         {
             return Task.FromResult(new TrackerScrapeOutcome(null, exchange));
         }
 
         var stats = new BencodeDictionary();
-        if (ScrapeComplete is { } c)
+        if (this.ScrapeComplete is { } c)
         {
             stats.Set("complete", c);
         }
 
-        if (ScrapeIncomplete is { } i)
+        if (this.ScrapeIncomplete is { } i)
         {
             stats.Set("incomplete", i);
         }
@@ -100,30 +100,30 @@ internal sealed class FakeTrackerClient : ITrackerClient
     private AnnounceResponse BuildAnnounce()
     {
         var dict = new BencodeDictionary();
-        if (FailureReason is not null)
+        if (this.FailureReason is not null)
         {
-            dict.Set("failure reason", FailureReason);
+            dict.Set("failure reason", this.FailureReason);
             return AnnounceResponse.Parse(dict);
         }
 
-        if (Interval is { } interval)
+        if (this.Interval is { } interval)
         {
             dict.Set("interval", interval);
         }
 
-        if (Complete is { } complete)
+        if (this.Complete is { } complete)
         {
             dict.Set("complete", complete);
         }
 
-        if (Incomplete is { } incomplete)
+        if (this.Incomplete is { } incomplete)
         {
             dict.Set("incomplete", incomplete);
         }
 
-        if (PeerCount > 0)
+        if (this.PeerCount > 0)
         {
-            dict.Set("peers", new BencodeString(new byte[PeerCount * 6]));
+            dict.Set("peers", new BencodeString(new byte[this.PeerCount * 6]));
         }
 
         return AnnounceResponse.Parse(dict);

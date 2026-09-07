@@ -26,12 +26,12 @@ public sealed partial class NewVersionViewModel(string remoteVersion, IUrlLaunch
     private async Task DownloadAsync()
     {
         await launcher.OpenUrlAsync(AppVersion.WebsiteUrl);
-        Close(NewVersionChoice.Download);
+        this.Close(NewVersionChoice.Download);
     }
 
     [RelayCommand]
-    private void Later() => Close(NewVersionChoice.Later);
+    private void Later() => this.Close(NewVersionChoice.Later);
 
     [RelayCommand]
-    private void Skip() => Close(NewVersionChoice.Skip);
+    private void Skip() => this.Close(NewVersionChoice.Skip);
 }

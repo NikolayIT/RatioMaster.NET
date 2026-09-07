@@ -18,60 +18,6 @@ public class TorrentSessionTests
 
     private static CancellationToken Ct => TestContext.Current.CancellationToken;
 
-    private static ClientIdentity Identity(string port = "50000") => new()
-    {
-        PeerId = "-UT3320-abcdefghijkl",
-        Key = "KEY12345",
-        Port = port,
-        NumWant = "200",
-    };
-
-    private static TorrentSettings QuietSettings() => new()
-    {
-        UploadRateBytes = 60 * KiB,
-        DownloadRateBytes = 30 * KiB,
-        UploadRandomEnabled = false,
-        DownloadRandomEnabled = false,
-        UseTcpListener = false,
-        RequestScrape = true,
-    };
-
-    private static (TorrentSession Session, FakeTrackerClient Tracker) Create(
-        TorrentSettings? settings = null,
-        long totalLength = 1_000_000,
-        IRandomSource? random = null,
-        Action<FakeTrackerClient>? configureTracker = null,
-        ClientIdentity? identity = null)
-    {
-        var tracker = new FakeTrackerClient();
-        configureTracker?.Invoke(tracker);
-        var descriptor = new TorrentDescriptor
-        {
-            InfoHash = InfoHash,
-            TotalLength = totalLength,
-            TrackerUrl = "http://tracker.test/announce",
-            Name = "test.iso",
-        };
-        var session = new TorrentSession(
-            descriptor,
-            Profile,
-            identity ?? Identity(),
-            settings ?? QuietSettings(),
-            tracker,
-            new FakeLocalIpProvider(),
-            random ?? new ScriptedRandomSource(),
-            new FakeClock());
-        return (session, tracker);
-    }
-
-    private static async Task TickAsync(TorrentSession session, int times)
-    {
-        for (var i = 0; i < times; i++)
-        {
-            await session.TickAsync(Ct);
-        }
-    }
-
     [Fact]
     public async Task StartSendsStartedAnnounceAndScrape()
     {
@@ -630,6 +576,60 @@ public class TorrentSessionTests
         await session.StopAsync(Ct);
 
         Assert.Equal(2, tracker.Announces.Count(a => a.Event == TrackerEvent.Stopped));
+    }
+
+    private static ClientIdentity Identity(string port = "50000") => new()
+    {
+        PeerId = "-UT3320-abcdefghijkl",
+        Key = "KEY12345",
+        Port = port,
+        NumWant = "200",
+    };
+
+    private static TorrentSettings QuietSettings() => new()
+    {
+        UploadRateBytes = 60 * KiB,
+        DownloadRateBytes = 30 * KiB,
+        UploadRandomEnabled = false,
+        DownloadRandomEnabled = false,
+        UseTcpListener = false,
+        RequestScrape = true,
+    };
+
+    private static (TorrentSession Session, FakeTrackerClient Tracker) Create(
+        TorrentSettings? settings = null,
+        long totalLength = 1_000_000,
+        IRandomSource? random = null,
+        Action<FakeTrackerClient>? configureTracker = null,
+        ClientIdentity? identity = null)
+    {
+        var tracker = new FakeTrackerClient();
+        configureTracker?.Invoke(tracker);
+        var descriptor = new TorrentDescriptor
+        {
+            InfoHash = InfoHash,
+            TotalLength = totalLength,
+            TrackerUrl = "http://tracker.test/announce",
+            Name = "test.iso",
+        };
+        var session = new TorrentSession(
+            descriptor,
+            Profile,
+            identity ?? Identity(),
+            settings ?? QuietSettings(),
+            tracker,
+            new FakeLocalIpProvider(),
+            random ?? new ScriptedRandomSource(),
+            new FakeClock());
+        return (session, tracker);
+    }
+
+    private static async Task TickAsync(TorrentSession session, int times)
+    {
+        for (var i = 0; i < times; i++)
+        {
+            await session.TickAsync(Ct);
+        }
     }
 
     private static async Task WaitUntilAsync(Func<bool> condition, TimeSpan timeout)

@@ -5,8 +5,6 @@ namespace RatioMaster.Core.Tests.Tracker;
 
 public class HttpMessageFramingTests
 {
-    private static byte[] Bytes(string text) => Encoding.Latin1.GetBytes(text);
-
     [Fact]
     public void IncompleteHeadersAreNotComplete()
     {
@@ -49,4 +47,6 @@ public class HttpMessageFramingTests
     {
         Assert.True(HttpMessageFraming.IsComplete(Bytes("HTTP/1.1 200 OK\nContent-Length: 2\n\nok")));
     }
+
+    private static byte[] Bytes(string text) => Encoding.Latin1.GetBytes(text);
 }

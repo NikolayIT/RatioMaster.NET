@@ -23,20 +23,6 @@ public class RequestGoldenTests
 
     private static readonly ClientProfileCatalog Catalog = ClientProfileCatalog.Load();
 
-    /// <summary>Fixed identity so the goldens are stable; the generators are tested separately.</summary>
-    private static AnnounceValues Values(ClientProfile profile) => new()
-    {
-        InfoHashEncoded = InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase),
-        PeerId = profile.PeerIdPrefix + "PEERIDSUFFIX",
-        Port = "45678",
-        Uploaded = 1_073_741_824,
-        Downloaded = 536_870_912,
-        Left = 268_435_456,
-        Key = "KEY01234",
-        NumWant = profile.DefaultNumWant.ToString(System.Globalization.CultureInfo.InvariantCulture),
-        LocalIp = "192.168.1.50",
-    };
-
     private static byte[] SampleInfoHash { get; } = Enumerable.Range(0, 20).Select(i => (byte)((i * 11) + 5)).ToArray();
 
     [Fact]
@@ -87,6 +73,20 @@ public class RequestGoldenTests
     /// <summary>Regenerates the golden file. Un-skip, run, review the diff, then skip again.</summary>
     [Fact(Skip = "Only run deliberately to accept an intended change to the emulations.")]
     public void WriteGoldenFile() => File.WriteAllText(FindGoldenFile(), BuildAll());
+
+    /// <summary>Fixed identity so the goldens are stable; the generators are tested separately.</summary>
+    private static AnnounceValues Values(ClientProfile profile) => new()
+    {
+        InfoHashEncoded = InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase),
+        PeerId = profile.PeerIdPrefix + "PEERIDSUFFIX",
+        Port = "45678",
+        Uploaded = 1_073_741_824,
+        Downloaded = 536_870_912,
+        Left = 268_435_456,
+        Key = "KEY01234",
+        NumWant = profile.DefaultNumWant.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        LocalIp = "192.168.1.50",
+    };
 
     private static string BuildAll()
     {

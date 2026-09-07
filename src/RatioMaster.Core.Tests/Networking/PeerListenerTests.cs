@@ -9,37 +9,6 @@ public class PeerListenerTests
 {
     private const string PeerId = "-RM1000-abcdefghijkl";
 
-    private static byte[] MakeInfoHash(byte seed)
-    {
-        var hash = new byte[20];
-        for (var i = 0; i < hash.Length; i++)
-        {
-            hash[i] = (byte)(seed + i);
-        }
-
-        return hash;
-    }
-
-    private static byte[] BuildHandshake(byte[] infoHash, string peerId)
-    {
-        const string protocol = "BitTorrent protocol";
-        var handshake = new List<byte> { (byte)protocol.Length };
-        handshake.AddRange(Encoding.ASCII.GetBytes(protocol));
-        handshake.AddRange(new byte[8]);
-        handshake.AddRange(infoHash);
-        handshake.AddRange(Encoding.ASCII.GetBytes(peerId));
-        return handshake.ToArray();
-    }
-
-    private static int GetFreePort()
-    {
-        var probe = new TcpListener(IPAddress.Loopback, 0);
-        probe.Start();
-        var port = ((IPEndPoint)probe.LocalEndpoint).Port;
-        probe.Stop();
-        return port;
-    }
-
     [Fact]
     public async Task RepliesToAMatchingHandshake()
     {
@@ -125,5 +94,36 @@ public class PeerListenerTests
         Assert.False(listener.IsListening);
         Assert.Contains(messages, m => m.Contains("Started TCP listener", StringComparison.Ordinal));
         Assert.Contains(messages, m => m.Contains("TCP listener closed", StringComparison.Ordinal));
+    }
+
+    private static byte[] MakeInfoHash(byte seed)
+    {
+        var hash = new byte[20];
+        for (var i = 0; i < hash.Length; i++)
+        {
+            hash[i] = (byte)(seed + i);
+        }
+
+        return hash;
+    }
+
+    private static byte[] BuildHandshake(byte[] infoHash, string peerId)
+    {
+        const string protocol = "BitTorrent protocol";
+        var handshake = new List<byte> { (byte)protocol.Length };
+        handshake.AddRange(Encoding.ASCII.GetBytes(protocol));
+        handshake.AddRange(new byte[8]);
+        handshake.AddRange(infoHash);
+        handshake.AddRange(Encoding.ASCII.GetBytes(peerId));
+        return handshake.ToArray();
+    }
+
+    private static int GetFreePort()
+    {
+        var probe = new TcpListener(IPAddress.Loopback, 0);
+        probe.Start();
+        var port = ((IPEndPoint)probe.LocalEndpoint).Port;
+        probe.Stop();
+        return port;
     }
 }

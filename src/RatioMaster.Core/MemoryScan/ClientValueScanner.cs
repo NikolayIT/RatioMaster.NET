@@ -13,14 +13,14 @@ public sealed partial class ClientValueScanner
 {
     private const int BlockSize = 64 * 1024;
 
-    private readonly IProcessMemoryScanner _scanner;
+    private readonly IProcessMemoryScanner scanner;
 
     public ClientValueScanner(IProcessMemoryScanner? scanner = null)
     {
-        _scanner = scanner ?? ProcessMemoryScanners.ForCurrentPlatform();
+        this.scanner = scanner ?? ProcessMemoryScanners.ForCurrentPlatform();
     }
 
-    public bool IsSupported => _scanner.IsSupported;
+    public bool IsSupported => this.scanner.IsSupported;
 
     /// <summary>
     /// Scans the client's process and returns the values found, or null when the client is not running,
@@ -32,13 +32,13 @@ public sealed partial class ClientValueScanner
         ArgumentNullException.ThrowIfNull(fallback);
 
         var spec = profile.MemoryScan;
-        if (spec is null || !_scanner.IsSupported)
+        if (spec is null || !this.scanner.IsSupported)
         {
             return null;
         }
 
         log?.Invoke($"Looking for the {spec.ProcessName} process...");
-        using var session = _scanner.Open(spec.ProcessName);
+        using var session = this.scanner.Open(spec.ProcessName);
         if (session is null)
         {
             log?.Invoke($"No {spec.ProcessName} process found. Make sure the torrent client is running.");

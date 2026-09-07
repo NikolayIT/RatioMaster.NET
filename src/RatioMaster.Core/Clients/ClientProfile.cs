@@ -42,5 +42,5 @@ public sealed record ClientProfile
     /// <summary>Memory-scan location, or null when this client cannot be parsed from a running process.</summary>
     public ClientMemoryScanSpec? MemoryScan { get; init; }
 
-    public bool CanScanMemory => MemoryScan is not null;
+    public bool CanScanMemory => this.MemoryScan is not null;
 }

@@ -10,29 +10,29 @@ public sealed partial class TrackerHistoryViewModel : ViewModelBase
 {
     private const int MaxExchanges = 500;
 
-    private readonly ConcurrentQueue<TrackerExchange> _pending = new();
+    private readonly ConcurrentQueue<TrackerExchange> pending = new();
 
     [ObservableProperty]
-    private TrackerExchange? _selected;
+    private TrackerExchange? selected;
 
     /// <summary>Newest first.</summary>
     public ObservableCollection<TrackerExchange> Exchanges { get; } = [];
 
     /// <summary>Called from the engine's thread.</summary>
-    public void Enqueue(TrackerExchange exchange) => _pending.Enqueue(exchange);
+    public void Enqueue(TrackerExchange exchange) => this.pending.Enqueue(exchange);
 
     /// <summary>Called on the UI thread by the refresh timer.</summary>
     public void Drain()
     {
-        while (_pending.TryDequeue(out var exchange))
+        while (this.pending.TryDequeue(out var exchange))
         {
-            Exchanges.Insert(0, exchange);
-            Selected ??= exchange;
+            this.Exchanges.Insert(0, exchange);
+            this.Selected ??= exchange;
         }
 
-        while (Exchanges.Count > MaxExchanges)
+        while (this.Exchanges.Count > MaxExchanges)
         {
-            Exchanges.RemoveAt(Exchanges.Count - 1);
+            this.Exchanges.RemoveAt(this.Exchanges.Count - 1);
         }
     }
 }

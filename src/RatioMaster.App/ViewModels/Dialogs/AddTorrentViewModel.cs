@@ -12,54 +12,31 @@ using RatioMaster.Core.Torrents;
 
 namespace RatioMaster.App.ViewModels.Dialogs;
 
-/// <summary>One torrent the user confirmed adding.</summary>
-public sealed record AddTorrentRequest(
-    TorrentDescriptor Descriptor,
-    string DisplayName,
-    TorrentSettings Settings,
-    bool StartImmediately);
-
-/// <summary>A parsed .torrent shown in the Add dialog.</summary>
-public sealed class ParsedTorrentViewModel(TorrentFile file)
-{
-    public TorrentFile File { get; } = file;
-
-    public string Name => File.Name;
-
-    public string InfoHash => File.InfoHashHex;
-
-    public string Size => Formatting.Bytes(File.TotalLength);
-
-    public string FileCount => File.Files.Count == 1 ? "1 file" : $"{File.Files.Count} files";
-
-    public string Path => File.Path ?? string.Empty;
-}
-
 /// <summary>The Add torrent dialog: pick files, review what they are, adjust settings, add.</summary>
 public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<AddTorrentRequest>>
 {
-    private readonly IFileDialogService _files;
-    private readonly TorrentSettings _defaults;
+    private readonly IFileDialogService files;
+    private readonly TorrentSettings defaults;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsSingle))]
     [NotifyPropertyChangedFor(nameof(HasTorrents))]
     [NotifyPropertyChangedFor(nameof(Summary))]
     [NotifyCanExecuteChangedFor(nameof(AddCommand))]
-    private ParsedTorrentViewModel? _selected;
+    private ParsedTorrentViewModel? selected;
 
     [ObservableProperty]
-    private string _displayName = string.Empty;
+    private string displayName = string.Empty;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(TrackerWarning))]
-    private string _trackerUrl = string.Empty;
+    private string trackerUrl = string.Empty;
 
     [ObservableProperty]
-    private bool _startImmediately = true;
+    private bool startImmediately = true;
 
     [ObservableProperty]
-    private string? _error;
+    private string? error;
 
     public AddTorrentViewModel(
         TorrentSettingsViewModel settings,
@@ -67,11 +44,11 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
         TorrentSettings defaults,
         bool startImmediately)
     {
-        Title = "Add torrent";
-        Settings = settings;
-        _files = files;
-        _defaults = defaults;
-        _startImmediately = startImmediately;
+        this.Title = "Add torrent";
+        this.Settings = settings;
+        this.files = files;
+        this.defaults = defaults;
+        this.startImmediately = startImmediately;
     }
 
     public TorrentSettingsViewModel Settings { get; }
@@ -80,18 +57,18 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
 
     public ObservableCollection<string> TrackerUrls { get; } = [];
 
-    public bool HasTorrents => Torrents.Count > 0;
+    public bool HasTorrents => this.Torrents.Count > 0;
 
-    public bool IsSingle => Torrents.Count == 1;
+    public bool IsSingle => this.Torrents.Count == 1;
 
-    public string Summary => Torrents.Count switch
+    public string Summary => this.Torrents.Count switch
     {
         0 => "No torrent selected yet.",
-        1 => Selected?.Name ?? string.Empty,
-        _ => $"{Torrents.Count} torrents; the settings below apply to all of them.",
+        1 => this.Selected?.Name ?? string.Empty,
+        _ => $"{this.Torrents.Count} torrents; the settings below apply to all of them.",
     };
 
-    public bool CanAdd => Torrents.Count > 0;
+    public bool CanAdd => this.Torrents.Count > 0;
 
     /// <summary>
     /// Why the chosen tracker cannot be announced to (no tracker, udp://, malformed), or null when it is fine.
@@ -101,12 +78,12 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
     {
         get
         {
-            if (IsSingle)
+            if (this.IsSingle)
             {
-                return Core.Tracker.TrackerUrl.Validate(TrackerUrl);
+                return Core.Tracker.TrackerUrl.Validate(this.TrackerUrl);
             }
 
-            var unsupported = Torrents.Count(t => !Core.Tracker.TrackerUrl.IsValid(t.File.Announce));
+            var unsupported = this.Torrents.Count(t => !Core.Tracker.TrackerUrl.IsValid(t.File.Announce));
             return unsupported switch
             {
                 0 => null,
@@ -125,12 +102,12 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
             try
             {
                 var file = TorrentFile.Load(path);
-                if (Torrents.Any(t => string.Equals(t.InfoHash, file.InfoHashHex, StringComparison.Ordinal)))
+                if (this.Torrents.Any(t => string.Equals(t.InfoHash, file.InfoHashHex, StringComparison.Ordinal)))
                 {
                     continue;
                 }
 
-                Torrents.Add(new ParsedTorrentViewModel(file));
+                this.Torrents.Add(new ParsedTorrentViewModel(file));
             }
             catch (TorrentFormatException ex)
             {
@@ -138,57 +115,57 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
             }
         }
 
-        Error = problems.Count > 0 ? string.Join(Environment.NewLine, problems) : null;
+        this.Error = problems.Count > 0 ? string.Join(Environment.NewLine, problems) : null;
 
-        Selected ??= Torrents.FirstOrDefault();
-        if (Torrents.Count == 1 && Selected is not null)
+        this.Selected ??= this.Torrents.FirstOrDefault();
+        if (this.Torrents.Count == 1 && this.Selected is not null)
         {
-            DisplayName = Selected.Name;
-            TrackerUrls.Clear();
-            foreach (var url in Selected.File.AnnounceList)
+            this.DisplayName = this.Selected.Name;
+            this.TrackerUrls.Clear();
+            foreach (var url in this.Selected.File.AnnounceList)
             {
-                TrackerUrls.Add(url);
+                this.TrackerUrls.Add(url);
             }
 
-            TrackerUrl = Selected.File.Announce;
+            this.TrackerUrl = this.Selected.File.Announce;
         }
 
-        OnPropertyChanged(nameof(HasTorrents));
-        OnPropertyChanged(nameof(IsSingle));
-        OnPropertyChanged(nameof(Summary));
-        OnPropertyChanged(nameof(TrackerWarning));
-        AddCommand.NotifyCanExecuteChanged();
+        this.OnPropertyChanged(nameof(this.HasTorrents));
+        this.OnPropertyChanged(nameof(this.IsSingle));
+        this.OnPropertyChanged(nameof(this.Summary));
+        this.OnPropertyChanged(nameof(this.TrackerWarning));
+        this.AddCommand.NotifyCanExecuteChanged();
     }
 
     [RelayCommand]
     private async Task BrowseAsync()
     {
-        var paths = await _files.PickTorrentFilesAsync();
+        var paths = await this.files.PickTorrentFilesAsync();
         if (paths.Count > 0)
         {
-            AddFiles(paths);
+            this.AddFiles(paths);
         }
     }
 
     [RelayCommand(CanExecute = nameof(CanAdd))]
     private void Add()
     {
-        var settings = Settings.ToSettings();
-        var requests = new List<AddTorrentRequest>(Torrents.Count);
-        foreach (var torrent in Torrents)
+        var settings = this.Settings.ToSettings();
+        var requests = new List<AddTorrentRequest>(this.Torrents.Count);
+        foreach (var torrent in this.Torrents)
         {
-            var trackerUrl = IsSingle && !string.IsNullOrWhiteSpace(TrackerUrl) ? TrackerUrl.Trim() : torrent.File.Announce;
-            var name = IsSingle && !string.IsNullOrWhiteSpace(DisplayName) ? DisplayName : torrent.Name;
+            var trackerUrl = this.IsSingle && !string.IsNullOrWhiteSpace(this.TrackerUrl) ? this.TrackerUrl.Trim() : torrent.File.Announce;
+            var name = this.IsSingle && !string.IsNullOrWhiteSpace(this.DisplayName) ? this.DisplayName : torrent.Name;
             requests.Add(new AddTorrentRequest(
                 TorrentDescriptor.FromFile(torrent.File, trackerUrl),
                 name,
                 settings,
-                StartImmediately));
+                this.StartImmediately));
         }
 
-        Close(requests);
+        this.Close(requests);
     }
 
     [RelayCommand]
-    private void Cancel() => Close(null);
+    private void Cancel() => this.Close(null);
 }

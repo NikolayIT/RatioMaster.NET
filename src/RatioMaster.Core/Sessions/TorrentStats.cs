@@ -36,6 +36,6 @@ public sealed record TorrentStats
 
     public TimeSpan? StopAfterRemaining { get; init; }
 
-    public bool IsRunning => State is TorrentSessionState.Downloading or TorrentSessionState.Seeding
+    public bool IsRunning => this.State is TorrentSessionState.Downloading or TorrentSessionState.Seeding
         or TorrentSessionState.Updating or TorrentSessionState.Starting;
 }

@@ -4,5 +4,5 @@ namespace RatioMaster.App.Views.Controls;
 
 public partial class TorrentDetailsView : UserControl
 {
-    public TorrentDetailsView() => InitializeComponent();
+    public TorrentDetailsView() => this.InitializeComponent();
 }

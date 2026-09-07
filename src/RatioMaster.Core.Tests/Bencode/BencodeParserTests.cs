@@ -5,8 +5,6 @@ namespace RatioMaster.Core.Tests.Bencode;
 
 public class BencodeParserTests
 {
-    private static byte[] Bytes(string latin1) => Encoding.Latin1.GetBytes(latin1);
-
     [Theory]
     [InlineData("i42e", 42)]
     [InlineData("i-7e", -7)]
@@ -127,4 +125,6 @@ public class BencodeParserTests
         var dict = BencodeParser.ParseDictionary(Bytes("d1:ai1e1:ai2ee"));
         Assert.Equal(2, dict.GetInteger("a"));
     }
+
+    private static byte[] Bytes(string latin1) => Encoding.Latin1.GetBytes(latin1);
 }

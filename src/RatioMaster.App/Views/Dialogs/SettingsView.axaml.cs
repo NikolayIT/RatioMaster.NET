@@ -4,5 +4,5 @@ namespace RatioMaster.App.Views.Dialogs;
 
 public partial class SettingsView : UserControl
 {
-    public SettingsView() => InitializeComponent();
+    public SettingsView() => this.InitializeComponent();
 }

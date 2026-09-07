@@ -16,12 +16,6 @@ public class ClientValueScannerTests
         NumWant = "200",
     };
 
-    private static byte[] MemoryWith(string announce, int padding = 70_000)
-    {
-        var text = new string('.', padding) + announce;
-        return Encoding.ASCII.GetBytes(text);
-    }
-
     [Fact]
     public void CopiesTheValuesOutOfTheRunningClient()
     {
@@ -95,6 +89,12 @@ public class ClientValueScannerTests
         var scanner = new ClientValueScanner(NullProcessMemoryScanner.Instance);
         Assert.False(scanner.IsSupported);
         Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.3.2"), Fallback));
+    }
+
+    private static byte[] MemoryWith(string announce, int padding = 70_000)
+    {
+        var text = new string('.', padding) + announce;
+        return Encoding.ASCII.GetBytes(text);
     }
 
     private sealed class FakeProcessMemoryScanner(byte[] memory, bool canOpen = true) : IProcessMemoryScanner

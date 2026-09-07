@@ -41,26 +41,26 @@ public sealed partial class WindowsProcessMemoryScanner : IProcessMemoryScanner
 
     private sealed class Session(IntPtr handle) : ProcessMemorySession
     {
-        private IntPtr _handle = handle;
+        private IntPtr handle = handle;
 
         public override int Read(long address, byte[] buffer)
         {
-            if (_handle == IntPtr.Zero)
+            if (this.handle == IntPtr.Zero)
             {
                 return 0;
             }
 
-            return ReadProcessMemory(_handle, (IntPtr)address, buffer, (nuint)buffer.Length, out var read)
+            return ReadProcessMemory(this.handle, (IntPtr)address, buffer, (nuint)buffer.Length, out var read)
                 ? (int)read
                 : 0;
         }
 
         public override void Dispose()
         {
-            if (_handle != IntPtr.Zero)
+            if (this.handle != IntPtr.Zero)
             {
-                CloseHandle(_handle);
-                _handle = IntPtr.Zero;
+                CloseHandle(this.handle);
+                this.handle = IntPtr.Zero;
             }
 
             base.Dispose();

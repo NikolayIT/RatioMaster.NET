@@ -16,12 +16,12 @@ public sealed class TrackerResponse
         byte[] body,
         BencodeDictionary? dictionary)
     {
-        StatusCode = statusCode;
-        StatusLine = statusLine;
-        RawHeaders = rawHeaders;
-        Headers = headers;
-        Body = body;
-        Dictionary = dictionary;
+        this.StatusCode = statusCode;
+        this.StatusLine = statusLine;
+        this.RawHeaders = rawHeaders;
+        this.Headers = headers;
+        this.Body = body;
+        this.Dictionary = dictionary;
     }
 
     public int StatusCode { get; }
@@ -38,9 +38,9 @@ public sealed class TrackerResponse
     /// <summary>The bencode dictionary parsed from the body, or null when the body was not bencode.</summary>
     public BencodeDictionary? Dictionary { get; }
 
-    public bool IsRedirect => StatusCode is >= 300 and < 400 && Location is not null;
+    public bool IsRedirect => this.StatusCode is >= 300 and < 400 && this.Location is not null;
 
-    public string? Location => Headers.TryGetValue("location", out var value) ? value : null;
+    public string? Location => this.Headers.TryGetValue("location", out var value) ? value : null;
 
     public static TrackerResponse Parse(byte[] data)
     {

@@ -15,49 +15,48 @@ namespace RatioMaster.Core.Sessions;
 /// </summary>
 public sealed class TorrentSession : IAsyncDisposable
 {
+    /// <summary>After an announce that got no answer, try again this soon instead of waiting the full interval.</summary>
+    internal const int RetryDelaySeconds = 60;
     private const int MinIntervalSeconds = 60;
     private const int MaxIntervalSeconds = 24 * 60 * 60;
     private const long RatioMinimumDownloadedBytes = 100 * 1024;
 
-    /// <summary>After an announce that got no answer, try again this soon instead of waiting the full interval.</summary>
-    internal const int RetryDelaySeconds = 60;
+    private readonly TorrentDescriptor descriptor;
+    private readonly ClientProfile profile;
+    private readonly ClientIdentity identity;
+    private readonly ITrackerClient tracker;
+    private readonly ILocalIpProvider localIpProvider;
+    private readonly IRandomSource random;
+    private readonly ISystemClock clock;
+    private readonly Lock gate = new();
 
-    private readonly TorrentDescriptor _descriptor;
-    private readonly ClientProfile _profile;
-    private readonly ClientIdentity _identity;
-    private readonly ITrackerClient _tracker;
-    private readonly ILocalIpProvider _localIpProvider;
-    private readonly IRandomSource _random;
-    private readonly ISystemClock _clock;
-    private readonly Lock _gate = new();
+    private TorrentSettings settings;
+    private TorrentSessionState state = TorrentSessionState.Idle;
+    private string? stopReason;
 
-    private TorrentSettings _settings;
-    private TorrentSessionState _state = TorrentSessionState.Idle;
-    private string? _stopReason;
+    private long uploaded;
+    private long downloaded;
+    private long left;
+    private long totalSize;
+    private bool seedMode;
+    private bool haveInitialPeers;
 
-    private long _uploaded;
-    private long _downloaded;
-    private long _left;
-    private long _totalSize;
-    private bool _seedMode;
-    private bool _haveInitialPeers;
+    private long currentUploadRate;
+    private long currentDownloadRate;
+    private bool uploadRandomEnabled;
 
-    private long _currentUploadRate;
-    private long _currentDownloadRate;
-    private bool _uploadRandomEnabled;
+    private int currentInterval;
+    private int elapsedInInterval;
+    private int totalRunningSeconds;
+    private bool forceUpdate;
 
-    private int _currentInterval;
-    private int _elapsedInInterval;
-    private int _totalRunningSeconds;
-    private bool _forceUpdate;
+    private int? seeders;
+    private int? leechers;
 
-    private int? _seeders;
-    private int? _leechers;
-
-    private PeerListener? _listener;
-    private CancellationTokenSource? _loopCts;
-    private Task? _loop;
-    private bool _shouldStop;
+    private PeerListener? listener;
+    private CancellationTokenSource? loopCts;
+    private Task? loop;
+    private bool shouldStop;
 
     public TorrentSession(
         TorrentDescriptor descriptor,
@@ -69,18 +68,18 @@ public sealed class TorrentSession : IAsyncDisposable
         IRandomSource? random = null,
         ISystemClock? clock = null)
     {
-        _descriptor = descriptor ?? throw new ArgumentNullException(nameof(descriptor));
-        _profile = profile ?? throw new ArgumentNullException(nameof(profile));
-        _identity = identity ?? throw new ArgumentNullException(nameof(identity));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _tracker = tracker ?? throw new ArgumentNullException(nameof(tracker));
-        _localIpProvider = localIpProvider ?? LocalIpProvider.Instance;
-        _random = random ?? SystemRandomSource.Instance;
-        _clock = clock ?? SystemClock.Instance;
-        _currentUploadRate = settings.UploadRateBytes;
-        _currentDownloadRate = settings.DownloadRateBytes;
-        _uploadRandomEnabled = settings.UploadRandomEnabled;
-        _currentInterval = ClampInterval(settings.IntervalSeconds);
+        this.descriptor = descriptor ?? throw new ArgumentNullException(nameof(descriptor));
+        this.profile = profile ?? throw new ArgumentNullException(nameof(profile));
+        this.identity = identity ?? throw new ArgumentNullException(nameof(identity));
+        this.settings = settings ?? throw new ArgumentNullException(nameof(settings));
+        this.tracker = tracker ?? throw new ArgumentNullException(nameof(tracker));
+        this.localIpProvider = localIpProvider ?? LocalIpProvider.Instance;
+        this.random = random ?? SystemRandomSource.Instance;
+        this.clock = clock ?? SystemClock.Instance;
+        this.currentUploadRate = settings.UploadRateBytes;
+        this.currentDownloadRate = settings.DownloadRateBytes;
+        this.uploadRandomEnabled = settings.UploadRandomEnabled;
+        this.currentInterval = ClampInterval(settings.IntervalSeconds);
     }
 
     public event EventHandler<TorrentSessionState>? StateChanged;
@@ -91,47 +90,56 @@ public sealed class TorrentSession : IAsyncDisposable
 
     public event EventHandler<EngineAdjustment>? Adjusted;
 
-    public TorrentDescriptor Descriptor => _descriptor;
+    public TorrentDescriptor Descriptor => this.descriptor;
 
-    public ClientProfile Profile => _profile;
+    public ClientProfile Profile => this.profile;
 
-    public ClientIdentity Identity => _identity;
+    public ClientIdentity Identity => this.identity;
 
-    public TorrentSettings Settings => _settings;
+    public TorrentSettings Settings => this.settings;
 
-    public TorrentSessionState State => _state;
+    public TorrentSessionState State => this.state;
 
-    public bool IsListening => _listener?.IsListening ?? false;
+    public bool IsListening => this.listener?.IsListening ?? false;
 
     public TorrentStats Snapshot
     {
         get
         {
-            lock (_gate)
+            lock (this.gate)
             {
                 return new TorrentStats
                 {
-                    State = _state,
-                    StopReason = _stopReason,
-                    Uploaded = _uploaded,
-                    Downloaded = _downloaded,
-                    Left = _left,
-                    TotalSize = _totalSize,
-                    Ratio = ComputeRatio(),
-                    FinishedPercent = ComputeFinishedPercent(),
-                    Seeders = _seeders,
-                    Leechers = _leechers,
-                    UploadRateBytes = UploadPaused ? 0 : _currentUploadRate,
-                    DownloadRateBytes = _currentDownloadRate,
-                    TotalRunningTime = TimeSpan.FromSeconds(_totalRunningSeconds),
-                    NextUpdateIn = _state is TorrentSessionState.Idle or TorrentSessionState.Stopped or TorrentSessionState.Error
+                    State = this.state,
+                    StopReason = this.stopReason,
+                    Uploaded = this.uploaded,
+                    Downloaded = this.downloaded,
+                    Left = this.left,
+                    TotalSize = this.totalSize,
+                    Ratio = this.ComputeRatio(),
+                    FinishedPercent = this.ComputeFinishedPercent(),
+                    Seeders = this.seeders,
+                    Leechers = this.leechers,
+                    UploadRateBytes = this.UploadPaused ? 0 : this.currentUploadRate,
+                    DownloadRateBytes = this.currentDownloadRate,
+                    TotalRunningTime = TimeSpan.FromSeconds(this.totalRunningSeconds),
+                    NextUpdateIn = this.state is TorrentSessionState.Idle or TorrentSessionState.Stopped or TorrentSessionState.Error
                         ? null
-                        : TimeSpan.FromSeconds(Math.Max(0, _currentInterval - _elapsedInInterval)),
-                    StopAfterRemaining = ComputeStopAfterRemaining(),
+                        : TimeSpan.FromSeconds(Math.Max(0, this.currentInterval - this.elapsedInInterval)),
+                    StopAfterRemaining = this.ComputeStopAfterRemaining(),
                 };
             }
         }
     }
+
+    /// <summary>
+    /// True while the tracker's last swarm figures said nobody is downloading and the settings ask to
+    /// stop uploading then. Read under <see cref="gate"/>. This gates the upload counter itself, so no
+    /// other rule (a random speed on the next update, a live edit of the speed) can upload past it.
+    /// </summary>
+    private bool UploadPaused => this.settings.StopUploadWhenNoLeechers && this.leechers == 0;
+
+    private string LocalIp { get; set; } = LocalIpProvider.Fallback;
 
     /// <summary>
     /// Starts the background run loop (started announce, per-second ticks, stopped announce on cancel).
@@ -139,55 +147,55 @@ public sealed class TorrentSession : IAsyncDisposable
     /// </summary>
     public void Start()
     {
-        if (_loop is { IsCompleted: false })
+        if (this.loop is { IsCompleted: false })
         {
             return;
         }
 
-        _loopCts?.Dispose();
+        this.loopCts?.Dispose();
         var cts = new CancellationTokenSource();
-        _loopCts = cts;
-        _loop = Task.Run(() => RunAsync(cts.Token));
+        this.loopCts = cts;
+        this.loop = Task.Run(() => this.RunAsync(cts.Token));
     }
 
     /// <summary>Stops the run loop and sends the stopped announce.</summary>
     public async Task StopAsync(CancellationToken cancellationToken = default)
     {
-        if (_loop is null)
+        if (this.loop is null)
         {
-            if (_state is not (TorrentSessionState.Stopped or TorrentSessionState.Idle or TorrentSessionState.Error))
+            if (this.state is not (TorrentSessionState.Stopped or TorrentSessionState.Idle or TorrentSessionState.Error))
             {
-                await StopWithReasonAsync(null, isError: false, cancellationToken).ConfigureAwait(false);
+                await this.StopWithReasonAsync(null, isError: false, cancellationToken).ConfigureAwait(false);
             }
 
             return;
         }
 
-        if (_loopCts is not null)
+        if (this.loopCts is not null)
         {
-            await _loopCts.CancelAsync().ConfigureAwait(false);
+            await this.loopCts.CancelAsync().ConfigureAwait(false);
         }
 
         try
         {
-            await _loop.ConfigureAwait(false);
+            await this.loop.ConfigureAwait(false);
         }
         catch (OperationCanceledException)
         {
             // Expected.
         }
 
-        _loop = null;
-        _loopCts?.Dispose();
-        _loopCts = null;
+        this.loop = null;
+        this.loopCts?.Dispose();
+        this.loopCts = null;
     }
 
     /// <summary>Requests an immediate announce on the next tick (the old Manual Update button).</summary>
     public void RequestUpdate()
     {
-        lock (_gate)
+        lock (this.gate)
         {
-            _forceUpdate = true;
+            this.forceUpdate = true;
         }
     }
 
@@ -199,564 +207,129 @@ public sealed class TorrentSession : IAsyncDisposable
     {
         ArgumentNullException.ThrowIfNull(settings);
         bool pausedBefore, pausedNow;
-        lock (_gate)
+        lock (this.gate)
         {
-            pausedBefore = UploadPaused;
-            _settings = settings;
-            _currentUploadRate = settings.UploadRateBytes;
-            _currentDownloadRate = _seedMode ? 0 : settings.DownloadRateBytes;
-            _uploadRandomEnabled = settings.UploadRandomEnabled;
-            pausedNow = UploadPaused;
+            pausedBefore = this.UploadPaused;
+            this.settings = settings;
+            this.currentUploadRate = settings.UploadRateBytes;
+            this.currentDownloadRate = this.seedMode ? 0 : settings.DownloadRateBytes;
+            this.uploadRandomEnabled = settings.UploadRandomEnabled;
+            pausedNow = this.UploadPaused;
         }
 
-        LogPauseChange(pausedBefore, pausedNow, "the pause on no leechers was switched off");
+        this.LogPauseChange(pausedBefore, pausedNow, "the pause on no leechers was switched off");
     }
 
-    /// <summary>
-    /// True while the tracker's last swarm figures said nobody is downloading and the settings ask to
-    /// stop uploading then. Read under <see cref="_gate"/>. This gates the upload counter itself, so no
-    /// other rule (a random speed on the next update, a live edit of the speed) can upload past it.
-    /// </summary>
-    private bool UploadPaused => _settings.StopUploadWhenNoLeechers && _leechers == 0;
-
-    private async Task RunAsync(CancellationToken cancellationToken)
+    public async ValueTask DisposeAsync()
     {
-        try
-        {
-            await StartAsync(cancellationToken).ConfigureAwait(false);
-            if (_state == TorrentSessionState.Error)
-            {
-                return;
-            }
-
-            using var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
-            while (!_shouldStop && await timer.WaitForNextTickAsync(cancellationToken).ConfigureAwait(false))
-            {
-                await TickAsync(cancellationToken).ConfigureAwait(false);
-            }
-        }
-        catch (OperationCanceledException)
-        {
-            // Cancelled by StopAsync; fall through to the stopped announce.
-        }
-        catch (Exception ex)
-        {
-            // Nothing may leave the loop dead while the session still looks like it is running: report the
-            // failure the way a tracker error is reported, so the user sees it and can start again.
-            Log(LogLevel.Error, $"Unexpected error: {ex.Message}");
-            await StopWithReasonAsync($"unexpected error: {ex.Message}", isError: true, CancellationToken.None).ConfigureAwait(false);
-        }
-        finally
-        {
-            if (_state is not (TorrentSessionState.Stopped or TorrentSessionState.Error))
-            {
-                await StopWithReasonAsync(null, isError: false, CancellationToken.None).ConfigureAwait(false);
-            }
-
-            await CloseListenerAsync().ConfigureAwait(false);
-        }
+        await this.StopAsync().ConfigureAwait(false);
+        await this.CloseListenerAsync().ConfigureAwait(false);
     }
 
     internal async Task StartAsync(CancellationToken cancellationToken)
     {
-        lock (_gate)
+        lock (this.gate)
         {
-            _uploaded = 0;
-            _downloaded = 0;
-            _totalRunningSeconds = 0;
-            _elapsedInInterval = 0;
-            _haveInitialPeers = false;
-            _shouldStop = false;
-            _forceUpdate = false;
-            _seeders = null;
-            _leechers = null;
-            _stopReason = null;
-            _currentUploadRate = _settings.UploadRateBytes;
-            _currentDownloadRate = _settings.DownloadRateBytes;
-            _uploadRandomEnabled = _settings.UploadRandomEnabled;
-            _currentInterval = ClampInterval(_settings.IntervalSeconds);
-            InitializeSizeFromFinishedPercent();
+            this.uploaded = 0;
+            this.downloaded = 0;
+            this.totalRunningSeconds = 0;
+            this.elapsedInInterval = 0;
+            this.haveInitialPeers = false;
+            this.shouldStop = false;
+            this.forceUpdate = false;
+            this.seeders = null;
+            this.leechers = null;
+            this.stopReason = null;
+            this.currentUploadRate = this.settings.UploadRateBytes;
+            this.currentDownloadRate = this.settings.DownloadRateBytes;
+            this.uploadRandomEnabled = this.settings.UploadRandomEnabled;
+            this.currentInterval = ClampInterval(this.settings.IntervalSeconds);
+            this.InitializeSizeFromFinishedPercent();
         }
 
-        SetState(TorrentSessionState.Starting);
-        if (TrackerUrl.Validate(_descriptor.TrackerUrl) is { } problem)
+        this.SetState(TorrentSessionState.Starting);
+        if (TrackerUrl.Validate(this.descriptor.TrackerUrl) is { } problem)
         {
             // There is nothing to announce to, so no stopped announce either.
-            await StopWithReasonAsync(problem, isError: true, cancellationToken, announceStopped: false).ConfigureAwait(false);
+            await this.StopWithReasonAsync(problem, isError: true, cancellationToken, announceStopped: false).ConfigureAwait(false);
             return;
         }
 
-        LocalIp = await _localIpProvider.GetLocalIpAsync(cancellationToken).ConfigureAwait(false);
-        OpenListener();
+        this.LocalIp = await this.localIpProvider.GetLocalIpAsync(cancellationToken).ConfigureAwait(false);
+        this.OpenListener();
 
-        var response = await DoAnnounceAsync(TrackerEvent.Started, cancellationToken).ConfigureAwait(false);
-        if (await HandleFailureAsync(response, cancellationToken).ConfigureAwait(false))
+        var response = await this.DoAnnounceAsync(TrackerEvent.Started, cancellationToken).ConfigureAwait(false);
+        if (await this.HandleFailureAsync(response, cancellationToken).ConfigureAwait(false))
         {
             return;
         }
 
-        await DoScrapeAsync(cancellationToken).ConfigureAwait(false);
-        SetRunningState();
+        await this.DoScrapeAsync(cancellationToken).ConfigureAwait(false);
+        this.SetRunningState();
     }
 
     internal async Task TickAsync(CancellationToken cancellationToken)
     {
-        if (_state is TorrentSessionState.Stopped or TorrentSessionState.Error or TorrentSessionState.Idle)
+        if (this.state is TorrentSessionState.Stopped or TorrentSessionState.Error or TorrentSessionState.Idle)
         {
             return;
         }
 
-        if (_haveInitialPeers)
+        if (this.haveInitialPeers)
         {
             bool completed;
-            lock (_gate)
+            lock (this.gate)
             {
-                completed = ApplyCounterGrowth();
+                completed = this.ApplyCounterGrowth();
             }
 
             if (completed)
             {
-                await DoAnnounceAsync(TrackerEvent.Completed, cancellationToken).ConfigureAwait(false);
-                await DoScrapeAsync(cancellationToken).ConfigureAwait(false);
-                SetState(TorrentSessionState.Seeding);
+                await this.DoAnnounceAsync(TrackerEvent.Completed, cancellationToken).ConfigureAwait(false);
+                await this.DoScrapeAsync(cancellationToken).ConfigureAwait(false);
+                this.SetState(TorrentSessionState.Seeding);
             }
         }
 
         bool announceNow;
-        lock (_gate)
+        lock (this.gate)
         {
-            _totalRunningSeconds++;
-            announceNow = _forceUpdate || _currentInterval - _elapsedInInterval <= 0;
+            this.totalRunningSeconds++;
+            announceNow = this.forceUpdate || this.currentInterval - this.elapsedInInterval <= 0;
         }
 
-        if (EvaluateStopConditions() is { } reason)
+        if (this.EvaluateStopConditions() is { } reason)
         {
-            await StopWithReasonAsync(reason, isError: false, cancellationToken).ConfigureAwait(false);
+            await this.StopWithReasonAsync(reason, isError: false, cancellationToken).ConfigureAwait(false);
             return;
         }
 
         if (!announceNow)
         {
-            lock (_gate)
+            lock (this.gate)
             {
-                _elapsedInInterval++;
+                this.elapsedInInterval++;
             }
 
             return;
         }
 
-        lock (_gate)
+        lock (this.gate)
         {
-            _forceUpdate = false;
-            _elapsedInInterval = 0;
-            ApplyNextUpdateRandomSpeeds();
+            this.forceUpdate = false;
+            this.elapsedInInterval = 0;
+            this.ApplyNextUpdateRandomSpeeds();
         }
 
-        OpenListener();
-        var response = await DoAnnounceAsync(TrackerEvent.None, cancellationToken).ConfigureAwait(false);
-        if (await HandleFailureAsync(response, cancellationToken).ConfigureAwait(false))
-        {
-            return;
-        }
-
-        await DoScrapeAsync(cancellationToken).ConfigureAwait(false);
-        SetRunningState();
-    }
-
-    private string LocalIp { get; set; } = LocalIpProvider.Fallback;
-
-    private void InitializeSizeFromFinishedPercent()
-    {
-        var finished = Math.Clamp(_settings.FinishedPercent, 0, 100);
-        if (finished <= 0)
-        {
-            _totalSize = _descriptor.TotalLength;
-            _seedMode = false;
-        }
-        else if (finished >= 100)
-        {
-            _totalSize = 0;
-            _seedMode = true;
-        }
-        else
-        {
-            _totalSize = (long)(_descriptor.TotalLength * (100 - finished) / 100);
-            _seedMode = false;
-        }
-
-        _left = _totalSize;
-        if (_seedMode)
-        {
-            _currentDownloadRate = 0;
-        }
-    }
-
-    /// <summary>Grows the counters for one second. Returns true when the download has just completed.</summary>
-    private bool ApplyCounterGrowth()
-    {
-        if (!UploadPaused)
-        {
-            var uploadedThisTick = _currentUploadRate + Jitter(_uploadRandomEnabled, _settings.UploadRandomMinKb, _settings.UploadRandomMaxKb);
-            _uploaded += Math.Max(0, uploadedThisTick);
-        }
-
-        if (!_seedMode && _currentDownloadRate > 0)
-        {
-            var downloadedThisTick = _currentDownloadRate + Jitter(_settings.DownloadRandomEnabled, _settings.DownloadRandomMinKb, _settings.DownloadRandomMaxKb);
-            _downloaded += Math.Max(0, downloadedThisTick);
-            _left = _totalSize - _downloaded;
-        }
-
-        if (_left <= 0)
-        {
-            _downloaded = _totalSize;
-            _left = 0;
-            _currentDownloadRate = 0;
-            if (!_seedMode)
-            {
-                _seedMode = true;
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private long Jitter(bool enabled, int minKb, int maxKb)
-    {
-        if (!enabled)
-        {
-            return _random.Next(10);
-        }
-
-        var lo = Math.Min(minKb, maxKb);
-        var hi = Math.Max(minKb, maxKb);
-        var kb = hi <= lo ? lo : _random.Next(lo, hi);
-        return (long)kb * 1024;
-    }
-
-    private void ApplyNextUpdateRandomSpeeds()
-    {
-        if (_settings.NextUpdateRandomUpload)
-        {
-            _currentUploadRate = RandomRateBytes(_settings.NextUpdateUploadMinKb, _settings.NextUpdateUploadMaxKb);
-        }
-
-        if (_settings.NextUpdateRandomDownload && !_seedMode)
-        {
-            _currentDownloadRate = RandomRateBytes(_settings.NextUpdateDownloadMinKb, _settings.NextUpdateDownloadMaxKb);
-        }
-    }
-
-    private long RandomRateBytes(int minKb, int maxKb)
-    {
-        var lo = Math.Min(minKb, maxKb);
-        var hi = Math.Max(minKb, maxKb);
-        var kb = hi <= lo ? lo : _random.Next(lo, hi);
-        return (long)kb * 1024;
-    }
-
-    private AnnounceValues BuildAnnounceValues()
-    {
-        lock (_gate)
-        {
-            _uploaded = AnnounceMath.RoundDown(_uploaded, AnnounceMath.UploadedDenominator);
-            _downloaded = AnnounceMath.RoundDown(_downloaded, AnnounceMath.DownloadedDenominator);
-            if (_left > 0)
-            {
-                _left = _totalSize - _downloaded;
-            }
-
-            return new AnnounceValues
-            {
-                InfoHashEncoded = InfoHashEncoder.Encode(_descriptor.InfoHash, _profile.HashUpperCase),
-                PeerId = _identity.PeerId,
-                Port = _identity.Port,
-                Uploaded = _uploaded,
-                Downloaded = _downloaded,
-                Left = _left,
-                Key = _identity.Key,
-                NumWant = _identity.NumWant,
-                LocalIp = LocalIp,
-            };
-        }
-    }
-
-    private async Task<AnnounceResponse?> DoAnnounceAsync(TrackerEvent trackerEvent, CancellationToken cancellationToken)
-    {
-        if (trackerEvent != TrackerEvent.Started && trackerEvent != TrackerEvent.Stopped)
-        {
-            SetState(TorrentSessionState.Updating);
-        }
-
-        var values = BuildAnnounceValues();
-        Log(LogLevel.Info, $"Announcing {DescribeEvent(trackerEvent)} to tracker");
-        try
-        {
-            var outcome = await _tracker.AnnounceAsync(
-                _profile, _descriptor.TrackerUrl, values, trackerEvent, _settings.Proxy, _settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
-            TrackerExchangeCompleted?.Invoke(this, outcome.Exchange);
-            ApplyAnnounceResponse(outcome.Response);
-            return outcome.Response;
-        }
-        catch (Exception ex) when (ex is TrackerException or IOException or ProxyException)
-        {
-            Log(LogLevel.Warning, $"No connection to tracker: {ex.Message}");
-            ScheduleRetry();
-            return null;
-        }
-    }
-
-    /// <summary>Pulls the next announce forward so a tracker that did not answer is retried within a minute.</summary>
-    private void ScheduleRetry()
-    {
-        lock (_gate)
-        {
-            _elapsedInInterval = Math.Max(_elapsedInInterval, _currentInterval - RetryDelaySeconds);
-        }
-
-        Log(LogLevel.Info, $"Will retry in {RetryDelaySeconds} seconds.");
-    }
-
-    private void ApplyAnnounceResponse(AnnounceResponse response)
-    {
-        if (response.HasFailure)
-        {
-            Log(LogLevel.Error, $"Tracker error: {response.FailureReason}");
-            return;
-        }
-
-        foreach (var (key, value) in response.ExtraKeys)
-        {
-            Log(LogLevel.Info, $"{key}: {value}");
-        }
-
-        if (response.Interval is { } interval)
-        {
-            var clamped = ClampInterval(interval);
-            if (clamped != _currentInterval)
-            {
-                _currentInterval = clamped;
-                Adjusted?.Invoke(this, new EngineAdjustment { IntervalSeconds = clamped, Reason = "Tracker set the announce interval." });
-            }
-        }
-
-        if (response.Complete is { } complete && response.Incomplete is { } incomplete)
-        {
-            UpdateSwarmStats(complete, incomplete);
-        }
-
-        _haveInitialPeers = true;
-        if (response.Peers.Count > 0)
-        {
-            Log(LogLevel.Info, $"peers: ({response.Peers.Count})");
-        }
-    }
-
-    private async Task DoScrapeAsync(CancellationToken cancellationToken)
-    {
-        if (!_settings.RequestScrape)
+        this.OpenListener();
+        var response = await this.DoAnnounceAsync(TrackerEvent.None, cancellationToken).ConfigureAwait(false);
+        if (await this.HandleFailureAsync(response, cancellationToken).ConfigureAwait(false))
         {
             return;
         }
 
-        var encoded = InfoHashEncoder.Encode(_descriptor.InfoHash, _profile.HashUpperCase);
-        try
-        {
-            var outcome = await _tracker.ScrapeAsync(
-                _profile, _descriptor.TrackerUrl, encoded, _descriptor.InfoHash, _settings.Proxy, _settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
-            TrackerExchangeCompleted?.Invoke(this, outcome.Exchange);
-            if (outcome.Response is { HasFailure: false } scrape && scrape is { Complete: { } complete, Incomplete: { } incomplete })
-            {
-                Log(LogLevel.Info, $"scrape: complete={complete} incomplete={incomplete} downloaded={scrape.Downloaded}");
-                UpdateSwarmStats(complete, incomplete);
-            }
-        }
-        catch (Exception ex) when (ex is TrackerException or IOException or ProxyException)
-        {
-            Log(LogLevel.Warning, $"Scrape error: {ex.Message}");
-        }
-    }
-
-    private void UpdateSwarmStats(int complete, int incomplete)
-    {
-        bool pausedBefore, pausedNow;
-        lock (_gate)
-        {
-            pausedBefore = UploadPaused;
-            _seeders = complete;
-            _leechers = incomplete;
-            pausedNow = UploadPaused;
-        }
-
-        LogPauseChange(pausedBefore, pausedNow, $"the tracker reports {incomplete} leechers");
-    }
-
-    private void LogPauseChange(bool pausedBefore, bool pausedNow, string resumeReason)
-    {
-        if (pausedNow && !pausedBefore)
-        {
-            Log(LogLevel.Info, "The tracker reports no leechers; upload paused until it reports some.");
-        }
-        else if (!pausedNow && pausedBefore)
-        {
-            Log(LogLevel.Info, $"Upload resumed: {resumeReason}.");
-        }
-    }
-
-    private async Task<bool> HandleFailureAsync(AnnounceResponse? response, CancellationToken cancellationToken)
-    {
-        if (response is { HasFailure: true } && !_settings.IgnoreFailureReason)
-        {
-            await StopWithReasonAsync($"Tracker error: {response.FailureReason}", isError: true, cancellationToken).ConfigureAwait(false);
-            return true;
-        }
-
-        return false;
-    }
-
-    private string? EvaluateStopConditions()
-    {
-        var stop = _settings.Stop;
-        switch (stop.Type)
-        {
-            case StopConditionType.AfterSeconds when stop.Value > 0 && _totalRunningSeconds >= stop.Value:
-                return $"ran for {stop.Value:0} seconds";
-            case StopConditionType.SeedersBelow when _seeders is { } s && s < stop.Value:
-                return $"seeders < {stop.Value:0}";
-            case StopConditionType.LeechersBelow when _leechers is { } l && l < stop.Value:
-                return $"leechers < {stop.Value:0}";
-            case StopConditionType.UploadedAboveMb when _uploaded > (long)(stop.Value * 1024 * 1024):
-                return $"uploaded > {stop.Value:0} MB";
-            case StopConditionType.DownloadedAboveMb when _downloaded > (long)(stop.Value * 1024 * 1024):
-                return $"downloaded > {stop.Value:0} MB";
-            case StopConditionType.LeecherSeederRatioBelow when _seeders is { } sd and > 0 && _leechers is { } lc && lc / (double)sd < stop.Value:
-                return $"leechers/seeders < {stop.Value}";
-            default:
-                return null;
-        }
-    }
-
-    private async Task StopWithReasonAsync(string? reason, bool isError, CancellationToken cancellationToken, bool announceStopped = true)
-    {
-        lock (_gate)
-        {
-            if (_state is TorrentSessionState.Stopped or TorrentSessionState.Error)
-            {
-                return;
-            }
-
-            _shouldStop = true;
-            _stopReason = reason;
-        }
-
-        SetState(TorrentSessionState.Stopping);
-        await CloseListenerAsync().ConfigureAwait(false);
-        if (announceStopped)
-        {
-            await SendStoppedAsync(cancellationToken).ConfigureAwait(false);
-        }
-
-        if (reason is not null)
-        {
-            Log(isError ? LogLevel.Error : LogLevel.Info, $"Stopped: {reason}");
-        }
-
-        SetState(isError ? TorrentSessionState.Error : TorrentSessionState.Stopped);
-    }
-
-    private async Task SendStoppedAsync(CancellationToken cancellationToken)
-    {
-        var values = BuildAnnounceValues();
-        try
-        {
-            var outcome = await _tracker.AnnounceAsync(
-                _profile, _descriptor.TrackerUrl, values, TrackerEvent.Stopped, _settings.Proxy, _settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
-            TrackerExchangeCompleted?.Invoke(this, outcome.Exchange);
-        }
-        catch (Exception ex)
-        {
-            // The stopped announce is best effort: whatever went wrong, the session still ends.
-            Log(LogLevel.Warning, $"Stopped announce failed: {ex.Message}");
-        }
-    }
-
-    private void SetRunningState() => SetState(_seedMode ? TorrentSessionState.Seeding : TorrentSessionState.Downloading);
-
-    private void SetState(TorrentSessionState state)
-    {
-        bool changed;
-        lock (_gate)
-        {
-            changed = _state != state;
-            _state = state;
-        }
-
-        if (changed)
-        {
-            StateChanged?.Invoke(this, state);
-        }
-    }
-
-    private void OpenListener()
-    {
-        if (!_settings.UseTcpListener || !_settings.Proxy.IsDirect || _listener is not null)
-        {
-            return;
-        }
-
-        if (!int.TryParse(_identity.Port, NumberStyles.Integer, CultureInfo.InvariantCulture, out var port))
-        {
-            return;
-        }
-
-        var listener = new PeerListener(port, _descriptor.InfoHash, _identity.PeerId, message => Log(LogLevel.Info, message));
-        if (listener.Start())
-        {
-            _listener = listener;
-        }
-    }
-
-    private async Task CloseListenerAsync()
-    {
-        if (_listener is not null)
-        {
-            await _listener.DisposeAsync().ConfigureAwait(false);
-            _listener = null;
-        }
-    }
-
-    private double? ComputeRatio() =>
-        _downloaded < RatioMinimumDownloadedBytes ? null : _uploaded / (double)_downloaded;
-
-    private double ComputeFinishedPercent()
-    {
-        if (_descriptor.TotalLength <= 0)
-        {
-            return 100;
-        }
-
-        var percent = (_descriptor.TotalLength - _left) / (double)_descriptor.TotalLength * 100;
-        return Math.Clamp(percent, 0, 100);
-    }
-
-    private TimeSpan? ComputeStopAfterRemaining()
-    {
-        if (_settings.Stop.Type != StopConditionType.AfterSeconds || _settings.Stop.Value <= 0)
-        {
-            return null;
-        }
-
-        var remaining = (int)_settings.Stop.Value - _totalRunningSeconds;
-        return TimeSpan.FromSeconds(Math.Max(0, remaining));
-    }
-
-    private void Log(LogLevel level, string text)
-    {
-        if (_settings.EnableLog || level == LogLevel.Error)
-        {
-            LogEmitted?.Invoke(this, new LogEntry(_clock.Now, level, text));
-        }
+        await this.DoScrapeAsync(cancellationToken).ConfigureAwait(false);
+        this.SetRunningState();
     }
 
     private static int ClampInterval(int seconds) => Math.Clamp(seconds, MinIntervalSeconds, MaxIntervalSeconds);
@@ -769,9 +342,435 @@ public sealed class TorrentSession : IAsyncDisposable
         _ => "update",
     };
 
-    public async ValueTask DisposeAsync()
+    private async Task RunAsync(CancellationToken cancellationToken)
     {
-        await StopAsync().ConfigureAwait(false);
-        await CloseListenerAsync().ConfigureAwait(false);
+        try
+        {
+            await this.StartAsync(cancellationToken).ConfigureAwait(false);
+            if (this.state == TorrentSessionState.Error)
+            {
+                return;
+            }
+
+            using var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+            while (!this.shouldStop && await timer.WaitForNextTickAsync(cancellationToken).ConfigureAwait(false))
+            {
+                await this.TickAsync(cancellationToken).ConfigureAwait(false);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // Cancelled by StopAsync; fall through to the stopped announce.
+        }
+        catch (Exception ex)
+        {
+            // Nothing may leave the loop dead while the session still looks like it is running: report the
+            // failure the way a tracker error is reported, so the user sees it and can start again.
+            this.Log(LogLevel.Error, $"Unexpected error: {ex.Message}");
+            await this.StopWithReasonAsync($"unexpected error: {ex.Message}", isError: true, CancellationToken.None).ConfigureAwait(false);
+        }
+        finally
+        {
+            if (this.state is not (TorrentSessionState.Stopped or TorrentSessionState.Error))
+            {
+                await this.StopWithReasonAsync(null, isError: false, CancellationToken.None).ConfigureAwait(false);
+            }
+
+            await this.CloseListenerAsync().ConfigureAwait(false);
+        }
+    }
+
+    private void InitializeSizeFromFinishedPercent()
+    {
+        var finished = Math.Clamp(this.settings.FinishedPercent, 0, 100);
+        if (finished <= 0)
+        {
+            this.totalSize = this.descriptor.TotalLength;
+            this.seedMode = false;
+        }
+        else if (finished >= 100)
+        {
+            this.totalSize = 0;
+            this.seedMode = true;
+        }
+        else
+        {
+            this.totalSize = (long)(this.descriptor.TotalLength * (100 - finished) / 100);
+            this.seedMode = false;
+        }
+
+        this.left = this.totalSize;
+        if (this.seedMode)
+        {
+            this.currentDownloadRate = 0;
+        }
+    }
+
+    /// <summary>Grows the counters for one second. Returns true when the download has just completed.</summary>
+    private bool ApplyCounterGrowth()
+    {
+        if (!this.UploadPaused)
+        {
+            var uploadedThisTick = this.currentUploadRate + this.Jitter(this.uploadRandomEnabled, this.settings.UploadRandomMinKb, this.settings.UploadRandomMaxKb);
+            this.uploaded += Math.Max(0, uploadedThisTick);
+        }
+
+        if (!this.seedMode && this.currentDownloadRate > 0)
+        {
+            var downloadedThisTick = this.currentDownloadRate + this.Jitter(this.settings.DownloadRandomEnabled, this.settings.DownloadRandomMinKb, this.settings.DownloadRandomMaxKb);
+            this.downloaded += Math.Max(0, downloadedThisTick);
+            this.left = this.totalSize - this.downloaded;
+        }
+
+        if (this.left <= 0)
+        {
+            this.downloaded = this.totalSize;
+            this.left = 0;
+            this.currentDownloadRate = 0;
+            if (!this.seedMode)
+            {
+                this.seedMode = true;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private long Jitter(bool enabled, int minKb, int maxKb)
+    {
+        if (!enabled)
+        {
+            return this.random.Next(10);
+        }
+
+        var lo = Math.Min(minKb, maxKb);
+        var hi = Math.Max(minKb, maxKb);
+        var kb = hi <= lo ? lo : this.random.Next(lo, hi);
+        return (long)kb * 1024;
+    }
+
+    private void ApplyNextUpdateRandomSpeeds()
+    {
+        if (this.settings.NextUpdateRandomUpload)
+        {
+            this.currentUploadRate = this.RandomRateBytes(this.settings.NextUpdateUploadMinKb, this.settings.NextUpdateUploadMaxKb);
+        }
+
+        if (this.settings.NextUpdateRandomDownload && !this.seedMode)
+        {
+            this.currentDownloadRate = this.RandomRateBytes(this.settings.NextUpdateDownloadMinKb, this.settings.NextUpdateDownloadMaxKb);
+        }
+    }
+
+    private long RandomRateBytes(int minKb, int maxKb)
+    {
+        var lo = Math.Min(minKb, maxKb);
+        var hi = Math.Max(minKb, maxKb);
+        var kb = hi <= lo ? lo : this.random.Next(lo, hi);
+        return (long)kb * 1024;
+    }
+
+    private AnnounceValues BuildAnnounceValues()
+    {
+        lock (this.gate)
+        {
+            this.uploaded = AnnounceMath.RoundDown(this.uploaded, AnnounceMath.UploadedDenominator);
+            this.downloaded = AnnounceMath.RoundDown(this.downloaded, AnnounceMath.DownloadedDenominator);
+            if (this.left > 0)
+            {
+                this.left = this.totalSize - this.downloaded;
+            }
+
+            return new AnnounceValues
+            {
+                InfoHashEncoded = InfoHashEncoder.Encode(this.descriptor.InfoHash, this.profile.HashUpperCase),
+                PeerId = this.identity.PeerId,
+                Port = this.identity.Port,
+                Uploaded = this.uploaded,
+                Downloaded = this.downloaded,
+                Left = this.left,
+                Key = this.identity.Key,
+                NumWant = this.identity.NumWant,
+                LocalIp = this.LocalIp,
+            };
+        }
+    }
+
+    private async Task<AnnounceResponse?> DoAnnounceAsync(TrackerEvent trackerEvent, CancellationToken cancellationToken)
+    {
+        if (trackerEvent != TrackerEvent.Started && trackerEvent != TrackerEvent.Stopped)
+        {
+            this.SetState(TorrentSessionState.Updating);
+        }
+
+        var values = this.BuildAnnounceValues();
+        this.Log(LogLevel.Info, $"Announcing {DescribeEvent(trackerEvent)} to tracker");
+        try
+        {
+            var outcome = await this.tracker.AnnounceAsync(
+                this.profile, this.descriptor.TrackerUrl, values, trackerEvent, this.settings.Proxy, this.settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
+            this.TrackerExchangeCompleted?.Invoke(this, outcome.Exchange);
+            this.ApplyAnnounceResponse(outcome.Response);
+            return outcome.Response;
+        }
+        catch (Exception ex) when (ex is TrackerException or IOException or ProxyException)
+        {
+            this.Log(LogLevel.Warning, $"No connection to tracker: {ex.Message}");
+            this.ScheduleRetry();
+            return null;
+        }
+    }
+
+    /// <summary>Pulls the next announce forward so a tracker that did not answer is retried within a minute.</summary>
+    private void ScheduleRetry()
+    {
+        lock (this.gate)
+        {
+            this.elapsedInInterval = Math.Max(this.elapsedInInterval, this.currentInterval - RetryDelaySeconds);
+        }
+
+        this.Log(LogLevel.Info, $"Will retry in {RetryDelaySeconds} seconds.");
+    }
+
+    private void ApplyAnnounceResponse(AnnounceResponse response)
+    {
+        if (response.HasFailure)
+        {
+            this.Log(LogLevel.Error, $"Tracker error: {response.FailureReason}");
+            return;
+        }
+
+        foreach (var (key, value) in response.ExtraKeys)
+        {
+            this.Log(LogLevel.Info, $"{key}: {value}");
+        }
+
+        if (response.Interval is { } interval)
+        {
+            var clamped = ClampInterval(interval);
+            if (clamped != this.currentInterval)
+            {
+                this.currentInterval = clamped;
+                this.Adjusted?.Invoke(this, new EngineAdjustment { IntervalSeconds = clamped, Reason = "Tracker set the announce interval." });
+            }
+        }
+
+        if (response.Complete is { } complete && response.Incomplete is { } incomplete)
+        {
+            this.UpdateSwarmStats(complete, incomplete);
+        }
+
+        this.haveInitialPeers = true;
+        if (response.Peers.Count > 0)
+        {
+            this.Log(LogLevel.Info, $"peers: ({response.Peers.Count})");
+        }
+    }
+
+    private async Task DoScrapeAsync(CancellationToken cancellationToken)
+    {
+        if (!this.settings.RequestScrape)
+        {
+            return;
+        }
+
+        var encoded = InfoHashEncoder.Encode(this.descriptor.InfoHash, this.profile.HashUpperCase);
+        try
+        {
+            var outcome = await this.tracker.ScrapeAsync(
+                this.profile, this.descriptor.TrackerUrl, encoded, this.descriptor.InfoHash, this.settings.Proxy, this.settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
+            this.TrackerExchangeCompleted?.Invoke(this, outcome.Exchange);
+            if (outcome.Response is { HasFailure: false } scrape && scrape is { Complete: { } complete, Incomplete: { } incomplete })
+            {
+                this.Log(LogLevel.Info, $"scrape: complete={complete} incomplete={incomplete} downloaded={scrape.Downloaded}");
+                this.UpdateSwarmStats(complete, incomplete);
+            }
+        }
+        catch (Exception ex) when (ex is TrackerException or IOException or ProxyException)
+        {
+            this.Log(LogLevel.Warning, $"Scrape error: {ex.Message}");
+        }
+    }
+
+    private void UpdateSwarmStats(int complete, int incomplete)
+    {
+        bool pausedBefore, pausedNow;
+        lock (this.gate)
+        {
+            pausedBefore = this.UploadPaused;
+            this.seeders = complete;
+            this.leechers = incomplete;
+            pausedNow = this.UploadPaused;
+        }
+
+        this.LogPauseChange(pausedBefore, pausedNow, $"the tracker reports {incomplete} leechers");
+    }
+
+    private void LogPauseChange(bool pausedBefore, bool pausedNow, string resumeReason)
+    {
+        if (pausedNow && !pausedBefore)
+        {
+            this.Log(LogLevel.Info, "The tracker reports no leechers; upload paused until it reports some.");
+        }
+        else if (!pausedNow && pausedBefore)
+        {
+            this.Log(LogLevel.Info, $"Upload resumed: {resumeReason}.");
+        }
+    }
+
+    private async Task<bool> HandleFailureAsync(AnnounceResponse? response, CancellationToken cancellationToken)
+    {
+        if (response is { HasFailure: true } && !this.settings.IgnoreFailureReason)
+        {
+            await this.StopWithReasonAsync($"Tracker error: {response.FailureReason}", isError: true, cancellationToken).ConfigureAwait(false);
+            return true;
+        }
+
+        return false;
+    }
+
+    private string? EvaluateStopConditions()
+    {
+        var stop = this.settings.Stop;
+        switch (stop.Type)
+        {
+            case StopConditionType.AfterSeconds when stop.Value > 0 && this.totalRunningSeconds >= stop.Value:
+                return $"ran for {stop.Value:0} seconds";
+            case StopConditionType.SeedersBelow when this.seeders is { } s && s < stop.Value:
+                return $"seeders < {stop.Value:0}";
+            case StopConditionType.LeechersBelow when this.leechers is { } l && l < stop.Value:
+                return $"leechers < {stop.Value:0}";
+            case StopConditionType.UploadedAboveMb when this.uploaded > (long)(stop.Value * 1024 * 1024):
+                return $"uploaded > {stop.Value:0} MB";
+            case StopConditionType.DownloadedAboveMb when this.downloaded > (long)(stop.Value * 1024 * 1024):
+                return $"downloaded > {stop.Value:0} MB";
+            case StopConditionType.LeecherSeederRatioBelow when this.seeders is { } sd and > 0 && this.leechers is { } lc && lc / (double)sd < stop.Value:
+                return $"leechers/seeders < {stop.Value}";
+            default:
+                return null;
+        }
+    }
+
+    private async Task StopWithReasonAsync(string? reason, bool isError, CancellationToken cancellationToken, bool announceStopped = true)
+    {
+        lock (this.gate)
+        {
+            if (this.state is TorrentSessionState.Stopped or TorrentSessionState.Error)
+            {
+                return;
+            }
+
+            this.shouldStop = true;
+            this.stopReason = reason;
+        }
+
+        this.SetState(TorrentSessionState.Stopping);
+        await this.CloseListenerAsync().ConfigureAwait(false);
+        if (announceStopped)
+        {
+            await this.SendStoppedAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        if (reason is not null)
+        {
+            this.Log(isError ? LogLevel.Error : LogLevel.Info, $"Stopped: {reason}");
+        }
+
+        this.SetState(isError ? TorrentSessionState.Error : TorrentSessionState.Stopped);
+    }
+
+    private async Task SendStoppedAsync(CancellationToken cancellationToken)
+    {
+        var values = this.BuildAnnounceValues();
+        try
+        {
+            var outcome = await this.tracker.AnnounceAsync(
+                this.profile, this.descriptor.TrackerUrl, values, TrackerEvent.Stopped, this.settings.Proxy, this.settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
+            this.TrackerExchangeCompleted?.Invoke(this, outcome.Exchange);
+        }
+        catch (Exception ex)
+        {
+            // The stopped announce is best effort: whatever went wrong, the session still ends.
+            this.Log(LogLevel.Warning, $"Stopped announce failed: {ex.Message}");
+        }
+    }
+
+    private void SetRunningState() => this.SetState(this.seedMode ? TorrentSessionState.Seeding : TorrentSessionState.Downloading);
+
+    private void SetState(TorrentSessionState state)
+    {
+        bool changed;
+        lock (this.gate)
+        {
+            changed = this.state != state;
+            this.state = state;
+        }
+
+        if (changed)
+        {
+            this.StateChanged?.Invoke(this, state);
+        }
+    }
+
+    private void OpenListener()
+    {
+        if (!this.settings.UseTcpListener || !this.settings.Proxy.IsDirect || this.listener is not null)
+        {
+            return;
+        }
+
+        if (!int.TryParse(this.identity.Port, NumberStyles.Integer, CultureInfo.InvariantCulture, out var port))
+        {
+            return;
+        }
+
+        var listener = new PeerListener(port, this.descriptor.InfoHash, this.identity.PeerId, message => this.Log(LogLevel.Info, message));
+        if (listener.Start())
+        {
+            this.listener = listener;
+        }
+    }
+
+    private async Task CloseListenerAsync()
+    {
+        if (this.listener is not null)
+        {
+            await this.listener.DisposeAsync().ConfigureAwait(false);
+            this.listener = null;
+        }
+    }
+
+    private double? ComputeRatio() =>
+        this.downloaded < RatioMinimumDownloadedBytes ? null : this.uploaded / (double)this.downloaded;
+
+    private double ComputeFinishedPercent()
+    {
+        if (this.descriptor.TotalLength <= 0)
+        {
+            return 100;
+        }
+
+        var percent = (this.descriptor.TotalLength - this.left) / (double)this.descriptor.TotalLength * 100;
+        return Math.Clamp(percent, 0, 100);
+    }
+
+    private TimeSpan? ComputeStopAfterRemaining()
+    {
+        if (this.settings.Stop.Type != StopConditionType.AfterSeconds || this.settings.Stop.Value <= 0)
+        {
+            return null;
+        }
+
+        var remaining = (int)this.settings.Stop.Value - this.totalRunningSeconds;
+        return TimeSpan.FromSeconds(Math.Max(0, remaining));
+    }
+
+    private void Log(LogLevel level, string text)
+    {
+        if (this.settings.EnableLog || level == LogLevel.Error)
+        {
+            this.LogEmitted?.Invoke(this, new LogEntry(this.clock.Now, level, text));
+        }
     }
 }

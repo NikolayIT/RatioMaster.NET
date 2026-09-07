@@ -13,13 +13,13 @@ namespace RatioMaster.Core.Sessions;
 /// </summary>
 public sealed class TorrentSessionFactory
 {
-    private readonly ClientProfileCatalog _catalog;
-    private readonly ITrackerClient _tracker;
-    private readonly ClientIdentityGenerator _generator;
-    private readonly ClientValueScanner _scanner;
-    private readonly ILocalIpProvider _localIpProvider;
-    private readonly IRandomSource _random;
-    private readonly ISystemClock _clock;
+    private readonly ClientProfileCatalog catalog;
+    private readonly ITrackerClient tracker;
+    private readonly ClientIdentityGenerator generator;
+    private readonly ClientValueScanner scanner;
+    private readonly ILocalIpProvider localIpProvider;
+    private readonly IRandomSource random;
+    private readonly ISystemClock clock;
 
     public TorrentSessionFactory(
         ClientProfileCatalog catalog,
@@ -29,23 +29,23 @@ public sealed class TorrentSessionFactory
         IRandomSource? random = null,
         ISystemClock? clock = null)
     {
-        _catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
-        _tracker = tracker ?? new TrackerClient();
-        _random = random ?? SystemRandomSource.Instance;
-        _generator = new ClientIdentityGenerator(_random);
-        _scanner = scanner ?? new ClientValueScanner();
-        _localIpProvider = localIpProvider ?? LocalIpProvider.Instance;
-        _clock = clock ?? SystemClock.Instance;
+        this.catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
+        this.tracker = tracker ?? new TrackerClient();
+        this.random = random ?? SystemRandomSource.Instance;
+        this.generator = new ClientIdentityGenerator(this.random);
+        this.scanner = scanner ?? new ClientValueScanner();
+        this.localIpProvider = localIpProvider ?? LocalIpProvider.Instance;
+        this.clock = clock ?? SystemClock.Instance;
     }
 
-    public ClientProfileCatalog Catalog => _catalog;
+    public ClientProfileCatalog Catalog => this.catalog;
 
     /// <summary>Builds the identity a session would use, without creating the session (for the UI preview).</summary>
     public ClientIdentity CreateIdentity(TorrentSettings settings, Action<string>? log = null)
     {
         ArgumentNullException.ThrowIfNull(settings);
-        var profile = _catalog.GetByName(settings.ClientName);
-        var generated = _generator.Generate(profile);
+        var profile = this.catalog.GetByName(settings.ClientName);
+        var generated = this.generator.Generate(profile);
 
         if (settings.IdentityMode == IdentityMode.Custom)
         {
@@ -59,7 +59,7 @@ public sealed class TorrentSessionFactory
             };
         }
 
-        return _scanner.TryScan(profile, generated, log) ?? generated;
+        return this.scanner.TryScan(profile, generated, log) ?? generated;
     }
 
     /// <summary>Creates a session for a torrent with the given settings.</summary>
@@ -68,9 +68,9 @@ public sealed class TorrentSessionFactory
         ArgumentNullException.ThrowIfNull(descriptor);
         ArgumentNullException.ThrowIfNull(settings);
 
-        var profile = _catalog.GetByName(settings.ClientName);
-        var identity = CreateIdentity(settings, log);
-        return new TorrentSession(descriptor, profile, identity, settings, _tracker, _localIpProvider, _random, _clock);
+        var profile = this.catalog.GetByName(settings.ClientName);
+        var identity = this.CreateIdentity(settings, log);
+        return new TorrentSession(descriptor, profile, identity, settings, this.tracker, this.localIpProvider, this.random, this.clock);
     }
 
     private static string Or(string? value, string fallback) => string.IsNullOrWhiteSpace(value) ? fallback : value;

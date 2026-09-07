@@ -6,68 +6,6 @@ namespace RatioMaster.Core.Tests.Settings;
 
 public class LegacyRegistryImportTests
 {
-    private sealed class FakeRegistry : ILegacyRegistryReader
-    {
-        private readonly Dictionary<string, object> _values = new(StringComparer.Ordinal);
-
-        public bool Exists { get; set; } = true;
-
-        public FakeRegistry Set(string name, string value)
-        {
-            _values[name] = value;
-            return this;
-        }
-
-        public FakeRegistry Set(string name, int value)
-        {
-            _values[name] = value;
-            return this;
-        }
-
-        public string? GetString(string name) => _values.TryGetValue(name, out var v) ? v.ToString() : null;
-
-        public int? GetInt(string name) => _values.TryGetValue(name, out var v) && v is int i ? i : null;
-    }
-
-    private static FakeRegistry TypicalOldInstall() => new FakeRegistry()
-        .Set("Version", "0.43")
-        .Set("NewValues", 0)
-        .Set("BallonTip", 1)
-        .Set("MinimizeToTray", 0)
-        .Set("CloseToTray", 1)
-        .Set("Client", "Azureus")
-        .Set("ClientVersion", "3.1.1.0")
-        .Set("UploadRate", "150")
-        .Set("DownloadRate", "45")
-        .Set("Interval", "900")
-        .Set("fileSize", "12,5")
-        .Set("Directory", @"D:\torrents")
-        .Set("TCPlistener", 0)
-        .Set("ScrapeInfo", 1)
-        .Set("EnableLog", 0)
-        .Set("GetRandUp", 1)
-        .Set("MinRandUp", "3")
-        .Set("MaxRandUp", "9")
-        .Set("GetRandDown", 0)
-        .Set("MinRandDown", "2")
-        .Set("MaxRandDown", "6")
-        .Set("CustomKey", "ABCD1234")
-        .Set("CustomPeerID", "-AZ3110-oldpeerid")
-        .Set("CustomPort", "42000")
-        .Set("CustomPeers", "50")
-        .Set("StopWhen", "When leechers <")
-        .Set("StopAfter", "4")
-        .Set("ProxyType", "SOCKS4a")
-        .Set("ProxyAdress", "proxy.old")
-        .Set("ProxyPort", "9050")
-        .Set("ProxyUser", "olduser")
-        .Set("ProxyPass", "oldpass")
-        .Set("GetRandUpNext", 1)
-        .Set("MinRandUpNext", "20")
-        .Set("MaxRandUpNext", "70")
-        .Set("GetRandDownNext", 0)
-        .Set("IgnoreFailureReason", 1);
-
     [Fact]
     public void ImportsTheOldRegistrySettings()
     {
@@ -150,5 +88,66 @@ public class LegacyRegistryImportTests
 
         Assert.Equal(AppTheme.Dark, imported!.Theme);
         Assert.False(imported.CheckForUpdatesOnStartup);
+    }
+
+    private static FakeRegistry TypicalOldInstall() => new FakeRegistry()
+        .Set("Version", "0.43")
+        .Set("NewValues", 0)
+        .Set("BallonTip", 1)
+        .Set("MinimizeToTray", 0)
+        .Set("CloseToTray", 1)
+        .Set("Client", "Azureus")
+        .Set("ClientVersion", "3.1.1.0")
+        .Set("UploadRate", "150")
+        .Set("DownloadRate", "45")
+        .Set("Interval", "900")
+        .Set("fileSize", "12,5")
+        .Set("Directory", @"D:\torrents")
+        .Set("TCPlistener", 0)
+        .Set("ScrapeInfo", 1)
+        .Set("EnableLog", 0)
+        .Set("GetRandUp", 1)
+        .Set("MinRandUp", "3")
+        .Set("MaxRandUp", "9")
+        .Set("GetRandDown", 0)
+        .Set("MinRandDown", "2")
+        .Set("MaxRandDown", "6")
+        .Set("CustomKey", "ABCD1234")
+        .Set("CustomPeerID", "-AZ3110-oldpeerid")
+        .Set("CustomPort", "42000")
+        .Set("CustomPeers", "50")
+        .Set("StopWhen", "When leechers <")
+        .Set("StopAfter", "4")
+        .Set("ProxyType", "SOCKS4a")
+        .Set("ProxyAdress", "proxy.old")
+        .Set("ProxyPort", "9050")
+        .Set("ProxyUser", "olduser")
+        .Set("ProxyPass", "oldpass")
+        .Set("GetRandUpNext", 1)
+        .Set("MinRandUpNext", "20")
+        .Set("MaxRandUpNext", "70")
+        .Set("GetRandDownNext", 0)
+        .Set("IgnoreFailureReason", 1);
+    private sealed class FakeRegistry : ILegacyRegistryReader
+    {
+        private readonly Dictionary<string, object> values = new(StringComparer.Ordinal);
+
+        public bool Exists { get; set; } = true;
+
+        public FakeRegistry Set(string name, string value)
+        {
+            this.values[name] = value;
+            return this;
+        }
+
+        public FakeRegistry Set(string name, int value)
+        {
+            this.values[name] = value;
+            return this;
+        }
+
+        public string? GetString(string name) => this.values.TryGetValue(name, out var v) ? v.ToString() : null;
+
+        public int? GetInt(string name) => this.values.TryGetValue(name, out var v) && v is int i ? i : null;
     }
 }

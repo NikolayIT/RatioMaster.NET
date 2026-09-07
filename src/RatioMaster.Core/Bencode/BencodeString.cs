@@ -6,12 +6,12 @@ namespace RatioMaster.Core.Bencode;
 /// <summary>A bencode byte string. Bencode strings are raw bytes; text views are provided for convenience.</summary>
 public sealed class BencodeString : BencodeValue, IEquatable<BencodeString>
 {
-    private readonly byte[] _bytes;
+    private readonly byte[] bytes;
 
     public BencodeString(byte[] bytes)
     {
         ArgumentNullException.ThrowIfNull(bytes);
-        _bytes = bytes;
+        this.bytes = bytes;
     }
 
     public BencodeString(ReadOnlySpan<byte> bytes)
@@ -25,20 +25,20 @@ public sealed class BencodeString : BencodeValue, IEquatable<BencodeString>
     {
     }
 
-    public ReadOnlyMemory<byte> Bytes => _bytes;
+    public ReadOnlyMemory<byte> Bytes => this.bytes;
 
-    public ReadOnlySpan<byte> Span => _bytes;
+    public ReadOnlySpan<byte> Span => this.bytes;
 
-    public int Length => _bytes.Length;
+    public int Length => this.bytes.Length;
 
     /// <summary>
     /// Lossless one-byte-per-char view (ISO-8859-1). Dictionary keys and tracker responses use this view so
     /// that ordinal string comparison equals raw byte comparison.
     /// </summary>
-    public string Text => Encoding.Latin1.GetString(_bytes);
+    public string Text => Encoding.Latin1.GetString(this.bytes);
 
     /// <summary>UTF-8 view, which is what torrent files use for names and paths.</summary>
-    public string Utf8Text => Encoding.UTF8.GetString(_bytes);
+    public string Utf8Text => Encoding.UTF8.GetString(this.bytes);
 
     /// <summary>Creates a string whose bytes are the Latin-1 encoding of <paramref name="text"/>.</summary>
     public static BencodeString FromLatin1(string text) => new(Encoding.Latin1.GetBytes(text));
@@ -46,21 +46,21 @@ public sealed class BencodeString : BencodeValue, IEquatable<BencodeString>
     public override void WriteTo(Stream stream)
     {
         ArgumentNullException.ThrowIfNull(stream);
-        var header = Encoding.ASCII.GetBytes(_bytes.Length.ToString(CultureInfo.InvariantCulture) + ":");
+        var header = Encoding.ASCII.GetBytes(this.bytes.Length.ToString(CultureInfo.InvariantCulture) + ":");
         stream.Write(header);
-        stream.Write(_bytes);
+        stream.Write(this.bytes);
     }
 
-    public bool Equals(BencodeString? other) => other is not null && _bytes.AsSpan().SequenceEqual(other._bytes);
+    public bool Equals(BencodeString? other) => other is not null && this.bytes.AsSpan().SequenceEqual(other.bytes);
 
-    public override bool Equals(object? obj) => Equals(obj as BencodeString);
+    public override bool Equals(object? obj) => this.Equals(obj as BencodeString);
 
     public override int GetHashCode()
     {
         var hash = default(HashCode);
-        hash.AddBytes(_bytes);
+        hash.AddBytes(this.bytes);
         return hash.ToHashCode();
     }
 
-    public override string ToString() => Utf8Text;
+    public override string ToString() => this.Utf8Text;
 }

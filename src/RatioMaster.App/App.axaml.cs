@@ -21,30 +21,30 @@ namespace RatioMaster.App;
 
 public partial class App : Application
 {
-    private IServiceProvider? _services;
-    private MainWindowViewModel? _mainViewModel;
+    private IServiceProvider? services;
+    private MainWindowViewModel? mainViewModel;
 
     public override void Initialize() => AvaloniaXamlLoader.Load(this);
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        if (this.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Hiding the last window must not quit the app (close-to-tray).
             desktop.ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            _services = BuildServices(out var catalogWarning);
-            var settingsStore = _services.GetRequiredService<ISettingsStore>();
+            this.services = BuildServices(out var catalogWarning);
+            var settingsStore = this.services.GetRequiredService<ISettingsStore>();
             ImportLegacySettingsOnce(settingsStore);
 
-            var viewModel = _services.GetRequiredService<MainWindowViewModel>();
-            _mainViewModel = viewModel;
-            DataContext = viewModel;
+            var viewModel = this.services.GetRequiredService<MainWindowViewModel>();
+            this.mainViewModel = viewModel;
+            this.DataContext = viewModel;
             ThemeApplier.Apply(viewModel.Settings.Theme);
 
             var window = new MainWindow { DataContext = viewModel };
-            _services.GetRequiredService<IMainWindowProvider>().Window = window;
-            var notifications = (NotificationService)_services.GetRequiredService<INotificationService>();
+            this.services.GetRequiredService<IMainWindowProvider>().Window = window;
+            var notifications = (NotificationService)this.services.GetRequiredService<INotificationService>();
             notifications.Attach(window);
             if (catalogWarning is not null)
             {
@@ -52,16 +52,16 @@ public partial class App : Application
                 window.Opened += (_, _) => notifications.ShowWarning("Custom clients.json ignored", catalogWarning);
             }
 
-            viewModel.ExitRequested += async (_, _) => await ShutdownAsync(desktop);
+            viewModel.ExitRequested += async (_, _) => await this.ShutdownAsync(desktop);
             viewModel.RestoreRequested += (_, _) => window.RestoreFromTray();
             desktop.ShutdownRequested += async (_, e) =>
             {
                 e.Cancel = true;
-                await ShutdownAsync(desktop);
+                await this.ShutdownAsync(desktop);
             };
 
             // macOS: clicking the Dock icon while the window is hidden in the menu bar brings it back.
-            if (TryGetFeature(typeof(IActivatableLifetime)) is IActivatableLifetime activatable)
+            if (this.TryGetFeature(typeof(IActivatableLifetime)) is IActivatableLifetime activatable)
             {
                 activatable.Activated += (_, e) =>
                 {
@@ -82,23 +82,6 @@ public partial class App : Application
         }
 
         base.OnFrameworkInitializationCompleted();
-    }
-
-    private async Task ShutdownAsync(IClassicDesktopStyleApplicationLifetime desktop)
-    {
-        if (_mainViewModel is { } viewModel)
-        {
-            try
-            {
-                await viewModel.ShutdownAsync(TimeSpan.FromSeconds(5));
-            }
-            catch (Exception)
-            {
-                // Quitting must not be blocked by a slow tracker.
-            }
-        }
-
-        desktop.Shutdown();
     }
 
     /// <summary>On the first run, carry over the settings RatioMaster.NET 0.43 kept in the registry.</summary>
@@ -153,5 +136,22 @@ public partial class App : Application
         services.AddSingleton<MainWindowViewModel>();
 
         return services.BuildServiceProvider();
+    }
+
+    private async Task ShutdownAsync(IClassicDesktopStyleApplicationLifetime desktop)
+    {
+        if (this.mainViewModel is { } viewModel)
+        {
+            try
+            {
+                await viewModel.ShutdownAsync(TimeSpan.FromSeconds(5));
+            }
+            catch (Exception)
+            {
+                // Quitting must not be blocked by a slow tracker.
+            }
+        }
+
+        desktop.Shutdown();
     }
 }

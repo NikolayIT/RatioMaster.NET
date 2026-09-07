@@ -16,22 +16,6 @@ public class TrackerClientTests
 
     private static CancellationToken Ct => TestContext.Current.CancellationToken;
 
-    private static AnnounceValues Values() => new()
-    {
-        InfoHashEncoded = InfoHashEncoder.Encode(InfoHash, upperCase: false),
-        PeerId = "-UT3320-abcdefghijkl",
-        Port = "50000",
-        Uploaded = 0,
-        Downloaded = 0,
-        Left = 1000,
-        Key = "KEY12345",
-        NumWant = "200",
-        LocalIp = "1.2.3.4",
-    };
-
-    private static TrackerClient ClientOver(ITrackerTransport transport) =>
-        new(new TrackerHttpClient(transport, new TrackerHttpClientOptions { ConnectAttempts = 1 }));
-
     [Fact]
     public async Task ReportsARefusedCertificateAsATrackerException()
     {
@@ -96,13 +80,29 @@ public class TrackerClientTests
         Assert.Same(relaxed, relaxed.WithIgnoredCertificateErrors());
     }
 
+    private static AnnounceValues Values() => new()
+    {
+        InfoHashEncoded = InfoHashEncoder.Encode(InfoHash, upperCase: false),
+        PeerId = "-UT3320-abcdefghijkl",
+        Port = "50000",
+        Uploaded = 0,
+        Downloaded = 0,
+        Left = 1000,
+        Key = "KEY12345",
+        NumWant = "200",
+        LocalIp = "1.2.3.4",
+    };
+
+    private static TrackerClient ClientOver(ITrackerTransport transport) =>
+        new(new TrackerHttpClient(transport, new TrackerHttpClientOptions { ConnectAttempts = 1 }));
+
     private sealed class ThrowingTransport(Exception error) : ITrackerTransport
     {
         public int Connections { get; private set; }
 
         public Task<Stream> ConnectAsync(string host, int port, bool useTls, bool ignoreCertificateErrors, ProxySettings proxy, CancellationToken cancellationToken)
         {
-            Connections++;
+            this.Connections++;
             return Task.FromException<Stream>(error);
         }
     }

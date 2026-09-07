@@ -19,11 +19,11 @@ public sealed class ClientIdentityGenerator
     private const int MinPort = 1025;
     private const int MaxPort = 65535;
 
-    private readonly IRandomSource _random;
+    private readonly IRandomSource random;
 
     public ClientIdentityGenerator(IRandomSource? random = null)
     {
-        _random = random ?? SystemRandomSource.Instance;
+        this.random = random ?? SystemRandomSource.Instance;
     }
 
     /// <summary>Generates a fresh identity for a profile.</summary>
@@ -32,9 +32,9 @@ public sealed class ClientIdentityGenerator
         ArgumentNullException.ThrowIfNull(profile);
         return new ClientIdentity
         {
-            PeerId = profile.PeerIdPrefix + GenerateValue(profile.PeerId),
-            Key = GenerateValue(profile.Key),
-            Port = _random.Next(MinPort, MaxPort).ToString(CultureInfo.InvariantCulture),
+            PeerId = profile.PeerIdPrefix + this.GenerateValue(profile.PeerId),
+            Key = this.GenerateValue(profile.Key),
+            Port = this.random.Next(MinPort, MaxPort).ToString(CultureInfo.InvariantCulture),
             NumWant = profile.DefaultNumWant.ToString(CultureInfo.InvariantCulture),
             Source = ClientIdentitySource.Generated,
         };
@@ -44,7 +44,7 @@ public sealed class ClientIdentityGenerator
     public string GenerateValue(RandomValueSpec spec)
     {
         ArgumentNullException.ThrowIfNull(spec);
-        var value = GenerateBase(spec.Type, spec.Length);
+        var value = this.GenerateBase(spec.Type, spec.Length);
         if (spec.UrlEncode)
         {
             return PercentEncoding.Encode(value, spec.UpperCase);
@@ -60,16 +60,16 @@ public sealed class ClientIdentityGenerator
         {
             builder.Append(kind switch
             {
-                RandomValueKind.Numeric => Pick(Digits),
-                RandomValueKind.Hex => Pick(HexDigits),
-                RandomValueKind.UrlSafe => Pick(UrlSafe),
-                RandomValueKind.Random => (char)_random.Next(255),
-                _ => Pick(Alphanumeric),
+                RandomValueKind.Numeric => this.Pick(Digits),
+                RandomValueKind.Hex => this.Pick(HexDigits),
+                RandomValueKind.UrlSafe => this.Pick(UrlSafe),
+                RandomValueKind.Random => (char)this.random.Next(255),
+                _ => this.Pick(Alphanumeric),
             });
         }
 
         return builder.ToString();
     }
 
-    private char Pick(string set) => set[(int)(set.Length * _random.NextDouble())];
+    private char Pick(string set) => set[(int)(set.Length * this.random.NextDouble())];
 }

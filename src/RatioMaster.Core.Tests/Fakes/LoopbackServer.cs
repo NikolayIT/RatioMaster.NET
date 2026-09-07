@@ -6,15 +6,15 @@ namespace RatioMaster.Core.Tests.Fakes;
 /// <summary>A one-connection loopback TCP server for transport tests. Runs a handler for the first client.</summary>
 internal sealed class LoopbackServer : IAsyncDisposable
 {
-    private readonly TcpListener _listener;
-    private readonly Task _serve;
-    private readonly CancellationTokenSource _cts = new();
+    private readonly TcpListener listener;
+    private readonly Task serve;
+    private readonly CancellationTokenSource cts = new();
 
     private LoopbackServer(TcpListener listener, Func<NetworkStream, CancellationToken, Task> handler)
     {
-        _listener = listener;
-        Port = ((IPEndPoint)listener.LocalEndpoint).Port;
-        _serve = ServeAsync(handler, _cts.Token);
+        this.listener = listener;
+        this.Port = ((IPEndPoint)listener.LocalEndpoint).Port;
+        this.serve = this.ServeAsync(handler, this.cts.Token);
     }
 
     public int Port { get; }
@@ -26,20 +26,6 @@ internal sealed class LoopbackServer : IAsyncDisposable
         var listener = new TcpListener(IPAddress.Loopback, 0);
         listener.Start();
         return new LoopbackServer(listener, handler);
-    }
-
-    private async Task ServeAsync(Func<NetworkStream, CancellationToken, Task> handler, CancellationToken cancellationToken)
-    {
-        try
-        {
-            using var socket = await _listener.AcceptSocketAsync(cancellationToken).ConfigureAwait(false);
-            await using var stream = new NetworkStream(socket, ownsSocket: false);
-            await handler(stream, cancellationToken).ConfigureAwait(false);
-        }
-        catch (Exception ex) when (ex is not OperationCanceledException)
-        {
-            HandlerError = ex;
-        }
     }
 
     /// <summary>Reads exactly <paramref name="count"/> bytes.</summary>
@@ -85,17 +71,31 @@ internal sealed class LoopbackServer : IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
-        await _cts.CancelAsync().ConfigureAwait(false);
-        _listener.Stop();
+        await this.cts.CancelAsync().ConfigureAwait(false);
+        this.listener.Stop();
         try
         {
-            await _serve.ConfigureAwait(false);
+            await this.serve.ConfigureAwait(false);
         }
         catch (Exception ex) when (ex is OperationCanceledException or SocketException)
         {
             // Expected during shutdown.
         }
 
-        _cts.Dispose();
+        this.cts.Dispose();
+    }
+
+    private async Task ServeAsync(Func<NetworkStream, CancellationToken, Task> handler, CancellationToken cancellationToken)
+    {
+        try
+        {
+            using var socket = await this.listener.AcceptSocketAsync(cancellationToken).ConfigureAwait(false);
+            await using var stream = new NetworkStream(socket, ownsSocket: false);
+            await handler(stream, cancellationToken).ConfigureAwait(false);
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            this.HandlerError = ex;
+        }
     }
 }

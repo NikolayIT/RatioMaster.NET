@@ -4,5 +4,5 @@ namespace RatioMaster.App.Views.Controls;
 
 public partial class TrackerHistoryView : UserControl
 {
-    public TrackerHistoryView() => InitializeComponent();
+    public TrackerHistoryView() => this.InitializeComponent();
 }

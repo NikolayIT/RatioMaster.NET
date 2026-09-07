@@ -4,5 +4,5 @@ namespace RatioMaster.App.Views.Dialogs;
 
 public partial class NewVersionView : UserControl
 {
-    public NewVersionView() => InitializeComponent();
+    public NewVersionView() => this.InitializeComponent();
 }

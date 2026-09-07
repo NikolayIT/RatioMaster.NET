@@ -5,45 +5,6 @@ using RatioMaster.Core.Sessions;
 
 namespace RatioMaster.Core.Settings;
 
-/// <summary>Reads the values RatioMaster.NET 0.43 stored under HKCU\Software\RatioMaster.NET.</summary>
-public interface ILegacyRegistryReader
-{
-    bool Exists { get; }
-
-    string? GetString(string name);
-
-    int? GetInt(string name);
-}
-
-/// <summary>The real registry reader (Windows only).</summary>
-[SupportedOSPlatform("windows")]
-public sealed class WindowsLegacyRegistryReader : ILegacyRegistryReader, IDisposable
-{
-    public const string KeyPath = @"Software\RatioMaster.NET";
-
-    private readonly RegistryKey? _key;
-
-    public WindowsLegacyRegistryReader()
-    {
-        try
-        {
-            _key = Registry.CurrentUser.OpenSubKey(KeyPath);
-        }
-        catch (Exception ex) when (ex is System.Security.SecurityException or UnauthorizedAccessException)
-        {
-            _key = null;
-        }
-    }
-
-    public bool Exists => _key is not null;
-
-    public string? GetString(string name) => _key?.GetValue(name)?.ToString();
-
-    public int? GetInt(string name) => _key?.GetValue(name) is int value ? value : null;
-
-    public void Dispose() => _key?.Dispose();
-}
-
 /// <summary>
 /// One-time migration of the 0.43 registry settings into <see cref="AppSettings"/>, so upgrading users
 /// keep their defaults.

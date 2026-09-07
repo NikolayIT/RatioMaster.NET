@@ -44,5 +44,5 @@ public sealed partial class AboutViewModel(IUrlLauncher launcher) : DialogViewMo
     private async Task DonateAsync() => await launcher.OpenUrlAsync(AppVersion.DonateUrl);
 
     [RelayCommand]
-    private void CloseDialog() => Close(true);
+    private void CloseDialog() => this.Close(true);
 }

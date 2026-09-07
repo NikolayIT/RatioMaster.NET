@@ -25,5 +25,5 @@ public sealed record TrackerExchange
 
     public string? Error { get; init; }
 
-    public string Result => Error ?? "OK";
+    public string Result => this.Error ?? "OK";
 }

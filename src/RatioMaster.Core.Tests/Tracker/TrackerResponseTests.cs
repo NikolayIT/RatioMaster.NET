@@ -8,18 +8,6 @@ namespace RatioMaster.Core.Tests.Tracker;
 
 public class TrackerResponseTests
 {
-    private static byte[] Http(string headers, byte[] body) =>
-        [.. Encoding.Latin1.GetBytes("HTTP/1.1 200 OK\r\n" + headers + "\r\n"), .. body];
-
-    private static byte[] SampleAnnounceBody()
-    {
-        return new BencodeDictionary()
-            .Set("interval", 1800)
-            .Set("complete", 12)
-            .Set("incomplete", 3)
-            .ToBytes();
-    }
-
     [Fact]
     public void ParsesPlainBencodeBody()
     {
@@ -144,5 +132,17 @@ public class TrackerResponseTests
         var response = TrackerResponse.Parse(Http("Content-Type: text/plain; charset=utf-8\r\nX-Tracker: demo\r\n", SampleAnnounceBody()));
         Assert.Equal("demo", response.Headers["x-tracker"]);
         Assert.Contains("charset=utf-8", response.Headers["content-type"], StringComparison.Ordinal);
+    }
+
+    private static byte[] Http(string headers, byte[] body) =>
+        [.. Encoding.Latin1.GetBytes("HTTP/1.1 200 OK\r\n" + headers + "\r\n"), .. body];
+
+    private static byte[] SampleAnnounceBody()
+    {
+        return new BencodeDictionary()
+            .Set("interval", 1800)
+            .Set("complete", 12)
+            .Set("incomplete", 3)
+            .ToBytes();
     }
 }

@@ -6,15 +6,13 @@ namespace RatioMaster.Core.Tests.Settings;
 
 public class SettingsAndSessionTests : IDisposable
 {
-    private readonly string _directory = Path.Combine(Path.GetTempPath(), "rm-tests-" + Guid.NewGuid().ToString("N"));
-
-    private string PathFor(string name) => Path.Combine(_directory, name);
+    private readonly string directory = Path.Combine(Path.GetTempPath(), "rm-tests-" + Guid.NewGuid().ToString("N"));
 
     public void Dispose()
     {
-        if (Directory.Exists(_directory))
+        if (Directory.Exists(this.directory))
         {
-            Directory.Delete(_directory, recursive: true);
+            Directory.Delete(this.directory, recursive: true);
         }
 
         GC.SuppressFinalize(this);
@@ -41,7 +39,7 @@ public class SettingsAndSessionTests : IDisposable
     [Fact]
     public void SettingsRoundTrip()
     {
-        var store = new SettingsStore(PathFor("settings.json"));
+        var store = new SettingsStore(this.PathFor("settings.json"));
         var settings = new AppSettings
         {
             Theme = AppTheme.Dark,
@@ -74,11 +72,11 @@ public class SettingsAndSessionTests : IDisposable
     [Fact]
     public void SettingsFallBackToDefaultsWhenMissingOrCorrupt()
     {
-        var missing = new SettingsStore(PathFor("nope.json"));
+        var missing = new SettingsStore(this.PathFor("nope.json"));
         Assert.Equal(new AppSettings(), missing.Load());
 
-        Directory.CreateDirectory(_directory);
-        var corruptPath = PathFor("corrupt.json");
+        Directory.CreateDirectory(this.directory);
+        var corruptPath = this.PathFor("corrupt.json");
         File.WriteAllText(corruptPath, "{ this is not json");
         Assert.Equal(new AppSettings(), new SettingsStore(corruptPath).Load());
     }
@@ -86,7 +84,7 @@ public class SettingsAndSessionTests : IDisposable
     [Fact]
     public void SettingsAreWrittenAtomicallyWithoutLeavingTemporaryFiles()
     {
-        var path = PathFor("settings.json");
+        var path = this.PathFor("settings.json");
         var store = new SettingsStore(path);
         store.Save(new AppSettings());
         store.Save(new AppSettings { Use24HourTime = true });
@@ -119,7 +117,7 @@ public class SettingsAndSessionTests : IDisposable
     [Fact]
     public void SessionJsonRoundTrip()
     {
-        var path = PathFor("my.session");
+        var path = this.PathFor("my.session");
         var document = new SessionDocument
         {
             Torrents =
@@ -248,4 +246,6 @@ public class SettingsAndSessionTests : IDisposable
         var entry = Assert.Single(SessionFile.Parse(xml).Torrents);
         Assert.Equal(expected, entry.Settings.Stop.Type);
     }
+
+    private string PathFor(string name) => Path.Combine(this.directory, name);
 }

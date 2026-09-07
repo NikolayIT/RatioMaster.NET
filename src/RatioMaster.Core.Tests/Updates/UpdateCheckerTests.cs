@@ -8,8 +8,6 @@ public class UpdateCheckerTests
 {
     private static CancellationToken Ct => TestContext.Current.CancellationToken;
 
-    private static HttpClient Client() => new() { Timeout = TimeSpan.FromSeconds(10) };
-
     [Fact]
     public async Task ReportsAnUpdateWhenTheRemoteVersionIsHigher()
     {
@@ -70,4 +68,6 @@ public class UpdateCheckerTests
         Assert.DoesNotContain(Environment.UserName, request, StringComparison.OrdinalIgnoreCase);
         Assert.DoesNotContain(Environment.UserName, UpdateChecker.UserAgent, StringComparison.OrdinalIgnoreCase);
     }
+
+    private static HttpClient Client() => new() { Timeout = TimeSpan.FromSeconds(10) };
 }

@@ -6,6 +6,8 @@ namespace RatioMaster.Core.Sessions;
 /// <summary>Everything the user can configure for one torrent. JSON-serializable; used by sessions and defaults.</summary>
 public sealed record TorrentSettings
 {
+    public const string DefaultClientName = "qBittorrent 5.2.3";
+
     /// <summary>
     /// Construct through the parameterless constructor so System.Text.Json sets only the properties
     /// present in the JSON and the initializers below survive. The properties use <c>set</c> rather
@@ -17,8 +19,6 @@ public sealed record TorrentSettings
     public TorrentSettings()
     {
     }
-
-    public const string DefaultClientName = "qBittorrent 5.2.3";
 
     /// <summary>The emulated client profile name.</summary>
     public string ClientName { get; set; } = DefaultClientName;

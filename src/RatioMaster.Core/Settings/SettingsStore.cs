@@ -2,21 +2,11 @@ using System.Text.Json;
 
 namespace RatioMaster.Core.Settings;
 
-/// <summary>Reads and writes <see cref="AppSettings"/> as JSON, replacing the old registry storage.</summary>
-public interface ISettingsStore
-{
-    string FilePath { get; }
-
-    AppSettings Load();
-
-    void Save(AppSettings settings);
-}
-
 public sealed class SettingsStore : ISettingsStore
 {
     public SettingsStore(string? filePath = null)
     {
-        FilePath = filePath ?? AppPaths.SettingsFile;
+        this.FilePath = filePath ?? AppPaths.SettingsFile;
     }
 
     public string FilePath { get; }
@@ -26,12 +16,12 @@ public sealed class SettingsStore : ISettingsStore
     {
         try
         {
-            if (!File.Exists(FilePath))
+            if (!File.Exists(this.FilePath))
             {
                 return new AppSettings();
             }
 
-            var json = File.ReadAllText(FilePath);
+            var json = File.ReadAllText(this.FilePath);
             return JsonSerializer.Deserialize(json, CoreJsonContext.Default.AppSettings) ?? new AppSettings();
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or JsonException)
@@ -44,15 +34,15 @@ public sealed class SettingsStore : ISettingsStore
     public void Save(AppSettings settings)
     {
         ArgumentNullException.ThrowIfNull(settings);
-        var directory = Path.GetDirectoryName(FilePath);
+        var directory = Path.GetDirectoryName(this.FilePath);
         if (!string.IsNullOrEmpty(directory))
         {
             Directory.CreateDirectory(directory);
         }
 
         var json = JsonSerializer.Serialize(settings, CoreJsonContext.Default.AppSettings);
-        var temporary = FilePath + ".tmp";
+        var temporary = this.FilePath + ".tmp";
         File.WriteAllText(temporary, json);
-        File.Move(temporary, FilePath, overwrite: true);
+        File.Move(temporary, this.FilePath, overwrite: true);
     }
 }

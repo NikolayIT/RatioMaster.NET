@@ -6,7 +6,7 @@ public partial class DialogWindow : Window
 {
     public DialogWindow()
     {
-        InitializeComponent();
-        DataContextChanged += (_, _) => Host.Content = DataContext;
+        this.InitializeComponent();
+        this.DataContextChanged += (_, _) => this.Host.Content = this.DataContext;
     }
 }

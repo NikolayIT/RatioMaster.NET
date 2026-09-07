@@ -22,7 +22,7 @@ public sealed record ProxySettings
 
     public string Password { get; set; } = string.Empty;
 
-    public bool IsDirect => Type == ProxyType.None;
+    public bool IsDirect => this.Type == ProxyType.None;
 
-    public bool HasCredentials => Username.Length > 0 || Password.Length > 0;
+    public bool HasCredentials => this.Username.Length > 0 || this.Password.Length > 0;
 }

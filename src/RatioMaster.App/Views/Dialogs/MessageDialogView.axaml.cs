@@ -4,5 +4,5 @@ namespace RatioMaster.App.Views.Dialogs;
 
 public partial class MessageDialogView : UserControl
 {
-    public MessageDialogView() => InitializeComponent();
+    public MessageDialogView() => this.InitializeComponent();
 }

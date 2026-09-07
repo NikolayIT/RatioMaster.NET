@@ -17,13 +17,6 @@ public class TorrentSessionFactoryTests
         Name = "t",
     };
 
-    private static TorrentSessionFactory CreateFactory() => new(
-        Catalog,
-        new FakeTrackerClient(),
-        new ClientValueScanner(NullProcessMemoryScanner.Instance),
-        new FakeLocalIpProvider(),
-        new DeterministicRandomSource(99));
-
     [Fact]
     public void GeneratesAnIdentityForAutomaticMode()
     {
@@ -72,4 +65,11 @@ public class TorrentSessionFactoryTests
         var session = CreateFactory().Create(Descriptor, new TorrentSettings { ClientName = "Nope 1.0" });
         Assert.Equal(Catalog.DefaultName, session.Profile.Name);
     }
+
+    private static TorrentSessionFactory CreateFactory() => new(
+        Catalog,
+        new FakeTrackerClient(),
+        new ClientValueScanner(NullProcessMemoryScanner.Instance),
+        new FakeLocalIpProvider(),
+        new DeterministicRandomSource(99));
 }

@@ -12,9 +12,6 @@ public class TrackerHttpClientTests
 
     private static CancellationToken Timeout => new CancellationTokenSource(TimeSpan.FromSeconds(15)).Token;
 
-    private static byte[] AnnounceBody() =>
-        new BencodeDictionary().Set("interval", 1800).Set("complete", 5).Set("incomplete", 2).ToBytes();
-
     [Fact]
     public async Task SendsRequestAndParsesResponse()
     {
@@ -153,6 +150,9 @@ public class TrackerHttpClientTests
         Assert.Equal(302, response.StatusCode);
         Assert.Single(tracker.Requests);
     }
+
+    private static byte[] AnnounceBody() =>
+        new BencodeDictionary().Set("interval", 1800).Set("complete", 5).Set("incomplete", 2).ToBytes();
 
     private static int GetClosedPort()
     {

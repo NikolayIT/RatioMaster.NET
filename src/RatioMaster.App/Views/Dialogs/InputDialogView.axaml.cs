@@ -6,8 +6,8 @@ public partial class InputDialogView : UserControl
 {
     public InputDialogView()
     {
-        InitializeComponent();
-        Loaded += (_, _) =>
+        this.InitializeComponent();
+        this.Loaded += (_, _) =>
         {
             var box = this.FindControl<TextBox>("ValueBox");
             box?.Focus();

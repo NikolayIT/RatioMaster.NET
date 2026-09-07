@@ -6,7 +6,7 @@ namespace RatioMaster.Core.Torrents;
 /// <summary>The parsed content of a .torrent file (metainfo).</summary>
 public sealed class TorrentFile
 {
-    private readonly byte[] _infoHash;
+    private readonly byte[] infoHash;
 
     private TorrentFile(
         string? path,
@@ -20,26 +20,26 @@ public sealed class TorrentFile
         long pieceLength,
         int pieceCount)
     {
-        Path = path;
-        Root = root;
-        Info = info;
-        _infoHash = infoHash;
-        InfoHashHex = Convert.ToHexString(infoHash);
-        Announce = announce;
-        AnnounceList = announceList;
-        Name = name;
-        Files = files;
-        TotalLength = files.Sum(f => f.Length);
-        PieceLength = pieceLength;
-        PieceCount = pieceCount;
-        IsSingleFile = info.ContainsKey("length");
-        Comment = root.GetUtf8Text("comment");
-        CreatedBy = root.GetUtf8Text("created by");
-        IsPrivate = info.GetInteger("private") == 1;
+        this.Path = path;
+        this.Root = root;
+        this.Info = info;
+        this.infoHash = infoHash;
+        this.InfoHashHex = Convert.ToHexString(infoHash);
+        this.Announce = announce;
+        this.AnnounceList = announceList;
+        this.Name = name;
+        this.Files = files;
+        this.TotalLength = files.Sum(f => f.Length);
+        this.PieceLength = pieceLength;
+        this.PieceCount = pieceCount;
+        this.IsSingleFile = info.ContainsKey("length");
+        this.Comment = root.GetUtf8Text("comment");
+        this.CreatedBy = root.GetUtf8Text("created by");
+        this.IsPrivate = info.GetInteger("private") == 1;
         var creation = root.GetInteger("creation date");
         if (creation is > 0 and < 253402300800)
         {
-            CreationDate = DateTimeOffset.FromUnixTimeSeconds(creation.Value);
+            this.CreationDate = DateTimeOffset.FromUnixTimeSeconds(creation.Value);
         }
     }
 
@@ -51,7 +51,7 @@ public sealed class TorrentFile
     public BencodeDictionary Info { get; }
 
     /// <summary>SHA-1 of the raw "info" bytes exactly as they appear in the file.</summary>
-    public ReadOnlySpan<byte> InfoHash => _infoHash;
+    public ReadOnlySpan<byte> InfoHash => this.infoHash;
 
     /// <summary>Upper-case hex of <see cref="InfoHash"/>.</summary>
     public string InfoHashHex { get; }
@@ -81,8 +81,6 @@ public sealed class TorrentFile
     public string? CreatedBy { get; }
 
     public DateTimeOffset? CreationDate { get; }
-
-    public byte[] GetInfoHashBytes() => (byte[])_infoHash.Clone();
 
     public static TorrentFile Load(string path)
     {
@@ -162,6 +160,8 @@ public sealed class TorrentFile
 
         return new TorrentFile(path, root, info, infoHash, announce, announceList, name, files, pieceLength, pieces.Length / 20);
     }
+
+    public byte[] GetInfoHashBytes() => (byte[])this.infoHash.Clone();
 
     private static List<TorrentFileEntry> ReadFiles(BencodeDictionary info, string name)
     {

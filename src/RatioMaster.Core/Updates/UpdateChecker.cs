@@ -3,34 +3,22 @@ using System.Net.Http;
 
 namespace RatioMaster.Core.Updates;
 
-/// <summary>The outcome of one update check.</summary>
-public sealed record UpdateCheckResult
-{
-    public string? RemoteVersion { get; init; }
-
-    public bool UpdateAvailable { get; init; }
-
-    public string? Error { get; init; }
-
-    public bool Succeeded => Error is null;
-}
-
 /// <summary>
 /// Asks ratiomaster.net whether a newer build exists. Same contract as the 0.43 checker
 /// (GET /vc.php?v=NNNN returning exactly four characters) but over HTTPS and without the Windows username.
 /// </summary>
 public sealed class UpdateChecker
 {
-    private readonly HttpClient _http;
-    private readonly string _baseUrl;
+    private readonly HttpClient http;
+    private readonly string baseUrl;
 
     public UpdateChecker(HttpClient? http = null, string? baseUrl = null, TimeSpan? timeout = null)
     {
-        _baseUrl = baseUrl ?? AppVersion.WebsiteUrl;
-        _http = http ?? new HttpClient();
-        if (_http.Timeout == TimeSpan.FromSeconds(100))
+        this.baseUrl = baseUrl ?? AppVersion.WebsiteUrl;
+        this.http = http ?? new HttpClient();
+        if (this.http.Timeout == TimeSpan.FromSeconds(100))
         {
-            _http.Timeout = timeout ?? TimeSpan.FromSeconds(2.5);
+            this.http.Timeout = timeout ?? TimeSpan.FromSeconds(2.5);
         }
     }
 
@@ -39,12 +27,12 @@ public sealed class UpdateChecker
 
     public async Task<UpdateCheckResult> CheckAsync(CancellationToken cancellationToken = default)
     {
-        var url = $"{_baseUrl.TrimEnd('/')}/vc.php?v={AppVersion.CheckId}";
+        var url = $"{this.baseUrl.TrimEnd('/')}/vc.php?v={AppVersion.CheckId}";
         try
         {
             using var request = new HttpRequestMessage(HttpMethod.Get, url);
             request.Headers.TryAddWithoutValidation("User-Agent", UserAgent);
-            using var response = await _http.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            using var response = await this.http.SendAsync(request, cancellationToken).ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
 
             var body = (await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)).Trim();

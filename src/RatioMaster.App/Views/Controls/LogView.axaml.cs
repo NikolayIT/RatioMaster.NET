@@ -7,40 +7,40 @@ namespace RatioMaster.App.Views.Controls;
 
 public partial class LogView : UserControl
 {
-    private LogViewModel? _viewModel;
+    private LogViewModel? viewModel;
 
     public LogView()
     {
-        InitializeComponent();
-        DataContextChanged += OnDataContextChanged;
-        DetachedFromVisualTree += (_, _) => Unsubscribe();
+        this.InitializeComponent();
+        this.DataContextChanged += this.OnDataContextChanged;
+        this.DetachedFromVisualTree += (_, _) => this.Unsubscribe();
     }
 
     private void OnDataContextChanged(object? sender, EventArgs e)
     {
-        Unsubscribe();
-        if (DataContext is LogViewModel viewModel)
+        this.Unsubscribe();
+        if (this.DataContext is LogViewModel viewModel)
         {
-            _viewModel = viewModel;
-            _viewModel.LinesAppended += OnLinesAppended;
+            this.viewModel = viewModel;
+            this.viewModel.LinesAppended += this.OnLinesAppended;
         }
     }
 
     private void Unsubscribe()
     {
-        if (_viewModel is not null)
+        if (this.viewModel is not null)
         {
-            _viewModel.LinesAppended -= OnLinesAppended;
-            _viewModel = null;
+            this.viewModel.LinesAppended -= this.OnLinesAppended;
+            this.viewModel = null;
         }
     }
 
     private void OnLinesAppended(object? sender, EventArgs e)
     {
         // Keep the newest line in view while auto-scroll is on.
-        if (_viewModel?.Entries.LastOrDefault() is { } last)
+        if (this.viewModel?.Entries.LastOrDefault() is { } last)
         {
-            Lines.ScrollIntoView(last);
+            this.Lines.ScrollIntoView(last);
         }
     }
 }

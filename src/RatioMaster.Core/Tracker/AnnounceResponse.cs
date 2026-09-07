@@ -9,16 +9,16 @@ public sealed class AnnounceResponse
 {
     private AnnounceResponse(BencodeDictionary dictionary)
     {
-        FailureReason = dictionary.GetDisplayText("failure reason");
-        WarningMessage = dictionary.GetDisplayText("warning message");
-        Interval = ToInt(dictionary, "interval");
-        MinInterval = ToInt(dictionary, "min interval") ?? ToInt(dictionary, "min_interval");
-        Complete = ToInt(dictionary, "complete");
-        Incomplete = ToInt(dictionary, "incomplete");
-        Downloaded = ToInt(dictionary, "downloaded");
-        TrackerId = dictionary.GetLatin1Text("tracker id");
-        Peers = ParsePeers(dictionary);
-        ExtraKeys = dictionary.Keys
+        this.FailureReason = dictionary.GetDisplayText("failure reason");
+        this.WarningMessage = dictionary.GetDisplayText("warning message");
+        this.Interval = ToInt(dictionary, "interval");
+        this.MinInterval = ToInt(dictionary, "min interval") ?? ToInt(dictionary, "min_interval");
+        this.Complete = ToInt(dictionary, "complete");
+        this.Incomplete = ToInt(dictionary, "incomplete");
+        this.Downloaded = ToInt(dictionary, "downloaded");
+        this.TrackerId = dictionary.GetLatin1Text("tracker id");
+        this.Peers = ParsePeers(dictionary);
+        this.ExtraKeys = dictionary.Keys
             .Where(k => k is not ("failure reason" or "warning message" or "peers" or "peers6"))
             .ToDictionary(k => k, k => BencodeDictionary.DisplayText(dictionary[k]), StringComparer.Ordinal);
     }
@@ -45,7 +45,7 @@ public sealed class AnnounceResponse
 
     public IReadOnlyDictionary<string, string> ExtraKeys { get; }
 
-    public bool HasFailure => !string.IsNullOrEmpty(FailureReason);
+    public bool HasFailure => !string.IsNullOrEmpty(this.FailureReason);
 
     public static AnnounceResponse Parse(BencodeDictionary dictionary)
     {

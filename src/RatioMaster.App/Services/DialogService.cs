@@ -6,21 +6,6 @@ using RatioMaster.App.Views.Dialogs;
 
 namespace RatioMaster.App.Services;
 
-/// <summary>Shows dialogs hosted in a shared window; the content view is resolved by the view locator.</summary>
-public interface IDialogService
-{
-    /// <summary>Shows any dialog view model and returns its result.</summary>
-    Task<TResult?> ShowAsync<TResult>(DialogViewModel<TResult> viewModel);
-
-    Task ShowMessageAsync(string title, string message);
-
-    Task<bool> ConfirmAsync(string title, string message, string okText = "OK", string cancelText = "Cancel");
-
-    Task<string?> ChooseAsync(string title, string message, IReadOnlyList<DialogButton> buttons);
-
-    Task<string?> PromptAsync(string title, string label, string initialValue);
-}
-
 public sealed class DialogService(IMainWindowProvider windows) : IDialogService
 {
     public async Task<TResult?> ShowAsync<TResult>(DialogViewModel<TResult> viewModel)
@@ -48,11 +33,11 @@ public sealed class DialogService(IMainWindowProvider windows) : IDialogService
     }
 
     public Task ShowMessageAsync(string title, string message) =>
-        ShowAsync(new MessageDialogViewModel(title, message, [new DialogButton("OK", "ok", IsDefault: true, IsCancel: true)]));
+        this.ShowAsync(new MessageDialogViewModel(title, message, [new DialogButton("OK", "ok", IsDefault: true, IsCancel: true)]));
 
     public async Task<bool> ConfirmAsync(string title, string message, string okText = "OK", string cancelText = "Cancel")
     {
-        var result = await ShowAsync(new MessageDialogViewModel(
+        var result = await this.ShowAsync(new MessageDialogViewModel(
             title,
             message,
             [
@@ -64,8 +49,8 @@ public sealed class DialogService(IMainWindowProvider windows) : IDialogService
     }
 
     public Task<string?> ChooseAsync(string title, string message, IReadOnlyList<DialogButton> buttons) =>
-        ShowAsync(new MessageDialogViewModel(title, message, buttons));
+        this.ShowAsync(new MessageDialogViewModel(title, message, buttons));
 
     public Task<string?> PromptAsync(string title, string label, string initialValue) =>
-        ShowAsync(new InputDialogViewModel(title, label, initialValue));
+        this.ShowAsync(new InputDialogViewModel(title, label, initialValue));
 }
