@@ -22,7 +22,7 @@ public sealed class UpdateChecker
         }
     }
 
-    /// <summary>The User-Agent sent with the check. Deliberately carries no user name.</summary>
+    /// <summary>Gets the User-Agent sent with the check. Deliberately carries no user name.</summary>
     public static string UserAgent { get; } = BuildUserAgent();
 
     public async Task<UpdateCheckResult> CheckAsync(CancellationToken cancellationToken = default)

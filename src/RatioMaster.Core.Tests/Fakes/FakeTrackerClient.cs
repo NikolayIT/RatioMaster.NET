@@ -23,10 +23,10 @@ internal sealed class FakeTrackerClient : ITrackerClient
 
     public string? FailureReason { get; set; }
 
-    /// <summary>When set, throws this on every announce (simulates no connection).</summary>
+    /// <summary>Gets or sets when set, throws this on every announce (simulates no connection).</summary>
     public Exception? AnnounceError { get; set; }
 
-    /// <summary>Optional per-event override of the response.</summary>
+    /// <summary>Gets or sets the optional per-event override of the response.</summary>
     public Func<TrackerEvent, AnnounceResponse>? AnnounceOverride { get; set; }
 
     public bool ScrapeSupported { get; set; } = true;

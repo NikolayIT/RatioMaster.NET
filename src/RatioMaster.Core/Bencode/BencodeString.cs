@@ -32,12 +32,12 @@ public sealed class BencodeString : BencodeValue, IEquatable<BencodeString>
     public int Length => this.bytes.Length;
 
     /// <summary>
-    /// Lossless one-byte-per-char view (ISO-8859-1). Dictionary keys and tracker responses use this view so
+    /// Gets the lossless one-byte-per-char view (ISO-8859-1). Dictionary keys and tracker responses use this view so
     /// that ordinal string comparison equals raw byte comparison.
     /// </summary>
     public string Text => Encoding.Latin1.GetString(this.bytes);
 
-    /// <summary>UTF-8 view, which is what torrent files use for names and paths.</summary>
+    /// <summary>Gets UTF-8 view, which is what torrent files use for names and paths.</summary>
     public string Utf8Text => Encoding.UTF8.GetString(this.bytes);
 
     /// <summary>Creates a string whose bytes are the Latin-1 encoding of <paramref name="text"/>.</summary>

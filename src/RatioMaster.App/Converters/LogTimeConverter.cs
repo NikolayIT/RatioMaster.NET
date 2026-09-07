@@ -10,7 +10,7 @@ namespace RatioMaster.App.Converters;
 /// <summary>Formats a log timestamp, honouring the application's 24-hour setting.</summary>
 public sealed class LogTimeConverter : IValueConverter
 {
-    /// <summary>Set from the settings so every log line re-renders in the chosen format.</summary>
+    /// <summary>Gets or sets a value indicating whether times are shown in 24-hour form, taken from the settings so every log line re-renders in the chosen format.</summary>
     public static bool Use24HourTime { get; set; }
 
     public static LogTimeConverter Instance { get; } = new();

@@ -13,10 +13,10 @@ public sealed record ClientMemoryScanSpec
     {
     }
 
-    /// <summary>The OS process name to search, without extension (for example "uTorrent").</summary>
+    /// <summary>Gets or sets the OS process name to search, without extension (for example "uTorrent").</summary>
     public required string ProcessName { get; set; }
 
-    /// <summary>The marker that locates the announce query in memory (for example "&amp;peer_id=-UT3320-").</summary>
+    /// <summary>Gets or sets the marker that locates the announce query in memory (for example "&amp;peer_id=-UT3320-").</summary>
     public required string SearchString { get; set; }
 
     public long StartOffset { get; set; }

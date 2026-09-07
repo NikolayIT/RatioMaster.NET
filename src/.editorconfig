@@ -54,7 +54,6 @@ dotnet_diagnostic.SA1642.severity = none
 dotnet_diagnostic.SA1643.severity = none
 dotnet_diagnostic.SA1611.severity = none   # a param tag per parameter, whether or not it says anything
 dotnet_diagnostic.SA1615.severity = none   # ditto for returns
-dotnet_diagnostic.SA1623.severity = none   # "Gets or sets ..." boilerplate in front of every property summary
 
 # The "// ---- Section ----" banners that split the longer files are meant to have a blank
 # line on both sides; SA1515 (blank line before a comment) stays on and is honoured.

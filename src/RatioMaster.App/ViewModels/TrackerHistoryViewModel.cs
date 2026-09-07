@@ -15,7 +15,7 @@ public sealed partial class TrackerHistoryViewModel : ViewModelBase
     [ObservableProperty]
     private TrackerExchange? selected;
 
-    /// <summary>Newest first.</summary>
+    /// <summary>Gets the newest first.</summary>
     public ObservableCollection<TrackerExchange> Exchanges { get; } = [];
 
     /// <summary>Called from the engine's thread.</summary>

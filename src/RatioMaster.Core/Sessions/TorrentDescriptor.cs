@@ -13,7 +13,7 @@ public sealed record TorrentDescriptor
 
     public string Name { get; init; } = string.Empty;
 
-    /// <summary>Local .torrent path, when the torrent was loaded from disk.</summary>
+    /// <summary>Gets the local .torrent path, when the torrent was loaded from disk.</summary>
     public string? FilePath { get; init; }
 
     public static TorrentDescriptor FromFile(TorrentFile file, string? trackerUrl = null)

@@ -6,7 +6,7 @@ public static class AppPaths
     public const string FolderName = "RatioMaster.NET";
 
     /// <summary>
-    /// %APPDATA%\RatioMaster.NET on Windows, ~/Library/Application Support/RatioMaster.NET on macOS,
+    /// Gets %APPDATA%\RatioMaster.NET on Windows, ~/Library/Application Support/RatioMaster.NET on macOS,
     /// $XDG_CONFIG_HOME (or ~/.config)/RatioMaster.NET elsewhere.
     /// </summary>
     public static string ConfigDirectory { get; } = ResolveConfigDirectory();
@@ -15,7 +15,7 @@ public static class AppPaths
 
     public static string LastSessionFile => Path.Combine(ConfigDirectory, "last-session.json");
 
-    /// <summary>Optional user-supplied client profiles that extend or override the built-in ones.</summary>
+    /// <summary>Gets the optional user-supplied client profiles that extend or override the built-in ones.</summary>
     public static string UserClientsFile => Path.Combine(ConfigDirectory, "clients.json");
 
     public static void EnsureConfigDirectory() => Directory.CreateDirectory(ConfigDirectory);

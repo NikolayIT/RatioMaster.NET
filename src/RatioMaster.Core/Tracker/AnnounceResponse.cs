@@ -31,10 +31,10 @@ public sealed class AnnounceResponse
 
     public int? MinInterval { get; }
 
-    /// <summary>Seeders.</summary>
+    /// <summary>Gets the seeders.</summary>
     public int? Complete { get; }
 
-    /// <summary>Leechers.</summary>
+    /// <summary>Gets the leechers.</summary>
     public int? Incomplete { get; }
 
     public int? Downloaded { get; }

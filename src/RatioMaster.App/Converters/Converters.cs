@@ -24,11 +24,11 @@ public static class Converters
 
     public static FuncValueConverter<string?, string> Host { get; } = new(Formatting.Host);
 
-    /// <summary>Shows an em dash instead of an empty value.</summary>
+    /// <summary>Gets the converter that shows an em dash instead of an empty value.</summary>
     public static FuncValueConverter<string?, string> OrDash { get; } =
         new(value => string.IsNullOrWhiteSpace(value) ? Formatting.Unknown : value);
 
-    /// <summary>The brush for a session state, resolved from the current theme.</summary>
+    /// <summary>Gets the brush for a session state, resolved from the current theme.</summary>
     public static FuncValueConverter<TorrentSessionState, object?> StatusBrush { get; } =
         new(state => Resource(state switch
         {
@@ -41,7 +41,7 @@ public static class Converters
             _ => "StatusIdleBrush",
         }));
 
-    /// <summary>The icon geometry for a session state.</summary>
+    /// <summary>Gets the icon geometry for a session state.</summary>
     public static FuncValueConverter<TorrentSessionState, object?> StatusIcon { get; } =
         new(state => Resource(state switch
         {
@@ -52,7 +52,7 @@ public static class Converters
             _ => "IconCircle",
         }));
 
-    /// <summary>The brush for a log level.</summary>
+    /// <summary>Gets the brush for a log level.</summary>
     public static FuncValueConverter<LogLevel, object?> LogBrush { get; } =
         new(level => Resource(level switch
         {

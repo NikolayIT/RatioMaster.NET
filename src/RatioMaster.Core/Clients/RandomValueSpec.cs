@@ -18,9 +18,9 @@ public sealed record RandomValueSpec
 
     public int Length { get; set; }
 
-    /// <summary>When true, the generated value is percent-encoded (non-alphanumeric bytes become %xx).</summary>
+    /// <summary>Gets or sets a value indicating whether the generated value is percent-encoded (non-alphanumeric bytes become %xx).</summary>
     public bool UrlEncode { get; set; }
 
-    /// <summary>When true, the value (or its %xx escapes when url-encoded) is upper-cased.</summary>
+    /// <summary>Gets or sets a value indicating whether the value (or its %xx escapes when url-encoded) is upper-cased.</summary>
     public bool UpperCase { get; set; }
 }

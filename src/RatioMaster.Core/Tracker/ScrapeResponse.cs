@@ -16,12 +16,12 @@ public sealed class ScrapeResponse
 
     public string? FailureReason { get; }
 
-    /// <summary>Seeders.</summary>
+    /// <summary>Gets the seeders.</summary>
     public int? Complete { get; }
 
     public int? Downloaded { get; }
 
-    /// <summary>Leechers.</summary>
+    /// <summary>Gets the leechers.</summary>
     public int? Incomplete { get; }
 
     public bool HasFailure => !string.IsNullOrEmpty(this.FailureReason);

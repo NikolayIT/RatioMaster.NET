@@ -43,23 +43,23 @@ public sealed class TorrentFile
         }
     }
 
-    /// <summary>Local path the file was loaded from, when known.</summary>
+    /// <summary>Gets the local path the file was loaded from, when known.</summary>
     public string? Path { get; }
 
     public BencodeDictionary Root { get; }
 
     public BencodeDictionary Info { get; }
 
-    /// <summary>SHA-1 of the raw "info" bytes exactly as they appear in the file.</summary>
+    /// <summary>Gets SHA-1 of the raw "info" bytes exactly as they appear in the file.</summary>
     public ReadOnlySpan<byte> InfoHash => this.infoHash;
 
-    /// <summary>Upper-case hex of <see cref="InfoHash"/>.</summary>
+    /// <summary>Gets the upper-case hex of <see cref="InfoHash"/>.</summary>
     public string InfoHashHex { get; }
 
-    /// <summary>The "announce" URL, or the first "announce-list" entry, or an empty string.</summary>
+    /// <summary>Gets the "announce" URL, or the first "announce-list" entry, or an empty string.</summary>
     public string Announce { get; }
 
-    /// <summary>All tracker URLs: "announce" first, then every "announce-list" entry, without duplicates.</summary>
+    /// <summary>Gets all tracker URLs: "announce" first, then every "announce-list" entry, without duplicates.</summary>
     public IReadOnlyList<string> AnnounceList { get; }
 
     public string Name { get; }

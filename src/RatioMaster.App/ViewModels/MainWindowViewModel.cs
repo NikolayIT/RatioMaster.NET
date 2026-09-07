@@ -123,7 +123,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase
 
     public DataGridCollectionView TorrentsView { get; }
 
-    /// <summary>Rows selected in the grid; kept in step by the view.</summary>
+    /// <summary>Gets the rows selected in the grid; kept in step by the view.</summary>
     public List<TorrentItemViewModel> SelectedTorrents { get; } = [];
 
     public bool HasSelection => this.SelectedTorrent is not null;

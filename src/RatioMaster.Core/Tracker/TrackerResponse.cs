@@ -32,10 +32,10 @@ public sealed class TrackerResponse
 
     public IReadOnlyDictionary<string, string> Headers { get; }
 
-    /// <summary>The decoded body (dechunked and decompressed).</summary>
+    /// <summary>Gets the decoded body (dechunked and decompressed).</summary>
     public byte[] Body { get; }
 
-    /// <summary>The bencode dictionary parsed from the body, or null when the body was not bencode.</summary>
+    /// <summary>Gets the bencode dictionary parsed from the body, or null when the body was not bencode.</summary>
     public BencodeDictionary? Dictionary { get; }
 
     public bool IsRedirect => this.StatusCode is >= 300 and < 400 && this.Location is not null;

@@ -18,7 +18,7 @@ public abstract class DialogViewModel<TResult> : ViewModelBase
 
     public string Title { get; init; } = "RatioMaster.NET";
 
-    /// <summary>Completes when the dialog closes.</summary>
+    /// <summary>Gets the task that completes when the dialog closes.</summary>
     public Task<TResult?> Result => this.completion.Task;
 
     /// <summary>Closes the dialog with a result.</summary>

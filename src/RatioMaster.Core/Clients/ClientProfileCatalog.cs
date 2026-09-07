@@ -21,13 +21,13 @@ public sealed class ClientProfileCatalog
         this.Families = profiles.Select(p => p.Family).Distinct(StringComparer.Ordinal).ToArray();
     }
 
-    /// <summary>All profiles in catalog order (family order, newest version first per family).</summary>
+    /// <summary>Gets all profiles in catalog order (family order, newest version first per family).</summary>
     public IReadOnlyList<ClientProfile> Profiles => this.profiles;
 
-    /// <summary>Distinct family names in catalog order.</summary>
+    /// <summary>Gets the distinct family names in catalog order.</summary>
     public IReadOnlyList<string> Families { get; }
 
-    /// <summary>The name of the default profile.</summary>
+    /// <summary>Gets the name of the default profile.</summary>
     public string DefaultName { get; }
 
     public ClientProfile Default => this.byName[this.DefaultName];

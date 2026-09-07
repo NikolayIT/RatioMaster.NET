@@ -15,7 +15,7 @@ public sealed record TorrentStats
 
     public long TotalSize { get; init; }
 
-    /// <summary>Upload/download ratio, or null ("NaN") until at least 100 KB has been downloaded.</summary>
+    /// <summary>Gets the upload/download ratio, or null ("NaN") until at least 100 KB has been downloaded.</summary>
     public double? Ratio { get; init; }
 
     public double FinishedPercent { get; init; }
@@ -24,10 +24,10 @@ public sealed record TorrentStats
 
     public int? Leechers { get; init; }
 
-    /// <summary>Current effective upload rate in bytes per second.</summary>
+    /// <summary>Gets the current effective upload rate in bytes per second.</summary>
     public long UploadRateBytes { get; init; }
 
-    /// <summary>Current effective download rate in bytes per second.</summary>
+    /// <summary>Gets the current effective download rate in bytes per second.</summary>
     public long DownloadRateBytes { get; init; }
 
     public TimeSpan TotalRunningTime { get; init; }

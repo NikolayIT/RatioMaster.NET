@@ -166,10 +166,10 @@ public sealed partial class TorrentSettingsViewModel : ViewModelBase
 
     public ObservableCollection<string> Versions { get; }
 
-    /// <summary>The profile name assembled from the family and version pickers.</summary>
+    /// <summary>Gets the profile name assembled from the family and version pickers.</summary>
     public string ClientName => $"{this.ClientFamily} {this.ClientVersion}".Trim();
 
-    /// <summary>True while the torrent runs: the fields the engine cannot change mid-flight are disabled.</summary>
+    /// <summary>Gets a value indicating whether the torrent runs: the fields the engine cannot change mid-flight are disabled.</summary>
     public bool IsLocked => this.IsRunning;
 
     public bool IsProxyConfigured => this.ProxyType != ProxyType.None;

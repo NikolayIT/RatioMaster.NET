@@ -46,7 +46,7 @@ public sealed partial class LogViewModel : ViewModelBase
     /// <summary>Raised after a batch is appended so the view can scroll to the end.</summary>
     public event EventHandler? LinesAppended;
 
-    /// <summary>The lines currently shown (all of them, or those matching the filter).</summary>
+    /// <summary>Gets the lines currently shown (all of them, or those matching the filter).</summary>
     public ObservableCollection<LogEntry> Entries { get; } = [];
 
     /// <summary>Called from the engine's thread.</summary>

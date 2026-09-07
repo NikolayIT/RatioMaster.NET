@@ -11,7 +11,7 @@ public sealed record AppSettings
     {
     }
 
-    /// <summary>Windows and macOS always have a tray (menu bar); Linux desktops often do not.</summary>
+    /// <summary>Gets a value indicating whether windows and macOS always have a tray (menu bar); Linux desktops often do not.</summary>
     public static bool TrayIsReliable => !OperatingSystem.IsLinux();
 
     public AppTheme Theme { get; set; } = AppTheme.System;
@@ -20,7 +20,7 @@ public sealed record AppSettings
 
     public bool CheckForUpdatesOnStartup { get; set; } = true;
 
-    /// <summary>A remote version the user chose to skip.</summary>
+    /// <summary>Gets or sets a remote version the user chose to skip.</summary>
     public string? SkippedVersion { get; set; }
 
     public bool RestoreLastSessionOnStartup { get; set; } = true;
@@ -28,7 +28,7 @@ public sealed record AppSettings
     public bool AddTorrentsWithoutDialog { get; set; }
 
     /// <summary>
-    /// Off by default on Linux: the tray icon needs a StatusNotifier host (KDE, or GNOME with the AppIndicator
+    /// Gets or sets a value indicating whether off by default on Linux: the tray icon needs a StatusNotifier host (KDE, or GNOME with the AppIndicator
     /// extension), and without one a hidden window cannot be brought back.
     /// </summary>
     public bool MinimizeToTray { get; set; } = TrayIsReliable;
@@ -50,9 +50,9 @@ public sealed record AppSettings
 
     public IReadOnlyList<ColumnLayout> Columns { get; set; } = [];
 
-    /// <summary>The settings a newly added torrent starts from.</summary>
+    /// <summary>Gets or sets the settings a newly added torrent starts from.</summary>
     public TorrentSettings DefaultTorrentSettings { get; set; } = new();
 
-    /// <summary>Whether the Add dialog's "start immediately" box is ticked by default.</summary>
+    /// <summary>Gets or sets a value indicating whether the Add dialog's "start immediately" box is ticked by default.</summary>
     public bool StartTorrentsImmediately { get; set; } = true;
 }

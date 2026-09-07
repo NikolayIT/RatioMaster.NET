@@ -71,7 +71,7 @@ public sealed partial class AddTorrentViewModel : DialogViewModel<IReadOnlyList<
     public bool CanAdd => this.Torrents.Count > 0;
 
     /// <summary>
-    /// Why the chosen tracker cannot be announced to (no tracker, udp://, malformed), or null when it is fine.
+    /// Gets the reason the chosen tracker cannot be announced to (no tracker, udp://, malformed), or null when it is fine.
     /// The torrent can still be added; it just needs another tracker before it can start.
     /// </summary>
     public string? TrackerWarning

@@ -20,7 +20,7 @@ public sealed record TorrentSettings
     {
     }
 
-    /// <summary>The emulated client profile name.</summary>
+    /// <summary>Gets or sets the emulated client profile name.</summary>
     public string ClientName { get; set; } = DefaultClientName;
 
     public IdentityMode IdentityMode { get; set; } = IdentityMode.Automatic;
@@ -33,10 +33,10 @@ public sealed record TorrentSettings
 
     public string? CustomNumWant { get; set; }
 
-    /// <summary>Base upload rate in bytes per second.</summary>
+    /// <summary>Gets or sets the base upload rate in bytes per second.</summary>
     public long UploadRateBytes { get; set; } = 60 * 1024;
 
-    /// <summary>Base download rate in bytes per second.</summary>
+    /// <summary>Gets or sets the base download rate in bytes per second.</summary>
     public long DownloadRateBytes { get; set; } = 30 * 1024;
 
     public bool UploadRandomEnabled { get; set; } = true;
@@ -63,7 +63,7 @@ public sealed record TorrentSettings
 
     public int NextUpdateDownloadMaxKb { get; set; } = 100;
 
-    /// <summary>Starting completion percentage (100 means seed only).</summary>
+    /// <summary>Gets or sets the starting completion percentage (100 means seed only).</summary>
     public double FinishedPercent { get; set; }
 
     public int IntervalSeconds { get; set; } = 1800;
@@ -73,7 +73,7 @@ public sealed record TorrentSettings
     public bool IgnoreFailureReason { get; set; }
 
     /// <summary>
-    /// Pause the upload while the tracker reports no leechers (issue #16). There is nobody to upload to,
+    /// Gets or sets a value indicating whether pause the upload while the tracker reports no leechers (issue #16). There is nobody to upload to,
     /// and a tracker can notice upload with no leechers, one of the things that may get an account
     /// banned, so this is on by default. The upload resumes on its own once the tracker reports leechers.
     /// </summary>

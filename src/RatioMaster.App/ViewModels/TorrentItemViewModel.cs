@@ -176,7 +176,7 @@ public sealed partial class TorrentItemViewModel : ViewModelBase
         ? "None"
         : $"{this.settings.Proxy.Type} {this.settings.Proxy.Host}:{this.settings.Proxy.Port}";
 
-    /// <summary>The settings currently in effect (what a Start would use).</summary>
+    /// <summary>Gets the settings currently in effect (what a Start would use).</summary>
     public TorrentSettings CurrentSettings => this.settings;
 
     public string FormattedIdentity => string.Create(CultureInfo.InvariantCulture, $"{this.PeerIdInUse} / {this.KeyInUse} / port {this.PortInUse}");

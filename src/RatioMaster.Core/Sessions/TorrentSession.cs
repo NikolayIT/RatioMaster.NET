@@ -133,7 +133,7 @@ public sealed class TorrentSession : IAsyncDisposable
     }
 
     /// <summary>
-    /// True while the tracker's last swarm figures said nobody is downloading and the settings ask to
+    /// Gets a value indicating whether the tracker's last swarm figures said nobody is downloading and the settings ask to
     /// stop uploading then. Read under <see cref="gate"/>. This gates the upload counter itself, so no
     /// other rule (a random speed on the next update, a live edit of the speed) can upload past it.
     /// </summary>
