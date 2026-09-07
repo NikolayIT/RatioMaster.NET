@@ -10,8 +10,8 @@ public class ClientProfileCatalogTests
     [Fact]
     public void LoadsAllProfilesFromTheBuiltInCatalog()
     {
-        // 41 inherited from 0.43 plus qBittorrent.
-        Assert.Equal(42, Catalog.Profiles.Count);
+        // 41 inherited from 0.43, minus the nine obsolete uTorrent 1.x/2.x ones, plus qBittorrent, uTorrent 3.6.0 and 3.5.5.
+        Assert.Equal(35, Catalog.Profiles.Count);
     }
 
     [Fact]
@@ -41,7 +41,7 @@ public class ClientProfileCatalogTests
     }
 
     [Theory]
-    [InlineData("uTorrent", new[] { "3.3.2", "3.3.0", "3.2.0", "2.0.1 (build 19078)", "1.8.5 (build 17414)", "1.8.1-beta(11903)", "1.8.0", "1.7.7", "1.7.6", "1.7.5", "1.6.1", "1.6" })]
+    [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.3.2", "3.3.0", "3.2.0" })]
     [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
     [InlineData("Azureus", new[] { "3.1.1.0", "3.0.5.0", "3.0.4.2", "3.0.3.4", "3.0.2.2", "2.5.0.4" })]
     [InlineData("Vuze", new[] { "4.2.0.8" })]
@@ -57,8 +57,8 @@ public class ClientProfileCatalogTests
     [Fact]
     public void OnlyParseableClientsHaveAMemoryScanSpec()
     {
-        // uTorrent (12) + BitComet (6) + Azureus (6) + Vuze (1) + ABC (1) = 26; the rest cannot be read from a process.
-        Assert.Equal(26, Catalog.Profiles.Count(p => p.CanScanMemory));
+        // uTorrent (5) + BitComet (6) + Azureus (6) + Vuze (1) + ABC (1) = 19; the rest cannot be read from a process.
+        Assert.Equal(19, Catalog.Profiles.Count(p => p.CanScanMemory));
 
         Assert.True(Catalog.GetByName("uTorrent 3.3.2").CanScanMemory);
         Assert.False(Catalog.GetByName("Deluge 1.2.0").CanScanMemory);
@@ -86,6 +86,55 @@ public class ClientProfileCatalogTests
         Assert.Equal("uTorrent", p.MemoryScan!.ProcessName);
         Assert.Equal("&peer_id=-UT3320-", p.MemoryScan.SearchString);
         Assert.Equal(200_000_000, p.MemoryScan.MaxOffset);
+    }
+
+    /// <summary>
+    /// uTorrent 3.x puts its build number, as a little-endian 16-bit integer, in the two bytes after the
+    /// "-UTxxxx-" prefix; the ten bytes after that are random. The user agent carries the build twice:
+    /// once inside the first parenthesis (a per-version constant times 65536, plus the build) and once
+    /// plainly. Both facts come from real announces (build 45311 in a public capture; the SB-Innovation
+    /// client files for builds 44994-46074 and 46828), so a tracker that decodes them sees a real build.
+    /// </summary>
+    [Theory]
+    [InlineData("uTorrent 3.6.0", "-UT360S-", 46828, 1729)]
+    [InlineData("uTorrent 3.5.5", "-UT355S-", 46074, 1707)]
+    public void ModernUTorrentEncodesItsBuildLikeTheRealClient(string name, string prefix, int build, int versionConstant)
+    {
+        var p = Catalog.GetByName(name);
+        Assert.Equal(name, p.Name);
+
+        var expectedPrefix = prefix + "%" + (build & 0xFF).ToString("x2") + "%" + (build >> 8).ToString("x2");
+        Assert.Equal(expectedPrefix, p.PeerIdPrefix);
+        Assert.Equal(RandomValueKind.Random, p.PeerId.Type);
+        Assert.Equal(10, p.PeerId.Length);
+        Assert.True(p.PeerId.UrlEncode);
+        Assert.False(p.PeerId.UpperCase);
+
+        var shortVersion = prefix.Substring(3, 3);
+        var userAgent = $"User-Agent: uTorrent/{shortVersion}({versionConstant * 65536 + build})({build})";
+        Assert.Equal(["Host: {host}", userAgent, "Accept-Encoding: gzip", "Connection: Close"], p.Headers);
+
+        // Same query as every uTorrent since 2.0, which the captures confirm.
+        Assert.Equal(Catalog.GetByName("uTorrent 3.3.2").Query, p.Query);
+        Assert.Equal(RandomValueKind.Hex, p.Key.Type);
+        Assert.Equal(8, p.Key.Length);
+        Assert.True(p.Key.UpperCase);
+        Assert.False(p.HashUpperCase);
+        Assert.Equal(200, p.DefaultNumWant);
+        Assert.Equal("uTorrent", p.MemoryScan!.ProcessName);
+        Assert.Equal("&peer_id=" + prefix, p.MemoryScan.SearchString);
+    }
+
+    [Fact]
+    public void UTorrentPeerIdsAreExactlyTwentyBytesForTheCapturedVersions()
+    {
+        foreach (var name in new[] { "uTorrent 3.6.0", "uTorrent 3.5.5", "uTorrent 3.3.2", "uTorrent 3.3.0" })
+        {
+            var p = Catalog.GetByName(name);
+            // The prefix is ASCII with %XX escapes, so every escape is one byte on the wire.
+            var prefixBytes = System.Text.RegularExpressions.Regex.Replace(p.PeerIdPrefix, "%[0-9a-fA-F]{2}", "?").Length;
+            Assert.Equal(20, prefixBytes + p.PeerId.Length);
+        }
     }
 
     [Fact]
@@ -173,7 +222,7 @@ public class ClientProfileCatalogTests
         try
         {
             var catalog = ClientProfileCatalog.Load(path);
-            Assert.Equal(43, catalog.Profiles.Count);
+            Assert.Equal(36, catalog.Profiles.Count);
             Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.3.2").PeerIdPrefix);
             Assert.Equal(99, catalog.GetByName("uTorrent 3.3.2").DefaultNumWant);
             Assert.True(catalog.Contains("MyClient 1.0"));

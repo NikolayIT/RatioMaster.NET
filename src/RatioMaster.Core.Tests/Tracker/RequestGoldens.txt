@@ -34,6 +34,70 @@ Connection: close<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
 
+=== uTorrent 3.6.0 ===
+--- Started ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT360S-%ec%b6PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: uTorrent/360(113358572)(46828)<CR>
+Accept-Encoding: gzip<CR>
+Connection: Close<CR>
+<CR>
+--- None ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT360S-%ec%b6PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: uTorrent/360(113358572)(46828)<CR>
+Accept-Encoding: gzip<CR>
+Connection: Close<CR>
+<CR>
+--- Completed ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT360S-%ec%b6PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: uTorrent/360(113358572)(46828)<CR>
+Accept-Encoding: gzip<CR>
+Connection: Close<CR>
+<CR>
+--- Stopped ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT360S-%ec%b6PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: uTorrent/360(113358572)(46828)<CR>
+Accept-Encoding: gzip<CR>
+Connection: Close<CR>
+<CR>
+--- Scrape ---
+http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
+
+=== uTorrent 3.5.5 ===
+--- Started ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT355S-%fa%b3PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: uTorrent/355(111916026)(46074)<CR>
+Accept-Encoding: gzip<CR>
+Connection: Close<CR>
+<CR>
+--- None ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT355S-%fa%b3PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: uTorrent/355(111916026)(46074)<CR>
+Accept-Encoding: gzip<CR>
+Connection: Close<CR>
+<CR>
+--- Completed ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT355S-%fa%b3PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: uTorrent/355(111916026)(46074)<CR>
+Accept-Encoding: gzip<CR>
+Connection: Close<CR>
+<CR>
+--- Stopped ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT355S-%fa%b3PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: uTorrent/355(111916026)(46074)<CR>
+Accept-Encoding: gzip<CR>
+Connection: Close<CR>
+<CR>
+--- Scrape ---
+http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
+
 === uTorrent 3.3.2 ===
 --- Started ---
 GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3320-%18wPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
@@ -113,258 +177,6 @@ Accept-Encoding: gzip<CR>
 GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT3200-z8%00.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
 Host: tracker.test<CR>
 User-Agent: uTorrent/3200<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 2.0.1 (build 19078) ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT2010-%86JPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/2010(19078)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT2010-%86JPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/2010(19078)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT2010-%86JPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/2010(19078)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT2010-%86JPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/2010(19078)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 1.8.5 (build 17414) ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1850-%06DPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1850(17414)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1850-%06DPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1850(17414)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1850-%06DPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1850(17414)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1850-%06DPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1850(17414)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 1.8.1-beta(11903) ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT181B-%7f.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/181B(11903)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT181B-%7f.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/181B(11903)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT181B-%7f.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/181B(11903)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT181B-%7f.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/181B(11903)<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 1.8.0 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1800-%25.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1800<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1800-%25.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1800<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1800-%25.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1800<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1800-%25.PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1800<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 1.7.7 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1770-%f3%9fPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1770<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1770-%f3%9fPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1770<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1770-%f3%9fPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1770<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1770-%f3%9fPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1770<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 1.7.6 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1760-%b3%9ePEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1760<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1760-%b3%9ePEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1760<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1760-%b3%9ePEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1760<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1760-%b3%9ePEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1760<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 1.7.5 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1750-%fa%91PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1750<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1750-%fa%91PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1750<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1750-%fa%91PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1750<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1750-%fa%91PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1750<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 1.6.1 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1610-%ea%81PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1610<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1610-%ea%81PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1610<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1610-%ea%81PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1610<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1610-%ea%81PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1610<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 1.6 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1600-%d9%81PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1600<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1600-%d9%81PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1600<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1600-%d9%81PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1600<CR>
-Accept-Encoding: gzip<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT1600-%d9%81PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&key=KEY01234&event=stopped&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/1600<CR>
 Accept-Encoding: gzip<CR>
 <CR>
 --- Scrape ---

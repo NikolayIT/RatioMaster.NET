@@ -3,7 +3,7 @@ RatioMaster.NET
 
 RatioMaster.NET fakes the upload and download figures a BitTorrent tracker sees for a torrent. It does
 not download or upload any data and it does not need a BitTorrent client running: it talks to the
-tracker directly, pretending to be one of 42 real client versions.
+tracker directly, pretending to be one of 35 real client versions.
 
 Version 1.0 is a full rewrite on .NET 10 with an [Avalonia](https://avaloniaui.net) interface. It runs
 on Windows, Linux and macOS as a single self-contained file, so there is nothing to install.
@@ -21,7 +21,7 @@ Grab the archive for your system from the [latest release](https://github.com/Ni
 ## What it does
 
 - Runs any number of torrents at once, each with its own client emulation and speeds.
-- Emulates 42 client versions across 17 families: qBittorrent, uTorrent, BitComet, Azureus, Vuze, BitTorrent,
+- Emulates 35 client versions across 17 families: qBittorrent, uTorrent, BitComet, Azureus, Vuze, BitTorrent,
   Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent and Gnome BT.
 - Copies the peer id, key, port and peer count out of a running client's memory when that client
   supports it (Windows fully, Linux best effort), otherwise generates values that match the client.

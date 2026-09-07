@@ -11,6 +11,26 @@
       "defaultNumWant": 200
     },
     {
+      "name": "uTorrent 3.6.0", "family": "uTorrent", "version": "3.6.0",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT360S-%ec%b6", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/360(113358572)(46828)", "Accept-Encoding: gzip", "Connection: Close"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT360S-", "startOffset": 0, "maxOffset": 200000000 }
+    },
+    {
+      "name": "uTorrent 3.5.5", "family": "uTorrent", "version": "3.5.5",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
+      "peerId": { "prefix": "-UT355S-%fa%b3", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: uTorrent/355(111916026)(46074)", "Accept-Encoding: gzip", "Connection: Close"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "defaultNumWant": 200,
+      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT355S-", "startOffset": 0, "maxOffset": 200000000 }
+    },
+    {
       "name": "uTorrent 3.3.2", "family": "uTorrent", "version": "3.3.2",
       "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
@@ -39,96 +59,6 @@
       "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
       "defaultNumWant": 200,
       "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT3200-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 2.0.1 (build 19078)", "family": "uTorrent", "version": "2.0.1 (build 19078)",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT2010-%86J", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/2010(19078)", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT2010-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 1.8.5 (build 17414)", "family": "uTorrent", "version": "1.8.5 (build 17414)",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT1850-%06D", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/1850(17414)", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1850-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 1.8.1-beta(11903)", "family": "uTorrent", "version": "1.8.1-beta(11903)",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT181B-%7f.", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/181B(11903)", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT181B-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 1.8.0", "family": "uTorrent", "version": "1.8.0",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT1800-%25.", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/1800", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1800-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 1.7.7", "family": "uTorrent", "version": "1.7.7",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT1770-%f3%9f", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/1770", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1770-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 1.7.6", "family": "uTorrent", "version": "1.7.6",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT1760-%b3%9e", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/1760", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1760-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 1.7.5", "family": "uTorrent", "version": "1.7.5",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT1750-%fa%91", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/1750", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1750-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 1.6.1", "family": "uTorrent", "version": "1.6.1",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT1610-%ea%81", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/1610", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1610-", "startOffset": 0, "maxOffset": 60000000 }
-    },
-    {
-      "name": "uTorrent 1.6", "family": "uTorrent", "version": "1.6",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "-UT1600-%d9%81", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: uTorrent/1600", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
-      "defaultNumWant": 200,
-      "memoryScan": { "processName": "uTorrent", "searchString": "&peer_id=-UT1600-", "startOffset": 0, "maxOffset": 60000000 }
     },
 
     {
