@@ -97,6 +97,26 @@ public class SettingsAndSessionTests : IDisposable
     }
 
     [Fact]
+    public void ThePauseOnNoLeechersIsOnUnlessAFileSaysOtherwise()
+    {
+        Assert.True(new TorrentSettings().StopUploadWhenNoLeechers);
+
+        // Session files written by 1.0 do not have the property: the safe default applies to them.
+        var fromOldFile = System.Text.Json.JsonSerializer.Deserialize("""{ "clientName": "qBittorrent 5.2.3" }""", CoreJsonContext.Default.TorrentSettings)!;
+        Assert.True(fromOldFile.StopUploadWhenNoLeechers);
+
+        var switchedOff = System.Text.Json.JsonSerializer.Deserialize("""{ "stopUploadWhenNoLeechers": false }""", CoreJsonContext.Default.TorrentSettings)!;
+        Assert.False(switchedOff.StopUploadWhenNoLeechers);
+
+        var written = System.Text.Json.JsonSerializer.Serialize(switchedOff, CoreJsonContext.Default.TorrentSettings);
+        Assert.Contains("\"stopUploadWhenNoLeechers\": false", written, StringComparison.Ordinal);
+
+        // 0.43 sessions never had it either.
+        var legacy = Assert.Single(SessionFile.Parse("<main><RatioMaster><Name>Minimal</Name></RatioMaster></main>").Torrents);
+        Assert.True(legacy.Settings.StopUploadWhenNoLeechers);
+    }
+
+    [Fact]
     public void SessionJsonRoundTrip()
     {
         var path = PathFor("my.session");

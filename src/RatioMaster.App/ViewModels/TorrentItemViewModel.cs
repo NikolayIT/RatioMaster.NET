@@ -322,12 +322,6 @@ public sealed partial class TorrentItemViewModel : ViewModelBase
             Settings.IntervalSeconds = interval;
         }
 
-        if (adjustment.UploadRateBytes is { } upload)
-        {
-            _settings = _settings with { UploadRateBytes = upload };
-            Settings.UploadKb = upload / 1024d;
-        }
-
         SettingsChanged?.Invoke(this, EventArgs.Empty);
     }
 

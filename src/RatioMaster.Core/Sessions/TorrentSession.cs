@@ -121,7 +121,7 @@ public sealed class TorrentSession : IAsyncDisposable
                     FinishedPercent = ComputeFinishedPercent(),
                     Seeders = _seeders,
                     Leechers = _leechers,
-                    UploadRateBytes = _currentUploadRate,
+                    UploadRateBytes = UploadPaused ? 0 : _currentUploadRate,
                     DownloadRateBytes = _currentDownloadRate,
                     TotalRunningTime = TimeSpan.FromSeconds(_totalRunningSeconds),
                     NextUpdateIn = _state is TorrentSessionState.Idle or TorrentSessionState.Stopped or TorrentSessionState.Error
@@ -191,18 +191,33 @@ public sealed class TorrentSession : IAsyncDisposable
         }
     }
 
-    /// <summary>Applies user edits that are allowed while running (speeds, random ranges, log, scrape, ignore-failure).</summary>
+    /// <summary>
+    /// Applies user edits that are allowed while running (speeds, random ranges, the no-leecher pause,
+    /// log, scrape, ignore-failure).
+    /// </summary>
     public void UpdateLiveSettings(TorrentSettings settings)
     {
         ArgumentNullException.ThrowIfNull(settings);
+        bool pausedBefore, pausedNow;
         lock (_gate)
         {
+            pausedBefore = UploadPaused;
             _settings = settings;
             _currentUploadRate = settings.UploadRateBytes;
             _currentDownloadRate = _seedMode ? 0 : settings.DownloadRateBytes;
             _uploadRandomEnabled = settings.UploadRandomEnabled;
+            pausedNow = UploadPaused;
         }
+
+        LogPauseChange(pausedBefore, pausedNow, "the pause on no leechers was switched off");
     }
+
+    /// <summary>
+    /// True while the tracker's last swarm figures said nobody is downloading and the settings ask to
+    /// stop uploading then. Read under <see cref="_gate"/>. This gates the upload counter itself, so no
+    /// other rule (a random speed on the next update, a live edit of the speed) can upload past it.
+    /// </summary>
+    private bool UploadPaused => _settings.StopUploadWhenNoLeechers && _leechers == 0;
 
     private async Task RunAsync(CancellationToken cancellationToken)
     {
@@ -379,8 +394,11 @@ public sealed class TorrentSession : IAsyncDisposable
     /// <summary>Grows the counters for one second. Returns true when the download has just completed.</summary>
     private bool ApplyCounterGrowth()
     {
-        var uploadedThisTick = _currentUploadRate + Jitter(_uploadRandomEnabled, _settings.UploadRandomMinKb, _settings.UploadRandomMaxKb);
-        _uploaded += Math.Max(0, uploadedThisTick);
+        if (!UploadPaused)
+        {
+            var uploadedThisTick = _currentUploadRate + Jitter(_uploadRandomEnabled, _settings.UploadRandomMinKb, _settings.UploadRandomMaxKb);
+            _uploaded += Math.Max(0, uploadedThisTick);
+        }
 
         if (!_seedMode && _currentDownloadRate > 0)
         {
@@ -562,22 +580,27 @@ public sealed class TorrentSession : IAsyncDisposable
 
     private void UpdateSwarmStats(int complete, int incomplete)
     {
+        bool pausedBefore, pausedNow;
         lock (_gate)
         {
+            pausedBefore = UploadPaused;
             _seeders = complete;
             _leechers = incomplete;
+            pausedNow = UploadPaused;
         }
 
-        if (incomplete == 0 && _currentUploadRate != 0)
-        {
-            lock (_gate)
-            {
-                _currentUploadRate = 0;
-                _uploadRandomEnabled = false;
-            }
+        LogPauseChange(pausedBefore, pausedNow, $"the tracker reports {incomplete} leechers");
+    }
 
-            Log(LogLevel.Info, "No leechers left; upload speed set to 0.");
-            Adjusted?.Invoke(this, new EngineAdjustment { UploadRateBytes = 0, Reason = "No leechers left." });
+    private void LogPauseChange(bool pausedBefore, bool pausedNow, string resumeReason)
+    {
+        if (pausedNow && !pausedBefore)
+        {
+            Log(LogLevel.Info, "The tracker reports no leechers; upload paused until it reports some.");
+        }
+        else if (!pausedNow && pausedBefore)
+        {
+            Log(LogLevel.Info, $"Upload resumed: {resumeReason}.");
         }
     }
 

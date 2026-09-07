@@ -66,6 +66,11 @@
                      IsEnabled="{Binding DownloadRandomEnabled}" />
           </Grid>
 
+          <CheckBox Content="Pause the upload while the tracker reports no leechers"
+                    IsChecked="{Binding StopUploadWhenNoLeechers}" />
+          <TextBlock Text="Recommended. Uploading when nobody is downloading is what gets accounts banned."
+                     Classes="subtle" Margin="28,-4,0,0" />
+
           <Separator />
           <TextBlock Text="On each tracker update, pick a new random speed" Classes="subtle" />
           <Grid ColumnDefinitions="150,Auto,Auto,Auto,Auto" RowDefinitions="Auto,Auto">

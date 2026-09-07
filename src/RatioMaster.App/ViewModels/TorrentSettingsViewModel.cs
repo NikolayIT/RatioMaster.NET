@@ -110,6 +110,9 @@ public sealed partial class TorrentSettingsViewModel : ViewModelBase
     private bool _ignoreFailureReason;
 
     [ObservableProperty]
+    private bool _stopUploadWhenNoLeechers = true;
+
+    [ObservableProperty]
     private bool _requestScrape = true;
 
     [ObservableProperty]
@@ -251,6 +254,7 @@ public sealed partial class TorrentSettingsViewModel : ViewModelBase
         StopValue = settings.Stop.Value;
 
         IgnoreFailureReason = settings.IgnoreFailureReason;
+        StopUploadWhenNoLeechers = settings.StopUploadWhenNoLeechers;
         RequestScrape = settings.RequestScrape;
         UseTcpListener = settings.UseTcpListener;
         EnableLog = settings.EnableLog;
@@ -290,6 +294,7 @@ public sealed partial class TorrentSettingsViewModel : ViewModelBase
         IntervalSeconds = IntervalSeconds,
         Stop = new StopCondition { Type = StopType, Value = StopValue },
         IgnoreFailureReason = IgnoreFailureReason,
+        StopUploadWhenNoLeechers = StopUploadWhenNoLeechers,
         RequestScrape = RequestScrape,
         UseTcpListener = UseTcpListener,
         EnableLog = EnableLog,

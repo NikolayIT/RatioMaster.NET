@@ -5,7 +5,6 @@ public sealed record EngineAdjustment
 {
     public int? IntervalSeconds { get; init; }
 
-    public long? UploadRateBytes { get; init; }
 
     public required string Reason { get; init; }
 }

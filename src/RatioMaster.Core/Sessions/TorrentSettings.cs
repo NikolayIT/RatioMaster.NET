@@ -72,6 +72,13 @@ public sealed record TorrentSettings
 
     public bool IgnoreFailureReason { get; set; }
 
+    /// <summary>
+    /// Pause the upload while the tracker reports no leechers (issue #16). There is nobody to upload to,
+    /// and uploading anyway is what private trackers ban accounts for, so this is on by default. The
+    /// upload resumes on its own once the tracker reports leechers again.
+    /// </summary>
+    public bool StopUploadWhenNoLeechers { get; set; } = true;
+
     public bool RequestScrape { get; set; } = true;
 
     public bool UseTcpListener { get; set; } = true;

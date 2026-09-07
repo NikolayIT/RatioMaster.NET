@@ -223,18 +223,119 @@ public class TorrentSessionTests
     }
 
     [Fact]
-    public async Task ZeroLeechersForcesUploadSpeedToZero()
+    public async Task ZeroLeechersPauseTheUploadByDefault()
     {
-        var adjustments = new List<EngineAdjustment>();
-        var (session, _) = Create(configureTracker: t => t.Incomplete = 0);
-        session.Adjusted += (_, a) => adjustments.Add(a);
+        // Issue #16 / #42: uploading when nobody is downloading is what gets accounts banned, so the
+        // default is to pause, and nothing must be reported as uploaded while paused.
+        var logs = new List<LogEntry>();
+        var (session, tracker) = Create(configureTracker: t => t.Incomplete = 0);
+        session.LogEmitted += (_, e) => logs.Add(e);
+        Assert.True(session.Settings.StopUploadWhenNoLeechers);
 
         await session.StartAsync(Ct);
-        await TickAsync(session, 2);
+        await TickAsync(session, 3);
+        session.RequestUpdate();
+        await TickAsync(session, 1);
 
         Assert.Equal(0, session.Snapshot.UploadRateBytes);
         Assert.Equal(0, session.Snapshot.Uploaded);
-        Assert.Contains(adjustments, a => a.UploadRateBytes == 0);
+        Assert.Equal(2, tracker.Announces.Count);
+        Assert.All(tracker.Announces, a => Assert.Equal(0, a.Values.Uploaded));
+        Assert.Equal(4 * 30 * KiB, session.Snapshot.Downloaded); // the download is not affected
+        Assert.Contains(logs, l => l.Text.Contains("upload paused", StringComparison.Ordinal));
+        Assert.Equal(60 * KiB, session.Settings.UploadRateBytes); // the user's speed is not overwritten
+    }
+
+    [Fact]
+    public async Task ZeroLeechersDoNotPauseTheUploadWhenTheOptionIsOff()
+    {
+        var settings = QuietSettings() with { StopUploadWhenNoLeechers = false };
+        var (session, _) = Create(settings, configureTracker: t => t.Incomplete = 0);
+
+        await session.StartAsync(Ct);
+        await TickAsync(session, 3);
+
+        Assert.Equal(60 * KiB, session.Snapshot.UploadRateBytes);
+        Assert.Equal(3 * 60 * KiB, session.Snapshot.Uploaded);
+    }
+
+    [Fact]
+    public async Task UploadResumesWhenTheTrackerReportsLeechersAgain()
+    {
+        var logs = new List<LogEntry>();
+        var (session, tracker) = Create(configureTracker: t => t.Incomplete = 0);
+        session.LogEmitted += (_, e) => logs.Add(e);
+        await session.StartAsync(Ct);
+        await TickAsync(session, 2);
+        Assert.Equal(0, session.Snapshot.Uploaded);
+
+        tracker.Incomplete = 3;
+        session.RequestUpdate();
+        await TickAsync(session, 1); // this tick grows nothing (still paused) and then announces
+        await TickAsync(session, 2);
+
+        Assert.Equal(60 * KiB, session.Snapshot.UploadRateBytes);
+        Assert.Equal(2 * 60 * KiB, session.Snapshot.Uploaded);
+        Assert.Contains(logs, l => l.Text.Contains("Upload resumed: the tracker reports 3 leechers", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public async Task ZeroLeechersReportedByTheScrapePauseTheUploadToo()
+    {
+        var (session, _) = Create(configureTracker: t =>
+        {
+            t.Incomplete = 5;
+            t.ScrapeComplete = 10;
+            t.ScrapeIncomplete = 0;
+        });
+
+        await session.StartAsync(Ct); // the started announce says 5, the scrape right after it says 0
+        await TickAsync(session, 2);
+
+        Assert.Equal(0, session.Snapshot.Leechers);
+        Assert.Equal(0, session.Snapshot.Uploaded);
+    }
+
+    [Fact]
+    public async Task ARandomSpeedOnTheNextUpdateCannotBypassThePause()
+    {
+        // 0.43 zeroed the configured speed instead of gating the counter, so the "random speed on each
+        // update" feature quietly switched the upload back on with no leechers.
+        var settings = QuietSettings() with { NextUpdateRandomUpload = true, NextUpdateUploadMinKb = 10, NextUpdateUploadMaxKb = 50 };
+        var (session, _) = Create(settings, configureTracker: t => t.Incomplete = 0);
+
+        await session.StartAsync(Ct);
+        session.RequestUpdate();
+        await TickAsync(session, 3);
+
+        Assert.Equal(0, session.Snapshot.UploadRateBytes);
+        Assert.Equal(0, session.Snapshot.Uploaded);
+    }
+
+    [Fact]
+    public async Task ALiveSpeedEditCannotBypassThePause()
+    {
+        var (session, _) = Create(configureTracker: t => t.Incomplete = 0);
+        await session.StartAsync(Ct);
+
+        session.UpdateLiveSettings(QuietSettings() with { UploadRateBytes = 500 * KiB });
+        await TickAsync(session, 2);
+
+        Assert.Equal(0, session.Snapshot.Uploaded);
+    }
+
+    [Fact]
+    public async Task SwitchingThePauseOffWhileRunningResumesTheUpload()
+    {
+        var (session, _) = Create(configureTracker: t => t.Incomplete = 0);
+        await session.StartAsync(Ct);
+        await TickAsync(session, 2);
+        Assert.Equal(0, session.Snapshot.Uploaded);
+
+        session.UpdateLiveSettings(QuietSettings() with { StopUploadWhenNoLeechers = false });
+        await TickAsync(session, 2);
+
+        Assert.Equal(2 * 60 * KiB, session.Snapshot.Uploaded);
     }
 
     [Fact]
