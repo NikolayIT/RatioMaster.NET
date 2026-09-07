@@ -142,12 +142,12 @@
     },
 
     {
-      "name": "BitTorrent 6.0.3 (8642)", "family": "BitTorrent", "version": "6.0.3 (8642)",
+      "name": "BitTorrent 7.10.3 (44429)", "family": "BitTorrent", "version": "7.10.3 (44429)",
       "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
-      "peerId": { "prefix": "M6-0-3--", "type": "random", "length": 12, "urlEncode": true, "upperCase": false },
-      "headers": ["Host: {host}", "User-Agent: BitTorrent/6030", "Accept-Encoding: gzip"],
-      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
+      "peerId": { "prefix": "-BT7a3S-%8d%ad", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
+      "headers": ["Host: {host}", "User-Agent: BitTorrent/7103(256355725)(44429)", "Accept-Encoding: gzip", "Connection: Close"],
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&corrupt=0&key={key}{event}&numwant={numwant}&compact=1&no_peer_id=1",
       "defaultNumWant": 200
     },
 

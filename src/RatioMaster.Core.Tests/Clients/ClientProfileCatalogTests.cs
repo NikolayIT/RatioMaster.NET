@@ -47,7 +47,7 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.3.2", "3.3.0" })]
         [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
         [InlineData("Vuze", new[] { "5.7.5.0" })]
-        [InlineData("BitTorrent", new[] { "6.0.3 (8642)" })]
+        [InlineData("BitTorrent", new[] { "7.10.3 (44429)" })]
         [InlineData("rTorrent", new[] { "0.9.6" })]
         [InlineData("Transmission", new[] { "2.94", "3.00" })]
         [InlineData("BitSpirit", new[] { "3.6.0.200", "3.1.0.077" })]
@@ -65,7 +65,7 @@ namespace RatioMaster.Core.Tests.Clients
 
             Assert.True(Catalog.GetByName("uTorrent 3.3.2").CanScanMemory);
             Assert.False(Catalog.GetByName("Deluge 2.1.1").CanScanMemory);
-            Assert.False(Catalog.GetByName("BitTorrent 6.0.3 (8642)").CanScanMemory);
+            Assert.False(Catalog.GetByName("BitTorrent 7.10.3 (44429)").CanScanMemory);
             Assert.False(Catalog.GetByName("Transmission 3.00").CanScanMemory);
         }
 

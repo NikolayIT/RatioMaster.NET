@@ -7,6 +7,7 @@
 - RM: Added new client emulation: "Deluge 2.1.1", replacing 1.2.0, 0.5.8.7 and 0.5.8.6. Deluge 2.x is built on libtorrent, so it announces like qBittorrent does and its peer id ends in "s" for a stable release
 - RM: Added new client emulation: "Vuze 5.7.5.0", replacing Vuze 4.2.0.8 and the six Azureus emulations (3.1.1.0, 3.0.5.0, 3.0.4.2, 3.0.3.4, 3.0.2.2 and 2.5.0.4); a saved torrent that used one of them now runs with the default client
 - RM: Added a new type of clients: "rTorrent", with the emulation "rTorrent 0.9.6" (libtorrent 0.13.6). It announces a short query with no numwant, no corrupt and no no_peer_id, exactly as the real client does
+- RM: Added new client emulation: "BitTorrent 7.10.3 (44429)", replacing 6.0.3 (8642). Modern BitTorrent is uTorrent underneath, so it carries the build number in the peer id and announces the same query
 - RM: Added new client emulations: "Transmission 2.94" and "Transmission 3.00", replacing 2.82 and 2.92
 - RM: Fixed the Transmission peer id, which was random where the real client's is not: its last character is a check digit that makes the twelve generated characters add up to a multiple of 36, so roughly 35 out of every 36 peer ids we sent could be spotted as fake. The peer id and the announce key now follow tr_peerIdInit and "&key=%x" from the Transmission sources
 - RM: Removed the obsolete uTorrent 3.2.0, 2.0.1, 1.8.5, 1.8.1-beta, 1.8.0, 1.7.7, 1.7.6, 1.7.5, 1.6.1 and 1.6 emulations; a saved torrent that used one of them now runs with the default client
