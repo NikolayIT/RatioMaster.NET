@@ -4,7 +4,7 @@ The website of RatioMaster.NET, hosted on Cloudflare Workers.
 
 - `public/` is the static site. Cloudflare serves it directly from its static assets storage; those requests never run the Worker.
 - `src/index.js` is the Worker. It answers the update check that every installed copy performs (`GET /vc.php?v=NNNN`, older builds `GET /version.html`), logs each check to a D1 database, and 301-redirects the old PHP page URLs to the new page.
-- `src/admin.js` renders `/admin`, a password-protected page with the last 10,000 version checks by date, country and version.
+- `src/admin.js` renders `/admin`, a password-protected page with the last 10,000 version checks by date, country, version and operating system.
 - `migrations/` holds the D1 schema, applied with Wrangler.
 
 ## Local development
@@ -54,9 +54,9 @@ curl -sSI https://ratiomaster.net/                   # 200
 
 ## Looking at the statistics
 
-https://ratiomaster.net/admin shows the last 10,000 version checks by date, country and version. Click a day or a version, or use the form, to narrow the window to one version and/or one day (`?version=0430&day=2026-09-06`). It asks for a password (HTTP Basic auth; the user name does not matter) and checks it against the `ADMIN_PASSWORD` secret. Change the password with `npx wrangler secret put ADMIN_PASSWORD`. For `npm run dev`, put `ADMIN_PASSWORD=...` in `web/.dev.vars` (ignored by git).
+https://ratiomaster.net/admin shows the last 10,000 version checks by date, country, version and operating system. Every version is split into Windows, macOS, Linux and Other (requests that did not come from the app: browsers, bots, curl), and each of those expands to the concrete systems the User-Agents name (Windows 11, Ubuntu 24.04, macOS 26...). 0.43 and older run on .NET Framework without a compatibility manifest, so they report "Windows 8 or newer" for anything from Windows 8 to Windows 11, and their Mono builds only give a kernel version. Click a day, a version or a system, or use the form, to narrow the window (`?version=0430&os=Windows%207&day=2026-09-06`; `os` takes a family or a concrete name). It asks for a password (HTTP Basic auth; the user name does not matter) and checks it against the `ADMIN_PASSWORD` secret. Change the password with `npx wrangler secret put ADMIN_PASSWORD`. For `npm run dev`, put `ADMIN_PASSWORD=...` in `web/.dev.vars` (ignored by git).
 
-The page reads the newest rows by id, which needs no sort and no index. Anything else goes through D1 -> ratiomaster-net -> Console in the dashboard, or `npx wrangler d1 execute ratiomaster-net --remote --command "..."`.
+The page reads the newest rows by id in one query, which needs no sort and no index; the grouping and the User-Agent parsing happen in the Worker. Anything else goes through D1 -> ratiomaster-net -> Console in the dashboard, or `npx wrangler d1 execute ratiomaster-net --remote --command "..."`.
 
 ```sql
 -- `checked_at` is unix seconds (UTC). There is no index, so every query scans the whole table; expect a few seconds.
