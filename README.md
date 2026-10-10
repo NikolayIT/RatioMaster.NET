@@ -18,6 +18,17 @@ Grab the archive for your system from the [latest release](https://github.com/Ni
 | Linux (x64, arm64) | `RatioMaster.NET-linux-x64.tar.gz` | Needs `libfontconfig1`, `libx11-6`, `libice6`, `libsm6`. |
 | macOS 12+ (Intel, Apple silicon) | `RatioMaster.NET-osx-arm64.zip` | Unsigned: run `xattr -dr com.apple.quarantine RatioMaster.NET.app` once. |
 
+### Arch Linux
+
+Install [`ratiomaster.net-bin`](https://aur.archlinux.org/packages/ratiomaster.net-bin) from the
+[AUR](https://wiki.archlinux.org/title/Arch_User_Repository) with your preferred helper:
+
+```
+yay -S ratiomaster.net-bin
+# or
+paru -S ratiomaster.net-bin
+```
+
 ## What it does
 
 - Runs any number of torrents at once, each with its own client emulation and speeds.
