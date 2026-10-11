@@ -10,7 +10,7 @@
   <Grid ColumnDefinitions="*,Auto,340">
 
     <Panel Grid.Column="0">
-      <DataGrid Classes="compact"
+      <DataGrid Name="ExchangesGrid" Classes="compact"
                 ItemsSource="{Binding Exchanges}"
                 SelectedItem="{Binding Selected}">
         <DataGrid.Columns>

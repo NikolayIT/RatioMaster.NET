@@ -202,16 +202,17 @@
                   SelectedItem="{Binding SelectedTorrent}">
           <DataGrid.Columns>
             <DataGridTextColumn Tag="Name" Header="{x:Static res:Strings.Name}" Binding="{Binding DisplayName, Mode=OneWay}" Width="*" MinWidth="180" />
-            <DataGridTemplateColumn Tag="Status" Header="{x:Static res:Strings.Status}" Width="115" MinWidth="80" SortMemberPath="State">
+            <DataGridTemplateColumn Tag="Status" Header="{x:Static res:Strings.Status}" Width="135" MinWidth="80" SortMemberPath="State">
               <DataGridTemplateColumn.CellTemplate>
                 <DataTemplate x:DataType="vm:TorrentItemViewModel">
-                  <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
-                    <PathIcon Width="11" Height="11"
+                  <!-- A grid rather than a stack panel, so a long status (an error) is trimmed with an ellipsis. -->
+                  <Grid ColumnDefinitions="Auto,*" ColumnSpacing="6" VerticalAlignment="Center">
+                    <PathIcon Grid.Column="0" Width="11" Height="11"
                               Data="{Binding State, Converter={x:Static conv:Converters.StatusIcon}}"
                               Foreground="{Binding State, Converter={x:Static conv:Converters.StatusBrush}}" />
-                    <TextBlock Text="{Binding StatusText}" TextTrimming="CharacterEllipsis"
+                    <TextBlock Grid.Column="1" Text="{Binding StatusText}" TextTrimming="CharacterEllipsis"
                                ToolTip.Tip="{Binding StatusText}" />
-                  </StackPanel>
+                  </Grid>
                 </DataTemplate>
               </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>

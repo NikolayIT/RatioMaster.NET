@@ -10,8 +10,10 @@ namespace RatioMaster.App.Views
     using Avalonia.Input;
     using Avalonia.Media;
     using Avalonia.Platform.Storage;
+    using Avalonia.Threading;
     using RatioMaster.App.Services;
     using RatioMaster.App.ViewModels;
+    using RatioMaster.App.Views.Controls;
     using RatioMaster.Core.Settings;
 
     public partial class MainWindow : Window
@@ -22,6 +24,9 @@ namespace RatioMaster.App.Views
         /// <summary>The torrent list keeps at least this much room whatever the pane height.</summary>
         private const double ListMinHeight = 120;
 
+        /// <summary>The column widths the view declares, before any saved layout is applied.</summary>
+        private readonly Dictionary<DataGridColumn, DataGridLength> defaultColumnWidths = [];
+
         private MainWindowViewModel? viewModel;
         private double detailsPaneHeight = 300;
         private PixelPoint? normalPosition;
@@ -30,6 +35,11 @@ namespace RatioMaster.App.Views
         public MainWindow()
         {
             this.InitializeComponent();
+            foreach (var column in this.TorrentGrid.Columns)
+            {
+                this.defaultColumnWidths[column] = column.Width;
+            }
+
             if (Localization.IsRightToLeft)
             {
                 this.FlowDirection = FlowDirection.RightToLeft;
@@ -47,6 +57,11 @@ namespace RatioMaster.App.Views
             this.DataContextChanged += this.OnDataContextChanged;
             this.PropertyChanged += this.OnWindowPropertyChanged;
             this.PositionChanged += this.OnPositionChanged;
+
+            // Translated headers can be longer than the English defaults allow for; widths the user set are kept.
+            this.Opened += (_, _) => Dispatcher.UIThread.Post(
+                () => DataGridHeaders.Fit(this.TorrentGrid, c => this.defaultColumnWidths.TryGetValue(c, out var width) && c.Width.Equals(width)),
+                DispatcherPriority.Loaded);
 
             this.BuildColumnsMenu();
         }

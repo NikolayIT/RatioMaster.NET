@@ -8,7 +8,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Right" />
       </ControlTheme>
       <DataTemplate x:Key="DataGridHeaderNumeric" x:CompileBindings="False">
-        <TextBlock Text="{Binding}" TextAlignment="Right" HorizontalAlignment="Stretch" />
+        <TextBlock Text="{Binding}" TextAlignment="Right" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" />
       </DataTemplate>
     </ResourceDictionary>
   </Styles.Resources>
@@ -35,6 +35,12 @@
     <Setter Property="Padding" Value="8,0,4,0" />
     <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
     <Setter Property="Background" Value="{DynamicResource HeaderBackgroundBrush}" />
+    <Setter Property="ToolTip.Tip" Value="{Binding $self.Content}" />
+  </Style>
+
+  <!-- A header too long for its column (translations vary in length) ends in an ellipsis; the tooltip has it all. -->
+  <Style Selector="DataGrid.torrents DataGridColumnHeader /template/ ContentPresenter, DataGrid.compact DataGridColumnHeader /template/ ContentPresenter">
+    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
   </Style>
 
   <Style Selector="DataGrid.torrents DataGridCell">
@@ -44,9 +50,11 @@
     <Setter Property="Padding" Value="8,0" />
   </Style>
 
-  <!-- Long names are trimmed with an ellipsis instead of being cut off. -->
+  <!-- Long names are trimmed with an ellipsis instead of being cut off. The cell padding already spaces the text,
+       so the theme's own 12 px text margin is dropped: values such as "321,00 KB" fit and line up with the header. -->
   <Style Selector="DataGrid.torrents DataGridCell TextBlock">
     <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    <Setter Property="Margin" Value="0" />
   </Style>
 
   <Style Selector="DataGrid.torrents DataGridRow:nth-child(2n)">
@@ -69,6 +77,7 @@
     <Setter Property="MinHeight" Value="28" />
     <Setter Property="Padding" Value="8,0,4,0" />
     <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
+    <Setter Property="ToolTip.Tip" Value="{Binding $self.Content}" />
   </Style>
 
   <Style Selector="DataGrid.compact DataGridCell">
@@ -80,6 +89,7 @@
 
   <Style Selector="DataGrid.compact DataGridCell TextBlock">
     <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    <Setter Property="Margin" Value="0" />
   </Style>
 
   <!-- ===== Toolbar ========================================================== -->
