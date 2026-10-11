@@ -29,6 +29,20 @@ namespace RatioMaster.Core.Tests.Tracker
         }
 
         [Fact]
+        public async Task SendsTheTrackersPortInTheHostHeader()
+        {
+            // The fake tracker listens on a random port, never 80, so a real client writes it into Host.
+            await using var tracker = FakeTracker.Start(FakeTracker.BencodeResponse(AnnounceBody()));
+            var client = new TrackerHttpClient();
+            var authority = new Uri(tracker.BaseUrl).Authority;
+
+            await client.GetAsync($"{tracker.BaseUrl}/announce", Profile, ProxySettings.None, Timeout);
+
+            Assert.Contains($"\r\nHost: {authority}\r\n", tracker.Requests.First(), StringComparison.Ordinal);
+            Assert.Contains(":", authority, StringComparison.Ordinal);
+        }
+
+        [Fact]
         public async Task FollowsRedirects()
         {
             // A relative Location resolves against the request URI, so both hits land on this tracker.

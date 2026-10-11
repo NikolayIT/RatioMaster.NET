@@ -27,6 +27,18 @@ namespace RatioMaster.Core.Tests.Tracker
             Assert.Null(ScrapeUrlBuilder.TryBuild(announce, "%aa"));
         }
 
+        [Theory]
+        [InlineData("http://tracker.test/announce", "tracker.test")]
+        [InlineData("http://tracker.test:80/announce", "tracker.test")]
+        [InlineData("https://tracker.test:443/announce", "tracker.test")]
+        [InlineData("http://tracker.test:6969/announce", "tracker.test:6969")]
+        [InlineData("https://tracker.test:80/announce", "tracker.test:80")]
+        [InlineData("http://[2001:db8::1]:2710/announce", "[2001:db8::1]:2710")]
+        public void HostHeaderCarriesThePortUnlessItIsTheSchemesDefault(string url, string expected)
+        {
+            Assert.Equal(expected, HttpRequestWriter.HostHeader(new Uri(url)));
+        }
+
         [Fact]
         public void BuildsRequestTextWithHostAndBlankLineTermination()
         {
