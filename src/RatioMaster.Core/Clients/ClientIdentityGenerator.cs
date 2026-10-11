@@ -20,6 +20,9 @@ namespace RatioMaster.Core.Clients
 
         /// <summary>Transmission's peer id pool, from tr_peerIdInit.</summary>
         private const string Base36 = "0123456789abcdefghijklmnopqrstuvwxyz";
+
+        /// <summary>BitTornado's mapbase64, from BitTornado/__init__.py and BT1/Rerequester.py.</summary>
+        private const string MapBase64 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.-";
         private const int MinPort = 1025;
         private const int MaxPort = 65535;
 
@@ -73,6 +76,7 @@ namespace RatioMaster.Core.Clients
                     RandomValueKind.Numeric => this.Pick(Digits),
                     RandomValueKind.Hex => this.Pick(HexDigits),
                     RandomValueKind.UrlSafe => this.Pick(UrlSafe),
+                    RandomValueKind.BitTornadoBase64 => this.Pick(MapBase64),
                     RandomValueKind.Random => (char)this.random.Next(1, 256),
                     _ => this.Pick(Alphanumeric),
                 });

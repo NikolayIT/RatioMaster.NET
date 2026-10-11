@@ -714,6 +714,34 @@ User-Agent: BTuga/Revolution-2.6<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
 
+=== BitTornado 0.3.18 ===
+--- Started ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=T03I-----PEERIDSUFFIX&supportcrypto=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&no_peer_id=1&compact=1&event=started&key=KEY01234 HTTP/1.1<CR>
+Host: tracker.test<CR>
+Accept-Encoding: gzip<CR>
+User-Agent: BitTornado/T-0.3.18<CR>
+<CR>
+--- None ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=T03I-----PEERIDSUFFIX&supportcrypto=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&no_peer_id=1&compact=1&key=KEY01234 HTTP/1.1<CR>
+Host: tracker.test<CR>
+Accept-Encoding: gzip<CR>
+User-Agent: BitTornado/T-0.3.18<CR>
+<CR>
+--- Completed ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=T03I-----PEERIDSUFFIX&supportcrypto=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&no_peer_id=1&compact=1&event=completed&key=KEY01234 HTTP/1.1<CR>
+Host: tracker.test<CR>
+Accept-Encoding: gzip<CR>
+User-Agent: BitTornado/T-0.3.18<CR>
+<CR>
+--- Stopped ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=T03I-----PEERIDSUFFIX&supportcrypto=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&no_peer_id=1&compact=1&event=stopped&key=KEY01234 HTTP/1.1<CR>
+Host: tracker.test<CR>
+Accept-Encoding: gzip<CR>
+User-Agent: BitTornado/T-0.3.18<CR>
+<CR>
+--- Scrape ---
+http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
+
 === BitTornado 0.3.17 ===
 --- Started ---
 GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=T03H-----PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&no_peer_id=1&compact=1&event=started&key=KEY01234 HTTP/1.1<CR>

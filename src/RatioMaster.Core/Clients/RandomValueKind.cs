@@ -37,5 +37,13 @@ namespace RatioMaster.Core.Clients
         /// The spec's length is ignored.
         /// </summary>
         HexRange,
+
+        /// <summary>
+        /// BitTornado's mapbase64 alphabet: digits, upper and lower case letters, '.' and '-'. BitTornado fills
+        /// its peer id after the version prefix, and its six-character announce key, with one of these 64
+        /// characters per hash byte (byte &amp; 0x3F). Every character is URL-safe, so the value is never
+        /// percent-encoded.
+        /// </summary>
+        BitTornadoBase64,
     }
 }

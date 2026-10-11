@@ -120,6 +120,29 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Fact]
+        public void BitTornadoBase64UsesAllSixtyFourCharacters()
+        {
+            // BitTornado/__init__.py: mapbase64 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.-'
+            const string alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.-";
+            var generator = new ClientIdentityGenerator(new DeterministicRandomSource(3));
+            var spec = new RandomValueSpec { Type = RandomValueKind.BitTornadoBase64, Length = 11 };
+
+            var seen = new HashSet<char>();
+            for (var i = 0; i < 500; i++)
+            {
+                var value = generator.GenerateValue(spec);
+
+                Assert.Equal(11, value.Length);
+                Assert.All(value, c => Assert.Contains(c, alphabet));
+                seen.UnionWith(value);
+            }
+
+            // The two characters a plain alphanumeric value never has do turn up.
+            Assert.Contains('.', seen);
+            Assert.Contains('-', seen);
+        }
+
+        [Fact]
         public void RandomKindPercentEncodesNonAlphanumericBytes()
         {
             var random = new ScriptedRandomSource(ints: [(int)'A', 0x00, 0xFF, 0x20]);

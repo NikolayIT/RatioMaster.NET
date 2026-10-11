@@ -12,8 +12,9 @@ namespace RatioMaster.Core.Tests.Clients
         {
             // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
             // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
-            // Transmission 2.94 and 3.00, Deluge 2.1.1; then qBittorrent 5.2.4 and Deluge 2.2.0 for 1.2.
-            Assert.Equal(30, Catalog.Profiles.Count);
+            // Transmission 2.94 and 3.00, Deluge 2.1.1; then qBittorrent 5.2.4, Deluge 2.2.0 and BitTornado 0.3.18
+            // for 1.2.
+            Assert.Equal(31, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -199,6 +200,29 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Theory]
+        [InlineData("0.3.18", "T03I-----", "&peer_id={peerid}&supportcrypto=1&port={port}&uploaded=")]
+        [InlineData("0.3.17", "T03H-----", "&peer_id={peerid}&port={port}&uploaded=")]
+        public void BitTornadoMatchesItsSource(string version, string prefix, string start)
+        {
+            // BitTornado/__init__.py builds the prefix from version_short ('T-0.3.18' gives T, 0, 3 and
+            // mapbase64[18] = I) padded with dashes, then 11 mapbase64 characters; BT1/Rerequester.py builds the
+            // query, adding supportcrypto=1 from 0.3.18 on, and appends the 6-character key last; zurllib.py sends
+            // the user agent and Accept-Encoding through httplib, which writes Host first.
+            var p = Catalog.GetByName("BitTornado " + version);
+
+            Assert.Equal(prefix, p.PeerIdPrefix);
+            Assert.Equal(RandomValueKind.BitTornadoBase64, p.PeerId.Type);
+            Assert.Equal(20, prefix.Length + p.PeerId.Length);
+            Assert.False(p.PeerId.UrlEncode);
+            Assert.Equal(RandomValueKind.BitTornadoBase64, p.Key.Type);
+            Assert.Equal(6, p.Key.Length);
+            Assert.True(p.HashUpperCase);
+            Assert.StartsWith("info_hash={infohash}" + start, p.Query, StringComparison.Ordinal);
+            Assert.EndsWith("&left={left}&no_peer_id=1&compact=1{event}&key={key}", p.Query, StringComparison.Ordinal);
+            Assert.Equal(["Host: {host}", "Accept-Encoding: gzip", "User-Agent: BitTornado/T-" + version], p.Headers);
+        }
+
+        [Theory]
         [InlineData("Deluge 2.2.0", "-DE220s-", "Deluge/2.2.0 libtorrent/1.2.19.0")]
         [InlineData("Deluge 2.1.1", "-DE211s-", "Deluge/2.1.1 libtorrent/1.2.15.0")]
         public void DelugeAnnouncesThroughLibtorrent(string name, string prefix, string userAgent)
@@ -255,7 +279,7 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(31, catalog.Profiles.Count);
+                Assert.Equal(32, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.6.0").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.6.0").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));

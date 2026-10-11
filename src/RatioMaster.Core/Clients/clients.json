@@ -215,10 +215,19 @@
     },
 
     {
+      "name": "BitTornado 0.3.18", "family": "BitTornado", "version": "0.3.18",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "bitTornadoBase64", "length": 6, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "T03I-----", "type": "bitTornadoBase64", "length": 11, "urlEncode": false, "upperCase": false },
+      "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: BitTornado/T-0.3.18"],
+      "query": "info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&no_peer_id=1&compact=1{event}&key={key}",
+      "defaultNumWant": 200
+    },
+    {
       "name": "BitTornado 0.3.17", "family": "BitTornado", "version": "0.3.17",
       "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
-      "key": { "type": "alphanumeric", "length": 6, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "T03H-----", "type": "alphanumeric", "length": 11, "urlEncode": false, "upperCase": false },
+      "key": { "type": "bitTornadoBase64", "length": 6, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "T03H-----", "type": "bitTornadoBase64", "length": 11, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: BitTornado/T-0.3.17"],
       "query": "info_hash={infohash}&peer_id={peerid}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}&no_peer_id=1&compact=1{event}&key={key}",
       "defaultNumWant": 200
