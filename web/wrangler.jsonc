@@ -4,12 +4,19 @@
   "main": "src/index.js",
   "compatibility_date": "2026-09-01",
 
-  // Static site. Only the paths listed in run_worker_first reach the Worker;
-  // everything else is served straight from ./public by Cloudflare.
+  // The site is built into ./dist/site before every deploy and dev session: ./public as it is, plus one page
+  // per language from ./site (see scripts/build-site.mjs).
+  "build": {
+    "command": "node scripts/build-site.mjs",
+    "watch_dir": ["site", "public", "scripts"]
+  },
+
+  // Static site. Only the paths listed in run_worker_first reach the Worker (/ to pick the visitor's
+  // language); everything else is served straight from ./dist/site by Cloudflare.
   "assets": {
-    "directory": "./public",
+    "directory": "./dist/site",
     "binding": "ASSETS",
-    "run_worker_first": ["/vc.php", "/version.html", "/*.php", "/HISTORY.TXT", "/files/*", "/alpha/*", "/admin", "/admin/*"],
+    "run_worker_first": ["/", "/vc.php", "/version.html", "/*.php", "/HISTORY.TXT", "/files/*", "/alpha/*", "/admin", "/admin/*"],
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
@@ -17,7 +24,7 @@
   // Version reported to old installs by /vc.php and /version.html.
   // Bump this when a new release is published.
   "vars": {
-    "CURRENT_VERSION": "1100"
+    "CURRENT_VERSION": "1200"
   },
 
   // Secrets (not in this file): ADMIN_PASSWORD protects /admin.

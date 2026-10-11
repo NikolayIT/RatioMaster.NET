@@ -1,13 +1,15 @@
 // ratiomaster.net Worker.
 //
-// Three jobs:
+// Four jobs:
 //   1. Answer the update check that every RatioMaster.NET install performs
 //      (GET /vc.php?v=NNNN, older builds GET /version.html) and log it to D1.
-//   2. Redirect the old PHP page URLs to the new single page.
-//   3. Serve the password-protected statistics page at /admin (see admin.js).
-// Everything else is served from ./public by Cloudflare's static assets.
+//   2. Send a visitor who opens / to the page in their language (see languages.js).
+//   3. Redirect the old PHP page URLs to the new single page.
+//   4. Serve the password-protected statistics page at /admin (see admin.js).
+// Everything else is served from ./dist/site (built from ./public and ./site) by Cloudflare's static assets.
 
 import { handleAdmin } from "./admin.js";
+import { DEFAULT_LANGUAGE, matchLanguage, pathOf, pickLanguage } from "./languages.js";
 
 // User-Agent sent by 0.43 and earlier (VersionChecker.cs):
 //   RatioMaster.NET/0430 (Microsoft Windows NT 10.0.26200.0; .NET CLR 4.0.30319.42000; <username>.<cpu count>)
@@ -20,7 +22,7 @@ const LEGACY_USER_AGENT = /^(?:RatioMaster\.NET|NRPG RatioMaster)\/(\d{4}) \((.*
 const CURRENT_USER_AGENT = /^RatioMaster\.NET\/(\d{4}) \((.*?); ([^;]+); \.NET ([^;]+); (\d+)\)$/;
 
 // The newest build. Every old download URL below ends up here; change it when a new version ships.
-const LATEST_BUILD = "https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.1.0/RatioMaster.NET-win-x64.zip";
+const LATEST_BUILD = "https://github.com/NikolayIT/RatioMaster.NET/releases/download/v1.2.0/RatioMaster.NET-win-x64.zip";
 
 const LEGACY_REDIRECTS = {
   "/index.php": "/",
@@ -57,6 +59,10 @@ export default {
       return handleAdmin(request, env);
     }
 
+    if (path === "/") {
+      return home(request, env, url);
+    }
+
     const target = LEGACY_REDIRECTS[path];
     if (target) {
       return Response.redirect(new URL(target, url).toString(), 301);
@@ -69,6 +75,40 @@ export default {
     return env.ASSETS.fetch(request);
   },
 };
+
+// English lives at /, every other language at /<code>/. A visitor who opens / goes to the language they last
+// picked in the menu (the lang cookie the page sets), otherwise to the first language their browser asks for
+// that the site has, otherwise stays on the English page. Search engines, which send no Accept-Language, stay
+// on English and find the other pages through the hreflang links.
+async function home(request, env, url) {
+  const language = matchLanguage(cookie(request, "lang")) ?? pickLanguage(request.headers.get("accept-language")) ?? DEFAULT_LANGUAGE;
+  const vary = "Accept-Language, Cookie";
+  if (language !== DEFAULT_LANGUAGE) {
+    return new Response(null, {
+      status: 302,
+      headers: { location: new URL(pathOf(language) + url.search, url).toString(), vary, "cache-control": "private, no-cache" },
+    });
+  }
+
+  const page = await env.ASSETS.fetch(request);
+  const response = new Response(page.body, page);
+  response.headers.set("vary", vary);
+  return response;
+}
+
+function cookie(request, name) {
+  for (const part of (request.headers.get("cookie") || "").split(";")) {
+    const [key, ...value] = part.trim().split("=");
+    if (key === name) {
+      try {
+        return decodeURIComponent(value.join("="));
+      } catch {
+        return null;
+      }
+    }
+  }
+  return null;
+}
 
 async function logVersionCheck(request, env, clientVersion) {
   if (!env.DB) return;

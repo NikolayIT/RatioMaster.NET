@@ -85,7 +85,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 @media (min-width: 900px) {
   .top { position: sticky; top: 0; }
   .layout { grid-template-columns: 270px minmax(0, 1fr); }
-  .side { order: 1; border-right: 1px solid var(--accent); padding-right: 32px; }
+  .side { order: 1; border-inline-end: 1px solid var(--accent); padding-inline-end: 32px; }
   .content { order: 2; }
 }
 
@@ -111,7 +111,8 @@ h3 { font-size: 1.02rem; margin-bottom: 8px; color: var(--text); }
   border-radius: 6px;
   color: var(--accent);
   font-weight: 600;
-  margin: 0 8px 8px 0;
+  margin: 0 0 8px;
+  margin-inline-end: 8px;
   background: rgba(0, 0, 0, 0.15);
 }
 .btn:hover { background: rgba(255, 157, 0, 0.15); text-decoration: none; }
@@ -119,8 +120,8 @@ h3 { font-size: 1.02rem; margin-bottom: 8px; color: var(--text); }
 .btn.primary:hover { background: var(--accent-hover); }
 
 /* Features */
-.features { margin: 0; padding-left: 20px; }
-.features li { padding: 2px 0 2px 4px; }
+.features { margin: 0; padding-inline-start: 20px; }
+.features li { padding-block: 2px; padding-inline-start: 4px; }
 
 /* Screenshots */
 .shots { display: grid; gap: 28px; }
@@ -137,12 +138,13 @@ h3 { font-size: 1.02rem; margin-bottom: 8px; color: var(--text); }
 
 /* Changelog */
 .release { margin-bottom: 24px; }
-.release ul { margin: 0; padding-left: 20px; }
-.release time { color: var(--muted); font-weight: 400; font-size: 0.93rem; margin-left: 8px; }
+.release ul { margin: 0; padding-inline-start: 20px; }
+.release time { color: var(--muted); font-weight: 400; font-size: 0.93rem; margin-inline-start: 8px; }
 details.release summary { cursor: pointer; list-style: none; }
 details.release summary::-webkit-details-marker { display: none; }
 details.release summary h3 { display: inline; }
-details.release summary::before { content: "\25B8"; color: var(--accent); margin-right: 8px; }
+details.release summary::before { content: "\25B8"; color: var(--accent); margin-inline-end: 8px; }
+[dir="rtl"] details.release summary::before { content: "\25C2"; }
 details[open].release summary::before { content: "\25BE"; }
 details.release ul { margin-top: 12px; }
 
@@ -158,7 +160,7 @@ details.release ul { margin-top: 12px; }
 .plain li { padding: 3px 0; }
 
 /* Footer: mirrored orange stripe and the credit line */
-.foot { padding: 20px 20px 36px; color: var(--muted); font-size: 0.9rem; text-align: right; margin-top: 24px; position: relative; }
+.foot { padding: 20px 20px 36px; color: var(--muted); font-size: 0.9rem; text-align: end; margin-top: 24px; position: relative; }
 .foot::before {
   content: "";
   display: block;
@@ -169,6 +171,49 @@ details.release ul { margin-top: 12px; }
 }
 .foot a { color: var(--text); }
 .foot a:hover { color: var(--accent); }
+
+/* Language menu: the last item of the header menu, every language in its own name */
+.nav .lang { position: relative; }
+.lang summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  list-style: none;
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: "\25BE"; font-size: 0.8em; }
+.lang summary:hover, .lang details[open] summary { color: var(--accent); background: rgba(0, 0, 0, 0.3); }
+.langs {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 6px);
+  z-index: 20;
+  width: min(460px, calc(100vw - 40px));
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 2px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+.nav .langs a { display: block; padding: 5px 10px; border: 0; border-radius: 4px; background: none; font-weight: 400; }
+.nav .langs a:hover { background: rgba(0, 0, 0, 0.25); }
+.nav .langs a[aria-current="page"] { color: var(--accent); font-weight: 700; }
+
+/* Commands, file names and URLs stay left to right inside right-to-left text */
+[dir="rtl"] code { direction: ltr; unicode-bidi: isolate; }
 
 /* Error page */
 .error { text-align: center; padding: 80px 20px; }

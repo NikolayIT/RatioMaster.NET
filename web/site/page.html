@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="{{@lang}}" dir="{{@dir}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RatioMaster.NET</title>
+  <meta name="description" content="{{download.lead}}">
+  <meta name="author" content="Nikolay Kostov (Nikolay.IT)">
+  <meta property="og:title" content="RatioMaster.NET">
+  <meta property="og:description" content="{{meta.ogDescription}}">
+  <meta property="og:url" content="{{@url}}">
+  <meta property="og:image" content="https://ratiomaster.net/img/screenshot-1.png">
+  <link rel="canonical" href="{{@url}}">
+{{@alternates}}
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="top">
+  <nav class="wrap nav">
+    <a class="brand" href="{{@home}}" aria-label="{{nav.homeLabel}}">
+      <svg class="mark" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true" focusable="false">
+        <rect x="5" y="5" width="22" height="22" rx="4" transform="rotate(45 16 16)" fill="#ff9d00"/>
+        <path d="M16 7.5 L23 15.5 H19.5 V24.5 H12.5 V15.5 H9 Z" fill="#2a2b1f"/>
+      </svg>
+      <span class="word" dir="ltr">RatioMaster<em>.NET</em></span>
+    </a>
+    <ul>
+      <li><a href="{{@home}}">{{nav.home}}</a></li>
+      <li><a href="#features">{{nav.features}}</a></li>
+      <li><a href="#screenshots">{{nav.screenshots}}</a></li>
+      <li><a href="#changelog">{{nav.changelog}}</a></li>
+      <li><a href="https://github.com/NikolayIT/RatioMaster.NET">GitHub</a></li>
+      <li class="lang">
+        <details>
+          <summary aria-label="{{nav.language}}: {{@langName}}">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-2.95a15.7 15.7 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.9 8ZM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96ZM4.26 14a8.2 8.2 0 0 1 0-4h3.38a16.5 16.5 0 0 0 0 4H4.26Zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A8 8 0 0 1 5.08 16Zm2.95-8H5.08a8 8 0 0 1 4.33-3.56A15.7 15.7 0 0 0 8.03 8ZM12 19.96A14.1 14.1 0 0 1 10.09 16h3.82A14.1 14.1 0 0 1 12 19.96ZM14.34 14H9.66a14.7 14.7 0 0 1 0-4h4.68a14.7 14.7 0 0 1 0 4Zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56ZM16.36 14a16.5 16.5 0 0 0 0-4h3.38a8.2 8.2 0 0 1 0 4h-3.38Z"/></svg>
+            <span>{{@langName}}</span>
+          </summary>
+          <ul class="langs">
+{{@langMenu}}
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="wrap layout">
+
+  <aside class="side">
+    <section id="donate">
+      <h2>{{donate.title}}</h2>
+      <p>{{donate.text}}</p>
+      <p>
+        <a class="btn primary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=PG6NUT5YWYF82&amp;lc=BG&amp;item_name=RatioMaster%2eNET&amp;item_number=RatioMaster%2eNET&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">{{donate.paypal}}</a>
+        <a class="btn" href="https://github.com/sponsors/NikolayIT">GitHub Sponsors</a>
+      </p>
+    </section>
+
+    <section id="news">
+      <h2>{{news.title}}</h2>
+      <ul class="news">
+        <li>
+          <time datetime="2026-10-11">{{@date 2026-10-11}}</time>
+          <strong>RatioMaster.NET 1.2</strong>
+          {{news.v12}}<br>
+          <a href="#download">{{news.download}}</a> &middot; <a href="#changelog">{{news.changelog}}</a>
+        </li>
+        <li>
+          <time datetime="2026-09-07">{{@date 2026-09-07}}</time>
+          <strong>RatioMaster.NET 1.1</strong>
+          {{news.v11}}<br>
+          <a href="https://github.com/NikolayIT/RatioMaster.NET/releases/tag/v1.1.0">{{news.download}}</a> &middot; <a href="#changelog">{{news.changelog}}</a>
+        </li>
+        <li>
+          <time datetime="2026-09-06">{{@date 2026-09-06}}</time>
+          <strong>RatioMaster.NET 1.0</strong>
+          {{news.v10}}<br>
+          <a href="https://github.com/NikolayIT/RatioMaster.NET/releases/tag/v1.0.0">{{news.download}}</a> &middot; <a href="#changelog">{{news.changelog}}</a>
+        </li>
+        <li>
+          <time datetime="2016-01-08">{{@date 2016-01-08}}</time>
+          <strong>RatioMaster.NET 0.43</strong>
+          {{news.newVersion}}<br>
+          <a href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/0.43/RatioMaster.NET_0.43.zip">{{news.download}}</a> &middot; <a href="#changelog">{{news.changelog}}</a>
+        </li>
+        <li>
+          <time datetime="2013-11-24">{{@date 2013-11-24}}</time>
+          <strong>{{news.openSourcedTitle}}</strong>
+          {{news.openSourced}}
+        </li>
+      </ul>
+    </section>
+  </aside>
+
+  <main class="content">
+
+    <section id="download">
+      <h1>RatioMaster.NET <span class="version">{{@version}}</span></h1>
+      <p class="lead">{{download.lead}}</p>
+      <p>{{download.notAClient}}</p>
+      <p>{{download.emulations}}</p>
+
+      <div class="downloads">
+        <div class="dl">
+          <h3>{{download.windowsTitle}}</h3>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/{{@release}}/RatioMaster.NET-win-x64.zip">{{download.windows}}</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/{{@release}}/RatioMaster.NET-win-arm64.zip">{{download.windowsArm}}</a>
+          <p class="hint">{{download.windowsHint}}</p>
+        </div>
+        <div class="dl">
+          <h3>Linux</h3>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/{{@release}}/RatioMaster.NET-linux-x64.tar.gz">{{download.linux}}</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/{{@release}}/RatioMaster.NET-linux-arm64.tar.gz">Linux ARM64</a>
+          <p class="hint">{{download.linuxHint}}</p>
+        </div>
+        <div class="dl">
+          <h3>{{download.macTitle}}</h3>
+          <a class="btn primary" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/{{@release}}/RatioMaster.NET-osx-arm64.zip">{{download.mac}}</a>
+          <a class="btn" href="https://github.com/NikolayIT/RatioMaster.NET/releases/download/{{@release}}/RatioMaster.NET-osx-x64.zip">{{download.macIntel}}</a>
+          <p class="hint">{{download.macHint}}</p>
+        </div>
+      </div>
+      <p class="hint">{{download.allVersions}}</p>
+    </section>
+
+    <section id="features">
+      <h2>{{features.title}}</h2>
+      <ul class="features">
+        <li>{{features.torrents}}</li>
+        <li>{{features.platforms}}</li>
+        <li>{{features.languages}}</li>
+        <li>{{features.torrentFiles}}</li>
+        <li>{{features.sessions}}</li>
+        <li>{{features.emulations}}</li>
+        <li>{{features.copyFromClient}}</li>
+        <li>{{features.speeds}}</li>
+        <li>{{features.tracker}}</li>
+        <li>{{features.stopConditions}}</li>
+        <li>{{features.noLeechers}}</li>
+        <li>{{features.connectable}}</li>
+        <li>{{features.network}}</li>
+        <li>{{features.realTime}}</li>
+        <li>{{features.log}}</li>
+        <li>{{features.themes}}</li>
+        <li>{{features.customClients}}</li>
+        <li>{{features.updates}}</li>
+        <li>{{features.trackers}}</li>
+      </ul>
+    </section>
+
+    <section id="screenshots">
+      <h2>{{screenshots.title}}</h2>
+      <div class="shots">
+        <figure><img src="/img/screenshot-1.png" width="1184" height="750" loading="lazy" alt="{{screenshots.mainAlt}}"><figcaption>{{screenshots.main}}</figcaption></figure>
+        <figure><img src="/img/screenshot-2.png" width="642" height="610" loading="lazy" alt="{{screenshots.addAlt}}"><figcaption>{{screenshots.add}}</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="changelog">
+      <h2>{{changelog.title}}</h2>
+
+      <article class="release">
+        <h3>1.2.0 <time datetime="2026-10-11">{{@date 2026-10-11}}</time></h3>
+        <ul>
+          <li>{{changelog.v120.languages}}</li>
+          <li>{{changelog.v120.emulations}}</li>
+          <li>{{changelog.v120.hostPort}}</li>
+          <li>{{changelog.v120.escaping}}</li>
+          <li>{{changelog.v120.uTorrent}}</li>
+          <li>{{changelog.v120.vuze}}</li>
+          <li>{{changelog.v120.details}}</li>
+          <li>{{changelog.v120.removed}}</li>
+          <li>{{changelog.v120.columns}}</li>
+        </ul>
+      </article>
+
+      <article class="release">
+        <h3>1.1.0 <time datetime="2026-09-07">{{@date 2026-09-07}}</time></h3>
+        <ul>
+          <li>{{changelog.v110.noLeechers}}</li>
+          <li>{{changelog.v110.transmission}}</li>
+          <li>{{changelog.v110.key}}</li>
+          <li>{{changelog.v110.numwant}}</li>
+          <li>{{changelog.v110.emulations}}</li>
+          <li>{{changelog.v110.removed}}</li>
+          <li>{{changelog.v110.randomBytes}}</li>
+          <li>{{changelog.v110.checked}}</li>
+        </ul>
+      </article>
+
+      <details class="release">
+        <summary><h3>1.0.0 <time datetime="2026-09-06">{{@date 2026-09-06}}</time></h3></summary>
+        <ul>
+          <li>{{changelog.v100.rewrite}}</li>
+          <li>{{changelog.v100.singleFile}}</li>
+          <li>{{changelog.v100.interface}}</li>
+          <li>{{changelog.v100.themes}}</li>
+          <li>{{changelog.v100.bytesRoad}}</li>
+          <li>{{changelog.v100.https}}</li>
+          <li>{{changelog.v100.ipv6}}</li>
+          <li>{{changelog.v100.proxies}}</li>
+          <li>{{changelog.v100.qBittorrent}}</li>
+          <li>{{changelog.v100.clientsJson}}</li>
+          <li>{{changelog.v100.interval}}</li>
+          <li>{{changelog.v100.trackerTab}}</li>
+          <li>{{changelog.v100.log}}</li>
+          <li>{{changelog.v100.settings}}</li>
+          <li>{{changelog.v100.session}}</li>
+          <li>{{changelog.v100.updateCheck}}</li>
+          <li>{{changelog.v100.headers}}</li>
+          <li>{{changelog.v100.tests}}</li>
+        </ul>
+      </details>
+
+      <details class="release">
+        <summary><h3>0.43 <time datetime="2016-01-08">{{@date 2016-01-08}}</time></h3></summary>
+        <ul>
+          <li>{{changelog.v043.openSource}}</li>
+          <li>{{changelog.v043.framework}}</li>
+          <li>{{changelog.v043.about}}</li>
+          <li>{{changelog.v043.time}}</li>
+          <li>{{changelog.v043.emulations}}</li>
+          <li>{{changelog.v043.default}}</li>
+          <li>{{changelog.v043.proxies}}</li>
+          <li>{{changelog.v043.refactoring}}</li>
+        </ul>
+      </details>
+
+      <details class="release">
+        <summary><h3>0.42 <time datetime="2010-04-19">{{@date 2010-04-19}}</time></h3></summary>
+        <ul>
+          <li>{{changelog.v042.renamed}}</li>
+          <li>{{changelog.v042.sites}}</li>
+          <li>{{changelog.v042.emulations}}</li>
+          <li>{{changelog.v042.vuze}}</li>
+          <li>{{changelog.v042.default}}</li>
+        </ul>
+      </details>
+
+      <details class="release">
+        <summary><h3>0.41 <time datetime="2008-08-26">{{@date 2008-08-26}}</time></h3></summary>
+        <ul>
+          <li>{{changelog.v041.vista}}</li>
+          <li>{{changelog.v041.interface}}</li>
+          <li>{{changelog.v041.versionChecker}}</li>
+          <li>{{changelog.v041.emulations}}</li>
+          <li>{{changelog.v041.types}}</li>
+          <li>{{changelog.v041.default}}</li>
+        </ul>
+      </details>
+
+      <p class="hint">{{changelog.full}}</p>
+    </section>
+
+    <section id="contact">
+      <h2>{{contact.title}}</h2>
+      <ul class="plain">
+        <li>{{contact.website}} <a href="https://ratiomaster.net/" dir="ltr">https://ratiomaster.net/</a></li>
+        <li>GitHub: <a href="https://github.com/NikolayIT/RatioMaster.NET" dir="ltr">https://github.com/NikolayIT/RatioMaster.NET</a></li>
+        <li>{{contact.bugs}}</li>
+        <li>{{contact.author}} <a href="https://nikolay.it/" dir="ltr">https://nikolay.it/</a></li>
+        <li>{{contact.email}} <a href="mailto:ratiomaster@nikolay.it" dir="ltr">ratiomaster@nikolay.it</a></li>
+        <li>Facebook: <a href="https://www.facebook.com/RatioMaster" dir="ltr">facebook.com/RatioMaster</a></li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer class="wrap foot">
+  <p><a href="https://nikolay.it/">Nikolay.IT</a> 2005&ndash;2026 &middot; {{footer.license}}</p>
+</footer>
+
+<script>
+  // Remember the language picked in the menu, so / opens in it next time (the Worker reads the cookie).
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("a[data-lang]");
+    if (link) document.cookie = "lang=" + link.dataset.lang + "; path=/; max-age=31536000; samesite=lax";
+    const menu = document.querySelector(".lang details");
+    if (menu && menu.open && !menu.contains(event.target)) menu.open = false;
+  });
+  document.addEventListener("keydown", (event) => {
+    const menu = document.querySelector(".lang details");
+    if (event.key === "Escape" && menu && menu.open) { menu.open = false; menu.querySelector("summary").focus(); }
+  });
+</script>
+</body>
+</html>
