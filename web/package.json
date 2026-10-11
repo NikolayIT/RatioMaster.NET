@@ -14,7 +14,7 @@
     "wrangler": "latest"
   },
   "allowScripts": {
-    "esbuild@0.28.1": true,
-    "workerd@1.20260903.1": true
+    "esbuild@0.28.2": true,
+    "workerd@1.20261006.1": true
   }
 }
