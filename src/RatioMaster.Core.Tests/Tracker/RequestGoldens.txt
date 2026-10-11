@@ -878,6 +878,38 @@ Connection: close<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
 
+=== Deluge 2.2.0 ===
+--- Started ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE220s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: Deluge/2.2.0 libtorrent/1.2.19.0<CR>
+Accept-Encoding: gzip<CR>
+Connection: close<CR>
+<CR>
+--- None ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE220s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: Deluge/2.2.0 libtorrent/1.2.19.0<CR>
+Accept-Encoding: gzip<CR>
+Connection: close<CR>
+<CR>
+--- Completed ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE220s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: Deluge/2.2.0 libtorrent/1.2.19.0<CR>
+Accept-Encoding: gzip<CR>
+Connection: close<CR>
+<CR>
+--- Stopped ---
+GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE220s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=0&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: Deluge/2.2.0 libtorrent/1.2.19.0<CR>
+Accept-Encoding: gzip<CR>
+Connection: close<CR>
+<CR>
+--- Scrape ---
+http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
+
 === Deluge 2.1.1 ===
 --- Started ---
 GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-DE211s-PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1&supportcrypto=1&redundant=0 HTTP/1.1<CR>

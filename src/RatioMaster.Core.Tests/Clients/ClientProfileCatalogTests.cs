@@ -12,8 +12,8 @@ namespace RatioMaster.Core.Tests.Clients
         {
             // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
             // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
-            // Transmission 2.94 and 3.00, Deluge 2.1.1; then qBittorrent 5.2.4 for 1.2.
-            Assert.Equal(29, Catalog.Profiles.Count);
+            // Transmission 2.94 and 3.00, Deluge 2.1.1; then qBittorrent 5.2.4 and Deluge 2.2.0 for 1.2.
+            Assert.Equal(30, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("rTorrent", new[] { "0.9.6" })]
         [InlineData("Transmission", new[] { "2.94", "3.00" })]
         [InlineData("BitSpirit", new[] { "3.6.0.200", "3.1.0.077" })]
-        [InlineData("Deluge", new[] { "2.1.1" })]
+        [InlineData("Deluge", new[] { "2.2.0", "2.1.1" })]
         public void VersionsPerFamilyMatchTheOldUi(string family, string[] expected)
         {
             Assert.Equal(expected, Catalog.VersionsOf(family));
@@ -198,6 +198,24 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Contains("&key={key}{event}&numwant=", query, StringComparison.Ordinal);
         }
 
+        [Theory]
+        [InlineData("Deluge 2.2.0", "-DE220s-", "Deluge/2.2.0 libtorrent/1.2.19.0")]
+        [InlineData("Deluge 2.1.1", "-DE211s-", "Deluge/2.1.1 libtorrent/1.2.15.0")]
+        public void DelugeAnnouncesThroughLibtorrent(string name, string prefix, string userAgent)
+        {
+            // deluge/core/core.py: libtorrent's fingerprint with "s" (stable) as its seventh character, and a user
+            // agent naming the libtorrent it runs on, taken from real announces. The rest is libtorrent's request.
+            var p = Catalog.GetByName(name);
+            var qBittorrent = Catalog.GetByName("qBittorrent 5.2.4");
+
+            Assert.Equal(prefix, p.PeerIdPrefix);
+            Assert.Equal(["Host: {host}", "User-Agent: " + userAgent, "Accept-Encoding: gzip", "Connection: close"], p.Headers);
+            Assert.Equal(qBittorrent.Query, p.Query);
+            Assert.Equal(qBittorrent.PeerId, p.PeerId);
+            Assert.Equal(qBittorrent.Key, p.Key);
+            Assert.Equal(qBittorrent.HashUpperCase, p.HashUpperCase);
+        }
+
         [Fact]
         public void GetByNameFallsBackToDefaultForUnknownNames()
         {
@@ -237,7 +255,7 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(30, catalog.Profiles.Count);
+                Assert.Equal(31, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.6.0").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.6.0").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));
