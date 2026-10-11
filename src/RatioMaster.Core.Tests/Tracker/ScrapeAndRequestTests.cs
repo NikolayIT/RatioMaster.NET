@@ -54,6 +54,13 @@ namespace RatioMaster.Core.Tests.Tracker
         }
 
         [Fact]
+        public void HostHeaderLeavesThePortOutForAClientThatDoesNotSendIt()
+        {
+            // BitComet's own HTTP code: a capture against a tracker on port 8765 said "Host: 127.0.0.1".
+            Assert.Equal("tracker.test", HttpRequestWriter.HostHeader(new Uri("http://tracker.test:6969/announce"), withPort: false));
+        }
+
+        [Fact]
         public void BuildsRequestTextWithHostAndBlankLineTermination()
         {
             var profile = Catalog.GetByName("uTorrent 3.6.0");

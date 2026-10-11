@@ -58,6 +58,7 @@ namespace RatioMaster.Core.Clients
             {
                 RandomValueKind.TransmissionChecksum => this.GenerateTransmissionSuffix(spec.Length),
                 RandomValueKind.HexRange => this.GenerateHexRange(spec.Length),
+                RandomValueKind.UInt16Decimal => this.random.Next(0, 65536).ToString(CultureInfo.InvariantCulture),
                 _ => this.GenerateBase(spec.Type, spec.Length),
             };
 

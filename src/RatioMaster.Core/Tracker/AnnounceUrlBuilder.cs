@@ -2,19 +2,21 @@ namespace RatioMaster.Core.Tracker
 {
     using System.Globalization;
 
+    using RatioMaster.Core.Clients;
+
     /// <summary>Builds a tracker announce URL from a client query template, reproducing RM.getUrlString.</summary>
     public static class AnnounceUrlBuilder
     {
-        public static string Build(string trackerUrl, string queryTemplate, AnnounceValues values, TrackerEvent trackerEvent)
+        public static string Build(string trackerUrl, ClientProfile profile, AnnounceValues values, TrackerEvent trackerEvent)
         {
             ArgumentNullException.ThrowIfNull(trackerUrl);
-            ArgumentNullException.ThrowIfNull(queryTemplate);
+            ArgumentNullException.ThrowIfNull(profile);
             ArgumentNullException.ThrowIfNull(values);
 
             var url = trackerUrl + (trackerUrl.Contains('?', StringComparison.Ordinal) ? "&" : "?");
 
-            var query = queryTemplate;
-            if (trackerEvent == TrackerEvent.Started)
+            var query = profile.Query;
+            if (trackerEvent == TrackerEvent.Started && !profile.LocalIpOnStart)
             {
                 query = query.Replace("&natmapped=1&localip={localip}", string.Empty, StringComparison.Ordinal);
             }
@@ -26,9 +28,9 @@ namespace RatioMaster.Core.Tracker
 
             url += query;
 
-            // A client that is leaving has no use for peers, so every real one asks for none on the last
-            // announce. Otherwise an unset numwant means "as many as usual", which is 200.
-            var numWant = trackerEvent == TrackerEvent.Stopped
+            // A client that is leaving has no use for peers, so nearly every real one asks for none on the last
+            // announce (BitComet does not). Otherwise an unset numwant means "as many as usual", which is 200.
+            var numWant = trackerEvent == TrackerEvent.Stopped && !profile.KeepNumWantOnStop
                 ? "0"
                 : values.NumWant == "0" ? "200" : values.NumWant;
 

@@ -101,7 +101,7 @@ namespace RatioMaster.Core.Tests.Tracker
                 builder.Append("\n=== ").Append(profile.Name).Append(" ===\n");
                 foreach (var trackerEvent in new[] { TrackerEvent.Started, TrackerEvent.None, TrackerEvent.Completed, TrackerEvent.Stopped })
                 {
-                    var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile.Query, Values(profile), trackerEvent);
+                    var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile, Values(profile), trackerEvent);
                     var pathAndQuery = url["http://tracker.test".Length..];
                     var request = HttpRequestWriter.BuildRequestText(pathAndQuery, "tracker.test", profile);
 

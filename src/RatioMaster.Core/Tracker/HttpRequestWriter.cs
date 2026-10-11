@@ -43,12 +43,13 @@ namespace RatioMaster.Core.Tracker
         /// <summary>
         /// Gets the value of the Host header: the host, with the port when it is not the scheme's default. That is
         /// what libtorrent, curl, Java, Python's httplib and HTTP itself (RFC 9110 7.2) do, and a tracker on port
-        /// 6969 sees "tracker:6969" from every real client.
+        /// 6969 sees "tracker:6969" from them. A client whose own code writes the host alone (BitComet) passes
+        /// <paramref name="withPort"/> false.
         /// </summary>
-        public static string HostHeader(Uri uri)
+        public static string HostHeader(Uri uri, bool withPort = true)
         {
             ArgumentNullException.ThrowIfNull(uri);
-            return uri.IsDefaultPort ? uri.Host : uri.Host + ":" + uri.Port.ToString(CultureInfo.InvariantCulture);
+            return uri.IsDefaultPort || !withPort ? uri.Host : uri.Host + ":" + uri.Port.ToString(CultureInfo.InvariantCulture);
         }
 
         public static string BuildRequestText(string pathAndQuery, string host, ClientProfile profile)

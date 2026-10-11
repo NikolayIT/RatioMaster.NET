@@ -11,7 +11,7 @@ namespace RatioMaster.Core.Tests.Tracker
         public void BuildsTheExpectedUTorrentStartedUrl()
         {
             var profile = Catalog.GetByName("uTorrent 3.6.0");
-            var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile.Query, Values(), TrackerEvent.Started);
+            var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile, Values(), TrackerEvent.Started);
 
             Assert.Equal(
                 "http://tracker.test/announce?info_hash=%aa%bb&peer_id=-UT3320-xyz&port=12345&uploaded=16384&downloaded=16&left=100&corrupt=0&key=ABCD1234&event=started&numwant=200&compact=1&no_peer_id=1",
@@ -22,7 +22,7 @@ namespace RatioMaster.Core.Tests.Tracker
         public void UpdateEventOmitsTheEventParameter()
         {
             var profile = Catalog.GetByName("uTorrent 3.6.0");
-            var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile.Query, Values(), TrackerEvent.None);
+            var url = AnnounceUrlBuilder.Build("http://tracker.test/announce", profile, Values(), TrackerEvent.None);
             Assert.Contains("&key=ABCD1234&numwant=200", url, StringComparison.Ordinal);
             Assert.DoesNotContain("event=", url, StringComparison.Ordinal);
         }
@@ -31,11 +31,11 @@ namespace RatioMaster.Core.Tests.Tracker
         public void BitCometStartedDropsNatmappedAndLocalIp()
         {
             var profile = Catalog.GetByName("BitComet 1.20");
-            var started = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(), TrackerEvent.Started);
+            var started = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(), TrackerEvent.Started);
             Assert.DoesNotContain("natmapped", started, StringComparison.Ordinal);
             Assert.DoesNotContain("localip", started, StringComparison.Ordinal);
 
-            var update = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(), TrackerEvent.None);
+            var update = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(), TrackerEvent.None);
             Assert.Contains("natmapped=1&localip=1.2.3.4", update, StringComparison.Ordinal);
         }
 
@@ -43,11 +43,11 @@ namespace RatioMaster.Core.Tests.Tracker
         public void AbcKeepsTrackerIdOnlyWhenStopping()
         {
             var profile = Catalog.GetByName("ABC 3.1");
-            var stopped = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(), TrackerEvent.Stopped);
+            var stopped = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(), TrackerEvent.Stopped);
             Assert.Contains("&trackerid=48", stopped, StringComparison.Ordinal);
             Assert.Contains("event=stopped", stopped, StringComparison.Ordinal);
 
-            var update = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(), TrackerEvent.None);
+            var update = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(), TrackerEvent.None);
             Assert.DoesNotContain("trackerid", update, StringComparison.Ordinal);
         }
 
@@ -55,14 +55,14 @@ namespace RatioMaster.Core.Tests.Tracker
         public void ZeroNumWantBecomes200ExceptWhenStopping()
         {
             var profile = Catalog.GetByName("uTorrent 3.6.0");
-            var update = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values("0"), TrackerEvent.None);
+            var update = AnnounceUrlBuilder.Build("http://t/announce", profile, Values("0"), TrackerEvent.None);
             Assert.Contains("numwant=200", update, StringComparison.Ordinal);
 
-            var stopped = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values("0"), TrackerEvent.Stopped);
+            var stopped = AnnounceUrlBuilder.Build("http://t/announce", profile, Values("0"), TrackerEvent.Stopped);
             Assert.Contains("numwant=0", stopped, StringComparison.Ordinal);
         }
 
-        /// <summary>Every client we emulate asks for no peers when it leaves, whatever it asks for while running.</summary>
+        /// <summary>The clients ask for no peers when they leave, whatever they ask for while running; BitComet is the exception.</summary>
         [Theory]
         [InlineData("200")]
         [InlineData("80")]
@@ -71,19 +71,33 @@ namespace RatioMaster.Core.Tests.Tracker
         {
             var profile = Catalog.GetByName("uTorrent 3.6.0");
 
-            var running = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(numWant), TrackerEvent.None);
+            var running = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(numWant), TrackerEvent.None);
             Assert.Contains("numwant=" + numWant, running, StringComparison.Ordinal);
 
-            var stopped = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(numWant), TrackerEvent.Stopped);
+            var stopped = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(numWant), TrackerEvent.Stopped);
             Assert.Contains("numwant=0", stopped, StringComparison.Ordinal);
             Assert.DoesNotContain("numwant=" + numWant + "&", stopped, StringComparison.Ordinal);
+        }
+
+        [Fact]
+        public void BitComet222KeepsLocalIpAndNumWantOnEveryAnnounce()
+        {
+            // Captured: its started announce has natmapped and localip, and its stopped one still asks for 200 peers.
+            var profile = Catalog.GetByName("BitComet 2.22");
+
+            var started = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(), TrackerEvent.Started);
+            var stopped = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(), TrackerEvent.Stopped);
+
+            Assert.Contains("&natmapped=1&localip=1.2.3.4&port_type=wan&", started, StringComparison.Ordinal);
+            Assert.Contains("&numwant=200&", stopped, StringComparison.Ordinal);
+            Assert.EndsWith("&key=ABCD1234&event=stopped", stopped, StringComparison.Ordinal);
         }
 
         [Fact]
         public void UsesAmpersandWhenTheTrackerAlreadyHasAQuery()
         {
             var profile = Catalog.GetByName("uTorrent 3.6.0");
-            var url = AnnounceUrlBuilder.Build("http://t/announce?passkey=secret", profile.Query, Values(), TrackerEvent.None);
+            var url = AnnounceUrlBuilder.Build("http://t/announce?passkey=secret", profile, Values(), TrackerEvent.None);
             Assert.StartsWith("http://t/announce?passkey=secret&info_hash=", url, StringComparison.Ordinal);
         }
 
@@ -94,7 +108,7 @@ namespace RatioMaster.Core.Tests.Tracker
             {
                 foreach (var evt in Enum.GetValues<TrackerEvent>())
                 {
-                    var url = AnnounceUrlBuilder.Build("http://t/announce", profile.Query, Values(), evt);
+                    var url = AnnounceUrlBuilder.Build("http://t/announce", profile, Values(), evt);
                     Assert.DoesNotContain("{", url, StringComparison.Ordinal);
                     Assert.DoesNotContain("}", url, StringComparison.Ordinal);
                     Assert.Contains("info_hash=%aa%bb", url, StringComparison.Ordinal);

@@ -73,11 +73,22 @@
     },
 
     {
+      "name": "BitComet 2.22", "family": "BitComet", "version": "2.22",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true, "unreserved": "-._~",
+      "key": { "type": "uint16Decimal", "length": 0, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-BC0222-", "type": "anyByte", "length": 12, "urlEncode": true, "upperCase": true },
+      "headers": ["Host: {host}", "Connection: close", "Accept: */*", "Accept-Encoding: gzip, br, zstd", "User-Agent: BitComet/2.22.9.4"],
+      "hostPort": false, "keepNumWantOnStop": true, "localIpOnStart": true,
+      "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
+      "defaultNumWant": 200, "portRanges": "7000-27766"
+    },
+    {
       "name": "BitComet 1.20", "family": "BitComet", "version": "1.20",
       "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
       "key": { "type": "numeric", "length": 5, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "-BC0120-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
       "headers": ["Host: {host}", "Connection: close", "Accept: */*", "Accept-Encoding: gzip", "User-Agent: BitComet/1.20.3.25", "Pragma: no-cache", "Cache-Control: no-cache"],
+      "hostPort": false,
       "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
       "defaultNumWant": 200,
       "memoryScan": { "processName": "BitComet", "searchString": "&peer_id=-BC0120-", "startOffset": 0, "maxOffset": 60000000 }
@@ -88,6 +99,7 @@
       "key": { "type": "numeric", "length": 5, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "-BC0103-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
       "headers": ["Host: {host}", "Connection: close", "Accept: */*", "Accept-Encoding: gzip", "User-Agent: BitComet/1.3.7.17", "Pragma: no-cache", "Cache-Control: no-cache"],
+      "hostPort": false,
       "query": "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
       "defaultNumWant": 200,
       "memoryScan": { "processName": "BitComet", "searchString": "&peer_id=-BC0103-", "startOffset": 0, "maxOffset": 60000000 }

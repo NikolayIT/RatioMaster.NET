@@ -135,7 +135,7 @@ namespace RatioMaster.Core.Tracker
             var stream = await this.ConnectWithRetryAsync(uri, useTls, proxy, cancellationToken).ConfigureAwait(false);
             await using (stream.ConfigureAwait(false))
             {
-                var request = HttpRequestWriter.BuildRequest(target, HttpRequestWriter.HostHeader(uri), profile);
+                var request = HttpRequestWriter.BuildRequest(target, HttpRequestWriter.HostHeader(uri, profile.HostPort), profile);
                 await stream.WriteAsync(request, cancellationToken).ConfigureAwait(false);
                 await stream.FlushAsync(cancellationToken).ConfigureAwait(false);
 

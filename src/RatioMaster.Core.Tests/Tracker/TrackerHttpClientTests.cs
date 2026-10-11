@@ -58,6 +58,17 @@ namespace RatioMaster.Core.Tests.Tracker
         }
 
         [Fact]
+        public async Task LeavesThePortOutOfHostForBitComet()
+        {
+            await using var tracker = FakeTracker.Start(FakeTracker.BencodeResponse(AnnounceBody()));
+            var bitComet = ClientProfileCatalog.Load().GetByName("BitComet 2.22");
+
+            await new TrackerHttpClient().GetAsync($"{tracker.BaseUrl}/announce", bitComet, ProxySettings.None, Timeout);
+
+            Assert.Contains("\r\nHost: 127.0.0.1\r\n", tracker.Requests.First(), StringComparison.Ordinal);
+        }
+
+        [Fact]
         public async Task FollowsRedirects()
         {
             // A relative Location resolves against the request URI, so both hits land on this tracker.

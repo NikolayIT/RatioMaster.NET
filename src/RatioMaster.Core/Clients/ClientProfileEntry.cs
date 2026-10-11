@@ -35,6 +35,12 @@ namespace RatioMaster.Core.Clients
 
         public List<string>? Headers { get; set; }
 
+        public bool? HostPort { get; set; }
+
+        public bool KeepNumWantOnStop { get; set; }
+
+        public bool LocalIpOnStart { get; set; }
+
         public string? Query { get; set; }
 
         public int? DefaultNumWant { get; set; }
@@ -81,6 +87,9 @@ namespace RatioMaster.Core.Clients
                     UpperCase = this.PeerId.UpperCase,
                 },
                 Headers = this.Headers,
+                HostPort = this.HostPort ?? true,
+                KeepNumWantOnStop = this.KeepNumWantOnStop,
+                LocalIpOnStart = this.LocalIpOnStart,
                 Query = this.Query,
                 DefaultNumWant = this.DefaultNumWant ?? 200,
                 SeedingNumWant = this.SeedingNumWant,

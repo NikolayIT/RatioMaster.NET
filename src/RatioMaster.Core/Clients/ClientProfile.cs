@@ -46,6 +46,24 @@ namespace RatioMaster.Core.Clients
         /// <summary>Gets the request header lines in order, with "{host}" where the host goes. No CRLFs.</summary>
         public required IReadOnlyList<string> Headers { get; init; }
 
+        /// <summary>
+        /// Gets a value indicating whether {host} carries the tracker's port when it is not the scheme's default, as
+        /// HTTP asks and libtorrent, curl, Java and Python do. BitComet's own HTTP code writes the host alone.
+        /// </summary>
+        public bool HostPort { get; init; } = true;
+
+        /// <summary>
+        /// Gets a value indicating whether the stopped announce keeps the usual numwant. Most clients ask for no peers
+        /// on the way out; BitComet works its numwant out the same way for every event.
+        /// </summary>
+        public bool KeepNumWantOnStop { get; init; }
+
+        /// <summary>
+        /// Gets a value indicating whether the started announce keeps "&amp;natmapped=1&amp;localip=". The emulations
+        /// inherited from 0.43 leave it out of the first announce; BitComet 2.22 sends it every time.
+        /// </summary>
+        public bool LocalIpOnStart { get; init; }
+
         /// <summary>Gets the announce query template with {infohash} {peerid} {port} {uploaded} {downloaded} {left} {event} {numwant} {key} {localip} placeholders.</summary>
         public required string Query { get; init; }
 

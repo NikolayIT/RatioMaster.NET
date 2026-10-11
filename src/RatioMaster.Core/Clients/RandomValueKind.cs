@@ -53,5 +53,11 @@ namespace RatioMaster.Core.Clients
         /// ::random() truncated to a char up to 0.13.6, an 8-bit independent_bits_engine since).
         /// </summary>
         AnyByte,
+
+        /// <summary>
+        /// A random 16-bit value, 0..65535, in decimal with no leading zeros, so the length varies. BitComet's announce
+        /// key: two random bytes read as a ushort when the session starts. The spec's length is ignored.
+        /// </summary>
+        UInt16Decimal,
     }
 }

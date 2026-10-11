@@ -13,8 +13,8 @@ namespace RatioMaster.Core.Tests.Clients
             // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
             // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
             // Transmission 2.94 and 3.00, Deluge 2.1.1; then qBittorrent 5.2.4, Deluge 2.2.0, BitTornado 0.3.18
-            // rTorrent 0.16.25 and Vuze 5.7.6.0 for 1.2.
-            Assert.Equal(33, Catalog.Profiles.Count);
+            // rTorrent 0.16.25, Vuze 5.7.6.0 and BitComet 2.22 for 1.2.
+            Assert.Equal(34, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace RatioMaster.Core.Tests.Clients
         [Theory]
         [InlineData("qBittorrent", new[] { "5.2.4", "5.2.3", "5.1.4", "4.6.7" })]
         [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.5.4" })]
-        [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
+        [InlineData("BitComet", new[] { "2.22", "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
         [InlineData("Vuze", new[] { "5.7.6.0", "5.7.5.0" })]
         [InlineData("BitTorrent", new[] { "7.10.3 (44429)" })]
         [InlineData("rTorrent", new[] { "0.16.25", "0.9.6" })]
@@ -183,6 +183,36 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal(75, p.DefaultNumWant);
             Assert.Equal(37, p.SeedingNumWant);
             Assert.Equal([new PortRange(10000, 45099), new PortRange(45111, 65535)], p.PortRanges);
+        }
+
+        [Fact]
+        public void BitComet222MatchesWhatTheRealClientSends()
+        {
+            // From live announces of the portable 2.22 against a local tracker, and from its code: the announce
+            // builder and the function that fills its parameters, the key (two random bytes read as a ushort), the peer
+            // id ("-BC0222-" and twelve random bytes) and the first-run port (7000 + a random ushort % 20767).
+            var p = Catalog.GetByName("BitComet 2.22");
+
+            Assert.Equal("-BC0222-", p.PeerIdPrefix);
+            Assert.Equal(RandomValueKind.AnyByte, p.PeerId.Type);
+            Assert.Equal(12, p.PeerId.Length);
+            Assert.True(p.PeerId.UrlEncode);
+            Assert.True(p.PeerId.UpperCase);
+            Assert.True(p.HashUpperCase);
+            Assert.Equal("-._~", p.Unreserved);
+            Assert.Equal(RandomValueKind.UInt16Decimal, p.Key.Type);
+            Assert.Equal(
+                ["Host: {host}", "Connection: close", "Accept: */*", "Accept-Encoding: gzip, br, zstd", "User-Agent: BitComet/2.22.9.4"],
+                p.Headers);
+            Assert.False(p.HostPort);
+            Assert.True(p.KeepNumWantOnStop);
+            Assert.True(p.LocalIpOnStart);
+            Assert.Equal(200, p.DefaultNumWant);
+            Assert.Equal([new PortRange(7000, 27766)], p.PortRanges);
+            Assert.Equal(
+                "info_hash={infohash}&peer_id={peerid}&port={port}&natmapped=1&localip={localip}&port_type=wan&uploaded={uploaded}" +
+                "&downloaded={downloaded}&left={left}&numwant={numwant}&compact=1&no_peer_id=1&key={key}{event}",
+                p.Query);
         }
 
         [Fact]
@@ -342,7 +372,7 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(34, catalog.Profiles.Count);
+                Assert.Equal(35, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.6.0").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.6.0").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));

@@ -226,6 +226,42 @@ Connection: Close<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6
 
+=== BitComet 2.22 ===
+--- Started ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs~%89%94%9F%AA%B5%C0%CB%D6&peer_id=-BC0222-PEERIDSUFFIX&port=45678&natmapped=1&localip=192.168.1.50&port_type=wan&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=200&compact=1&no_peer_id=1&key=KEY01234&event=started HTTP/1.1<CR>
+Host: tracker.test<CR>
+Connection: close<CR>
+Accept: */*<CR>
+Accept-Encoding: gzip, br, zstd<CR>
+User-Agent: BitComet/2.22.9.4<CR>
+<CR>
+--- None ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs~%89%94%9F%AA%B5%C0%CB%D6&peer_id=-BC0222-PEERIDSUFFIX&port=45678&natmapped=1&localip=192.168.1.50&port_type=wan&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=200&compact=1&no_peer_id=1&key=KEY01234 HTTP/1.1<CR>
+Host: tracker.test<CR>
+Connection: close<CR>
+Accept: */*<CR>
+Accept-Encoding: gzip, br, zstd<CR>
+User-Agent: BitComet/2.22.9.4<CR>
+<CR>
+--- Completed ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs~%89%94%9F%AA%B5%C0%CB%D6&peer_id=-BC0222-PEERIDSUFFIX&port=45678&natmapped=1&localip=192.168.1.50&port_type=wan&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=200&compact=1&no_peer_id=1&key=KEY01234&event=completed HTTP/1.1<CR>
+Host: tracker.test<CR>
+Connection: close<CR>
+Accept: */*<CR>
+Accept-Encoding: gzip, br, zstd<CR>
+User-Agent: BitComet/2.22.9.4<CR>
+<CR>
+--- Stopped ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs~%89%94%9F%AA%B5%C0%CB%D6&peer_id=-BC0222-PEERIDSUFFIX&port=45678&natmapped=1&localip=192.168.1.50&port_type=wan&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=200&compact=1&no_peer_id=1&key=KEY01234&event=stopped HTTP/1.1<CR>
+Host: tracker.test<CR>
+Connection: close<CR>
+Accept: */*<CR>
+Accept-Encoding: gzip, br, zstd<CR>
+User-Agent: BitComet/2.22.9.4<CR>
+<CR>
+--- Scrape ---
+http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs~%89%94%9F%AA%B5%C0%CB%D6
+
 === BitComet 1.20 ===
 --- Started ---
 GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-BC0120-PEERIDSUFFIX&port=45678&port_type=wan&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=200&compact=1&no_peer_id=1&key=KEY01234&event=started HTTP/1.1<CR>

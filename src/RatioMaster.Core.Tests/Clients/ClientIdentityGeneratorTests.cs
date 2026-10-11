@@ -153,6 +153,23 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Fact]
+        public void UInt16DecimalIsAnUnpaddedNumberUpTo65535()
+        {
+            var generator = new ClientIdentityGenerator(new DeterministicRandomSource(16));
+            var spec = new RandomValueSpec { Type = RandomValueKind.UInt16Decimal, Length = 5 };
+
+            var keys = Enumerable.Range(0, 2000).Select(_ => generator.GenerateValue(spec)).ToList();
+
+            Assert.All(keys, key =>
+            {
+                Assert.InRange(int.Parse(key, System.Globalization.CultureInfo.InvariantCulture), 0, 65535);
+                Assert.True(key == "0" || key[0] != '0', key);
+            });
+            Assert.Contains(keys, key => key.Length < 5);
+            Assert.Contains(keys, key => int.Parse(key, System.Globalization.CultureInfo.InvariantCulture) > 60000);
+        }
+
+        [Fact]
         public void BitTornadoBase64UsesAllSixtyFourCharacters()
         {
             // BitTornado/__init__.py: mapbase64 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.-'

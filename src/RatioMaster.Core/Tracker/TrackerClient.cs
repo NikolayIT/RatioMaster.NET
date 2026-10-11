@@ -29,7 +29,7 @@ namespace RatioMaster.Core.Tracker
             bool ignoreCertificateErrors,
             CancellationToken cancellationToken)
         {
-            var url = AnnounceUrlBuilder.Build(trackerUrl, profile.Query, values, trackerEvent);
+            var url = AnnounceUrlBuilder.Build(trackerUrl, profile, values, trackerEvent);
             var started = Stopwatch.GetTimestamp();
             var http = this.WithCertificatePolicy(ignoreCertificateErrors);
 
