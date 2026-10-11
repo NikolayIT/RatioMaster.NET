@@ -162,70 +162,6 @@ Connection: Close<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6
 
-=== uTorrent 3.5.5 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT355S-%fa%b3PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/355(111916026)(46074)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT355S-%fa%b3PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/355(111916026)(46074)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT355S-%fa%b3PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/355(111916026)(46074)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT355S-%fa%b3PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=0&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/355(111916026)(46074)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6
-
-=== uTorrent 3.5.4 ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT354S-%d2%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/354(111783378)(44498)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT354S-%d2%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/354(111783378)(44498)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT354S-%d2%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/354(111783378)(44498)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-UT354S-%d2%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=0&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: uTorrent/354(111783378)(44498)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6
-
 === BitComet 2.22 ===
 --- Started ---
 GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs~%89%94%9F%AA%B5%C0%CB%D6&peer_id=-BC0222-PEERIDSUFFIX&port=45678&natmapped=1&localip=192.168.1.50&port_type=wan&uploaded=1073741824&downloaded=536870912&left=268435456&numwant=200&compact=1&no_peer_id=1&key=KEY01234&event=started HTTP/1.1<CR>
@@ -592,38 +528,6 @@ Connection: Close<CR>
 GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-BT7b0S-%97%b8PEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=0&compact=1&no_peer_id=1 HTTP/1.1<CR>
 Host: tracker.test<CR>
 User-Agent: BitTorrent/7110(258062487)(47255)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6
-
-=== BitTorrent 7.10.3 (44429) ===
---- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-BT7a3S-%8d%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: BitTorrent/7103(256355725)(44429)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-BT7a3S-%8d%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: BitTorrent/7103(256355725)(44429)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-BT7a3S-%8d%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=completed&numwant=200&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: BitTorrent/7103(256355725)(44429)<CR>
-Accept-Encoding: gzip<CR>
-Connection: Close<CR>
-<CR>
---- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs~%89%94%9f%aa%b5%c0%cb%d6&peer_id=-BT7a3S-%8d%adPEERIDSUFFIX&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&corrupt=0&key=KEY01234&event=stopped&numwant=0&compact=1&no_peer_id=1 HTTP/1.1<CR>
-Host: tracker.test<CR>
-User-Agent: BitTorrent/7103(256355725)(44429)<CR>
 Accept-Encoding: gzip<CR>
 Connection: Close<CR>
 <CR>

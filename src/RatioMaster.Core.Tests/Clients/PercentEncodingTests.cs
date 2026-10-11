@@ -29,7 +29,6 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("Deluge 2.2.0", "-_.!~*()%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("uTorrent 3.6.0", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("BitTorrent 7.11.0 (47255)", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
-        [InlineData("BitTorrent 7.10.3 (44429)", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("Transmission 3.00", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("rTorrent 0.16.25", "-%5F%2E%21%7E%2A%28%29%27%2FaZ09%00%20%25%26%FF%80")]
         [InlineData("Vuze 5.7.5.0", "-_.%21%7E*%28%29%27%2FaZ09%00%20%25%26%FF%80")]

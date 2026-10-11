@@ -128,7 +128,7 @@ namespace RatioMaster.Core.Tests.Clients
             // Same random bytes, different prefix: the check bytes have to follow the prefix, not just the tail.
             var spec = new RandomValueSpec { Type = RandomValueKind.UTorrentChecksum, Length = 10 };
             var a = new ClientIdentityGenerator(new DeterministicRandomSource(5)).GenerateValue(spec, prefix: "-UT360S-%96%b8");
-            var b = new ClientIdentityGenerator(new DeterministicRandomSource(5)).GenerateValue(spec, prefix: "-UT355S-%fa%b3");
+            var b = new ClientIdentityGenerator(new DeterministicRandomSource(5)).GenerateValue(spec, prefix: "-BT7b0S-%97%b8");
 
             Assert.Equal(10, a.Length);
             Assert.Equal(a[..8], b[..8]);
