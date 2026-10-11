@@ -12,8 +12,8 @@ namespace RatioMaster.Core.Tests.Clients
         {
             // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
             // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
-            // Transmission 2.94 and 3.00, Deluge 2.1.1.
-            Assert.Equal(28, Catalog.Profiles.Count);
+            // Transmission 2.94 and 3.00, Deluge 2.1.1; then qBittorrent 5.2.4 for 1.2.
+            Assert.Equal(29, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -26,8 +26,8 @@ namespace RatioMaster.Core.Tests.Clients
         [Fact]
         public void DefaultIsTheCurrentQBittorrent()
         {
-            Assert.Equal("qBittorrent 5.2.3", Catalog.DefaultName);
-            Assert.Equal("qBittorrent 5.2.3", Catalog.Default.Name);
+            Assert.Equal("qBittorrent 5.2.4", Catalog.DefaultName);
+            Assert.Equal("qBittorrent 5.2.4", Catalog.Default.Name);
             Assert.Equal(TorrentSettings.DefaultClientName, Catalog.DefaultName);
         }
 
@@ -43,7 +43,7 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Theory]
-        [InlineData("qBittorrent", new[] { "5.2.3", "5.1.4", "4.6.7" })]
+        [InlineData("qBittorrent", new[] { "5.2.4", "5.2.3", "5.1.4", "4.6.7" })]
         [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.5.4" })]
         [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
         [InlineData("Vuze", new[] { "5.7.5.0" })]
@@ -123,14 +123,18 @@ namespace RatioMaster.Core.Tests.Clients
             }
         }
 
-        [Fact]
-        public void QBittorrentMatchesLibtorrentsAnnounce()
+        [Theory]
+        [InlineData("5.2.4", "-qB5240-")]
+        [InlineData("5.2.3", "-qB5230-")]
+        [InlineData("5.1.4", "-qB5140-")]
+        [InlineData("4.6.7", "-qB4670-")]
+        public void QBittorrentMatchesLibtorrentsAnnounce(string version, string prefix)
         {
             // Derived from libtorrent RC_2_0: http_tracker_connection.cpp builds the query,
             // http_connection.cpp the headers, generate_fingerprint the peer id prefix.
-            var p = Catalog.GetByName("qBittorrent 5.2.3");
+            var p = Catalog.GetByName("qBittorrent " + version);
 
-            Assert.Equal("-qB5230-", p.PeerIdPrefix);
+            Assert.Equal(prefix, p.PeerIdPrefix);
             Assert.Equal(RandomValueKind.UrlSafe, p.PeerId.Type);
             Assert.Equal(12, p.PeerId.Length);
             Assert.False(p.PeerId.UrlEncode);
@@ -139,7 +143,7 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal(8, p.Key.Length);
             Assert.True(p.Key.UpperCase);
             Assert.Equal(
-                ["Host: {host}", "User-Agent: qBittorrent/5.2.3", "Accept-Encoding: gzip", "Connection: close"],
+                ["Host: {host}", "User-Agent: qBittorrent/" + version, "Accept-Encoding: gzip", "Connection: close"],
                 p.Headers);
             Assert.EndsWith("&compact=1&no_peer_id=1&supportcrypto=1&redundant=0", p.Query, StringComparison.Ordinal);
             Assert.Null(p.MemoryScan);
@@ -233,14 +237,14 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(29, catalog.Profiles.Count);
+                Assert.Equal(30, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.6.0").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.6.0").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));
                 Assert.Contains("MyClient", catalog.Families);
 
                 // Default still resolves.
-                Assert.Equal("qBittorrent 5.2.3", catalog.DefaultName);
+                Assert.Equal("qBittorrent 5.2.4", catalog.DefaultName);
             }
             finally
             {
@@ -264,7 +268,7 @@ namespace RatioMaster.Core.Tests.Clients
 
                 Assert.NotNull(error);
                 Assert.Equal(Catalog.Profiles.Count, catalog.Profiles.Count);
-                Assert.Equal("qBittorrent 5.2.3", catalog.DefaultName);
+                Assert.Equal("qBittorrent 5.2.4", catalog.DefaultName);
             }
             finally
             {

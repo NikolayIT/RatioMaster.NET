@@ -7,6 +7,7 @@
 - Global: the toolbar buttons have names for screen readers
 - Global: columns widen to fit a longer translated header; a header or status that still does not fit ends in "..." and shows in full in its tooltip
 - Global: values in the torrent list no longer get cut off in the default column widths ("321,00 KB" in Uploaded, "1,92" in Ratio), and the text in each cell now lines up with its header
+- RM: Added new client emulation: "qBittorrent 5.2.4", which is now the default
 ---=== 1.1.0 (07-09-2026) ===---
 - RM: New per-torrent option "Pause the upload while the tracker reports no leechers", on by default (issue #16). Switch it off to keep uploading. When on, the upload pauses while the tracker reports zero leechers and resumes on its own when leechers appear; the "random speed on each update" and live speed edits can no longer upload past it, and the configured speed is no longer overwritten with 0 (issue #42)
 - RM: Added new client emulation: "uTorrent 3.6.0" (build 46828), taken from a real announce: build number in the peer id, uTorrent/360(...)(46828) user agent, Connection: Close
