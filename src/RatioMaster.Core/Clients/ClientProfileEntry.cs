@@ -9,6 +9,9 @@ namespace RatioMaster.Core.Clients
     /// <summary>One client entry in clients.json. Maps to a <see cref="ClientProfile"/>.</summary>
     internal sealed record ClientProfileEntry
     {
+        /// <summary>Every character a real client leaves unescaped in a URL besides letters and digits.</summary>
+        private const string AllowedUnreserved = "-_.!~*()'/";
+
         public string? Name { get; set; }
 
         public string? Family { get; set; }
@@ -18,6 +21,8 @@ namespace RatioMaster.Core.Clients
         public string? HttpProtocol { get; set; }
 
         public bool HashUpperCase { get; set; }
+
+        public string? Unreserved { get; set; }
 
         public RandomValueSpec? Key { get; set; }
 
@@ -57,6 +62,9 @@ namespace RatioMaster.Core.Clients
                 Version = this.Version,
                 HttpProtocol = this.HttpProtocol,
                 HashUpperCase = this.HashUpperCase,
+
+                // Anything else left unescaped ('&', '=', '%', '#'...) would break the query, so it is ignored.
+                Unreserved = new string((this.Unreserved ?? string.Empty).Where(AllowedUnreserved.Contains).Distinct().ToArray()),
                 Key = this.Key,
                 KeyRefresh = this.KeyRefresh,
                 KeyRefreshMinutes = this.KeyRefreshMinutes ?? 10,

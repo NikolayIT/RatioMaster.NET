@@ -39,7 +39,7 @@ namespace RatioMaster.Core.Clients
             ArgumentNullException.ThrowIfNull(profile);
             return new ClientIdentity
             {
-                PeerId = profile.PeerIdPrefix + this.GenerateValue(profile.PeerId),
+                PeerId = profile.PeerIdPrefix + this.GenerateValue(profile.PeerId, profile.Unreserved),
                 Key = this.GenerateValue(profile.Key),
                 Port = this.random.Next(MinPort, MaxPort).ToString(CultureInfo.InvariantCulture),
                 NumWant = profile.DefaultNumWant.ToString(CultureInfo.InvariantCulture),
@@ -47,8 +47,11 @@ namespace RatioMaster.Core.Clients
             };
         }
 
-        /// <summary>Generates one random value from a spec (the peer id suffix or the key).</summary>
-        public string GenerateValue(RandomValueSpec spec)
+        /// <summary>
+        /// Generates one random value from a spec (the peer id suffix or the key). A value the spec says to
+        /// percent-encode keeps letters, digits and the client's <paramref name="unreserved"/> characters as they are.
+        /// </summary>
+        public string GenerateValue(RandomValueSpec spec, string unreserved = "")
         {
             ArgumentNullException.ThrowIfNull(spec);
             var value = spec.Type switch
@@ -60,7 +63,7 @@ namespace RatioMaster.Core.Clients
 
             if (spec.UrlEncode)
             {
-                return PercentEncoding.Encode(value, spec.UpperCase);
+                return PercentEncoding.Encode(value, spec.UpperCase, unreserved);
             }
 
             return spec.UpperCase ? value.ToUpperInvariant() : value;

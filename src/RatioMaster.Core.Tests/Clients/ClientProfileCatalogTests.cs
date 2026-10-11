@@ -368,6 +368,20 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Fact]
+        public void UnreservedCharactersThatWouldBreakTheQueryAreIgnored()
+        {
+            const string json = """
+        {
+          "clients": [
+            { "name": "A", "family": "A", "version": "1", "httpProtocol": "HTTP/1.1", "unreserved": "-&=%#~+",
+              "key": {"type":"hex","length":1}, "peerId": {"prefix":"x","type":"hex","length":1}, "headers": ["Host: {host}"], "query": "q" }
+          ]
+        }
+        """;
+            Assert.Equal("-~", ClientProfileCatalog.Parse(json).GetByName("A").Unreserved);
+        }
+
+        [Fact]
         public void ParseRejectsDuplicateNames()
         {
             const string json = """

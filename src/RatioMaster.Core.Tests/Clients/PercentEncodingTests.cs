@@ -20,6 +20,30 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal("%2D", PercentEncoding.Encode("-", upperCase: true));
         }
 
+        /// <summary>
+        /// One info hash holding every character the clients disagree on ("-_.!~*()'/"), then letters and digits, then
+        /// bytes everybody escapes. Each verified family keeps exactly the characters its own code keeps.
+        /// </summary>
+        [Theory]
+        [InlineData("qBittorrent 5.2.4", "-_.!~*()%27%2faZ09%00%20%25%26%ff%80")]
+        [InlineData("Deluge 2.2.0", "-_.!~*()%27%2faZ09%00%20%25%26%ff%80")]
+        [InlineData("uTorrent 3.6.0", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
+        [InlineData("BitTorrent 7.10.3 (44429)", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
+        [InlineData("Transmission 3.00", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
+        [InlineData("rTorrent 0.16.25", "-%5F%2E%21%7E%2A%28%29%27%2FaZ09%00%20%25%26%FF%80")]
+        [InlineData("Vuze 5.7.5.0", "-_.%21%7E*%28%29%27%2FaZ09%00%20%25%26%FF%80")]
+        [InlineData("BitTornado 0.3.18", "-_.%21%7E%2A%28%29%27/aZ09%00%20%25%26%FF%80")]
+        [InlineData("BitComet 1.20", "%2D%5F%2E%21%7E%2A%28%29%27%2FaZ09%00%20%25%26%FF%80")]
+        public void EncodesTheInfoHashLikeTheRealClient(string profileName, string expected)
+        {
+            var hash = Encoding.Latin1.GetBytes("-_.!~*()'/aZ09\0 %&ÿ\u0080");
+            Assert.Equal(20, hash.Length);
+
+            var profile = ClientProfileCatalog.Load().GetByName(profileName);
+            Assert.Equal(profileName, profile.Name);
+            Assert.Equal(expected, InfoHashEncoder.Encode(hash, profile.HashUpperCase, profile.Unreserved));
+        }
+
         [Fact]
         public void EscapesBytesAboveAscii()
         {

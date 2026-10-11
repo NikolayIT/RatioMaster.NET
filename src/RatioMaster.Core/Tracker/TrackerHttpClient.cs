@@ -38,6 +38,7 @@ namespace RatioMaster.Core.Tracker
             ArgumentNullException.ThrowIfNull(proxy);
 
             var uri = ParseUrl(url);
+            var target = HttpRequestWriter.RequestTarget(url.Trim());
             for (var redirect = 0; ; redirect++)
             {
                 using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
@@ -45,7 +46,7 @@ namespace RatioMaster.Core.Tracker
                 TrackerResponse response;
                 try
                 {
-                    response = await this.SendOnceAsync(uri, profile, proxy, timeoutCts.Token).ConfigureAwait(false);
+                    response = await this.SendOnceAsync(uri, target, profile, proxy, timeoutCts.Token).ConfigureAwait(false);
                 }
                 catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
                 {
@@ -62,12 +63,33 @@ namespace RatioMaster.Core.Tracker
                     && Uri.TryCreate(uri, response.Location, out var next)
                     && TrackerUrl.IsHttp(next))
                 {
+                    target = RedirectTarget(response.Location!, next);
                     uri = next;
                     continue;
                 }
 
                 return response;
             }
+        }
+
+        /// <summary>
+        /// Gets the request target after a redirect: the Location as the server wrote it when it is an absolute URL or
+        /// an absolute path, so its escapes survive as they did in the first request; the resolved path otherwise.
+        /// </summary>
+        private static string RedirectTarget(string location, Uri next)
+        {
+            location = location.Trim();
+            if (location.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || location.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            {
+                return HttpRequestWriter.RequestTarget(location);
+            }
+
+            if (location.StartsWith('/') && !location.StartsWith("//", StringComparison.Ordinal))
+            {
+                return HttpRequestWriter.RequestTarget(next.GetLeftPart(UriPartial.Authority) + location);
+            }
+
+            return next.PathAndQuery;
         }
 
         private static Uri ParseUrl(string url)
@@ -107,13 +129,13 @@ namespace RatioMaster.Core.Tracker
             return output.ToArray();
         }
 
-        private async Task<TrackerResponse> SendOnceAsync(Uri uri, ClientProfile profile, ProxySettings proxy, CancellationToken cancellationToken)
+        private async Task<TrackerResponse> SendOnceAsync(Uri uri, string target, ClientProfile profile, ProxySettings proxy, CancellationToken cancellationToken)
         {
             var useTls = string.Equals(uri.Scheme, "https", StringComparison.OrdinalIgnoreCase);
             var stream = await this.ConnectWithRetryAsync(uri, useTls, proxy, cancellationToken).ConfigureAwait(false);
             await using (stream.ConfigureAwait(false))
             {
-                var request = HttpRequestWriter.BuildRequest(uri.PathAndQuery, HttpRequestWriter.HostHeader(uri), profile);
+                var request = HttpRequestWriter.BuildRequest(target, HttpRequestWriter.HostHeader(uri), profile);
                 await stream.WriteAsync(request, cancellationToken).ConfigureAwait(false);
                 await stream.FlushAsync(cancellationToken).ConfigureAwait(false);
 

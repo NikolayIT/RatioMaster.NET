@@ -192,6 +192,17 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Fact]
+        public void RandomKindLeavesTheClientsUnreservedBytesUnescaped()
+        {
+            // uTorrent keeps -._~ in its peer id, so a random byte that happens to be one of them goes out as is.
+            var generator = new ClientIdentityGenerator(new ScriptedRandomSource(ints: [0x2D, 0x7E, 0x2A, (int)'A']));
+
+            var value = generator.GenerateValue(new RandomValueSpec { Type = RandomValueKind.Random, Length = 4, UrlEncode = true }, "-._~");
+
+            Assert.Equal("-~%2aA", value);
+        }
+
+        [Fact]
         public void RandomKindUpperCasesEscapes()
         {
             var random = new ScriptedRandomSource(ints: [0xFF, 0x20]);

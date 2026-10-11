@@ -3,7 +3,7 @@
   "clients": [
     {
       "name": "qBittorrent 5.2.4", "family": "qBittorrent", "version": "5.2.4",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-_!.~*()",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "peerId": { "prefix": "-qB5240-", "type": "urlSafe", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "User-Agent: qBittorrent/5.2.4", "Accept-Encoding: gzip", "Connection: close"],
@@ -12,7 +12,7 @@
     },
     {
       "name": "qBittorrent 5.2.3", "family": "qBittorrent", "version": "5.2.3",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-_!.~*()",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "peerId": { "prefix": "-qB5230-", "type": "urlSafe", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "User-Agent: qBittorrent/5.2.3", "Accept-Encoding: gzip", "Connection: close"],
@@ -21,7 +21,7 @@
     },
     {
       "name": "qBittorrent 5.1.4", "family": "qBittorrent", "version": "5.1.4",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-_!.~*()",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "peerId": { "prefix": "-qB5140-", "type": "urlSafe", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "User-Agent: qBittorrent/5.1.4", "Accept-Encoding: gzip", "Connection: close"],
@@ -30,7 +30,7 @@
     },
     {
       "name": "qBittorrent 4.6.7", "family": "qBittorrent", "version": "4.6.7",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-_!.~*()",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "peerId": { "prefix": "-qB4670-", "type": "urlSafe", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "User-Agent: qBittorrent/4.6.7", "Accept-Encoding: gzip", "Connection: close"],
@@ -39,7 +39,7 @@
     },
     {
       "name": "uTorrent 3.6.0", "family": "uTorrent", "version": "3.6.0",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-._~",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "keyRefresh": "timed", "keyRefreshMinutes": 10,
       "peerId": { "prefix": "-UT360S-%ec%b6", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
@@ -50,7 +50,7 @@
     },
     {
       "name": "uTorrent 3.5.5", "family": "uTorrent", "version": "3.5.5",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-._~",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "keyRefresh": "timed", "keyRefreshMinutes": 10,
       "peerId": { "prefix": "-UT355S-%fa%b3", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
@@ -62,7 +62,7 @@
 
     {
       "name": "uTorrent 3.5.4", "family": "uTorrent", "version": "3.5.4",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-._~",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "keyRefresh": "timed", "keyRefreshMinutes": 10,
       "peerId": { "prefix": "-UT354S-%d2%ad", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
@@ -135,7 +135,7 @@
 
     {
       "name": "Vuze 5.7.5.0", "family": "Vuze", "version": "5.7.5.0",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true, "unreserved": ".-*_",
       "key": { "type": "alphanumeric", "length": 8, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "-AZ5750-", "type": "alphanumeric", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["User-Agent: Azureus 5.7.5.0;Windows 10;Java 1.8.0_121", "Connection: close", "Accept-Encoding: gzip", "Host: {host}", "Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"],
@@ -146,7 +146,7 @@
 
     {
       "name": "BitTorrent 7.10.3 (44429)", "family": "BitTorrent", "version": "7.10.3 (44429)",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-._~",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "keyRefresh": "timed", "keyRefreshMinutes": 10,
       "peerId": { "prefix": "-BT7a3S-%8d%ad", "type": "random", "length": 10, "urlEncode": true, "upperCase": false },
@@ -157,7 +157,7 @@
 
     {
       "name": "rTorrent 0.16.25", "family": "rTorrent", "version": "0.16.25",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true, "unreserved": "-",
       "key": { "type": "hexRange", "length": 8, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "-lt1019-", "type": "anyByte", "length": 12, "urlEncode": true, "upperCase": true },
       "headers": ["Host: {host}", "User-Agent: rtorrent/0.16.25", "Accept: */*", "Accept-Encoding: deflate, gzip, br, zstd"],
@@ -166,7 +166,7 @@
     },
     {
       "name": "rTorrent 0.9.6", "family": "rTorrent", "version": "0.9.6",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true, "unreserved": "-",
       "key": { "type": "hexRange", "length": 8, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "-lt0D60-", "type": "anyByte", "length": 12, "urlEncode": true, "upperCase": true },
       "headers": ["Host: {host}", "User-Agent: rtorrent/0.9.6/0.13.6", "Accept: */*", "Accept-Encoding: deflate, gzip"],
@@ -175,7 +175,7 @@
     },
     {
       "name": "Transmission 2.94", "family": "Transmission", "version": "2.94",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": ".-_~",
       "key": { "type": "hexRange", "length": 0, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "-TR2940-", "type": "transmissionChecksum", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["User-Agent: Transmission/2.94", "Host: {host}", "Accept: */*", "Accept-Encoding: gzip;q=1.0, deflate, identity"],
@@ -184,7 +184,7 @@
     },
     {
       "name": "Transmission 3.00", "family": "Transmission", "version": "3.00",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": ".-_~",
       "key": { "type": "hexRange", "length": 0, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "-TR3000-", "type": "transmissionChecksum", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["User-Agent: Transmission/3.00", "Host: {host}", "Accept: */*", "Accept-Encoding: deflate, gzip"],
@@ -225,7 +225,7 @@
 
     {
       "name": "BitTornado 0.3.18", "family": "BitTornado", "version": "0.3.18",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true, "unreserved": "_.-/",
       "key": { "type": "bitTornadoBase64", "length": 6, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "T03I-----", "type": "bitTornadoBase64", "length": 11, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: BitTornado/T-0.3.18"],
@@ -234,7 +234,7 @@
     },
     {
       "name": "BitTornado 0.3.17", "family": "BitTornado", "version": "0.3.17",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true, "unreserved": "_.-/",
       "key": { "type": "bitTornadoBase64", "length": 6, "urlEncode": false, "upperCase": false },
       "peerId": { "prefix": "T03H-----", "type": "bitTornadoBase64", "length": 11, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "Accept-Encoding: gzip", "User-Agent: BitTornado/T-0.3.17"],
@@ -283,7 +283,7 @@
 
     {
       "name": "Deluge 2.2.0", "family": "Deluge", "version": "2.2.0",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-_!.~*()",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "peerId": { "prefix": "-DE220s-", "type": "urlSafe", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "User-Agent: Deluge/2.2.0 libtorrent/1.2.19.0", "Accept-Encoding: gzip", "Connection: close"],
@@ -292,7 +292,7 @@
     },
     {
       "name": "Deluge 2.1.1", "family": "Deluge", "version": "2.1.1",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": false, "unreserved": "-_!.~*()",
       "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": true },
       "peerId": { "prefix": "-DE211s-", "type": "urlSafe", "length": 12, "urlEncode": false, "upperCase": false },
       "headers": ["Host: {host}", "User-Agent: Deluge/2.1.1 libtorrent/1.2.15.0", "Accept-Encoding: gzip", "Connection: close"],

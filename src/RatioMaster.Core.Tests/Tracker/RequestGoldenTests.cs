@@ -78,7 +78,7 @@ namespace RatioMaster.Core.Tests.Tracker
         /// <summary>Fixed identity so the goldens are stable; the generators are tested separately.</summary>
         private static AnnounceValues Values(ClientProfile profile) => new()
         {
-            InfoHashEncoded = InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase),
+            InfoHashEncoded = InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase, profile.Unreserved),
             PeerId = profile.PeerIdPrefix + "PEERIDSUFFIX",
             Port = "45678",
             Uploaded = 1_073_741_824,
@@ -109,7 +109,7 @@ namespace RatioMaster.Core.Tests.Tracker
                     builder.Append(Visible(request));
                 }
 
-                var scrape = ScrapeUrlBuilder.TryBuild("http://tracker.test/announce", InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase));
+                var scrape = ScrapeUrlBuilder.TryBuild("http://tracker.test/announce", InfoHashEncoder.Encode(SampleInfoHash, profile.HashUpperCase, profile.Unreserved));
                 builder.Append("--- Scrape ---\n").Append(scrape ?? "(not supported)").Append('\n');
             }
 

@@ -36,7 +36,7 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.Equal("KEY12345", values.Key);
             Assert.Equal("200", values.NumWant);
             Assert.Equal("1.2.3.4", values.LocalIp);
-            Assert.Equal(InfoHashEncoder.Encode(InfoHash, upperCase: false), values.InfoHashEncoded);
+            Assert.Equal(InfoHashEncoder.Encode(InfoHash, Profile.HashUpperCase, Profile.Unreserved), values.InfoHashEncoded);
             Assert.Equal(1, tracker.ScrapeCount);
             Assert.Equal(TorrentSessionState.Downloading, session.State);
             Assert.Equal(10, session.Snapshot.Seeders);

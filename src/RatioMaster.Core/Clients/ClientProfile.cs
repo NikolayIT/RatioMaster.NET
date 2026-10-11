@@ -21,6 +21,13 @@ namespace RatioMaster.Core.Clients
         /// <summary>Gets a value indicating whether the percent-encoded info hash uses upper-case hex escapes.</summary>
         public bool HashUpperCase { get; init; }
 
+        /// <summary>
+        /// Gets the characters other than ASCII letters and digits that the client leaves as they are when it
+        /// percent-encodes the info hash and the peer id: "-_.!~*()" for libtorrent, "-._~" for uTorrent and
+        /// Transmission, "-" for rTorrent and so on. Empty means every other byte is escaped.
+        /// </summary>
+        public string Unreserved { get; init; } = string.Empty;
+
         /// <summary>Gets the spec for the tracker "key" value.</summary>
         public required RandomValueSpec Key { get; init; }
 

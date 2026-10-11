@@ -28,6 +28,20 @@ namespace RatioMaster.Core.Tests.Tracker
         }
 
         [Theory]
+        [InlineData("http://t/announce?info_hash=%2D%2e%5F%7e%21&x=1", "/announce?info_hash=%2D%2e%5F%7e%21&x=1")]
+        [InlineData("http://t:6969/announce.php?passkey=abc", "/announce.php?passkey=abc")]
+        [InlineData("http://t:6969?x=1", "/?x=1")]
+        [InlineData("http://t", "/")]
+        [InlineData("http://t/a?b#fragment", "/a?b")]
+        [InlineData("https://user:pw@t:443/p?q", "/p?q")]
+        [InlineData("http://t/a b?ü", "/a%20b?%C3%BC")]
+        public void RequestTargetIsTheUrlAsWritten(string url, string expected)
+        {
+            // Uri.PathAndQuery would have turned %2D %2e %5F %7e into - . _ ~ and changed the client's escaping.
+            Assert.Equal(expected, HttpRequestWriter.RequestTarget(url));
+        }
+
+        [Theory]
         [InlineData("http://tracker.test/announce", "tracker.test")]
         [InlineData("http://tracker.test:80/announce", "tracker.test")]
         [InlineData("https://tracker.test:443/announce", "tracker.test")]

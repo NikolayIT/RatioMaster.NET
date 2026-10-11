@@ -522,7 +522,7 @@ namespace RatioMaster.Core.Sessions
 
                 values = new AnnounceValues
                 {
-                    InfoHashEncoded = InfoHashEncoder.Encode(this.descriptor.InfoHash, this.profile.HashUpperCase),
+                    InfoHashEncoded = InfoHashEncoder.Encode(this.descriptor.InfoHash, this.profile.HashUpperCase, this.profile.Unreserved),
                     PeerId = this.identity.PeerId,
                     Port = this.identity.Port,
                     Uploaded = this.uploaded,
@@ -621,7 +621,7 @@ namespace RatioMaster.Core.Sessions
                 return;
             }
 
-            var encoded = InfoHashEncoder.Encode(this.descriptor.InfoHash, this.profile.HashUpperCase);
+            var encoded = InfoHashEncoder.Encode(this.descriptor.InfoHash, this.profile.HashUpperCase, this.profile.Unreserved);
             try
             {
                 var outcome = await this.tracker.ScrapeAsync(
