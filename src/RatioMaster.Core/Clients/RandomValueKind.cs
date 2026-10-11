@@ -32,9 +32,10 @@ namespace RatioMaster.Core.Clients
         TransmissionChecksum,
 
         /// <summary>
-        /// A random 31-bit integer as lower-case hexadecimal with no leading zeros, so the length varies.
-        /// Transmission's announce key: <c>tr_rand_int(INT_MAX)</c> printed with "%x" (announcer-http.c).
-        /// The spec's length is ignored.
+        /// A random 31-bit integer as lower-case hexadecimal. With no length it has no leading zeros, so the
+        /// length varies: Transmission's announce key, <c>tr_rand_int(INT_MAX)</c> printed with "%x"
+        /// (announcer-http.c). With a length it is zero-padded to it: rTorrent's key, <c>random()</c> plus one
+        /// printed with setw(8) and setfill('0'), whose first digit is 0-7 for all but one of its 2^31 values.
         /// </summary>
         HexRange,
 
@@ -45,5 +46,12 @@ namespace RatioMaster.Core.Clients
         /// percent-encoded.
         /// </summary>
         BitTornadoBase64,
+
+        /// <summary>
+        /// Arbitrary bytes 0..255, meant to be percent-encoded. Unlike <see cref="Random"/> the zero byte is
+        /// included: rTorrent's libtorrent fills the peer id tail with whole random bytes (generate_random,
+        /// ::random() truncated to a char up to 0.13.6, an 8-bit independent_bits_engine since).
+        /// </summary>
+        AnyByte,
     }
 }

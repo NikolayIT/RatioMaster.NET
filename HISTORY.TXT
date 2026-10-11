@@ -10,6 +10,8 @@
 - RM: Added new client emulation: "qBittorrent 5.2.4", which is now the default
 - RM: Added new client emulation: "Deluge 2.2.0", taken from a real announce: it names libtorrent 1.2.19 in its user agent and otherwise announces like 2.1.1
 - RM: Added new client emulation: "BitTornado 0.3.18", the last BitTornado release, which also announces that it supports encryption (supportcrypto=1). Both BitTornado emulations now draw their peer id and key from the client's own 64-character alphabet, which has "." and "-" as well as letters and digits
+- RM: Added new client emulation: "rTorrent 0.16.25" (libtorrent 0.16.25), which announces in a new order, no longer names libtorrent in its user agent and accepts the brotli and zstd encodings of the curl current Linux distributions ship
+- RM: Fixed three details of the rTorrent 0.9.6 emulation, read from its source: the info hash and peer id are escaped with upper-case hex, the key comes from the same 31-bit range as the real client's (so it starts with 0-7, not any hex digit), and the peer id can contain a zero byte
 ---=== 1.1.0 (07-09-2026) ===---
 - RM: New per-torrent option "Pause the upload while the tracker reports no leechers", on by default (issue #16). Switch it off to keep uploading. When on, the upload pauses while the tracker reports zero leechers and resumes on its own when leechers appear; the "random speed on each update" and live speed edits can no longer upload past it, and the configured speed is no longer overwritten with 0 (issue #42)
 - RM: Added new client emulation: "uTorrent 3.6.0" (build 46828), taken from a real announce: build number in the peer id, uTorrent/360(...)(46828) user agent, Connection: Close

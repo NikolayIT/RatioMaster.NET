@@ -54,7 +54,7 @@ namespace RatioMaster.Core.Clients
             var value = spec.Type switch
             {
                 RandomValueKind.TransmissionChecksum => this.GenerateTransmissionSuffix(spec.Length),
-                RandomValueKind.HexRange => this.GenerateHexRange(),
+                RandomValueKind.HexRange => this.GenerateHexRange(spec.Length),
                 _ => this.GenerateBase(spec.Type, spec.Length),
             };
 
@@ -78,6 +78,7 @@ namespace RatioMaster.Core.Clients
                     RandomValueKind.UrlSafe => this.Pick(UrlSafe),
                     RandomValueKind.BitTornadoBase64 => this.Pick(MapBase64),
                     RandomValueKind.Random => (char)this.random.Next(1, 256),
+                    RandomValueKind.AnyByte => (char)this.random.Next(0, 256),
                     _ => this.Pick(Alphanumeric),
                 });
             }
@@ -107,9 +108,12 @@ namespace RatioMaster.Core.Clients
             return new string(buffer);
         }
 
-        /// <summary>Transmission's announce key: tr_rand_int(INT_MAX) printed with "%x".</summary>
-        private string GenerateHexRange() =>
-            Convert.ToString(this.random.Next(int.MaxValue), 16);
+        /// <summary>
+        /// A 31-bit key in lower-case hex: Transmission's tr_rand_int(INT_MAX) printed with "%x" when
+        /// <paramref name="length"/> is 0, rTorrent's random() zero-padded to 8 digits when it is 8.
+        /// </summary>
+        private string GenerateHexRange(int length) =>
+            Convert.ToString(this.random.Next(int.MaxValue), 16).PadLeft(length, '0');
 
         private char Pick(string set) => set[(int)(set.Length * this.random.NextDouble())];
     }

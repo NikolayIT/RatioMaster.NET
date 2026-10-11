@@ -156,10 +156,19 @@
     },
 
     {
+      "name": "rTorrent 0.16.25", "family": "rTorrent", "version": "0.16.25",
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "hexRange", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-lt1019-", "type": "anyByte", "length": 12, "urlEncode": true, "upperCase": true },
+      "headers": ["Host: {host}", "User-Agent: rtorrent/0.16.25", "Accept: */*", "Accept-Encoding: deflate, gzip, br, zstd"],
+      "query": "info_hash={infohash}&peer_id={peerid}&compact=1&key={key}&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}",
+      "defaultNumWant": 0
+    },
+    {
       "name": "rTorrent 0.9.6", "family": "rTorrent", "version": "0.9.6",
-      "httpProtocol": "HTTP/1.1", "hashUpperCase": false,
-      "key": { "type": "hex", "length": 8, "urlEncode": false, "upperCase": false },
-      "peerId": { "prefix": "-lt0D60-", "type": "random", "length": 12, "urlEncode": true, "upperCase": true },
+      "httpProtocol": "HTTP/1.1", "hashUpperCase": true,
+      "key": { "type": "hexRange", "length": 8, "urlEncode": false, "upperCase": false },
+      "peerId": { "prefix": "-lt0D60-", "type": "anyByte", "length": 12, "urlEncode": true, "upperCase": true },
       "headers": ["Host: {host}", "User-Agent: rtorrent/0.9.6/0.13.6", "Accept: */*", "Accept-Encoding: deflate, gzip"],
       "query": "info_hash={infohash}&peer_id={peerid}&key={key}&compact=1&port={port}&uploaded={uploaded}&downloaded={downloaded}&left={left}{event}",
       "defaultNumWant": 0

@@ -526,37 +526,69 @@ Connection: Close<CR>
 --- Scrape ---
 http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
 
+=== rTorrent 0.16.25 ===
+--- Started ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-lt1019-PEERIDSUFFIX&compact=1&key=KEY01234&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=started HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: rtorrent/0.16.25<CR>
+Accept: */*<CR>
+Accept-Encoding: deflate, gzip, br, zstd<CR>
+<CR>
+--- None ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-lt1019-PEERIDSUFFIX&compact=1&key=KEY01234&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456 HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: rtorrent/0.16.25<CR>
+Accept: */*<CR>
+Accept-Encoding: deflate, gzip, br, zstd<CR>
+<CR>
+--- Completed ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-lt1019-PEERIDSUFFIX&compact=1&key=KEY01234&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=completed HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: rtorrent/0.16.25<CR>
+Accept: */*<CR>
+Accept-Encoding: deflate, gzip, br, zstd<CR>
+<CR>
+--- Stopped ---
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-lt1019-PEERIDSUFFIX&compact=1&key=KEY01234&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=stopped HTTP/1.1<CR>
+Host: tracker.test<CR>
+User-Agent: rtorrent/0.16.25<CR>
+Accept: */*<CR>
+Accept-Encoding: deflate, gzip, br, zstd<CR>
+<CR>
+--- Scrape ---
+http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
+
 === rTorrent 0.9.6 ===
 --- Started ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=started HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=started HTTP/1.1<CR>
 Host: tracker.test<CR>
 User-Agent: rtorrent/0.9.6/0.13.6<CR>
 Accept: */*<CR>
 Accept-Encoding: deflate, gzip<CR>
 <CR>
 --- None ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456 HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456 HTTP/1.1<CR>
 Host: tracker.test<CR>
 User-Agent: rtorrent/0.9.6/0.13.6<CR>
 Accept: */*<CR>
 Accept-Encoding: deflate, gzip<CR>
 <CR>
 --- Completed ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=completed HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=completed HTTP/1.1<CR>
 Host: tracker.test<CR>
 User-Agent: rtorrent/0.9.6/0.13.6<CR>
 Accept: */*<CR>
 Accept-Encoding: deflate, gzip<CR>
 <CR>
 --- Stopped ---
-GET /announce?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=stopped HTTP/1.1<CR>
+GET /announce?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6&peer_id=-lt0D60-PEERIDSUFFIX&key=KEY01234&compact=1&port=45678&uploaded=1073741824&downloaded=536870912&left=268435456&event=stopped HTTP/1.1<CR>
 Host: tracker.test<CR>
 User-Agent: rtorrent/0.9.6/0.13.6<CR>
 Accept: */*<CR>
 Accept-Encoding: deflate, gzip<CR>
 <CR>
 --- Scrape ---
-http://tracker.test/scrape?info_hash=%05%10%1b%261%3cGR%5dhs%7e%89%94%9f%aa%b5%c0%cb%d6
+http://tracker.test/scrape?info_hash=%05%10%1B%261%3CGR%5Dhs%7E%89%94%9F%AA%B5%C0%CB%D6
 
 === Transmission 2.94 ===
 --- Started ---

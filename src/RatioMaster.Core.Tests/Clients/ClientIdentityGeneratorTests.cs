@@ -119,6 +119,39 @@ namespace RatioMaster.Core.Tests.Clients
             }
         }
 
+        /// <summary>rTorrent prints random() + 1 with setw(8) and setfill('0'): eight lower-case digits, below 2^31 the first is 0-7.</summary>
+        [Fact]
+        public void HexRangeWithALengthIsZeroPaddedAndStaysBelowTwoToTheThirtyOne()
+        {
+            var generator = new ClientIdentityGenerator(new DeterministicRandomSource(8));
+            var spec = new RandomValueSpec { Type = RandomValueKind.HexRange, Length = 8 };
+
+            var keys = Enumerable.Range(0, 500).Select(_ => generator.GenerateValue(spec)).ToList();
+
+            Assert.All(keys, key =>
+            {
+                Assert.Equal(8, key.Length);
+                Assert.All(key, c => Assert.Contains(c, "0123456789abcdef"));
+                Assert.Contains(key[0], "01234567");
+            });
+            Assert.Contains(keys, key => key[0] == '0');
+        }
+
+        [Fact]
+        public void AnyByteKindCanProduceTheZeroByteThatRandomNeverDoes()
+        {
+            var generator = new ClientIdentityGenerator(new DeterministicRandomSource(6));
+            var anyByte = new RandomValueSpec { Type = RandomValueKind.AnyByte, Length = 12, UrlEncode = true, UpperCase = true };
+            var random = anyByte with { Type = RandomValueKind.Random };
+
+            var anyByteValues = Enumerable.Range(0, 500).Select(_ => generator.GenerateValue(anyByte)).ToList();
+            var randomValues = Enumerable.Range(0, 500).Select(_ => generator.GenerateValue(random)).ToList();
+
+            // rTorrent's generate_random takes whole bytes, so a NUL turns up; the 1-255 clients never send one.
+            Assert.Contains(anyByteValues, v => v.Contains("%00", StringComparison.Ordinal));
+            Assert.DoesNotContain(randomValues, v => v.Contains("%00", StringComparison.Ordinal));
+        }
+
         [Fact]
         public void BitTornadoBase64UsesAllSixtyFourCharacters()
         {
