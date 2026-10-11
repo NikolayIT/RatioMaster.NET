@@ -1,4 +1,4 @@
----=== 1.2.0 (not released yet) ===---
+---=== 1.2.0 (11-10-2026) ===---
 - Global: the program speaks 38 languages. Besides English it is translated into Albanian, Arabic, Bulgarian, Chinese (Simplified and Traditional), Croatian, Czech, Danish, Dutch, Estonian, Finnish, French, German, Greek, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Lithuanian, Norwegian, Polish, Portuguese (Brazil and Portugal), Romanian, Russian, Serbian (Cyrillic and Latin), Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian and Vietnamese. It starts in the display language of the system; Settings > General > Language picks another one, which takes effect after a restart
 - Global: Arabic and Hebrew lay the window out from right to left
 - Global: sizes and speeds use the units of the chosen language (Ko/s and Mo in French, for example), and percentages follow the regional format of the system
