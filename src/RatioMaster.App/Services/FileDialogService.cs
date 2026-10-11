@@ -10,23 +10,24 @@ namespace RatioMaster.App.Services
     using Avalonia.Controls.Notifications;
     using Avalonia.Platform.Storage;
     using Avalonia.Threading;
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services.Abstractions;
 
     /// <summary>File pickers over <see cref="IStorageProvider"/>.</summary>
     public sealed class FileDialogService(IMainWindowProvider windows) : IFileDialogService
     {
-        private static readonly FilePickerFileType TorrentFiles = new("Torrent files")
+        private static readonly FilePickerFileType TorrentFiles = new(Strings.FileTypeTorrents)
         {
             Patterns = ["*.torrent"],
             MimeTypes = ["application/x-bittorrent"],
         };
 
-        private static readonly FilePickerFileType SessionFiles = new("RatioMaster sessions")
+        private static readonly FilePickerFileType SessionFiles = new(Strings.FileTypeSessions)
         {
             Patterns = ["*.session"],
         };
 
-        private static readonly FilePickerFileType LogFiles = new("Log files")
+        private static readonly FilePickerFileType LogFiles = new(Strings.FileTypeLogs)
         {
             Patterns = ["*.log", "*.txt"],
         };
@@ -41,7 +42,7 @@ namespace RatioMaster.App.Services
 
             var files = await storage.OpenFilePickerAsync(new FilePickerOpenOptions
             {
-                Title = "Add torrents",
+                Title = Strings.PickAddTorrents,
                 AllowMultiple = true,
                 FileTypeFilter = [TorrentFiles, FilePickerFileTypes.All],
                 SuggestedStartLocation = await FolderAsync(storage, startDirectory),
@@ -60,7 +61,7 @@ namespace RatioMaster.App.Services
 
             var files = await storage.OpenFilePickerAsync(new FilePickerOpenOptions
             {
-                Title = "Load session",
+                Title = Strings.LoadSession,
                 AllowMultiple = false,
                 FileTypeFilter = [SessionFiles, FilePickerFileTypes.All],
                 SuggestedStartLocation = await FolderAsync(storage, startDirectory),
@@ -80,7 +81,7 @@ namespace RatioMaster.App.Services
 
             var file = await storage.SaveFilePickerAsync(new FilePickerSaveOptions
             {
-                Title = "Save session",
+                Title = Strings.PickSaveSession,
                 SuggestedFileName = suggestedName,
                 DefaultExtension = "session",
                 FileTypeChoices = [SessionFiles],
@@ -100,7 +101,7 @@ namespace RatioMaster.App.Services
 
             var file = await storage.SaveFilePickerAsync(new FilePickerSaveOptions
             {
-                Title = "Save log",
+                Title = Strings.PickSaveLog,
                 SuggestedFileName = suggestedName,
                 DefaultExtension = "log",
                 FileTypeChoices = [LogFiles],

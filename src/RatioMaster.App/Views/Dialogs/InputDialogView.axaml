@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
              x:Class="RatioMaster.App.Views.Dialogs.InputDialogView"
              x:DataType="vm:InputDialogViewModel">
@@ -7,8 +8,8 @@
     <TextBlock Text="{Binding Label}" TextWrapping="Wrap" />
     <TextBox Text="{Binding Value}" Name="ValueBox" />
     <StackPanel Classes="dialog-buttons" Margin="0,8,0,0">
-      <Button Content="OK" IsDefault="True" Classes="accent" Command="{Binding AcceptCommand}" />
-      <Button Content="Cancel" IsCancel="True" Command="{Binding CancelCommand}" />
+      <Button Content="{x:Static res:Strings.ButtonOk}" IsDefault="True" Classes="accent" Command="{Binding AcceptCommand}" />
+      <Button Content="{x:Static res:Strings.ButtonCancel}" IsCancel="True" Command="{Binding CancelCommand}" />
     </StackPanel>
   </StackPanel>
 </UserControl>

@@ -1,8 +1,11 @@
 namespace RatioMaster.Core.Networking
 {
+    using System.Globalization;
     using System.Net;
     using System.Net.Sockets;
     using System.Text;
+
+    using RatioMaster.Core.Resources;
 
     /// <summary>
     /// Answers incoming BitTorrent handshakes on the announced port so the torrent looks connectable to peers.
@@ -49,14 +52,14 @@ namespace RatioMaster.Core.Networking
             }
             catch (SocketException ex)
             {
-                this.log?.Invoke($"TCP listener could not start on port {this.port} (already in use?): {ex.Message}");
+                this.log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ListenerStartFailed, this.port, ex.Message));
                 return false;
             }
 
             this.listener = listener;
             this.cts = new CancellationTokenSource();
             this.acceptLoop = Task.Run(() => this.AcceptLoopAsync(this.cts.Token));
-            this.log?.Invoke($"Started TCP listener on port {this.port}");
+            this.log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ListenerStarted, this.port));
             return true;
         }
 
@@ -88,7 +91,7 @@ namespace RatioMaster.Core.Networking
             this.acceptLoop = null;
             if (wasListening)
             {
-                this.log?.Invoke("TCP listener closed");
+                this.log?.Invoke(Strings.ListenerClosed);
             }
         }
 

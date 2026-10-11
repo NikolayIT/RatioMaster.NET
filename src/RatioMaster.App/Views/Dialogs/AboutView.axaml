@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
              x:Class="RatioMaster.App.Views.Dialogs.AboutView"
              x:DataType="vm:AboutViewModel"
@@ -19,7 +20,7 @@
       <StackPanel Spacing="2">
         <TextBlock Text="RatioMaster.NET" FontSize="20" FontWeight="SemiBold" />
         <TextBlock Classes="subtle">
-          <Run Text="Version" />
+          <Run Text="{x:Static res:Strings.Version}" />
           <Run Text="{Binding Version}" />
           <Run Text="·" />
           <Run Text="{Binding ReleaseDate}" />
@@ -29,25 +30,25 @@
     </StackPanel>
 
     <TextBlock TextWrapping="Wrap"
-               Text="Fakes the upload and download a BitTorrent tracker sees, without downloading or uploading anything." />
+               Text="{x:Static res:Strings.AboutDescription}" />
 
     <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="4">
-      <TextBlock Grid.Row="0" Grid.Column="0" Text="Website" Classes="label subtle" />
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.Website}" Classes="label subtle" />
       <HyperlinkButton Grid.Row="0" Grid.Column="1" Classes="about"
                        Content="{Binding Website}" Command="{Binding OpenCommand}" CommandParameter="{Binding Website}" />
       <TextBlock Grid.Row="1" Grid.Column="0" Text="GitHub" Classes="label subtle" />
       <HyperlinkButton Grid.Row="1" Grid.Column="1" Classes="about"
                        Content="{Binding GitHub}" Command="{Binding OpenCommand}" CommandParameter="{Binding GitHub}" />
-      <TextBlock Grid.Row="2" Grid.Column="0" Text="Forums" Classes="label subtle" />
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static res:Strings.Forums}" Classes="label subtle" />
       <HyperlinkButton Grid.Row="2" Grid.Column="1" Classes="about"
                        Content="{Binding Forum}" Command="{Binding OpenCommand}" CommandParameter="{Binding Forum}" />
-      <TextBlock Grid.Row="3" Grid.Column="0" Text="Report a bug" Classes="label subtle" />
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static res:Strings.ReportBug}" Classes="label subtle" />
       <HyperlinkButton Grid.Row="3" Grid.Column="1" Classes="about"
                        Content="{Binding BugReport}" Command="{Binding OpenCommand}" CommandParameter="{Binding BugReport}" />
-      <TextBlock Grid.Row="4" Grid.Column="0" Text="Donate" Classes="label subtle" />
+      <TextBlock Grid.Row="4" Grid.Column="0" Text="{x:Static res:Strings.Donate}" Classes="label subtle" />
       <HyperlinkButton Grid.Row="4" Grid.Column="1" Classes="about"
-                       Content="Support the project through PayPal" Command="{Binding DonateCommand}" />
-      <TextBlock Grid.Row="5" Grid.Column="0" Text="E-mail" Classes="label subtle" />
+                       Content="{x:Static res:Strings.AboutPayPal}" Command="{Binding DonateCommand}" />
+      <TextBlock Grid.Row="5" Grid.Column="0" Text="{x:Static res:Strings.AboutEmail}" Classes="label subtle" />
       <HyperlinkButton Grid.Row="5" Grid.Column="1" Classes="about"
                        Content="{Binding Email}" Command="{Binding EmailCommand}" />
     </Grid>
@@ -55,8 +56,8 @@
     <TextBlock Text="{Binding Copyright}" Classes="subtle" TextWrapping="Wrap" />
 
     <StackPanel Classes="dialog-buttons" Margin="0,4,0,0">
-      <Button Content="Donate" Command="{Binding DonateCommand}" />
-      <Button Content="Close" IsDefault="True" IsCancel="True" Command="{Binding CloseDialogCommand}" />
+      <Button Content="{x:Static res:Strings.Donate}" Command="{Binding DonateCommand}" />
+      <Button Content="{x:Static res:Strings.ButtonClose}" IsDefault="True" IsCancel="True" Command="{Binding CloseDialogCommand}" />
     </StackPanel>
   </StackPanel>
 </UserControl>

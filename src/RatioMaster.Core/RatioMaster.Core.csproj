@@ -12,6 +12,17 @@
     <EmbeddedResource Include="Clients\clients.json" LogicalName="RatioMaster.Core.Clients.clients.json" />
   </ItemGroup>
 
+  <!-- User-facing messages. Strings.resx is English; Strings.<culture>.resx become satellite assemblies.
+       The Strings class is generated at build time, so there is no checked-in Designer file. -->
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+      <StronglyTypedNamespace>RatioMaster.Core.Resources</StronglyTypedNamespace>
+      <StronglyTypedClassName>Strings</StronglyTypedClassName>
+      <StronglyTypedFileName>$(IntermediateOutputPath)Strings.Designer.cs</StronglyTypedFileName>
+    </EmbeddedResource>
+  </ItemGroup>
+
   <ItemGroup>
     <InternalsVisibleTo Include="RatioMaster.Core.Tests" />
   </ItemGroup>

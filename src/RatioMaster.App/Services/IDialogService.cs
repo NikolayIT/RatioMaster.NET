@@ -15,7 +15,8 @@ namespace RatioMaster.App.Services
 
         Task ShowMessageAsync(string title, string message);
 
-        Task<bool> ConfirmAsync(string title, string message, string okText = "OK", string cancelText = "Cancel");
+        /// <summary>Asks a yes/no question; the buttons default to the translated OK and Cancel.</summary>
+        Task<bool> ConfirmAsync(string title, string message, string? okText = null, string? cancelText = null);
 
         Task<string?> ChooseAsync(string title, string message, IReadOnlyList<DialogButton> buttons);
 

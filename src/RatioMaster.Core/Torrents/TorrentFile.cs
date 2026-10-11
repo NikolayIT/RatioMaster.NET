@@ -1,8 +1,10 @@
 namespace RatioMaster.Core.Torrents
 {
+    using System.Globalization;
     using System.Security.Cryptography;
 
     using RatioMaster.Core.Bencode;
+    using RatioMaster.Core.Resources;
 
     /// <summary>The parsed content of a .torrent file (metainfo).</summary>
     public sealed class TorrentFile
@@ -93,7 +95,7 @@ namespace RatioMaster.Core.Torrents
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
-                throw new TorrentFormatException($"Cannot read '{path}': {ex.Message}", ex);
+                throw new TorrentFormatException(string.Format(CultureInfo.CurrentCulture, Strings.TorrentCannotRead, path, ex.Message), ex);
             }
 
             return Parse(data, System.IO.Path.GetFullPath(path));
@@ -108,17 +110,17 @@ namespace RatioMaster.Core.Torrents
             }
             catch (BencodeException ex)
             {
-                throw new TorrentFormatException("Not a valid torrent file: " + ex.Message, ex);
+                throw new TorrentFormatException(string.Format(CultureInfo.CurrentCulture, Strings.TorrentInvalid, ex.Message), ex);
             }
 
-            var info = root.GetDictionary("info") ?? throw new TorrentFormatException("No internal torrent information (\"info\" dictionary).");
+            var info = root.GetDictionary("info") ?? throw new TorrentFormatException(Strings.TorrentNoInfo);
             var infoHash = SHA1.HashData(data.Slice(info.RawOffset, info.RawLength));
 
-            var pieceLength = info.GetInteger("piece length") ?? throw new TorrentFormatException("No piece length.");
-            var pieces = info.GetString("pieces") ?? throw new TorrentFormatException("No piece hash data.");
+            var pieceLength = info.GetInteger("piece length") ?? throw new TorrentFormatException(Strings.TorrentNoPieceLength);
+            var pieces = info.GetString("pieces") ?? throw new TorrentFormatException(Strings.TorrentNoPieces);
             if (pieces.Length % 20 != 0)
             {
-                throw new TorrentFormatException("Missing or damaged piece hash codes.");
+                throw new TorrentFormatException(Strings.TorrentDamagedPieces);
             }
 
             var name = info.GetUtf8Text("name.utf-8") ?? info.GetUtf8Text("name") ?? string.Empty;
@@ -171,17 +173,17 @@ namespace RatioMaster.Core.Torrents
                 return [new TorrentFileEntry(name, length)];
             }
 
-            var list = info.GetList("files") ?? throw new TorrentFormatException("The torrent has neither a file length nor a file list.");
+            var list = info.GetList("files") ?? throw new TorrentFormatException(Strings.TorrentNoFiles);
             var files = new List<TorrentFileEntry>(list.Count);
             foreach (var item in list)
             {
                 if (item is not BencodeDictionary file)
                 {
-                    throw new TorrentFormatException("Invalid entry in the file list.");
+                    throw new TorrentFormatException(Strings.TorrentInvalidFileEntry);
                 }
 
-                var fileLength = file.GetInteger("length") ?? throw new TorrentFormatException("A file entry has no length.");
-                var components = file.GetList("path.utf-8") ?? file.GetList("path") ?? throw new TorrentFormatException("A file entry has no path.");
+                var fileLength = file.GetInteger("length") ?? throw new TorrentFormatException(Strings.TorrentFileEntryNoLength);
+                var components = file.GetList("path.utf-8") ?? file.GetList("path") ?? throw new TorrentFormatException(Strings.TorrentFileEntryNoPath);
                 var path = string.Join('/', components.OfType<BencodeString>().Select(c => c.Utf8Text));
                 files.Add(new TorrentFileEntry(path, fileLength));
             }

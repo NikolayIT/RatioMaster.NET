@@ -3,6 +3,7 @@ namespace RatioMaster.App.Services
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services.Abstractions;
     using RatioMaster.App.ViewModels.Dialogs;
     using RatioMaster.App.Views.Dialogs;
@@ -34,16 +35,16 @@ namespace RatioMaster.App.Services
         }
 
         public Task ShowMessageAsync(string title, string message) =>
-            this.ShowAsync(new MessageDialogViewModel(title, message, [new DialogButton("OK", "ok", IsDefault: true, IsCancel: true)]));
+            this.ShowAsync(new MessageDialogViewModel(title, message, [new DialogButton(Strings.ButtonOk, "ok", IsDefault: true, IsCancel: true)]));
 
-        public async Task<bool> ConfirmAsync(string title, string message, string okText = "OK", string cancelText = "Cancel")
+        public async Task<bool> ConfirmAsync(string title, string message, string? okText = null, string? cancelText = null)
         {
             var result = await this.ShowAsync(new MessageDialogViewModel(
                 title,
                 message,
                 [
-                    new DialogButton(okText, "ok", IsDefault: true),
-                    new DialogButton(cancelText, "cancel", IsCancel: true),
+                    new DialogButton(okText ?? Strings.ButtonOk, "ok", IsDefault: true),
+                    new DialogButton(cancelText ?? Strings.ButtonCancel, "cancel", IsCancel: true),
                 ]));
 
             return result == "ok";

@@ -3,12 +3,14 @@ namespace RatioMaster.App.ViewModels.Dialogs
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Globalization;
     using System.Linq;
     using System.Threading.Tasks;
 
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
     using RatioMaster.App.Converters;
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services.Abstractions;
     using RatioMaster.Core.Sessions;
     using RatioMaster.Core.Torrents;
@@ -45,7 +47,7 @@ namespace RatioMaster.App.ViewModels.Dialogs
             TorrentSettings defaults,
             bool startImmediately)
         {
-            this.Title = "Add torrent";
+            this.Title = Strings.AddTorrent;
             this.Settings = settings;
             this.files = files;
             this.defaults = defaults;
@@ -64,9 +66,9 @@ namespace RatioMaster.App.ViewModels.Dialogs
 
         public string Summary => this.Torrents.Count switch
         {
-            0 => "No torrent selected yet.",
+            0 => Strings.AddNoTorrent,
             1 => this.Selected?.Name ?? string.Empty,
-            _ => $"{this.Torrents.Count} torrents; the settings below apply to all of them.",
+            _ => string.Format(CultureInfo.CurrentCulture, Strings.AddManyTorrents, this.Torrents.Count),
         };
 
         public bool CanAdd => this.Torrents.Count > 0;
@@ -88,8 +90,8 @@ namespace RatioMaster.App.ViewModels.Dialogs
                 return unsupported switch
                 {
                     0 => null,
-                    1 => "One of these torrents has no http or https tracker and will not be able to start.",
-                    _ => $"{unsupported} of these torrents have no http or https tracker and will not be able to start.",
+                    1 => Strings.AddOneWithoutHttpTracker,
+                    _ => string.Format(CultureInfo.CurrentCulture, Strings.AddManyWithoutHttpTracker, unsupported),
                 };
             }
         }

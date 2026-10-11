@@ -17,6 +17,12 @@ namespace RatioMaster.Core.Settings
 
         public AppTheme Theme { get; set; } = AppTheme.System;
 
+        /// <summary>
+        /// Gets or sets the interface language (a <see cref="UiLanguage.Code"/>), or null to follow the display
+        /// language of the operating system.
+        /// </summary>
+        public string? Language { get; set; }
+
         public bool Use24HourTime { get; set; }
 
         public bool CheckForUpdatesOnStartup { get; set; } = true;

@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_File</value>
+    <comment>Top-level menu. The underscore marks the Alt access key; put it before a letter of the translation (or use "(_F)" after the word, as Japanese and Chinese software does). The five top-level menus (File, Torrent, All, View, Help) need different access letters.</comment>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+    <comment>Top-level menu with the commands for the selected torrent. Access key: see MenuFile.</comment>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_All</value>
+    <comment>Top-level menu with commands that act on every torrent in the list. Access key: see MenuFile.</comment>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_View</value>
+    <comment>Top-level menu. Access key: see MenuFile.</comment>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Help</value>
+    <comment>Top-level menu. Access key: see MenuFile.</comment>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Add torrent...</value>
+    <comment>File menu item; opens a file picker. "..." means a dialog follows.</comment>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Load session...</value>
+    <comment>A session is a saved list of torrents with their settings.</comment>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Load session and start...</value>
+    <comment>Loads a session and starts every torrent in it.</comment>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Save session...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Stop all and save session...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Settings...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Exit</value>
+    <comment>Quits the application (File menu and tray menu).</comment>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Start</value>
+    <comment>Starts the selected torrent (menu, context menu and toolbar button).</comment>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Stop</value>
+    <comment>Stops the selected torrent (menu, context menu and toolbar button).</comment>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Update now</value>
+    <comment>Sends an announce to the tracker immediately.</comment>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Rename...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Remove</value>
+    <comment>Removes torrents from the list (also the toolbar button and the confirm button). Files on disk are never deleted.</comment>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Copy info hash</value>
+    <comment>The info hash is the torrent's 40-character identifier.</comment>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Use these settings as defaults</value>
+    <comment>Makes the selected torrent's settings the starting point for new torrents.</comment>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Start all</value>
+    <comment>Menu item, tray menu item and toolbar button.</comment>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Stop all</value>
+    <comment>Menu item, tray menu item and toolbar button.</comment>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Update all</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Set upload speed for all...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Set download speed for all...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Clear all logs</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Details pane</value>
+    <comment>View menu check item that shows or hides the pane under the torrent list.</comment>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Columns</value>
+    <comment>View menu submenu listing the columns of the torrent list.</comment>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Program website</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forums</value>
+    <comment>Help menu item and label in the About dialog; links to the project's discussion forum.</comment>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Report a bug</value>
+    <comment>Help menu item and label in the About dialog.</comment>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Donate</value>
+    <comment>Help menu item, About dialog label and button.</comment>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Check for updates</value>
+    <comment>Help menu item and the title of the message it shows.</comment>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>About RatioMaster.NET</value>
+    <comment>Help menu item and About dialog title.</comment>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Show RatioMaster.NET</value>
+    <comment>Tray icon menu item that brings the window back.</comment>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Website</value>
+    <comment>Tray icon menu item opening ratiomaster.net.</comment>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>About</value>
+    <comment>Tray icon menu item opening the About dialog.</comment>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Add</value>
+    <comment>Short toolbar button label (adds a torrent). Keep it short.</comment>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Update</value>
+    <comment>Short toolbar button label: announce to the tracker now. Keep it short.</comment>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Add torrent (Ctrl+O)</value>
+    <comment>Tooltip. Keep key names such as Ctrl, Shift, Del, Enter and F5 exactly as they are.</comment>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Start the selected torrents (Ctrl+Enter)</value>
+    <comment>Tooltip. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Stop the selected torrents (Ctrl+.)</value>
+    <comment>Tooltip. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Announce to the tracker now (F5)</value>
+    <comment>Tooltip. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Remove the selected torrents (Del)</value>
+    <comment>Tooltip. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Start every torrent (Ctrl+Shift+Enter)</value>
+    <comment>Tooltip. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Stop every torrent (Ctrl+Shift+.)</value>
+    <comment>Tooltip. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Show only</value>
+    <comment>Tooltip of the drop-down that filters the torrent list (All, Running, ...).</comment>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Settings (Ctrl+,)</value>
+    <comment>Tooltip. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Search torrents (Ctrl+F)</value>
+    <comment>Placeholder text of the search box. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>All</value>
+    <comment>Filter drop-down: show all torrents.</comment>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Running</value>
+    <comment>Filter drop-down: show the running torrents (plural sense).</comment>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Stopped</value>
+    <comment>Filter drop-down: show the stopped torrents (plural sense).</comment>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Downloading</value>
+    <comment>Filter drop-down: show the torrents that are downloading (plural sense).</comment>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Seeding</value>
+    <comment>Filter drop-down: show the torrents that are seeding (plural sense).</comment>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Error</value>
+    <comment>Filter drop-down: show the torrents that stopped with an error.</comment>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrents: {0} ({1} running)</value>
+    <comment>Status bar. {0} = number of torrents, {1} = how many of them run. If the language needs plural forms, use a label style such as "running: {1}".</comment>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Local IP</value>
+    <comment>Status bar label before the computer's IP address.</comment>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Update available</value>
+    <comment>Status bar link shown when a newer version exists.</comment>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — {0} running   ↑ {1} ↓ {2}</value>
+    <comment>Tray icon tooltip. {0} = number of running torrents (0 or more; use a label style such as "running: {0}" if your language needs plural forms), {1} = total upload speed, {2} = total download speed. Keep the arrows and spacing.</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+    <comment>Torrent name: column header, label in the General tab and in the Add dialog.</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>Column header and label.</comment>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Client</value>
+    <comment>The emulated BitTorrent client (uTorrent, qBittorrent, ...): column header, label and settings section.</comment>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Progress</value>
+    <comment>Column header: how much of the torrent is downloaded.</comment>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploaded</value>
+    <comment>Amount reported as uploaded: column header and label.</comment>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Downloaded</value>
+    <comment>Amount reported as downloaded: column header and label.</comment>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Ratio</value>
+    <comment>Upload/download ratio: column header and label.</comment>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Up speed</value>
+    <comment>Column header: upload speed. Keep it short.</comment>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Down speed</value>
+    <comment>Column header: download speed. Keep it short.</comment>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Seeds</value>
+    <comment>Column header: number of seeders. Keep it short.</comment>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Leechers</value>
+    <comment>Column header: number of leechers. Use the term BitTorrent clients use in your language.</comment>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Update in</value>
+    <comment>Column header: time left until the next tracker announce (followed by a time such as 12:30 in the cells).</comment>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Total time</value>
+    <comment>How long the torrent has been running: column header and label.</comment>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Tracker</value>
+    <comment>The BitTorrent tracker: column header, label and the details tab.</comment>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>No torrents yet</value>
+    <comment>Shown in the empty torrent list.</comment>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Drop a .torrent or .session file here, or press Ctrl+O</value>
+    <comment>Shown in the empty torrent list. Keep .torrent, .session and Ctrl+O as they are.</comment>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Add torrent</value>
+    <comment>Button in the empty list and title of the Add dialog.</comment>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Hide the details pane (Ctrl+D)</value>
+    <comment>Tooltip of the close button on the details pane. Keep the shortcut as it is.</comment>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Idle</value>
+    <comment>Torrent status: never started.</comment>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Starting</value>
+    <comment>Torrent status: the first announce is in flight.</comment>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Downloading</value>
+    <comment>Torrent status (single torrent).</comment>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Seeding</value>
+    <comment>Torrent status (single torrent).</comment>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Updating</value>
+    <comment>Torrent status: an announce to the tracker is in flight.</comment>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Stopping</value>
+    <comment>Torrent status.</comment>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Stopped</value>
+    <comment>Torrent status (single torrent).</comment>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Error</value>
+    <comment>Torrent status: stopped because of an error.</comment>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Stopped: {0}</value>
+    <comment>Torrent status. {0} = why it stopped, such as "ran for 3600 seconds".</comment>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Error: {0}</value>
+    <comment>Torrent status. {0} = the error.</comment>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Never</value>
+    <comment>General tab, after the next update time: the torrent never stops on its own.</comment>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>After {0} s</value>
+    <comment>General tab: stops after {0} seconds.</comment>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Seeders &lt; {0}</value>
+    <comment>General tab: stops when the seeders drop below {0}.</comment>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Leechers &lt; {0}</value>
+    <comment>General tab: stops when the leechers drop below {0}.</comment>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Uploaded &gt; {0} MB</value>
+    <comment>General tab: stops when more than {0} megabytes are uploaded.</comment>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Downloaded &gt; {0} MB</value>
+    <comment>General tab: stops when more than {0} megabytes are downloaded.</comment>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Leechers/seeders &lt; {0}</value>
+    <comment>General tab: stops when leechers divided by seeders drops below {0}.</comment>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Never</value>
+    <comment>"Stop" drop-down in the torrent settings: never stop on its own.</comment>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>After time</value>
+    <comment>"Stop" drop-down: followed by a number box and the word "seconds".</comment>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>When seeders &lt;</value>
+    <comment>"Stop" drop-down: followed by a number box.</comment>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>When leechers &lt;</value>
+    <comment>"Stop" drop-down: followed by a number box.</comment>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>When uploaded &gt;</value>
+    <comment>"Stop" drop-down: followed by a number box and "MB".</comment>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>When downloaded &gt;</value>
+    <comment>"Stop" drop-down: followed by a number box and "MB".</comment>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>When leechers/seeders &lt;</value>
+    <comment>"Stop" drop-down: followed by a number box and the word "ratio".</comment>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>seconds</value>
+    <comment>Unit after the stop value box: the number of seconds the user typed, normally 60 or more. Use the form a unit label next to a number field normally takes.</comment>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+    <comment>Unit after the stop value box (megabytes). Use the local abbreviation, such as Mo in French.</comment>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>ratio</value>
+    <comment>Unit after the stop value box.</comment>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>None</value>
+    <comment>Proxy type drop-down and the General tab: no proxy.</comment>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>System</value>
+    <comment>Theme drop-down: follow the operating system's light or dark setting.</comment>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Light</value>
+    <comment>Theme drop-down.</comment>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Dark</value>
+    <comment>Theme drop-down.</comment>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Select a torrent to see its details</value>
+    <comment>Shown in the details pane when nothing is selected.</comment>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>General</value>
+    <comment>Tab in the details pane and in the Settings dialog.</comment>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Details pane tab, section heading in the Add dialog, and the Settings dialog title.</comment>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Log</value>
+    <comment>Details pane tab.</comment>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Stop the torrent to change the locked settings.</value>
+    <comment>Shown under the settings of a running torrent; some fields are disabled while it runs.</comment>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Revert</value>
+    <comment>Discards the changes made in the settings tab.</comment>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+    <comment>Label in the General tab.</comment>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Size</value>
+    <comment>Label in the General tab.</comment>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torrent file</value>
+    <comment>Label in the General tab: path of the .torrent file.</comment>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proxy</value>
+    <comment>Label in the General tab and settings section.</comment>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Peer ID</value>
+    <comment>The BitTorrent peer id: label in the General tab and in the settings.</comment>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Key / port / peers</value>
+    <comment>General tab label for three values: the announce key, the port and the number of peers asked for.</comment>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Seeders / leechers</value>
+    <comment>General tab label for two numbers.</comment>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Next update / stop</value>
+    <comment>General tab label: time to the next announce, then the stop condition.</comment>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Speeds</value>
+    <comment>Settings section heading.</comment>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Schedule and stop</value>
+    <comment>Settings section heading.</comment>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identity</value>
+    <comment>Settings section heading: the values that identify the emulated client to the tracker.</comment>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Other</value>
+    <comment>Settings section heading.</comment>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+    <comment>Label next to the client version picker, and before the version number in the About dialog.</comment>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Upload (kB/s)</value>
+    <comment>Label of the upload speed box. kB/s = kilobytes per second; use the local abbreviation if it differs.</comment>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Download (kB/s)</value>
+    <comment>Label of the download speed box.</comment>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ random</value>
+    <comment>Check box: add a random amount to the speed each second.</comment>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min</value>
+    <comment>Short label before the minimum value of a range.</comment>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>max</value>
+    <comment>Short label before the maximum value of a range.</comment>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Pause the upload while the tracker reports no leechers</value>
+    <comment>Check box.</comment>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Recommended. A tracker can notice upload with no leechers, one of the things that may get an account banned.</value>
+    <comment>Explanation under the check box above.</comment>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>On each tracker update, pick a new random speed</value>
+    <comment>Heading above two check boxes (Upload, Download) with min/max boxes.</comment>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload</value>
+    <comment>Check box: pick a new random upload speed on each update.</comment>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+    <comment>Check box: pick a new random download speed on each update.</comment>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Finished (%)</value>
+    <comment>How much of the torrent counts as already downloaded, in percent.</comment>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 means seed only</value>
+    <comment>Hint next to the Finished box.</comment>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Update interval (s)</value>
+    <comment>Seconds between tracker announces.</comment>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>the tracker can override this</value>
+    <comment>Hint next to the interval box (lower case in English because it is a side note).</comment>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Stop</value>
+    <comment>Label before the drop-down that chooses when the torrent stops on its own (a noun or heading, not a button).</comment>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Automatic: generate values, copying them from the running client when possible</value>
+    <comment>Radio button.</comment>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Custom</value>
+    <comment>Radio button: type the values yourself.</comment>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Key</value>
+    <comment>The announce "key" parameter.</comment>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+    <comment>Network port: label in the identity and proxy settings.</comment>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Peers wanted</value>
+    <comment>The announce "numwant" parameter: how many peers to ask the tracker for.</comment>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Regenerate</value>
+    <comment>Button that generates new identity values.</comment>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Generating...</value>
+    <comment>Shown next to the Regenerate button while it works.</comment>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Copied from the running {0}.</value>
+    <comment>{0} = client name such as uTorrent 3.6.0.</comment>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Generated random values (the client is not running).</value>
+    <comment>Shown after Regenerate when the real client could not be read.</comment>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Generated random values.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Type</value>
+    <comment>Proxy type label.</comment>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Host</value>
+    <comment>Proxy host name label.</comment>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>User</value>
+    <comment>Proxy user name label.</comment>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Password</value>
+    <comment>Proxy password label.</comment>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Request scrape</value>
+    <comment>Check box. A scrape asks the tracker for seeder and leecher counts.</comment>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Answer incoming peer handshakes on the announced port</value>
+    <comment>Check box.</comment>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Ignore the tracker's "failure reason" and keep running</value>
+    <comment>Check box. "failure reason" is the tracker's error field; translate it or keep it quoted.</comment>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Keep a log for this torrent</value>
+    <comment>Check box.</comment>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Ignore TLS certificate errors on https trackers</value>
+    <comment>Check box. An error message refers to it as "Ignore TLS certificate errors", so keep the start of this text consistent with that message.</comment>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Time</value>
+    <comment>Tracker tab column header.</comment>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Event</value>
+    <comment>Tracker tab column header: announce, started, stopped, completed or scrape (those stay in English).</comment>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Result</value>
+    <comment>Tracker tab column header: OK or the error.</comment>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Interval</value>
+    <comment>Tracker tab column header: the announce interval the tracker asked for, in seconds.</comment>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Peers</value>
+    <comment>Tracker tab column header: number of peers returned.</comment>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Latency</value>
+    <comment>Tracker tab column header: how long the request took.</comment>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+    <comment>Latency in milliseconds. Keep {0:0} exactly as it is; translate only the unit if your language abbreviates it differently.</comment>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>No tracker exchanges yet</value>
+    <comment>Shown in the empty Tracker tab.</comment>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Select an exchange to see the request</value>
+    <comment>Shown in the Tracker tab when no row is selected.</comment>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Request</value>
+    <comment>Tracker tab heading above the request URL.</comment>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Response headers</value>
+    <comment>Tracker tab heading above the HTTP response headers.</comment>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Enabled</value>
+    <comment>Log tab check box: keep logging.</comment>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Auto-scroll</value>
+    <comment>Log tab check box: keep the newest line in view.</comment>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filter</value>
+    <comment>Placeholder of the log filter box.</comment>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Copy</value>
+    <comment>Copies the whole log.</comment>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Save...</value>
+    <comment>Saves the log to a file.</comment>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Clear</value>
+    <comment>Clears the log.</comment>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Nothing logged yet</value>
+    <comment>Shown in the empty Log tab.</comment>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Fakes the upload and download a BitTorrent tracker sees, without downloading or uploading anything.</value>
+    <comment>One-sentence description of the program in the About dialog.</comment>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
+    <comment>About dialog label.</comment>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-mail</value>
+    <comment>About dialog label.</comment>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Support the project through PayPal</value>
+    <comment>About dialog link.</comment>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} on {1} ({2})</value>
+    <comment>{0} = .NET version, {1} = operating system name, {2} = processor architecture.</comment>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>MIT licensed.</value>
+    <comment>Follows the copyright line in the About dialog.</comment>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Save</value>
+    <comment>Saves the Settings dialog.</comment>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Add</value>
+    <comment>Confirms the Add torrent dialog.</comment>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Browse...</value>
+    <comment>Opens a file picker.</comment>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Start immediately</value>
+    <comment>Add dialog check box.</comment>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Details</value>
+    <comment>Add dialog label before the size, file count and info hash.</comment>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>No torrent selected yet.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} torrents; the settings below apply to all of them.</value>
+    <comment>{0} = number of torrents (2 or more). If the language needs plural forms, use a label style such as "Torrents: {0}".</comment>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>One of these torrents has no http or https tracker and will not be able to start.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>{0} of these torrents have no http or https tracker and will not be able to start.</value>
+    <comment>{0} = number of torrents (2 or more).</comment>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 file</value>
+    <comment>File count of a torrent with exactly one file.</comment>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} files</value>
+    <comment>File count, {0} is 2 or more. If the language needs plural forms, use a label style such as "Files: {0}".</comment>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>A new version of RatioMaster.NET is available (build {0}). You are running {1}.</value>
+    <comment>{0} = new build number such as 1200, {1} = installed version such as 1.1.0.</comment>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Download</value>
+    <comment>Button in the new version dialog: go and download it (a verb).</comment>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Remind me later</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Skip this version</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Tray</value>
+    <comment>Settings dialog tab: the system tray (notification area) icon.</comment>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Torrent defaults</value>
+    <comment>Settings dialog tab: the settings new torrents start from.</comment>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Clients</value>
+    <comment>Settings dialog tab: the list of emulated BitTorrent clients.</comment>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Theme</value>
+    <comment>Settings dialog label (light/dark).</comment>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Language</value>
+    <comment>Settings dialog label of the interface language picker.</comment>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>System default ({0})</value>
+    <comment>First entry of the language picker: follow the operating system. {0} = the language that means today, in its own name, such as Français.</comment>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Restart RatioMaster.NET to switch the language.</value>
+    <comment>Shown after a different language is picked.</comment>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Always use a 24-hour clock in logs (otherwise follow the system time format)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Check for updates on startup</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Restore the last session on startup</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Add torrents without showing the Add dialog</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Start torrents immediately after adding them</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Minimize to the tray</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Close to the tray instead of quitting</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>List the torrents in the tray tooltip</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Start minimized</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>On Linux the tray icon needs a StatusNotifier host (KDE, or GNOME with the AppIndicator extension). Without one a hidden window cannot be brought back, so these two options are off by default there.</value>
+    <comment>Keep StatusNotifier, KDE, GNOME and AppIndicator as they are. "These two options" are Minimize to the tray and Close to the tray.</comment>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>New torrents start from these settings.</value>
+    <comment>Shown at the top of the Torrent defaults tab.</comment>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>{0} client emulations are loaded. Add or override them by creating this file:</value>
+    <comment>{0} = number of emulated clients, 28 or more; a file path follows on the next line.</comment>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>The file uses the same shape as the built-in catalog. Entries with an existing name replace it; new names are added. Restart the application to pick up changes.</value>
+    <comment>About the user's own clients.json file.</comment>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Configuration folder</value>
+    <comment>Heading above the path of the settings folder.</comment>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Load session</value>
+    <comment>Title of the question shown when a .session file is dropped on the window, and of the file picker.</comment>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Load the session {0}?</value>
+    <comment>{0} = file name.</comment>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Load and start</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Could not add torrent</value>
+    <comment>Notification title; the reason follows.</comment>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Remove torrent</value>
+    <comment>Confirmation title for one torrent.</comment>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Remove torrents</value>
+    <comment>Confirmation title for several torrents.</comment>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Remove {0} from the list?</value>
+    <comment>{0} = torrent name.</comment>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>It is running and will be stopped first.</value>
+    <comment>Added after RemoveOneQuestion.</comment>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Remove these {0} torrents from the list?</value>
+    <comment>{0} = number of torrents (2 or more). If the language needs plural forms, rephrase, such as "Remove the selected torrents ({0}) from the list?".</comment>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>One of them is running and will be stopped first.</value>
+    <comment>Added after RemoveManyQuestion.</comment>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>{0} of them are running and will be stopped first.</value>
+    <comment>Added after RemoveManyQuestion. {0} = 2 or more.</comment>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Rename torrent</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Name shown in the list:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Defaults updated</value>
+    <comment>Notification title.</comment>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>New torrents will start from these settings.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Set upload speed</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>New upload speed for every torrent (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Set download speed</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>New download speed for every torrent (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Session saved</value>
+    <comment>Notification title; the file name follows.</comment>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Could not load session</value>
+    <comment>Notification title; the reason follows.</comment>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Session loaded</value>
+    <comment>Notification title.</comment>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>{0} torrents loaded.</value>
+    <comment>{0} = number of torrents, 0 or more (1 is common). If the language needs plural forms, use a label style such as "Torrents loaded: {0}."</comment>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>{0} torrents loaded, {1} could not be found.</value>
+    <comment>{0} = torrents loaded, {1} = torrents whose .torrent file is missing; each can be any number, 1 included. Label style is fine.</comment>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Could not reach ratiomaster.net: {0}</value>
+    <comment>{0} = error text.</comment>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>You are running the latest version.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torrent files</value>
+    <comment>File type in file pickers.</comment>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMaster sessions</value>
+    <comment>File type in file pickers.</comment>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Log files</value>
+    <comment>File type in file pickers.</comment>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Add torrents</value>
+    <comment>File picker title.</comment>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Save session</value>
+    <comment>File picker title.</comment>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Save log</value>
+    <comment>File picker title.</comment>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Custom clients.json ignored</value>
+    <comment>Notification title when the user's clients.json could not be read; keep clients.json as it is.</comment>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} bytes</value>
+    <comment>File size under 1 KB. In practice only "0 bytes" appears, because the counters grow in whole kilobytes. Use the local word or abbreviation, such as octets in French.</comment>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+    <comment>File size. Use the local abbreviation, such as Ko in French.</comment>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+    <comment>File size. Use the local abbreviation, such as Mo in French.</comment>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+    <comment>File size. Use the local abbreviation, such as Go in French.</comment>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+    <comment>Transfer speed. Use the local abbreviation, such as Ko/s in French.</comment>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+    <comment>Transfer speed. Use the local abbreviation, such as Mo/s in French.</comment>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Cut</value>
+    <comment>Right-click menu of text boxes (a command).</comment>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Copy</value>
+    <comment>Right-click menu of text boxes (a command).</comment>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Paste</value>
+    <comment>Right-click menu of text boxes (a command).</comment>
+  </data>
+</root>

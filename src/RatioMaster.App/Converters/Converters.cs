@@ -25,6 +25,9 @@ namespace RatioMaster.App.Converters
 
         public static FuncValueConverter<string?, string> Host { get; } = new(Formatting.Host);
 
+        /// <summary>Gets the converter that shows an enum value by its translated name.</summary>
+        public static FuncValueConverter<object?, string> DisplayName { get; } = new(DisplayNames.Of);
+
         /// <summary>Gets the converter that shows an em dash instead of an empty value.</summary>
         public static FuncValueConverter<string?, string> OrDash { get; } =
             new(value => string.IsNullOrWhiteSpace(value) ? Formatting.Unknown : value);

@@ -1,8 +1,10 @@
 namespace RatioMaster.App.ViewModels.Dialogs
 {
+    using System.Globalization;
     using System.Threading.Tasks;
 
     using CommunityToolkit.Mvvm.Input;
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services.Abstractions;
     using RatioMaster.Core.Updates;
 
@@ -18,8 +20,7 @@ namespace RatioMaster.App.ViewModels.Dialogs
     public sealed partial class NewVersionViewModel(string remoteVersion, IUrlLauncher launcher)
         : DialogViewModel<NewVersionChoice>
     {
-        public string Message =>
-            $"A new version of RatioMaster.NET is available (build {remoteVersion}). You are running {AppVersion.Public}.";
+        public string Message => string.Format(CultureInfo.CurrentCulture, Strings.NewVersionMessage, remoteVersion, AppVersion.Public);
 
         public string Website => AppVersion.WebsiteUrl;
 

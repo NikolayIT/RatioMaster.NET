@@ -8,6 +8,7 @@ namespace RatioMaster.App.ViewModels
 
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
+    using RatioMaster.App.Resources;
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.Networking;
     using RatioMaster.Core.Sessions;
@@ -179,9 +180,9 @@ namespace RatioMaster.App.ViewModels
 
         public string StopValueUnit => this.StopType switch
         {
-            StopConditionType.AfterSeconds => "seconds",
-            StopConditionType.UploadedAboveMb or StopConditionType.DownloadedAboveMb => "MB",
-            StopConditionType.LeecherSeederRatioBelow => "ratio",
+            StopConditionType.AfterSeconds => Strings.UnitSeconds,
+            StopConditionType.UploadedAboveMb or StopConditionType.DownloadedAboveMb => Strings.UnitMegabytes,
+            StopConditionType.LeecherSeederRatioBelow => Strings.UnitRatio,
             _ => string.Empty,
         };
 
@@ -322,7 +323,7 @@ namespace RatioMaster.App.ViewModels
             }
 
             this.IsGeneratingIdentity = true;
-            this.IdentityStatus = "Generating...";
+            this.IdentityStatus = Strings.IdentityGenerating;
             try
             {
                 var settings = this.ToSettings() with { IdentityMode = IdentityMode.Automatic };
@@ -334,10 +335,10 @@ namespace RatioMaster.App.ViewModels
                 this.NumWant = identity.NumWant;
                 this.IdentityStatus = identity.Source switch
                 {
-                    ClientIdentitySource.CopiedFromProcess => $"Copied from the running {this.ClientName}.",
+                    ClientIdentitySource.CopiedFromProcess => string.Format(System.Globalization.CultureInfo.CurrentCulture, Strings.IdentityCopied, this.ClientName),
                     _ => this.ProfileSupportsScanning()
-                        ? "Generated random values (the client is not running)."
-                        : "Generated random values.",
+                        ? Strings.IdentityGeneratedNotRunning
+                        : Strings.IdentityGenerated,
                 };
             }
             finally

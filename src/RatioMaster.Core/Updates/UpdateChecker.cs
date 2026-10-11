@@ -3,6 +3,8 @@ namespace RatioMaster.Core.Updates
     using System.Globalization;
     using System.Net.Http;
 
+    using RatioMaster.Core.Resources;
+
     /// <summary>
     /// Asks ratiomaster.net whether a newer build exists. Same contract as the 0.43 checker
     /// (GET /vc.php?v=NNNN returning exactly four characters) but over HTTPS and without the Windows username.
@@ -38,7 +40,7 @@ namespace RatioMaster.Core.Updates
                 var body = (await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)).Trim();
                 if (body.Length != 4)
                 {
-                    return new UpdateCheckResult { Error = "The version service returned an unexpected reply." };
+                    return new UpdateCheckResult { Error = Strings.UpdateUnexpectedReply };
                 }
 
                 return new UpdateCheckResult

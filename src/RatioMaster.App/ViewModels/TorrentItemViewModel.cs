@@ -7,6 +7,7 @@ namespace RatioMaster.App.ViewModels
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
     using RatioMaster.App.Converters;
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services.Abstractions;
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.Sessions;
@@ -152,30 +153,42 @@ namespace RatioMaster.App.ViewModels
 
         public string StatusText => this.State switch
         {
-            TorrentSessionState.Idle => "Idle",
-            TorrentSessionState.Starting => "Starting",
-            TorrentSessionState.Downloading => "Downloading",
-            TorrentSessionState.Seeding => "Seeding",
-            TorrentSessionState.Updating => "Updating",
-            TorrentSessionState.Stopping => "Stopping",
-            TorrentSessionState.Error => this.StopReason is { Length: > 0 } e ? "Error: " + e : "Error",
-            _ => this.StopReason is { Length: > 0 } r ? "Stopped: " + r : "Stopped",
+            TorrentSessionState.Idle => Strings.StateIdle,
+            TorrentSessionState.Starting => Strings.StateStarting,
+            TorrentSessionState.Downloading => Strings.StateDownloading,
+            TorrentSessionState.Seeding => Strings.StateSeeding,
+            TorrentSessionState.Updating => Strings.StateUpdating,
+            TorrentSessionState.Stopping => Strings.StateStopping,
+            TorrentSessionState.Error => this.StopReason is { Length: > 0 } e
+                ? string.Format(CultureInfo.CurrentCulture, Strings.StateErrorWithReason, e)
+                : Strings.StateError,
+            _ => this.StopReason is { Length: > 0 } r
+                ? string.Format(CultureInfo.CurrentCulture, Strings.StateStoppedWithReason, r)
+                : Strings.StateStopped,
         };
 
-        public string StopConditionText => this.settings.Stop.Type switch
+        public string StopConditionText
         {
-            StopConditionType.Never => "Never",
-            StopConditionType.AfterSeconds => $"After {this.settings.Stop.Value:0} s",
-            StopConditionType.SeedersBelow => $"Seeders < {this.settings.Stop.Value:0}",
-            StopConditionType.LeechersBelow => $"Leechers < {this.settings.Stop.Value:0}",
-            StopConditionType.UploadedAboveMb => $"Uploaded > {this.settings.Stop.Value:0} MB",
-            StopConditionType.DownloadedAboveMb => $"Downloaded > {this.settings.Stop.Value:0} MB",
-            _ => $"Leechers/seeders < {this.settings.Stop.Value}",
-        };
+            get
+            {
+                var value = this.settings.Stop.Value;
+                var whole = value.ToString("0", CultureInfo.CurrentCulture);
+                return this.settings.Stop.Type switch
+                {
+                    StopConditionType.Never => Strings.StopSummaryNever,
+                    StopConditionType.AfterSeconds => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryAfterSeconds, whole),
+                    StopConditionType.SeedersBelow => string.Format(CultureInfo.CurrentCulture, Strings.StopSummarySeedersBelow, whole),
+                    StopConditionType.LeechersBelow => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryLeechersBelow, whole),
+                    StopConditionType.UploadedAboveMb => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryUploadedAbove, whole),
+                    StopConditionType.DownloadedAboveMb => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryDownloadedAbove, whole),
+                    _ => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryRatioBelow, value.ToString("0.###", CultureInfo.CurrentCulture)),
+                };
+            }
+        }
 
         public string ProxyText => this.settings.Proxy.Type == Core.Networking.ProxyType.None
-            ? "None"
-            : $"{this.settings.Proxy.Type} {this.settings.Proxy.Host}:{this.settings.Proxy.Port}";
+            ? DisplayNames.Of(this.settings.Proxy.Type)
+            : $"{DisplayNames.Of(this.settings.Proxy.Type)} {this.settings.Proxy.Host}:{this.settings.Proxy.Port}";
 
         /// <summary>Gets the settings currently in effect (what a Start would use).</summary>
         public TorrentSettings CurrentSettings => this.settings;

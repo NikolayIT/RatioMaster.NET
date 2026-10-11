@@ -1,7 +1,10 @@
 namespace RatioMaster.Core.Clients
 {
+    using System.Globalization;
     using System.Text.Json;
     using System.Text.Json.Serialization;
+
+    using RatioMaster.Core.Resources;
 
     /// <summary>One client entry in clients.json. Maps to a <see cref="ClientProfile"/>.</summary>
     internal sealed record ClientProfileEntry
@@ -44,7 +47,7 @@ namespace RatioMaster.Core.Clients
                 || this.Headers is null
                 || this.Query is null)
             {
-                throw new InvalidOperationException($"Client entry '{this.Name ?? "(unnamed)"}' is missing required fields.");
+                throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture, Strings.CatalogEntryIncomplete, this.Name ?? Strings.CatalogEntryUnnamed));
             }
 
             return new ClientProfile

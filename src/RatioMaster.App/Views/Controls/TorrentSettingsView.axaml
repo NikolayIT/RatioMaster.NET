@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
              x:Class="RatioMaster.App.Views.Controls.TorrentSettingsView"
              x:DataType="vm:TorrentSettingsViewModel">
@@ -21,17 +22,17 @@
   </UserControl.Styles>
 
   <ScrollViewer>
-    <StackPanel Spacing="2" Margin="8,8,8,4">
+    <StackPanel Spacing="2" Margin="8,8,8,4" Grid.IsSharedSizeScope="True">
 
       <!-- Client emulation -->
-      <Expander Header="Client" IsExpanded="True">
+      <Expander Header="{x:Static res:Strings.Client}" IsExpanded="True">
         <Grid ColumnDefinitions="Auto,*,Auto,*" RowDefinitions="Auto" Margin="4">
-          <TextBlock Grid.Column="0" Text="Client" Classes="label" />
+          <TextBlock Grid.Column="0" Text="{x:Static res:Strings.Client}" Classes="label" />
           <ComboBox Grid.Column="1" Margin="0,0,16,0" HorizontalAlignment="Stretch"
                     ItemsSource="{Binding Families}"
                     SelectedItem="{Binding ClientFamily}"
                     IsEnabled="{Binding !IsLocked}" />
-          <TextBlock Grid.Column="2" Text="Version" Classes="label" />
+          <TextBlock Grid.Column="2" Text="{x:Static res:Strings.Version}" Classes="label" />
           <ComboBox Grid.Column="3" HorizontalAlignment="Stretch"
                     ItemsSource="{Binding Versions}"
                     SelectedItem="{Binding ClientVersion}"
@@ -40,54 +41,70 @@
       </Expander>
 
       <!-- Speeds -->
-      <Expander Header="Speeds" IsExpanded="True">
+      <Expander Header="{x:Static res:Strings.SectionSpeeds}" IsExpanded="True">
         <StackPanel Spacing="8" Margin="4">
-          <Grid ColumnDefinitions="150,Auto,Auto,Auto,Auto,Auto,Auto" RowDefinitions="Auto,Auto">
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Upload (kB/s)" Classes="label" />
+          <Grid RowDefinitions="Auto,Auto">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" MinWidth="150" SharedSizeGroup="Label" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.LabelUploadSpeed}" Classes="label" />
             <TextBox Grid.Row="0" Grid.Column="1" Classes="num" Text="{Binding UploadKb}" />
-            <CheckBox Grid.Row="0" Grid.Column="2" Margin="12,0,4,0" Content="+ random"
+            <CheckBox Grid.Row="0" Grid.Column="2" Margin="12,0,4,0" Content="{x:Static res:Strings.RandomExtra}"
                       IsChecked="{Binding UploadRandomEnabled}" />
-            <TextBlock Grid.Row="0" Grid.Column="3" Text="min" Classes="label" />
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="{x:Static res:Strings.RangeMin}" Classes="label" />
             <TextBox Grid.Row="0" Grid.Column="4" Width="60" Text="{Binding UploadRandomMinKb}"
                      IsEnabled="{Binding UploadRandomEnabled}" />
-            <TextBlock Grid.Row="0" Grid.Column="5" Text="max" Classes="label" Margin="8,0,8,0" />
+            <TextBlock Grid.Row="0" Grid.Column="5" Text="{x:Static res:Strings.RangeMax}" Classes="label" Margin="8,0,8,0" />
             <TextBox Grid.Row="0" Grid.Column="6" Width="60" Text="{Binding UploadRandomMaxKb}"
                      IsEnabled="{Binding UploadRandomEnabled}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Download (kB/s)" Classes="label" Margin="0,8,8,0" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:Strings.LabelDownloadSpeed}" Classes="label" Margin="0,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="1" Classes="num" Text="{Binding DownloadKb}" Margin="0,8,0,0" />
-            <CheckBox Grid.Row="1" Grid.Column="2" Margin="12,8,4,0" Content="+ random"
+            <CheckBox Grid.Row="1" Grid.Column="2" Margin="12,8,4,0" Content="{x:Static res:Strings.RandomExtra}"
                       IsChecked="{Binding DownloadRandomEnabled}" />
-            <TextBlock Grid.Row="1" Grid.Column="3" Text="min" Classes="label" Margin="0,8,8,0" />
+            <TextBlock Grid.Row="1" Grid.Column="3" Text="{x:Static res:Strings.RangeMin}" Classes="label" Margin="0,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="4" Width="60" Text="{Binding DownloadRandomMinKb}" Margin="0,8,0,0"
                      IsEnabled="{Binding DownloadRandomEnabled}" />
-            <TextBlock Grid.Row="1" Grid.Column="5" Text="max" Classes="label" Margin="8,8,8,0" />
+            <TextBlock Grid.Row="1" Grid.Column="5" Text="{x:Static res:Strings.RangeMax}" Classes="label" Margin="8,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="6" Width="60" Text="{Binding DownloadRandomMaxKb}" Margin="0,8,0,0"
                      IsEnabled="{Binding DownloadRandomEnabled}" />
           </Grid>
 
-          <CheckBox Content="Pause the upload while the tracker reports no leechers"
+          <CheckBox Content="{x:Static res:Strings.PauseNoLeechers}"
                     IsChecked="{Binding StopUploadWhenNoLeechers}" />
-          <TextBlock Text="Recommended. A tracker can notice upload with no leechers, one of the things that may get an account banned."
-                     Classes="subtle" Margin="28,-4,0,0" />
+          <TextBlock Text="{x:Static res:Strings.PauseNoLeechersHint}"
+                     Classes="subtle" Margin="28,-4,0,0" TextWrapping="Wrap" />
 
           <Separator />
-          <TextBlock Text="On each tracker update, pick a new random speed" Classes="subtle" />
-          <Grid ColumnDefinitions="150,Auto,Auto,Auto,Auto" RowDefinitions="Auto,Auto">
-            <CheckBox Grid.Row="0" Grid.Column="0" Content="Upload" IsChecked="{Binding NextUpdateRandomUpload}" />
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="min" Classes="label" />
+          <TextBlock Text="{x:Static res:Strings.NextUpdateRandomHint}" Classes="subtle" TextWrapping="Wrap" />
+          <Grid RowDefinitions="Auto,Auto">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" MinWidth="150" SharedSizeGroup="Label" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <CheckBox Grid.Row="0" Grid.Column="0" Content="{x:Static res:Strings.Upload}" IsChecked="{Binding NextUpdateRandomUpload}" />
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static res:Strings.RangeMin}" Classes="label" />
             <TextBox Grid.Row="0" Grid.Column="2" Width="70" Text="{Binding NextUpdateUploadMinKb}"
                      IsEnabled="{Binding NextUpdateRandomUpload}" />
-            <TextBlock Grid.Row="0" Grid.Column="3" Text="max" Classes="label" Margin="8,0,8,0" />
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="{x:Static res:Strings.RangeMax}" Classes="label" Margin="8,0,8,0" />
             <TextBox Grid.Row="0" Grid.Column="4" Width="70" Text="{Binding NextUpdateUploadMaxKb}"
                      IsEnabled="{Binding NextUpdateRandomUpload}" />
 
-            <CheckBox Grid.Row="1" Grid.Column="0" Content="Download" Margin="0,8,0,0"
+            <CheckBox Grid.Row="1" Grid.Column="0" Content="{x:Static res:Strings.Download}" Margin="0,8,0,0"
                       IsChecked="{Binding NextUpdateRandomDownload}" />
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="min" Classes="label" Margin="0,8,8,0" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Static res:Strings.RangeMin}" Classes="label" Margin="0,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="2" Width="70" Text="{Binding NextUpdateDownloadMinKb}" Margin="0,8,0,0"
                      IsEnabled="{Binding NextUpdateRandomDownload}" />
-            <TextBlock Grid.Row="1" Grid.Column="3" Text="max" Classes="label" Margin="8,8,8,0" />
+            <TextBlock Grid.Row="1" Grid.Column="3" Text="{x:Static res:Strings.RangeMax}" Classes="label" Margin="8,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="4" Width="70" Text="{Binding NextUpdateDownloadMaxKb}" Margin="0,8,0,0"
                      IsEnabled="{Binding NextUpdateRandomDownload}" />
           </Grid>
@@ -95,24 +112,31 @@
       </Expander>
 
       <!-- Schedule and stop -->
-      <Expander Header="Schedule and stop" IsExpanded="True">
-        <Grid ColumnDefinitions="150,Auto,Auto,Auto" RowDefinitions="Auto,Auto,Auto" Margin="4">
-          <TextBlock Grid.Row="0" Grid.Column="0" Text="Finished (%)" Classes="label" />
+      <Expander Header="{x:Static res:Strings.SectionSchedule}" IsExpanded="True">
+        <Grid RowDefinitions="Auto,Auto,Auto" Margin="4">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="150" SharedSizeGroup="Label" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.LabelFinished}" Classes="label" />
           <TextBox Grid.Row="0" Grid.Column="1" Classes="num" Text="{Binding FinishedPercent}"
                    IsEnabled="{Binding !IsLocked}" />
           <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Classes="subtle" VerticalAlignment="Center"
-                     Margin="12,0,0,0" Text="100 means seed only" />
+                     Margin="12,0,0,0" Text="{x:Static res:Strings.FinishedHint}" />
 
-          <TextBlock Grid.Row="1" Grid.Column="0" Text="Update interval (s)" Classes="label" Margin="0,8,8,0" />
+          <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:Strings.LabelUpdateInterval}" Classes="label" Margin="0,8,8,0" />
           <TextBox Grid.Row="1" Grid.Column="1" Classes="num" Text="{Binding IntervalSeconds}" Margin="0,8,0,0"
                    IsEnabled="{Binding !IsLocked}" />
           <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Classes="subtle" VerticalAlignment="Center"
-                     Margin="12,8,0,0" Text="the tracker can override this" />
+                     Margin="12,8,0,0" Text="{x:Static res:Strings.UpdateIntervalHint}" />
 
-          <TextBlock Grid.Row="2" Grid.Column="0" Text="Stop" Classes="label" Margin="0,8,8,0" />
+          <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static res:Strings.LabelStop}" Classes="label" Margin="0,8,8,0" />
           <ComboBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" MinWidth="220" Margin="0,8,0,0"
                     ItemsSource="{x:Static vm:TorrentSettingsViewModel.StopTypes}"
                     SelectedItem="{Binding StopType}"
+                    ItemTemplate="{StaticResource DisplayNameTemplate}"
                     IsEnabled="{Binding !IsLocked}" />
           <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Horizontal" Spacing="6" Margin="12,8,0,0"
                       IsVisible="{Binding IsStopValueVisible}">
@@ -123,26 +147,32 @@
       </Expander>
 
       <!-- Identity -->
-      <Expander Header="Identity">
+      <Expander Header="{x:Static res:Strings.SectionIdentity}">
         <StackPanel Spacing="8" Margin="4">
           <RadioButton GroupName="identity" IsChecked="{Binding UseAutomaticIdentity}"
-                       Content="Automatic: generate values, copying them from the running client when possible" />
-          <RadioButton GroupName="identity" IsChecked="{Binding !UseAutomaticIdentity}" Content="Custom" />
-          <Grid ColumnDefinitions="110,*,110,Auto" RowDefinitions="Auto,Auto">
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Peer ID" Classes="label" />
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding PeerId}" IsEnabled="{Binding !UseAutomaticIdentity}" />
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="Key" Classes="label" Margin="12,0,8,0" />
-            <TextBox Grid.Row="0" Grid.Column="3" Width="140" Text="{Binding Key}" IsEnabled="{Binding !UseAutomaticIdentity}" />
+                       Content="{x:Static res:Strings.IdentityAutomatic}" />
+          <RadioButton GroupName="identity" IsChecked="{Binding !UseAutomaticIdentity}" Content="{x:Static res:Strings.IdentityCustom}" />
+          <Grid RowDefinitions="Auto,Auto">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" MinWidth="110" SharedSizeGroup="IdentityLabel" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" MinWidth="110" SharedSizeGroup="IdentityLabel2" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.PeerId}" Classes="label" />
+            <TextBox Grid.Row="0" Grid.Column="1" Classes="ltr" Text="{Binding PeerId}" IsEnabled="{Binding !UseAutomaticIdentity}" />
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="{x:Static res:Strings.LabelKey}" Classes="label" Margin="12,0,8,0" />
+            <TextBox Grid.Row="0" Grid.Column="3" Classes="ltr" Width="140" Text="{Binding Key}" IsEnabled="{Binding !UseAutomaticIdentity}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Port" Classes="label" Margin="0,8,8,0" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:Strings.Port}" Classes="label" Margin="0,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="1" Width="120" HorizontalAlignment="Left" Margin="0,8,0,0"
                      Text="{Binding Port}" IsEnabled="{Binding !IsLocked}" />
-            <TextBlock Grid.Row="1" Grid.Column="2" Text="Peers wanted" Classes="label" Margin="12,8,8,0" />
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="{x:Static res:Strings.LabelPeersWanted}" Classes="label" Margin="12,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="3" Width="140" Margin="0,8,0,0"
                      Text="{Binding NumWant}" IsEnabled="{Binding !IsLocked}" />
           </Grid>
           <StackPanel Orientation="Horizontal" Spacing="10">
-            <Button Content="Regenerate" Command="{Binding RegenerateIdentityCommand}"
+            <Button Content="{x:Static res:Strings.ButtonRegenerate}" Command="{Binding RegenerateIdentityCommand}"
                     IsEnabled="{Binding !IsGeneratingIdentity}" />
             <TextBlock Text="{Binding IdentityStatus}" Classes="subtle" VerticalAlignment="Center" />
           </StackPanel>
@@ -150,41 +180,48 @@
       </Expander>
 
       <!-- Proxy -->
-      <Expander Header="Proxy">
-        <Grid ColumnDefinitions="110,*,110,Auto" RowDefinitions="Auto,Auto,Auto" Margin="4">
-          <TextBlock Grid.Row="0" Grid.Column="0" Text="Type" Classes="label" />
+      <Expander Header="{x:Static res:Strings.Proxy}">
+        <Grid RowDefinitions="Auto,Auto,Auto" Margin="4">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="110" SharedSizeGroup="IdentityLabel" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" MinWidth="110" SharedSizeGroup="IdentityLabel2" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.LabelProxyType}" Classes="label" />
           <ComboBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch"
                     ItemsSource="{x:Static vm:TorrentSettingsViewModel.ProxyTypes}"
                     SelectedItem="{Binding ProxyType}"
+                    ItemTemplate="{StaticResource DisplayNameTemplate}"
                     IsEnabled="{Binding !IsLocked}" />
 
-          <TextBlock Grid.Row="1" Grid.Column="0" Text="Host" Classes="label" Margin="0,8,8,0" />
-          <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,0" Text="{Binding ProxyHost}"
+          <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:Strings.LabelHost}" Classes="label" Margin="0,8,8,0" />
+          <TextBox Grid.Row="1" Grid.Column="1" Classes="ltr" Margin="0,8,0,0" Text="{Binding ProxyHost}"
                    IsEnabled="{Binding IsProxyConfigured}" />
-          <TextBlock Grid.Row="1" Grid.Column="2" Text="Port" Classes="label" Margin="12,8,8,0" />
+          <TextBlock Grid.Row="1" Grid.Column="2" Text="{x:Static res:Strings.Port}" Classes="label" Margin="12,8,8,0" />
           <TextBox Grid.Row="1" Grid.Column="3" Width="140" Margin="0,8,0,0" Text="{Binding ProxyPort}"
                    IsEnabled="{Binding IsProxyConfigured}" />
 
-          <TextBlock Grid.Row="2" Grid.Column="0" Text="User" Classes="label" Margin="0,8,8,0" />
-          <TextBox Grid.Row="2" Grid.Column="1" Margin="0,8,0,0" Text="{Binding ProxyUsername}"
+          <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static res:Strings.LabelUser}" Classes="label" Margin="0,8,8,0" />
+          <TextBox Grid.Row="2" Grid.Column="1" Classes="ltr" Margin="0,8,0,0" Text="{Binding ProxyUsername}"
                    IsEnabled="{Binding IsProxyConfigured}" />
-          <TextBlock Grid.Row="2" Grid.Column="2" Text="Password" Classes="label" Margin="12,8,8,0" />
-          <TextBox Grid.Row="2" Grid.Column="3" Width="140" Margin="0,8,0,0" Text="{Binding ProxyPassword}"
+          <TextBlock Grid.Row="2" Grid.Column="2" Text="{x:Static res:Strings.LabelPassword}" Classes="label" Margin="12,8,8,0" />
+          <TextBox Grid.Row="2" Grid.Column="3" Classes="ltr" Width="140" Margin="0,8,0,0" Text="{Binding ProxyPassword}"
                    PasswordChar="•" RevealPassword="{Binding $self.IsFocused}"
                    IsEnabled="{Binding IsProxyConfigured}" />
         </Grid>
       </Expander>
 
       <!-- Other -->
-      <Expander Header="Other">
+      <Expander Header="{x:Static res:Strings.SectionOther}">
         <StackPanel Spacing="6" Margin="4">
-          <CheckBox Content="Request scrape" IsChecked="{Binding RequestScrape}" />
-          <CheckBox Content="Answer incoming peer handshakes on the announced port"
+          <CheckBox Content="{x:Static res:Strings.OptionRequestScrape}" IsChecked="{Binding RequestScrape}" />
+          <CheckBox Content="{x:Static res:Strings.OptionAnswerHandshakes}"
                     IsChecked="{Binding UseTcpListener}" IsEnabled="{Binding !IsProxyConfigured}" />
-          <CheckBox Content="Ignore the tracker's &quot;failure reason&quot; and keep running"
+          <CheckBox Content="{x:Static res:Strings.OptionIgnoreFailureReason}"
                     IsChecked="{Binding IgnoreFailureReason}" />
-          <CheckBox Content="Keep a log for this torrent" IsChecked="{Binding EnableLog}" />
-          <CheckBox Content="Ignore TLS certificate errors on https trackers"
+          <CheckBox Content="{x:Static res:Strings.OptionKeepLog}" IsChecked="{Binding EnableLog}" />
+          <CheckBox Content="{x:Static res:Strings.OptionIgnoreCertificateErrors}"
                     IsChecked="{Binding IgnoreCertificateErrors}" />
         </StackPanel>
       </Expander>

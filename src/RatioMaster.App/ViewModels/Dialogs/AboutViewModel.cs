@@ -1,10 +1,12 @@
 namespace RatioMaster.App.ViewModels.Dialogs
 {
     using System;
+    using System.Globalization;
     using System.Runtime.InteropServices;
     using System.Threading.Tasks;
 
     using CommunityToolkit.Mvvm.Input;
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services.Abstractions;
     using RatioMaster.Core.Updates;
 
@@ -15,7 +17,7 @@ namespace RatioMaster.App.ViewModels.Dialogs
 
         public string ReleaseDate => AppVersion.ReleaseDate;
 
-        public string Runtime => $".NET {Environment.Version} on {RuntimeInformation.OSDescription} ({RuntimeInformation.OSArchitecture})";
+        public string Runtime => string.Format(CultureInfo.CurrentCulture, Strings.AboutRuntime, Environment.Version, RuntimeInformation.OSDescription, RuntimeInformation.OSArchitecture);
 
         public string Website => AppVersion.WebsiteUrl;
 
@@ -27,7 +29,7 @@ namespace RatioMaster.App.ViewModels.Dialogs
 
         public string Email => AppVersion.SupportEmail;
 
-        public string Copyright => "Copyright © 2006-2026 Nikolay Kostov. MIT licensed.";
+        public string Copyright => "Copyright © 2006-2026 Nikolay Kostov. " + Strings.AboutMitLicensed;
 
         [RelayCommand]
         private async Task OpenAsync(string? url)

@@ -24,6 +24,19 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
+  <!-- Interface texts. Strings.resx is English; Strings.<culture>.resx become satellite assemblies, which the
+       single-file publish bundles into the executable. The Strings class is generated at build time and is
+       public so the views can use {x:Static res:Strings.Name}. -->
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+      <StronglyTypedNamespace>RatioMaster.App.Resources</StronglyTypedNamespace>
+      <StronglyTypedClassName>Strings</StronglyTypedClassName>
+      <StronglyTypedFileName>$(IntermediateOutputPath)Strings.Designer.cs</StronglyTypedFileName>
+      <PublicClass>true</PublicClass>
+    </EmbeddedResource>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia" />
     <PackageReference Include="Avalonia.Desktop" />

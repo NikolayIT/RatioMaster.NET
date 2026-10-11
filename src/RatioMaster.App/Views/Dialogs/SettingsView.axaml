@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
              xmlns:controls="clr-namespace:RatioMaster.App.Views.Controls"
              x:Class="RatioMaster.App.Views.Dialogs.SettingsView"
@@ -9,8 +10,8 @@
   <DockPanel Margin="20">
 
     <StackPanel DockPanel.Dock="Bottom" Classes="dialog-buttons" Margin="0,16,0,0">
-      <Button Content="Save" IsDefault="True" Classes="accent" Command="{Binding SaveCommand}" />
-      <Button Content="Cancel" IsCancel="True" Command="{Binding CancelCommand}" />
+      <Button Content="{x:Static res:Strings.ButtonSave}" IsDefault="True" Classes="accent" Command="{Binding SaveCommand}" />
+      <Button Content="{x:Static res:Strings.ButtonCancel}" IsCancel="True" Command="{Binding CancelCommand}" />
     </StackPanel>
 
     <Border BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="1" CornerRadius="4">
@@ -21,47 +22,58 @@
           </Style>
         </TabControl.Styles>
 
-        <TabItem Header="General">
+        <TabItem Header="{x:Static res:Strings.TabGeneral}">
           <StackPanel Spacing="10" Margin="16,14">
-            <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="12">
-              <TextBlock Grid.Column="0" Text="Theme" Classes="label" />
-              <ComboBox Grid.Column="1" Width="180" ItemsSource="{x:Static vm:SettingsViewModel.Themes}" SelectedItem="{Binding Theme}" />
+            <Grid ColumnDefinitions="Auto,Auto,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="8">
+              <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.LabelLanguage}" Classes="label" />
+              <ComboBox Grid.Row="0" Grid.Column="1" MinWidth="220" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}">
+                <ComboBox.ItemTemplate>
+                  <DataTemplate x:DataType="vm:LanguageOption">
+                    <TextBlock Text="{Binding Name}" />
+                  </DataTemplate>
+                </ComboBox.ItemTemplate>
+              </ComboBox>
+              <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Classes="subtle" TextWrapping="Wrap"
+                         Text="{x:Static res:Strings.LanguageRestartHint}" IsVisible="{Binding IsRestartNeeded}" />
+              <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static res:Strings.LabelTheme}" Classes="label" />
+              <ComboBox Grid.Row="2" Grid.Column="1" MinWidth="220" ItemsSource="{x:Static vm:SettingsViewModel.Themes}" SelectedItem="{Binding Theme}"
+                        ItemTemplate="{StaticResource DisplayNameTemplate}" />
             </Grid>
-            <CheckBox Content="Always use a 24-hour clock in logs (otherwise follow the system time format)" IsChecked="{Binding Use24HourTime}" />
-            <CheckBox Content="Check for updates on startup" IsChecked="{Binding CheckForUpdatesOnStartup}" />
-            <CheckBox Content="Restore the last session on startup" IsChecked="{Binding RestoreLastSessionOnStartup}" />
-            <CheckBox Content="Add torrents without showing the Add dialog" IsChecked="{Binding AddTorrentsWithoutDialog}" />
-            <CheckBox Content="Start torrents immediately after adding them" IsChecked="{Binding StartTorrentsImmediately}" />
+            <CheckBox Content="{x:Static res:Strings.OptionUse24HourClock}" IsChecked="{Binding Use24HourTime}" />
+            <CheckBox Content="{x:Static res:Strings.OptionCheckUpdates}" IsChecked="{Binding CheckForUpdatesOnStartup}" />
+            <CheckBox Content="{x:Static res:Strings.OptionRestoreSession}" IsChecked="{Binding RestoreLastSessionOnStartup}" />
+            <CheckBox Content="{x:Static res:Strings.OptionAddWithoutDialog}" IsChecked="{Binding AddTorrentsWithoutDialog}" />
+            <CheckBox Content="{x:Static res:Strings.OptionStartImmediately}" IsChecked="{Binding StartTorrentsImmediately}" />
           </StackPanel>
         </TabItem>
 
-        <TabItem Header="Tray">
+        <TabItem Header="{x:Static res:Strings.TabTray}">
           <StackPanel Spacing="10" Margin="16,14">
-            <CheckBox Content="Minimize to the tray" IsChecked="{Binding MinimizeToTray}" />
-            <CheckBox Content="Close to the tray instead of quitting" IsChecked="{Binding CloseToTray}" />
-            <CheckBox Content="List the torrents in the tray tooltip" IsChecked="{Binding ShowTorrentListInTrayTooltip}" />
-            <CheckBox Content="Start minimized" IsChecked="{Binding StartMinimized}" />
+            <CheckBox Content="{x:Static res:Strings.OptionMinimizeToTray}" IsChecked="{Binding MinimizeToTray}" />
+            <CheckBox Content="{x:Static res:Strings.OptionCloseToTray}" IsChecked="{Binding CloseToTray}" />
+            <CheckBox Content="{x:Static res:Strings.OptionTrayTooltipList}" IsChecked="{Binding ShowTorrentListInTrayTooltip}" />
+            <CheckBox Content="{x:Static res:Strings.OptionStartMinimized}" IsChecked="{Binding StartMinimized}" />
             <TextBlock Classes="subtle" TextWrapping="Wrap" Margin="0,8,0,0"
-                       Text="On Linux the tray icon needs a StatusNotifier host (KDE, or GNOME with the AppIndicator extension). Without one a hidden window cannot be brought back, so these two options are off by default there." />
+                       Text="{x:Static res:Strings.TrayLinuxHint}" />
           </StackPanel>
         </TabItem>
 
-        <TabItem Header="Torrent defaults">
+        <TabItem Header="{x:Static res:Strings.TabTorrentDefaults}">
           <DockPanel>
             <TextBlock DockPanel.Dock="Top" Classes="subtle" Margin="16,12,16,4"
-                       Text="New torrents start from these settings." />
+                       Text="{x:Static res:Strings.DefaultsHint}" TextWrapping="Wrap" />
             <controls:TorrentSettingsView DataContext="{Binding Defaults}" />
           </DockPanel>
         </TabItem>
 
-        <TabItem Header="Clients">
+        <TabItem Header="{x:Static res:Strings.TabClients}">
           <StackPanel Spacing="10" Margin="16,14">
             <TextBlock Text="{Binding ClientSummary}" TextWrapping="Wrap" />
-            <SelectableTextBlock Text="{Binding UserClientsPath}" Classes="mono" FontSize="12" TextWrapping="Wrap" />
+            <SelectableTextBlock Text="{Binding UserClientsPath}" Classes="mono ltr" FontSize="12" TextWrapping="Wrap" />
             <TextBlock Classes="subtle" TextWrapping="Wrap"
-                       Text="The file uses the same shape as the built-in catalog. Entries with an existing name replace it; new names are added. Restart the application to pick up changes." />
-            <TextBlock Text="Configuration folder" Classes="section" />
-            <SelectableTextBlock Text="{Binding ConfigDirectory}" Classes="mono" FontSize="12" TextWrapping="Wrap" />
+                       Text="{x:Static res:Strings.ClientsFileHint}" />
+            <TextBlock Text="{x:Static res:Strings.ConfigFolder}" Classes="section" />
+            <SelectableTextBlock Text="{Binding ConfigDirectory}" Classes="mono ltr" FontSize="12" TextWrapping="Wrap" />
           </StackPanel>
         </TabItem>
 

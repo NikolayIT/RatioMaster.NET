@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
              xmlns:conv="clr-namespace:RatioMaster.App.Converters"
              xmlns:tracker="clr-namespace:RatioMaster.Core.Tracker;assembly=RatioMaster.Core"
@@ -13,29 +14,29 @@
                 ItemsSource="{Binding Exchanges}"
                 SelectedItem="{Binding Selected}">
         <DataGrid.Columns>
-          <DataGridTextColumn Header="Time" Width="85"
+          <DataGridTextColumn Header="{x:Static res:Strings.ColumnTime}" Width="85"
                               Binding="{Binding Timestamp, Mode=OneWay, Converter={x:Static conv:LogTimeConverter.Instance}}" />
-          <DataGridTextColumn Header="Event" Width="85" Binding="{Binding Kind, Mode=OneWay}" />
-          <DataGridTextColumn Header="Result" Width="*" Binding="{Binding Result, Mode=OneWay}" />
-          <DataGridTextColumn Header="Interval" Width="75" Binding="{Binding Interval, Mode=OneWay}"
+          <DataGridTextColumn Header="{x:Static res:Strings.ColumnEvent}" Width="85" Binding="{Binding Kind, Mode=OneWay}" />
+          <DataGridTextColumn Header="{x:Static res:Strings.ColumnResult}" Width="*" Binding="{Binding Result, Mode=OneWay}" />
+          <DataGridTextColumn Header="{x:Static res:Strings.ColumnInterval}" Width="75" Binding="{Binding Interval, Mode=OneWay}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
-          <DataGridTextColumn Header="Seeds" Width="65" Binding="{Binding Complete, Mode=OneWay}"
+          <DataGridTextColumn Header="{x:Static res:Strings.Seeds}" Width="65" Binding="{Binding Complete, Mode=OneWay}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
-          <DataGridTextColumn Header="Leechers" Width="80" Binding="{Binding Incomplete, Mode=OneWay}"
+          <DataGridTextColumn Header="{x:Static res:Strings.Leechers}" Width="80" Binding="{Binding Incomplete, Mode=OneWay}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
-          <DataGridTextColumn Header="Peers" Width="65" Binding="{Binding PeerCount, Mode=OneWay}"
+          <DataGridTextColumn Header="{x:Static res:Strings.ColumnPeers}" Width="65" Binding="{Binding PeerCount, Mode=OneWay}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
-          <DataGridTextColumn Header="Latency" Width="80" Binding="{Binding DurationMs, Mode=OneWay, StringFormat={}{0:0} ms}"
+          <DataGridTextColumn Header="{x:Static res:Strings.ColumnLatency}" Width="80" Binding="{Binding DurationMs, Mode=OneWay, StringFormat={x:Static res:Strings.MillisecondsFormat}}"
                               CellTheme="{StaticResource DataGridCellNumeric}"
                               HeaderTemplate="{StaticResource DataGridHeaderNumeric}" />
         </DataGrid.Columns>
       </DataGrid>
 
-      <TextBlock Text="No tracker exchanges yet" Classes="subtle"
+      <TextBlock Text="{x:Static res:Strings.TrackerNoExchanges}" Classes="subtle"
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  IsVisible="{Binding !Exchanges.Count}" />
     </Panel>
@@ -44,14 +45,14 @@
 
     <Border Grid.Column="2" BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="1,0,0,0">
       <Panel>
-        <TextBlock Text="Select an exchange to see the request" Classes="subtle"
+        <TextBlock Text="{x:Static res:Strings.TrackerSelectExchange}" TextWrapping="Wrap" TextAlignment="Center" Margin="12,0" Classes="subtle"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    IsVisible="{Binding Selected, Converter={x:Static ObjectConverters.IsNull}}" />
         <ScrollViewer Padding="12,8" IsVisible="{Binding Selected, Converter={x:Static ObjectConverters.IsNotNull}}">
           <StackPanel Spacing="6" DataContext="{Binding Selected}" x:DataType="tracker:TrackerExchange">
-            <TextBlock Text="Request" Classes="section" Margin="0,0,0,2" />
+            <TextBlock Text="{x:Static res:Strings.TrackerRequest}" Classes="section" Margin="0,0,0,2" />
             <SelectableTextBlock Text="{Binding RequestUrl}" TextWrapping="Wrap" Classes="mono" FontSize="11" />
-            <TextBlock Text="Response headers" Classes="section" />
+            <TextBlock Text="{x:Static res:Strings.TrackerResponseHeaders}" Classes="section" />
             <SelectableTextBlock Text="{Binding ResponseHeaders}" TextWrapping="Wrap" Classes="mono" FontSize="11" />
           </StackPanel>
         </ScrollViewer>

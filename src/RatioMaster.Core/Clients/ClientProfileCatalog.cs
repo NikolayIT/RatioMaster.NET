@@ -1,6 +1,9 @@
 namespace RatioMaster.Core.Clients
 {
+    using System.Globalization;
     using System.Text.Json;
+
+    using RatioMaster.Core.Resources;
 
     /// <summary>
     /// The set of client emulation profiles. Loads the built-in clients.json and, optionally, a
@@ -66,7 +69,7 @@ namespace RatioMaster.Core.Clients
         /// <summary>Parses a catalog from JSON text (used by tests and the user-file loader).</summary>
         public static ClientProfileCatalog Parse(string json)
         {
-            var document = Deserialize(json) ?? throw new InvalidOperationException("The client catalog is empty.");
+            var document = Deserialize(json) ?? throw new InvalidOperationException(Strings.CatalogEmpty);
             return FromDocument(document);
         }
 
@@ -88,7 +91,7 @@ namespace RatioMaster.Core.Clients
         {
             if (document.Clients.Count == 0)
             {
-                throw new InvalidOperationException("The client catalog has no clients.");
+                throw new InvalidOperationException(Strings.CatalogNoClients);
             }
 
             var profiles = document.Clients.Select(c => c.ToProfile()).ToList();
@@ -97,7 +100,7 @@ namespace RatioMaster.Core.Clients
             {
                 if (!names.Add(profile.Name))
                 {
-                    throw new InvalidOperationException($"Duplicate client name '{profile.Name}' in the catalog.");
+                    throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture, Strings.CatalogDuplicateName, profile.Name));
                 }
             }
 
@@ -140,11 +143,11 @@ namespace RatioMaster.Core.Clients
         {
             try
             {
-                return Deserialize(File.ReadAllText(path)) ?? throw new InvalidOperationException("The user client catalog is empty.");
+                return Deserialize(File.ReadAllText(path)) ?? throw new InvalidOperationException(Strings.CatalogUserEmpty);
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or JsonException)
             {
-                throw new InvalidOperationException($"Cannot read the user client catalog '{path}': {ex.Message}", ex);
+                throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture, Strings.CatalogUserCannotRead, path, ex.Message), ex);
             }
         }
 

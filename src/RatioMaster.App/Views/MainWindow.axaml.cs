@@ -8,7 +8,9 @@ namespace RatioMaster.App.Views
     using Avalonia;
     using Avalonia.Controls;
     using Avalonia.Input;
+    using Avalonia.Media;
     using Avalonia.Platform.Storage;
+    using RatioMaster.App.Services;
     using RatioMaster.App.ViewModels;
     using RatioMaster.Core.Settings;
 
@@ -28,6 +30,11 @@ namespace RatioMaster.App.Views
         public MainWindow()
         {
             this.InitializeComponent();
+            if (Localization.IsRightToLeft)
+            {
+                this.FlowDirection = FlowDirection.RightToLeft;
+                this.Classes.Add("rtl");
+            }
 
             DragDrop.SetAllowDrop(this, true);
             this.AddHandler(DragDrop.DragOverEvent, OnDragOver);
@@ -91,7 +98,11 @@ namespace RatioMaster.App.Views
 
         // ---- Columns ------------------------------------------------------------
 
-        private static string ColumnName(DataGridColumn column) => column.Header?.ToString() ?? string.Empty;
+        /// <summary>
+        /// Gets the name the saved column layout uses: the column's Tag, which is its English header, so a layout
+        /// saved in one language still applies in another.
+        /// </summary>
+        private static string ColumnName(DataGridColumn column) => column.Tag as string ?? column.Header?.ToString() ?? string.Empty;
 
         // ---- Drag and drop ------------------------------------------------------
 
@@ -277,7 +288,7 @@ namespace RatioMaster.App.Views
             {
                 var item = new MenuItem
                 {
-                    Header = ColumnName(column),
+                    Header = column.Header,
                     ToggleType = MenuItemToggleType.CheckBox,
                     IsEnabled = column != this.NameColumn,
                     StaysOpenOnClick = true,

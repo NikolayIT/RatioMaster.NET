@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
              x:Class="RatioMaster.App.Views.Dialogs.NewVersionView"
              x:DataType="vm:NewVersionViewModel"
@@ -7,9 +8,9 @@
   <StackPanel Margin="20" Spacing="20">
     <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
     <StackPanel Classes="dialog-buttons">
-      <Button Content="Download" IsDefault="True" Classes="accent" Command="{Binding DownloadCommand}" />
-      <Button Content="Remind me later" Command="{Binding LaterCommand}" IsCancel="True" />
-      <Button Content="Skip this version" Command="{Binding SkipCommand}" />
+      <Button Content="{x:Static res:Strings.ButtonDownload}" IsDefault="True" Classes="accent" Command="{Binding DownloadCommand}" />
+      <Button Content="{x:Static res:Strings.ButtonRemindLater}" Command="{Binding LaterCommand}" IsCancel="True" />
+      <Button Content="{x:Static res:Strings.ButtonSkipVersion}" Command="{Binding SkipCommand}" />
     </StackPanel>
   </StackPanel>
 </UserControl>

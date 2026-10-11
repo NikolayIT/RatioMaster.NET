@@ -1,10 +1,12 @@
 namespace RatioMaster.Core.Tracker
 {
     using System.Diagnostics;
+    using System.Globalization;
 
     using RatioMaster.Core.Abstractions;
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.Networking;
+    using RatioMaster.Core.Resources;
 
     /// <summary>The production <see cref="ITrackerClient"/>: builds URLs and requests over <see cref="TrackerHttpClient"/>.</summary>
     public sealed class TrackerClient : ITrackerClient
@@ -54,7 +56,7 @@ namespace RatioMaster.Core.Tracker
             }
             catch (Exception ex) when (IsTrackerFailure(ex, cancellationToken))
             {
-                throw new TrackerException($"Announce to {trackerUrl} failed: {ex.Message}", ex);
+                throw new TrackerException(string.Format(CultureInfo.CurrentCulture, Strings.TrackerAnnounceFailed, trackerUrl, ex.Message), ex);
             }
         }
 
@@ -76,7 +78,7 @@ namespace RatioMaster.Core.Tracker
                     Timestamp = timestamp,
                     Kind = "scrape",
                     RequestUrl = trackerUrl,
-                    Error = "This tracker does not support scrape.",
+                    Error = Strings.TrackerScrapeUnsupported,
                 });
             }
 
@@ -101,7 +103,7 @@ namespace RatioMaster.Core.Tracker
             }
             catch (Exception ex) when (IsTrackerFailure(ex, cancellationToken))
             {
-                throw new TrackerException($"Scrape of {trackerUrl} failed: {ex.Message}", ex);
+                throw new TrackerException(string.Format(CultureInfo.CurrentCulture, Strings.TrackerScrapeFailed, trackerUrl, ex.Message), ex);
             }
         }
 

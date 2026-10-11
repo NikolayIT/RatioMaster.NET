@@ -117,6 +117,8 @@
     <Setter Property="Width" Value="16" />
     <Setter Property="Height" Value="16" />
     <Setter Property="VerticalAlignment" Value="Center" />
+    <!-- In right-to-left languages the toolbar still shows its icons as drawn: Start is a play triangle pointing right. -->
+    <Setter Property="FlowDirection" Value="LeftToRight" />
   </Style>
 
   <Style Selector="Rectangle.toolbar-separator">
@@ -192,9 +194,25 @@
     <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
   </Style>
 
+  <!-- Check box and radio button texts wrap where their container limits the width: translations run longer. -->
+  <Style Selector="CheckBox /template/ ContentPresenter, RadioButton /template/ ContentPresenter">
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
   <Style Selector="TextBlock.label">
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="Margin" Value="0,0,8,0" />
+  </Style>
+
+  <!-- Right-to-left languages (the window gets the rtl class): identifiers, addresses and paths still read left to
+       right. Their text stays on the start (right) side of the column; their input boxes simply type left to right. -->
+  <Style Selector="Window.rtl SelectableTextBlock.ltr">
+    <Setter Property="FlowDirection" Value="LeftToRight" />
+    <Setter Property="TextAlignment" Value="Right" />
+  </Style>
+
+  <Style Selector="Window.rtl TextBox.ltr, Window.rtl ComboBox.ltr">
+    <Setter Property="FlowDirection" Value="LeftToRight" />
   </Style>
 
   <Style Selector="TextBlock.mono, SelectableTextBlock.mono">

@@ -5,6 +5,7 @@ namespace RatioMaster.Core.Sessions
     using System.Xml.Linq;
 
     using RatioMaster.Core.Networking;
+    using RatioMaster.Core.Resources;
     using RatioMaster.Core.Settings;
 
     /// <summary>
@@ -52,7 +53,7 @@ namespace RatioMaster.Core.Sessions
         public static SessionDocument ParseLegacyXml(string xml)
         {
             var document = XDocument.Parse(xml);
-            var root = document.Root ?? throw new InvalidOperationException("The session file has no root element.");
+            var root = document.Root ?? throw new InvalidOperationException(Strings.SessionNoRoot);
 
             var entries = new List<SessionEntry>();
             foreach (var element in root.Elements())

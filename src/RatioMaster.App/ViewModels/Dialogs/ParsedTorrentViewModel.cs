@@ -3,12 +3,14 @@ namespace RatioMaster.App.ViewModels.Dialogs
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Globalization;
     using System.Linq;
     using System.Threading.Tasks;
 
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
     using RatioMaster.App.Converters;
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services.Abstractions;
     using RatioMaster.Core.Sessions;
     using RatioMaster.Core.Torrents;
@@ -24,7 +26,9 @@ namespace RatioMaster.App.ViewModels.Dialogs
 
         public string Size => Formatting.Bytes(this.File.TotalLength);
 
-        public string FileCount => this.File.Files.Count == 1 ? "1 file" : $"{this.File.Files.Count} files";
+        public string FileCount => this.File.Files.Count == 1
+            ? Strings.FileCountOne
+            : string.Format(CultureInfo.CurrentCulture, Strings.FileCountMany, this.File.Files.Count);
 
         public string Path => this.File.Path ?? string.Empty;
     }

@@ -1,9 +1,13 @@
 namespace RatioMaster.App.ViewModels.Dialogs
 {
     using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
 
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
+    using RatioMaster.App.Resources;
+    using RatioMaster.App.Services;
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.Settings;
 
@@ -14,6 +18,10 @@ namespace RatioMaster.App.ViewModels.Dialogs
 
         [ObservableProperty]
         private AppTheme theme;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsRestartNeeded))]
+        private LanguageOption selectedLanguage;
 
         [ObservableProperty]
         private bool use24HourTime;
@@ -44,7 +52,7 @@ namespace RatioMaster.App.ViewModels.Dialogs
 
         public SettingsViewModel(AppSettings settings, TorrentSettingsViewModel defaults, ClientProfileCatalog catalog)
         {
-            this.Title = "Settings";
+            this.Title = Strings.Settings;
             this.original = settings;
             this.Defaults = defaults;
             this.theme = settings.Theme;
@@ -58,6 +66,11 @@ namespace RatioMaster.App.ViewModels.Dialogs
             this.showTorrentListInTrayTooltip = settings.ShowTorrentListInTrayTooltip;
             this.startMinimized = settings.StartMinimized;
 
+            var systemDefault = string.Format(CultureInfo.CurrentCulture, Strings.LanguageSystemDefault, Localization.SystemLanguage.NativeName);
+            this.Languages = [new LanguageOption(null, systemDefault), .. UiLanguages.All.Select(l => new LanguageOption(l.Code, l.NativeName))];
+            var saved = UiLanguages.Find(settings.Language)?.Code;
+            this.selectedLanguage = this.Languages.FirstOrDefault(o => o.Code is not null && o.Code == saved) ?? this.Languages[0];
+
             this.ClientCount = catalog.Profiles.Count;
             this.UserClientsPath = AppPaths.UserClientsFile;
             this.ConfigDirectory = AppPaths.ConfigDirectory;
@@ -67,19 +80,25 @@ namespace RatioMaster.App.ViewModels.Dialogs
 
         public TorrentSettingsViewModel Defaults { get; }
 
+        /// <summary>Gets the language picker entries: "System default" first, then every translation by its own name.</summary>
+        public IReadOnlyList<LanguageOption> Languages { get; }
+
+        /// <summary>Gets a value indicating whether the picked language differs from the one on screen, which takes a restart.</summary>
+        public bool IsRestartNeeded => UiLanguages.Resolve(this.SelectedLanguage.Code, Localization.SystemCulture) != Localization.Current;
+
         public int ClientCount { get; }
 
         public string UserClientsPath { get; }
 
         public string ConfigDirectory { get; }
 
-        public string ClientSummary =>
-            $"{this.ClientCount} client emulations are loaded. Add or override them by creating this file:";
+        public string ClientSummary => string.Format(CultureInfo.CurrentCulture, Strings.ClientsSummary, this.ClientCount);
 
         [RelayCommand]
         private void Save() => this.Close(this.original with
         {
             Theme = this.Theme,
+            Language = this.SelectedLanguage.Code,
             Use24HourTime = this.Use24HourTime,
             CheckForUpdatesOnStartup = this.CheckForUpdatesOnStartup,
             RestoreLastSessionOnStartup = this.RestoreLastSessionOnStartup,

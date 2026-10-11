@@ -1,6 +1,9 @@
 namespace RatioMaster.Core.Bencode
 {
     using System.Buffers.Text;
+    using System.Globalization;
+
+    using RatioMaster.Core.Resources;
 
     /// <summary>Recursive-descent bencode parser over a byte span. Records the raw byte range of every value.</summary>
     public static class BencodeParser
@@ -20,7 +23,7 @@ namespace RatioMaster.Core.Bencode
         }
 
         public static BencodeDictionary ParseDictionary(ReadOnlySpan<byte> data) =>
-            Parse(data) as BencodeDictionary ?? throw new BencodeException("The root value is not a dictionary.");
+            Parse(data) as BencodeDictionary ?? throw new BencodeException(Strings.BencodeRootNotDictionary);
 
         public static bool TryParse(ReadOnlySpan<byte> data, out BencodeValue? value)
         {
@@ -40,12 +43,12 @@ namespace RatioMaster.Core.Bencode
         {
             if (depth > MaxDepth)
             {
-                throw new BencodeException("The data is nested too deeply.");
+                throw new BencodeException(Strings.BencodeTooDeep);
             }
 
             if (position >= data.Length)
             {
-                throw new BencodeException($"Unexpected end of data at offset {position}.");
+                throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeUnexpectedEnd, position));
             }
 
             var start = position;
@@ -64,7 +67,7 @@ namespace RatioMaster.Core.Bencode
                     {
                         if (position >= data.Length)
                         {
-                            throw new BencodeException($"Unterminated list starting at offset {start}.");
+                            throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeUnterminatedList, start));
                         }
 
                         if (data[position] == (byte)'e')
@@ -88,7 +91,7 @@ namespace RatioMaster.Core.Bencode
                     {
                         if (position >= data.Length)
                         {
-                            throw new BencodeException($"Unterminated dictionary starting at offset {start}.");
+                            throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeUnterminatedDictionary, start));
                         }
 
                         if (data[position] == (byte)'e')
@@ -99,7 +102,7 @@ namespace RatioMaster.Core.Bencode
 
                         if (!IsDigit(data[position]))
                         {
-                            throw new BencodeException($"Dictionary key at offset {position} is not a string.");
+                            throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeKeyNotString, position));
                         }
 
                         var key = ParseString(data, ref position);
@@ -116,7 +119,7 @@ namespace RatioMaster.Core.Bencode
                     break;
 
                 default:
-                    throw new BencodeException($"Unexpected byte 0x{data[position]:X2} at offset {position}.");
+                    throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeUnexpectedByte, data[position].ToString("X2", CultureInfo.InvariantCulture), position));
             }
 
             value.RawOffset = start;
@@ -131,7 +134,7 @@ namespace RatioMaster.Core.Bencode
             var end = data[position..].IndexOf((byte)'e');
             if (end < 0)
             {
-                throw new BencodeException($"Unterminated integer at offset {start}.");
+                throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeUnterminatedInteger, start));
             }
 
             var digits = data.Slice(position, end);
@@ -139,7 +142,7 @@ namespace RatioMaster.Core.Bencode
                 || !Utf8Parser.TryParse(digits, out long number, out var consumed)
                 || consumed != digits.Length)
             {
-                throw new BencodeException($"Invalid integer at offset {start}.");
+                throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeInvalidInteger, start));
             }
 
             position += end + 1;
@@ -152,7 +155,7 @@ namespace RatioMaster.Core.Bencode
             var colon = data[position..].IndexOf((byte)':');
             if (colon < 0)
             {
-                throw new BencodeException($"String length at offset {start} is not terminated by a colon.");
+                throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeStringLengthNoColon, start));
             }
 
             var lengthDigits = data.Slice(position, colon);
@@ -161,13 +164,13 @@ namespace RatioMaster.Core.Bencode
                 || consumed != lengthDigits.Length
                 || length < 0)
             {
-                throw new BencodeException($"Invalid string length at offset {start}.");
+                throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeInvalidStringLength, start));
             }
 
             position += colon + 1;
             if (position + length > data.Length)
             {
-                throw new BencodeException($"String at offset {start} declares {length} bytes but only {data.Length - position} remain.");
+                throw new BencodeException(string.Format(CultureInfo.CurrentCulture, Strings.BencodeStringTooLong, start, length, data.Length - position));
             }
 
             var value = new BencodeString(data.Slice(position, length));

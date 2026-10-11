@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
              xmlns:conv="clr-namespace:RatioMaster.App.Converters"
              x:Class="RatioMaster.App.Views.Controls.TorrentGeneralView"
@@ -8,32 +9,32 @@
   <ScrollViewer Padding="14,10">
     <Grid ColumnDefinitions="Auto,*,Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
 
-      <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" Classes="key" />
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.Name}" Classes="key" />
       <SelectableTextBlock Grid.Row="0" Grid.Column="1" Classes="value" Text="{Binding DisplayName}" />
-      <TextBlock Grid.Row="0" Grid.Column="2" Text="Status" Classes="key" />
+      <TextBlock Grid.Row="0" Grid.Column="2" Text="{x:Static res:Strings.Status}" Classes="key" />
       <SelectableTextBlock Grid.Row="0" Grid.Column="3" Classes="value" Text="{Binding StatusText}" />
 
-      <TextBlock Grid.Row="1" Grid.Column="0" Text="Info hash" Classes="key" />
-      <SelectableTextBlock Grid.Row="1" Grid.Column="1" Classes="value mono" Text="{Binding InfoHashHex}" />
-      <TextBlock Grid.Row="1" Grid.Column="2" Text="Size" Classes="key" />
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:Strings.LabelInfoHash}" Classes="key" />
+      <SelectableTextBlock Grid.Row="1" Grid.Column="1" Classes="value mono ltr" Text="{Binding InfoHashHex}" />
+      <TextBlock Grid.Row="1" Grid.Column="2" Text="{x:Static res:Strings.LabelSize}" Classes="key" />
       <SelectableTextBlock Grid.Row="1" Grid.Column="3" Classes="value"
                            Text="{Binding TotalSize, Converter={x:Static conv:Converters.Bytes}}" />
 
-      <TextBlock Grid.Row="2" Grid.Column="0" Text="Tracker" Classes="key" />
-      <SelectableTextBlock Grid.Row="2" Grid.Column="1" Classes="value" Text="{Binding TrackerUrl}" />
-      <TextBlock Grid.Row="2" Grid.Column="2" Text="Client" Classes="key" />
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static res:Strings.Tracker}" Classes="key" />
+      <SelectableTextBlock Grid.Row="2" Grid.Column="1" Classes="value ltr" Text="{Binding TrackerUrl}" />
+      <TextBlock Grid.Row="2" Grid.Column="2" Text="{x:Static res:Strings.Client}" Classes="key" />
       <SelectableTextBlock Grid.Row="2" Grid.Column="3" Classes="value" Text="{Binding ClientName}" />
 
-      <TextBlock Grid.Row="3" Grid.Column="0" Text="Torrent file" Classes="key" />
-      <SelectableTextBlock Grid.Row="3" Grid.Column="1" Classes="value" Text="{Binding TorrentPath}" />
-      <TextBlock Grid.Row="3" Grid.Column="2" Text="Proxy" Classes="key" />
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static res:Strings.LabelTorrentFile}" Classes="key" />
+      <SelectableTextBlock Grid.Row="3" Grid.Column="1" Classes="value ltr" Text="{Binding TorrentPath}" />
+      <TextBlock Grid.Row="3" Grid.Column="2" Text="{x:Static res:Strings.Proxy}" Classes="key" />
       <SelectableTextBlock Grid.Row="3" Grid.Column="3" Classes="value" Text="{Binding ProxyText}" />
 
-      <TextBlock Grid.Row="4" Grid.Column="0" Text="Peer ID" Classes="key" />
-      <SelectableTextBlock Grid.Row="4" Grid.Column="1" Classes="value mono"
+      <TextBlock Grid.Row="4" Grid.Column="0" Text="{x:Static res:Strings.PeerId}" Classes="key" />
+      <SelectableTextBlock Grid.Row="4" Grid.Column="1" Classes="value mono ltr"
                            Text="{Binding PeerIdInUse, Converter={x:Static conv:Converters.OrDash}}" />
-      <TextBlock Grid.Row="4" Grid.Column="2" Text="Key / port / peers" Classes="key" />
-      <SelectableTextBlock Grid.Row="4" Grid.Column="3" Classes="value">
+      <TextBlock Grid.Row="4" Grid.Column="2" Text="{x:Static res:Strings.LabelKeyPortPeers}" Classes="key" />
+      <SelectableTextBlock Grid.Row="4" Grid.Column="3" Classes="value ltr">
         <SelectableTextBlock.Text>
           <MultiBinding StringFormat="{}{0} / {1} / {2}">
             <Binding Path="KeyInUse" Converter="{x:Static conv:Converters.OrDash}" />
@@ -43,17 +44,17 @@
         </SelectableTextBlock.Text>
       </SelectableTextBlock>
 
-      <TextBlock Grid.Row="5" Grid.Column="0" Text="Uploaded" Classes="key" />
+      <TextBlock Grid.Row="5" Grid.Column="0" Text="{x:Static res:Strings.Uploaded}" Classes="key" />
       <SelectableTextBlock Grid.Row="5" Grid.Column="1" Classes="value"
                            Text="{Binding Uploaded, Converter={x:Static conv:Converters.Bytes}}" />
-      <TextBlock Grid.Row="5" Grid.Column="2" Text="Downloaded" Classes="key" />
+      <TextBlock Grid.Row="5" Grid.Column="2" Text="{x:Static res:Strings.Downloaded}" Classes="key" />
       <SelectableTextBlock Grid.Row="5" Grid.Column="3" Classes="value"
                            Text="{Binding Downloaded, Converter={x:Static conv:Converters.Bytes}}" />
 
-      <TextBlock Grid.Row="6" Grid.Column="0" Text="Ratio" Classes="key" />
+      <TextBlock Grid.Row="6" Grid.Column="0" Text="{x:Static res:Strings.Ratio}" Classes="key" />
       <SelectableTextBlock Grid.Row="6" Grid.Column="1" Classes="value"
                            Text="{Binding Ratio, Converter={x:Static conv:Converters.Ratio}}" />
-      <TextBlock Grid.Row="6" Grid.Column="2" Text="Seeders / leechers" Classes="key" />
+      <TextBlock Grid.Row="6" Grid.Column="2" Text="{x:Static res:Strings.LabelSeedersLeechers}" Classes="key" />
       <SelectableTextBlock Grid.Row="6" Grid.Column="3" Classes="value">
         <SelectableTextBlock.Text>
           <MultiBinding StringFormat="{}{0} / {1}">
@@ -63,10 +64,10 @@
         </SelectableTextBlock.Text>
       </SelectableTextBlock>
 
-      <TextBlock Grid.Row="7" Grid.Column="0" Text="Total time" Classes="key" />
+      <TextBlock Grid.Row="7" Grid.Column="0" Text="{x:Static res:Strings.TotalTime}" Classes="key" />
       <SelectableTextBlock Grid.Row="7" Grid.Column="1" Classes="value"
                            Text="{Binding TotalRunningTime, Converter={x:Static conv:Converters.Duration}}" />
-      <TextBlock Grid.Row="7" Grid.Column="2" Text="Next update / stop" Classes="key" />
+      <TextBlock Grid.Row="7" Grid.Column="2" Text="{x:Static res:Strings.LabelNextUpdateStop}" Classes="key" />
       <SelectableTextBlock Grid.Row="7" Grid.Column="3" Classes="value">
         <SelectableTextBlock.Text>
           <MultiBinding StringFormat="{}{0} · {1}">

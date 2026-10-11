@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
              xmlns:conv="clr-namespace:RatioMaster.App.Converters"
              xmlns:logging="clr-namespace:RatioMaster.Core.Logging;assembly=RatioMaster.Core"
@@ -9,17 +10,17 @@
   <DockPanel>
     <Border DockPanel.Dock="Top" Classes="panel-toolbar">
       <Grid ColumnDefinitions="Auto,Auto,*,Auto">
-        <CheckBox Grid.Column="0" Content="Enabled" IsChecked="{Binding IsEnabled}" Margin="0,0,14,0" />
-        <CheckBox Grid.Column="1" Content="Auto-scroll" IsChecked="{Binding AutoScroll}" Margin="0,0,14,0" />
-        <TextBox Grid.Column="2" PlaceholderText="Filter" Text="{Binding FilterText}" MaxWidth="260" HorizontalAlignment="Left">
+        <CheckBox Grid.Column="0" Content="{x:Static res:Strings.LogEnabled}" IsChecked="{Binding IsEnabled}" Margin="0,0,14,0" />
+        <CheckBox Grid.Column="1" Content="{x:Static res:Strings.LogAutoScroll}" IsChecked="{Binding AutoScroll}" Margin="0,0,14,0" />
+        <TextBox Grid.Column="2" PlaceholderText="{x:Static res:Strings.LogFilter}" Text="{Binding FilterText}" MaxWidth="260" HorizontalAlignment="Left">
           <TextBox.InnerLeftContent>
             <PathIcon Data="{StaticResource IconSearch}" Width="12" Height="12" Margin="8,0,0,0" Opacity="0.6" />
           </TextBox.InnerLeftContent>
         </TextBox>
         <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="6">
-          <Button Content="Copy" Command="{Binding CopyAllCommand}" />
-          <Button Content="Save..." Command="{Binding SaveCommand}" />
-          <Button Content="Clear" Command="{Binding ClearCommand}" />
+          <Button Content="{x:Static res:Strings.ButtonCopy}" Command="{Binding CopyAllCommand}" />
+          <Button Content="{x:Static res:Strings.ButtonSaveAs}" Command="{Binding SaveCommand}" />
+          <Button Content="{x:Static res:Strings.ButtonClear}" Command="{Binding ClearCommand}" />
         </StackPanel>
       </Grid>
     </Border>
@@ -38,7 +39,7 @@
         </ListBox.ItemTemplate>
       </ListBox>
 
-      <TextBlock Text="Nothing logged yet" Classes="subtle"
+      <TextBlock Text="{x:Static res:Strings.LogEmpty}" Classes="subtle"
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  IsVisible="{Binding !Entries.Count}" />
     </Panel>

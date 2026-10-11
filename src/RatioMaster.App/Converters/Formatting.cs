@@ -3,10 +3,19 @@ namespace RatioMaster.App.Converters
     using System;
     using System.Globalization;
 
+    using RatioMaster.App.Resources;
+    using RatioMaster.App.Services;
+
     /// <summary>Shared display formatting, matching the wording the old app used.</summary>
     public static class Formatting
     {
         public const string Unknown = "—";
+
+        /// <summary>The left-to-right mark: a strong left-to-right character that keeps "60 kB/s" in order inside right-to-left text.</summary>
+        private const char LeftToRightMark = '\u200E';
+
+        /// <summary>The right-to-left mark, which ends such a quantity so the text after it (an arrow, a space) reads right to left again.</summary>
+        private const char RightToLeftMark = '\u200F';
 
         /// <summary>Formats a byte count as bytes, KB, MB or GB.</summary>
         public static string Bytes(long value)
@@ -18,10 +27,10 @@ namespace RatioMaster.App.Converters
 
             return value switch
             {
-                >= 0x40000000 => string.Format(CultureInfo.CurrentCulture, "{0:########0.00} GB", value / 1073741824d),
-                >= 0x100000 => string.Format(CultureInfo.CurrentCulture, "{0:####0.00} MB", value / 1048576d),
-                >= 0x400 => string.Format(CultureInfo.CurrentCulture, "{0:####0.00} KB", value / 1024d),
-                _ => string.Format(CultureInfo.CurrentCulture, "{0} bytes", value),
+                >= 0x40000000 => Unit(Strings.SizeGigabytes, value / 1073741824d, "0.00"),
+                >= 0x100000 => Unit(Strings.SizeMegabytes, value / 1048576d, "0.00"),
+                >= 0x400 => Unit(Strings.SizeKilobytes, value / 1024d, "0.00"),
+                _ => Unit(Strings.SizeBytes, value, "0"),
             };
         }
 
@@ -30,12 +39,12 @@ namespace RatioMaster.App.Converters
         {
             if (bytesPerSecond <= 0)
             {
-                return "0 kB/s";
+                return Unit(Strings.SpeedKilobytes, 0, "0");
             }
 
             return bytesPerSecond >= 1024 * 1024
-                ? string.Format(CultureInfo.CurrentCulture, "{0:0.00} MB/s", bytesPerSecond / 1048576d)
-                : string.Format(CultureInfo.CurrentCulture, "{0:0.#} kB/s", bytesPerSecond / 1024d);
+                ? Unit(Strings.SpeedMegabytes, bytesPerSecond / 1048576d, "0.00")
+                : Unit(Strings.SpeedKilobytes, bytesPerSecond / 1024d, "0.#");
         }
 
         /// <summary>mm:ss below an hour, hh:mm:ss above it (as ConvertToTime did).</summary>
@@ -57,8 +66,9 @@ namespace RatioMaster.App.Converters
         public static string Ratio(double? value) =>
             value is { } v && double.IsFinite(v) ? v.ToString("0.00", CultureInfo.CurrentCulture) : Unknown;
 
+        /// <summary>A percentage with one decimal, the sign placed as the regional format places it (12.5%, 12,5 %, %12,5).</summary>
         public static string Percent(double value) =>
-            value.ToString("0.0", CultureInfo.CurrentCulture) + "%";
+            (value / 100).ToString("P1", CultureInfo.CurrentCulture);
 
         public static string Count(int? value) =>
             value is { } v ? v.ToString(CultureInfo.CurrentCulture) : Unknown;
@@ -72,6 +82,20 @@ namespace RatioMaster.App.Converters
             }
 
             return Uri.TryCreate(url, UriKind.Absolute, out var uri) ? uri.Host : url;
+        }
+
+        /// <summary>
+        /// Formats a number in the user's regional format and puts it into a translated unit pattern such as "{0} MB".
+        /// In a right-to-left language the number starts with a left-to-right mark, so a Latin unit stays after it
+        /// ("60 kB/s", not "kB/s 60") while an Arabic or Hebrew unit still reads right to left, and the whole
+        /// quantity ends with a right-to-left mark so it does not merge with the next one ("↑ 60 kB/s   ↓ 30 kB/s").
+        /// </summary>
+        public static string Unit(string pattern, double value, string numberFormat)
+        {
+            var number = value.ToString(numberFormat, CultureInfo.CurrentCulture);
+            return Localization.IsRightToLeft
+                ? string.Format(CultureInfo.CurrentCulture, pattern, LeftToRightMark + number) + RightToLeftMark
+                : string.Format(CultureInfo.CurrentCulture, pattern, number);
         }
 
         /// <summary>

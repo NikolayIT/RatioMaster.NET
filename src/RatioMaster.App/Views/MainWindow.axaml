@@ -1,5 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:res="clr-namespace:RatioMaster.App.Resources"
         xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
         xmlns:conv="clr-namespace:RatioMaster.App.Converters"
         xmlns:controls="clr-namespace:RatioMaster.App.Views.Controls"
@@ -37,53 +38,53 @@
 
     <!-- Menu -->
     <Menu DockPanel.Dock="Top">
-      <MenuItem Header="_File">
-        <MenuItem Header="Add torrent..." Command="{Binding AddTorrentCommand}" InputGesture="Ctrl+O" />
+      <MenuItem Header="{x:Static res:Strings.MenuFile}">
+        <MenuItem Header="{x:Static res:Strings.MenuAddTorrent}" Command="{Binding AddTorrentCommand}" InputGesture="Ctrl+O" />
         <Separator />
-        <MenuItem Header="Load session..." Command="{Binding LoadSessionCommand}" InputGesture="Ctrl+L" />
-        <MenuItem Header="Load session and start..." Command="{Binding LoadSessionAndStartCommand}" InputGesture="Ctrl+Shift+L" />
-        <MenuItem Header="Save session..." Command="{Binding SaveSessionCommand}" InputGesture="Ctrl+S" />
-        <MenuItem Header="Stop all and save session..." Command="{Binding StopAllAndSaveSessionCommand}" InputGesture="Ctrl+Shift+S" />
+        <MenuItem Header="{x:Static res:Strings.MenuLoadSession}" Command="{Binding LoadSessionCommand}" InputGesture="Ctrl+L" />
+        <MenuItem Header="{x:Static res:Strings.MenuLoadSessionAndStart}" Command="{Binding LoadSessionAndStartCommand}" InputGesture="Ctrl+Shift+L" />
+        <MenuItem Header="{x:Static res:Strings.MenuSaveSession}" Command="{Binding SaveSessionCommand}" InputGesture="Ctrl+S" />
+        <MenuItem Header="{x:Static res:Strings.MenuStopAllAndSaveSession}" Command="{Binding StopAllAndSaveSessionCommand}" InputGesture="Ctrl+Shift+S" />
         <Separator />
-        <MenuItem Header="Settings..." Command="{Binding OpenSettingsCommand}" InputGesture="Ctrl+OemComma" />
+        <MenuItem Header="{x:Static res:Strings.MenuSettings}" Command="{Binding OpenSettingsCommand}" InputGesture="Ctrl+OemComma" />
         <Separator />
-        <MenuItem Header="Exit" Command="{Binding ExitCommand}" InputGesture="Ctrl+Q" />
+        <MenuItem Header="{x:Static res:Strings.MenuExit}" Command="{Binding ExitCommand}" InputGesture="Ctrl+Q" />
       </MenuItem>
-      <MenuItem Header="_Torrent">
-        <MenuItem Header="Start" Command="{Binding StartSelectedCommand}" InputGesture="Ctrl+Enter" />
-        <MenuItem Header="Stop" Command="{Binding StopSelectedCommand}" InputGesture="Ctrl+OemPeriod" />
-        <MenuItem Header="Update now" Command="{Binding UpdateSelectedCommand}" InputGesture="F5" />
+      <MenuItem Header="{x:Static res:Strings.MenuTorrent}">
+        <MenuItem Header="{x:Static res:Strings.CommandStart}" Command="{Binding StartSelectedCommand}" InputGesture="Ctrl+Enter" />
+        <MenuItem Header="{x:Static res:Strings.CommandStop}" Command="{Binding StopSelectedCommand}" InputGesture="Ctrl+OemPeriod" />
+        <MenuItem Header="{x:Static res:Strings.CommandUpdateNow}" Command="{Binding UpdateSelectedCommand}" InputGesture="F5" />
         <Separator />
-        <MenuItem Header="Rename..." Command="{Binding RenameSelectedCommand}" InputGesture="F2" />
-        <MenuItem Header="Remove" Command="{Binding RemoveSelectedCommand}" InputGesture="Delete" />
+        <MenuItem Header="{x:Static res:Strings.CommandRename}" Command="{Binding RenameSelectedCommand}" InputGesture="F2" />
+        <MenuItem Header="{x:Static res:Strings.CommandRemove}" Command="{Binding RemoveSelectedCommand}" InputGesture="Delete" />
         <Separator />
-        <MenuItem Header="Copy info hash" Command="{Binding CopyInfoHashCommand}" InputGesture="Ctrl+Shift+C" />
-        <MenuItem Header="Use these settings as defaults" Command="{Binding UseSelectedAsDefaultsCommand}" />
+        <MenuItem Header="{x:Static res:Strings.CommandCopyInfoHash}" Command="{Binding CopyInfoHashCommand}" InputGesture="Ctrl+Shift+C" />
+        <MenuItem Header="{x:Static res:Strings.CommandUseAsDefaults}" Command="{Binding UseSelectedAsDefaultsCommand}" />
       </MenuItem>
-      <MenuItem Header="_All">
-        <MenuItem Header="Start all" Command="{Binding StartAllCommand}" InputGesture="Ctrl+Shift+Enter" />
-        <MenuItem Header="Stop all" Command="{Binding StopAllCommand}" InputGesture="Ctrl+Shift+OemPeriod" />
-        <MenuItem Header="Update all" Command="{Binding UpdateAllCommand}" InputGesture="Shift+F5" />
+      <MenuItem Header="{x:Static res:Strings.MenuAll}">
+        <MenuItem Header="{x:Static res:Strings.CommandStartAll}" Command="{Binding StartAllCommand}" InputGesture="Ctrl+Shift+Enter" />
+        <MenuItem Header="{x:Static res:Strings.CommandStopAll}" Command="{Binding StopAllCommand}" InputGesture="Ctrl+Shift+OemPeriod" />
+        <MenuItem Header="{x:Static res:Strings.CommandUpdateAll}" Command="{Binding UpdateAllCommand}" InputGesture="Shift+F5" />
         <Separator />
-        <MenuItem Header="Set upload speed for all..." Command="{Binding SetUploadSpeedForAllCommand}" />
-        <MenuItem Header="Set download speed for all..." Command="{Binding SetDownloadSpeedForAllCommand}" />
+        <MenuItem Header="{x:Static res:Strings.MenuSetUploadSpeedForAll}" Command="{Binding SetUploadSpeedForAllCommand}" />
+        <MenuItem Header="{x:Static res:Strings.MenuSetDownloadSpeedForAll}" Command="{Binding SetDownloadSpeedForAllCommand}" />
         <Separator />
-        <MenuItem Header="Clear all logs" Command="{Binding ClearAllLogsCommand}" />
+        <MenuItem Header="{x:Static res:Strings.MenuClearAllLogs}" Command="{Binding ClearAllLogsCommand}" />
       </MenuItem>
-      <MenuItem Header="_View">
-        <MenuItem Header="Details pane" ToggleType="CheckBox" InputGesture="Ctrl+D"
+      <MenuItem Header="{x:Static res:Strings.MenuView}">
+        <MenuItem Header="{x:Static res:Strings.MenuDetailsPane}" ToggleType="CheckBox" InputGesture="Ctrl+D"
                   IsChecked="{Binding IsDetailsPaneVisible, Mode=TwoWay}" />
-        <MenuItem Name="ColumnsMenu" Header="Columns" />
+        <MenuItem Name="ColumnsMenu" Header="{x:Static res:Strings.MenuColumns}" />
       </MenuItem>
-      <MenuItem Header="_Help">
-        <MenuItem Header="Program website" Command="{Binding OpenUrlCommand}" CommandParameter="https://ratiomaster.net" />
+      <MenuItem Header="{x:Static res:Strings.MenuHelp}">
+        <MenuItem Header="{x:Static res:Strings.MenuProgramWebsite}" Command="{Binding OpenUrlCommand}" CommandParameter="https://ratiomaster.net" />
         <MenuItem Header="GitHub" Command="{Binding OpenUrlCommand}" CommandParameter="https://github.com/NikolayIT/RatioMaster.NET" />
-        <MenuItem Header="Forums" Command="{Binding OpenUrlCommand}" CommandParameter="https://github.com/NikolayIT/RatioMaster.NET/discussions" />
-        <MenuItem Header="Report a bug" Command="{Binding OpenUrlCommand}" CommandParameter="{x:Static updates:AppVersion.BugReportUrl}" />
-        <MenuItem Header="Donate" Command="{Binding OpenUrlCommand}" CommandParameter="{x:Static updates:AppVersion.DonateUrl}" />
+        <MenuItem Header="{x:Static res:Strings.Forums}" Command="{Binding OpenUrlCommand}" CommandParameter="https://github.com/NikolayIT/RatioMaster.NET/discussions" />
+        <MenuItem Header="{x:Static res:Strings.ReportBug}" Command="{Binding OpenUrlCommand}" CommandParameter="{x:Static updates:AppVersion.BugReportUrl}" />
+        <MenuItem Header="{x:Static res:Strings.Donate}" Command="{Binding OpenUrlCommand}" CommandParameter="{x:Static updates:AppVersion.DonateUrl}" />
         <Separator />
-        <MenuItem Header="Check for updates" Command="{Binding CheckForUpdatesCommand}" />
-        <MenuItem Header="About RatioMaster.NET" Command="{Binding ShowAboutCommand}" />
+        <MenuItem Header="{x:Static res:Strings.CheckForUpdates}" Command="{Binding CheckForUpdatesCommand}" />
+        <MenuItem Header="{x:Static res:Strings.AboutRatioMaster}" Command="{Binding ShowAboutCommand}" />
       </MenuItem>
     </Menu>
 
@@ -91,63 +92,72 @@
     <Border DockPanel.Dock="Top" Classes="toolbar">
       <Grid ColumnDefinitions="Auto,*,Auto">
         <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="2">
-          <Button Classes="toolbar" Command="{Binding AddTorrentCommand}" ToolTip.Tip="Add torrent (Ctrl+O)">
+          <Button Classes="toolbar" Command="{Binding AddTorrentCommand}" ToolTip.Tip="{x:Static res:Strings.TipAdd}"
+                  AutomationProperties.Name="{x:Static res:Strings.ToolbarAdd}">
             <StackPanel>
               <PathIcon Classes="toolbar" Data="{StaticResource IconAdd}" />
-              <TextBlock Text="Add" />
+              <TextBlock Text="{x:Static res:Strings.ToolbarAdd}" />
             </StackPanel>
           </Button>
           <Rectangle Classes="toolbar-separator" />
-          <Button Classes="toolbar" Command="{Binding StartSelectedCommand}" ToolTip.Tip="Start the selected torrents (Ctrl+Enter)">
+          <Button Classes="toolbar" Command="{Binding StartSelectedCommand}" ToolTip.Tip="{x:Static res:Strings.TipStart}"
+                  AutomationProperties.Name="{x:Static res:Strings.CommandStart}">
             <StackPanel>
               <PathIcon Classes="toolbar" Data="{StaticResource IconStart}" />
-              <TextBlock Text="Start" />
+              <TextBlock Text="{x:Static res:Strings.CommandStart}" />
             </StackPanel>
           </Button>
-          <Button Classes="toolbar" Command="{Binding StopSelectedCommand}" ToolTip.Tip="Stop the selected torrents (Ctrl+.)">
+          <Button Classes="toolbar" Command="{Binding StopSelectedCommand}" ToolTip.Tip="{x:Static res:Strings.TipStop}"
+                  AutomationProperties.Name="{x:Static res:Strings.CommandStop}">
             <StackPanel>
               <PathIcon Classes="toolbar" Data="{StaticResource IconStop}" />
-              <TextBlock Text="Stop" />
+              <TextBlock Text="{x:Static res:Strings.CommandStop}" />
             </StackPanel>
           </Button>
-          <Button Classes="toolbar" Command="{Binding UpdateSelectedCommand}" ToolTip.Tip="Announce to the tracker now (F5)">
+          <Button Classes="toolbar" Command="{Binding UpdateSelectedCommand}" ToolTip.Tip="{x:Static res:Strings.TipUpdate}"
+                  AutomationProperties.Name="{x:Static res:Strings.ToolbarUpdate}">
             <StackPanel>
               <PathIcon Classes="toolbar" Data="{StaticResource IconUpdate}" />
-              <TextBlock Text="Update" />
+              <TextBlock Text="{x:Static res:Strings.ToolbarUpdate}" />
             </StackPanel>
           </Button>
-          <Button Classes="toolbar" Command="{Binding RemoveSelectedCommand}" ToolTip.Tip="Remove the selected torrents (Del)">
+          <Button Classes="toolbar" Command="{Binding RemoveSelectedCommand}" ToolTip.Tip="{x:Static res:Strings.TipRemove}"
+                  AutomationProperties.Name="{x:Static res:Strings.CommandRemove}">
             <StackPanel>
               <PathIcon Classes="toolbar" Data="{StaticResource IconRemove}" />
-              <TextBlock Text="Remove" />
+              <TextBlock Text="{x:Static res:Strings.CommandRemove}" />
             </StackPanel>
           </Button>
           <Rectangle Classes="toolbar-separator" />
-          <Button Classes="toolbar" Command="{Binding StartAllCommand}" ToolTip.Tip="Start every torrent (Ctrl+Shift+Enter)">
+          <Button Classes="toolbar" Command="{Binding StartAllCommand}" ToolTip.Tip="{x:Static res:Strings.TipStartAll}"
+                  AutomationProperties.Name="{x:Static res:Strings.CommandStartAll}">
             <StackPanel>
               <PathIcon Classes="toolbar" Data="{StaticResource IconStartAll}" />
-              <TextBlock Text="Start all" />
+              <TextBlock Text="{x:Static res:Strings.CommandStartAll}" />
             </StackPanel>
           </Button>
-          <Button Classes="toolbar" Command="{Binding StopAllCommand}" ToolTip.Tip="Stop every torrent (Ctrl+Shift+.)">
+          <Button Classes="toolbar" Command="{Binding StopAllCommand}" ToolTip.Tip="{x:Static res:Strings.TipStopAll}"
+                  AutomationProperties.Name="{x:Static res:Strings.CommandStopAll}">
             <StackPanel>
               <PathIcon Classes="toolbar" Data="{StaticResource IconStopAll}" />
-              <TextBlock Text="Stop all" />
+              <TextBlock Text="{x:Static res:Strings.CommandStopAll}" />
             </StackPanel>
           </Button>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8">
-          <ComboBox Width="130" MinHeight="32" VerticalAlignment="Center" ToolTip.Tip="Show only"
-                    ItemsSource="{x:Static vm:MainWindowViewModel.Filters}" SelectedItem="{Binding Filter}" />
+          <ComboBox MinWidth="130" MinHeight="32" VerticalAlignment="Center" ToolTip.Tip="{x:Static res:Strings.TipFilter}"
+                    ItemsSource="{x:Static vm:MainWindowViewModel.Filters}" SelectedItem="{Binding Filter}"
+                    ItemTemplate="{StaticResource DisplayNameTemplate}" />
           <TextBox Name="SearchBox" Width="220" MinHeight="32" VerticalAlignment="Center"
-                   PlaceholderText="Search torrents (Ctrl+F)" Text="{Binding SearchText}">
+                   PlaceholderText="{x:Static res:Strings.SearchPlaceholder}" Text="{Binding SearchText}">
             <TextBox.InnerLeftContent>
               <PathIcon Data="{StaticResource IconSearch}" Width="14" Height="14" Margin="8,0,0,0" Opacity="0.6" />
             </TextBox.InnerLeftContent>
           </TextBox>
           <Rectangle Classes="toolbar-separator" />
-          <Button Classes="toolbar" Command="{Binding OpenSettingsCommand}" ToolTip.Tip="Settings (Ctrl+,)">
+          <Button Classes="toolbar" Command="{Binding OpenSettingsCommand}" ToolTip.Tip="{x:Static res:Strings.TipSettings}"
+                  AutomationProperties.Name="{x:Static res:Strings.Settings}">
             <PathIcon Classes="toolbar" Data="{StaticResource IconSettings}" />
           </Button>
         </StackPanel>
@@ -165,7 +175,7 @@
         <HyperlinkButton Grid.Column="4" Content="{Binding UpdateMessage}" Command="{Binding CheckForUpdatesCommand}"
                          IsVisible="{Binding UpdateMessage, Converter={x:Static ObjectConverters.IsNotNull}}" />
         <TextBlock Grid.Column="6" Classes="subtle">
-          <Run Text="Local IP" />
+          <Run Text="{x:Static res:Strings.StatusLocalIp}" />
           <Run Text="{Binding LocalIpText}" />
         </TextBlock>
         <Rectangle Grid.Column="7" Classes="separator" />
@@ -191,8 +201,8 @@
                   ItemsSource="{Binding TorrentsView}"
                   SelectedItem="{Binding SelectedTorrent}">
           <DataGrid.Columns>
-            <DataGridTextColumn Header="Name" Binding="{Binding DisplayName, Mode=OneWay}" Width="*" MinWidth="180" />
-            <DataGridTemplateColumn Header="Status" Width="115" MinWidth="80" SortMemberPath="State">
+            <DataGridTextColumn Tag="Name" Header="{x:Static res:Strings.Name}" Binding="{Binding DisplayName, Mode=OneWay}" Width="*" MinWidth="180" />
+            <DataGridTemplateColumn Tag="Status" Header="{x:Static res:Strings.Status}" Width="115" MinWidth="80" SortMemberPath="State">
               <DataGridTemplateColumn.CellTemplate>
                 <DataTemplate x:DataType="vm:TorrentItemViewModel">
                   <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
@@ -205,8 +215,8 @@
                 </DataTemplate>
               </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>
-            <DataGridTextColumn Header="Client" Binding="{Binding ClientName, Mode=OneWay}" Width="130" MinWidth="60" />
-            <DataGridTemplateColumn Header="Progress" Width="110" MinWidth="70" SortMemberPath="Progress">
+            <DataGridTextColumn Tag="Client" Header="{x:Static res:Strings.Client}" Binding="{Binding ClientName, Mode=OneWay}" Width="130" MinWidth="60" />
+            <DataGridTemplateColumn Tag="Progress" Header="{x:Static res:Strings.ColumnProgress}" Width="110" MinWidth="70" SortMemberPath="Progress">
               <DataGridTemplateColumn.CellTemplate>
                 <DataTemplate x:DataType="vm:TorrentItemViewModel">
                   <Grid ColumnDefinitions="*,44" VerticalAlignment="Center">
@@ -217,66 +227,66 @@
                 </DataTemplate>
               </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>
-            <DataGridTextColumn Header="Uploaded" Width="90" MinWidth="50"
+            <DataGridTextColumn Tag="Uploaded" Header="{x:Static res:Strings.Uploaded}" Width="90" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding Uploaded, Mode=OneWay, Converter={x:Static conv:Converters.Bytes}}"
                                 SortMemberPath="Uploaded" />
-            <DataGridTextColumn Header="Downloaded" Width="105" MinWidth="50"
+            <DataGridTextColumn Tag="Downloaded" Header="{x:Static res:Strings.Downloaded}" Width="105" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding Downloaded, Mode=OneWay, Converter={x:Static conv:Converters.Bytes}}"
                                 SortMemberPath="Downloaded" />
-            <DataGridTextColumn Header="Ratio" Width="62" MinWidth="40"
+            <DataGridTextColumn Tag="Ratio" Header="{x:Static res:Strings.Ratio}" Width="62" MinWidth="40"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding Ratio, Mode=OneWay, Converter={x:Static conv:Converters.Ratio}}"
                                 SortMemberPath="Ratio" />
-            <DataGridTextColumn Header="Up speed" Width="90" MinWidth="50"
+            <DataGridTextColumn Tag="Up speed" Header="{x:Static res:Strings.ColumnUpSpeed}" Width="90" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding UploadRate, Mode=OneWay, Converter={x:Static conv:Converters.Speed}}"
                                 SortMemberPath="UploadRate" />
-            <DataGridTextColumn Header="Down speed" Width="105" MinWidth="50"
+            <DataGridTextColumn Tag="Down speed" Header="{x:Static res:Strings.ColumnDownSpeed}" Width="105" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding DownloadRate, Mode=OneWay, Converter={x:Static conv:Converters.Speed}}"
                                 SortMemberPath="DownloadRate" />
-            <DataGridTextColumn Header="Seeds" Width="68" MinWidth="40"
+            <DataGridTextColumn Tag="Seeds" Header="{x:Static res:Strings.Seeds}" Width="68" MinWidth="40"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding Seeders, Mode=OneWay, Converter={x:Static conv:Converters.Count}}"
                                 SortMemberPath="Seeders" />
-            <DataGridTextColumn Header="Leechers" Width="85" MinWidth="40"
+            <DataGridTextColumn Tag="Leechers" Header="{x:Static res:Strings.Leechers}" Width="85" MinWidth="40"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding Leechers, Mode=OneWay, Converter={x:Static conv:Converters.Count}}"
                                 SortMemberPath="Leechers" />
-            <DataGridTextColumn Header="Update in" Width="88" MinWidth="50"
+            <DataGridTextColumn Tag="Update in" Header="{x:Static res:Strings.ColumnUpdateIn}" Width="88" MinWidth="50"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding NextUpdateIn, Mode=OneWay, Converter={x:Static conv:Converters.Duration}}"
                                 SortMemberPath="NextUpdateIn" />
-            <DataGridTextColumn Header="Total time" Width="90" MinWidth="50" IsVisible="False"
+            <DataGridTextColumn Tag="Total time" Header="{x:Static res:Strings.TotalTime}" Width="90" MinWidth="50" IsVisible="False"
                                 CellTheme="{StaticResource DataGridCellNumeric}"
                                 HeaderTemplate="{StaticResource DataGridHeaderNumeric}"
                                 Binding="{Binding TotalRunningTime, Mode=OneWay, Converter={x:Static conv:Converters.Duration}}"
                                 SortMemberPath="TotalRunningTime" />
-            <DataGridTextColumn Header="Tracker" Width="160" MinWidth="60" IsVisible="False"
+            <DataGridTextColumn Tag="Tracker" Header="{x:Static res:Strings.Tracker}" Width="160" MinWidth="60" IsVisible="False"
                                 Binding="{Binding TrackerHost, Mode=OneWay}" SortMemberPath="TrackerHost" />
           </DataGrid.Columns>
 
           <DataGrid.ContextMenu>
             <ContextMenu>
-              <MenuItem Header="Start" Command="{Binding StartSelectedCommand}" InputGesture="Ctrl+Enter" />
-              <MenuItem Header="Stop" Command="{Binding StopSelectedCommand}" InputGesture="Ctrl+OemPeriod" />
-              <MenuItem Header="Update now" Command="{Binding UpdateSelectedCommand}" InputGesture="F5" />
+              <MenuItem Header="{x:Static res:Strings.CommandStart}" Command="{Binding StartSelectedCommand}" InputGesture="Ctrl+Enter" />
+              <MenuItem Header="{x:Static res:Strings.CommandStop}" Command="{Binding StopSelectedCommand}" InputGesture="Ctrl+OemPeriod" />
+              <MenuItem Header="{x:Static res:Strings.CommandUpdateNow}" Command="{Binding UpdateSelectedCommand}" InputGesture="F5" />
               <Separator />
-              <MenuItem Header="Rename..." Command="{Binding RenameSelectedCommand}" InputGesture="F2" />
-              <MenuItem Header="Remove" Command="{Binding RemoveSelectedCommand}" InputGesture="Delete" />
+              <MenuItem Header="{x:Static res:Strings.CommandRename}" Command="{Binding RenameSelectedCommand}" InputGesture="F2" />
+              <MenuItem Header="{x:Static res:Strings.CommandRemove}" Command="{Binding RemoveSelectedCommand}" InputGesture="Delete" />
               <Separator />
-              <MenuItem Header="Copy info hash" Command="{Binding CopyInfoHashCommand}" InputGesture="Ctrl+Shift+C" />
-              <MenuItem Header="Use these settings as defaults" Command="{Binding UseSelectedAsDefaultsCommand}" />
+              <MenuItem Header="{x:Static res:Strings.CommandCopyInfoHash}" Command="{Binding CopyInfoHashCommand}" InputGesture="Ctrl+Shift+C" />
+              <MenuItem Header="{x:Static res:Strings.CommandUseAsDefaults}" Command="{Binding UseSelectedAsDefaultsCommand}" />
             </ContextMenu>
           </DataGrid.ContextMenu>
         </DataGrid>
@@ -285,10 +295,10 @@
         <StackPanel IsVisible="{Binding !HasTorrents}" Spacing="10"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
           <PathIcon Data="{StaticResource IconAdd}" Width="40" Height="40" Opacity="0.35" />
-          <TextBlock Text="No torrents yet" FontSize="18" HorizontalAlignment="Center" />
+          <TextBlock Text="{x:Static res:Strings.EmptyNoTorrents}" FontSize="18" HorizontalAlignment="Center" />
           <TextBlock Classes="subtle" HorizontalAlignment="Center"
-                     Text="Drop a .torrent or .session file here, or press Ctrl+O" />
-          <Button Content="Add torrent" HorizontalAlignment="Center" Command="{Binding AddTorrentCommand}" />
+                     Text="{x:Static res:Strings.EmptyHint}" TextWrapping="Wrap" TextAlignment="Center" MaxWidth="520" />
+          <Button Content="{x:Static res:Strings.AddTorrent}" HorizontalAlignment="Center" Command="{Binding AddTorrentCommand}" />
         </StackPanel>
       </Panel>
 
@@ -298,7 +308,8 @@
       <Panel Grid.Row="2" IsVisible="{Binding IsDetailsPaneVisible}">
         <controls:TorrentDetailsView DataContext="{Binding SelectedTorrent}" />
         <Button Classes="icon" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,7,8,0"
-                Command="{Binding ToggleDetailsPaneCommand}" ToolTip.Tip="Hide the details pane (Ctrl+D)">
+                Command="{Binding ToggleDetailsPaneCommand}" ToolTip.Tip="{x:Static res:Strings.TipHideDetailsPane}"
+                AutomationProperties.Name="{x:Static res:Strings.TipHideDetailsPane}">
           <PathIcon Data="{StaticResource IconClose}" />
         </Button>
       </Panel>

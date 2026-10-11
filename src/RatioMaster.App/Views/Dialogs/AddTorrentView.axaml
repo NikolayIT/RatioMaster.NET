@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels.Dialogs"
              xmlns:controls="clr-namespace:RatioMaster.App.Views.Controls"
              x:Class="RatioMaster.App.Views.Dialogs.AddTorrentView"
@@ -10,17 +11,17 @@
 
     <!-- Buttons -->
     <Grid DockPanel.Dock="Bottom" ColumnDefinitions="Auto,*,Auto" Margin="0,16,0,0">
-      <CheckBox Grid.Column="0" Content="Start immediately" IsChecked="{Binding StartImmediately}" VerticalAlignment="Center" />
+      <CheckBox Grid.Column="0" Content="{x:Static res:Strings.AddStartImmediately}" IsChecked="{Binding StartImmediately}" VerticalAlignment="Center" />
       <StackPanel Grid.Column="2" Classes="dialog-buttons">
-        <Button Content="Add" IsDefault="True" Classes="accent" Command="{Binding AddCommand}" />
-        <Button Content="Cancel" IsCancel="True" Command="{Binding CancelCommand}" />
+        <Button Content="{x:Static res:Strings.ButtonAdd}" IsDefault="True" Classes="accent" Command="{Binding AddCommand}" />
+        <Button Content="{x:Static res:Strings.ButtonCancel}" IsCancel="True" Command="{Binding CancelCommand}" />
       </StackPanel>
     </Grid>
 
     <!-- Torrent picker and info -->
     <StackPanel DockPanel.Dock="Top" Spacing="10">
       <StackPanel Orientation="Horizontal" Spacing="10">
-        <Button Content="Browse..." Command="{Binding BrowseCommand}" />
+        <Button Content="{x:Static res:Strings.ButtonBrowse}" Command="{Binding BrowseCommand}" />
         <TextBlock Text="{Binding Summary}" VerticalAlignment="Center" Classes="subtle" />
       </StackPanel>
 
@@ -41,19 +42,19 @@
 
           <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="6"
                 IsVisible="{Binding IsSingle}">
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" Classes="label" />
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.Name}" Classes="label" />
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Tracker" Classes="label" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:Strings.Tracker}" Classes="label" />
             <!-- Editable: the torrent's trackers are offered, but any http(s) announce URL can be typed. -->
-            <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" IsEditable="True"
+            <ComboBox Grid.Row="1" Grid.Column="1" Classes="ltr" HorizontalAlignment="Stretch" IsEditable="True"
                       ItemsSource="{Binding TrackerUrls}" Text="{Binding TrackerUrl}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Details" Classes="label" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static res:Strings.AddDetails}" Classes="label" />
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Spacing="14">
               <TextBlock Classes="subtle" Text="{Binding Selected.Size}" VerticalAlignment="Center" />
               <TextBlock Classes="subtle" Text="{Binding Selected.FileCount}" VerticalAlignment="Center" />
-              <SelectableTextBlock Classes="subtle mono" FontSize="12" Text="{Binding Selected.InfoHash}" VerticalAlignment="Center" />
+              <SelectableTextBlock Classes="subtle mono ltr" FontSize="12" Text="{Binding Selected.InfoHash}" VerticalAlignment="Center" />
             </StackPanel>
           </Grid>
 
@@ -62,7 +63,7 @@
         </StackPanel>
       </Border>
 
-      <TextBlock Text="Settings" Classes="section" Margin="0,6,0,0" />
+      <TextBlock Text="{x:Static res:Strings.Settings}" Classes="section" Margin="0,6,0,0" />
     </StackPanel>
 
     <!-- Reused settings editor -->

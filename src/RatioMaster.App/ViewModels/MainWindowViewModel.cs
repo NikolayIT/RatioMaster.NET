@@ -15,6 +15,7 @@ namespace RatioMaster.App.ViewModels
     using CommunityToolkit.Mvvm.ComponentModel;
     using CommunityToolkit.Mvvm.Input;
     using RatioMaster.App.Converters;
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services;
     using RatioMaster.App.Services.Abstractions;
     using RatioMaster.App.ViewModels.Dialogs;
@@ -219,12 +220,12 @@ namespace RatioMaster.App.ViewModels
             foreach (var session in sessions)
             {
                 var choice = await this.dialogs.ChooseAsync(
-                    "Load session",
-                    $"Load the session {Path.GetFileName(session)}?",
+                    Strings.LoadSession,
+                    string.Format(CultureInfo.CurrentCulture, Strings.LoadSessionQuestion, Path.GetFileName(session)),
                     [
-                        new DialogButton("Load", "load", IsDefault: true),
-                        new DialogButton("Load and start", "start"),
-                        new DialogButton("Cancel", "cancel", IsCancel: true),
+                        new DialogButton(Strings.ButtonLoad, "load", IsDefault: true),
+                        new DialogButton(Strings.ButtonLoadAndStart, "start"),
+                        new DialogButton(Strings.ButtonCancel, "cancel", IsCancel: true),
                     ]);
 
                 if (choice is "load" or "start")
@@ -288,13 +289,13 @@ namespace RatioMaster.App.ViewModels
             }
 
             this.AggregateSpeeds = $"↑ {Formatting.Speed(up)}   ↓ {Formatting.Speed(down)}";
-            this.StatusSummary = $"Torrents: {this.Torrents.Count} ({running} running)";
+            this.StatusSummary = string.Format(CultureInfo.CurrentCulture, Strings.StatusTorrents, this.Torrents.Count, running);
             this.TrayToolTip = this.BuildTrayToolTip(running, up, down);
         }
 
         private string BuildTrayToolTip(int running, long up, long down)
         {
-            var header = $"RatioMaster.NET — {running} running   ↑ {Formatting.Speed(up)} ↓ {Formatting.Speed(down)}";
+            var header = string.Format(CultureInfo.CurrentCulture, Strings.TrayTooltip, running, Formatting.Speed(up), Formatting.Speed(down));
             if (!this.settings.ShowTorrentListInTrayTooltip || this.Torrents.Count == 0)
             {
                 return header;
@@ -306,8 +307,8 @@ namespace RatioMaster.App.ViewModels
 
         private void UpdateStatusSummary()
         {
-            this.StatusSummary = $"Torrents: {this.Torrents.Count} (0 running)";
-            this.AggregateSpeeds = "↑ 0 kB/s   ↓ 0 kB/s";
+            this.StatusSummary = string.Format(CultureInfo.CurrentCulture, Strings.StatusTorrents, this.Torrents.Count, 0);
+            this.AggregateSpeeds = $"↑ {Formatting.Speed(0)}   ↓ {Formatting.Speed(0)}";
         }
 
         private void OnTorrentsChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -381,7 +382,7 @@ namespace RatioMaster.App.ViewModels
                 }
                 catch (TorrentFormatException ex)
                 {
-                    this.notifications.ShowWarning("Could not add torrent", $"{Path.GetFileName(path)}: {ex.Message}");
+                    this.notifications.ShowWarning(Strings.CouldNotAddTorrent, $"{Path.GetFileName(path)}: {ex.Message}");
                 }
             }
 
@@ -457,24 +458,27 @@ namespace RatioMaster.App.ViewModels
             string message;
             if (targets.Count == 1)
             {
-                message = $"Remove {targets[0].DisplayName} from the list?";
+                message = string.Format(CultureInfo.CurrentCulture, Strings.RemoveOneQuestion, targets[0].DisplayName);
                 if (running > 0)
                 {
-                    message += " It is running and will be stopped first.";
+                    message += " " + Strings.RemoveOneRunning;
                 }
             }
             else
             {
-                message = $"Remove these {targets.Count} torrents from the list?";
+                message = string.Format(CultureInfo.CurrentCulture, Strings.RemoveManyQuestion, targets.Count);
                 message += running switch
                 {
                     0 => string.Empty,
-                    1 => " One of them is running and will be stopped first.",
-                    _ => $" {running} of them are running and will be stopped first.",
+                    1 => " " + Strings.RemoveManyOneRunning,
+                    _ => " " + string.Format(CultureInfo.CurrentCulture, Strings.RemoveManySomeRunning, running),
                 };
             }
 
-            return this.dialogs.ConfirmAsync(targets.Count == 1 ? "Remove torrent" : "Remove torrents", message, "Remove");
+            return this.dialogs.ConfirmAsync(
+                targets.Count == 1 ? Strings.RemoveTorrentTitle : Strings.RemoveTorrentsTitle,
+                message,
+                Strings.CommandRemove);
         }
 
         private async Task RemoveWithoutAskingAsync(TorrentItemViewModel torrent)
@@ -496,7 +500,7 @@ namespace RatioMaster.App.ViewModels
                 return;
             }
 
-            var name = await this.dialogs.PromptAsync("Rename torrent", "Name shown in the list:", torrent.DisplayName);
+            var name = await this.dialogs.PromptAsync(Strings.RenameTitle, Strings.RenameLabel, torrent.DisplayName);
             if (!string.IsNullOrWhiteSpace(name))
             {
                 torrent.DisplayName = name;
@@ -523,7 +527,7 @@ namespace RatioMaster.App.ViewModels
 
             this.settings = this.settings with { DefaultTorrentSettings = torrent.CurrentSettings };
             this.settingsStore.Save(this.settings);
-            this.notifications.ShowInformation("Defaults updated", "New torrents will start from these settings.");
+            this.notifications.ShowInformation(Strings.DefaultsUpdatedTitle, Strings.DefaultsUpdatedMessage);
         }
 
         // ---- Bulk commands ---------------------------------------------------
@@ -566,8 +570,10 @@ namespace RatioMaster.App.ViewModels
 
         private async Task SetSpeedForAllAsync(bool upload)
         {
-            var what = upload ? "upload" : "download";
-            var answer = await this.dialogs.PromptAsync($"Set {what} speed", $"New {what} speed for every torrent (kB/s):", "100");
+            var answer = await this.dialogs.PromptAsync(
+                upload ? Strings.SetUploadSpeedTitle : Strings.SetDownloadSpeedTitle,
+                upload ? Strings.SetUploadSpeedLabel : Strings.SetDownloadSpeedLabel,
+                "100");
             if (answer is null || !double.TryParse(answer, NumberStyles.Float, CultureInfo.CurrentCulture, out var kb) || kb < 0)
             {
                 return;
@@ -625,7 +631,7 @@ namespace RatioMaster.App.ViewModels
             }
 
             SessionFile.Save(path, this.BuildSessionDocument());
-            this.notifications.ShowInformation("Session saved", Path.GetFileName(path));
+            this.notifications.ShowInformation(Strings.SessionSaved, Path.GetFileName(path));
         }
 
         private SessionDocument BuildSessionDocument() => new()
@@ -642,7 +648,7 @@ namespace RatioMaster.App.ViewModels
             }
             catch (Exception ex) when (ex is IOException or InvalidOperationException or System.Xml.XmlException or System.Text.Json.JsonException)
             {
-                this.notifications.ShowWarning("Could not load session", ex.Message);
+                this.notifications.ShowWarning(Strings.CouldNotLoadSession, ex.Message);
                 return;
             }
 
@@ -687,8 +693,10 @@ namespace RatioMaster.App.ViewModels
             if (announce)
             {
                 var loaded = document.Torrents.Count - missing;
-                var message = missing == 0 ? $"{loaded} torrents loaded." : $"{loaded} torrents loaded, {missing} could not be found.";
-                this.notifications.ShowInformation("Session loaded", message);
+                var message = missing == 0
+                    ? string.Format(CultureInfo.CurrentCulture, Strings.SessionLoadedMessage, loaded)
+                    : string.Format(CultureInfo.CurrentCulture, Strings.SessionLoadedWithMissingMessage, loaded, missing);
+                this.notifications.ShowInformation(Strings.SessionLoaded, message);
             }
         }
 
@@ -728,7 +736,7 @@ namespace RatioMaster.App.ViewModels
         }
 
         [RelayCommand]
-        private async Task ShowAboutAsync() => await this.dialogs.ShowAsync(new AboutViewModel(this.launcher) { Title = "About RatioMaster.NET" });
+        private async Task ShowAboutAsync() => await this.dialogs.ShowAsync(new AboutViewModel(this.launcher) { Title = Strings.AboutRatioMaster });
 
         [RelayCommand]
         private async Task OpenUrlAsync(string? url)
@@ -750,7 +758,7 @@ namespace RatioMaster.App.ViewModels
                 this.UpdateMessage = null;
                 if (!quiet)
                 {
-                    await this.dialogs.ShowMessageAsync("Check for updates", "Could not reach ratiomaster.net: " + result.Error);
+                    await this.dialogs.ShowMessageAsync(Strings.CheckForUpdates, string.Format(CultureInfo.CurrentCulture, Strings.UpdateCheckFailed, result.Error));
                 }
 
                 return;
@@ -761,7 +769,7 @@ namespace RatioMaster.App.ViewModels
                 this.UpdateMessage = null;
                 if (!quiet)
                 {
-                    await this.dialogs.ShowMessageAsync("Check for updates", "You are running the latest version.");
+                    await this.dialogs.ShowMessageAsync(Strings.CheckForUpdates, Strings.UpdateCheckLatest);
                 }
 
                 return;
@@ -772,7 +780,7 @@ namespace RatioMaster.App.ViewModels
                 return;
             }
 
-            this.UpdateMessage = "Update available";
+            this.UpdateMessage = Strings.StatusUpdateAvailable;
             var choice = await this.dialogs.ShowAsync(new NewVersionViewModel(result.RemoteVersion!, this.launcher));
             if (choice == NewVersionChoice.Skip)
             {

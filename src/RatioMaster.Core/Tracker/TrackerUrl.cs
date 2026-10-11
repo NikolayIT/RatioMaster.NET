@@ -1,5 +1,9 @@
 namespace RatioMaster.Core.Tracker
 {
+    using System.Globalization;
+
+    using RatioMaster.Core.Resources;
+
     /// <summary>
     /// Checks a tracker URL before anything is sent to it. The engine only speaks HTTP, so a torrent whose
     /// tracker is udp:// (or has no tracker at all) must fail with a clear reason instead of retrying forever.
@@ -11,23 +15,23 @@ namespace RatioMaster.Core.Tracker
         {
             if (string.IsNullOrWhiteSpace(url))
             {
-                return "The torrent has no tracker URL.";
+                return Strings.TrackerUrlMissing;
             }
 
             var trimmed = url.Trim();
             if (!Uri.TryCreate(trimmed, UriKind.Absolute, out var uri))
             {
-                return $"'{trimmed}' is not a valid tracker URL.";
+                return string.Format(CultureInfo.CurrentCulture, Strings.TrackerUrlInvalid, trimmed);
             }
 
             if (!IsHttp(uri))
             {
-                return $"Only http and https trackers are supported; this one is {uri.Scheme}://. Pick another tracker from the torrent, if it has one.";
+                return string.Format(CultureInfo.CurrentCulture, Strings.TrackerUrlUnsupportedScheme, uri.Scheme);
             }
 
             if (uri.Host.Length == 0)
             {
-                return $"'{trimmed}' is not a valid tracker URL.";
+                return string.Format(CultureInfo.CurrentCulture, Strings.TrackerUrlInvalid, trimmed);
             }
 
             return null;

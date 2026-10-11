@@ -1,7 +1,9 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:RatioMaster.App.Resources"
              xmlns:local="clr-namespace:RatioMaster.App"
              xmlns:vm="clr-namespace:RatioMaster.App.ViewModels"
+             xmlns:conv="clr-namespace:RatioMaster.App.Converters"
              x:Class="RatioMaster.App.App"
              x:DataType="vm:MainWindowViewModel"
              RequestedThemeVariant="Default">
@@ -30,6 +32,11 @@
       <Thickness x:Key="ExpanderChevronMargin">12,0,8,0</Thickness>
       <x:Double x:Key="ExpanderChevronButtonSize">28</x:Double>
       <x:Double x:Key="DataGridSortIconMinWidth">0</x:Double>
+
+      <!-- Shows an enum value (filter, stop condition, proxy type, theme) by its translated name. -->
+      <DataTemplate x:Key="DisplayNameTemplate" x:DataType="x:Object">
+        <TextBlock Text="{Binding Converter={x:Static conv:Converters.DisplayName}}" />
+      </DataTemplate>
     </ResourceDictionary>
   </Application.Resources>
 
@@ -40,16 +47,16 @@
                 Command="{Binding RestoreCommand}">
         <TrayIcon.Menu>
           <NativeMenu>
-            <NativeMenuItem Header="Show RatioMaster.NET" Command="{Binding RestoreCommand}" />
+            <NativeMenuItem Header="{x:Static res:Strings.TrayShow}" Command="{Binding RestoreCommand}" />
             <NativeMenuItemSeparator />
-            <NativeMenuItem Header="Start all" Command="{Binding StartAllCommand}" />
-            <NativeMenuItem Header="Stop all" Command="{Binding StopAllCommand}" />
+            <NativeMenuItem Header="{x:Static res:Strings.CommandStartAll}" Command="{Binding StartAllCommand}" />
+            <NativeMenuItem Header="{x:Static res:Strings.CommandStopAll}" Command="{Binding StopAllCommand}" />
             <NativeMenuItemSeparator />
-            <NativeMenuItem Header="Website" Command="{Binding OpenUrlCommand}" CommandParameter="https://ratiomaster.net" />
+            <NativeMenuItem Header="{x:Static res:Strings.TrayWebsite}" Command="{Binding OpenUrlCommand}" CommandParameter="https://ratiomaster.net" />
             <NativeMenuItem Header="GitHub" Command="{Binding OpenUrlCommand}" CommandParameter="https://github.com/NikolayIT/RatioMaster.NET" />
-            <NativeMenuItem Header="About" Command="{Binding ShowAboutCommand}" />
+            <NativeMenuItem Header="{x:Static res:Strings.TrayAbout}" Command="{Binding ShowAboutCommand}" />
             <NativeMenuItemSeparator />
-            <NativeMenuItem Header="Exit" Command="{Binding ExitCommand}" />
+            <NativeMenuItem Header="{x:Static res:Strings.MenuExit}" Command="{Binding ExitCommand}" />
           </NativeMenu>
         </TrayIcon.Menu>
       </TrayIcon>

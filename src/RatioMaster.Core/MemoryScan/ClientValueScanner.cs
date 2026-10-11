@@ -5,6 +5,7 @@ namespace RatioMaster.Core.MemoryScan
     using System.Text.RegularExpressions;
 
     using RatioMaster.Core.Clients;
+    using RatioMaster.Core.Resources;
 
     /// <summary>
     /// Copies a running client's real announce values (peer id, key, port, numwant) out of its memory,
@@ -38,11 +39,11 @@ namespace RatioMaster.Core.MemoryScan
                 return null;
             }
 
-            log?.Invoke($"Looking for the {spec.ProcessName} process...");
+            log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanLookingForProcess, spec.ProcessName));
             using var session = this.scanner.Open(spec.ProcessName);
             if (session is null)
             {
-                log?.Invoke($"No {spec.ProcessName} process found. Make sure the torrent client is running.");
+                log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanProcessNotFound, spec.ProcessName));
                 return null;
             }
 
@@ -62,11 +63,11 @@ namespace RatioMaster.Core.MemoryScan
                 }
 
                 var identity = Extract(text, profile, fallback, log);
-                log?.Invoke("Search finished successfully.");
+                log?.Invoke(Strings.ScanSucceeded);
                 return identity;
             }
 
-            log?.Invoke($"Search failed. Make sure {profile.Name} is running with at least one active torrent.");
+            log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanFailed, profile.Name));
             return null;
         }
 

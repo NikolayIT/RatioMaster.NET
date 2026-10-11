@@ -8,6 +8,7 @@ namespace RatioMaster.App
     using Avalonia.Controls.ApplicationLifetimes;
     using Avalonia.Markup.Xaml;
     using Microsoft.Extensions.DependencyInjection;
+    using RatioMaster.App.Resources;
     using RatioMaster.App.Services;
     using RatioMaster.App.Services.Abstractions;
     using RatioMaster.App.ViewModels;
@@ -25,7 +26,15 @@ namespace RatioMaster.App
         private IServiceProvider? services;
         private MainWindowViewModel? mainViewModel;
 
-        public override void Initialize() => AvaloniaXamlLoader.Load(this);
+        public override void Initialize()
+        {
+            AvaloniaXamlLoader.Load(this);
+
+            // The theme's own texts: the Cut/Copy/Paste menu of every text box.
+            this.Resources["StringTextFlyoutCutText"] = Strings.TextCut;
+            this.Resources["StringTextFlyoutCopyText"] = Strings.TextCopy;
+            this.Resources["StringTextFlyoutPasteText"] = Strings.TextPaste;
+        }
 
         public override void OnFrameworkInitializationCompleted()
         {
@@ -50,7 +59,7 @@ namespace RatioMaster.App
                 if (catalogWarning is not null)
                 {
                     // A broken user clients.json must not stop the app; say so once the window can show it.
-                    window.Opened += (_, _) => notifications.ShowWarning("Custom clients.json ignored", catalogWarning);
+                    window.Opened += (_, _) => notifications.ShowWarning(Strings.CustomClientsIgnored, catalogWarning);
                 }
 
                 viewModel.ExitRequested += async (_, _) => await this.ShutdownAsync(desktop);
