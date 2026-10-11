@@ -52,6 +52,18 @@ namespace RatioMaster.Core.Clients
         /// <summary>Gets the default value for numwant.</summary>
         public int DefaultNumWant { get; init; } = 200;
 
+        /// <summary>
+        /// Gets the numwant the client sends once it seeds, when that is not <see cref="DefaultNumWant"/>. Vuze asks for
+        /// half again as many peers as it has free connection slots, and its connection limit halves for a seed.
+        /// </summary>
+        public int? SeedingNumWant { get; init; }
+
+        /// <summary>
+        /// Gets the ranges the client draws its listen port from on a fresh install, or an empty list for the old
+        /// 1025-65534. Vuze, for example, picks 10000-65535 but skips its magnet ports, 45100-45110.
+        /// </summary>
+        public IReadOnlyList<PortRange> PortRanges { get; init; } = [];
+
         /// <summary>Gets the memory-scan location, or null when this client cannot be parsed from a running process.</summary>
         public ClientMemoryScanSpec? MemoryScan { get; init; }
 

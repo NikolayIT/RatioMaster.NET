@@ -505,6 +505,17 @@ namespace RatioMaster.Core.Sessions
             return true;
         }
 
+        /// <summary>
+        /// Gets the numwant for the next announce: the identity's, unless that is still the client's own default and
+        /// the client asks for fewer peers once it seeds (<see cref="ClientProfile.SeedingNumWant"/>). Call it inside the gate.
+        /// </summary>
+        private string CurrentNumWant() =>
+            this.left == 0
+            && this.profile.SeedingNumWant is { } seeding
+            && this.identity.NumWant == this.profile.DefaultNumWant.ToString(CultureInfo.InvariantCulture)
+                ? seeding.ToString(CultureInfo.InvariantCulture)
+                : this.identity.NumWant;
+
         private AnnounceValues BuildAnnounceValues()
         {
             bool keyRolled;
@@ -529,7 +540,7 @@ namespace RatioMaster.Core.Sessions
                     Downloaded = this.downloaded,
                     Left = this.left,
                     Key = this.identity.Key,
-                    NumWant = this.identity.NumWant,
+                    NumWant = this.CurrentNumWant(),
                     LocalIp = this.LocalIp,
                 };
             }

@@ -192,6 +192,31 @@ namespace RatioMaster.Core.Tests.Clients
         }
 
         [Fact]
+        public void PortComesFromTheClientsRangesWhenItHasThem()
+        {
+            var vuze = ClientProfileCatalog.Load().GetByName("Vuze 5.7.6.0");
+            var generator = new ClientIdentityGenerator(new DeterministicRandomSource(12));
+
+            var ports = Enumerable.Range(0, 2000).Select(_ => int.Parse(generator.Generate(vuze).Port, System.Globalization.CultureInfo.InvariantCulture)).ToList();
+
+            Assert.All(ports, port => Assert.InRange(port, 10000, 65535));
+            Assert.DoesNotContain(ports, port => port is >= 45100 and <= 45110);
+            Assert.Contains(ports, port => port < 20000);
+            Assert.Contains(ports, port => port > 60000);
+        }
+
+        [Theory]
+        [InlineData("10000-45099,45111-65535", "10000-45099 45111-65535")]
+        [InlineData(" 6881 - 6999 ", "6881-6999")]
+        [InlineData("51413-51413", "51413-51413")]
+        [InlineData("0-10,10-5,abc,70000-70001,-5,1-2-3", "")]
+        [InlineData("", "")]
+        public void PortRangesParseOnlyValidRanges(string text, string expected)
+        {
+            Assert.Equal(expected, string.Join(' ', PortRange.ParseList(text).Select(r => $"{r.Min}-{r.Max}")));
+        }
+
+        [Fact]
         public void RandomKindLeavesTheClientsUnreservedBytesUnescaped()
         {
             // uTorrent keeps -._~ in its peer id, so a random byte that happens to be one of them goes out as is.

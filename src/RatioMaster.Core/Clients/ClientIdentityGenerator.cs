@@ -41,7 +41,7 @@ namespace RatioMaster.Core.Clients
             {
                 PeerId = profile.PeerIdPrefix + this.GenerateValue(profile.PeerId, profile.Unreserved),
                 Key = this.GenerateValue(profile.Key),
-                Port = this.random.Next(MinPort, MaxPort).ToString(CultureInfo.InvariantCulture),
+                Port = this.GeneratePort(profile.PortRanges).ToString(CultureInfo.InvariantCulture),
                 NumWant = profile.DefaultNumWant.ToString(CultureInfo.InvariantCulture),
                 Source = ClientIdentitySource.Generated,
             };
@@ -67,6 +67,31 @@ namespace RatioMaster.Core.Clients
             }
 
             return spec.UpperCase ? value.ToUpperInvariant() : value;
+        }
+
+        /// <summary>
+        /// Picks a listen port uniformly from the client's ranges, which is what a client that draws from a range and
+        /// re-draws the ports it skips ends up with; without ranges, from the old 1025-65534.
+        /// </summary>
+        private int GeneratePort(IReadOnlyList<PortRange> ranges)
+        {
+            if (ranges.Count == 0)
+            {
+                return this.random.Next(MinPort, MaxPort);
+            }
+
+            var index = this.random.Next(ranges.Sum(r => r.Count));
+            foreach (var range in ranges)
+            {
+                if (index < range.Count)
+                {
+                    return range.Min + index;
+                }
+
+                index -= range.Count;
+            }
+
+            return ranges[^1].Max;
         }
 
         private string GenerateBase(RandomValueKind kind, int length)

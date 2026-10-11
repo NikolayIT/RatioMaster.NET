@@ -39,6 +39,10 @@ namespace RatioMaster.Core.Clients
 
         public int? DefaultNumWant { get; set; }
 
+        public int? SeedingNumWant { get; set; }
+
+        public string? PortRanges { get; set; }
+
         public ClientMemoryScanSpec? MemoryScan { get; set; }
 
         public ClientProfile ToProfile()
@@ -79,6 +83,8 @@ namespace RatioMaster.Core.Clients
                 Headers = this.Headers,
                 Query = this.Query,
                 DefaultNumWant = this.DefaultNumWant ?? 200,
+                SeedingNumWant = this.SeedingNumWant,
+                PortRanges = PortRange.ParseList(this.PortRanges),
                 MemoryScan = this.MemoryScan,
             };
         }

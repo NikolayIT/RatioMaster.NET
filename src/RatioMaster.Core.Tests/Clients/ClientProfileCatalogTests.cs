@@ -13,8 +13,8 @@ namespace RatioMaster.Core.Tests.Clients
             // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
             // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
             // Transmission 2.94 and 3.00, Deluge 2.1.1; then qBittorrent 5.2.4, Deluge 2.2.0, BitTornado 0.3.18
-            // and rTorrent 0.16.25 for 1.2.
-            Assert.Equal(32, Catalog.Profiles.Count);
+            // rTorrent 0.16.25 and Vuze 5.7.6.0 for 1.2.
+            Assert.Equal(33, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("qBittorrent", new[] { "5.2.4", "5.2.3", "5.1.4", "4.6.7" })]
         [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.5.4" })]
         [InlineData("BitComet", new[] { "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
-        [InlineData("Vuze", new[] { "5.7.5.0" })]
+        [InlineData("Vuze", new[] { "5.7.6.0", "5.7.5.0" })]
         [InlineData("BitTorrent", new[] { "7.10.3 (44429)" })]
         [InlineData("rTorrent", new[] { "0.16.25", "0.9.6" })]
         [InlineData("Transmission", new[] { "2.94", "3.00" })]
@@ -61,8 +61,8 @@ namespace RatioMaster.Core.Tests.Clients
         [Fact]
         public void OnlyParseableClientsHaveAMemoryScanSpec()
         {
-            // uTorrent (3) + BitComet (6) + Vuze (1) + ABC (1) = 11; the rest cannot be read from a process.
-            Assert.Equal(11, Catalog.Profiles.Count(p => p.CanScanMemory));
+            // uTorrent (3) + BitComet (6) + Vuze (2) + ABC (1) = 12; the rest cannot be read from a process.
+            Assert.Equal(12, Catalog.Profiles.Count(p => p.CanScanMemory));
 
             Assert.True(Catalog.GetByName("uTorrent 3.6.0").CanScanMemory);
             Assert.False(Catalog.GetByName("Deluge 2.1.1").CanScanMemory);
@@ -157,6 +157,32 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal("abc", p.MemoryScan!.ProcessName);
             Assert.Equal(10_000_000, p.MemoryScan.StartOffset);
             Assert.Equal(25_000_000, p.MemoryScan.MaxOffset);
+        }
+
+        [Theory]
+        [InlineData("5.7.6.0", "-AZ5760-")]
+        [InlineData("5.7.5.0", "-AZ5750-")]
+        public void VuzeMatchesItsSource(string version, string prefix)
+        {
+            // Constants.java gives the version and prefix (the only lines 5.7.6.0 changed), TRTrackerBTAnnouncerImpl the
+            // query and headers, Java's HttpURLConnection appends Host and Accept. calculateNumWant asks for 3/2 of the
+            // free connection slots, at most 100: a default install has 50 per torrent, 25 once seeding, so 75 and 37.
+            // RandomUtils.generateRandomNetworkListenPort picks 10000-65535, skipping the magnet ports 45100-45110.
+            var p = Catalog.GetByName("Vuze " + version);
+
+            Assert.Equal(prefix, p.PeerIdPrefix);
+            Assert.Equal(RandomValueKind.Alphanumeric, p.PeerId.Type);
+            Assert.Equal(12, p.PeerId.Length);
+            Assert.Equal(RandomValueKind.Alphanumeric, p.Key.Type);
+            Assert.Equal(8, p.Key.Length);
+            Assert.True(p.HashUpperCase);
+            Assert.Equal(".-*_", p.Unreserved);
+            Assert.Equal("User-Agent: Azureus " + version + ";Windows 10;Java 1.8.0_121", p.Headers[0]);
+            Assert.Equal(Catalog.GetByName("Vuze 5.7.5.0").Query, p.Query);
+            Assert.StartsWith("info_hash={infohash}&peer_id={peerid}&supportcrypto=1&port={port}&azudp={port}", p.Query, StringComparison.Ordinal);
+            Assert.Equal(75, p.DefaultNumWant);
+            Assert.Equal(37, p.SeedingNumWant);
+            Assert.Equal([new PortRange(10000, 45099), new PortRange(45111, 65535)], p.PortRanges);
         }
 
         [Fact]
@@ -316,7 +342,7 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(33, catalog.Profiles.Count);
+                Assert.Equal(34, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.6.0").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.6.0").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));
