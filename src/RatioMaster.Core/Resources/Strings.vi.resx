@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TrackerUrlMissing" xml:space="preserve">
+    <value>Torrent không có URL tracker.</value>
+  </data>
+  <data name="TrackerUrlInvalid" xml:space="preserve">
+    <value>“{0}” không phải là URL tracker hợp lệ.</value>
+  </data>
+  <data name="TrackerUrlUnsupportedScheme" xml:space="preserve">
+    <value>Chỉ hỗ trợ tracker http và https; tracker này dùng {0}://. Hãy chọn tracker khác trong torrent, nếu có.</value>
+  </data>
+  <data name="TrackerNoResponse" xml:space="preserve">
+    <value>Tracker không phản hồi trong vòng {0} giây.</value>
+  </data>
+  <data name="TrackerEmptyResponse" xml:space="preserve">
+    <value>Tracker trả về phản hồi trống.</value>
+  </data>
+  <data name="TrackerCertificateNotTrusted" xml:space="preserve">
+    <value>Chứng chỉ TLS của {0} không được tin cậy: {1} Nếu bạn tin tưởng tracker này, hãy bật “Bỏ qua lỗi chứng chỉ TLS” trong cài đặt torrent.</value>
+  </data>
+  <data name="TrackerConnectFailed" xml:space="preserve">
+    <value>Không thể kết nối tới {0}:{1} sau {2} lần thử.</value>
+  </data>
+  <data name="TrackerAnnounceFailed" xml:space="preserve">
+    <value>Gửi thông báo tới {0} thất bại: {1}</value>
+  </data>
+  <data name="TrackerScrapeFailed" xml:space="preserve">
+    <value>Yêu cầu scrape tới {0} thất bại: {1}</value>
+  </data>
+  <data name="TrackerScrapeUnsupported" xml:space="preserve">
+    <value>Tracker này không hỗ trợ scrape.</value>
+  </data>
+  <data name="LogAnnouncingStarted" xml:space="preserve">
+    <value>Đang gửi thông báo sự kiện started tới tracker</value>
+  </data>
+  <data name="LogAnnouncingCompleted" xml:space="preserve">
+    <value>Đang gửi thông báo sự kiện completed tới tracker</value>
+  </data>
+  <data name="LogAnnouncingStopped" xml:space="preserve">
+    <value>Đang gửi thông báo sự kiện stopped tới tracker</value>
+  </data>
+  <data name="LogAnnouncingUpdate" xml:space="preserve">
+    <value>Đang gửi thông báo cập nhật tới tracker</value>
+  </data>
+  <data name="LogUnexpectedError" xml:space="preserve">
+    <value>Lỗi không mong muốn: {0}</value>
+  </data>
+  <data name="StopReasonUnexpectedError" xml:space="preserve">
+    <value>lỗi không mong muốn: {0}</value>
+  </data>
+  <data name="LogNewTrackerKey" xml:space="preserve">
+    <value>Đã tạo khóa tracker mới, như cách client được giả lập vẫn làm.</value>
+  </data>
+  <data name="LogNoConnection" xml:space="preserve">
+    <value>Không có kết nối tới tracker: {0}</value>
+  </data>
+  <data name="LogWillRetry" xml:space="preserve">
+    <value>Sẽ thử lại sau {0} giây.</value>
+  </data>
+  <data name="LogTrackerError" xml:space="preserve">
+    <value>Lỗi tracker: {0}</value>
+  </data>
+  <data name="LogPeers" xml:space="preserve">
+    <value>peer: ({0})</value>
+  </data>
+  <data name="LogScrapeError" xml:space="preserve">
+    <value>Lỗi scrape: {0}</value>
+  </data>
+  <data name="LogUploadPausedNoLeechers" xml:space="preserve">
+    <value>Tracker báo không có leecher; tạm dừng tải lên cho đến khi tracker báo có leecher.</value>
+  </data>
+  <data name="LogUploadResumed" xml:space="preserve">
+    <value>Đã tiếp tục tải lên: {0}.</value>
+  </data>
+  <data name="ResumeReasonLeechers" xml:space="preserve">
+    <value>tracker báo có {0} leecher</value>
+  </data>
+  <data name="ResumeReasonPauseSwitchedOff" xml:space="preserve">
+    <value>tùy chọn tạm dừng khi không có leecher đã được tắt</value>
+  </data>
+  <data name="StopReasonRanFor" xml:space="preserve">
+    <value>chạy đủ {0} giây</value>
+  </data>
+  <data name="StopReasonSeedersBelow" xml:space="preserve">
+    <value>seeder &lt; {0}</value>
+  </data>
+  <data name="StopReasonLeechersBelow" xml:space="preserve">
+    <value>leecher &lt; {0}</value>
+  </data>
+  <data name="StopReasonUploadedAbove" xml:space="preserve">
+    <value>đã tải lên &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonDownloadedAbove" xml:space="preserve">
+    <value>đã tải xuống &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonRatioBelow" xml:space="preserve">
+    <value>leecher/seeder &lt; {0}</value>
+  </data>
+  <data name="LogStopped" xml:space="preserve">
+    <value>Đã dừng: {0}</value>
+  </data>
+  <data name="LogStoppedAnnounceFailed" xml:space="preserve">
+    <value>Gửi thông báo stopped thất bại: {0}</value>
+  </data>
+  <data name="ListenerStartFailed" xml:space="preserve">
+    <value>Không thể khởi động trình lắng nghe TCP trên cổng {0} (cổng đã được sử dụng?): {1}</value>
+  </data>
+  <data name="ListenerStarted" xml:space="preserve">
+    <value>Đã khởi động trình lắng nghe TCP trên cổng {0}</value>
+  </data>
+  <data name="ListenerClosed" xml:space="preserve">
+    <value>Đã đóng trình lắng nghe TCP</value>
+  </data>
+  <data name="ScanLookingForProcess" xml:space="preserve">
+    <value>Đang tìm tiến trình {0}...</value>
+  </data>
+  <data name="ScanProcessNotFound" xml:space="preserve">
+    <value>Không tìm thấy tiến trình {0}. Hãy đảm bảo client torrent đang chạy.</value>
+  </data>
+  <data name="ScanSucceeded" xml:space="preserve">
+    <value>Tìm kiếm hoàn tất thành công.</value>
+  </data>
+  <data name="ScanFailed" xml:space="preserve">
+    <value>Tìm kiếm thất bại. Hãy đảm bảo {0} đang chạy và có ít nhất một torrent đang hoạt động.</value>
+  </data>
+  <data name="TorrentCannotRead" xml:space="preserve">
+    <value>Không thể đọc “{0}”: {1}</value>
+  </data>
+  <data name="TorrentInvalid" xml:space="preserve">
+    <value>Không phải tệp torrent hợp lệ: {0}</value>
+  </data>
+  <data name="TorrentNoInfo" xml:space="preserve">
+    <value>Không có thông tin torrent bên trong (từ điển “info”).</value>
+  </data>
+  <data name="TorrentNoPieceLength" xml:space="preserve">
+    <value>Không có độ dài mảnh.</value>
+  </data>
+  <data name="TorrentNoPieces" xml:space="preserve">
+    <value>Không có dữ liệu mã băm của các mảnh.</value>
+  </data>
+  <data name="TorrentDamagedPieces" xml:space="preserve">
+    <value>Mã băm của các mảnh bị thiếu hoặc bị hỏng.</value>
+  </data>
+  <data name="TorrentNoFiles" xml:space="preserve">
+    <value>Torrent không có độ dài tệp cũng không có danh sách tệp.</value>
+  </data>
+  <data name="TorrentInvalidFileEntry" xml:space="preserve">
+    <value>Mục không hợp lệ trong danh sách tệp.</value>
+  </data>
+  <data name="TorrentFileEntryNoLength" xml:space="preserve">
+    <value>Một mục tệp không có độ dài.</value>
+  </data>
+  <data name="TorrentFileEntryNoPath" xml:space="preserve">
+    <value>Một mục tệp không có đường dẫn.</value>
+  </data>
+  <data name="BencodeRootNotDictionary" xml:space="preserve">
+    <value>Giá trị gốc không phải là từ điển.</value>
+  </data>
+  <data name="BencodeTooDeep" xml:space="preserve">
+    <value>Dữ liệu lồng nhau quá sâu.</value>
+  </data>
+  <data name="BencodeUnexpectedEnd" xml:space="preserve">
+    <value>Dữ liệu kết thúc bất ngờ tại vị trí {0}.</value>
+  </data>
+  <data name="BencodeUnterminatedList" xml:space="preserve">
+    <value>Danh sách bắt đầu tại vị trí {0} thiếu ký tự kết thúc.</value>
+  </data>
+  <data name="BencodeUnterminatedDictionary" xml:space="preserve">
+    <value>Từ điển bắt đầu tại vị trí {0} thiếu ký tự kết thúc.</value>
+  </data>
+  <data name="BencodeKeyNotString" xml:space="preserve">
+    <value>Khóa từ điển tại vị trí {0} không phải là chuỗi.</value>
+  </data>
+  <data name="BencodeUnexpectedByte" xml:space="preserve">
+    <value>Byte không mong muốn 0x{0} tại vị trí {1}.</value>
+  </data>
+  <data name="BencodeUnterminatedInteger" xml:space="preserve">
+    <value>Số nguyên tại vị trí {0} thiếu ký tự kết thúc.</value>
+  </data>
+  <data name="BencodeInvalidInteger" xml:space="preserve">
+    <value>Số nguyên không hợp lệ tại vị trí {0}.</value>
+  </data>
+  <data name="BencodeStringLengthNoColon" xml:space="preserve">
+    <value>Độ dài chuỗi tại vị trí {0} không kết thúc bằng dấu hai chấm.</value>
+  </data>
+  <data name="BencodeInvalidStringLength" xml:space="preserve">
+    <value>Độ dài chuỗi không hợp lệ tại vị trí {0}.</value>
+  </data>
+  <data name="BencodeStringTooLong" xml:space="preserve">
+    <value>Chuỗi tại vị trí {0} khai báo {1} byte nhưng chỉ còn lại {2} byte.</value>
+  </data>
+  <data name="CatalogEmpty" xml:space="preserve">
+    <value>Danh mục client trống.</value>
+  </data>
+  <data name="CatalogNoClients" xml:space="preserve">
+    <value>Danh mục client không có client nào.</value>
+  </data>
+  <data name="CatalogDuplicateName" xml:space="preserve">
+    <value>Tên client “{0}” bị trùng trong danh mục.</value>
+  </data>
+  <data name="CatalogUserEmpty" xml:space="preserve">
+    <value>Danh mục client của người dùng trống.</value>
+  </data>
+  <data name="CatalogUserCannotRead" xml:space="preserve">
+    <value>Không thể đọc danh mục client của người dùng “{0}”: {1}</value>
+  </data>
+  <data name="CatalogEntryIncomplete" xml:space="preserve">
+    <value>Mục client “{0}” thiếu các trường bắt buộc.</value>
+  </data>
+  <data name="CatalogEntryUnnamed" xml:space="preserve">
+    <value>(không tên)</value>
+  </data>
+  <data name="SessionNoRoot" xml:space="preserve">
+    <value>Tệp phiên không có phần tử gốc.</value>
+  </data>
+  <data name="UpdateUnexpectedReply" xml:space="preserve">
+    <value>Dịch vụ kiểm tra phiên bản trả về phản hồi không như dự kiến.</value>
+  </data>
+</root>

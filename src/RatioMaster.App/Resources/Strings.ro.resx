@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Fișier</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>T_oate</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Vizualizare</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Ajutor</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Adaugă torrent…</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Încarcă o sesiune…</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Încarcă o sesiune și pornește torrentele…</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Salvează sesiunea…</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Oprește toate și salvează sesiunea…</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Setări…</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Ieșire</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Pornește</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Oprește</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Actualizează acum</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Redenumește…</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Elimină</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Copiază info hash</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Folosește aceste setări ca valori implicite</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Pornește toate</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Oprește toate</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Actualizează toate</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Setează viteza de încărcare pentru toate…</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Setează viteza de descărcare pentru toate…</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Golește toate jurnalele</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Panou de detalii</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Coloane</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Site-ul programului</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forumuri</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Raportează o eroare</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Donează</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Caută actualizări</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>Despre RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Afișează RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Site web</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Despre</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Adaugă</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Actualizează</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Adaugă torrent (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Pornește torrentele selectate (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Oprește torrentele selectate (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Trimite acum un anunț către tracker (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Elimină torrentele selectate (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Pornește toate torrentele (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Oprește toate torrentele (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Afișează doar</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Setări (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Caută torrente (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Toate</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Pornite</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Oprite</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Se descarcă</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Se distribuie</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Cu erori</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrente: {0} (pornite: {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>IP local</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Actualizare disponibilă</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — pornite: {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stare</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Progres</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Încărcat</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Descărcat</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Raport</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Viteză înc.</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Viteză desc.</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Seederi</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Leecheri</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Actualiz. în</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Timp total</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Tracker</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Niciun torrent deocamdată</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Trageți aici un fișier .torrent sau .session ori apăsați Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Adaugă torrent</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Ascunde panoul de detalii (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Inactiv</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Se pornește</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Se descarcă</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Se distribuie</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Se anunță</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Se oprește</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Oprit</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Eroare</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Oprit: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Eroare: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Niciodată</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>După {0} s</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Seederi &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Leecheri &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Încărcat &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Descărcat &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Leecheri/seederi &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Niciodată</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>După un timp de</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Când seederii &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Când leecherii &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Când totalul încărcat &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Când totalul descărcat &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Când leecheri/seederi &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>raport</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Niciunul</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Luminoasă</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Întunecată</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Selectați un torrent pentru a-i vedea detaliile</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Setări</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Jurnal</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Opriți torrentul pentru a modifica setările blocate.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Restabilește</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Aplică</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Dimensiune</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Fișier torrent</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proxy</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>ID partener</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Cheie / port / parteneri</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Seederi / leecheri</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Următoarea actualizare / oprire</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Viteze</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Programare și oprire</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identitate</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Altele</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versiune</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Încărcare (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Descărcare (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ aleatoriu</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>max</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Suspendă încărcarea cât timp trackerul nu raportează niciun leecher</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Recomandat. Un tracker poate observa o încărcare fără niciun leecher, unul dintre lucrurile care pot duce la blocarea contului.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>La fiecare anunț către tracker, alege o nouă viteză aleatorie</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Încărcare</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Descărcare</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Finalizat (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 înseamnă doar distribuire</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Interval de actualizare (s)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>trackerul poate impune altă valoare</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Oprire</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Automat: generează valorile, copiindu-le din clientul care rulează, când este posibil</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Personalizat</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Cheie</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Parteneri solicitați</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Regenerează</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Se generează…</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Valori copiate din {0}, care rulează.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Au fost generate valori aleatorii (clientul nu rulează).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Au fost generate valori aleatorii.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Gazdă</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Utilizator</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Parolă</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Solicită scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Răspunde la handshake-urile primite de la parteneri pe portul anunțat</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Ignoră motivul eșecului („failure reason”) raportat de tracker și continuă</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Păstrează un jurnal pentru acest torrent</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Ignoră erorile de certificat TLS la trackerele https</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Ora</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Eveniment</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Rezultat</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Interval</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Parteneri</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Latență</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Niciun schimb cu trackerul deocamdată</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Selectați un schimb pentru a vedea cererea</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Cerere</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Antetele răspunsului</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Activat</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Derulare automată</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filtrează</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Copiază</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Salvează…</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Golește</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Jurnalul este gol deocamdată</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Simulează încărcarea și descărcarea văzute de un tracker BitTorrent, fără să descarce sau să încarce nimic.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Site web</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Sprijiniți proiectul prin PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} pe {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Licență MIT.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Închide</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Salvează</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Adaugă</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Răsfoiește…</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Pornește imediat</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Detalii</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Niciun torrent selectat deocamdată.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>Torrente: {0}. Setările de mai jos se aplică tuturor.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Unul dintre aceste torrente nu are tracker http sau https și nu va putea porni.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>{0} dintre aceste torrente nu au tracker http sau https și nu vor putea porni.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 fișier</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>Fișiere: {0}</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Este disponibilă o versiune nouă de RatioMaster.NET (build {0}). Folosiți versiunea {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Descarcă</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Amintește-mi mai târziu</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Omite această versiune</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Zona de notificare</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Valori implicite</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Clienți</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Temă</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Limbă</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Limba sistemului ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Reporniți RatioMaster.NET pentru a schimba limba.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Folosește întotdeauna formatul de 24 de ore în jurnale (altfel, urmează formatul orei din sistem)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Caută actualizări la pornire</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Restabilește ultima sesiune la pornire</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Adaugă torrentele fără a afișa fereastra de adăugare</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Pornește torrentele imediat după adăugare</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Minimizează în zona de notificare</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>La închidere, ascunde fereastra în zona de notificare fără a ieși din aplicație</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Afișează lista torrentelor în tooltipul pictogramei</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Pornește minimizat</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Pe Linux, pictograma din zona de notificare necesită o gazdă StatusNotifier (KDE sau GNOME cu extensia AppIndicator). Fără ea, o fereastră ascunsă nu mai poate fi readusă, de aceea aceste două opțiuni sunt dezactivate implicit acolo.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Torrentele noi preiau aceste setări.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Emulări de clienți încărcate: {0}. Pentru a adăuga sau a înlocui emulări, creați acest fișier:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Fișierul are aceeași structură ca și catalogul integrat. O intrare cu un nume existent o înlocuiește pe cea integrată; numele noi sunt adăugate. Reporniți aplicația pentru a aplica modificările.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Folderul de configurare</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Încărcare sesiune</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Încărcați sesiunea {0}?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Încarcă</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Încarcă și pornește</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Torrentul nu a putut fi adăugat</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Eliminare torrent</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Eliminare torrente</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Eliminați {0} din listă?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Este pornit și va fi oprit mai întâi.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Eliminați din listă torrentele selectate ({0})?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Unul dintre ele este pornit și va fi oprit mai întâi.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>{0} dintre ele sunt pornite și vor fi oprite mai întâi.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Redenumire torrent</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Numele afișat în listă:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Valori implicite actualizate</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Torrentele noi vor prelua aceste setări.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Setare viteză de încărcare</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Noua viteză de încărcare pentru toate torrentele (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Setare viteză de descărcare</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Noua viteză de descărcare pentru toate torrentele (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Sesiune salvată</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Sesiunea nu a putut fi încărcată</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Sesiune încărcată</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Torrente încărcate: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Torrente încărcate: {0}; negăsite: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Nu s-a putut contacta ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Folosiți cea mai recentă versiune.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Fișiere torrent</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>Sesiuni RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Fișiere jurnal</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Adăugare torrente</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Salvare sesiune</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Salvare jurnal</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Fișierul clients.json personalizat a fost ignorat</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} B</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Decupează</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Copiază</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Lipește</value>
+  </data>
+</root>

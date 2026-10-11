@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Berkas</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Semua</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>Ta_mpilan</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>Ba_ntuan</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Tambah torrent...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Muat sesi...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Muat sesi dan mulai...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Simpan sesi...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Hentikan semua dan simpan sesi...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Pengaturan...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Keluar</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Mulai</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Hentikan</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Perbarui sekarang</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Ganti nama...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Salin info hash</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Jadikan pengaturan ini sebagai bawaan</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Mulai semua</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Hentikan semua</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Perbarui semua</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Atur kecepatan unggah untuk semua...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Atur kecepatan unduh untuk semua...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Bersihkan semua log</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Panel detail</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Kolom</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Situs web program</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Laporkan bug</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Donasi</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Periksa pembaruan</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>Tentang RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Tampilkan RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Situs web</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Tentang</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Tambah</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Perbarui</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Tambah torrent (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Mulai torrent yang dipilih (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Hentikan torrent yang dipilih (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Umumkan ke pelacak sekarang (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Hapus torrent yang dipilih (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Mulai semua torrent (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Hentikan semua torrent (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Hanya tampilkan</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Pengaturan (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Cari torrent (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Semua</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Berjalan</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Dihentikan</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Mengunduh</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Berbagi</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Galat</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrent: {0} ({1} berjalan)</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>IP lokal</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Pembaruan tersedia</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — {0} berjalan   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nama</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Klien</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Kemajuan</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Diunggah</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Diunduh</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Rasio</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Kec. unggah</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Kec. unduh</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Seeder</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Leecher</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Pembaruan dalam</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Waktu total</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Pelacak</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Belum ada torrent</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Seret berkas .torrent atau .session ke sini, atau tekan Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Tambah torrent</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Sembunyikan panel detail (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Belum dimulai</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Memulai</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Mengunduh</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Berbagi</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Memperbarui</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Menghentikan</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Dihentikan</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Galat</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Dihentikan: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Galat: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Tidak pernah</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>Setelah {0} dtk</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Seeder &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Leecher &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Diunggah &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Diunduh &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Leecher/seeder &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Tidak pernah</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Setelah berjalan</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Jika seeder &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Jika leecher &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Jika diunggah &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Jika diunduh &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Jika leecher/seeder &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>detik</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>rasio</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Tidak ada</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Ikuti sistem</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Terang</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Gelap</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Pilih torrent untuk melihat detailnya</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Umum</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Pengaturan</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Hentikan torrent untuk mengubah pengaturan yang terkunci.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Kembalikan</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Terapkan</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Ukuran</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Berkas torrent</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proksi</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>ID peer</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Kunci / port / peer</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Seeder / leecher</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Pembaruan berikutnya / kondisi berhenti</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Kecepatan</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Jadwal dan penghentian</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identitas</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Lainnya</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versi</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Unggah (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Unduh (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ acak</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>maks</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Jeda unggahan selama pelacak melaporkan tidak ada leecher</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Disarankan. Pelacak dapat mendeteksi unggahan saat tidak ada leecher, dan itu salah satu hal yang dapat membuat akun diblokir.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Pada setiap pembaruan ke pelacak, pilih kecepatan acak baru</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Unggah</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Unduh</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Selesai (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 berarti hanya berbagi</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Interval pembaruan (dtk)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>pelacak dapat menimpa nilai ini</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Kondisi berhenti</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Otomatis: buat nilai, salin dari klien yang sedang berjalan bila memungkinkan</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Kustom</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Kunci</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Peer yang diminta</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Buat ulang</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Membuat...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Disalin dari {0} yang sedang berjalan.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Nilai acak telah dibuat (klien tidak berjalan).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Nilai acak telah dibuat.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Jenis</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Pengguna</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Kata sandi</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Minta scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Balas handshake masuk dari peer pada port yang diumumkan</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Abaikan “failure reason” dari pelacak dan tetap berjalan</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Simpan log untuk torrent ini</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Abaikan galat sertifikat TLS pada pelacak https</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Waktu</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Peristiwa</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Hasil</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Interval</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Peer</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Latensi</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Belum ada pertukaran dengan pelacak</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Pilih pertukaran untuk melihat permintaannya</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Permintaan</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Header respons</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Aktif</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Gulir otomatis</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Saring</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Simpan...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Bersihkan</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Belum ada yang dicatat</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Memalsukan unggahan dan unduhan yang terlihat oleh pelacak BitTorrent, tanpa mengunduh atau mengunggah apa pun.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Situs web</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Dukung proyek ini melalui PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} di {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Berlisensi MIT.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Tutup</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Simpan</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Tambah</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Telusuri...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Langsung mulai</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Belum ada torrent yang dipilih.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} torrent; pengaturan di bawah ini berlaku untuk semuanya.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Salah satu torrent ini tidak memiliki pelacak http atau https dan tidak akan bisa dimulai.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>{0} dari torrent ini tidak memiliki pelacak http atau https dan tidak akan bisa dimulai.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 berkas</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} berkas</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Versi baru RatioMaster.NET tersedia (build {0}). Anda menjalankan {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Unduh</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Ingatkan nanti</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Lewati versi ini</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Baki sistem</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Bawaan torrent</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Klien</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Bahasa</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Bawaan sistem ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Mulai ulang RatioMaster.NET untuk mengganti bahasa.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Selalu gunakan format 24 jam di log (jika tidak, ikuti format waktu sistem)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Periksa pembaruan saat aplikasi dimulai</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Pulihkan sesi terakhir saat aplikasi dimulai</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Tambahkan torrent tanpa menampilkan dialog Tambah torrent</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Mulai torrent segera setelah ditambahkan</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Minimalkan ke baki sistem</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Saat jendela ditutup, sembunyikan aplikasi di baki sistem alih-alih keluar</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Tampilkan daftar torrent di tooltip ikon baki</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Mulai dalam keadaan diminimalkan</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Di Linux, ikon baki memerlukan host StatusNotifier (KDE, atau GNOME dengan ekstensi AppIndicator). Tanpanya, jendela yang tersembunyi tidak dapat dimunculkan kembali, sehingga kedua opsi ini nonaktif secara bawaan di sana.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Torrent baru dimulai dengan pengaturan ini.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>{0} emulasi klien dimuat. Tambahkan atau timpa emulasi dengan membuat berkas ini:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Berkas ini menggunakan struktur yang sama dengan katalog bawaan. Entri dengan nama yang sudah ada akan menggantikan entri tersebut; nama baru akan ditambahkan. Mulai ulang aplikasi agar perubahan diterapkan.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Folder konfigurasi</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Muat sesi</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Muat sesi {0}?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Muat</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Muat dan mulai</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Tidak dapat menambahkan torrent</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Hapus torrent</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Hapus beberapa torrent</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Hapus {0} dari daftar?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Torrent ini sedang berjalan dan akan dihentikan terlebih dahulu.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Hapus {0} torrent ini dari daftar?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Salah satunya sedang berjalan dan akan dihentikan terlebih dahulu.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>{0} di antaranya sedang berjalan dan akan dihentikan terlebih dahulu.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Ganti nama torrent</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Nama yang ditampilkan di daftar:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Bawaan diperbarui</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Torrent baru akan dimulai dengan pengaturan ini.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Atur kecepatan unggah</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Kecepatan unggah baru untuk semua torrent (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Atur kecepatan unduh</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Kecepatan unduh baru untuk semua torrent (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Sesi disimpan</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Tidak dapat memuat sesi</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Sesi dimuat</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>{0} torrent dimuat.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>{0} torrent dimuat, {1} tidak ditemukan.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Tidak dapat menghubungi ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Anda menjalankan versi terbaru.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Berkas torrent</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>Sesi RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Berkas log</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Tambah torrent</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Simpan sesi</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Simpan log</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>clients.json kustom diabaikan</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} byte</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Potong</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Tempel</value>
+  </data>
+</root>

@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Fil</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Alle</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Vis</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Hjelp</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Legg til torrent...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Last inn økt...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Last inn økt og start...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Lagre økt...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Stopp alle og lagre økt...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Innstillinger...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Avslutt</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Stopp</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Oppdater nå</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Gi nytt navn...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Fjern</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Kopier info-hash</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Bruk disse innstillingene som standard</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Start alle</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Stopp alle</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Oppdater alle</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Angi opplastingshastighet for alle...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Angi nedlastingshastighet for alle...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Tøm alle logger</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Detaljrute</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Kolonner</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Programmets nettsted</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Rapporter en feil</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Doner</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Se etter oppdateringer</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>Om RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Vis RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Nettsted</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Om</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Legg til</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Oppdater</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Legg til torrent (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Start de valgte torrentene (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Stopp de valgte torrentene (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Annonser til sporeren nå (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Fjern de valgte torrentene (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Start alle torrenter (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Stopp alle torrenter (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Vis bare</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Innstillinger (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Søk i torrenter (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Kjørende</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Stoppede</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Laster ned</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Deler</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Feil</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrenter: {0} ({1} kjører)</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Lokal IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Oppdatering tilgjengelig</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — {0} kjører   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Klient</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Fremdrift</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Opplastet</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Nedlastet</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Forhold</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Opplasting</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Nedlasting</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Delere</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Snyltere</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Oppdateres om</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Total tid</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Sporer</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Ingen torrenter ennå</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Slipp en .torrent- eller .session-fil her, eller trykk Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Legg til torrent</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Skjul detaljruten (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Inaktiv</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Starter</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Laster ned</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Deler</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Oppdaterer</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Stopper</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Stoppet</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Feil</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Stoppet: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Feil: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Aldri</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>Etter {0} s</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Delere &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Snyltere &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Opplastet &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Nedlastet &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Snyltere/delere &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Aldri</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Etter</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Når delere &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Når snyltere &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Når opplastet &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Når nedlastet &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Når snyltere/delere &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>sekunder</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>forhold</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Ingen</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Lyst</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Mørkt</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Velg en torrent for å se detaljene</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Generelt</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Innstillinger</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Logg</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Stopp torrenten for å endre de låste innstillingene.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Tilbakestill</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Bruk</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info-hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Størrelse</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torrentfil</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Mellomtjener</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Likemanns-ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Nøkkel / port / likemenn</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Delere / snyltere</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Neste oppdatering / stopp</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Hastigheter</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Tidsplan og stopp</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identitet</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Annet</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versjon</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Opplasting (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Nedlasting (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ tilfeldig</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>maks</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Sett opplastingen på pause mens sporeren ikke rapporterer noen snyltere</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Anbefalt. En sporer kan legge merke til opplasting uten snyltere, og det er en av tingene som kan føre til at en konto blir utestengt.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Velg en ny tilfeldig hastighet ved hver oppdatering mot sporeren</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Opplasting</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Nedlasting</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Fullført (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 betyr bare deling</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Oppdateringsintervall (s)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>sporeren kan overstyre dette</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Stopp</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Automatisk: generer verdier, og kopier dem fra den kjørende klienten når det er mulig</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Egendefinert</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Nøkkel</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Ønskede likemenn</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Generer på nytt</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Genererer...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Kopiert fra kjørende {0}.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Genererte tilfeldige verdier (klienten kjører ikke).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Genererte tilfeldige verdier.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Vert</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Bruker</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Passord</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Be om scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Svar på innkommende håndtrykk fra likemenn på den annonserte porten</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Ignorer sporerens «failure reason» og fortsett å kjøre</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Før logg for denne torrenten</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Ignorer TLS-sertifikatfeil på https-sporere</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Tid</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Hendelse</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Intervall</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Likemenn</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Forsinkelse</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Ingen utvekslinger med sporeren ennå</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Velg en utveksling for å se forespørselen</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Forespørsel</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Svarhoder</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Aktivert</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Rull automatisk</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Kopier</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Lagre...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Tøm</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Ingenting logget ennå</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Forfalsker opplastingen og nedlastingen en BitTorrent-sporer ser, uten å laste opp eller ned noe som helst.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Nettsted</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-post</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Støtt prosjektet via PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} på {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>MIT-lisensiert.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Lukk</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Lagre</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Legg til</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Bla gjennom...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Start umiddelbart</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Ingen torrent er valgt ennå.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} torrenter; innstillingene nedenfor gjelder for alle.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>En av disse torrentene har ingen http- eller https-sporer og vil ikke kunne starte.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>{0} av disse torrentene har ingen http- eller https-sporer og vil ikke kunne starte.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 fil</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} filer</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>En ny versjon av RatioMaster.NET er tilgjengelig (bygg {0}). Du kjører {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Last ned</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Minn meg på det senere</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Hopp over denne versjonen</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Systemstatusfelt</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Standardinnstillinger</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Klienter</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Språk</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Systemstandard ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Start RatioMaster.NET på nytt for å bytte språk.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Bruk alltid 24-timersklokke i logger (ellers følg systemets tidsformat)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Se etter oppdateringer ved oppstart</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Gjenopprett forrige økt ved oppstart</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Legg til torrenter uten å vise dialogboksen «Legg til torrent»</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Start torrenter umiddelbart etter at de er lagt til</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Minimer til systemstatusfeltet</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Skjul vinduet i systemstatusfeltet ved lukking i stedet for å avslutte programmet</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Vis torrentene i verktøytipset i systemstatusfeltet</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Start minimert</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>På Linux trenger ikonet i systemstatusfeltet en StatusNotifier-vert (KDE, eller GNOME med AppIndicator-utvidelsen). Uten en slik vert kan et skjult vindu ikke hentes frem igjen, og derfor er disse to alternativene av som standard der.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Nye torrenter starter med disse innstillingene.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Klientemuleringer lastet inn: {0}. Legg til eller overstyr dem ved å opprette denne filen:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Filen har samme format som den innebygde katalogen. En oppføring med et navn som allerede finnes, erstatter den eksisterende; nye navn legges til. Start programmet på nytt for å ta i bruk endringene.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Konfigurasjonsmappe</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Last inn økt</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Vil du laste inn økten {0}?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Last inn</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Last inn og start</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Kunne ikke legge til torrent</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Fjern torrent</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Fjern torrenter</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Vil du fjerne {0} fra listen?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Den kjører og blir stoppet først.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Vil du fjerne disse {0} torrentene fra listen?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>En av dem kjører og blir stoppet først.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>{0} av dem kjører og blir stoppet først.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Gi torrent nytt navn</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Navn som vises i listen:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Standardinnstillinger oppdatert</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Nye torrenter starter med disse innstillingene.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Angi opplastingshastighet</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Ny opplastingshastighet for alle torrenter (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Angi nedlastingshastighet</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Ny nedlastingshastighet for alle torrenter (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Økt lagret</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Kunne ikke laste inn økt</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Økt lastet inn</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Torrenter lastet inn: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Torrenter lastet inn: {0}. Ikke funnet: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Kunne ikke nå ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Du kjører den nyeste versjonen.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torrentfiler</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMaster-økter</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Loggfiler</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Legg til torrenter</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Lagre økt</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Lagre logg</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Egendefinert clients.json ble ignorert</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} byte</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Klipp ut</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Kopier</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Lim inn</value>
+  </data>
+</root>

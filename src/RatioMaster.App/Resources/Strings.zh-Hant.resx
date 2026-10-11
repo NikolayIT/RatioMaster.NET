@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>檔案(_F)</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>Torrent(_T)</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>全部(_A)</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>檢視(_V)</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>說明(_H)</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>新增 Torrent...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>載入工作階段...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>載入工作階段並啟動...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>儲存工作階段...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>全部停止並儲存工作階段...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>設定...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>結束</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>啟動</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>立即更新</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>重新命名...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>複製資訊雜湊值</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>將這些設定設為預設值</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>全部啟動</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>全部停止</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>全部更新</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>統一設定上傳速度...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>統一設定下載速度...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>清除所有記錄</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>詳細資料窗格</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>欄位</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>官方網站</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>論壇</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>回報錯誤</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>捐款</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>檢查更新</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>關於 RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>顯示 RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>網站</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>關於</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>新增 Torrent (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>啟動選取的 Torrent (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>停止選取的 Torrent (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>立即向追蹤器回報 (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>移除選取的 Torrent (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>啟動所有 Torrent (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>停止所有 Torrent (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>僅顯示</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>設定 (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>搜尋 Torrent (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>執行中</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>已停止</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>下載中</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>做種中</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>錯誤</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrent：{0}（執行中：{1}）</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>本機 IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>有可用的更新</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — 執行中：{0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>用戶端</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>進度</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>已上傳</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>已下載</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>分享率</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>上傳速度</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>下載速度</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>做種者</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>下載者</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>更新倒數</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>執行時間</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>追蹤器</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>尚無 Torrent</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>將 .torrent 或 .session 檔案拖曳到這裡，或按 Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>新增 Torrent</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>隱藏詳細資料窗格 (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>未啟動</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>正在啟動</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>正在下載</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>正在做種</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>正在更新</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>正在停止</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>已停止</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>錯誤</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>已停止：{0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>錯誤：{0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>{0} 秒後</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>做種者 &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>下載者 &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>已上傳 &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>已下載 &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>下載者/做種者 &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>執行時間達到</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>做種者 &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>下載者 &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>已上傳 &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>已下載 &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>下載者/做種者 &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>比率</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>使用系統設定</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>淺色</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>選取 Torrent 以檢視其詳細資料</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>記錄</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>若要變更已鎖定的設定，請先停止此 Torrent。</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>還原</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>套用</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>資訊雜湊值</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torrent 檔案</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>代理伺服器</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>對等節點 ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>金鑰 / 連接埠 / 對等節點數</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>做種者 / 下載者</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>下次更新 / 停止條件</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>排程與停止</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>身分識別</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>上傳 (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>下載 (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ 隨機</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>最小</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>最大</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>當追蹤器顯示沒有下載者時暫停上傳</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>建議開啟。在沒有下載者的情況下仍有上傳，可能會被追蹤器察覺，這是可能導致帳號遭停權的原因之一。</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>每次向追蹤器回報時，隨機選取新的速度</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>上傳</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>下載</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>已完成 (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 表示僅做種</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>更新間隔（秒）</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>追蹤器可能會覆寫此值</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>停止條件</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>自動：產生各項值（盡可能從執行中的用戶端複製）</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>自訂</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>金鑰</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>連接埠</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>請求對等節點數</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>重新產生</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>正在產生...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>已從執行中的 {0} 複製。</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>已產生隨機值（用戶端未執行）。</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>已產生隨機值。</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>類型</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>主機</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>使用者名稱</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>請求 Scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>在回報的連接埠上回應其他對等節點發起的交握</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>忽略追蹤器傳回的「failure reason」並繼續執行</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>為此 Torrent 保留記錄</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>忽略 https 追蹤器的 TLS 憑證錯誤</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>事件</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>結果</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>間隔</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>對等節點</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>延遲</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} 毫秒</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>尚無追蹤器通訊記錄</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>選取一筆通訊記錄以檢視要求</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>要求</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>回應標頭</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>啟用</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>自動捲動</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>篩選</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>儲存...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>尚無記錄</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>偽造 BitTorrent 追蹤器所看到的上傳量與下載量，而不需實際下載或上傳任何內容。</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>網站</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>電子郵件</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>透過 PayPal 贊助本專案</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0}，執行於 {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>以 MIT 授權條款釋出。</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>儲存</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>瀏覽...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>立即啟動</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>詳細資料</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>尚未選取 Torrent。</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>共 {0} 個 Torrent，以下設定將套用至所有 Torrent。</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>其中一個 Torrent 沒有 http 或 https 追蹤器，因此將無法啟動。</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>其中 {0} 個 Torrent 沒有 http 或 https 追蹤器，因此將無法啟動。</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 個檔案</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} 個檔案</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>RatioMaster.NET 有新版本可用（組建 {0}）。您目前執行的版本是 {1}。</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>下載</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>稍後提醒我</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>略過此版本</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>系統匣</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Torrent 預設值</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>用戶端</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>佈景主題</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>語言</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>系統預設（{0}）</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>需要重新啟動 RatioMaster.NET 才能切換語言。</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>記錄中一律使用 24 小時制（否則依照系統的時間格式）</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>啟動時檢查更新</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>啟動時還原上次的工作階段</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>新增 Torrent 時不顯示「新增 Torrent」對話方塊</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>新增 Torrent 後立即啟動</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>最小化到系統匣</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>關閉時最小化到系統匣，而不結束程式</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>在系統匣圖示的工具提示中列出 Torrent</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>啟動時最小化</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>在 Linux 上，系統匣圖示需要 StatusNotifier 主機（KDE，或安裝了 AppIndicator 擴充功能的 GNOME）。若沒有主機，隱藏的視窗將無法再顯示，因此這兩個選項在 Linux 上預設為關閉。</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>新增的 Torrent 將預設使用這些設定。</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>已載入 {0} 個用戶端模擬設定。建立以下檔案即可新增或覆寫這些設定：</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>此檔案的格式與內建用戶端清單相同。名稱已存在的項目會取代原有項目，新名稱的項目則會新增。請重新啟動應用程式以套用變更。</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>設定資料夾</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>載入工作階段</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>要載入工作階段「{0}」嗎？</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>載入</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>載入並啟動</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>無法新增 Torrent</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>移除 Torrent</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>移除 Torrent</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>要從清單中移除「{0}」嗎？</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>此 Torrent 正在執行，將會先停止。</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>要從清單中移除這 {0} 個 Torrent 嗎？</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>其中一個正在執行，將會先停止。</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>其中 {0} 個正在執行，將會先停止。</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>重新命名 Torrent</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>清單中顯示的名稱：</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>預設值已更新</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>新增的 Torrent 將預設使用這些設定。</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>設定上傳速度</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>所有 Torrent 的新上傳速度 (kB/s)：</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>設定下載速度</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>所有 Torrent 的新下載速度 (kB/s)：</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>工作階段已儲存</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>無法載入工作階段</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>工作階段已載入</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>已載入 {0} 個 Torrent。</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>已載入 {0} 個 Torrent，另有 {1} 個找不到。</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>無法連線到 ratiomaster.net：{0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>您使用的已是最新版本。</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torrent 檔案</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMaster 工作階段</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>記錄檔</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>新增 Torrent</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>儲存工作階段</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>儲存記錄</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>已忽略自訂 clients.json</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} 位元組</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>剪下</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>貼上</value>
+  </data>
+</root>

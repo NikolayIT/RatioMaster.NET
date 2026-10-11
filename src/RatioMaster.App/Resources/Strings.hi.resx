@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_फ़ाइल</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_टोरेंट</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>स_भी</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_दृश्य</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_सहायता</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>टोरेंट जोड़ें...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>सत्र लोड करें...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>सत्र लोड करें और शुरू करें...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>सत्र सहेजें...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>सभी रोकें और सत्र सहेजें...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>सेटिंग्स...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>बाहर निकलें</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>शुरू करें</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>रोकें</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>अभी अपडेट करें</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>नाम बदलें...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>हटाएँ</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>इन्फ़ो हैश कॉपी करें</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>इन सेटिंग्स को डिफ़ॉल्ट बनाएँ</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>सभी शुरू करें</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>सभी रोकें</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>सभी अपडेट करें</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>सभी के लिए अपलोड गति सेट करें...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>सभी के लिए डाउनलोड गति सेट करें...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>सभी लॉग साफ़ करें</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>विवरण पैनल</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>कॉलम</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>प्रोग्राम की वेबसाइट</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>फ़ोरम</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>बग रिपोर्ट करें</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>दान करें</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>अपडेट की जाँच करें</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>RatioMaster.NET के बारे में</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>RatioMaster.NET दिखाएँ</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>वेबसाइट</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>परिचय</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>जोड़ें</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>अपडेट करें</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>टोरेंट जोड़ें (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>चुने गए टोरेंट शुरू करें (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>चुने गए टोरेंट रोकें (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>ट्रैकर को अभी घोषणा भेजें (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>चुने गए टोरेंट हटाएँ (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>सभी टोरेंट शुरू करें (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>सभी टोरेंट रोकें (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>केवल दिखाएँ</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>सेटिंग्स (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>टोरेंट खोजें (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>सभी</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>चालू</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>रुके हुए</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>डाउनलोड हो रहे</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>सीड हो रहे</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>त्रुटि</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>टोरेंट: {0} ({1} चालू)</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>स्थानीय IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>अपडेट उपलब्ध है</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — {0} चालू   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>क्लाइंट</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>प्रगति</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>अपलोड किया</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>डाउनलोड किया</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>अनुपात</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>अपलोड गति</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>डाउनलोड गति</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>सीडर</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>लीचर</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>अपडेट होने में</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>कुल समय</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>ट्रैकर</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>अभी कोई टोरेंट नहीं है</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>.torrent या .session फ़ाइल यहाँ खींचकर छोड़ें, या Ctrl+O दबाएँ</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>टोरेंट जोड़ें</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>विवरण पैनल छिपाएँ (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>शुरू नहीं हुआ</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>शुरू हो रहा है</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>डाउनलोड हो रहा है</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>सीड हो रहा है</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>अपडेट हो रहा है</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>रुक रहा है</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>रुका हुआ</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>त्रुटि</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>रुका हुआ: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>त्रुटि: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>कभी नहीं</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>{0} सेकंड बाद</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>सीडर &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>लीचर &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>अपलोड &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>डाउनलोड &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>लीचर/सीडर &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>कभी नहीं</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>समय सीमा</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>जब सीडर &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>जब लीचर &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>जब अपलोड &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>जब डाउनलोड &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>जब लीचर/सीडर &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>सेकंड</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>अनुपात</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>कोई नहीं</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>सिस्टम के अनुसार</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>लाइट</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>डार्क</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>विवरण देखने के लिए कोई टोरेंट चुनें</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>सामान्य</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>लॉग</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>लॉक की गई सेटिंग्स बदलने के लिए टोरेंट रोकें।</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>पूर्ववत करें</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>लागू करें</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>इन्फ़ो हैश</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>आकार</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>टोरेंट फ़ाइल</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>प्रॉक्सी</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>पीयर आईडी</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>कुंजी / पोर्ट / पीयर</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>सीडर / लीचर</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>अपडेट होने में / रुकना</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>गति</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>शेड्यूल और रुकने की शर्त</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>पहचान</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>अन्य</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>अपलोड (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>डाउनलोड (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ रैंडम</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>न्यूनतम</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>अधिकतम</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>जब तक ट्रैकर कोई लीचर न बताए, अपलोड रोके रखें</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>अनुशंसित। ट्रैकर बिना लीचर वाले अपलोड को पकड़ सकता है, और यह उन बातों में से एक है जिनसे खाता बैन हो सकता है।</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>हर ट्रैकर अपडेट पर नई रैंडम गति चुनें</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>अपलोड</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>डाउनलोड</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>पूर्ण (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 का अर्थ है केवल सीड करना</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>अपडेट अंतराल (सेकंड)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>ट्रैकर इसे बदल सकता है</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>रुकना</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>स्वचालित: मान बनाएँ, और जहाँ संभव हो, चल रहे क्लाइंट से कॉपी करें</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>कस्टम</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>कुंजी</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>पोर्ट</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>माँगे गए पीयर</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>फिर से बनाएँ</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>बनाया जा रहा है...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>चल रहे {0} से कॉपी किया गया।</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>रैंडम मान बनाए गए (क्लाइंट नहीं चल रहा है)।</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>रैंडम मान बनाए गए।</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>होस्ट</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>उपयोगकर्ता</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>पासवर्ड</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>स्क्रेप का अनुरोध करें</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>घोषित पोर्ट पर आने वाले पीयर हैंडशेक का जवाब दें</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>ट्रैकर के “failure reason” को अनदेखा करें और टोरेंट चालू रखें</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>इस टोरेंट का लॉग रखें</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>TLS प्रमाणपत्र त्रुटियों को अनदेखा करें (https ट्रैकर पर)</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>समय</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>इवेंट</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>परिणाम</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>अंतराल</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>पीयर</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>विलंब</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} मि.से.</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>अभी तक ट्रैकर से कोई आदान-प्रदान नहीं हुआ</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>अनुरोध देखने के लिए कोई आदान-प्रदान चुनें</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>अनुरोध</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>प्रतिक्रिया हेडर</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>सक्षम</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>स्वतः स्क्रॉल</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>फ़िल्टर</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>कॉपी करें</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>सहेजें...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>साफ़ करें</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>अभी तक कुछ भी लॉग नहीं हुआ</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>BitTorrent ट्रैकर को नकली अपलोड और डाउनलोड दिखाता है, बिना कुछ भी डाउनलोड या अपलोड किए।</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>वेबसाइट</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>ईमेल</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>PayPal के ज़रिए प्रोजेक्ट का समर्थन करें</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>{1} ({2}) पर .NET {0}</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>MIT लाइसेंस के तहत।</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>ठीक है</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>सहेजें</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>जोड़ें</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>ब्राउज़ करें...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>तुरंत शुरू करें</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>अभी कोई टोरेंट नहीं चुना गया।</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} टोरेंट; नीचे दी गई सेटिंग्स इन सभी पर लागू होंगी।</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>इनमें से एक टोरेंट में कोई http या https ट्रैकर नहीं है और वह शुरू नहीं हो पाएगा।</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>इनमें से {0} टोरेंटों में कोई http या https ट्रैकर नहीं है और वे शुरू नहीं हो पाएँगे।</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 फ़ाइल</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} फ़ाइलें</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>RatioMaster.NET का नया संस्करण उपलब्ध है (बिल्ड {0})। आप {1} चला रहे हैं।</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>डाउनलोड करें</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>बाद में याद दिलाएँ</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>यह संस्करण छोड़ें</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>ट्रे</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>टोरेंट डिफ़ॉल्ट</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>क्लाइंट</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>थीम</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>भाषा</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>सिस्टम डिफ़ॉल्ट ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>भाषा बदलने के लिए RatioMaster.NET को फिर से शुरू करें।</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>लॉग में हमेशा 24-घंटे की घड़ी का उपयोग करें (अन्यथा सिस्टम के समय प्रारूप का पालन करें)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>शुरू होने पर अपडेट की जाँच करें</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>शुरू होने पर पिछला सत्र बहाल करें</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>“टोरेंट जोड़ें” डायलॉग दिखाए बिना टोरेंट जोड़ें</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>टोरेंट जोड़ने के तुरंत बाद उन्हें शुरू करें</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>ट्रे में छोटा करें</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>विंडो बंद करने पर एप्लिकेशन से बाहर निकलने के बजाय उसे ट्रे में भेजें</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>ट्रे टूलटिप में टोरेंट की सूची दिखाएँ</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>छोटा करके शुरू करें</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Linux पर ट्रे आइकन के लिए StatusNotifier होस्ट ज़रूरी है (KDE, या AppIndicator एक्सटेंशन के साथ GNOME)। इसके बिना छिपी हुई विंडो वापस नहीं लाई जा सकती, इसलिए वहाँ ये दोनों विकल्प डिफ़ॉल्ट रूप से बंद रहते हैं।</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>नए टोरेंट इन सेटिंग्स से शुरू होते हैं।</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>{0} क्लाइंट एमुलेशन लोड किए गए हैं। नए एमुलेशन जोड़ने या मौजूदा को बदलने के लिए यह फ़ाइल बनाएँ:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>यह फ़ाइल बिल्ट-इन कैटलॉग जैसी ही संरचना का उपयोग करती है। जिस प्रविष्टि का नाम पहले से मौजूद है, वह मौजूदा प्रविष्टि की जगह ले लेती है; नए नाम जोड़ दिए जाते हैं। बदलाव लागू करने के लिए एप्लिकेशन को फिर से शुरू करें।</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>कॉन्फ़िगरेशन फ़ोल्डर</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>सत्र लोड करें</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>सत्र {0} लोड करें?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>लोड करें</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>लोड करें और शुरू करें</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>टोरेंट नहीं जोड़ा जा सका</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>टोरेंट हटाएँ</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>चुने गए टोरेंट हटाएँ</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>{0} को सूची से हटाएँ?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>यह चल रहा है और पहले इसे रोका जाएगा।</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>चुने गए {0} टोरेंट सूची से हटाएँ?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>इनमें से एक चल रहा है और पहले उसे रोका जाएगा।</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>इनमें से {0} चल रहे हैं और पहले उन्हें रोका जाएगा।</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>टोरेंट का नाम बदलें</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>सूची में दिखने वाला नाम:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>डिफ़ॉल्ट अपडेट किए गए</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>नए टोरेंट इन सेटिंग्स से शुरू होंगे।</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>अपलोड गति सेट करें</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>हर टोरेंट के लिए नई अपलोड गति (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>डाउनलोड गति सेट करें</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>हर टोरेंट के लिए नई डाउनलोड गति (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>सत्र सहेजा गया</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>सत्र लोड नहीं हो सका</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>सत्र लोड किया गया</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>लोड किए गए टोरेंट: {0}।</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>लोड किए गए टोरेंट: {0}, नहीं मिले: {1}।</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>ratiomaster.net से संपर्क नहीं हो सका: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>आप नवीनतम संस्करण चला रहे हैं।</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>टोरेंट फ़ाइलें</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMaster सत्र</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>लॉग फ़ाइलें</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>टोरेंट जोड़ें</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>सत्र सहेजें</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>लॉग सहेजें</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>कस्टम clients.json को अनदेखा किया गया</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} बाइट</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>काटें</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>कॉपी करें</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>चिपकाएँ</value>
+  </data>
+</root>

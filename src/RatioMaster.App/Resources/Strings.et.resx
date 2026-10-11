@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Fail</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Kõik</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Vaade</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Abi</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Lisa torrent...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Laadi seanss...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Laadi seanss ja käivita...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Salvesta seanss...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Peata kõik ja salvesta seanss...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Sätted...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Välju</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Käivita</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Peata</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Värskenda kohe</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Nimeta ümber...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Eemalda</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Kopeeri inforäsi</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Kasuta neid sätteid vaikesätetena</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Käivita kõik</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Peata kõik</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Värskenda kõiki</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Määra kõigi üleslaadimiskiirus...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Määra kõigi allalaadimiskiirus...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Tühjenda kõik logid</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Üksikasjade paan</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Veerud</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Programmi veebisait</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Foorum</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Teata veast</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Anneta</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Otsi värskendusi</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>Teave programmi RatioMaster.NET kohta</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Kuva RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Veebisait</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Teave</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Lisa</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Värskenda</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Lisa torrent (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Käivita valitud torrentid (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Peata valitud torrentid (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Teavita jälgijat kohe (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Eemalda valitud torrentid (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Käivita kõik torrentid (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Peata kõik torrentid (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Kuva ainult</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Sätted (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Otsi torrenteid (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Kõik</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Töötavad</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Peatatud</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Allalaadimisel</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Jagamisel</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Vigased</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrenteid: {0} (töötavaid: {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Kohalik IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Värskendus on saadaval</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — töötavaid: {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nimi</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Olek</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Klient</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Edenemine</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Üles laaditud</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Alla laaditud</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Suhe</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Üleslaadimine</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Allalaadimine</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Jagajad</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Allalaadijad</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Värskenduseni</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Koguaeg</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Jälgija</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Torrenteid veel pole</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Lohistage siia .torrent- või .session-fail või vajutage Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Lisa torrent</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Peida üksikasjade paan (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Jõude</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Käivitub</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Laadib alla</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Jagab</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Värskendab</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Peatub</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Peatatud</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Viga</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Peatatud: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Viga: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Mitte kunagi</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>{0} s pärast</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Jagajaid &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Allalaadijaid &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Üles laaditud &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Alla laaditud &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Allalaadijad/jagajad &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Mitte kunagi</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Pärast</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Kui jagajaid &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Kui allalaadijaid &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Kui üles laaditud &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Kui alla laaditud &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Kui allalaadijad/jagajad &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>suhe</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Puudub</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Süsteem</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Hele</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Tume</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Üksikasjade nägemiseks valige torrent</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Üldine</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Sätted</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Logi</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Lukustatud sätete muutmiseks peatage torrent.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Ennista</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Rakenda</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Inforäsi</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Suurus</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torrentfail</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Puhverserver</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Partneri ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Võti / port / partnerid</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Jagajad / allalaadijad</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Järgmine värskendus / peatamine</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Kiirused</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Ajastus ja peatamine</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identiteet</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Muu</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versioon</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Üleslaadimine (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Allalaadimine (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ juhuslik</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>maks</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Pane üleslaadimine pausile, kui jälgija ei teata ühestki allalaadijast</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Soovitatav. Jälgija võib märgata üleslaadimist ilma allalaadijateta ja see on üks asjadest, mille tõttu võidakse konto blokeerida.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Vali iga jälgija värskenduse korral uus juhuslik kiirus</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Üleslaadimine</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Allalaadimine</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Valmis (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 tähendab ainult jagamist</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Värskendusintervall (s)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>jälgija võib selle üle kirjutada</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Peatamine</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Automaatne: kopeeri väärtused võimaluse korral töötavast kliendist, muul juhul loo need</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Kohandatud</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Võti</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Soovitud partnerite arv</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Loo uuesti</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Loomine...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Kopeeritud töötavast kliendist {0}.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Loodi juhuslikud väärtused (klient ei tööta).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Loodi juhuslikud väärtused.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Tüüp</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Kasutaja</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Parool</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Tee scrape-päringuid</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Vasta partnerite sissetulevatele kätlustele jälgijale teatatud pordil</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Eira jälgija veateadet („failure reason“) ja jätka töötamist</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Pea selle torrenti kohta logi</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Eira TLS-sertifikaadi vigu https-jälgijate puhul</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Aeg</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Sündmus</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Tulemus</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Intervall</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Partnerid</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Latentsus</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Jälgijaga pole veel suheldud</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Päringu nägemiseks valige rida</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Päring</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Vastuse päised</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Lubatud</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Automaatne kerimine</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filtreeri</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Kopeeri</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Salvesta...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Tühjenda</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Logis pole veel midagi</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Võltsib BitTorrenti jälgijale nähtavat üles- ja allalaadimist, ilma et midagi tegelikult alla või üles laaditaks.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Veebisait</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-post</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Toeta projekti PayPali kaudu</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} operatsioonisüsteemis {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Litsentsitud MIT-litsentsi alusel.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Sule</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Tühista</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Salvesta</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Lisa</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Sirvi...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Käivita kohe</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Üksikasjad</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Torrentit pole veel valitud.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} torrentit; allolevad sätted kehtivad nende kõigi kohta.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Ühel neist torrentitest pole http- ega https-jälgijat ja seda ei saa käivitada.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>{0} neist torrentitest ei saa käivituda, sest neil pole http- ega https-jälgijat.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 fail</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} faili</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Saadaval on RatioMaster.NET-i uus versioon (järk {0}). Teie versioon on {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Laadi alla</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Tuleta hiljem meelde</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Jäta see versioon vahele</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Süsteemisalv</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Torrenti vaikesätted</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Kliendid</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Kujundus</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Keel</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Süsteemi vaikekeel ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Keele vahetamiseks taaskäivitage RatioMaster.NET.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Kasuta logides alati 24-tunnist kella (muidu järgi süsteemi ajavormingut)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Otsi käivitamisel värskendusi</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Taasta käivitamisel viimane seanss</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Lisa torrentid ilma dialoogiboksi „Lisa torrent“ kuvamata</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Käivita torrentid kohe pärast lisamist</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Minimeeri süsteemisalve</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Sulge süsteemisalve, selle asemel et väljuda</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Loetle torrentid süsteemisalve kohtspikris</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Käivita minimeerituna</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Linuxis vajab süsteemisalve ikoon StatusNotifier-hosti (KDE või GNOME koos AppIndicator-laiendiga). Ilma selleta ei saa peidetud akent tagasi tuua, seetõttu on need kaks valikut seal vaikimisi välja lülitatud.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Uute torrentite puhul kasutatakse vaikimisi neid sätteid.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Laaditud kliendiemulatsioone: {0}. Nende lisamiseks või asendamiseks looge see fail:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Fail on sama ülesehitusega kui sisseehitatud kataloog. Olemasoleva nimega kirjed asendavad vastavad kataloogikirjed; uute nimedega kirjed lisatakse kataloogi. Muudatuste rakendamiseks taaskäivitage rakendus.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Konfiguratsioonikaust</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Laadi seanss</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Kas laadida seanss {0}?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Laadi</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Laadi ja käivita</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Torrentit ei saanud lisada</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Eemalda torrent</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Eemalda torrentid</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Kas eemaldada {0} loendist?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>See töötab ja peatatakse enne eemaldamist.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Kas eemaldada need {0} torrentit loendist?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Üks neist töötab ja peatatakse enne eemaldamist.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>Neist {0} töötab ja need peatatakse enne eemaldamist.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Nimeta torrent ümber</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Loendis kuvatav nimi:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Vaikesätted värskendatud</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Uute torrentite puhul kasutatakse vaikimisi neid sätteid.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Määra üleslaadimiskiirus</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Uus üleslaadimiskiirus kõigile torrentitele (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Määra allalaadimiskiirus</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Uus allalaadimiskiirus kõigile torrentitele (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Seanss salvestatud</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Seanssi ei saanud laadida</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Seanss laaditud</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Laaditud torrenteid: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Laaditud torrenteid: {0}, leidmata: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Ei saanud ühendust saidiga ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Kasutate uusimat versiooni.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torrentfailid</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMasteri seansid</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Logifailid</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Lisa torrentid</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Salvesta seanss</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Salvesta logi</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Kohandatud faili clients.json eirati</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} B</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Lõika</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Kopeeri</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Kleebi</value>
+  </data>
+</root>

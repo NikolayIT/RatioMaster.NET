@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Datei</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>A_lle</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Ansicht</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Hilfe</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Torrent hinzufügen...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Sitzung laden...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Sitzung laden und starten...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Sitzung speichern...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Alle stoppen und Sitzung speichern...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Einstellungen...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Starten</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Stoppen</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Jetzt aktualisieren</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Umbenennen...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Info-Hash kopieren</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Diese Einstellungen als Standard verwenden</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Alle starten</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Alle stoppen</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Alle aktualisieren</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Uploadrate für alle festlegen...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Downloadrate für alle festlegen...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Alle Protokolle leeren</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Detailbereich</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Spalten</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Website des Programms</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Fehler melden</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Spenden</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Nach Updates suchen</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>Über RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>RatioMaster.NET anzeigen</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Torrent hinzufügen (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Ausgewählte Torrents starten (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Ausgewählte Torrents stoppen (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Jetzt Announce an den Tracker senden (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Ausgewählte Torrents entfernen (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Alle Torrents starten (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Alle Torrents stoppen (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Nur anzeigen</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Einstellungen (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Torrents suchen (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Laufend</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Gestoppt</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Herunterladen</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Seeden</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Fehlerhaft</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrents: {0} ({1} laufend)</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Lokale IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Update verfügbar</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — {0} laufend   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Fortschritt</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Ratio</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Uploadrate</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Downloadrate</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Seeder</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Leecher</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Update in</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Laufzeit</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Tracker</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Noch keine Torrents</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Ziehen Sie eine .torrent- oder .session-Datei hierher oder drücken Sie Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Torrent hinzufügen</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Detailbereich ausblenden (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Inaktiv</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Startet</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Wird geladen</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Seedet</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Update läuft</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Stoppt</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Gestoppt</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Gestoppt: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Fehler: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>Nach {0} s</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Seeder &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Leecher &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Upload &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Download &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Leecher/Seeder &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Nach Ablauf von</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Wenn Seeder &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Wenn Leecher &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Wenn Upload &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Wenn Download &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Wenn Leecher/Seeder &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>Sekunden</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>Verhältnis</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Kein Proxy</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Hell</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Dunkel</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Wählen Sie einen Torrent aus, um die Details zu sehen</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Allgemein</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Protokoll</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Stoppen Sie den Torrent, um die gesperrten Einstellungen zu ändern.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Verwerfen</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Übernehmen</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info-Hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Größe</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torrent-Datei</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proxy</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Peer-ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Schlüssel / Port / Peers</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Seeder / Leecher</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Nächstes Update / Stopp</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Geschwindigkeiten</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Zeitplan und Stopp</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identität</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Sonstiges</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Upload (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Download (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ Zufallswert</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min.</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>max.</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Upload pausieren, solange der Tracker keine Leecher meldet</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Empfohlen. Ein Tracker kann Uploads ohne Leecher bemerken; das ist einer der Gründe, aus denen ein Konto gesperrt werden kann.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Bei jedem Tracker-Update eine neue zufällige Geschwindigkeit wählen</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Fertig (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 bedeutet: nur seeden</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Update-Intervall (s)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>kann vom Tracker überschrieben werden</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Stopp</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Automatisch: Werte generieren und, wenn möglich, vom laufenden Client übernehmen</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Benutzerdefiniert</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Schlüssel</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Gewünschte Peers</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Neu generieren</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Wird generiert...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Vom laufenden {0} übernommen.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Zufällige Werte generiert (der Client läuft nicht).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Zufällige Werte generiert.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Scrape anfordern</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Eingehende Peer-Handshakes auf dem gemeldeten Port beantworten</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Fehlermeldung des Trackers („failure reason“) ignorieren und den Torrent weiterlaufen lassen</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Protokoll für diesen Torrent führen</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>TLS-Zertifikatsfehler bei https-Trackern ignorieren</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Zeit</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Ereignis</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Ergebnis</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Intervall</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Peers</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Latenz</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Noch keine Kommunikation mit dem Tracker</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Wählen Sie einen Eintrag aus, um die Anfrage zu sehen</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Anfrage</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Antwort-Header</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Aktiviert</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Automatisch scrollen</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Speichern...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Leeren</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Noch keine Einträge</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Täuscht einem BitTorrent-Tracker Uploads und Downloads vor, ohne tatsächlich etwas hoch- oder herunterzuladen.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Das Projekt über PayPal unterstützen</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} unter {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Unter der MIT-Lizenz veröffentlicht.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Durchsuchen...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Sofort starten</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Noch kein Torrent ausgewählt.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} Torrents; die folgenden Einstellungen gelten für alle.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Einer dieser Torrents hat keinen http- oder https-Tracker und kann nicht gestartet werden.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>{0} dieser Torrents haben keinen http- oder https-Tracker und können nicht gestartet werden.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 Datei</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} Dateien</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Eine neue Version von RatioMaster.NET ist verfügbar (Build {0}). Sie verwenden Version {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Herunterladen</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Später erinnern</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Diese Version überspringen</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Infobereich</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Standardeinstellungen</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Design</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Systemstandard ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Starten Sie RatioMaster.NET neu, um die Sprache zu wechseln.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>In Protokollen immer das 24-Stunden-Format verwenden (sonst dem Zeitformat des Systems folgen)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Beim Start nach Updates suchen</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Beim Start die letzte Sitzung wiederherstellen</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Torrents hinzufügen, ohne das Dialogfeld „Torrent hinzufügen“ anzuzeigen</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Torrents nach dem Hinzufügen sofort starten</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>In den Infobereich minimieren</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Beim Schließen in den Infobereich minimieren, statt das Programm zu beenden</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Torrents in der QuickInfo des Symbols im Infobereich auflisten</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Minimiert starten</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Unter Linux benötigt das Symbol im Infobereich einen StatusNotifier-Host (KDE oder GNOME mit der Erweiterung AppIndicator). Ohne einen solchen Host lässt sich ein ausgeblendetes Fenster nicht zurückholen, daher sind diese beiden Optionen dort standardmäßig deaktiviert.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Neue Torrents erhalten diese Einstellungen.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>{0} Client-Emulationen sind geladen. Sie können sie ergänzen oder überschreiben, indem Sie diese Datei anlegen:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Die Datei hat denselben Aufbau wie der integrierte Katalog. Ein Eintrag mit einem vorhandenen Namen ersetzt den bisherigen, neue Namen werden hinzugefügt. Starten Sie das Programm neu, um Änderungen zu übernehmen.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Konfigurationsordner</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Sitzung laden</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Sitzung {0} laden?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Laden</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Laden und starten</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Torrent konnte nicht hinzugefügt werden</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Torrent entfernen</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Torrents entfernen</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>{0} aus der Liste entfernen?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Der Torrent läuft und wird zuerst gestoppt.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Diese {0} Torrents aus der Liste entfernen?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Einer davon läuft und wird zuerst gestoppt.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>{0} davon laufen und werden zuerst gestoppt.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Torrent umbenennen</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>In der Liste angezeigter Name:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Standardeinstellungen aktualisiert</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Neue Torrents erhalten ab jetzt diese Einstellungen.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Uploadrate festlegen</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Neue Uploadrate für alle Torrents (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Downloadrate festlegen</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Neue Downloadrate für alle Torrents (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Sitzung gespeichert</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Sitzung konnte nicht geladen werden</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Sitzung geladen</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Geladene Torrents: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Geladene Torrents: {0}; nicht gefunden: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>ratiomaster.net ist nicht erreichbar: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Sie verwenden die neueste Version.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torrent-Dateien</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMaster-Sitzungen</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Protokolldateien</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Torrents hinzufügen</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Sitzung speichern</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Protokoll speichern</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Benutzerdefinierte clients.json ignoriert</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} Byte</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Ausschneiden</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+</root>

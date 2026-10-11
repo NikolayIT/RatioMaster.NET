@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Datoteka</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Vse</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Pogled</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>Po_moč</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Dodaj torrent...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Naloži sejo...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Naloži sejo in zaženi...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Shrani sejo...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Ustavi vse in shrani sejo...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Nastavitve...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Izhod</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Zaženi</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Ustavi</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Posodobi zdaj</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Preimenuj...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Odstrani</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Kopiraj info hash</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Uporabi te nastavitve kot privzete</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Zaženi vse</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Ustavi vse</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Posodobi vse</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Nastavi hitrost pošiljanja za vse...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Nastavi hitrost prejemanja za vse...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Počisti vse dnevnike</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Podokno s podrobnostmi</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Stolpci</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Spletno mesto programa</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Prijavi napako</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Doniraj</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Preveri posodobitve</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>O programu RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Pokaži RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Spletno mesto</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>O programu</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Posodobi</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Dodaj torrent (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Zaženi izbrane torrente (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Ustavi izbrane torrente (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Takoj obvesti sledilnik (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Odstrani izbrane torrente (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Zaženi vse torrente (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Ustavi vse torrente (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Pokaži samo</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Nastavitve (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Išči torrente (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Vsi</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Zagnani</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Ustavljeni</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Prejemanje</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Sejanje</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Z napako</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrenti: {0} (zagnani: {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Lokalni naslov IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Na voljo je posodobitev</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — zagnani: {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stanje</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Odjemalec</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Napredek</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Poslano</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Prejeto</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Razmerje</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Pošiljanje</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Prejemanje</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Sejalci</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Pijavke</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Posodobitev čez</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Skupni čas</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Sledilnik</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Ni še torrentov</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Povlecite sem datoteko .torrent ali .session oziroma pritisnite Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Dodaj torrent</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Skrij podokno s podrobnostmi (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Nedejaven</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Zaganjanje</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Prejemanje</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Sejanje</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Posodabljanje</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Ustavljanje</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Ustavljen</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Napaka</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Ustavljen: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Napaka: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Nikoli</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>Po {0} s</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Sejalci &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Pijavke &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Poslano &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Prejeto &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Pijavke/sejalci &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Nikoli</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Po preteku časa</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Ko je sejalcev &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Ko je pijavk &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Ko je poslano &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Ko je prejeto &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Ko je razmerje pijavk in sejalcev &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>razmerje</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Brez</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Sistemska</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Svetla</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Temna</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Izberite torrent za prikaz podrobnosti</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Splošno</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Nastavitve</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Dnevnik</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Če želite spremeniti zaklenjene nastavitve, ustavite torrent.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Povrni</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Uporabi</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Velikost</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Datoteka torrent</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Strežnik proxy</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>ID soležnika</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Ključ / vrata / soležniki</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Sejalci / pijavke</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Naslednja posodobitev / ustavitev</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Hitrosti</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Urnik in ustavitev</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identiteta</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Drugo</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Različica</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Pošiljanje (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Prejemanje (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ naključno</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min.</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>maks.</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Začasno ustavi pošiljanje, ko sledilnik ne javlja nobene pijavke</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Priporočeno. Sledilnik lahko opazi pošiljanje brez pijavk, kar je eden od razlogov, zaradi katerih je lahko račun blokiran.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Ob vsaki posodobitvi pri sledilniku izberi novo naključno hitrost</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Pošiljanje</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Prejemanje</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Dokončano (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 pomeni samo sejanje</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Interval posodabljanja (s)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>sledilnik ga lahko spremeni</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Ustavitev</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Samodejno: ustvari vrednosti in jih po možnosti kopiraj iz zagnanega odjemalca</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Ročno</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Ključ</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Vrata</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Želeni soležniki</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Znova ustvari</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Ustvarjanje...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Kopirano iz zagnanega odjemalca {0}.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Ustvarjene so bile naključne vrednosti (odjemalec ni zagnan).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Ustvarjene so bile naključne vrednosti.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Vrsta</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Gostitelj</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Uporabnik</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Geslo</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Zahtevaj scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Odgovarjaj na dohodna rokovanja soležnikov na vratih, sporočenih sledilniku</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Prezri »failure reason« sledilnika in nadaljuj</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Vodi dnevnik za ta torrent</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Prezri napake potrdil TLS pri sledilnikih https</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Čas</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Dogodek</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Rezultat</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Interval</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Soležniki</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Zakasnitev</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>S sledilnikom še ni bilo komunikacije</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Izberite vnos za prikaz zahteve</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Zahteva</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Glave odgovora</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Omogočeno</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Samodejno pomikanje</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Kopiraj</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Shrani...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Počisti</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>V dnevniku še ni ničesar</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Ponareja pošiljanje in prejemanje, ki ju vidi sledilnik BitTorrent, ne da bi karkoli prejemal ali pošiljal.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Spletno mesto</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-pošta</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Podprite projekt prek storitve PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} v sistemu {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Licenca MIT.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Zapri</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>V redu</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Prekliči</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Shrani</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Prebrskaj...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Zaženi takoj</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Podrobnosti</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Noben torrent še ni izbran.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>Število torrentov: {0}. Spodnje nastavitve veljajo za vse.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Eden od teh torrentov nima sledilnika http ali https, zato ga ne bo mogoče zagnati.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>Število torrentov brez sledilnika http ali https, ki jih ne bo mogoče zagnati: {0}.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 datoteka</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>Datoteke: {0}</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Na voljo je nova različica RatioMaster.NET (graditev {0}). Uporabljate različico {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Prenesi</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Opomni me pozneje</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Preskoči to različico</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Sistemska vrstica</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Privzete nastavitve</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Odjemalci</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Jezik</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Sistemski ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Za zamenjavo jezika znova zaženite RatioMaster.NET.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>V dnevnikih vedno uporabljaj 24-urni zapis časa (sicer sledi sistemski obliki zapisa časa)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Ob zagonu preveri posodobitve</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Ob zagonu obnovi zadnjo sejo</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Dodajaj torrente brez prikaza pogovornega okna za dodajanje</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Zaganjaj torrente takoj po dodajanju</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Pomanjšaj v sistemsko vrstico</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Zapri v sistemsko vrstico namesto izhoda</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Prikaži seznam torrentov v opisu orodja ikone v sistemski vrstici</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Zaženi pomanjšano</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>V Linuxu ikona v sistemski vrstici potrebuje gostitelja StatusNotifier (KDE ali GNOME z razširitvijo AppIndicator). Brez njega skritega okna ni mogoče znova prikazati, zato sta ti dve možnosti tam privzeto izklopljeni.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Novi torrenti začnejo s temi nastavitvami.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Naložene emulacije odjemalcev: {0}. Dodate ali preglasite jih lahko tako, da ustvarite to datoteko:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Datoteka ima enako obliko kot vgrajeni katalog. Vnos z že obstoječim imenom nadomesti prvotni vnos, vnosi z novimi imeni pa se dodajo. Za uveljavitev sprememb znova zaženite aplikacijo.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Mapa z nastavitvami</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Naloži sejo</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Želite naložiti sejo »{0}«?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Naloži</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Naloži in zaženi</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Torrenta ni bilo mogoče dodati</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Odstrani torrent</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Odstrani torrente</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Želite odstraniti »{0}« s seznama?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Torrent je zagnan, zato bo najprej ustavljen.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Želite odstraniti izbrane torrente ({0}) s seznama?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Eden od njih je zagnan, zato bo najprej ustavljen.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>Zagnani torrenti ({0}) bodo najprej ustavljeni.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Preimenuj torrent</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Ime, prikazano na seznamu:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Privzete nastavitve so posodobljene</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Novi torrenti bodo začeli s temi nastavitvami.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Nastavi hitrost pošiljanja</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Nova hitrost pošiljanja za vse torrente (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Nastavi hitrost prejemanja</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Nova hitrost prejemanja za vse torrente (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Seja shranjena</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Seje ni bilo mogoče naložiti</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Seja naložena</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Naloženi torrenti: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Naloženi torrenti: {0}, manjkajoči: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Povezava z ratiomaster.net ni uspela: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Uporabljate najnovejšo različico.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Datoteke torrent</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>Seje RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Datoteke dnevnika</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Dodaj torrente</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Shrani sejo</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Shrani dnevnik</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Datoteka clients.json po meri je bila prezrta</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} B</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Izreži</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Kopiraj</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Prilepi</value>
+  </data>
+</root>

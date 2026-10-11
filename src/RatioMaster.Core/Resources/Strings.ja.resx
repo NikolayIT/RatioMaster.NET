@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TrackerUrlMissing" xml:space="preserve">
+    <value>この Torrent にはトラッカーの URL がありません。</value>
+  </data>
+  <data name="TrackerUrlInvalid" xml:space="preserve">
+    <value>「{0}」は有効なトラッカーの URL ではありません。</value>
+  </data>
+  <data name="TrackerUrlUnsupportedScheme" xml:space="preserve">
+    <value>サポートされているのは http と https のトラッカーのみです。このトラッカーは {0}:// です。Torrent に別のトラッカーがある場合は、そちらを選択してください。</value>
+  </data>
+  <data name="TrackerNoResponse" xml:space="preserve">
+    <value>トラッカーが {0} 秒以内に応答しませんでした。</value>
+  </data>
+  <data name="TrackerEmptyResponse" xml:space="preserve">
+    <value>トラッカーの応答が空でした。</value>
+  </data>
+  <data name="TrackerCertificateNotTrusted" xml:space="preserve">
+    <value>{0} の TLS 証明書は信頼されていません：{1} このトラッカーを信頼する場合は、Torrent の設定で「https トラッカーの TLS 証明書エラーを無視する」をオンにしてください。</value>
+  </data>
+  <data name="TrackerConnectFailed" xml:space="preserve">
+    <value>{2} 回試行しましたが、{0}:{1} に接続できませんでした。</value>
+  </data>
+  <data name="TrackerAnnounceFailed" xml:space="preserve">
+    <value>{0} へのアナウンスに失敗しました：{1}</value>
+  </data>
+  <data name="TrackerScrapeFailed" xml:space="preserve">
+    <value>{0} のスクレイプに失敗しました：{1}</value>
+  </data>
+  <data name="TrackerScrapeUnsupported" xml:space="preserve">
+    <value>このトラッカーはスクレイプに対応していません。</value>
+  </data>
+  <data name="LogAnnouncingStarted" xml:space="preserve">
+    <value>トラッカーに started イベントをアナウンスしています</value>
+  </data>
+  <data name="LogAnnouncingCompleted" xml:space="preserve">
+    <value>トラッカーに completed イベントをアナウンスしています</value>
+  </data>
+  <data name="LogAnnouncingStopped" xml:space="preserve">
+    <value>トラッカーに stopped イベントをアナウンスしています</value>
+  </data>
+  <data name="LogAnnouncingUpdate" xml:space="preserve">
+    <value>トラッカーに更新をアナウンスしています</value>
+  </data>
+  <data name="LogUnexpectedError" xml:space="preserve">
+    <value>予期しないエラー：{0}</value>
+  </data>
+  <data name="StopReasonUnexpectedError" xml:space="preserve">
+    <value>予期しないエラー：{0}</value>
+  </data>
+  <data name="LogNewTrackerKey" xml:space="preserve">
+    <value>エミュレートしているクライアントと同様に、新しいトラッカーキーを生成しました。</value>
+  </data>
+  <data name="LogNoConnection" xml:space="preserve">
+    <value>トラッカーに接続できません：{0}</value>
+  </data>
+  <data name="LogWillRetry" xml:space="preserve">
+    <value>{0} 秒後に再試行します。</value>
+  </data>
+  <data name="LogTrackerError" xml:space="preserve">
+    <value>トラッカーエラー：{0}</value>
+  </data>
+  <data name="LogPeers" xml:space="preserve">
+    <value>ピア：({0})</value>
+  </data>
+  <data name="LogScrapeError" xml:space="preserve">
+    <value>スクレイプエラー：{0}</value>
+  </data>
+  <data name="LogUploadPausedNoLeechers" xml:space="preserve">
+    <value>トラッカーがリーチャーなしと報告しています。リーチャーが報告されるまでアップロードを一時停止します。</value>
+  </data>
+  <data name="LogUploadResumed" xml:space="preserve">
+    <value>アップロードを再開しました：{0}。</value>
+  </data>
+  <data name="ResumeReasonLeechers" xml:space="preserve">
+    <value>トラッカーがリーチャー数を {0} と報告しています</value>
+  </data>
+  <data name="ResumeReasonPauseSwitchedOff" xml:space="preserve">
+    <value>リーチャー不在時の一時停止がオフになりました</value>
+  </data>
+  <data name="StopReasonRanFor" xml:space="preserve">
+    <value>{0} 秒間稼働しました</value>
+  </data>
+  <data name="StopReasonSeedersBelow" xml:space="preserve">
+    <value>シーダー数 &lt; {0}</value>
+  </data>
+  <data name="StopReasonLeechersBelow" xml:space="preserve">
+    <value>リーチャー数 &lt; {0}</value>
+  </data>
+  <data name="StopReasonUploadedAbove" xml:space="preserve">
+    <value>アップロード量 &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonDownloadedAbove" xml:space="preserve">
+    <value>ダウンロード量 &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonRatioBelow" xml:space="preserve">
+    <value>リーチャー/シーダー &lt; {0}</value>
+  </data>
+  <data name="LogStopped" xml:space="preserve">
+    <value>停止：{0}</value>
+  </data>
+  <data name="LogStoppedAnnounceFailed" xml:space="preserve">
+    <value>stopped アナウンスに失敗しました：{0}</value>
+  </data>
+  <data name="ListenerStartFailed" xml:space="preserve">
+    <value>ポート {0} で TCP リスナーを開始できませんでした（既に使用されている可能性があります）：{1}</value>
+  </data>
+  <data name="ListenerStarted" xml:space="preserve">
+    <value>ポート {0} で TCP リスナーを開始しました</value>
+  </data>
+  <data name="ListenerClosed" xml:space="preserve">
+    <value>TCP リスナーを閉じました</value>
+  </data>
+  <data name="ScanLookingForProcess" xml:space="preserve">
+    <value>{0} プロセスを検索しています...</value>
+  </data>
+  <data name="ScanProcessNotFound" xml:space="preserve">
+    <value>{0} プロセスが見つかりません。Torrent クライアントが実行されていることを確認してください。</value>
+  </data>
+  <data name="ScanSucceeded" xml:space="preserve">
+    <value>検索が正常に完了しました。</value>
+  </data>
+  <data name="ScanFailed" xml:space="preserve">
+    <value>検索に失敗しました。{0} が実行中で、アクティブな Torrent が 1 つ以上あることを確認してください。</value>
+  </data>
+  <data name="TorrentCannotRead" xml:space="preserve">
+    <value>「{0}」を読み取れません：{1}</value>
+  </data>
+  <data name="TorrentInvalid" xml:space="preserve">
+    <value>有効な Torrent ファイルではありません：{0}</value>
+  </data>
+  <data name="TorrentNoInfo" xml:space="preserve">
+    <value>Torrent の内部情報（「info」辞書）がありません。</value>
+  </data>
+  <data name="TorrentNoPieceLength" xml:space="preserve">
+    <value>ピースサイズがありません。</value>
+  </data>
+  <data name="TorrentNoPieces" xml:space="preserve">
+    <value>ピースのハッシュデータがありません。</value>
+  </data>
+  <data name="TorrentDamagedPieces" xml:space="preserve">
+    <value>ピースのハッシュ値が欠落しているか、破損しています。</value>
+  </data>
+  <data name="TorrentNoFiles" xml:space="preserve">
+    <value>Torrent にファイル長もファイル一覧もありません。</value>
+  </data>
+  <data name="TorrentInvalidFileEntry" xml:space="preserve">
+    <value>ファイル一覧に無効なエントリがあります。</value>
+  </data>
+  <data name="TorrentFileEntryNoLength" xml:space="preserve">
+    <value>ファイルエントリにファイル長が指定されていません。</value>
+  </data>
+  <data name="TorrentFileEntryNoPath" xml:space="preserve">
+    <value>パスのないファイルエントリがあります。</value>
+  </data>
+  <data name="BencodeRootNotDictionary" xml:space="preserve">
+    <value>ルートの値が辞書ではありません。</value>
+  </data>
+  <data name="BencodeTooDeep" xml:space="preserve">
+    <value>データの入れ子が深すぎます。</value>
+  </data>
+  <data name="BencodeUnexpectedEnd" xml:space="preserve">
+    <value>オフセット {0} でデータが予期せず終了しました。</value>
+  </data>
+  <data name="BencodeUnterminatedList" xml:space="preserve">
+    <value>オフセット {0} から始まるリストが終端されていません。</value>
+  </data>
+  <data name="BencodeUnterminatedDictionary" xml:space="preserve">
+    <value>オフセット {0} から始まる辞書が終端されていません。</value>
+  </data>
+  <data name="BencodeKeyNotString" xml:space="preserve">
+    <value>オフセット {0} の辞書キーが文字列ではありません。</value>
+  </data>
+  <data name="BencodeUnexpectedByte" xml:space="preserve">
+    <value>オフセット {1} に予期しないバイト 0x{0} があります。</value>
+  </data>
+  <data name="BencodeUnterminatedInteger" xml:space="preserve">
+    <value>オフセット {0} の整数が終端されていません。</value>
+  </data>
+  <data name="BencodeInvalidInteger" xml:space="preserve">
+    <value>オフセット {0} の整数が無効です。</value>
+  </data>
+  <data name="BencodeStringLengthNoColon" xml:space="preserve">
+    <value>オフセット {0} の文字列長の後にコロンがありません。</value>
+  </data>
+  <data name="BencodeInvalidStringLength" xml:space="preserve">
+    <value>オフセット {0} の文字列長が無効です。</value>
+  </data>
+  <data name="BencodeStringTooLong" xml:space="preserve">
+    <value>オフセット {0} の文字列は {1} バイトと宣言されていますが、残りは {2} バイトしかありません。</value>
+  </data>
+  <data name="CatalogEmpty" xml:space="preserve">
+    <value>クライアント一覧が空です。</value>
+  </data>
+  <data name="CatalogNoClients" xml:space="preserve">
+    <value>クライアント一覧にクライアントが 1 つもありません。</value>
+  </data>
+  <data name="CatalogDuplicateName" xml:space="preserve">
+    <value>クライアント一覧でクライアント名「{0}」が重複しています。</value>
+  </data>
+  <data name="CatalogUserEmpty" xml:space="preserve">
+    <value>ユーザー定義のクライアント一覧が空です。</value>
+  </data>
+  <data name="CatalogUserCannotRead" xml:space="preserve">
+    <value>ユーザー定義のクライアント一覧「{0}」を読み取れません：{1}</value>
+  </data>
+  <data name="CatalogEntryIncomplete" xml:space="preserve">
+    <value>クライアントのエントリ「{0}」に必須フィールドが不足しています。</value>
+  </data>
+  <data name="CatalogEntryUnnamed" xml:space="preserve">
+    <value>（名前なし）</value>
+  </data>
+  <data name="SessionNoRoot" xml:space="preserve">
+    <value>セッションファイルにルート要素がありません。</value>
+  </data>
+  <data name="UpdateUnexpectedReply" xml:space="preserve">
+    <value>バージョン確認サービスから予期しない応答が返されました。</value>
+  </data>
+</root>

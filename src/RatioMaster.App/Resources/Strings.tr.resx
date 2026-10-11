@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Dosya</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>Tü_mü</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Görünüm</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Yardım</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Torrent ekle...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Oturum yükle...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Oturum yükle ve başlat...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Oturumu kaydet...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Tümünü durdur ve oturumu kaydet...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Ayarlar...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Başlat</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Durdur</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Şimdi güncelle</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Yeniden adlandır...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Kaldır</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Info hash değerini kopyala</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Bu ayarları varsayılan olarak kullan</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Tümünü başlat</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Tümünü durdur</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Tümünü güncelle</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Tümü için gönderme hızını ayarla...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Tümü için indirme hızını ayarla...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Tüm günlükleri temizle</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Ayrıntılar bölmesi</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Sütunlar</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Programın web sitesi</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forumlar</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Hata bildir</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Bağış yap</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Güncellemeleri denetle</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>RatioMaster.NET hakkında</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>RatioMaster.NET'i göster</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Web sitesi</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Hakkında</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Ekle</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Torrent ekle (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Seçili torrent'leri başlat (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Seçili torrent'leri durdur (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>İzleyiciye şimdi duyur (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Seçili torrent'leri kaldır (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Tüm torrent'leri başlat (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Tüm torrent'leri durdur (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Yalnızca şunları göster</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Ayarlar (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Torrent ara (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Tümü</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Çalışıyor</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Durduruldu</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>İndiriliyor</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Gönderiliyor</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Hatalı</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrent: {0} ({1} çalışıyor)</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Yerel IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Güncelleme mevcut</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — {0} çalışıyor   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>İstemci</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>İlerleme</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Gönderilen</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>İndirilen</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Oran</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Gönderme hızı</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>İndirme hızı</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Gönderen</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Çeken</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Güncellemeye</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Toplam süre</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>İzleyici</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Henüz torrent yok</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Buraya bir .torrent veya .session dosyası bırakın ya da Ctrl+O tuşlarına basın</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Torrent ekle</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Ayrıntılar bölmesini gizle (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Boşta</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Başlatılıyor</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>İndiriliyor</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Gönderiliyor</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Güncelleniyor</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Durduruluyor</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Durduruldu</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Durduruldu: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Hata: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Hiçbir zaman</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>{0} sn sonra</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Gönderen &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Çeken &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Gönderilen &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>İndirilen &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Çeken/gönderen &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Hiçbir zaman</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Çalışma süresi:</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Gönderen sayısı &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Çeken sayısı &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Gönderilen &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>İndirilen &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Çeken/gönderen oranı &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>saniye</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>oran</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Yok</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Koyu</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Ayrıntılarını görmek için bir torrent seçin</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Genel</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Günlük</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Kilitli ayarları değiştirmek için torrent'i durdurun.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Geri al</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Uygula</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Boyut</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torrent dosyası</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proxy</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Kişi kimliği</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Anahtar / bağlantı noktası / kişi</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Gönderen / çeken</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Sonraki güncelleme / durdurma</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Hızlar</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Zamanlama ve durdurma</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Kimlik</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Diğer</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Gönderme (kB/sn)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>İndirme (kB/sn)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ rastgele</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>en az</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>en çok</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>İzleyici hiç çeken bildirmediği sürece gönderimi duraklat</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Önerilir. İzleyici, çeken yokken yapılan gönderimi fark edebilir; bu, bir hesabın yasaklanmasına yol açabilecek şeylerden biridir.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Her izleyici güncellemesinde yeni bir rastgele hız seç</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Gönderme</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>İndirme</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Tamamlanan (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100, yalnızca gönderim anlamına gelir</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Güncelleme aralığı (sn)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>izleyici bunu geçersiz kılabilir</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Durdurma</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Otomatik: değerleri üret, mümkünse çalışan istemciden kopyala</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Özel</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Anahtar</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Bağlantı noktası</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>İstenen kişi sayısı</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Yeniden oluştur</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Oluşturuluyor...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Çalışan {0} istemcisinden kopyalandı.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Rastgele değerler oluşturuldu (istemci çalışmıyor).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Rastgele değerler oluşturuldu.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Tür</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Sunucu</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Kullanıcı</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Parola</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Scrape isteği gönder</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Duyurulan bağlantı noktasında kişilerden gelen el sıkışma isteklerini yanıtla</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>İzleyicinin “failure reason” iletisini yok say ve çalışmaya devam et</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Bu torrent için günlük tut</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>TLS sertifika hatalarını yok say (https izleyicilerinde)</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Saat</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Olay</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Sonuç</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Aralık</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Kişi</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Gecikme</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Henüz izleyiciyle iletişim kurulmadı</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>İsteği görmek için bir kayıt seçin</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>İstek</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Yanıt başlıkları</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Etkin</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Otomatik kaydır</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filtre</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Kopyala</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Kaydet...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Temizle</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Henüz günlüğe bir şey yazılmadı</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Hiçbir şey indirmeden veya göndermeden, bir BitTorrent izleyicisinin gördüğü gönderme ve indirme miktarlarını sahte olarak bildirir.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Web sitesi</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-posta</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Projeyi PayPal üzerinden destekleyin</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>{1} ({2}) üzerinde .NET {0}</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>MIT lisanslıdır.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Ekle</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Gözat...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Hemen başlat</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Ayrıntılar</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Henüz torrent seçilmedi.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} torrent; aşağıdaki ayarlar hepsine uygulanır.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Bu torrent'lerden birinin http veya https izleyicisi yok; bu torrent başlatılamayacak.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>Bu torrent'lerden {0} tanesinin http veya https izleyicisi yok; bunlar başlatılamayacak.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 dosya</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} dosya</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>RatioMaster.NET'in yeni bir sürümü mevcut (derleme {0}). Kullandığınız sürüm: {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>İndir</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Daha sonra hatırlat</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Bu sürümü atla</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Bildirim alanı</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Torrent varsayılanları</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>İstemciler</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Sistem varsayılanı ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Dili değiştirmek için RatioMaster.NET'i yeniden başlatın.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Günlüklerde her zaman 24 saat biçimini kullan (aksi hâlde sistemin saat biçimine uy)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Başlangıçta güncellemeleri denetle</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Başlangıçta son oturumu geri yükle</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Torrent'leri ekleme penceresini göstermeden ekle</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Torrent'leri ekledikten hemen sonra başlat</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Bildirim alanına küçült</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Kapatınca çıkmak yerine bildirim alanına küçült</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Bildirim alanı ipucunda torrent'leri listele</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Simge durumunda başlat</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Linux'ta bildirim alanı simgesi için StatusNotifier desteği gerekir (KDE ya da AppIndicator uzantısı kurulu GNOME). Bu destek olmadan gizlenen bir pencere geri getirilemez; bu nedenle bu iki seçenek orada varsayılan olarak kapalıdır.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Yeni torrent'ler bu ayarlarla başlar.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>{0} istemci öykünmesi yüklendi. Bu dosyayı oluşturarak öykünme ekleyebilir veya mevcut olanları geçersiz kılabilirsiniz:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Dosya, yerleşik katalogla aynı yapıyı kullanır. Var olan bir adı taşıyan girdi, mevcut girdinin yerini alır; yeni adlar eklenir. Değişikliklerin geçerli olması için uygulamayı yeniden başlatın.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Yapılandırma klasörü</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Oturum yükle</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>{0} oturumu yüklensin mi?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Yükle</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Yükle ve başlat</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Torrent eklenemedi</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Torrent'i kaldır</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Torrent'leri kaldır</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>“{0}” listeden kaldırılsın mı?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Torrent çalışıyor ve önce durdurulacak.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Bu {0} torrent listeden kaldırılsın mı?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Bunlardan biri çalışıyor ve önce durdurulacak.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>Bunlardan {0} tanesi çalışıyor ve önce durdurulacak.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Torrent'i yeniden adlandır</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Listede gösterilen ad:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Varsayılanlar güncellendi</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Yeni torrent'ler bu ayarlarla başlayacak.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Gönderme hızını ayarla</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Tüm torrent'ler için yeni gönderme hızı (kB/sn):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>İndirme hızını ayarla</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Tüm torrent'ler için yeni indirme hızı (kB/sn):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Oturum kaydedildi</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Oturum yüklenemedi</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Oturum yüklendi</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>{0} torrent yüklendi.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>{0} torrent yüklendi, {1} tanesi bulunamadı.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>ratiomaster.net adresine ulaşılamadı: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>En son sürümü kullanıyorsunuz.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torrent dosyaları</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMaster oturumları</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Günlük dosyaları</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Torrent ekle</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Oturumu kaydet</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Günlüğü kaydet</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Özel clients.json yok sayıldı</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} bayt</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/sn</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/sn</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Kes</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Kopyala</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Yapıştır</value>
+  </data>
+</root>

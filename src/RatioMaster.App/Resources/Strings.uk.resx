@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Файл</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Торрент</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Усі</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Вигляд</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Довідка</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Додати торрент...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Завантажити сеанс...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Завантажити сеанс і запустити...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Зберегти сеанс...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Зупинити всі та зберегти сеанс...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Налаштування...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Вихід</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Запустити</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Зупинити</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Оновити зараз</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Перейменувати...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Вилучити</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Копіювати інфо-хеш</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Зробити ці налаштування типовими</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Запустити всі</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Зупинити всі</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Оновити всі</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Задати швидкість відвантаження для всіх...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Задати швидкість завантаження для всіх...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Очистити всі журнали</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Панель подробиць</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Стовпці</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Сайт програми</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Форум</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Повідомити про помилку</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Пожертвувати</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Перевірити оновлення</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>Про RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Показати RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Сайт</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Про програму</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Додати торрент (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Запустити вибрані торренти (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Зупинити вибрані торренти (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Надіслати анонс трекеру зараз (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Вилучити вибрані торренти (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Запустити всі торренти (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Зупинити всі торренти (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Показувати лише</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Налаштування (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Пошук торрентів (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Усі</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Запущені</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Зупинені</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Завантажуються</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Роздаються</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>З помилкою</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Торрентів: {0} (запущено: {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Локальна IP-адреса</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Доступне оновлення</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — запущено: {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Стан</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Клієнт</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Прогрес</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Відвантажено</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Завантажено</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Рейтинг</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Шв. відвант.</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Шв. завант.</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Сідери</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Лічери</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>До анонсу</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Час роботи</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Трекер</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Торрентів ще немає</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Перетягніть сюди файл .torrent чи .session або натисніть Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Додати торрент</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Сховати панель подробиць (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Не запущено</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Запуск</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Завантаження</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Роздача</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Оновлення</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Зупинка</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Зупинено</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Зупинено: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Помилка: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Ніколи</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>Через {0} с</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Сідерів &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Лічерів &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Відвантажено &gt; {0} МБ</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Завантажено &gt; {0} МБ</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Лічери/сідери &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Ніколи</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Через</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Коли сідерів &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Коли лічерів &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Коли відвантажено &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Коли завантажено &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Коли лічери/сідери &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>с</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>МБ</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>співвідношення</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Немає</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Системна</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Світла</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Темна</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Виберіть торрент, щоб переглянути подробиці</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Загальні</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Журнал</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Щоб змінити заблоковані налаштування, зупиніть торрент.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Скасувати зміни</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Застосувати</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Інфо-хеш</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Розмір</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Торрент-файл</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Проксі</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>ID піра</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Ключ / порт / піри</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Сідери / лічери</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>До анонсу / зупинка</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Швидкості</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Розклад і зупинка</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Ідентифікація</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Інше</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версія</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Відвантаження (КБ/с)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Завантаження (КБ/с)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ випадкове значення</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>від</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>до</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Призупиняти відвантаження, поки трекер повідомляє про відсутність лічерів</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Рекомендовано. Трекер може помітити відвантаження за відсутності лічерів, а це одна з причин, через які обліковий запис можуть заблокувати.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Під час кожного оновлення вибирати нову випадкову швидкість</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Відвантаження</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Завантаження</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Завершено (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 — лише роздача</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Інтервал оновлення (с)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>трекер може змінити це значення</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Зупинка</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Автоматично: генерувати значення, копіюючи їх із запущеного клієнта, коли це можливо</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Вручну</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Ключ</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Порт</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Пірів у запиті</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Згенерувати знову</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Генерування...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Скопійовано із запущеного {0}.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Згенеровано випадкові значення (клієнта не запущено).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Згенеровано випадкові значення.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Хост</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Користувач</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Надсилати scrape-запити</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Відповідати на вхідні рукостискання пірів на порту, вказаному в анонсі</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Ігнорувати «failure reason» трекера й продовжувати роботу</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Вести журнал для цього торрента</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Ігнорувати помилки сертифікатів TLS на https-трекерах</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Час</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Подія</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Результат</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Інтервал</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Піри</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Затримка</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} мс</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Обміну з трекером ще не було</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Виберіть рядок, щоб побачити запит</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Запит</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Заголовки відповіді</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Увімкнено</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Автопрокручування</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Фільтр</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Зберегти...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Очистити</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Журнал поки що порожній</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Підробляє обсяги відвантаження й завантаження, які бачить BitTorrent-трекер, насправді нічого не завантажуючи й не відвантажуючи.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Сайт</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>Ел. пошта</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Підтримати проєкт через PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} на {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Ліцензія MIT.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Закрити</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Огляд...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Запустити одразу</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Подробиці</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Торрент ще не вибрано.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>Вибрано торрентів: {0}. Наведені нижче налаштування буде застосовано до всіх.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Один із цих торрентів не має http- чи https-трекера, тож його не вдасться запустити.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>Торрентів без http- чи https-трекера: {0}. Їх не вдасться запустити.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 файл</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>Файлів: {0}</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Доступна нова версія RatioMaster.NET (збірка {0}). Ваша версія — {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Завантажити</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Нагадати пізніше</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Пропустити цю версію</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Системний лоток</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Типові налаштування</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Клієнти</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Мова системи ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Перезапустіть RatioMaster.NET, щоб змінити мову.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Завжди використовувати 24-годинний формат часу в журналах (інакше — системний формат)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Перевіряти наявність оновлень під час запуску</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Відновлювати останній сеанс під час запуску</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Додавати торренти, не показуючи вікна додавання</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Запускати торренти одразу після додавання</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Згортати в системний лоток</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Під час закриття згортати в системний лоток, а не виходити</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Показувати список торрентів у підказці значка в лотку</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Запускати згорнутим</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>У Linux для значка в системному лотку потрібен хост StatusNotifier (KDE або GNOME з розширенням AppIndicator). Без нього приховане вікно неможливо повернути, тому там ці два параметри типово вимкнено.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Нові торренти створюються з цими налаштуваннями.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Завантажено емуляцій клієнтів: {0}. Щоб додати нові або перевизначити наявні, створіть цей файл:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Файл має таку саму структуру, як і вбудований каталог. Записи з наявною назвою замінюють вбудовані, нові назви додаються. Щоб застосувати зміни, перезапустіть програму.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Тека налаштувань</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Завантаження сеансу</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Завантажити сеанс {0}?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Завантажити</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Завантажити й запустити</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Не вдалося додати торрент</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Вилучення торрента</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Вилучення торрентів</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Вилучити «{0}» зі списку?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Він запущений, тому спочатку його буде зупинено.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Вилучити вибрані торренти ({0}) зі списку?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Один із них запущений, тому спочатку його буде зупинено.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>Запущені торренти ({0}) спочатку буде зупинено.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Перейменування торрента</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Назва у списку:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Типові налаштування оновлено</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Нові торренти створюватимуться з цими налаштуваннями.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Задати швидкість відвантаження</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Нова швидкість відвантаження для всіх торрентів (КБ/с):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Задати швидкість завантаження</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Нова швидкість завантаження для всіх торрентів (КБ/с):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Сеанс збережено</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Не вдалося завантажити сеанс</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Сеанс завантажено</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Завантажено торрентів: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Завантажено торрентів: {0}; не знайдено: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Не вдалося зв’язатися з ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>У вас найновіша версія.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Торрент-файли</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>Сеанси RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Файли журналів</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Додавання торрентів</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Збереження сеансу</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Збереження журналу</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Власний clients.json проігноровано</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} Б</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} КБ</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} МБ</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} ГБ</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} КБ/с</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} МБ/с</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Вирізати</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Вставити</value>
+  </data>
+</root>

@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_ไฟล์</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_ทอร์เรนต์</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>ทั้ง_หมด</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_มุมมอง</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_วิธีใช้</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>เพิ่มทอร์เรนต์...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>โหลดเซสชัน...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>โหลดเซสชันและเริ่ม...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>บันทึกเซสชัน...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>หยุดทั้งหมดและบันทึกเซสชัน...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>การตั้งค่า...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>ออก</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>เริ่ม</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>หยุด</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>อัปเดตทันที</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>เปลี่ยนชื่อ...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>เอาออก</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>คัดลอก info hash</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>ใช้การตั้งค่านี้เป็นค่าเริ่มต้น</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>เริ่มทั้งหมด</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>หยุดทั้งหมด</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>อัปเดตทั้งหมด</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>ตั้งความเร็วอัปโหลดให้ทั้งหมด...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>ตั้งความเร็วดาวน์โหลดให้ทั้งหมด...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>ล้างล็อกทั้งหมด</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>บานหน้าต่างรายละเอียด</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>คอลัมน์</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>เว็บไซต์ของโปรแกรม</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>ฟอรัม</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>รายงานข้อบกพร่อง</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>บริจาค</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>ตรวจหาการอัปเดต</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>เกี่ยวกับ RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>แสดง RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>เว็บไซต์</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>เกี่ยวกับ</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>เพิ่ม</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>อัปเดต</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>เพิ่มทอร์เรนต์ (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>เริ่มทอร์เรนต์ที่เลือก (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>หยุดทอร์เรนต์ที่เลือก (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>ประกาศไปยังแทร็กเกอร์ทันที (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>เอาทอร์เรนต์ที่เลือกออก (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>เริ่มทอร์เรนต์ทั้งหมด (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>หยุดทอร์เรนต์ทั้งหมด (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>แสดงเฉพาะ</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>การตั้งค่า (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>ค้นหาทอร์เรนต์ (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>กำลังทำงาน</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>หยุดแล้ว</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>กำลังดาวน์โหลด</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>กำลังซีด</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>ข้อผิดพลาด</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>ทอร์เรนต์: {0} (กำลังทำงาน {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>IP ภายใน</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>มีอัปเดตใหม่</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — กำลังทำงาน {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>ไคลเอนต์</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>ความคืบหน้า</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>อัปโหลดแล้ว</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>ดาวน์โหลดแล้ว</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>อัตราส่วน</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>ความเร็วอัปโหลด</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>ความเร็วดาวน์โหลด</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>ซีดเดอร์</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>ลีชเชอร์</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>อัปเดตในอีก</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>เวลารวม</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>แทร็กเกอร์</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>ยังไม่มีทอร์เรนต์</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>ลากไฟล์ .torrent หรือ .session มาวางที่นี่ หรือกด Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>เพิ่มทอร์เรนต์</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>ซ่อนบานหน้าต่างรายละเอียด (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>ยังไม่เริ่ม</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>กำลังเริ่ม</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>กำลังดาวน์โหลด</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>กำลังซีด</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>กำลังอัปเดต</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>กำลังหยุด</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>หยุดแล้ว</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>ข้อผิดพลาด</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>หยุดแล้ว: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>ข้อผิดพลาด: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>ไม่หยุดเอง</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>หลัง {0} วินาที</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>ซีดเดอร์ &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>ลีชเชอร์ &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>อัปโหลดแล้ว &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>ดาวน์โหลดแล้ว &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>ลีชเชอร์/ซีดเดอร์ &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>ไม่หยุดเอง</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>หลังจากทำงาน</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>เมื่อซีดเดอร์ &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>เมื่อลีชเชอร์ &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>เมื่ออัปโหลดแล้ว &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>เมื่อดาวน์โหลดแล้ว &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>เมื่อลีชเชอร์/ซีดเดอร์ &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>วินาที</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>อัตราส่วน</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>ไม่ใช้</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>ตามระบบ</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>สว่าง</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>มืด</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>เลือกทอร์เรนต์เพื่อดูรายละเอียด</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>ทั่วไป</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>การตั้งค่า</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>ล็อก</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>หยุดทอร์เรนต์ก่อนเพื่อเปลี่ยนการตั้งค่าที่แก้ไขไม่ได้ขณะทำงาน</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>คืนค่าเดิม</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>นำไปใช้</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>ขนาด</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>ไฟล์ทอร์เรนต์</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>พร็อกซี</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Peer ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>คีย์ / พอร์ต / เพียร์</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>ซีดเดอร์ / ลีชเชอร์</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>อัปเดตในอีก / การหยุด</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>ความเร็ว</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>กำหนดการและการหยุด</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>ข้อมูลระบุตัวตน</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>อื่น ๆ</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>เวอร์ชัน</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>อัปโหลด (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>ดาวน์โหลด (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ สุ่ม</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>ต่ำสุด</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>สูงสุด</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>หยุดอัปโหลดชั่วคราวขณะที่แทร็กเกอร์รายงานว่าไม่มีลีชเชอร์</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>แนะนำให้เปิดไว้ แทร็กเกอร์อาจสังเกตเห็นการอัปโหลดขณะที่ไม่มีลีชเชอร์ ซึ่งเป็นสาเหตุหนึ่งที่อาจทำให้บัญชีถูกแบน</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>สุ่มความเร็วใหม่ทุกครั้งที่อัปเดตกับแทร็กเกอร์</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>อัปโหลด</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>ดาวน์โหลด</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>เสร็จแล้ว (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 หมายถึงซีดอย่างเดียว</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>ช่วงเวลาอัปเดต (วินาที)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>แทร็กเกอร์อาจกำหนดค่าอื่นแทนได้</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>การหยุด</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>อัตโนมัติ: สร้างค่าขึ้นเอง โดยคัดลอกจากไคลเอนต์ที่กำลังทำงานอยู่เมื่อทำได้</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>กำหนดเอง</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>คีย์</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>พอร์ต</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>จำนวนเพียร์ที่ขอ</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>สร้างใหม่</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>กำลังสร้าง...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>คัดลอกมาจาก {0} ที่กำลังทำงานอยู่</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>สร้างค่าแบบสุ่มแล้ว (ไคลเอนต์ไม่ได้ทำงานอยู่)</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>สร้างค่าแบบสุ่มแล้ว</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>โฮสต์</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>ผู้ใช้</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>รหัสผ่าน</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>ส่งคำขอ scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>ตอบการแฮนด์เชกจากเพียร์ที่เข้ามาบนพอร์ตที่ประกาศไว้</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>ละเว้น “failure reason” ของแทร็กเกอร์และทำงานต่อไป</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>เก็บล็อกของทอร์เรนต์นี้</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>ละเว้นข้อผิดพลาดใบรับรอง TLS บนแทร็กเกอร์ https</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>เวลา</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>เหตุการณ์</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>ผลลัพธ์</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>ช่วงเวลา</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>เพียร์</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>เวลาแฝง</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>ยังไม่มีการสื่อสารกับแทร็กเกอร์</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>เลือกรายการเพื่อดูคำขอ</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>คำขอ</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>ส่วนหัวของการตอบกลับ</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>เปิดใช้งาน</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>เลื่อนอัตโนมัติ</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>กรอง</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>คัดลอก</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>บันทึก...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>ล้าง</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>ยังไม่มีรายการในล็อก</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>ปลอมยอดอัปโหลดและดาวน์โหลดที่แทร็กเกอร์ BitTorrent เห็น โดยไม่ต้องดาวน์โหลดหรืออัปโหลดสิ่งใดจริง</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>เว็บไซต์</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>อีเมล</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>สนับสนุนโครงการผ่าน PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} บน {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>เผยแพร่ภายใต้สัญญาอนุญาต MIT</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>ตกลง</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>บันทึก</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>เพิ่ม</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>เรียกดู...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>เริ่มทันที</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>ยังไม่ได้เลือกทอร์เรนต์</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>ทอร์เรนต์ {0} รายการ การตั้งค่าด้านล่างจะใช้กับทุกรายการ</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>มีทอร์เรนต์หนึ่งรายการที่ไม่มีแทร็กเกอร์ http หรือ https และจะเริ่มทำงานไม่ได้</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>มีทอร์เรนต์ {0} รายการที่ไม่มีแทร็กเกอร์ http หรือ https และจะเริ่มทำงานไม่ได้</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 ไฟล์</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} ไฟล์</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>RatioMaster.NET มีเวอร์ชันใหม่แล้ว (บิลด์ {0}) คุณกำลังใช้เวอร์ชัน {1}</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>ดาวน์โหลด</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>เตือนภายหลัง</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>ข้ามเวอร์ชันนี้</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>ถาดระบบ</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>ค่าเริ่มต้นทอร์เรนต์</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>ไคลเอนต์</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>ธีม</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>ภาษา</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>ค่าเริ่มต้นของระบบ ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>เริ่ม RatioMaster.NET ใหม่เพื่อเปลี่ยนภาษา</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>ใช้รูปแบบเวลา 24 ชั่วโมงในล็อกเสมอ (มิฉะนั้นจะใช้รูปแบบเวลาของระบบ)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>ตรวจหาการอัปเดตเมื่อเริ่มโปรแกรม</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>เรียกคืนเซสชันล่าสุดเมื่อเริ่มโปรแกรม</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>เพิ่มทอร์เรนต์โดยไม่แสดงกล่องโต้ตอบ “เพิ่มทอร์เรนต์”</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>เริ่มทอร์เรนต์ทันทีหลังจากเพิ่ม</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>ย่อลงถาดระบบ</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>เมื่อปิดหน้าต่าง ให้ซ่อนไว้ในถาดระบบแทนการออกจากโปรแกรม</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>แสดงรายชื่อทอร์เรนต์เมื่อชี้เมาส์ที่ไอคอนในถาดระบบ</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>เริ่มโปรแกรมแบบย่อหน้าต่าง</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>บน Linux ไอคอนในถาดระบบต้องใช้โฮสต์ StatusNotifier (KDE หรือ GNOME ที่มีส่วนขยาย AppIndicator) หากไม่มี จะเรียกหน้าต่างที่ซ่อนอยู่กลับมาไม่ได้ ตัวเลือกทั้งสองนี้จึงปิดไว้เป็นค่าเริ่มต้นบน Linux</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>ทอร์เรนต์ใหม่จะเริ่มต้นจากการตั้งค่าเหล่านี้</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>โหลดการจำลองไคลเอนต์แล้ว {0} รายการ เพิ่มหรือแทนที่ได้โดยสร้างไฟล์นี้:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>ไฟล์นี้ใช้โครงสร้างเดียวกับแค็ตตาล็อกในตัว รายการที่มีชื่อซ้ำกับที่มีอยู่จะแทนที่รายการเดิม ส่วนชื่อใหม่จะถูกเพิ่มเข้าไป เริ่มโปรแกรมใหม่เพื่อให้การเปลี่ยนแปลงมีผล</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>โฟลเดอร์การกำหนดค่า</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>โหลดเซสชัน</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>โหลดเซสชัน {0} หรือไม่?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>โหลด</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>โหลดและเริ่ม</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>ไม่สามารถเพิ่มทอร์เรนต์ได้</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>เอาทอร์เรนต์ออก</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>เอาทอร์เรนต์หลายรายการออก</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>เอา {0} ออกจากรายการหรือไม่?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>ทอร์เรนต์นี้กำลังทำงานอยู่ และจะถูกหยุดก่อน</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>เอาทอร์เรนต์ที่เลือก ({0}) ออกจากรายการหรือไม่?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>มีหนึ่งรายการที่กำลังทำงานอยู่ และจะถูกหยุดก่อน</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>มี {0} รายการที่กำลังทำงานอยู่ และจะถูกหยุดก่อน</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>เปลี่ยนชื่อทอร์เรนต์</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>ชื่อที่แสดงในรายการ:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>อัปเดตค่าเริ่มต้นแล้ว</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>ทอร์เรนต์ใหม่จะเริ่มต้นจากการตั้งค่าเหล่านี้</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>ตั้งความเร็วอัปโหลด</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>ความเร็วอัปโหลดใหม่สำหรับทุกทอร์เรนต์ (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>ตั้งความเร็วดาวน์โหลด</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>ความเร็วดาวน์โหลดใหม่สำหรับทุกทอร์เรนต์ (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>บันทึกเซสชันแล้ว</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>ไม่สามารถโหลดเซสชันได้</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>โหลดเซสชันแล้ว</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>โหลดทอร์เรนต์แล้ว {0} รายการ</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>โหลดทอร์เรนต์แล้ว {0} รายการ ไม่พบ {1} รายการ</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>ไม่สามารถติดต่อ ratiomaster.net ได้: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>คุณกำลังใช้เวอร์ชันล่าสุด</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>ไฟล์ทอร์เรนต์</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>เซสชัน RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>ไฟล์ล็อก</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>เพิ่มทอร์เรนต์</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>บันทึกเซสชัน</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>บันทึกล็อก</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>ละเว้น clients.json ที่กำหนดเอง</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} ไบต์</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>ตัด</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>คัดลอก</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>วาง</value>
+  </data>
+</root>

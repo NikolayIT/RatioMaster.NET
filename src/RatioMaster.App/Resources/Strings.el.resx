@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Αρχείο</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>Ό_λα</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Προβολή</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Βοήθεια</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Προσθήκη torrent...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Φόρτωση συνεδρίας...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Φόρτωση συνεδρίας και έναρξη...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Αποθήκευση συνεδρίας...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Διακοπή όλων και αποθήκευση συνεδρίας...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Ρυθμίσεις...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Έξοδος</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Έναρξη</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Διακοπή</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Ενημέρωση τώρα</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Μετονομασία...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Αφαίρεση</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Αντιγραφή info hash</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Χρήση αυτών των ρυθμίσεων ως προεπιλογών</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Έναρξη όλων</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Διακοπή όλων</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Ενημέρωση όλων</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Ορισμός ταχύτητας αποστολής για όλα...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Ορισμός ταχύτητας λήψης για όλα...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Εκκαθάριση όλων των καταγραφών</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Τμήμα λεπτομερειών</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Στήλες</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Ιστότοπος του προγράμματος</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Φόρουμ</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Αναφορά σφάλματος</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Δωρεά</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Έλεγχος για ενημερώσεις</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>Πληροφορίες για το RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Εμφάνιση του RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Ιστότοπος</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Πληροφορίες</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Προσθήκη</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Ενημέρωση</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Προσθήκη torrent (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Έναρξη των επιλεγμένων torrent (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Διακοπή των επιλεγμένων torrent (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Ανακοίνωση στον ιχνηλάτη τώρα (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Αφαίρεση των επιλεγμένων torrent (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Έναρξη όλων των torrent (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Διακοπή όλων των torrent (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Εμφάνιση μόνο</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Ρυθμίσεις (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Αναζήτηση torrent (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Όλα</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Σε εκτέλεση</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Σταματημένα</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Σε λήψη</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Σε διαμοιρασμό</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Με σφάλμα</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrent: {0} ({1} σε εκτέλεση)</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Τοπική IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Διαθέσιμη ενημέρωση</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — {0} σε εκτέλεση   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Πελάτης</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Πρόοδος</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Απεσταλμένα</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Ληφθέντα</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Αναλογία</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Ταχ. αποστολής</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Ταχ. λήψης</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Διαμοιραστές</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Λήπτες</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Ενημέρωση σε</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Συνολικός χρόνος</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Ιχνηλάτης</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Δεν υπάρχουν ακόμη torrent</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Σύρετε εδώ ένα αρχείο .torrent ή .session, ή πατήστε Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Προσθήκη torrent</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Απόκρυψη του τμήματος λεπτομερειών (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Αδρανές</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Εκκίνηση</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Λήψη</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Διαμοιρασμός</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Ενημέρωση</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Τερματισμός</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Σταματημένο</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Σφάλμα</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Σταματημένο: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Σφάλμα: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Ποτέ</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>Μετά από {0} δευτ.</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Διαμοιραστές &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Λήπτες &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Απεσταλμένα &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Ληφθέντα &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Λήπτες/διαμοιραστές &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Ποτέ</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Μετά από</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Όταν οι διαμοιραστές &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Όταν οι λήπτες &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Όταν τα απεσταλμένα &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Όταν τα ληφθέντα &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Όταν λήπτες/διαμοιραστές &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>δευτερόλεπτα</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>αναλογία</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Κανένας</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Σύστημα</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Ανοιχτόχρωμο</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Σκουρόχρωμο</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Επιλέξτε ένα torrent για να δείτε τις λεπτομέρειές του</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Γενικά</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Καταγραφή</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Σταματήστε το torrent για να αλλάξετε τις κλειδωμένες ρυθμίσεις.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Επαναφορά</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Εφαρμογή</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Μέγεθος</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Αρχείο torrent</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Διακομιστής μεσολάβησης</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Peer ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Κλειδί / θύρα / ομότιμοι</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Διαμοιραστές / λήπτες</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Επόμενη ενημέρωση / διακοπή</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Ταχύτητες</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Χρονισμός και διακοπή</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Ταυτότητα</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Άλλα</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Έκδοση</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Αποστολή (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Λήψη (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ τυχαίο</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>ελάχ.</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>μέγ.</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Παύση της αποστολής όσο ο ιχνηλάτης δεν αναφέρει λήπτες</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Συνιστάται. Ένας ιχνηλάτης μπορεί να εντοπίσει αποστολή χωρίς λήπτες, ένα από τα πράγματα που μπορεί να οδηγήσουν σε αποκλεισμό λογαριασμού.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Σε κάθε ενημέρωση προς τον ιχνηλάτη, επιλογή νέας τυχαίας ταχύτητας</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Αποστολή</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Λήψη</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Ολοκληρωμένο (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 σημαίνει μόνο διαμοιρασμό</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Διάστημα ενημέρωσης (δευτ.)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>ο ιχνηλάτης μπορεί να το παρακάμψει</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Διακοπή</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Αυτόματα: δημιουργία τιμών, με αντιγραφή τους από το πρόγραμμα-πελάτη που εκτελείται, όταν είναι δυνατό</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Χειροκίνητα</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Κλειδί</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Θύρα</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Ζητούμενοι ομότιμοι</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Αναδημιουργία</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Δημιουργία...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Αντιγράφηκαν από το {0} που εκτελείται.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Δημιουργήθηκαν τυχαίες τιμές (το πρόγραμμα-πελάτης δεν εκτελείται).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Δημιουργήθηκαν τυχαίες τιμές.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Τύπος</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Διακομιστής</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Χρήστης</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Κωδικός πρόσβασης</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Αίτημα scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Απάντηση σε εισερχόμενες χειραψίες ομότιμων στη θύρα που ανακοινώθηκε</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Παράβλεψη του «failure reason» του ιχνηλάτη και συνέχιση της εκτέλεσης</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Τήρηση καταγραφής για αυτό το torrent</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Παράβλεψη σφαλμάτων πιστοποιητικού TLS σε ιχνηλάτες https</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Ώρα</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Συμβάν</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Αποτέλεσμα</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Διάστημα</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Ομότιμοι</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Καθυστέρηση</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Δεν υπάρχουν ακόμη ανταλλαγές με τον ιχνηλάτη</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Επιλέξτε μια ανταλλαγή για να δείτε το αίτημα</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Αίτημα</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Κεφαλίδες απόκρισης</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Ενεργή</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Αυτόματη κύλιση</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Φίλτρο</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Αντιγραφή</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Αποθήκευση...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Εκκαθάριση</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Δεν έχει καταγραφεί τίποτα ακόμη</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Παραποιεί την αποστολή και τη λήψη που βλέπει ένας ιχνηλάτης BitTorrent, χωρίς να γίνεται καμία πραγματική λήψη ή αποστολή.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Ιστότοπος</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Υποστηρίξτε το έργο μέσω PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} σε {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Με άδεια MIT.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Άκυρο</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Αποθήκευση</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Προσθήκη</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Αναζήτηση...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Άμεση έναρξη</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Λεπτομέρειες</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Δεν έχει επιλεγεί ακόμη torrent.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} torrent. Οι παρακάτω ρυθμίσεις ισχύουν για όλα.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Ένα από αυτά τα torrent δεν έχει ιχνηλάτη http ή https και δεν θα μπορεί να ξεκινήσει.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>{0} από αυτά τα torrent δεν έχουν ιχνηλάτη http ή https και δεν θα μπορούν να ξεκινήσουν.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 αρχείο</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} αρχεία</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Είναι διαθέσιμη νέα έκδοση του RatioMaster.NET (build {0}). Εκτελείτε την έκδοση {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Λήψη</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Υπενθύμιση αργότερα</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Παράλειψη αυτής της έκδοσης</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Περιοχή ειδοποιήσεων</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Προεπιλογές torrent</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Πελάτες</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Θέμα</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Γλώσσα</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Προεπιλογή συστήματος ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Επανεκκινήστε το RatioMaster.NET για να αλλάξει η γλώσσα.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Χρήση πάντα 24ωρης μορφής ώρας στις καταγραφές (αλλιώς, χρήση της μορφής ώρας του συστήματος)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Έλεγχος για ενημερώσεις κατά την εκκίνηση</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Επαναφορά της τελευταίας συνεδρίας κατά την εκκίνηση</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Προσθήκη torrent χωρίς εμφάνιση του παραθύρου προσθήκης</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Έναρξη των torrent αμέσως μετά την προσθήκη τους</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Ελαχιστοποίηση στην περιοχή ειδοποιήσεων</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Κλείσιμο στην περιοχή ειδοποιήσεων αντί για τερματισμό</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Εμφάνιση λίστας των torrent στην επεξήγηση του εικονιδίου ειδοποιήσεων</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Εκκίνηση σε ελαχιστοποιημένη μορφή</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Στο Linux, το εικονίδιο στην περιοχή ειδοποιήσεων απαιτεί υποστήριξη StatusNotifier (KDE, ή GNOME με την επέκταση AppIndicator). Χωρίς αυτήν, ένα κρυφό παράθυρο δεν μπορεί να εμφανιστεί ξανά, γι' αυτό οι δύο αυτές επιλογές είναι εκεί απενεργοποιημένες από προεπιλογή.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Τα νέα torrent ξεκινούν με αυτές τις ρυθμίσεις.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Έχουν φορτωθεί {0} εξομοιώσεις προγραμμάτων-πελατών. Προσθέστε ή αντικαταστήστε εξομοιώσεις δημιουργώντας αυτό το αρχείο:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Το αρχείο έχει την ίδια δομή με τον ενσωματωμένο κατάλογο. Μια καταχώριση με όνομα που υπάρχει ήδη αντικαθιστά την υπάρχουσα, ενώ τα νέα ονόματα προστίθενται. Επανεκκινήστε την εφαρμογή για να ισχύσουν οι αλλαγές.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Φάκελος ρυθμίσεων</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Φόρτωση συνεδρίας</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Φόρτωση της συνεδρίας {0};</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Φόρτωση</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Φόρτωση και έναρξη</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Δεν ήταν δυνατή η προσθήκη του torrent</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Αφαίρεση torrent</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Αφαίρεση torrent</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Αφαίρεση του {0} από τη λίστα;</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Εκτελείται και θα σταματήσει πρώτα.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Αφαίρεση αυτών των {0} torrent από τη λίστα;</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Ένα από αυτά εκτελείται και θα σταματήσει πρώτα.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>{0} από αυτά εκτελούνται και θα σταματήσουν πρώτα.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Μετονομασία torrent</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Όνομα που εμφανίζεται στη λίστα:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Οι προεπιλογές ενημερώθηκαν</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Τα νέα torrent θα ξεκινούν με αυτές τις ρυθμίσεις.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Ορισμός ταχύτητας αποστολής</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Νέα ταχύτητα αποστολής για όλα τα torrent (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Ορισμός ταχύτητας λήψης</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Νέα ταχύτητα λήψης για όλα τα torrent (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Η συνεδρία αποθηκεύτηκε</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Δεν ήταν δυνατή η φόρτωση της συνεδρίας</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Η συνεδρία φορτώθηκε</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Φορτωμένα torrent: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Φορτωμένα torrent: {0}. Torrent που δεν βρέθηκαν: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Δεν ήταν δυνατή η σύνδεση με το ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Εκτελείτε την πιο πρόσφατη έκδοση.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Αρχεία torrent</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>Συνεδρίες RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Αρχεία καταγραφής</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Προσθήκη torrent</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Αποθήκευση συνεδρίας</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Αποθήκευση καταγραφής</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Το προσαρμοσμένο clients.json αγνοήθηκε</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} byte</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Αποκοπή</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Αντιγραφή</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Επικόλληση</value>
+  </data>
+</root>

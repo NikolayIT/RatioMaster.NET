@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Файл</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Торент</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Всички</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Изглед</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Помощ</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Добави торент...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Зареди сесия...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Зареди сесия и стартирай...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Запази сесията...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Спри всички и запази сесията...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Настройки...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Изход</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Стартирай</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Спри</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Обнови сега</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Преименувай...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Премахни</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Копирай инфо хеша</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Използвай като настройки по подразбиране</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Стартирай всички</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Спри всички</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Обнови всички</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Задай скорост на качване за всички...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Задай скорост на сваляне за всички...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Изчисти всички журнали</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Панел с подробности</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Колони</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Уебсайт на програмата</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Форум</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Съобщи за грешка</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Дарение</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Провери за обновления</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>За RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Покажи RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Уебсайт</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>За програмата</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Добави</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Обнови</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Добави торент (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Стартирай избраните торенти (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Спри избраните торенти (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Изпрати анонс до тракера сега (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Премахни избраните торенти (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Стартирай всички торенти (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Спри всички торенти (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Показвай само</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Настройки (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Търсене на торенти (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Всички</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Активни</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Спрени</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Сваляни</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Споделяни</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>С грешка</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Торенти: {0} (активни: {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Локален IP адрес</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Налично е обновление</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — активни: {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Състояние</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Клиент</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Напредък</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Качени</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Свалени</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Съотношение</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Качване</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Сваляне</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Сийдъри</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Лийчъри</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>До анонса</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Общо време</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Тракер</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Все още няма торенти</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Плъзнете тук файл .torrent или .session, или натиснете Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Добави торент</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Скрий панела с подробности (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Нестартиран</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Стартиране</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Сваляне</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Споделяне</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Обновяване</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Спиране</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Спрян</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Грешка</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Спрян: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Грешка: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Никога</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>След {0} с</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Сийдъри &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Лийчъри &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Качени &gt; {0} МБ</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Свалени &gt; {0} МБ</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Лийчъри/сийдъри &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Никога</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>След зададено време</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>При сийдъри &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>При лийчъри &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>При качени &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>При свалени &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>При лийчъри/сийдъри &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>с</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>МБ</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>съотношение</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Няма</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Системна</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Светла</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Тъмна</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Изберете торент, за да видите подробностите за него</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Общи</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Журнал</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Спрете торента, за да промените заключените настройки.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Отмени промените</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Приложи</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Инфо хеш</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Размер</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Торент файл</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Прокси</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>ID на пиъра</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Ключ / порт / пиъри</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Сийдъри / лийчъри</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>До анонса / спиране</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Скорости</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>График и спиране</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Идентификация</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Други</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версия</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Качване (КБ/с)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Сваляне (КБ/с)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ случайна стойност</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>от</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>до</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Спирай временно качването, докато тракерът не отчита лийчъри</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Препоръчва се. Тракерът може да забележи качване при липса на лийчъри, а това е едно от нещата, заради които акаунтът може да бъде блокиран.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>При всяко обновяване избирай нова случайна скорост</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Качване</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Сваляне</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Завършено (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 означава само споделяне</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Интервал на обновяване (с)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>тракерът може да го промени</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Автоматично спиране</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Автоматично: стойностите се генерират, като се копират от работещия клиент, когато е възможно</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Ръчно</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Ключ</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Порт</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Искани пиъри</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Генерирай отново</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Генериране...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Копирано от работещия {0}.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Генерирани са случайни стойности (клиентът не работи).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Генерирани са случайни стойности.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Хост</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Потребител</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Изпращай scrape заявки</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Отговаряй на входящите ръкостискания от пиъри на порта, обявен в анонса</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Игнорирай „failure reason“ от тракера и продължавай работа</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Води журнал за този торент</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Игнорирай грешките в TLS сертификатите на https тракери</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Време</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Събитие</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Резултат</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Интервал</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Пиъри</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Закъснение</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} мс</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Все още няма обмен с тракера</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Изберете ред, за да видите заявката</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Заявка</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Заглавки на отговора</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Включен</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Автоматично превъртане</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Филтър</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Копирай</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Запази...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Изчисти</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Все още няма записи в журнала</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Подправя качването и свалянето, които вижда BitTorrent тракерът, без реално да сваля или качва нищо.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Уебсайт</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>Имейл</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Подкрепете проекта чрез PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} на {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Лиценз MIT.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Затвори</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Отказ</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Запази</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Добави</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Преглед...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Стартирай веднага</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Подробности</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Все още не е избран торент.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} торента; настройките по-долу важат за всички тях.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Един от тези торенти няма http или https тракер и не може да бъде стартиран.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>{0} от тези торенти нямат http или https тракер и не могат да бъдат стартирани.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 файл</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} файла</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Налична е нова версия на RatioMaster.NET (компилация {0}). Използвате версия {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Изтегли</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Напомни ми по-късно</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Пропусни тази версия</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Системна област</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Настройки по подразбиране</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Клиенти</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Език</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Езикът на системата ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Рестартирайте RatioMaster.NET, за да смените езика.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Винаги използвай 24-часов формат в журналите (иначе – системния формат на часа)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Проверявай за обновления при стартиране</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Възстановявай последната сесия при стартиране</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Добавяй торентите без прозореца за добавяне</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Стартирай торентите веднага след добавянето им</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Минимизирай в системната област</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>При затваряне оставай в системната област, вместо да излизаш</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Показвай списъка с торенти в подсказката на иконата</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Стартирай в минимизиран вид</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>В Linux иконата в системната област изисква хост StatusNotifier (KDE или GNOME с разширението AppIndicator). Без такъв скритият прозорец не може да бъде върнат, затова там тези две опции са изключени по подразбиране.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Новите торенти започват с тези настройки.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Заредени емулации на клиенти: {0}. Можете да добавите нови или да замените съществуващите, като създадете този файл:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Файлът има същата структура като вградения каталог. Записите със съществуващо име заменят вградените, а новите имена се добавят. Рестартирайте програмата, за да влязат промените в сила.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Папка с настройките</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Зареждане на сесия</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Да се зареди ли сесията {0}?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Зареди</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Зареди и стартирай</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Торентът не можа да бъде добавен</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Премахване на торент</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Премахване на торенти</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Да се премахне ли „{0}“ от списъка?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Той е активен и първо ще бъде спрян.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Да се премахнат ли тези {0} торента от списъка?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Един от тях е активен и първо ще бъде спрян.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>{0} от тях са активни и първо ще бъдат спрени.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Преименуване на торент</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Име в списъка:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Настройките по подразбиране са обновени</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Новите торенти ще започват с тези настройки.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Задаване на скорост на качване</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Нова скорост на качване за всички торенти (КБ/с):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Задаване на скорост на сваляне</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Нова скорост на сваляне за всички торенти (КБ/с):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Сесията е запазена</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Сесията не можа да бъде заредена</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Сесията е заредена</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Заредени торенти: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Заредени торенти: {0}; ненамерени: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Не може да се осъществи връзка с ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Използвате най-новата версия.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Торент файлове</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>Сесии на RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Журнални файлове</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Добавяне на торенти</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Запазване на сесия</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Запазване на журнала</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Потребителският clients.json е игнориран</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} Б</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} КБ</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} МБ</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} ГБ</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} КБ/с</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} МБ/с</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Изрежи</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Копирай</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Постави</value>
+  </data>
+</root>

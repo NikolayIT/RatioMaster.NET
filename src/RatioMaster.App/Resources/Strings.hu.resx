@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Fájl</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Összes</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Nézet</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>Sú_gó</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Torrent hozzáadása...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Munkamenet betöltése...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Munkamenet betöltése és indítása...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Munkamenet mentése...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Összes leállítása és a munkamenet mentése...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Beállítások...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Kilépés</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Indítás</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Leállítás</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Frissítés most</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Átnevezés...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Eltávolítás</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Info hash másolása</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Ezen beállítások használata alapértelmezésként</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Összes indítása</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Összes leállítása</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Összes frissítése</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Feltöltési sebesség beállítása az összeshez...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Letöltési sebesség beállítása az összeshez...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Összes napló törlése</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Részletek panel</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Oszlopok</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>A program weboldala</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Fórumok</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Hiba bejelentése</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Adományozás</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Frissítések keresése</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>A RatioMaster.NET névjegye</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>A RatioMaster.NET megjelenítése</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Weboldal</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Névjegy</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Hozzáadás</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Torrent hozzáadása (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>A kijelölt torrentek indítása (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>A kijelölt torrentek leállítása (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Azonnali bejelentés a trackernek (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>A kijelölt torrentek eltávolítása (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Minden torrent indítása (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Minden torrent leállítása (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Szűrés állapot szerint</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Beállítások (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Keresés a torrentek között (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Összes</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Futó</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Leállított</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Letöltő</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Seedelő</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Hibás</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrentek: {0} ({1} fut)</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Helyi IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Frissítés érhető el</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — {0} fut   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Állapot</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Kliens</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Folyamat</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Feltöltve</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Letöltve</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Arány</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Feltöltés</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Seedek</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Leecherek</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Frissítésig</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Teljes idő</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Tracker</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Még nincsenek torrentek</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Húzzon ide egy .torrent vagy .session fájlt, vagy nyomja le a Ctrl+O billentyűkombinációt</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Torrent hozzáadása</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>A részletek panel elrejtése (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Tétlen</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Indítás</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Seedelés</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Leállítás</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Leállítva</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Leállítva: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Hiba: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Soha</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>{0} mp után</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Seedek &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Leecherek &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Feltöltve &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Letöltve &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Leecherek/seedek &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Soha</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Adott idő után</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Ha a seedek száma &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Ha a leecherek száma &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Ha a feltöltött adat &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Ha a letöltött adat &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Ha a leecherek/seedek &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>másodperc</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>arány</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Nincs</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Rendszer szerint</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Világos</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Sötét</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>A részletek megtekintéséhez válasszon ki egy torrentet</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Általános</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Napló</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>A zárolt beállítások módosításához állítsa le a torrentet.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Visszaállítás</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Alkalmaz</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Méret</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torrentfájl</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proxy</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Peer ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Kulcs / port / peerek</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Seedek / leecherek</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Következő frissítés / leállítás</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Sebességek</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Ütemezés és leállítás</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identitás</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Egyéb</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Verzió</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Feltöltés (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Letöltés (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ véletlenszerű</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min.</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>max.</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>A feltöltés szüneteltetése, amíg a tracker nem jelent leechert</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Ajánlott. A tracker észreveheti a leecherek nélküli feltöltést, ami az egyik oka lehet a fiók kitiltásának.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Minden trackerfrissítéskor új véletlenszerű sebesség választása</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Feltöltés</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Kész (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>a 100 csak seedelést jelent</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Frissítési időköz (mp)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>a tracker felülbírálhatja</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Leállítás</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Automatikus: értékek generálása, lehetőség szerint a futó kliensből másolva</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Egyéni</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Kulcs</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Kért peerek száma</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Újragenerálás</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Generálás...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Átmásolva a futó {0} kliensből.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Véletlenszerű értékek generálva (a kliens nem fut).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Véletlenszerű értékek generálva.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Típus</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Kiszolgáló</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Felhasználó</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Jelszó</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Scrape-lekérés küldése</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Válaszadás a bejövő peerkézfogásokra a bejelentett porton</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>A tracker „failure reason” üzenetének figyelmen kívül hagyása és a futás folytatása</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Napló vezetése ehhez a torrenthez</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>TLS-tanúsítványhibák figyelmen kívül hagyása https trackereknél</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Idő</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Esemény</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Eredmény</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Időköz</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Peerek</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Késleltetés</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Még nem volt kommunikáció a trackerrel</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>A kérés megtekintéséhez válasszon ki egy üzenetváltást</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Kérés</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Válaszfejlécek</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Engedélyezve</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Automatikus görgetés</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Szűrő</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Másolás</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Mentés...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Még nincs naplóbejegyzés</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Meghamisítja a BitTorrent-tracker által látott feltöltést és letöltést anélkül, hogy bármit is le- vagy feltöltene.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Weboldal</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>A projekt támogatása PayPalon keresztül</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0}, {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>MIT-licenc alatt kiadva.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Bezárás</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Mégse</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Mentés</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Hozzáadás</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Tallózás...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Azonnali indítás</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Részletek</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Még nincs kiválasztva torrent.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>{0} torrent; az alábbi beállítások mindegyikre vonatkoznak.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Az egyik torrentnek nincs http vagy https trackere, ezért nem fog tudni elindulni.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>A torrentek közül {0} nem rendelkezik http vagy https trackerrel, ezért ezek nem fognak tudni elindulni.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 fájl</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>{0} fájl</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Elérhető a RatioMaster.NET új verziója (build {0}). Az Ön által használt verzió: {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Emlékeztessen később</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Ezen verzió kihagyása</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Értesítési terület</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Torrent-alapbeállítások</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Kliensek</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Téma</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Rendszer szerint ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>A nyelv váltásához indítsa újra a RatioMaster.NET-et.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Mindig 24 órás formátum használata a naplókban (egyébként a rendszer időformátuma szerint)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Frissítések keresése indításkor</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Az utolsó munkamenet visszaállítása indításkor</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Torrentek hozzáadása a Hozzáadás párbeszédpanel megjelenítése nélkül</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Torrentek azonnali indítása hozzáadás után</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Kicsinyítés az értesítési területre</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Bezáráskor az értesítési területre helyezés kilépés helyett</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>A torrentek listázása az értesítési ikon elemleírásában</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Indítás kis méretben</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Linuxon az értesítési ikonhoz StatusNotifier-gazdagép szükséges (KDE vagy GNOME az AppIndicator bővítménnyel). Enélkül egy elrejtett ablak nem hozható vissza, ezért ott ez a két beállítás alapértelmezés szerint ki van kapcsolva.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Az új torrentek ezekkel a beállításokkal indulnak.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>{0} kliensemuláció van betöltve. Újak hozzáadásához vagy a meglévők felülírásához hozza létre ezt a fájlt:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>A fájl szerkezete megegyezik a beépített katalóguséval. A már létező nevű bejegyzések lecserélik a beépített változatot, az új nevűek pedig hozzáadódnak. A módosítások érvényesítéséhez indítsa újra az alkalmazást.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Konfigurációs mappa</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Munkamenet betöltése</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Betölti a következő munkamenetet: {0}?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Betöltés</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Betöltés és indítás</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Nem sikerült hozzáadni a torrentet</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Torrent eltávolítása</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Torrentek eltávolítása</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Eltávolítja a listából a következőt: {0}?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Jelenleg fut, ezért előbb le lesz állítva.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Eltávolítja a kijelölt {0} torrentet a listából?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Közülük egy fut, ezért előbb le lesz állítva.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>Közülük {0} fut, ezért előbb le lesznek állítva.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Torrent átnevezése</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>A listában megjelenő név:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Alapbeállítások frissítve</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Az új torrentek ezekkel a beállításokkal fognak indulni.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Feltöltési sebesség beállítása</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Új feltöltési sebesség minden torrenthez (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Letöltési sebesség beállítása</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Új letöltési sebesség minden torrenthez (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Munkamenet mentve</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Nem sikerült betölteni a munkamenetet</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Munkamenet betöltve</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>{0} torrent betöltve.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>{0} torrent betöltve, {1} nem található.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Nem sikerült elérni a ratiomaster.net oldalt: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>A legújabb verziót használja.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torrentfájlok</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMaster-munkamenetek</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Naplófájlok</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Torrentek hozzáadása</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Munkamenet mentése</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Napló mentése</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Az egyéni clients.json figyelmen kívül hagyva</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} bájt</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Kivágás</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Másolás</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Beillesztés</value>
+  </data>
+</root>

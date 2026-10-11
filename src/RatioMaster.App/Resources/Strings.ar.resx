@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_ملف</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_تورنت</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_الكل</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_عرض</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>م_ساعدة</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>إضافة تورنت...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>تحميل جلسة...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>تحميل جلسة وبدء تشغيلها...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>حفظ الجلسة...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>إيقاف الكل وحفظ الجلسة...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>الإعدادات...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>بدء</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>تحديث الآن</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>إعادة تسمية...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>إزالة</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>نسخ تجزئة المعلومات</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>استخدام هذه الإعدادات كإعدادات افتراضية</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>بدء الكل</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>إيقاف الكل</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>تحديث الكل</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>تعيين سرعة الرفع للكل...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>تعيين سرعة التنزيل للكل...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>مسح كل السجلات</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>جزء التفاصيل</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>الأعمدة</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>موقع البرنامج</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>المنتديات</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>الإبلاغ عن خطأ</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>التبرع</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>التحقق من وجود تحديثات</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>حول RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>إظهار RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>موقع الويب</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>حول</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>إضافة تورنت (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>بدء التورنتات المحددة (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>إيقاف التورنتات المحددة (Ctrl+.&#x200E;)</value>
+    <comment>Contains left-to-right marks (U+200E, written &amp;#x200E;) that keep the dot of .torrent/.session/.NET, the punctuation of Ctrl+. and Ctrl+, and the :// of a URL scheme in place in right-to-left text.</comment>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>إرسال إعلان إلى المتتبع الآن (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>إزالة التورنتات المحددة (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>بدء كل التورنتات (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>إيقاف كل التورنتات (Ctrl+Shift+.&#x200E;)</value>
+    <comment>Contains left-to-right marks (U+200E, written &amp;#x200E;) that keep the dot of .torrent/.session/.NET, the punctuation of Ctrl+. and Ctrl+, and the :// of a URL scheme in place in right-to-left text.</comment>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>إظهار فقط</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>الإعدادات (Ctrl+,&#x200E;)</value>
+    <comment>Contains left-to-right marks (U+200E, written &amp;#x200E;) that keep the dot of .torrent/.session/.NET, the punctuation of Ctrl+. and Ctrl+, and the :// of a URL scheme in place in right-to-left text.</comment>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>البحث في التورنتات (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>قيد التشغيل</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>المتوقفة</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>قيد التنزيل</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>قيد البذر</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>بها خطأ</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>التورنتات: {0} (قيد التشغيل: {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>عنوان IP المحلي</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>يتوفر تحديث</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — قيد التشغيل: {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>العميل</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>التقدم</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>تم رفعه</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>تم تنزيله</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>النسبة</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>سرعة الرفع</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>سرعة التنزيل</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>البذور</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>المُنزِّلون</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>التحديث بعد</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>الوقت الإجمالي</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>المتتبع</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>لا توجد تورنتات بعد</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>يمكنك إفلات ملف &#x200E;.torrent أو &#x200E;.session هنا، أو الضغط على Ctrl+O</value>
+    <comment>Contains left-to-right marks (U+200E, written &amp;#x200E;) that keep the dot of .torrent/.session/.NET, the punctuation of Ctrl+. and Ctrl+, and the :// of a URL scheme in place in right-to-left text.</comment>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>إضافة تورنت</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>إخفاء جزء التفاصيل (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>خامل</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>جارٍ البدء</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>جارٍ التنزيل</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>جارٍ البذر</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>جارٍ التحديث</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>جارٍ الإيقاف</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>متوقف</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>متوقف: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>خطأ: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>أبدًا</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>بعد {0} ث</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>البذور &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>المُنزِّلون &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>حجم الرفع &gt; {0} م.ب</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>حجم التنزيل &gt; {0} م.ب</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>المُنزِّلون/البذور &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>أبدًا</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>بعد مدة</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>عندما يكون عدد البذور &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>عندما يكون عدد المُنزِّلين &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>عندما يكون حجم الرفع &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>عندما يكون حجم التنزيل &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>عندما تكون نسبة المُنزِّلين/البذور &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>ث</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>م.ب</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>نسبة</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>لا يوجد</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>حسب النظام</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>فاتح</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>داكن</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>يُرجى تحديد تورنت لعرض تفاصيله</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>عام</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>السجل</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>يجب إيقاف التورنت لتغيير الإعدادات المقفلة.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>تراجع</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>تطبيق</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>تجزئة المعلومات</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>الحجم</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>ملف التورنت</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>الوكيل</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>معرّف القرين</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>المفتاح / المنفذ / القرناء</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>البذور / المُنزِّلون</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>التحديث التالي / الإيقاف</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>السرعات</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>الجدولة والإيقاف</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>الهوية</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>الإصدار</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>الرفع (ك.ب/ث)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>التنزيل (ك.ب/ث)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ عشوائي</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>أدنى</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>أقصى</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>إيقاف الرفع مؤقتًا ما دام المتتبع لا يُبلغ عن أي مُنزِّلين</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>موصى به. قد يلاحظ المتتبع رفعًا دون وجود مُنزِّلين، وهذا من الأمور التي قد تؤدي إلى حظر الحساب.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>اختيار سرعة عشوائية جديدة عند كل تحديث للمتتبع</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>الرفع</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>التنزيل</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>نسبة الاكتمال (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 تعني البذر فقط</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>فاصل التحديث (ث)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>قد يحدد المتتبع قيمة أخرى</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>الإيقاف</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>تلقائي: إنشاء القيم، مع نسخها من العميل قيد التشغيل عند الإمكان</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>مخصص</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>المفتاح</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>المنفذ</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>عدد القرناء المطلوب</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>إعادة الإنشاء</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>جارٍ الإنشاء...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>تم النسخ من {0} قيد التشغيل.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>تم إنشاء قيم عشوائية (العميل ليس قيد التشغيل).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>تم إنشاء قيم عشوائية.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>النوع</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>المضيف</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>المستخدم</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>طلب scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>الرد على مصافحات القرناء الواردة على المنفذ المُعلَن</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>تجاهل «failure reason» الصادر عن المتتبع ومتابعة التشغيل</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>الاحتفاظ بسجل لهذا التورنت</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>تجاهل أخطاء شهادات TLS في متتبعات https</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>الحدث</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>النتيجة</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>الفاصل</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>القرناء</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>زمن الاستجابة</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>لا توجد عمليات تبادل مع المتتبع بعد</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>يُرجى تحديد عملية تبادل لعرض الطلب</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>الطلب</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>رؤوس الاستجابة</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>مُمكَّن</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>التمرير التلقائي</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>تصفية</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>نسخ</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>حفظ...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>لم يُسجَّل شيء بعد</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>يزيّف كمية الرفع والتنزيل التي يراها متتبع BitTorrent، دون تنزيل أو رفع أي شيء.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>موقع الويب</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>دعم المشروع عبر PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>&#x200E;.NET {0} على {1} ({2})</value>
+    <comment>Contains left-to-right marks (U+200E, written &amp;#x200E;) that keep the dot of .torrent/.session/.NET, the punctuation of Ctrl+. and Ctrl+, and the :// of a URL scheme in place in right-to-left text.</comment>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>مرخّص بموجب رخصة MIT.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>استعراض...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>البدء فورًا</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>لم يتم تحديد أي تورنت بعد.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>عدد التورنتات: {0}، وتنطبق الإعدادات أدناه عليها جميعًا.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>أحد هذه التورنتات ليس له متتبع http أو https، ولن يمكن بدء تشغيله.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>عدد التورنتات التي ليس لها متتبع http أو https ولن يمكن بدء تشغيلها: {0}.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>ملف واحد</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>الملفات: {0}</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>يتوفر إصدار جديد من RatioMaster.NET (البنية {0}). الإصدار الذي تستخدمه: {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>تنزيل</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>ذكّرني لاحقًا</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>تخطي هذا الإصدار</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>علبة النظام</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>افتراضيات التورنت</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>العملاء</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>السمة</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>افتراضي النظام ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>يجب إعادة تشغيل RatioMaster.NET لتغيير اللغة.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>استخدام تنسيق 24 ساعة دائمًا في السجلات (وإلا يُتّبع تنسيق الوقت في النظام)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>التحقق من وجود تحديثات عند بدء التشغيل</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>استعادة آخر جلسة عند بدء التشغيل</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>إضافة التورنتات دون إظهار مربع حوار الإضافة</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>بدء التورنتات فور إضافتها</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>التصغير إلى علبة النظام</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>إخفاء النافذة في علبة النظام عند إغلاقها بدلًا من الخروج</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>عرض قائمة التورنتات في تلميح أيقونة علبة النظام</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>البدء مصغّرًا</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>في Linux، تحتاج أيقونة علبة النظام إلى مضيف StatusNotifier (KDE، أو GNOME مع الامتداد AppIndicator). ومن دونه لا يمكن إعادة إظهار النافذة المخفية، لذلك يكون هذان الخياران معطّلين هناك افتراضيًا.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>تبدأ التورنتات الجديدة بهذه الإعدادات.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>عدد تعريفات محاكاة العملاء المحمّلة: {0}. يمكنك إضافة تعريفات أو استبدال التعريفات الموجودة بإنشاء هذا الملف:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>يستخدم الملف البنية نفسها التي يستخدمها الكتالوج المضمّن. الإدخالات التي تحمل اسمًا موجودًا تحل محل الإدخال الموجود، والأسماء الجديدة تُضاف. يجب إعادة تشغيل التطبيق حتى تسري التغييرات.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>مجلد الإعدادات</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>تحميل جلسة</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>هل تريد تحميل الجلسة {0}؟</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>تحميل</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>تحميل وبدء</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>تعذّرت إضافة التورنت</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>إزالة التورنت</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>إزالة التورنتات</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>هل تريد إزالة {0} من القائمة؟</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>إنه قيد التشغيل وسيتم إيقافه أولًا.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>هل تريد إزالة التورنتات المحددة ({0}) من القائمة؟</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>أحدها قيد التشغيل وسيتم إيقافه أولًا.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>عدد التورنتات قيد التشغيل منها: {0}، وسيتم إيقافها أولًا.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>إعادة تسمية التورنت</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>الاسم المعروض في القائمة:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>تم تحديث الإعدادات الافتراضية</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>ستبدأ التورنتات الجديدة بهذه الإعدادات.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>تعيين سرعة الرفع</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>سرعة الرفع الجديدة لكل التورنتات (ك.ب/ث):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>تعيين سرعة التنزيل</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>سرعة التنزيل الجديدة لكل التورنتات (ك.ب/ث):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>تم حفظ الجلسة</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>تعذّر تحميل الجلسة</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>تم تحميل الجلسة</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>عدد التورنتات المحمّلة: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>عدد التورنتات المحمّلة: {0}، والمفقودة: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>تعذّر الوصول إلى ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>أنت تستخدم أحدث إصدار.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>ملفات التورنت</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>جلسات RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>ملفات السجل</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>إضافة تورنتات</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>حفظ الجلسة</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>حفظ السجل</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>تم تجاهل ملف clients.json المخصص</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} بايت</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} ك.ب</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} م.ب</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} غ.ب</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} ك.ب/ث</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} م.ب/ث</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>قص</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>نسخ</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>لصق</value>
+  </data>
+</root>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TrackerUrlMissing" xml:space="preserve">
+    <value>Το torrent δεν έχει URL ιχνηλάτη.</value>
+  </data>
+  <data name="TrackerUrlInvalid" xml:space="preserve">
+    <value>Το «{0}» δεν είναι έγκυρο URL ιχνηλάτη.</value>
+  </data>
+  <data name="TrackerUrlUnsupportedScheme" xml:space="preserve">
+    <value>Υποστηρίζονται μόνο ιχνηλάτες http και https, ενώ αυτός είναι {0}://. Επιλέξτε άλλον ιχνηλάτη από το torrent, αν υπάρχει.</value>
+  </data>
+  <data name="TrackerNoResponse" xml:space="preserve">
+    <value>Ο ιχνηλάτης δεν απάντησε μέσα σε {0} δευτερόλεπτα.</value>
+  </data>
+  <data name="TrackerEmptyResponse" xml:space="preserve">
+    <value>Η απάντηση του ιχνηλάτη ήταν κενή.</value>
+  </data>
+  <data name="TrackerCertificateNotTrusted" xml:space="preserve">
+    <value>Το πιστοποιητικό TLS του {0} δεν είναι αξιόπιστο: {1} Ενεργοποιήστε την επιλογή «Παράβλεψη σφαλμάτων πιστοποιητικού TLS» στις ρυθμίσεις του torrent, αν εμπιστεύεστε αυτόν τον ιχνηλάτη.</value>
+  </data>
+  <data name="TrackerConnectFailed" xml:space="preserve">
+    <value>Δεν ήταν δυνατή η σύνδεση με το {0}:{1} μετά από {2} προσπάθειες.</value>
+  </data>
+  <data name="TrackerAnnounceFailed" xml:space="preserve">
+    <value>Η ανακοίνωση στο {0} απέτυχε: {1}</value>
+  </data>
+  <data name="TrackerScrapeFailed" xml:space="preserve">
+    <value>Το scrape του {0} απέτυχε: {1}</value>
+  </data>
+  <data name="TrackerScrapeUnsupported" xml:space="preserve">
+    <value>Αυτός ο ιχνηλάτης δεν υποστηρίζει scrape.</value>
+  </data>
+  <data name="LogAnnouncingStarted" xml:space="preserve">
+    <value>Ανακοίνωση του συμβάντος «started» στον ιχνηλάτη</value>
+  </data>
+  <data name="LogAnnouncingCompleted" xml:space="preserve">
+    <value>Ανακοίνωση του συμβάντος «completed» στον ιχνηλάτη</value>
+  </data>
+  <data name="LogAnnouncingStopped" xml:space="preserve">
+    <value>Ανακοίνωση του συμβάντος «stopped» στον ιχνηλάτη</value>
+  </data>
+  <data name="LogAnnouncingUpdate" xml:space="preserve">
+    <value>Ανακοίνωση ενημέρωσης στον ιχνηλάτη</value>
+  </data>
+  <data name="LogUnexpectedError" xml:space="preserve">
+    <value>Μη αναμενόμενο σφάλμα: {0}</value>
+  </data>
+  <data name="StopReasonUnexpectedError" xml:space="preserve">
+    <value>μη αναμενόμενο σφάλμα: {0}</value>
+  </data>
+  <data name="LogNewTrackerKey" xml:space="preserve">
+    <value>Δημιουργήθηκε νέο κλειδί ιχνηλάτη, όπως κάνει και το πρόγραμμα-πελάτης που εξομοιώνεται.</value>
+  </data>
+  <data name="LogNoConnection" xml:space="preserve">
+    <value>Δεν υπάρχει σύνδεση με τον ιχνηλάτη: {0}</value>
+  </data>
+  <data name="LogWillRetry" xml:space="preserve">
+    <value>Νέα προσπάθεια σε {0} δευτερόλεπτα.</value>
+  </data>
+  <data name="LogTrackerError" xml:space="preserve">
+    <value>Σφάλμα ιχνηλάτη: {0}</value>
+  </data>
+  <data name="LogPeers" xml:space="preserve">
+    <value>ομότιμοι: ({0})</value>
+  </data>
+  <data name="LogScrapeError" xml:space="preserve">
+    <value>Σφάλμα scrape: {0}</value>
+  </data>
+  <data name="LogUploadPausedNoLeechers" xml:space="preserve">
+    <value>Ο ιχνηλάτης δεν αναφέρει λήπτες. Η αποστολή τέθηκε σε παύση μέχρι να αναφέρει κάποιους.</value>
+  </data>
+  <data name="LogUploadResumed" xml:space="preserve">
+    <value>Η αποστολή συνεχίστηκε: {0}.</value>
+  </data>
+  <data name="ResumeReasonLeechers" xml:space="preserve">
+    <value>ο αριθμός ληπτών που αναφέρει ο ιχνηλάτης είναι {0}</value>
+  </data>
+  <data name="ResumeReasonPauseSwitchedOff" xml:space="preserve">
+    <value>η παύση όταν δεν υπάρχουν λήπτες απενεργοποιήθηκε</value>
+  </data>
+  <data name="StopReasonRanFor" xml:space="preserve">
+    <value>εκτελέστηκε για {0} δευτ.</value>
+  </data>
+  <data name="StopReasonSeedersBelow" xml:space="preserve">
+    <value>διαμοιραστές &lt; {0}</value>
+  </data>
+  <data name="StopReasonLeechersBelow" xml:space="preserve">
+    <value>λήπτες &lt; {0}</value>
+  </data>
+  <data name="StopReasonUploadedAbove" xml:space="preserve">
+    <value>απεσταλμένα &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonDownloadedAbove" xml:space="preserve">
+    <value>ληφθέντα &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonRatioBelow" xml:space="preserve">
+    <value>λήπτες/διαμοιραστές &lt; {0}</value>
+  </data>
+  <data name="LogStopped" xml:space="preserve">
+    <value>Διακόπηκε: {0}</value>
+  </data>
+  <data name="LogStoppedAnnounceFailed" xml:space="preserve">
+    <value>Η ανακοίνωση «stopped» απέτυχε: {0}</value>
+  </data>
+  <data name="ListenerStartFailed" xml:space="preserve">
+    <value>Ο ακροατής TCP δεν μπόρεσε να ξεκινήσει στη θύρα {0} (χρησιμοποιείται ήδη;): {1}</value>
+  </data>
+  <data name="ListenerStarted" xml:space="preserve">
+    <value>Ο ακροατής TCP ξεκίνησε στη θύρα {0}</value>
+  </data>
+  <data name="ListenerClosed" xml:space="preserve">
+    <value>Ο ακροατής TCP έκλεισε</value>
+  </data>
+  <data name="ScanLookingForProcess" xml:space="preserve">
+    <value>Αναζήτηση της διεργασίας {0}...</value>
+  </data>
+  <data name="ScanProcessNotFound" xml:space="preserve">
+    <value>Δεν βρέθηκε διεργασία {0}. Βεβαιωθείτε ότι το πρόγραμμα-πελάτης torrent εκτελείται.</value>
+  </data>
+  <data name="ScanSucceeded" xml:space="preserve">
+    <value>Η αναζήτηση ολοκληρώθηκε με επιτυχία.</value>
+  </data>
+  <data name="ScanFailed" xml:space="preserve">
+    <value>Η αναζήτηση απέτυχε. Βεβαιωθείτε ότι το {0} εκτελείται με τουλάχιστον ένα ενεργό torrent.</value>
+  </data>
+  <data name="TorrentCannotRead" xml:space="preserve">
+    <value>Δεν είναι δυνατή η ανάγνωση του «{0}»: {1}</value>
+  </data>
+  <data name="TorrentInvalid" xml:space="preserve">
+    <value>Μη έγκυρο αρχείο torrent: {0}</value>
+  </data>
+  <data name="TorrentNoInfo" xml:space="preserve">
+    <value>Δεν υπάρχουν εσωτερικές πληροφορίες torrent (λεξικό «info»).</value>
+  </data>
+  <data name="TorrentNoPieceLength" xml:space="preserve">
+    <value>Λείπει το μήκος κομματιού.</value>
+  </data>
+  <data name="TorrentNoPieces" xml:space="preserve">
+    <value>Λείπουν τα δεδομένα hash των κομματιών.</value>
+  </data>
+  <data name="TorrentDamagedPieces" xml:space="preserve">
+    <value>Οι κωδικοί hash των κομματιών λείπουν ή είναι κατεστραμμένοι.</value>
+  </data>
+  <data name="TorrentNoFiles" xml:space="preserve">
+    <value>Το torrent δεν έχει ούτε μήκος αρχείου ούτε λίστα αρχείων.</value>
+  </data>
+  <data name="TorrentInvalidFileEntry" xml:space="preserve">
+    <value>Μη έγκυρη καταχώριση στη λίστα αρχείων.</value>
+  </data>
+  <data name="TorrentFileEntryNoLength" xml:space="preserve">
+    <value>Μια καταχώριση αρχείου δεν έχει μήκος.</value>
+  </data>
+  <data name="TorrentFileEntryNoPath" xml:space="preserve">
+    <value>Μια καταχώριση αρχείου δεν έχει διαδρομή.</value>
+  </data>
+  <data name="BencodeRootNotDictionary" xml:space="preserve">
+    <value>Η ριζική τιμή δεν είναι λεξικό.</value>
+  </data>
+  <data name="BencodeTooDeep" xml:space="preserve">
+    <value>Τα δεδομένα είναι εμφωλευμένα σε υπερβολικό βάθος.</value>
+  </data>
+  <data name="BencodeUnexpectedEnd" xml:space="preserve">
+    <value>Μη αναμενόμενο τέλος δεδομένων στη θέση {0}.</value>
+  </data>
+  <data name="BencodeUnterminatedList" xml:space="preserve">
+    <value>Μη τερματισμένη λίστα που ξεκινά στη θέση {0}.</value>
+  </data>
+  <data name="BencodeUnterminatedDictionary" xml:space="preserve">
+    <value>Μη τερματισμένο λεξικό που ξεκινά στη θέση {0}.</value>
+  </data>
+  <data name="BencodeKeyNotString" xml:space="preserve">
+    <value>Το κλειδί λεξικού στη θέση {0} δεν είναι συμβολοσειρά.</value>
+  </data>
+  <data name="BencodeUnexpectedByte" xml:space="preserve">
+    <value>Μη αναμενόμενο byte 0x{0} στη θέση {1}.</value>
+  </data>
+  <data name="BencodeUnterminatedInteger" xml:space="preserve">
+    <value>Μη τερματισμένος ακέραιος στη θέση {0}.</value>
+  </data>
+  <data name="BencodeInvalidInteger" xml:space="preserve">
+    <value>Μη έγκυρος ακέραιος στη θέση {0}.</value>
+  </data>
+  <data name="BencodeStringLengthNoColon" xml:space="preserve">
+    <value>Το μήκος συμβολοσειράς στη θέση {0} δεν τερματίζεται με άνω-κάτω τελεία.</value>
+  </data>
+  <data name="BencodeInvalidStringLength" xml:space="preserve">
+    <value>Μη έγκυρο μήκος συμβολοσειράς στη θέση {0}.</value>
+  </data>
+  <data name="BencodeStringTooLong" xml:space="preserve">
+    <value>Η συμβολοσειρά στη θέση {0} δηλώνει μήκος {1} byte, αλλά το μέγεθος των δεδομένων που απομένουν είναι μόνο {2} byte.</value>
+  </data>
+  <data name="CatalogEmpty" xml:space="preserve">
+    <value>Ο κατάλογος προγραμμάτων-πελατών είναι κενός.</value>
+  </data>
+  <data name="CatalogNoClients" xml:space="preserve">
+    <value>Ο κατάλογος προγραμμάτων-πελατών δεν περιέχει κανένα πρόγραμμα-πελάτη.</value>
+  </data>
+  <data name="CatalogDuplicateName" xml:space="preserve">
+    <value>Διπλότυπο όνομα προγράμματος-πελάτη «{0}» στον κατάλογο.</value>
+  </data>
+  <data name="CatalogUserEmpty" xml:space="preserve">
+    <value>Ο κατάλογος προγραμμάτων-πελατών του χρήστη είναι κενός.</value>
+  </data>
+  <data name="CatalogUserCannotRead" xml:space="preserve">
+    <value>Δεν είναι δυνατή η ανάγνωση του καταλόγου προγραμμάτων-πελατών του χρήστη «{0}»: {1}</value>
+  </data>
+  <data name="CatalogEntryIncomplete" xml:space="preserve">
+    <value>Από την καταχώριση προγράμματος-πελάτη «{0}» λείπουν υποχρεωτικά πεδία.</value>
+  </data>
+  <data name="CatalogEntryUnnamed" xml:space="preserve">
+    <value>(χωρίς όνομα)</value>
+  </data>
+  <data name="SessionNoRoot" xml:space="preserve">
+    <value>Το αρχείο συνεδρίας δεν έχει ριζικό στοιχείο.</value>
+  </data>
+  <data name="UpdateUnexpectedReply" xml:space="preserve">
+    <value>Η υπηρεσία εκδόσεων επέστρεψε μη αναμενόμενη απάντηση.</value>
+  </data>
+</root>

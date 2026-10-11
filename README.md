@@ -37,6 +37,8 @@ Grab the archive for your system from the [latest release](https://github.com/Ni
   `https` trackers.
 - Keeps a per-torrent log and a record of every tracker exchange.
 - Saves and loads sessions, and restores the last one on startup. Session files written by 0.43 still load.
+- Speaks 38 languages. It starts in the display language of the system; Settings > General > Language
+  picks another one.
 
 ## Building from source
 
@@ -67,6 +69,14 @@ The 0.43 WinForms sources were removed in 1.0. They remain in the git history at
 need them. The emulations they defined are preserved byte for byte in
 `src/RatioMaster.Core.Tests/Tracker/RequestGoldens.txt`, which pins the exact request every client
 emulation sends; changing it changes how a tracker fingerprints your traffic.
+
+## Translations
+
+The interface texts are in `src/RatioMaster.App/Resources/Strings.resx` and the engine's messages (log
+lines, errors) in `src/RatioMaster.Core/Resources/Strings.resx`, both in English, with each translation in
+a `Strings.<language>.resx` next to them. Tests check that every translation has every text and keeps its
+`{0}` placeholders. To improve a translation, edit its two `.resx` files. To add a language, add both files,
+its entry in `src/RatioMaster.Core/Settings/UiLanguages.cs` and its code in `build/packaging/Info.plist`.
 
 ## Adding a client emulation
 

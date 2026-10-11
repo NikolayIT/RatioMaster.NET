@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TrackerUrlMissing" xml:space="preserve">
+    <value>Torent nema URL adresu trekera.</value>
+  </data>
+  <data name="TrackerUrlInvalid" xml:space="preserve">
+    <value>„{0}“ nije ispravna URL adresa trekera.</value>
+  </data>
+  <data name="TrackerUrlUnsupportedScheme" xml:space="preserve">
+    <value>Podržani su samo http i https trekeri; ovaj je {0}://. Izaberite drugi treker iz torenta, ako ga ima.</value>
+  </data>
+  <data name="TrackerNoResponse" xml:space="preserve">
+    <value>Treker nije odgovorio u roku od {0} s.</value>
+  </data>
+  <data name="TrackerEmptyResponse" xml:space="preserve">
+    <value>Odgovor trekera je bio prazan.</value>
+  </data>
+  <data name="TrackerCertificateNotTrusted" xml:space="preserve">
+    <value>TLS sertifikat za {0} nije pouzdan: {1} Ako verujete ovom trekeru, uključite „Zanemari greške TLS sertifikata“ u podešavanjima torenta.</value>
+  </data>
+  <data name="TrackerConnectFailed" xml:space="preserve">
+    <value>Povezivanje sa {0}:{1} nije uspelo nakon {2} pokušaja.</value>
+  </data>
+  <data name="TrackerAnnounceFailed" xml:space="preserve">
+    <value>Najava trekeru {0} nije uspela: {1}</value>
+  </data>
+  <data name="TrackerScrapeFailed" xml:space="preserve">
+    <value>Upit za statistiku trekeru {0} nije uspeo: {1}</value>
+  </data>
+  <data name="TrackerScrapeUnsupported" xml:space="preserve">
+    <value>Ovaj treker ne podržava upite za statistiku.</value>
+  </data>
+  <data name="LogAnnouncingStarted" xml:space="preserve">
+    <value>Slanje najave „started“ trekeru</value>
+  </data>
+  <data name="LogAnnouncingCompleted" xml:space="preserve">
+    <value>Slanje najave „completed“ trekeru</value>
+  </data>
+  <data name="LogAnnouncingStopped" xml:space="preserve">
+    <value>Slanje najave „stopped“ trekeru</value>
+  </data>
+  <data name="LogAnnouncingUpdate" xml:space="preserve">
+    <value>Slanje redovne najave trekeru</value>
+  </data>
+  <data name="LogUnexpectedError" xml:space="preserve">
+    <value>Neočekivana greška: {0}</value>
+  </data>
+  <data name="StopReasonUnexpectedError" xml:space="preserve">
+    <value>neočekivana greška: {0}</value>
+  </data>
+  <data name="LogNewTrackerKey" xml:space="preserve">
+    <value>Generisan je novi ključ za treker, kao što to radi emulirani klijent.</value>
+  </data>
+  <data name="LogNoConnection" xml:space="preserve">
+    <value>Nema veze sa trekerom: {0}</value>
+  </data>
+  <data name="LogWillRetry" xml:space="preserve">
+    <value>Novi pokušaj za {0} s.</value>
+  </data>
+  <data name="LogTrackerError" xml:space="preserve">
+    <value>Greška trekera: {0}</value>
+  </data>
+  <data name="LogPeers" xml:space="preserve">
+    <value>parnjaci: ({0})</value>
+  </data>
+  <data name="LogScrapeError" xml:space="preserve">
+    <value>Greška upita za statistiku: {0}</value>
+  </data>
+  <data name="LogUploadPausedNoLeechers" xml:space="preserve">
+    <value>Treker ne prijavljuje nijednu pijavicu; slanje je pauzirano dok ih ne prijavi.</value>
+  </data>
+  <data name="LogUploadResumed" xml:space="preserve">
+    <value>Slanje je nastavljeno: {0}.</value>
+  </data>
+  <data name="ResumeReasonLeechers" xml:space="preserve">
+    <value>treker prijavljuje pijavice ({0})</value>
+  </data>
+  <data name="ResumeReasonPauseSwitchedOff" xml:space="preserve">
+    <value>isključena je opcija pauziranja slanja kada nema pijavica</value>
+  </data>
+  <data name="StopReasonRanFor" xml:space="preserve">
+    <value>posle {0} s rada</value>
+  </data>
+  <data name="StopReasonSeedersBelow" xml:space="preserve">
+    <value>sejači &lt; {0}</value>
+  </data>
+  <data name="StopReasonLeechersBelow" xml:space="preserve">
+    <value>pijavice &lt; {0}</value>
+  </data>
+  <data name="StopReasonUploadedAbove" xml:space="preserve">
+    <value>poslato &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonDownloadedAbove" xml:space="preserve">
+    <value>preuzeto &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonRatioBelow" xml:space="preserve">
+    <value>pijavice/sejači &lt; {0}</value>
+  </data>
+  <data name="LogStopped" xml:space="preserve">
+    <value>Zaustavljeno: {0}</value>
+  </data>
+  <data name="LogStoppedAnnounceFailed" xml:space="preserve">
+    <value>Slanje najave „stopped“ nije uspelo: {0}</value>
+  </data>
+  <data name="ListenerStartFailed" xml:space="preserve">
+    <value>TCP slušalac nije mogao da se pokrene na portu {0} (da li je port već zauzet?): {1}</value>
+  </data>
+  <data name="ListenerStarted" xml:space="preserve">
+    <value>TCP slušalac je pokrenut na portu {0}</value>
+  </data>
+  <data name="ListenerClosed" xml:space="preserve">
+    <value>TCP slušalac je zatvoren</value>
+  </data>
+  <data name="ScanLookingForProcess" xml:space="preserve">
+    <value>Traženje procesa {0}...</value>
+  </data>
+  <data name="ScanProcessNotFound" xml:space="preserve">
+    <value>Proces {0} nije pronađen. Proverite da li je torent klijent pokrenut.</value>
+  </data>
+  <data name="ScanSucceeded" xml:space="preserve">
+    <value>Pretraga je uspešno završena.</value>
+  </data>
+  <data name="ScanFailed" xml:space="preserve">
+    <value>Pretraga nije uspela. Proverite da li je klijent {0} pokrenut sa bar jednim aktivnim torentom.</value>
+  </data>
+  <data name="TorrentCannotRead" xml:space="preserve">
+    <value>Nije moguće pročitati „{0}“: {1}</value>
+  </data>
+  <data name="TorrentInvalid" xml:space="preserve">
+    <value>Neispravna datoteka torenta: {0}</value>
+  </data>
+  <data name="TorrentNoInfo" xml:space="preserve">
+    <value>Nema unutrašnjih podataka o torentu (rečnik „info“).</value>
+  </data>
+  <data name="TorrentNoPieceLength" xml:space="preserve">
+    <value>Nedostaje dužina dela.</value>
+  </data>
+  <data name="TorrentNoPieces" xml:space="preserve">
+    <value>Nema heš podataka delova.</value>
+  </data>
+  <data name="TorrentDamagedPieces" xml:space="preserve">
+    <value>Heš kodovi delova nedostaju ili su oštećeni.</value>
+  </data>
+  <data name="TorrentNoFiles" xml:space="preserve">
+    <value>Torent nema ni dužinu datoteke ni listu datoteka.</value>
+  </data>
+  <data name="TorrentInvalidFileEntry" xml:space="preserve">
+    <value>Neispravna stavka u listi datoteka.</value>
+  </data>
+  <data name="TorrentFileEntryNoLength" xml:space="preserve">
+    <value>Stavka datoteke nema dužinu.</value>
+  </data>
+  <data name="TorrentFileEntryNoPath" xml:space="preserve">
+    <value>Stavka datoteke nema putanju.</value>
+  </data>
+  <data name="BencodeRootNotDictionary" xml:space="preserve">
+    <value>Korenska vrednost nije rečnik.</value>
+  </data>
+  <data name="BencodeTooDeep" xml:space="preserve">
+    <value>Podaci su previše duboko ugnežđeni.</value>
+  </data>
+  <data name="BencodeUnexpectedEnd" xml:space="preserve">
+    <value>Neočekivan kraj podataka na poziciji {0}.</value>
+  </data>
+  <data name="BencodeUnterminatedList" xml:space="preserve">
+    <value>Nezavršena lista koja počinje na poziciji {0}.</value>
+  </data>
+  <data name="BencodeUnterminatedDictionary" xml:space="preserve">
+    <value>Nezavršen rečnik koji počinje na poziciji {0}.</value>
+  </data>
+  <data name="BencodeKeyNotString" xml:space="preserve">
+    <value>Ključ rečnika na poziciji {0} nije znakovni niz.</value>
+  </data>
+  <data name="BencodeUnexpectedByte" xml:space="preserve">
+    <value>Neočekivan bajt 0x{0} na poziciji {1}.</value>
+  </data>
+  <data name="BencodeUnterminatedInteger" xml:space="preserve">
+    <value>Nezavršen ceo broj na poziciji {0}.</value>
+  </data>
+  <data name="BencodeInvalidInteger" xml:space="preserve">
+    <value>Neispravan ceo broj na poziciji {0}.</value>
+  </data>
+  <data name="BencodeStringLengthNoColon" xml:space="preserve">
+    <value>Dužina niza na poziciji {0} se ne završava dvotačkom.</value>
+  </data>
+  <data name="BencodeInvalidStringLength" xml:space="preserve">
+    <value>Neispravna dužina niza na poziciji {0}.</value>
+  </data>
+  <data name="BencodeStringTooLong" xml:space="preserve">
+    <value>Niz na poziciji {0} navodi dužinu od {1} B, a preostalo je samo {2} B.</value>
+  </data>
+  <data name="CatalogEmpty" xml:space="preserve">
+    <value>Katalog klijenata je prazan.</value>
+  </data>
+  <data name="CatalogNoClients" xml:space="preserve">
+    <value>U katalogu klijenata nema nijednog klijenta.</value>
+  </data>
+  <data name="CatalogDuplicateName" xml:space="preserve">
+    <value>Naziv klijenta „{0}“ se ponavlja u katalogu.</value>
+  </data>
+  <data name="CatalogUserEmpty" xml:space="preserve">
+    <value>Korisnički katalog klijenata je prazan.</value>
+  </data>
+  <data name="CatalogUserCannotRead" xml:space="preserve">
+    <value>Nije moguće pročitati korisnički katalog klijenata „{0}“: {1}</value>
+  </data>
+  <data name="CatalogEntryIncomplete" xml:space="preserve">
+    <value>U stavci klijenta „{0}“ nedostaju obavezna polja.</value>
+  </data>
+  <data name="CatalogEntryUnnamed" xml:space="preserve">
+    <value>(bez naziva)</value>
+  </data>
+  <data name="SessionNoRoot" xml:space="preserve">
+    <value>Datoteka sesije nema korenski element.</value>
+  </data>
+  <data name="UpdateUnexpectedReply" xml:space="preserve">
+    <value>Usluga za proveru verzije vratila je neočekivan odgovor.</value>
+  </data>
+</root>

@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Soubor</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torrent</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Vše</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Zobrazit</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Nápověda</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Přidat torrent...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Načíst relaci...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Načíst relaci a spustit...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Uložit relaci...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Zastavit vše a uložit relaci...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Nastavení...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Ukončit</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Spustit</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Zastavit</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Aktualizovat nyní</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Přejmenovat...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Odebrat</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Kopírovat info hash</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Použít toto nastavení jako výchozí</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Spustit vše</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Zastavit vše</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Aktualizovat vše</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Nastavit rychlost odesílání pro všechny...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Nastavit rychlost stahování pro všechny...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Vymazat všechny protokoly</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Podokno podrobností</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Sloupce</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Webové stránky programu</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Fórum</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Nahlásit chybu</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Přispět</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Vyhledat aktualizace</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>O programu RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Zobrazit RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Webové stránky</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>O programu</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Přidat</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Aktualizovat</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Přidat torrent (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Spustit vybrané torrenty (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Zastavit vybrané torrenty (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Ihned odeslat oznámení trackeru (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Odebrat vybrané torrenty (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Spustit všechny torrenty (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Zastavit všechny torrenty (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Zobrazit pouze</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Nastavení (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Hledat torrenty (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Vše</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Spuštěné</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Zastavené</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Stahované</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Seedované</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>S chybou</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torrenty: {0} (spuštěno: {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Místní IP adresa</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Dostupná aktualizace</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — spuštěno: {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Klient</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Průběh</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Odesláno</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Staženo</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Poměr</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Odesílání</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Stahování</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Seedy</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Leecheři</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Aktualizace za</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Celkový čas</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Tracker</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Zatím žádné torrenty</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Přetáhněte sem soubor .torrent či .session nebo stiskněte Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Přidat torrent</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Skrýt podokno podrobností (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Nečinný</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Spouštění</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Stahování</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Seedování</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Aktualizování</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Zastavování</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Zastaveno</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Zastaveno: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Chyba: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Nikdy</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>Po {0} s</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Seedy &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Leecheři &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Odesláno &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Staženo &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Leecheři/seedy &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Nikdy</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Po uplynutí času</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Když počet seedů &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Když počet leecherů &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Po odeslání &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Po stažení &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Když leecheři/seedy &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>poměr</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Bez proxy</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Podle systému</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Světlý</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Tmavý</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Vyberte torrent, chcete-li zobrazit jeho podrobnosti</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Obecné</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Protokol</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Chcete-li změnit uzamčená nastavení, zastavte torrent.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Vrátit zpět</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Použít</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Info hash</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Velikost</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torrentový soubor</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proxy</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Peer ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Klíč / port / peery</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Seedy / leecheři</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Další aktualizace / zastavení</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Rychlosti</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Plán a zastavení</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Identita</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Ostatní</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Verze</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Odesílání (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Stahování (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ náhodná hodnota</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min.</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>max.</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Pozastavit odesílání, když tracker nehlásí žádné leechery</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Doporučeno. Tracker si může všimnout odesílání bez leecherů, což je jeden z důvodů, proč může být účet zablokován.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Při každé aktualizaci u trackeru zvolit novou náhodnou rychlost</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Odesílání</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Stahování</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Dokončeno (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 znamená pouze seedování</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Interval aktualizace (s)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>tracker ho může změnit</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Zastavení</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Automaticky: generovat hodnoty a pokud možno je zkopírovat ze spuštěného klienta</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Ručně</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Klíč</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Požadované peery</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Znovu vygenerovat</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Generování...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Zkopírováno ze spuštěného klienta {0}.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Byly vygenerovány náhodné hodnoty (klient není spuštěný).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Byly vygenerovány náhodné hodnoty.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Hostitel</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Požadovat scrape</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Odpovídat na příchozí handshaky peerů na oznámeném portu</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Ignorovat „failure reason“ trackeru a pokračovat</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Vést protokol pro tento torrent</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Ignorovat chyby certifikátů TLS u trackerů https</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Čas</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Událost</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Výsledek</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Interval</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Peery</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Latence</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Zatím žádná komunikace s trackerem</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Vyberte záznam, chcete-li zobrazit požadavek</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Požadavek</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Hlavičky odpovědi</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Zapnuto</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Automaticky posouvat</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filtr</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Kopírovat</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Uložit...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Vymazat</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Zatím nic nezaznamenáno</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Falšuje údaje o odesílání a stahování hlášené trackeru sítě BitTorrent, aniž by cokoli skutečně stahoval nebo odesílal.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Webové stránky</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Podpořte projekt přes PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} v systému {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Licence MIT.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Přidat</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Procházet...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Spustit ihned</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Podrobnosti</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Zatím nebyl vybrán žádný torrent.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>Počet torrentů: {0}. Níže uvedené nastavení platí pro všechny.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Jeden z těchto torrentů nemá tracker http ani https, a proto ho nepůjde spustit.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>Počet torrentů bez trackeru http nebo https, které nepůjde spustit: {0}.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>1 soubor</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>Soubory: {0}</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Je k dispozici nová verze RatioMaster.NET (sestavení {0}). Používáte verzi {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Stáhnout</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Připomenout později</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Přeskočit tuto verzi</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Oznamovací oblast</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Výchozí nastavení</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Klienti</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Motiv</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Podle systému ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Pro změnu jazyka restartujte RatioMaster.NET.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>V protokolech vždy používat 24hodinový formát času (jinak podle systémového formátu času)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Při spuštění vyhledávat aktualizace</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Při spuštění obnovit poslední relaci</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Přidávat torrenty bez zobrazení dialogu pro přidání</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Spouštět torrenty ihned po přidání</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Minimalizovat do oznamovací oblasti</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Zavírat do oznamovací oblasti místo ukončení</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Zobrazovat seznam torrentů v popisku ikony v oznamovací oblasti</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Spouštět minimalizovaně</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>V Linuxu vyžaduje ikona v oznamovací oblasti hostitele StatusNotifier (KDE nebo GNOME s rozšířením AppIndicator). Bez něj nelze skryté okno znovu zobrazit, a proto jsou tam tyto dvě možnosti ve výchozím nastavení vypnuté.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Nové torrenty začínají s tímto nastavením.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Načtené emulace klientů: {0}. Doplnit nebo přepsat je můžete vytvořením tohoto souboru:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Soubor má stejnou strukturu jako vestavěný katalog. Položka s již existujícím názvem nahradí původní, položky s novými názvy se přidají. Změny se projeví po restartu aplikace.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Složka s konfigurací</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Načíst relaci</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Načíst relaci „{0}“?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Načíst</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Načíst a spustit</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Torrent nelze přidat</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Odebrat torrent</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Odebrat torrenty</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Odebrat „{0}“ ze seznamu?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Je spuštěný a nejprve bude zastaven.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Odebrat vybrané torrenty ({0}) ze seznamu?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Jeden z nich je spuštěný a nejprve bude zastaven.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>Spuštěné torrenty ({0}) budou nejprve zastaveny.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Přejmenovat torrent</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Název zobrazený v seznamu:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Výchozí nastavení bylo aktualizováno</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Nové torrenty budou začínat s tímto nastavením.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Nastavit rychlost odesílání</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Nová rychlost odesílání pro všechny torrenty (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Nastavit rychlost stahování</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Nová rychlost stahování pro všechny torrenty (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Relace uložena</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Relaci nelze načíst</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Relace načtena</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Načteno torrentů: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Načteno torrentů: {0}, nenalezeno: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Nelze se připojit k ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Používáte nejnovější verzi.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torrentové soubory</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>Relace RatioMaster</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Soubory protokolů</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Přidat torrenty</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Uložit relaci</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Uložit protokol</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Vlastní soubor clients.json byl ignorován</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} B</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} kB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Vyjmout</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Kopírovat</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Vložit</value>
+  </data>
+</root>

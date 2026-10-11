@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_Failas</value>
+  </data>
+  <data name="MenuTorrent" xml:space="preserve">
+    <value>_Torentas</value>
+  </data>
+  <data name="MenuAll" xml:space="preserve">
+    <value>_Visi</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>_Rodinys</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>_Žinynas</value>
+  </data>
+  <data name="MenuAddTorrent" xml:space="preserve">
+    <value>Pridėti torentą...</value>
+  </data>
+  <data name="MenuLoadSession" xml:space="preserve">
+    <value>Įkelti seansą...</value>
+  </data>
+  <data name="MenuLoadSessionAndStart" xml:space="preserve">
+    <value>Įkelti seansą ir paleisti...</value>
+  </data>
+  <data name="MenuSaveSession" xml:space="preserve">
+    <value>Įrašyti seansą...</value>
+  </data>
+  <data name="MenuStopAllAndSaveSession" xml:space="preserve">
+    <value>Stabdyti visus ir įrašyti seansą...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Nustatymai...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Išeiti</value>
+  </data>
+  <data name="CommandStart" xml:space="preserve">
+    <value>Paleisti</value>
+  </data>
+  <data name="CommandStop" xml:space="preserve">
+    <value>Stabdyti</value>
+  </data>
+  <data name="CommandUpdateNow" xml:space="preserve">
+    <value>Atnaujinti dabar</value>
+  </data>
+  <data name="CommandRename" xml:space="preserve">
+    <value>Pervardyti...</value>
+  </data>
+  <data name="CommandRemove" xml:space="preserve">
+    <value>Šalinti</value>
+  </data>
+  <data name="CommandCopyInfoHash" xml:space="preserve">
+    <value>Kopijuoti informacijos maišą</value>
+  </data>
+  <data name="CommandUseAsDefaults" xml:space="preserve">
+    <value>Naudoti šiuos nustatymus kaip numatytuosius</value>
+  </data>
+  <data name="CommandStartAll" xml:space="preserve">
+    <value>Paleisti visus</value>
+  </data>
+  <data name="CommandStopAll" xml:space="preserve">
+    <value>Stabdyti visus</value>
+  </data>
+  <data name="CommandUpdateAll" xml:space="preserve">
+    <value>Atnaujinti visus</value>
+  </data>
+  <data name="MenuSetUploadSpeedForAll" xml:space="preserve">
+    <value>Nustatyti išsiuntimo greitį visiems...</value>
+  </data>
+  <data name="MenuSetDownloadSpeedForAll" xml:space="preserve">
+    <value>Nustatyti atsiuntimo greitį visiems...</value>
+  </data>
+  <data name="MenuClearAllLogs" xml:space="preserve">
+    <value>Išvalyti visus žurnalus</value>
+  </data>
+  <data name="MenuDetailsPane" xml:space="preserve">
+    <value>Išsamios informacijos sritis</value>
+  </data>
+  <data name="MenuColumns" xml:space="preserve">
+    <value>Stulpeliai</value>
+  </data>
+  <data name="MenuProgramWebsite" xml:space="preserve">
+    <value>Programos svetainė</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forumas</value>
+  </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Pranešti apie klaidą</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Paaukoti</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Ieškoti naujinimų</value>
+  </data>
+  <data name="AboutRatioMaster" xml:space="preserve">
+    <value>Apie RatioMaster.NET</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Rodyti RatioMaster.NET</value>
+  </data>
+  <data name="TrayWebsite" xml:space="preserve">
+    <value>Svetainė</value>
+  </data>
+  <data name="TrayAbout" xml:space="preserve">
+    <value>Apie</value>
+  </data>
+  <data name="ToolbarAdd" xml:space="preserve">
+    <value>Pridėti</value>
+  </data>
+  <data name="ToolbarUpdate" xml:space="preserve">
+    <value>Atnaujinti</value>
+  </data>
+  <data name="TipAdd" xml:space="preserve">
+    <value>Pridėti torentą (Ctrl+O)</value>
+  </data>
+  <data name="TipStart" xml:space="preserve">
+    <value>Paleisti pasirinktus torentus (Ctrl+Enter)</value>
+  </data>
+  <data name="TipStop" xml:space="preserve">
+    <value>Stabdyti pasirinktus torentus (Ctrl+.)</value>
+  </data>
+  <data name="TipUpdate" xml:space="preserve">
+    <value>Pranešti sekliui dabar (F5)</value>
+  </data>
+  <data name="TipRemove" xml:space="preserve">
+    <value>Šalinti pasirinktus torentus (Del)</value>
+  </data>
+  <data name="TipStartAll" xml:space="preserve">
+    <value>Paleisti visus torentus (Ctrl+Shift+Enter)</value>
+  </data>
+  <data name="TipStopAll" xml:space="preserve">
+    <value>Stabdyti visus torentus (Ctrl+Shift+.)</value>
+  </data>
+  <data name="TipFilter" xml:space="preserve">
+    <value>Rodyti tik</value>
+  </data>
+  <data name="TipSettings" xml:space="preserve">
+    <value>Nustatymai (Ctrl+,)</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Ieškoti torentų (Ctrl+F)</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Visi</value>
+  </data>
+  <data name="FilterRunning" xml:space="preserve">
+    <value>Veikiantys</value>
+  </data>
+  <data name="FilterStopped" xml:space="preserve">
+    <value>Sustabdyti</value>
+  </data>
+  <data name="FilterDownloading" xml:space="preserve">
+    <value>Atsiunčiami</value>
+  </data>
+  <data name="FilterSeeding" xml:space="preserve">
+    <value>Skleidžiami</value>
+  </data>
+  <data name="FilterError" xml:space="preserve">
+    <value>Su klaidomis</value>
+  </data>
+  <data name="StatusTorrents" xml:space="preserve">
+    <value>Torentai: {0} (veikia: {1})</value>
+  </data>
+  <data name="StatusLocalIp" xml:space="preserve">
+    <value>Vietinis IP</value>
+  </data>
+  <data name="StatusUpdateAvailable" xml:space="preserve">
+    <value>Yra naujinimas</value>
+  </data>
+  <data name="TrayTooltip" xml:space="preserve">
+    <value>RatioMaster.NET — veikia: {0}   ↑ {1} ↓ {2}</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Pavadinimas</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Būsena</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Klientas</value>
+  </data>
+  <data name="ColumnProgress" xml:space="preserve">
+    <value>Eiga</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Išsiųsta</value>
+  </data>
+  <data name="Downloaded" xml:space="preserve">
+    <value>Atsiųsta</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Santykis</value>
+  </data>
+  <data name="ColumnUpSpeed" xml:space="preserve">
+    <value>Išsiuntimas</value>
+  </data>
+  <data name="ColumnDownSpeed" xml:space="preserve">
+    <value>Atsiuntimas</value>
+  </data>
+  <data name="Seeds" xml:space="preserve">
+    <value>Skleidėjai</value>
+  </data>
+  <data name="Leechers" xml:space="preserve">
+    <value>Siuntėjai</value>
+  </data>
+  <data name="ColumnUpdateIn" xml:space="preserve">
+    <value>Iki atnaujinimo</value>
+  </data>
+  <data name="TotalTime" xml:space="preserve">
+    <value>Bendras laikas</value>
+  </data>
+  <data name="Tracker" xml:space="preserve">
+    <value>Seklys</value>
+  </data>
+  <data name="EmptyNoTorrents" xml:space="preserve">
+    <value>Torentų dar nėra</value>
+  </data>
+  <data name="EmptyHint" xml:space="preserve">
+    <value>Nutempkite čia .torrent ar .session failą arba paspauskite Ctrl+O</value>
+  </data>
+  <data name="AddTorrent" xml:space="preserve">
+    <value>Pridėti torentą</value>
+  </data>
+  <data name="TipHideDetailsPane" xml:space="preserve">
+    <value>Slėpti išsamios informacijos sritį (Ctrl+D)</value>
+  </data>
+  <data name="StateIdle" xml:space="preserve">
+    <value>Neaktyvus</value>
+  </data>
+  <data name="StateStarting" xml:space="preserve">
+    <value>Paleidžiamas</value>
+  </data>
+  <data name="StateDownloading" xml:space="preserve">
+    <value>Atsiunčiamas</value>
+  </data>
+  <data name="StateSeeding" xml:space="preserve">
+    <value>Skleidžiamas</value>
+  </data>
+  <data name="StateUpdating" xml:space="preserve">
+    <value>Atnaujinamas</value>
+  </data>
+  <data name="StateStopping" xml:space="preserve">
+    <value>Stabdomas</value>
+  </data>
+  <data name="StateStopped" xml:space="preserve">
+    <value>Sustabdytas</value>
+  </data>
+  <data name="StateError" xml:space="preserve">
+    <value>Klaida</value>
+  </data>
+  <data name="StateStoppedWithReason" xml:space="preserve">
+    <value>Sustabdytas: {0}</value>
+  </data>
+  <data name="StateErrorWithReason" xml:space="preserve">
+    <value>Klaida: {0}</value>
+  </data>
+  <data name="StopSummaryNever" xml:space="preserve">
+    <value>Niekada</value>
+  </data>
+  <data name="StopSummaryAfterSeconds" xml:space="preserve">
+    <value>Po {0} s</value>
+  </data>
+  <data name="StopSummarySeedersBelow" xml:space="preserve">
+    <value>Skleidėjų &lt; {0}</value>
+  </data>
+  <data name="StopSummaryLeechersBelow" xml:space="preserve">
+    <value>Siuntėjų &lt; {0}</value>
+  </data>
+  <data name="StopSummaryUploadedAbove" xml:space="preserve">
+    <value>Išsiųsta &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryDownloadedAbove" xml:space="preserve">
+    <value>Atsiųsta &gt; {0} MB</value>
+  </data>
+  <data name="StopSummaryRatioBelow" xml:space="preserve">
+    <value>Siuntėjai/skleidėjai &lt; {0}</value>
+  </data>
+  <data name="StopTypeNever" xml:space="preserve">
+    <value>Niekada</value>
+  </data>
+  <data name="StopTypeAfterSeconds" xml:space="preserve">
+    <value>Po</value>
+  </data>
+  <data name="StopTypeSeedersBelow" xml:space="preserve">
+    <value>Kai skleidėjų &lt;</value>
+  </data>
+  <data name="StopTypeLeechersBelow" xml:space="preserve">
+    <value>Kai siuntėjų &lt;</value>
+  </data>
+  <data name="StopTypeUploadedAboveMb" xml:space="preserve">
+    <value>Kai išsiųsta &gt;</value>
+  </data>
+  <data name="StopTypeDownloadedAboveMb" xml:space="preserve">
+    <value>Kai atsiųsta &gt;</value>
+  </data>
+  <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
+    <value>Kai siuntėjai/skleidėjai &lt;</value>
+  </data>
+  <data name="UnitSeconds" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="UnitMegabytes" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="UnitRatio" xml:space="preserve">
+    <value>santykis</value>
+  </data>
+  <data name="ProxyNone" xml:space="preserve">
+    <value>Nėra</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Sistemos</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Šviesi</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Tamsi</value>
+  </data>
+  <data name="DetailsSelectTorrent" xml:space="preserve">
+    <value>Pasirinkite torentą, kad matytumėte išsamią informaciją</value>
+  </data>
+  <data name="TabGeneral" xml:space="preserve">
+    <value>Bendra</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Nustatymai</value>
+  </data>
+  <data name="TabLog" xml:space="preserve">
+    <value>Žurnalas</value>
+  </data>
+  <data name="SettingsLockedHint" xml:space="preserve">
+    <value>Norėdami keisti užrakintus nustatymus, sustabdykite torentą.</value>
+  </data>
+  <data name="ButtonRevert" xml:space="preserve">
+    <value>Grąžinti</value>
+  </data>
+  <data name="ButtonApply" xml:space="preserve">
+    <value>Taikyti</value>
+  </data>
+  <data name="LabelInfoHash" xml:space="preserve">
+    <value>Informacijos maiša</value>
+  </data>
+  <data name="LabelSize" xml:space="preserve">
+    <value>Dydis</value>
+  </data>
+  <data name="LabelTorrentFile" xml:space="preserve">
+    <value>Torento failas</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Įgaliotasis serveris</value>
+  </data>
+  <data name="PeerId" xml:space="preserve">
+    <value>Dalyvio ID</value>
+  </data>
+  <data name="LabelKeyPortPeers" xml:space="preserve">
+    <value>Raktas / prievadas / dalyviai</value>
+  </data>
+  <data name="LabelSeedersLeechers" xml:space="preserve">
+    <value>Skleidėjai / siuntėjai</value>
+  </data>
+  <data name="LabelNextUpdateStop" xml:space="preserve">
+    <value>Kitas atnaujinimas / stabdymas</value>
+  </data>
+  <data name="SectionSpeeds" xml:space="preserve">
+    <value>Greičiai</value>
+  </data>
+  <data name="SectionSchedule" xml:space="preserve">
+    <value>Planavimas ir stabdymas</value>
+  </data>
+  <data name="SectionIdentity" xml:space="preserve">
+    <value>Tapatybė</value>
+  </data>
+  <data name="SectionOther" xml:space="preserve">
+    <value>Kita</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versija</value>
+  </data>
+  <data name="LabelUploadSpeed" xml:space="preserve">
+    <value>Išsiuntimas (kB/s)</value>
+  </data>
+  <data name="LabelDownloadSpeed" xml:space="preserve">
+    <value>Atsiuntimas (kB/s)</value>
+  </data>
+  <data name="RandomExtra" xml:space="preserve">
+    <value>+ atsitiktinis</value>
+  </data>
+  <data name="RangeMin" xml:space="preserve">
+    <value>min.</value>
+  </data>
+  <data name="RangeMax" xml:space="preserve">
+    <value>maks.</value>
+  </data>
+  <data name="PauseNoLeechers" xml:space="preserve">
+    <value>Pristabdyti išsiuntimą, kol seklys nepraneša apie jokius siuntėjus</value>
+  </data>
+  <data name="PauseNoLeechersHint" xml:space="preserve">
+    <value>Rekomenduojama. Seklys gali pastebėti išsiuntimą be siuntėjų – tai viena iš priežasčių, dėl kurių paskyra gali būti užblokuota.</value>
+  </data>
+  <data name="NextUpdateRandomHint" xml:space="preserve">
+    <value>Kiekvieno pranešimo sekliui metu parinkti naują atsitiktinį greitį</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Išsiuntimas</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Atsiuntimas</value>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>Baigta (%)</value>
+  </data>
+  <data name="FinishedHint" xml:space="preserve">
+    <value>100 reiškia tik skleidimą</value>
+  </data>
+  <data name="LabelUpdateInterval" xml:space="preserve">
+    <value>Atnaujinimo intervalas (s)</value>
+  </data>
+  <data name="UpdateIntervalHint" xml:space="preserve">
+    <value>seklys gali tai pakeisti</value>
+  </data>
+  <data name="LabelStop" xml:space="preserve">
+    <value>Stabdymas</value>
+  </data>
+  <data name="IdentityAutomatic" xml:space="preserve">
+    <value>Automatinė: generuoti reikšmes ir, jei įmanoma, kopijuoti jas iš veikiančio kliento</value>
+  </data>
+  <data name="IdentityCustom" xml:space="preserve">
+    <value>Pasirinktinė</value>
+  </data>
+  <data name="LabelKey" xml:space="preserve">
+    <value>Raktas</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Prievadas</value>
+  </data>
+  <data name="LabelPeersWanted" xml:space="preserve">
+    <value>Pageidaujama dalyvių</value>
+  </data>
+  <data name="ButtonRegenerate" xml:space="preserve">
+    <value>Generuoti iš naujo</value>
+  </data>
+  <data name="IdentityGenerating" xml:space="preserve">
+    <value>Generuojama...</value>
+  </data>
+  <data name="IdentityCopied" xml:space="preserve">
+    <value>Nukopijuota iš veikiančio kliento {0}.</value>
+  </data>
+  <data name="IdentityGeneratedNotRunning" xml:space="preserve">
+    <value>Sugeneruotos atsitiktinės reikšmės (klientas neveikia).</value>
+  </data>
+  <data name="IdentityGenerated" xml:space="preserve">
+    <value>Sugeneruotos atsitiktinės reikšmės.</value>
+  </data>
+  <data name="LabelProxyType" xml:space="preserve">
+    <value>Tipas</value>
+  </data>
+  <data name="LabelHost" xml:space="preserve">
+    <value>Serveris</value>
+  </data>
+  <data name="LabelUser" xml:space="preserve">
+    <value>Naudotojas</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Slaptažodis</value>
+  </data>
+  <data name="OptionRequestScrape" xml:space="preserve">
+    <value>Siųsti scrape užklausas</value>
+  </data>
+  <data name="OptionAnswerHandshakes" xml:space="preserve">
+    <value>Atsakyti į įeinančius dalyvių „handshake“ pranešimus sekliui nurodytame prievade</value>
+  </data>
+  <data name="OptionIgnoreFailureReason" xml:space="preserve">
+    <value>Nepaisyti seklio „failure reason“ ir toliau veikti</value>
+  </data>
+  <data name="OptionKeepLog" xml:space="preserve">
+    <value>Vesti šio torento žurnalą</value>
+  </data>
+  <data name="OptionIgnoreCertificateErrors" xml:space="preserve">
+    <value>Nepaisyti TLS sertifikatų klaidų https sekliuose</value>
+  </data>
+  <data name="ColumnTime" xml:space="preserve">
+    <value>Laikas</value>
+  </data>
+  <data name="ColumnEvent" xml:space="preserve">
+    <value>Įvykis</value>
+  </data>
+  <data name="ColumnResult" xml:space="preserve">
+    <value>Rezultatas</value>
+  </data>
+  <data name="ColumnInterval" xml:space="preserve">
+    <value>Intervalas</value>
+  </data>
+  <data name="ColumnPeers" xml:space="preserve">
+    <value>Dalyviai</value>
+  </data>
+  <data name="ColumnLatency" xml:space="preserve">
+    <value>Delsa</value>
+  </data>
+  <data name="MillisecondsFormat" xml:space="preserve">
+    <value>{0:0} ms</value>
+  </data>
+  <data name="TrackerNoExchanges" xml:space="preserve">
+    <value>Su sekliu dar nebendrauta</value>
+  </data>
+  <data name="TrackerSelectExchange" xml:space="preserve">
+    <value>Pasirinkite eilutę, kad matytumėte užklausą</value>
+  </data>
+  <data name="TrackerRequest" xml:space="preserve">
+    <value>Užklausa</value>
+  </data>
+  <data name="TrackerResponseHeaders" xml:space="preserve">
+    <value>Atsakymo antraštės</value>
+  </data>
+  <data name="LogEnabled" xml:space="preserve">
+    <value>Įjungtas</value>
+  </data>
+  <data name="LogAutoScroll" xml:space="preserve">
+    <value>Automatinis slinkimas</value>
+  </data>
+  <data name="LogFilter" xml:space="preserve">
+    <value>Filtras</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Kopijuoti</value>
+  </data>
+  <data name="ButtonSaveAs" xml:space="preserve">
+    <value>Įrašyti...</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Išvalyti</value>
+  </data>
+  <data name="LogEmpty" xml:space="preserve">
+    <value>Žurnale dar nieko nėra</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>BitTorrent sekliui pateikia suklastotus išsiųstų ir atsiųstų duomenų kiekius, nors iš tikrųjų nieko neatsisiunčia ir neišsiunčia.</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Svetainė</value>
+  </data>
+  <data name="AboutEmail" xml:space="preserve">
+    <value>El. paštas</value>
+  </data>
+  <data name="AboutPayPal" xml:space="preserve">
+    <value>Paremti projektą per PayPal</value>
+  </data>
+  <data name="AboutRuntime" xml:space="preserve">
+    <value>.NET {0} sistemoje {1} ({2})</value>
+  </data>
+  <data name="AboutMitLicensed" xml:space="preserve">
+    <value>Licencijuota pagal MIT licenciją.</value>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Uždaryti</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>Gerai</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Atšaukti</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Įrašyti</value>
+  </data>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>Pridėti</value>
+  </data>
+  <data name="ButtonBrowse" xml:space="preserve">
+    <value>Naršyti...</value>
+  </data>
+  <data name="AddStartImmediately" xml:space="preserve">
+    <value>Paleisti iš karto</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Išsami informacija</value>
+  </data>
+  <data name="AddNoTorrent" xml:space="preserve">
+    <value>Torentas dar nepasirinktas.</value>
+  </data>
+  <data name="AddManyTorrents" xml:space="preserve">
+    <value>Pasirinkta torentų: {0}; toliau pateikti nustatymai bus taikomi jiems visiems.</value>
+  </data>
+  <data name="AddOneWithoutHttpTracker" xml:space="preserve">
+    <value>Vienas iš šių torentų neturi http ar https seklio, todėl jo nepavyks paleisti.</value>
+  </data>
+  <data name="AddManyWithoutHttpTracker" xml:space="preserve">
+    <value>Torentų be http ar https seklio: {0}; jų nepavyks paleisti.</value>
+  </data>
+  <data name="FileCountOne" xml:space="preserve">
+    <value>Failų: 1</value>
+  </data>
+  <data name="FileCountMany" xml:space="preserve">
+    <value>Failų: {0}</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>Yra nauja RatioMaster.NET versija (leidimas {0}). Jūs naudojate {1}.</value>
+  </data>
+  <data name="ButtonDownload" xml:space="preserve">
+    <value>Atsisiųsti</value>
+  </data>
+  <data name="ButtonRemindLater" xml:space="preserve">
+    <value>Priminti vėliau</value>
+  </data>
+  <data name="ButtonSkipVersion" xml:space="preserve">
+    <value>Praleisti šią versiją</value>
+  </data>
+  <data name="TabTray" xml:space="preserve">
+    <value>Pranešimų sritis</value>
+  </data>
+  <data name="TabTorrentDefaults" xml:space="preserve">
+    <value>Numatytieji nustatymai</value>
+  </data>
+  <data name="TabClients" xml:space="preserve">
+    <value>Klientai</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Kalba</value>
+  </data>
+  <data name="LanguageSystemDefault" xml:space="preserve">
+    <value>Sistemos numatytoji ({0})</value>
+  </data>
+  <data name="LanguageRestartHint" xml:space="preserve">
+    <value>Paleiskite RatioMaster.NET iš naujo, kad būtų pakeista kalba.</value>
+  </data>
+  <data name="OptionUse24HourClock" xml:space="preserve">
+    <value>Žurnaluose visada naudoti 24 valandų laikrodį (kitaip naudoti sistemos laiko formatą)</value>
+  </data>
+  <data name="OptionCheckUpdates" xml:space="preserve">
+    <value>Paleidžiant ieškoti naujinimų</value>
+  </data>
+  <data name="OptionRestoreSession" xml:space="preserve">
+    <value>Paleidžiant atkurti paskutinį seansą</value>
+  </data>
+  <data name="OptionAddWithoutDialog" xml:space="preserve">
+    <value>Pridėti torentus nerodant dialogo lango „Pridėti torentą“</value>
+  </data>
+  <data name="OptionStartImmediately" xml:space="preserve">
+    <value>Paleisti torentus iš karto juos pridėjus</value>
+  </data>
+  <data name="OptionMinimizeToTray" xml:space="preserve">
+    <value>Sumažinti į pranešimų sritį</value>
+  </data>
+  <data name="OptionCloseToTray" xml:space="preserve">
+    <value>Uždarant sumažinti į pranešimų sritį, užuot išėjus</value>
+  </data>
+  <data name="OptionTrayTooltipList" xml:space="preserve">
+    <value>Rodyti torentų sąrašą pranešimų srities piktogramos patarime</value>
+  </data>
+  <data name="OptionStartMinimized" xml:space="preserve">
+    <value>Paleisti sumažintą</value>
+  </data>
+  <data name="TrayLinuxHint" xml:space="preserve">
+    <value>Sistemoje Linux pranešimų srities piktogramai reikalingas StatusNotifier serveris (KDE arba GNOME su AppIndicator plėtiniu). Be jo paslėpto lango nepavyks grąžinti, todėl ten šios dvi parinktys pagal numatytuosius nustatymus išjungtos.</value>
+  </data>
+  <data name="DefaultsHint" xml:space="preserve">
+    <value>Naujiems torentams taikomi šie nustatymai.</value>
+  </data>
+  <data name="ClientsSummary" xml:space="preserve">
+    <value>Įkelta klientų emuliacijų: {0}. Jas galite papildyti arba pakeisti sukūrę šį failą:</value>
+  </data>
+  <data name="ClientsFileHint" xml:space="preserve">
+    <value>Failo struktūra tokia pati kaip integruoto katalogo. Įrašai su jau esamais pavadinimais pakeičia atitinkamus katalogo įrašus, o įrašai su naujais pavadinimais pridedami. Kad pakeitimai įsigaliotų, paleiskite programą iš naujo.</value>
+  </data>
+  <data name="ConfigFolder" xml:space="preserve">
+    <value>Konfigūracijos aplankas</value>
+  </data>
+  <data name="LoadSession" xml:space="preserve">
+    <value>Įkelti seansą</value>
+  </data>
+  <data name="LoadSessionQuestion" xml:space="preserve">
+    <value>Įkelti seansą {0}?</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>Įkelti</value>
+  </data>
+  <data name="ButtonLoadAndStart" xml:space="preserve">
+    <value>Įkelti ir paleisti</value>
+  </data>
+  <data name="CouldNotAddTorrent" xml:space="preserve">
+    <value>Nepavyko pridėti torento</value>
+  </data>
+  <data name="RemoveTorrentTitle" xml:space="preserve">
+    <value>Šalinti torentą</value>
+  </data>
+  <data name="RemoveTorrentsTitle" xml:space="preserve">
+    <value>Šalinti torentus</value>
+  </data>
+  <data name="RemoveOneQuestion" xml:space="preserve">
+    <value>Pašalinti torentą „{0}“ iš sąrašo?</value>
+  </data>
+  <data name="RemoveOneRunning" xml:space="preserve">
+    <value>Jis veikia ir pirmiausia bus sustabdytas.</value>
+  </data>
+  <data name="RemoveManyQuestion" xml:space="preserve">
+    <value>Pašalinti pasirinktus torentus ({0}) iš sąrašo?</value>
+  </data>
+  <data name="RemoveManyOneRunning" xml:space="preserve">
+    <value>Vienas iš jų veikia ir pirmiausia bus sustabdytas.</value>
+  </data>
+  <data name="RemoveManySomeRunning" xml:space="preserve">
+    <value>Iš jų veikia: {0}; jie pirmiausia bus sustabdyti.</value>
+  </data>
+  <data name="RenameTitle" xml:space="preserve">
+    <value>Pervardyti torentą</value>
+  </data>
+  <data name="RenameLabel" xml:space="preserve">
+    <value>Sąraše rodomas pavadinimas:</value>
+  </data>
+  <data name="DefaultsUpdatedTitle" xml:space="preserve">
+    <value>Numatytieji nustatymai atnaujinti</value>
+  </data>
+  <data name="DefaultsUpdatedMessage" xml:space="preserve">
+    <value>Naujiems torentams bus taikomi šie nustatymai.</value>
+  </data>
+  <data name="SetUploadSpeedTitle" xml:space="preserve">
+    <value>Nustatyti išsiuntimo greitį</value>
+  </data>
+  <data name="SetUploadSpeedLabel" xml:space="preserve">
+    <value>Naujas išsiuntimo greitis visiems torentams (kB/s):</value>
+  </data>
+  <data name="SetDownloadSpeedTitle" xml:space="preserve">
+    <value>Nustatyti atsiuntimo greitį</value>
+  </data>
+  <data name="SetDownloadSpeedLabel" xml:space="preserve">
+    <value>Naujas atsiuntimo greitis visiems torentams (kB/s):</value>
+  </data>
+  <data name="SessionSaved" xml:space="preserve">
+    <value>Seansas įrašytas</value>
+  </data>
+  <data name="CouldNotLoadSession" xml:space="preserve">
+    <value>Nepavyko įkelti seanso</value>
+  </data>
+  <data name="SessionLoaded" xml:space="preserve">
+    <value>Seansas įkeltas</value>
+  </data>
+  <data name="SessionLoadedMessage" xml:space="preserve">
+    <value>Įkelta torentų: {0}.</value>
+  </data>
+  <data name="SessionLoadedWithMissingMessage" xml:space="preserve">
+    <value>Įkelta torentų: {0}, nerasta: {1}.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Nepavyko pasiekti ratiomaster.net: {0}</value>
+  </data>
+  <data name="UpdateCheckLatest" xml:space="preserve">
+    <value>Naudojate naujausią versiją.</value>
+  </data>
+  <data name="FileTypeTorrents" xml:space="preserve">
+    <value>Torentų failai</value>
+  </data>
+  <data name="FileTypeSessions" xml:space="preserve">
+    <value>RatioMaster seansai</value>
+  </data>
+  <data name="FileTypeLogs" xml:space="preserve">
+    <value>Žurnalo failai</value>
+  </data>
+  <data name="PickAddTorrents" xml:space="preserve">
+    <value>Pridėti torentus</value>
+  </data>
+  <data name="PickSaveSession" xml:space="preserve">
+    <value>Įrašyti seansą</value>
+  </data>
+  <data name="PickSaveLog" xml:space="preserve">
+    <value>Įrašyti žurnalą</value>
+  </data>
+  <data name="CustomClientsIgnored" xml:space="preserve">
+    <value>Pasirinktinio clients.json failo nepaisyta</value>
+  </data>
+  <data name="SizeBytes" xml:space="preserve">
+    <value>{0} B</value>
+  </data>
+  <data name="SizeKilobytes" xml:space="preserve">
+    <value>{0} KB</value>
+  </data>
+  <data name="SizeMegabytes" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="SizeGigabytes" xml:space="preserve">
+    <value>{0} GB</value>
+  </data>
+  <data name="SpeedKilobytes" xml:space="preserve">
+    <value>{0} kB/s</value>
+  </data>
+  <data name="SpeedMegabytes" xml:space="preserve">
+    <value>{0} MB/s</value>
+  </data>
+  <data name="TextCut" xml:space="preserve">
+    <value>Iškirpti</value>
+  </data>
+  <data name="TextCopy" xml:space="preserve">
+    <value>Kopijuoti</value>
+  </data>
+  <data name="TextPaste" xml:space="preserve">
+    <value>Įklijuoti</value>
+  </data>
+</root>

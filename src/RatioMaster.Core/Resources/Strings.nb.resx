@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TrackerUrlMissing" xml:space="preserve">
+    <value>Torrenten har ingen sporer-URL.</value>
+  </data>
+  <data name="TrackerUrlInvalid" xml:space="preserve">
+    <value>«{0}» er ikke en gyldig sporer-URL.</value>
+  </data>
+  <data name="TrackerUrlUnsupportedScheme" xml:space="preserve">
+    <value>Bare http- og https-sporere støttes; denne er {0}://. Velg en annen sporer fra torrenten, hvis den har en.</value>
+  </data>
+  <data name="TrackerNoResponse" xml:space="preserve">
+    <value>Sporeren svarte ikke innen {0} s.</value>
+  </data>
+  <data name="TrackerEmptyResponse" xml:space="preserve">
+    <value>Svaret fra sporeren var tomt.</value>
+  </data>
+  <data name="TrackerCertificateNotTrusted" xml:space="preserve">
+    <value>TLS-sertifikatet til {0} er ikke klarert: {1} Slå på «Ignorer TLS-sertifikatfeil» i torrentinnstillingene hvis du stoler på denne sporeren.</value>
+  </data>
+  <data name="TrackerConnectFailed" xml:space="preserve">
+    <value>Kunne ikke koble til {0}:{1} etter {2} forsøk.</value>
+  </data>
+  <data name="TrackerAnnounceFailed" xml:space="preserve">
+    <value>Annonsering til {0} mislyktes: {1}</value>
+  </data>
+  <data name="TrackerScrapeFailed" xml:space="preserve">
+    <value>Scrape av {0} mislyktes: {1}</value>
+  </data>
+  <data name="TrackerScrapeUnsupported" xml:space="preserve">
+    <value>Denne sporeren støtter ikke scrape.</value>
+  </data>
+  <data name="LogAnnouncingStarted" xml:space="preserve">
+    <value>Annonserer hendelsen «started» til sporeren</value>
+  </data>
+  <data name="LogAnnouncingCompleted" xml:space="preserve">
+    <value>Annonserer hendelsen «completed» til sporeren</value>
+  </data>
+  <data name="LogAnnouncingStopped" xml:space="preserve">
+    <value>Annonserer hendelsen «stopped» til sporeren</value>
+  </data>
+  <data name="LogAnnouncingUpdate" xml:space="preserve">
+    <value>Annonserer oppdatering til sporeren</value>
+  </data>
+  <data name="LogUnexpectedError" xml:space="preserve">
+    <value>Uventet feil: {0}</value>
+  </data>
+  <data name="StopReasonUnexpectedError" xml:space="preserve">
+    <value>uventet feil: {0}</value>
+  </data>
+  <data name="LogNewTrackerKey" xml:space="preserve">
+    <value>Genererte en ny sporernøkkel, slik den emulerte klienten gjør.</value>
+  </data>
+  <data name="LogNoConnection" xml:space="preserve">
+    <value>Ingen forbindelse til sporeren: {0}</value>
+  </data>
+  <data name="LogWillRetry" xml:space="preserve">
+    <value>Prøver igjen om {0} s.</value>
+  </data>
+  <data name="LogTrackerError" xml:space="preserve">
+    <value>Sporerfeil: {0}</value>
+  </data>
+  <data name="LogPeers" xml:space="preserve">
+    <value>likemenn: ({0})</value>
+  </data>
+  <data name="LogScrapeError" xml:space="preserve">
+    <value>Scrape-feil: {0}</value>
+  </data>
+  <data name="LogUploadPausedNoLeechers" xml:space="preserve">
+    <value>Sporeren rapporterer ingen snyltere; opplastingen er satt på pause til den rapporterer noen.</value>
+  </data>
+  <data name="LogUploadResumed" xml:space="preserve">
+    <value>Opplastingen er gjenopptatt: {0}.</value>
+  </data>
+  <data name="ResumeReasonLeechers" xml:space="preserve">
+    <value>sporeren rapporterer at antallet snyltere er {0}</value>
+  </data>
+  <data name="ResumeReasonPauseSwitchedOff" xml:space="preserve">
+    <value>automatisk pause ved fravær av snyltere ble slått av</value>
+  </data>
+  <data name="StopReasonRanFor" xml:space="preserve">
+    <value>kjørte i {0} s</value>
+  </data>
+  <data name="StopReasonSeedersBelow" xml:space="preserve">
+    <value>delere &lt; {0}</value>
+  </data>
+  <data name="StopReasonLeechersBelow" xml:space="preserve">
+    <value>snyltere &lt; {0}</value>
+  </data>
+  <data name="StopReasonUploadedAbove" xml:space="preserve">
+    <value>opplastet &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonDownloadedAbove" xml:space="preserve">
+    <value>nedlastet &gt; {0} MB</value>
+  </data>
+  <data name="StopReasonRatioBelow" xml:space="preserve">
+    <value>snyltere/delere &lt; {0}</value>
+  </data>
+  <data name="LogStopped" xml:space="preserve">
+    <value>Stoppet: {0}</value>
+  </data>
+  <data name="LogStoppedAnnounceFailed" xml:space="preserve">
+    <value>Annonsering av «stopped» mislyktes: {0}</value>
+  </data>
+  <data name="ListenerStartFailed" xml:space="preserve">
+    <value>TCP-lytteren kunne ikke starte på port {0} (allerede i bruk?): {1}</value>
+  </data>
+  <data name="ListenerStarted" xml:space="preserve">
+    <value>Startet TCP-lytter på port {0}</value>
+  </data>
+  <data name="ListenerClosed" xml:space="preserve">
+    <value>TCP-lytteren er lukket</value>
+  </data>
+  <data name="ScanLookingForProcess" xml:space="preserve">
+    <value>Ser etter prosessen {0}...</value>
+  </data>
+  <data name="ScanProcessNotFound" xml:space="preserve">
+    <value>Fant ingen {0}-prosess. Kontroller at torrentklienten kjører.</value>
+  </data>
+  <data name="ScanSucceeded" xml:space="preserve">
+    <value>Søket ble fullført.</value>
+  </data>
+  <data name="ScanFailed" xml:space="preserve">
+    <value>Søket mislyktes. Kontroller at {0} kjører med minst én aktiv torrent.</value>
+  </data>
+  <data name="TorrentCannotRead" xml:space="preserve">
+    <value>Kan ikke lese «{0}»: {1}</value>
+  </data>
+  <data name="TorrentInvalid" xml:space="preserve">
+    <value>Ikke en gyldig torrentfil: {0}</value>
+  </data>
+  <data name="TorrentNoInfo" xml:space="preserve">
+    <value>Ingen intern torrentinformasjon («info»-ordbok).</value>
+  </data>
+  <data name="TorrentNoPieceLength" xml:space="preserve">
+    <value>Lengden på delene mangler.</value>
+  </data>
+  <data name="TorrentNoPieces" xml:space="preserve">
+    <value>Hash-data for delene mangler.</value>
+  </data>
+  <data name="TorrentDamagedPieces" xml:space="preserve">
+    <value>Hash-kodene for delene mangler eller er skadet.</value>
+  </data>
+  <data name="TorrentNoFiles" xml:space="preserve">
+    <value>Torrenten har verken fillengde eller filliste.</value>
+  </data>
+  <data name="TorrentInvalidFileEntry" xml:space="preserve">
+    <value>Ugyldig oppføring i fillisten.</value>
+  </data>
+  <data name="TorrentFileEntryNoLength" xml:space="preserve">
+    <value>En filoppføring mangler lengde.</value>
+  </data>
+  <data name="TorrentFileEntryNoPath" xml:space="preserve">
+    <value>En filoppføring mangler bane.</value>
+  </data>
+  <data name="BencodeRootNotDictionary" xml:space="preserve">
+    <value>Rotverdien er ikke en ordbok.</value>
+  </data>
+  <data name="BencodeTooDeep" xml:space="preserve">
+    <value>Dataene er nestet for dypt.</value>
+  </data>
+  <data name="BencodeUnexpectedEnd" xml:space="preserve">
+    <value>Uventet slutt på dataene ved posisjon {0}.</value>
+  </data>
+  <data name="BencodeUnterminatedList" xml:space="preserve">
+    <value>Uavsluttet liste som starter ved posisjon {0}.</value>
+  </data>
+  <data name="BencodeUnterminatedDictionary" xml:space="preserve">
+    <value>Uavsluttet ordbok som starter ved posisjon {0}.</value>
+  </data>
+  <data name="BencodeKeyNotString" xml:space="preserve">
+    <value>Ordboknøkkelen ved posisjon {0} er ikke en streng.</value>
+  </data>
+  <data name="BencodeUnexpectedByte" xml:space="preserve">
+    <value>Uventet byte 0x{0} ved posisjon {1}.</value>
+  </data>
+  <data name="BencodeUnterminatedInteger" xml:space="preserve">
+    <value>Uavsluttet heltall ved posisjon {0}.</value>
+  </data>
+  <data name="BencodeInvalidInteger" xml:space="preserve">
+    <value>Ugyldig heltall ved posisjon {0}.</value>
+  </data>
+  <data name="BencodeStringLengthNoColon" xml:space="preserve">
+    <value>Strenglengden ved posisjon {0} avsluttes ikke med kolon.</value>
+  </data>
+  <data name="BencodeInvalidStringLength" xml:space="preserve">
+    <value>Ugyldig strenglengde ved posisjon {0}.</value>
+  </data>
+  <data name="BencodeStringTooLong" xml:space="preserve">
+    <value>Strengen ved posisjon {0} oppgir {1} byte, men bare {2} gjenstår.</value>
+  </data>
+  <data name="CatalogEmpty" xml:space="preserve">
+    <value>Klientkatalogen er tom.</value>
+  </data>
+  <data name="CatalogNoClients" xml:space="preserve">
+    <value>Klientkatalogen inneholder ingen klienter.</value>
+  </data>
+  <data name="CatalogDuplicateName" xml:space="preserve">
+    <value>Klientnavnet «{0}» finnes flere ganger i katalogen.</value>
+  </data>
+  <data name="CatalogUserEmpty" xml:space="preserve">
+    <value>Brukerens klientkatalog er tom.</value>
+  </data>
+  <data name="CatalogUserCannotRead" xml:space="preserve">
+    <value>Kan ikke lese brukerens klientkatalog «{0}»: {1}</value>
+  </data>
+  <data name="CatalogEntryIncomplete" xml:space="preserve">
+    <value>Klientoppføringen «{0}» mangler obligatoriske felt.</value>
+  </data>
+  <data name="CatalogEntryUnnamed" xml:space="preserve">
+    <value>(uten navn)</value>
+  </data>
+  <data name="SessionNoRoot" xml:space="preserve">
+    <value>Øktfilen har ikke noe rotelement.</value>
+  </data>
+  <data name="UpdateUnexpectedReply" xml:space="preserve">
+    <value>Versjonstjenesten returnerte et uventet svar.</value>
+  </data>
+</root>
