@@ -1,5 +1,6 @@
 namespace RatioMaster.Core.Clients
 {
+    using System.Globalization;
     using System.Text;
 
     /// <summary>
@@ -34,6 +35,28 @@ namespace RatioMaster.Core.Clients
             }
 
             return builder.ToString();
+        }
+
+        /// <summary>Turns a percent-encoded value back into its bytes; anything that is not a %xx escape is one Latin-1 byte.</summary>
+        public static byte[] Decode(string value)
+        {
+            ArgumentNullException.ThrowIfNull(value);
+            var bytes = new List<byte>(value.Length);
+            for (var i = 0; i < value.Length; i++)
+            {
+                if (value[i] == '%' && i + 2 < value.Length
+                    && byte.TryParse(value.AsSpan(i + 1, 2), NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out var escaped))
+                {
+                    bytes.Add(escaped);
+                    i += 2;
+                }
+                else
+                {
+                    bytes.Add((byte)value[i]);
+                }
+            }
+
+            return [.. bytes];
         }
 
         private static void AppendByte(StringBuilder builder, char ch, bool upperCase, string unreserved)

@@ -59,5 +59,13 @@ namespace RatioMaster.Core.Clients
         /// key: two random bytes read as a ushort when the session starts. The spec's length is ignored.
         /// </summary>
         UInt16Decimal,
+
+        /// <summary>
+        /// uTorrent's and BitTorrent's peer id tail: bytes 1..255 like <see cref="Random"/>, except the last two,
+        /// which are the first two bytes of the SHA-1 of the peer id before them, prefix included. The peer id
+        /// generator of uTorrent 3.6.0.47254 and BitTorrent 7.11.0.47255 builds it that way. The spec's length counts
+        /// the two check bytes.
+        /// </summary>
+        UTorrentChecksum,
     }
 }

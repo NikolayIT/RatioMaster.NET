@@ -28,6 +28,7 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("qBittorrent 5.2.4", "-_.!~*()%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("Deluge 2.2.0", "-_.!~*()%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("uTorrent 3.6.0", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
+        [InlineData("BitTorrent 7.11.0 (47255)", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("BitTorrent 7.10.3 (44429)", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("Transmission 3.00", "-_.%21~%2a%28%29%27%2faZ09%00%20%25%26%ff%80")]
         [InlineData("rTorrent 0.16.25", "-%5F%2E%21%7E%2A%28%29%27%2FaZ09%00%20%25%26%FF%80")]
@@ -49,6 +50,25 @@ namespace RatioMaster.Core.Tests.Clients
         {
             Assert.Equal("%00%ff", PercentEncoding.Encode(new byte[] { 0x00, 0xFF }));
             Assert.Equal("%00%FF", PercentEncoding.Encode(new byte[] { 0x00, 0xFF }, upperCase: true));
+        }
+
+        [Fact]
+        public void DecodesEscapesBackToBytes()
+        {
+            Assert.Equal(Encoding.Latin1.GetBytes("-UT360S-\u0096¸~"), PercentEncoding.Decode("-UT360S-%96%b8%7E"));
+        }
+
+        [Fact]
+        public void DecodeKeepsAPercentThatStartsNoEscape()
+        {
+            Assert.Equal(Encoding.Latin1.GetBytes("%zz%4"), PercentEncoding.Decode("%zz%4"));
+        }
+
+        [Fact]
+        public void DecodeUndoesEncode()
+        {
+            var bytes = Enumerable.Range(0, 256).Select(i => (byte)i).ToArray();
+            Assert.Equal(bytes, PercentEncoding.Decode(PercentEncoding.Encode(bytes, upperCase: true, unreserved: "-._~")));
         }
 
         [Fact]

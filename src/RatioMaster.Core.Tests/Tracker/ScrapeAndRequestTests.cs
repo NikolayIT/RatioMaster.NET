@@ -69,7 +69,7 @@ namespace RatioMaster.Core.Tests.Tracker
             Assert.Equal(
                 "GET /announce?x=1 HTTP/1.1\r\n" +
                 "Host: tracker.host\r\n" +
-                "User-Agent: uTorrent/360(113358572)(46828)\r\n" +
+                "User-Agent: uTorrent/360(113358998)(47254)\r\n" +
                 "Accept-Encoding: gzip\r\n" +
                 "Connection: Close\r\n" +
                 "\r\n",

@@ -98,6 +98,43 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal(0, suffix.Sum(c => pool.IndexOf(c, StringComparison.Ordinal)) % 36);
         }
 
+        /// <summary>
+        /// uTorrent 3.6.0.47254 and BitTorrent 7.11.0.47255 end their peer id with the first two bytes of the SHA-1 of
+        /// the eighteen bytes before it, the build included, so a tracker can tell theirs from random bytes.
+        /// </summary>
+        [Theory]
+        [InlineData("uTorrent 3.6.0", "-UT360S-", 47254)]
+        [InlineData("BitTorrent 7.11.0 (47255)", "-BT7b0S-", 47255)]
+        public void UTorrentPeerIdEndsWithItsSha1CheckBytes(string name, string prefix, int build)
+        {
+            var profile = ClientProfileCatalog.Load().GetByName(name);
+            var generator = new ClientIdentityGenerator(new DeterministicRandomSource(47254));
+
+            for (var i = 0; i < 500; i++)
+            {
+                var peerId = PercentEncoding.Decode(generator.Generate(profile).PeerId);
+
+                Assert.Equal(20, peerId.Length);
+                Assert.Equal(prefix, System.Text.Encoding.ASCII.GetString(peerId, 0, 8));
+                Assert.Equal(build, peerId[8] | (peerId[9] << 8));
+                Assert.DoesNotContain((byte)0, peerId[10..18]);
+                Assert.Equal(System.Security.Cryptography.SHA1.HashData(peerId.AsSpan(0, 18))[..2], peerId[18..]);
+            }
+        }
+
+        [Fact]
+        public void UTorrentChecksumHashesThePrefixItIsGiven()
+        {
+            // Same random bytes, different prefix: the check bytes have to follow the prefix, not just the tail.
+            var spec = new RandomValueSpec { Type = RandomValueKind.UTorrentChecksum, Length = 10 };
+            var a = new ClientIdentityGenerator(new DeterministicRandomSource(5)).GenerateValue(spec, prefix: "-UT360S-%96%b8");
+            var b = new ClientIdentityGenerator(new DeterministicRandomSource(5)).GenerateValue(spec, prefix: "-UT355S-%fa%b3");
+
+            Assert.Equal(10, a.Length);
+            Assert.Equal(a[..8], b[..8]);
+            Assert.NotEqual(a[8..], b[8..]);
+        }
+
         /// <summary>Transmission prints its key with "%x": lower case, no padding, so the length varies.</summary>
         [Fact]
         public void HexRangeKeyIsLowerCaseAndNeverZeroPadded()
@@ -278,12 +315,12 @@ namespace RatioMaster.Core.Tests.Clients
 
             var identity = generator.Generate(profile);
 
-            Assert.StartsWith("-UT360S-%ec%b6", identity.PeerId, StringComparison.Ordinal);
+            Assert.StartsWith("-UT360S-%96%b8", identity.PeerId, StringComparison.Ordinal);
             Assert.Equal(8, identity.Key.Length);
             Assert.Equal("200", identity.NumWant);
             Assert.Equal(ClientIdentitySource.Generated, identity.Source);
             var port = int.Parse(identity.Port);
-            Assert.InRange(port, 1025, 65534);
+            Assert.InRange(port, 10000, 64999);
         }
 
         [Fact]

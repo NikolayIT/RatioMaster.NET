@@ -1,6 +1,7 @@
 namespace RatioMaster.Core.Clients
 {
     using System.Globalization;
+    using System.Security.Cryptography;
     using System.Text;
 
     using RatioMaster.Core.Abstractions;
@@ -39,7 +40,7 @@ namespace RatioMaster.Core.Clients
             ArgumentNullException.ThrowIfNull(profile);
             return new ClientIdentity
             {
-                PeerId = profile.PeerIdPrefix + this.GenerateValue(profile.PeerId, profile.Unreserved),
+                PeerId = profile.PeerIdPrefix + this.GenerateValue(profile.PeerId, profile.Unreserved, profile.PeerIdPrefix),
                 Key = this.GenerateValue(profile.Key),
                 Port = this.GeneratePort(profile.PortRanges).ToString(CultureInfo.InvariantCulture),
                 NumWant = profile.DefaultNumWant.ToString(CultureInfo.InvariantCulture),
@@ -50,13 +51,17 @@ namespace RatioMaster.Core.Clients
         /// <summary>
         /// Generates one random value from a spec (the peer id suffix or the key). A value the spec says to
         /// percent-encode keeps letters, digits and the client's <paramref name="unreserved"/> characters as they are.
+        /// <paramref name="prefix"/> is the percent-encoded peer id prefix the value follows, which
+        /// <see cref="RandomValueKind.UTorrentChecksum"/> hashes.
         /// </summary>
-        public string GenerateValue(RandomValueSpec spec, string unreserved = "")
+        public string GenerateValue(RandomValueSpec spec, string unreserved = "", string prefix = "")
         {
             ArgumentNullException.ThrowIfNull(spec);
+            ArgumentNullException.ThrowIfNull(prefix);
             var value = spec.Type switch
             {
                 RandomValueKind.TransmissionChecksum => this.GenerateTransmissionSuffix(spec.Length),
+                RandomValueKind.UTorrentChecksum => this.GenerateUTorrentSuffix(spec.Length, prefix),
                 RandomValueKind.HexRange => this.GenerateHexRange(spec.Length),
                 RandomValueKind.UInt16Decimal => this.random.Next(0, 65536).ToString(CultureInfo.InvariantCulture),
                 _ => this.GenerateBase(spec.Type, spec.Length),
@@ -135,6 +140,23 @@ namespace RatioMaster.Core.Clients
             var check = total % Base36.Length != 0 ? Base36.Length - (total % Base36.Length) : 0;
             buffer[length - 1] = Base36[check];
             return new string(buffer);
+        }
+
+        /// <summary>
+        /// Builds a uTorrent peer id tail: random bytes 1..255, then the first two bytes of the SHA-1 of the peer id
+        /// so far, the decoded <paramref name="prefix"/> followed by those random bytes. uTorrent 3.6.0.47254 and
+        /// BitTorrent 7.11.0.47255 fill bytes 10-17 of their peer id this way and hash bytes 0-17 into bytes 18-19.
+        /// </summary>
+        private string GenerateUTorrentSuffix(int length, string prefix)
+        {
+            var tail = new byte[Math.Max(length - 2, 0)];
+            for (var i = 0; i < tail.Length; i++)
+            {
+                tail[i] = (byte)this.random.Next(1, 256);
+            }
+
+            var hash = SHA1.HashData([.. PercentEncoding.Decode(prefix), .. tail]);
+            return Encoding.Latin1.GetString([.. tail, .. hash[..Math.Min(length, 2)]]);
         }
 
         /// <summary>

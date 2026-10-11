@@ -13,8 +13,8 @@ namespace RatioMaster.Core.Tests.Clients
             // 41 inherited from 0.43, minus the obsolete emulations dropped since (ten uTorrent 1.x-3.2, two
             // Transmission, three Deluge), plus qBittorrent 5.2.3, 5.1.4 and 4.6.7, uTorrent 3.6.0 and 3.5.5,
             // Transmission 2.94 and 3.00, Deluge 2.1.1; then qBittorrent 5.2.4, Deluge 2.2.0, BitTornado 0.3.18
-            // rTorrent 0.16.25, Vuze 5.7.6.0 and BitComet 2.22 for 1.2.
-            Assert.Equal(34, Catalog.Profiles.Count);
+            // rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 and BitTorrent 7.11.0 for 1.2.
+            Assert.Equal(35, Catalog.Profiles.Count);
         }
 
         [Fact]
@@ -48,7 +48,7 @@ namespace RatioMaster.Core.Tests.Clients
         [InlineData("uTorrent", new[] { "3.6.0", "3.5.5", "3.5.4" })]
         [InlineData("BitComet", new[] { "2.22", "1.20", "1.03", "0.98", "0.96", "0.93", "0.92" })]
         [InlineData("Vuze", new[] { "5.7.6.0", "5.7.5.0" })]
-        [InlineData("BitTorrent", new[] { "7.10.3 (44429)" })]
+        [InlineData("BitTorrent", new[] { "7.11.0 (47255)", "7.10.3 (44429)" })]
         [InlineData("rTorrent", new[] { "0.16.25", "0.9.6" })]
         [InlineData("Transmission", new[] { "2.94", "3.00" })]
         [InlineData("BitSpirit", new[] { "3.6.0.200", "3.1.0.077" })]
@@ -72,16 +72,17 @@ namespace RatioMaster.Core.Tests.Clients
 
         /// <summary>
         /// uTorrent 3.x puts its build number, as a little-endian 16-bit integer, in the two bytes after the
-        /// "-UTxxxx-" prefix; the ten bytes after that are random. The user agent carries the build twice:
-        /// once inside the first parenthesis (a per-version constant times 65536, plus the build) and once
-        /// plainly. Both facts come from real announces (build 45311 in a public capture; the SB-Innovation
-        /// client files for builds 44994-46074 and 46828), so a tracker that decodes them sees a real build.
+        /// "-UTxxxx-" prefix; the ten bytes after that are random, the last two of them SHA-1 check bytes in build
+        /// 47254. The user agent carries the build twice: once inside the first parenthesis (a per-version constant
+        /// times 65536, plus the build) and once plainly. These facts come from real announces (build 45311 in a
+        /// public capture; the SB-Innovation client files for builds 44994-46074 and 46828) and, for 3.6.0, from
+        /// the code of build 47254, so a tracker that decodes them sees a real build.
         /// </summary>
         [Theory]
-        [InlineData("uTorrent 3.6.0", "-UT360S-", 46828, 1729)]
-        [InlineData("uTorrent 3.5.5", "-UT355S-", 46074, 1707)]
-        [InlineData("uTorrent 3.5.4", "-UT354S-", 44498, 1705)]
-        public void ModernUTorrentEncodesItsBuildLikeTheRealClient(string name, string prefix, int build, int versionConstant)
+        [InlineData("uTorrent 3.6.0", "-UT360S-", 47254, 1729, RandomValueKind.UTorrentChecksum)]
+        [InlineData("uTorrent 3.5.5", "-UT355S-", 46074, 1707, RandomValueKind.Random)]
+        [InlineData("uTorrent 3.5.4", "-UT354S-", 44498, 1705, RandomValueKind.Random)]
+        public void ModernUTorrentEncodesItsBuildLikeTheRealClient(string name, string prefix, int build, int versionConstant, RandomValueKind tail)
         {
             var p = Catalog.GetByName(name);
             Assert.Equal(name, p.Name);
@@ -91,7 +92,8 @@ namespace RatioMaster.Core.Tests.Clients
 
             // Read back the other way round too, so the two bytes really do decode to the build.
             Assert.Equal(build, BuildFromPrefix(p.PeerIdPrefix));
-            Assert.Equal(RandomValueKind.Random, p.PeerId.Type);
+            Assert.Equal(versionConstant, VersionConstant(p.Version));
+            Assert.Equal(tail, p.PeerId.Type);
             Assert.Equal(10, p.PeerId.Length);
             Assert.True(p.PeerId.UrlEncode);
             Assert.False(p.PeerId.UpperCase);
@@ -111,10 +113,58 @@ namespace RatioMaster.Core.Tests.Clients
             Assert.Equal("&peer_id=" + prefix, p.MemoryScan.SearchString);
         }
 
+        /// <summary>
+        /// BitTorrent is uTorrent's code under another name: the same request, with "BT" and its own version in the
+        /// peer id and the user agent. 7.11.0 is read from the code of build 47255, 7.10.3 from the SB-Innovation
+        /// client files.
+        /// </summary>
+        [Theory]
+        [InlineData("BitTorrent 7.11.0 (47255)", "-BT7b0S-", 47255, 3937, "7110", RandomValueKind.UTorrentChecksum)]
+        [InlineData("BitTorrent 7.10.3 (44429)", "-BT7a3S-", 44429, 3911, "7103", RandomValueKind.Random)]
+        public void BitTorrentEncodesItsBuildLikeTheRealClient(string name, string prefix, int build, int versionConstant, string shortVersion, RandomValueKind tail)
+        {
+            var p = Catalog.GetByName(name);
+            var uTorrent = Catalog.GetByName("uTorrent 3.6.0");
+
+            Assert.Equal(prefix + "%" + (build & 0xFF).ToString("x2") + "%" + (build >> 8).ToString("x2"), p.PeerIdPrefix);
+            Assert.Equal(build, BuildFromPrefix(p.PeerIdPrefix));
+            Assert.Equal(versionConstant, VersionConstant(p.Version));
+            Assert.Equal(tail, p.PeerId.Type);
+            Assert.Equal(10, p.PeerId.Length);
+            Assert.True(p.PeerId.UrlEncode);
+            Assert.False(p.PeerId.UpperCase);
+            Assert.Equal(
+                ["Host: {host}", $"User-Agent: BitTorrent/{shortVersion}({(versionConstant * 65536) + build})({build})", "Accept-Encoding: gzip", "Connection: Close"],
+                p.Headers);
+            Assert.Equal(uTorrent.Query, p.Query);
+            Assert.Equal(uTorrent.Unreserved, p.Unreserved);
+            Assert.Equal(uTorrent.Key, p.Key);
+            Assert.Equal(uTorrent.HashUpperCase, p.HashUpperCase);
+            Assert.Equal(uTorrent.DefaultNumWant, p.DefaultNumWant);
+        }
+
+        /// <summary>
+        /// Read from the code of uTorrent 3.6.0.47254 and BitTorrent 7.11.0.47255: the peer id ends in two SHA-1 check
+        /// bytes, a client with no port set listens on 10000 + (GetTickCount() * 0xDEADBEEF) % 55000, and Host carries
+        /// the tracker's port unless it is the scheme's default.
+        /// </summary>
+        [Theory]
+        [InlineData("uTorrent 3.6.0")]
+        [InlineData("BitTorrent 7.11.0 (47255)")]
+        public void CurrentUTorrentAndBitTorrentMatchTheirCode(string name)
+        {
+            var p = Catalog.GetByName(name);
+
+            Assert.Equal(RandomValueKind.UTorrentChecksum, p.PeerId.Type);
+            Assert.Equal([new PortRange(10000, 64999)], p.PortRanges);
+            Assert.True(p.HostPort);
+            Assert.Equal("-._~", p.Unreserved);
+        }
+
         [Fact]
         public void UTorrentPeerIdsAreExactlyTwentyBytes()
         {
-            foreach (var name in Catalog.Profiles.Where(p => p.Family == "uTorrent").Select(p => p.Name))
+            foreach (var name in Catalog.Profiles.Where(p => p.Family is "uTorrent" or "BitTorrent").Select(p => p.Name))
             {
                 var p = Catalog.GetByName(name);
 
@@ -372,7 +422,7 @@ namespace RatioMaster.Core.Tests.Clients
             try
             {
                 var catalog = ClientProfileCatalog.Load(path);
-                Assert.Equal(35, catalog.Profiles.Count);
+                Assert.Equal(36, catalog.Profiles.Count);
                 Assert.Equal("-XX0000-", catalog.GetByName("uTorrent 3.6.0").PeerIdPrefix);
                 Assert.Equal(99, catalog.GetByName("uTorrent 3.6.0").DefaultNumWant);
                 Assert.True(catalog.Contains("MyClient 1.0"));
@@ -470,6 +520,16 @@ namespace RatioMaster.Core.Tests.Clients
             }
 
             return bytes.Count == 2 ? bytes[0] | (bytes[1] << 8) : -1;
+        }
+
+        /// <summary>
+        /// The constant uTorrent and BitTorrent multiply by 65536 in their user agent: major, minor and patch as
+        /// nibbles, doubled, plus one for a stable build (0x4de48b in uTorrent 3.6.0.47254).
+        /// </summary>
+        private static int VersionConstant(string version)
+        {
+            var parts = version.Split(' ')[0].Split('.').Select(part => int.Parse(part, System.Globalization.CultureInfo.InvariantCulture)).ToArray();
+            return (((((parts[0] << 4) | parts[1]) << 4) | parts[2]) * 2) | 1;
         }
     }
 }
