@@ -55,6 +55,24 @@ namespace RatioMaster.Core.Tests.Networking
             Assert.Equal(OtherPeerId, Encoding.ASCII.GetString(toSecond, 48, 20));
         }
 
+        /// <summary>
+        /// A uTorrent peer id holds bytes that are escaped in the announce, as "-UT360S-%96%b8..."; the handshake has to
+        /// carry the 20 bytes the tracker decoded, not the first 20 characters of the escaped text.
+        /// </summary>
+        [Fact]
+        public async Task AnswersWithThePeerIdBytesRatherThanTheirEscapedForm()
+        {
+            var infoHash = MakeInfoHash(70);
+            var port = GetFreePort();
+            await using var registration = new PeerListenerPool().Join(port, infoHash, "-UT360S-%96%b8R%7fn%f6%94q!%c9m%3f");
+            Assert.NotNull(registration);
+
+            var response = await HandshakeAsync(port, infoHash);
+
+            byte[] expected = [.. "-UT360S-"u8, 0x96, 0xb8, (byte)'R', 0x7f, (byte)'n', 0xf6, 0x94, (byte)'q', (byte)'!', 0xc9, (byte)'m', (byte)'?'];
+            Assert.Equal(expected, response[48..68]);
+        }
+
         [Fact]
         public async Task IgnoresAHandshakeForAnotherTorrent()
         {

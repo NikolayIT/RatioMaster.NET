@@ -1,6 +1,6 @@
 namespace RatioMaster.Core.Networking
 {
-    using System.Text;
+    using RatioMaster.Core.Clients;
 
     /// <summary>
     /// One torrent's place on a shared <see cref="PeerListener"/>, handed out by <see cref="PeerListenerPool.Join"/>.
@@ -16,7 +16,10 @@ namespace RatioMaster.Core.Networking
             this.pool = pool;
             this.Listener = listener;
             this.InfoHash = infoHash;
-            this.PeerId = Encoding.Latin1.GetBytes(peerId);
+
+            // The identity keeps the peer id the way it goes into the announce URL, with the bytes the client escapes
+            // as %xx; a handshake carries the bytes themselves.
+            this.PeerId = PercentEncoding.Decode(peerId);
             this.Log = log;
         }
 
