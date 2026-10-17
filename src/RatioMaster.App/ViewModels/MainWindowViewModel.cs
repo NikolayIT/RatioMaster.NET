@@ -60,6 +60,12 @@ namespace RatioMaster.App.ViewModels
         /// </summary>
         private int deferredListChanges;
 
+        /// <summary>
+        /// Set when a torrent's settings changed, so the next tick saves the last session once for all of them: a
+        /// thousand torrents completing, or stopping together, would otherwise each write the whole session.
+        /// </summary>
+        private bool sessionSaveDue;
+
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasSelection))]
         private TorrentItemViewModel? selectedTorrent;
@@ -281,7 +287,10 @@ namespace RatioMaster.App.ViewModels
                 }
             });
 
-            await Task.WhenAll(stops).WaitAsync(cts.Token).ConfigureAwait(false);
+            await Task.WhenAll(stops).WaitAsync(cts.Token);
+
+            // Once more with where each torrent stopped, as the timer that saves changes is off by now.
+            this.SaveLastSession();
         }
 
         /// <summary>Replaces the settings (used after the settings dialog and by the window for placement).</summary>
@@ -318,6 +327,11 @@ namespace RatioMaster.App.ViewModels
             this.AggregateSpeeds = $"↑ {Formatting.Speed(up)}   ↓ {Formatting.Speed(down)}";
             this.StatusSummary = string.Format(CultureInfo.CurrentCulture, Strings.StatusTorrents, this.Torrents.Count, running);
             this.TrayToolTip = this.BuildTrayToolTip(running, up, down);
+
+            if (this.sessionSaveDue)
+            {
+                this.SaveLastSession();
+            }
         }
 
         private string BuildTrayToolTip(int running, long up, long down)
@@ -502,7 +516,7 @@ namespace RatioMaster.App.ViewModels
         {
             var item = new TorrentItemViewModel(descriptor, settings, displayName, this.factory, this.dispatcher, this.clipboard, this.launcher, this.files);
             item.RemoveRequested += async (s, _) => await this.RemoveAsync((TorrentItemViewModel)s!);
-            item.SettingsChanged += (_, _) => this.SaveLastSession();
+            item.SettingsChanged += (_, _) => this.sessionSaveDue = true;
             return item;
         }
 
@@ -834,6 +848,7 @@ namespace RatioMaster.App.ViewModels
                 return;
             }
 
+            this.sessionSaveDue = false;
             try
             {
                 AppPaths.EnsureConfigDirectory();
