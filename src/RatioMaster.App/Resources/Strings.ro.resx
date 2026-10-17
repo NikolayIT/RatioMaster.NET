@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Adaugă torrent…</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Adaugă torrente dintr-un folder…</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Încarcă o sesiune…</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Torrentul nu a putut fi adăugat</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>Nu există fișiere .torrent în {0}.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Eliminare torrent</value>

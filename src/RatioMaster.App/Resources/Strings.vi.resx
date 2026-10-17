@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Thêm torrent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Thêm torrent từ thư mục...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Mở phiên...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Không thể thêm torrent</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>Không có tệp .torrent nào trong {0}.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Xóa torrent</value>

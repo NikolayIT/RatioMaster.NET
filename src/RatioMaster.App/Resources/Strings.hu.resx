@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Torrent hozzáadása...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Torrentek hozzáadása mappából...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Munkamenet betöltése...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Nem sikerült hozzáadni a torrentet</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>A(z) {0} mappában nincs .torrent fájl.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Torrent eltávolítása</value>

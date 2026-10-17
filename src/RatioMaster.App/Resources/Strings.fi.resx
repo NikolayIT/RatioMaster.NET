@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Lisää torrent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Lisää torrentit kansiosta...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Avaa istunto...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Torrentin lisääminen epäonnistui</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>Kansiossa {0} ei ole .torrent-tiedostoja.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Poista torrent</value>

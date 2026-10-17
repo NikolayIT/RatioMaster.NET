@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>新增 Torrent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>從資料夾新增 Torrent...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>載入工作階段...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>無法新增 Torrent</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>{0} 中沒有 .torrent 檔案。</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>移除 Torrent</value>

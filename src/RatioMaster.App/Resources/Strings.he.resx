@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>הוסף טורנט...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>הוסף טורנטים מתיקייה...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>טען סשן...</value>
   </data>
@@ -703,6 +706,10 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>לא ניתן להוסיף את הטורנט</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>אין קובצי &#x200E;.torrent בתיקייה {0}.</value>
+    <comment>Contains left-to-right marks (U+200E, written &amp;#x200E;) that keep the dot of .torrent/.session/.NET, the punctuation of Ctrl+. and Ctrl+, and the :// of a URL scheme in place in right-to-left text.</comment>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>הסרת טורנט</value>

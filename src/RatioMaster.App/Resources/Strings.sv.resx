@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Lägg till torrent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Lägg till torrenter från en mapp...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Läs in session...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Det gick inte att lägga till torrenten</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>Det finns inga .torrent-filer i {0}.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Ta bort torrent</value>

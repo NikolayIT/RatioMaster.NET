@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Torrent toevoegen...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Torrents uit een map toevoegen...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Sessie laden...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Kan torrent niet toevoegen</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>Er staan geen .torrent-bestanden in {0}.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Torrent verwijderen</value>

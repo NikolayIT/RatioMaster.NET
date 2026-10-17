@@ -368,6 +368,39 @@ namespace RatioMaster.App.ViewModels
             }
         }
 
+        /// <summary>
+        /// Adds every torrent in a folder: the way to add hundreds at once on a desktop whose file picker cannot pass
+        /// that many back (issue #57).
+        /// </summary>
+        [RelayCommand]
+        private async Task AddFolderAsync()
+        {
+            var folder = await this.files.PickFolderAsync(this.settings.LastTorrentDirectory);
+            if (folder is null)
+            {
+                return;
+            }
+
+            IReadOnlyList<string> paths;
+            try
+            {
+                paths = TorrentFolder.FindTorrentFiles(folder);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                this.notifications.ShowWarning(Strings.CouldNotAddTorrent, ex.Message);
+                return;
+            }
+
+            if (paths.Count == 0)
+            {
+                this.notifications.ShowWarning(Strings.CouldNotAddTorrent, string.Format(CultureInfo.CurrentCulture, Strings.NoTorrentsInFolder, folder));
+                return;
+            }
+
+            await this.AddTorrentsAsync(paths, forceDialog: false);
+        }
+
         private void AddDirectly(IReadOnlyList<string> paths)
         {
             foreach (var path in paths)

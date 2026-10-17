@@ -36,6 +36,10 @@
     <value>Add torrent...</value>
     <comment>File menu item; opens a file picker. "..." means a dialog follows.</comment>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Add torrents from folder...</value>
+    <comment>File menu item; opens a folder picker and adds every .torrent file in the chosen folder (not those in its subfolders). "..." means a dialog follows.</comment>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Load session...</value>
     <comment>A session is a saved list of torrents with their settings.</comment>
@@ -898,6 +902,10 @@
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Could not add torrent</value>
     <comment>Notification title; the reason follows.</comment>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>There are no .torrent files in {0}.</value>
+    <comment>Notification text after Add torrents from folder, under the CouldNotAddTorrent title. {0} = the folder's path. Keep .torrent as it is.</comment>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Remove torrent</value>

@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>添加 Torrent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>从文件夹添加 Torrent...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>加载会话...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>无法添加 Torrent</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>{0} 中没有 .torrent 文件。</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>移除 Torrent</value>

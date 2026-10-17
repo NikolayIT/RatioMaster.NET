@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Добави торент...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Добави торенти от папка...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Зареди сесия...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Торентът не можа да бъде добавен</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>В {0} няма .torrent файлове.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Премахване на торент</value>

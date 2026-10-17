@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>टोरेंट जोड़ें...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>फ़ोल्डर से टोरेंट जोड़ें...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>सत्र लोड करें...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>टोरेंट नहीं जोड़ा जा सका</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>{0} में कोई .torrent फ़ाइल नहीं है।</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>टोरेंट हटाएँ</value>

@@ -8,6 +8,8 @@ namespace RatioMaster.App.Services.Abstractions
     {
         Task<IReadOnlyList<string>> PickTorrentFilesAsync(string? startDirectory = null);
 
+        Task<string?> PickFolderAsync(string? startDirectory = null);
+
         Task<string?> PickSessionFileAsync(string? startDirectory = null);
 
         Task<string?> SaveSessionFileAsync(string suggestedName, string? startDirectory = null);

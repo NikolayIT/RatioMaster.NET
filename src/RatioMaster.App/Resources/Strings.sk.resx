@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Pridať torrent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Pridať torrenty z priečinka...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Načítať reláciu...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Torrent sa nepodarilo pridať</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>V priečinku {0} nie sú žiadne súbory .torrent.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Odobrať torrent</value>

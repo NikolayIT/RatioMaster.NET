@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Dodaj torent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Dodaj torente iz fascikle...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Učitaj sesiju...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Dodavanje torenta nije uspelo</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>U fascikli {0} nema .torrent datoteka.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Ukloni torent</value>

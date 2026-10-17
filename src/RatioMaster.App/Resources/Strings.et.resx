@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Lisa torrent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Lisa torrentid kaustast...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Laadi seanss...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Torrentit ei saanud lisada</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>Kaustas {0} pole .torrent-faile.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Eemalda torrent</value>

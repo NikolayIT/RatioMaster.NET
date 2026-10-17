@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Προσθήκη torrent...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Προσθήκη torrent από φάκελο...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Φόρτωση συνεδρίας...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Δεν ήταν δυνατή η προσθήκη του torrent</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>Δεν υπάρχουν αρχεία .torrent στο {0}.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Αφαίρεση torrent</value>

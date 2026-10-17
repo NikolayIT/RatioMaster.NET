@@ -15,6 +15,7 @@
   <Window.KeyBindings>
     <KeyBinding Gesture="Ctrl+O" Command="{Binding AddTorrentCommand}" />
     <KeyBinding Gesture="Ctrl+T" Command="{Binding AddTorrentCommand}" />
+    <KeyBinding Gesture="Ctrl+Shift+O" Command="{Binding AddFolderCommand}" />
     <KeyBinding Gesture="F5" Command="{Binding UpdateSelectedCommand}" />
     <KeyBinding Gesture="F2" Command="{Binding RenameSelectedCommand}" />
     <KeyBinding Gesture="Delete" Command="{Binding RemoveSelectedCommand}" />
@@ -40,6 +41,7 @@
     <Menu DockPanel.Dock="Top">
       <MenuItem Header="{x:Static res:Strings.MenuFile}">
         <MenuItem Header="{x:Static res:Strings.MenuAddTorrent}" Command="{Binding AddTorrentCommand}" InputGesture="Ctrl+O" />
+        <MenuItem Header="{x:Static res:Strings.MenuAddFolder}" Command="{Binding AddFolderCommand}" InputGesture="Ctrl+Shift+O" />
         <Separator />
         <MenuItem Header="{x:Static res:Strings.MenuLoadSession}" Command="{Binding LoadSessionCommand}" InputGesture="Ctrl+L" />
         <MenuItem Header="{x:Static res:Strings.MenuLoadSessionAndStart}" Command="{Binding LoadSessionAndStartCommand}" InputGesture="Ctrl+Shift+L" />

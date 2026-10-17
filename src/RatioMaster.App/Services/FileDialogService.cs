@@ -51,6 +51,24 @@ namespace RatioMaster.App.Services
             return ToPaths(files);
         }
 
+        public async Task<string?> PickFolderAsync(string? startDirectory = null)
+        {
+            var storage = windows.Window?.StorageProvider;
+            if (storage is null)
+            {
+                return null;
+            }
+
+            var folders = await storage.OpenFolderPickerAsync(new FolderPickerOpenOptions
+            {
+                Title = Strings.PickAddTorrents,
+                AllowMultiple = false,
+                SuggestedStartLocation = await FolderAsync(storage, startDirectory),
+            });
+
+            return folders.Count > 0 && folders[0].TryGetLocalPath() is { Length: > 0 } path ? path : null;
+        }
+
         public async Task<string?> PickSessionFileAsync(string? startDirectory = null)
         {
             var storage = windows.Window?.StorageProvider;

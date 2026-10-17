@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>เพิ่มทอร์เรนต์...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>เพิ่มทอร์เรนต์จากโฟลเดอร์...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>โหลดเซสชัน...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>ไม่สามารถเพิ่มทอร์เรนต์ได้</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>ไม่มีไฟล์ .torrent ใน {0}</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>เอาทอร์เรนต์ออก</value>

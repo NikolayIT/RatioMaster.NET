@@ -30,6 +30,9 @@
   <data name="MenuAddTorrent" xml:space="preserve">
     <value>Pridėti torentą...</value>
   </data>
+  <data name="MenuAddFolder" xml:space="preserve">
+    <value>Pridėti torentus iš aplanko...</value>
+  </data>
   <data name="MenuLoadSession" xml:space="preserve">
     <value>Įkelti seansą...</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="CouldNotAddTorrent" xml:space="preserve">
     <value>Nepavyko pridėti torento</value>
+  </data>
+  <data name="NoTorrentsInFolder" xml:space="preserve">
+    <value>Aplanke {0} nėra .torrent failų.</value>
   </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Šalinti torentą</value>
