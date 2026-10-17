@@ -52,7 +52,13 @@ namespace RatioMaster.App.ViewModels
         private readonly DispatcherTimer timer;
 
         private AppSettings settings;
-        private bool suspendAutosave;
+
+        /// <summary>
+        /// While rows are added in bulk, the numbering, the view refresh and the session save wait for the end of the
+        /// batch instead of running once a row: adding a thousand torrents used to rewrite the session file a thousand
+        /// times, each time with every row in it.
+        /// </summary>
+        private int deferredListChanges;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasSelection))]
@@ -195,14 +201,22 @@ namespace RatioMaster.App.ViewModels
                 return;
             }
 
-            foreach (var request in requests)
+            this.deferredListChanges++;
+            try
             {
-                var item = this.CreateItem(request.Descriptor, request.Settings, request.DisplayName);
-                this.Torrents.Add(item);
-                if (request.StartImmediately)
+                foreach (var request in requests)
                 {
-                    item.Start();
+                    var item = this.CreateItem(request.Descriptor, request.Settings, request.DisplayName);
+                    this.Torrents.Add(item);
+                    if (request.StartImmediately)
+                    {
+                        item.Start();
+                    }
                 }
+            }
+            finally
+            {
+                this.EndListChanges();
             }
 
             this.SelectedTorrent ??= this.Torrents.LastOrDefault();
@@ -315,6 +329,22 @@ namespace RatioMaster.App.ViewModels
 
         private void OnTorrentsChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
+            if (this.deferredListChanges == 0)
+            {
+                this.ApplyListChange();
+            }
+        }
+
+        private void EndListChanges()
+        {
+            if (--this.deferredListChanges == 0)
+            {
+                this.ApplyListChange();
+            }
+        }
+
+        private void ApplyListChange()
+        {
             for (var i = 0; i < this.Torrents.Count; i++)
             {
                 this.Torrents[i].Index = i + 1;
@@ -403,22 +433,30 @@ namespace RatioMaster.App.ViewModels
 
         private void AddDirectly(IReadOnlyList<string> paths)
         {
-            foreach (var path in paths)
+            this.deferredListChanges++;
+            try
             {
-                try
+                foreach (var path in paths)
                 {
-                    var file = TorrentFile.Load(path);
-                    var item = this.CreateItem(TorrentDescriptor.FromFile(file), this.settings.DefaultTorrentSettings, file.Name);
-                    this.Torrents.Add(item);
-                    if (this.settings.StartTorrentsImmediately)
+                    try
                     {
-                        item.Start();
+                        var file = TorrentFile.Load(path);
+                        var item = this.CreateItem(TorrentDescriptor.FromFile(file), this.settings.DefaultTorrentSettings, file.Name);
+                        this.Torrents.Add(item);
+                        if (this.settings.StartTorrentsImmediately)
+                        {
+                            item.Start();
+                        }
+                    }
+                    catch (TorrentFormatException ex)
+                    {
+                        this.notifications.ShowWarning(Strings.CouldNotAddTorrent, $"{Path.GetFileName(path)}: {ex.Message}");
                     }
                 }
-                catch (TorrentFormatException ex)
-                {
-                    this.notifications.ShowWarning(Strings.CouldNotAddTorrent, $"{Path.GetFileName(path)}: {ex.Message}");
-                }
+            }
+            finally
+            {
+                this.EndListChanges();
             }
 
             this.SelectedTorrent ??= this.Torrents.LastOrDefault();
@@ -697,7 +735,7 @@ namespace RatioMaster.App.ViewModels
                 return;
             }
 
-            this.suspendAutosave = true;
+            this.deferredListChanges++;
             var missing = 0;
             try
             {
@@ -729,10 +767,9 @@ namespace RatioMaster.App.ViewModels
             }
             finally
             {
-                this.suspendAutosave = false;
+                this.EndListChanges();
             }
 
-            this.SaveLastSession();
             this.SelectedTorrent ??= this.Torrents.FirstOrDefault();
 
             if (announce)
@@ -747,7 +784,7 @@ namespace RatioMaster.App.ViewModels
 
         private void SaveLastSession()
         {
-            if (this.suspendAutosave)
+            if (this.deferredListChanges > 0)
             {
                 return;
             }
