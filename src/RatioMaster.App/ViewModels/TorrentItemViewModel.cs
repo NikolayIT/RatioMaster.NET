@@ -233,6 +233,13 @@ namespace RatioMaster.App.ViewModels
         [RelayCommand(CanExecute = nameof(CanStart))]
         public void Start()
         {
+            // A session that stopped on its own (a stop condition, a tracker error) since the last refresh may have got
+            // further than that refresh saw, up to complete: carry on from where it really got to.
+            if (this.session is { } previous)
+            {
+                this.KeepResumePoint(previous.Snapshot);
+            }
+
             this.ApplySettings();
             this.appliedResumePercent = null;
             this.session = this.CreateSession();
