@@ -287,10 +287,21 @@ namespace RatioMaster.App.ViewModels
                 }
             });
 
-            await Task.WhenAll(stops).WaitAsync(cts.Token);
+            try
+            {
+                await Task.WhenAll(stops).WaitAsync(cts.Token);
+            }
+            finally
+            {
+                // Once more with where each torrent got to, as the timer that saves changes is off by now, and also when
+                // a tracker that does not answer kept a stop waiting past the timeout.
+                foreach (var torrent in this.Torrents)
+                {
+                    torrent.Refresh();
+                }
 
-            // Once more with where each torrent stopped, as the timer that saves changes is off by now.
-            this.SaveLastSession();
+                this.SaveLastSession();
+            }
         }
 
         /// <summary>Replaces the settings (used after the settings dialog and by the window for placement).</summary>
