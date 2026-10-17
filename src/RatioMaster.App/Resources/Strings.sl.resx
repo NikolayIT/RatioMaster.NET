@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>V mapi {0} ni datotek .torrent.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Že na seznamu, niso dodani znova: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Odstrani torrent</value>
   </data>

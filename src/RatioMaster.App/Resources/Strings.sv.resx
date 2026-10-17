@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>Det finns inga .torrent-filer i {0}.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Redan i listan, inte tillagda igen: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Ta bort torrent</value>
   </data>

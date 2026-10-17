@@ -201,11 +201,19 @@ namespace RatioMaster.App.ViewModels
                 return;
             }
 
+            var inList = this.ListKeys();
+            var skipped = 0;
             this.deferredListChanges++;
             try
             {
                 foreach (var request in requests)
                 {
+                    if (!inList.Add(ListKey(request.Descriptor.InfoHash, request.Descriptor.TrackerUrl)))
+                    {
+                        skipped++;
+                        continue;
+                    }
+
                     var item = this.CreateItem(request.Descriptor, request.Settings, request.DisplayName);
                     this.Torrents.Add(item);
                     if (request.StartImmediately)
@@ -219,6 +227,7 @@ namespace RatioMaster.App.ViewModels
                 this.EndListChanges();
             }
 
+            this.ReportAlreadyInList(skipped);
             this.SelectedTorrent ??= this.Torrents.LastOrDefault();
         }
 
@@ -288,6 +297,8 @@ namespace RatioMaster.App.ViewModels
         /// </summary>
         private static Task StopAllOfAsync(IEnumerable<TorrentItemViewModel> torrents) =>
             Task.WhenAll(torrents.Where(t => t.IsRunning).Select(t => t.StopAsync()));
+
+        private static string ListKey(byte[] infoHash, string trackerUrl) => Convert.ToHexString(infoHash) + " " + trackerUrl;
 
         private void Tick()
         {
@@ -433,6 +444,8 @@ namespace RatioMaster.App.ViewModels
 
         private void AddDirectly(IReadOnlyList<string> paths)
         {
+            var inList = this.ListKeys();
+            var skipped = 0;
             this.deferredListChanges++;
             try
             {
@@ -441,7 +454,14 @@ namespace RatioMaster.App.ViewModels
                     try
                     {
                         var file = TorrentFile.Load(path);
-                        var item = this.CreateItem(TorrentDescriptor.FromFile(file), this.settings.DefaultTorrentSettings, file.Name);
+                        var descriptor = TorrentDescriptor.FromFile(file);
+                        if (!inList.Add(ListKey(descriptor.InfoHash, descriptor.TrackerUrl)))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
+                        var item = this.CreateItem(descriptor, this.settings.DefaultTorrentSettings, file.Name);
                         this.Torrents.Add(item);
                         if (this.settings.StartTorrentsImmediately)
                         {
@@ -459,7 +479,23 @@ namespace RatioMaster.App.ViewModels
                 this.EndListChanges();
             }
 
+            this.ReportAlreadyInList(skipped);
             this.SelectedTorrent ??= this.Torrents.LastOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the torrents in the list, each by its info hash and tracker. A real client holds a torrent only once, and
+        /// two rows announcing one torrent to one tracker look like two peers of the same user: adding a folder again,
+        /// or loading a session twice, used to put every torrent in it into the list a second time.
+        /// </summary>
+        private HashSet<string> ListKeys() => this.Torrents.Select(t => ListKey(t.Descriptor.InfoHash, t.TrackerUrl)).ToHashSet(StringComparer.Ordinal);
+
+        private void ReportAlreadyInList(int skipped)
+        {
+            if (skipped > 0)
+            {
+                this.notifications.ShowInformation(Strings.PickAddTorrents, string.Format(CultureInfo.CurrentCulture, Strings.AlreadyInList, skipped));
+            }
         }
 
         private TorrentItemViewModel CreateItem(TorrentDescriptor descriptor, TorrentSettings settings, string displayName)
@@ -735,6 +771,8 @@ namespace RatioMaster.App.ViewModels
                 return;
             }
 
+            var inList = this.ListKeys();
+            var skipped = 0;
             this.deferredListChanges++;
             var missing = 0;
             try
@@ -751,6 +789,12 @@ namespace RatioMaster.App.ViewModels
                     {
                         var file = TorrentFile.Load(torrentPath);
                         var descriptor = TorrentDescriptor.FromFile(file, entry.TrackerUrl ?? file.Announce);
+                        if (!inList.Add(ListKey(descriptor.InfoHash, descriptor.TrackerUrl)))
+                        {
+                            skipped++;
+                            continue;
+                        }
+
                         var name = string.IsNullOrWhiteSpace(entry.Name) ? file.Name : entry.Name;
                         var item = this.CreateItem(descriptor, entry.Settings, name);
                         this.Torrents.Add(item);
@@ -770,6 +814,7 @@ namespace RatioMaster.App.ViewModels
                 this.EndListChanges();
             }
 
+            this.ReportAlreadyInList(skipped);
             this.SelectedTorrent ??= this.Torrents.FirstOrDefault();
 
             if (announce)

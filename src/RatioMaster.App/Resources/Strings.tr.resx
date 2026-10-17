@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>{0} klasöründe .torrent dosyası yok.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Zaten listede olduğu için yeniden eklenmeyen: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Torrent'i kaldır</value>
   </data>

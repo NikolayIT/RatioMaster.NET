@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>Không có tệp .torrent nào trong {0}.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Đã có trong danh sách, không thêm lại: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Xóa torrent</value>
   </data>

@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>Aplanke {0} nėra .torrent failų.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Jau yra sąraše, dar kartą nepridėta: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Šalinti torentą</value>
   </data>

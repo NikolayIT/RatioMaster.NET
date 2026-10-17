@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>Nuk ka skedarë .torrent në {0}.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Tashmë në listë, nuk u shtuan sërish: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Hiq torrentin</value>
   </data>

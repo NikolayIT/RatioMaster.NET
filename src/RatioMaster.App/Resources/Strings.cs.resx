@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>Ve složce {0} nejsou žádné soubory .torrent.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Už jsou v seznamu, znovu nepřidány: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Odebrat torrent</value>
   </data>

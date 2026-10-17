@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>{0} 中没有 .torrent 文件。</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>已在列表中，未重复添加：{0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>移除 Torrent</value>
   </data>

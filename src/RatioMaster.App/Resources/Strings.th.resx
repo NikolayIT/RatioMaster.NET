@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>ไม่มีไฟล์ .torrent ใน {0}</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>มีอยู่ในรายการแล้วจึงไม่ได้เพิ่มซ้ำ: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>เอาทอร์เรนต์ออก</value>
   </data>

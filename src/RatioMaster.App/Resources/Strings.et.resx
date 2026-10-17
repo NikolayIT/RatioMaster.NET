@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>Kaustas {0} pole .torrent-faile.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Juba loendis, uuesti ei lisatud: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Eemalda torrent</value>
   </data>

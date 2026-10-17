@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>A(z) {0} mappában nincs .torrent fájl.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Már a listában vannak, nem lettek újra hozzáadva: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Torrent eltávolítása</value>
   </data>

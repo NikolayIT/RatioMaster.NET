@@ -907,6 +907,10 @@
     <value>There are no .torrent files in {0}.</value>
     <comment>Notification text after Add torrents from folder, under the CouldNotAddTorrent title. {0} = the folder's path. Keep .torrent as it is.</comment>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Already in the list, not added again: {0}</value>
+    <comment>Notification text, under the PickAddTorrents title, after adding torrents or loading a session. {0} = how many torrents were left out because the list already has them with the same tracker; any number, 1 included. Label style, so that it reads right for every number.</comment>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Remove torrent</value>
     <comment>Confirmation title for one torrent.</comment>

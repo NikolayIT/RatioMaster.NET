@@ -705,6 +705,9 @@
   <data name="NoTorrentsInFolder" xml:space="preserve">
     <value>Er staan geen .torrent-bestanden in {0}.</value>
   </data>
+  <data name="AlreadyInList" xml:space="preserve">
+    <value>Al in de lijst, niet opnieuw toegevoegd: {0}</value>
+  </data>
   <data name="RemoveTorrentTitle" xml:space="preserve">
     <value>Torrent verwijderen</value>
   </data>
