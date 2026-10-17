@@ -20,6 +20,7 @@ namespace RatioMaster.Core.Sessions
         private readonly ILocalIpProvider localIpProvider;
         private readonly IRandomSource random;
         private readonly ISystemClock clock;
+        private readonly PeerListenerPool listeners;
 
         public TorrentSessionFactory(
             ClientProfileCatalog catalog,
@@ -27,7 +28,8 @@ namespace RatioMaster.Core.Sessions
             ClientValueScanner? scanner = null,
             ILocalIpProvider? localIpProvider = null,
             IRandomSource? random = null,
-            ISystemClock? clock = null)
+            ISystemClock? clock = null,
+            PeerListenerPool? listeners = null)
         {
             this.catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
             this.tracker = tracker ?? new TrackerClient();
@@ -36,6 +38,7 @@ namespace RatioMaster.Core.Sessions
             this.scanner = scanner ?? new ClientValueScanner();
             this.localIpProvider = localIpProvider ?? LocalIpProvider.Instance;
             this.clock = clock ?? SystemClock.Instance;
+            this.listeners = listeners ?? PeerListenerPool.Shared;
         }
 
         public ClientProfileCatalog Catalog => this.catalog;
@@ -70,7 +73,7 @@ namespace RatioMaster.Core.Sessions
 
             var profile = this.catalog.GetByName(settings.ClientName);
             var identity = this.CreateIdentity(settings, log);
-            return new TorrentSession(descriptor, profile, identity, settings, this.tracker, this.localIpProvider, this.random, this.clock);
+            return new TorrentSession(descriptor, profile, identity, settings, this.tracker, this.localIpProvider, this.random, this.clock, this.listeners);
         }
 
         private static string Or(string? value, string fallback) => string.IsNullOrWhiteSpace(value) ? fallback : value;

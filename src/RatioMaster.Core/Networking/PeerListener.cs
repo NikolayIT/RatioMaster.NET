@@ -1,14 +1,13 @@
 namespace RatioMaster.Core.Networking
 {
-    using System.Globalization;
     using System.Net;
     using System.Net.Sockets;
     using System.Text;
 
-    using RatioMaster.Core.Resources;
-
     /// <summary>
-    /// Answers incoming BitTorrent handshakes on the announced port so the torrent looks connectable to peers.
+    /// Answers incoming BitTorrent handshakes on one port for every torrent announced with it, the way a real client
+    /// listens on one port for all of its torrents, so each of them looks connectable. The reply carries the torrent the
+    /// peer asked for and that torrent's own peer id. Torrents join and leave through <see cref="PeerListenerPool"/>.
     /// Managed replacement for the old RM TcpListener responder. Only meaningful without a proxy.
     /// </summary>
     public sealed class PeerListener : IAsyncDisposable
@@ -16,63 +15,64 @@ namespace RatioMaster.Core.Networking
         private const string ProtocolIdentifier = "BitTorrent protocol";
         private const int HandshakeReadLength = 68;
 
-        private readonly int port;
-        private readonly byte[] infoHash;
-        private readonly byte[] peerId;
-        private readonly Action<string>? log;
+        private static readonly byte[] Protocol = Encoding.ASCII.GetBytes(ProtocolIdentifier);
+
+        private readonly Lock gate = new();
+        private readonly List<PeerListenerRegistration> torrents = [];
 
         private TcpListener? listener;
         private CancellationTokenSource? cts;
         private Task? acceptLoop;
 
-        public PeerListener(int port, byte[] infoHash, string peerId, Action<string>? log = null)
+        public PeerListener(int port)
         {
-            ArgumentNullException.ThrowIfNull(infoHash);
-            ArgumentNullException.ThrowIfNull(peerId);
-            this.port = port;
-            this.infoHash = infoHash;
-            this.peerId = Encoding.Latin1.GetBytes(peerId);
-            this.log = log;
+            this.Port = port;
         }
+
+        public int Port { get; }
 
         public bool IsListening => this.listener is not null;
 
-        /// <summary>Starts listening. Returns false (and logs) if the port is already in use.</summary>
-        public bool Start()
+        /// <summary>Gets a value indicating whether no torrent is left on this port.</summary>
+        internal bool IsEmpty
+        {
+            get
+            {
+                lock (this.gate)
+                {
+                    return this.torrents.Count == 0;
+                }
+            }
+        }
+
+        /// <summary>Starts listening. Returns null, or the reason it could not, which is usually that the port is in use.</summary>
+        public string? Start()
         {
             if (this.listener is not null)
             {
-                return true;
+                return null;
             }
 
-            var listener = new TcpListener(IPAddress.Any, this.port);
+            var listener = new TcpListener(IPAddress.Any, this.Port);
             try
             {
                 listener.Start();
             }
             catch (SocketException ex)
             {
-                this.log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ListenerStartFailed, this.port, ex.Message));
-                return false;
+                listener.Dispose();
+                return ex.Message;
             }
 
             this.listener = listener;
             this.cts = new CancellationTokenSource();
-            this.acceptLoop = Task.Run(() => this.AcceptLoopAsync(this.cts.Token));
-            this.log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ListenerStarted, this.port));
-            return true;
+            this.acceptLoop = Task.Run(() => this.AcceptLoopAsync(listener, this.cts.Token));
+            return null;
         }
 
         public async ValueTask DisposeAsync()
         {
-            var wasListening = this.IsListening;
-            if (this.cts is not null)
-            {
-                await this.cts.CancelAsync().ConfigureAwait(false);
-            }
-
-            this.listener?.Stop();
-
+            this.StopAccepting();
             if (this.acceptLoop is not null)
             {
                 try
@@ -89,10 +89,29 @@ namespace RatioMaster.Core.Networking
             this.listener = null;
             this.cts = null;
             this.acceptLoop = null;
-            if (wasListening)
+        }
+
+        internal void Add(PeerListenerRegistration torrent)
+        {
+            lock (this.gate)
             {
-                this.log?.Invoke(Strings.ListenerClosed);
+                this.torrents.Add(torrent);
             }
+        }
+
+        internal void Remove(PeerListenerRegistration torrent)
+        {
+            lock (this.gate)
+            {
+                this.torrents.Remove(torrent);
+            }
+        }
+
+        /// <summary>Closes the port at once, so another listener can open it, without waiting for the accept loop.</summary>
+        internal void StopAccepting()
+        {
+            this.cts?.Cancel();
+            this.listener?.Stop();
         }
 
         private static async Task<int> ReadSomeAsync(Stream stream, byte[] buffer, CancellationToken cancellationToken)
@@ -125,9 +144,21 @@ namespace RatioMaster.Core.Networking
             return total;
         }
 
-        private async Task AcceptLoopAsync(CancellationToken cancellationToken)
+        private static byte[] BuildHandshakeResponse(PeerListenerRegistration torrent)
         {
-            var listener = this.listener!;
+            var response = new byte[1 + ProtocolIdentifier.Length + 8 + torrent.InfoHash.Length + torrent.PeerId.Length];
+            var i = 0;
+            response[i++] = (byte)ProtocolIdentifier.Length;
+            i += Encoding.ASCII.GetBytes(ProtocolIdentifier, response.AsSpan(i));
+            i += 8; // 8 reserved zero bytes
+            torrent.InfoHash.CopyTo(response, i);
+            i += torrent.InfoHash.Length;
+            torrent.PeerId.CopyTo(response, i);
+            return response;
+        }
+
+        private async Task AcceptLoopAsync(TcpListener listener, CancellationToken cancellationToken)
+        {
             while (!cancellationToken.IsCancellationRequested)
             {
                 Socket socket;
@@ -156,9 +187,9 @@ namespace RatioMaster.Core.Networking
                     using var readCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
                     readCts.CancelAfter(TimeSpan.FromSeconds(5));
                     var read = await ReadSomeAsync(stream, buffer, readCts.Token).ConfigureAwait(false);
-                    if (this.IsMatchingHandshake(buffer.AsSpan(0, read)))
+                    if (this.FindTorrent(buffer.AsSpan(0, read)) is { } torrent)
                     {
-                        var response = this.BuildHandshakeResponse();
+                        var response = BuildHandshakeResponse(torrent);
                         await stream.WriteAsync(response, cancellationToken).ConfigureAwait(false);
                         await stream.FlushAsync(cancellationToken).ConfigureAwait(false);
                     }
@@ -170,23 +201,26 @@ namespace RatioMaster.Core.Networking
             }
         }
 
-        private bool IsMatchingHandshake(ReadOnlySpan<byte> data)
+        /// <summary>Gets the torrent a handshake asks for; when one torrent is on the port twice, the later one answers.</summary>
+        private PeerListenerRegistration? FindTorrent(ReadOnlySpan<byte> data)
         {
-            var protocol = Encoding.ASCII.GetBytes(ProtocolIdentifier);
-            return data.IndexOf(protocol) >= 0 && data.IndexOf(this.infoHash) >= 0;
-        }
+            if (data.IndexOf(Protocol) < 0)
+            {
+                return null;
+            }
 
-        private byte[] BuildHandshakeResponse()
-        {
-            var response = new byte[1 + ProtocolIdentifier.Length + 8 + this.infoHash.Length + this.peerId.Length];
-            var i = 0;
-            response[i++] = (byte)ProtocolIdentifier.Length;
-            i += Encoding.ASCII.GetBytes(ProtocolIdentifier, response.AsSpan(i));
-            i += 8; // 8 reserved zero bytes
-            this.infoHash.CopyTo(response, i);
-            i += this.infoHash.Length;
-            this.peerId.CopyTo(response, i);
-            return response;
+            lock (this.gate)
+            {
+                for (var i = this.torrents.Count - 1; i >= 0; i--)
+                {
+                    if (data.IndexOf(this.torrents[i].InfoHash) >= 0)
+                    {
+                        return this.torrents[i];
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

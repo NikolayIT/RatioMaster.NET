@@ -29,6 +29,7 @@ namespace RatioMaster.Core.Sessions
         private readonly ILocalIpProvider localIpProvider;
         private readonly IRandomSource random;
         private readonly ISystemClock clock;
+        private readonly PeerListenerPool listeners;
         private readonly Lock gate = new();
 
         private ClientIdentity identity;
@@ -66,7 +67,7 @@ namespace RatioMaster.Core.Sessions
         /// <summary>When the current key was generated, for the clients that roll theirs while running.</summary>
         private int keyGeneratedAtSecond;
 
-        private PeerListener? listener;
+        private PeerListenerRegistration? listener;
         private CancellationTokenSource? loopCts;
         private Task? loop;
         private bool shouldStop;
@@ -79,7 +80,8 @@ namespace RatioMaster.Core.Sessions
             ITrackerClient tracker,
             ILocalIpProvider? localIpProvider = null,
             IRandomSource? random = null,
-            ISystemClock? clock = null)
+            ISystemClock? clock = null,
+            PeerListenerPool? listeners = null)
         {
             this.descriptor = descriptor ?? throw new ArgumentNullException(nameof(descriptor));
             this.profile = profile ?? throw new ArgumentNullException(nameof(profile));
@@ -89,6 +91,7 @@ namespace RatioMaster.Core.Sessions
             this.localIpProvider = localIpProvider ?? LocalIpProvider.Instance;
             this.random = random ?? SystemRandomSource.Instance;
             this.clock = clock ?? SystemClock.Instance;
+            this.listeners = listeners ?? PeerListenerPool.Shared;
             this.currentUploadRate = settings.UploadRateBytes;
             this.currentDownloadRate = settings.DownloadRateBytes;
             this.uploadRandomEnabled = settings.UploadRandomEnabled;
@@ -113,7 +116,7 @@ namespace RatioMaster.Core.Sessions
 
         public TorrentSessionState State => this.state;
 
-        public bool IsListening => this.listener?.IsListening ?? false;
+        public bool IsListening => this.listener is not null;
 
         public TorrentStats Snapshot
         {
@@ -847,19 +850,16 @@ namespace RatioMaster.Core.Sessions
                 return;
             }
 
-            var listener = new PeerListener(port, this.descriptor.InfoHash, this.identity.PeerId, message => this.Log(LogLevel.Info, message));
-            if (listener.Start())
-            {
-                this.listener = listener;
-            }
+            // Shared with every other torrent announced with this port, as a real client's one listening port is.
+            this.listener = this.listeners.Join(port, this.descriptor.InfoHash, this.identity.PeerId, message => this.Log(LogLevel.Info, message));
         }
 
         private async Task CloseListenerAsync()
         {
-            if (this.listener is not null)
+            if (this.listener is { } listener)
             {
-                await this.listener.DisposeAsync().ConfigureAwait(false);
                 this.listener = null;
+                await listener.DisposeAsync().ConfigureAwait(false);
             }
         }
 

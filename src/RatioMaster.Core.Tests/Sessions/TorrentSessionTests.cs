@@ -632,6 +632,30 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.False(session.IsListening);
         }
 
+        /// <summary>
+        /// A real client listens on one port for all of its torrents (issue #56). Each torrent used to open its own
+        /// listener, so every torrent after the first on a port could not listen at all and looked unconnectable.
+        /// </summary>
+        [Fact]
+        public async Task TorrentsAnnouncedWithTheSamePortAllListenOnIt()
+        {
+            var pool = new PeerListenerPool();
+            var port = GetFreePort().ToString();
+            var settings = QuietSettings() with { UseTcpListener = true };
+            var (first, _) = Create(settings, identity: Identity(port), listeners: pool);
+            var (second, _) = Create(settings, identity: Identity(port), listeners: pool, infoHash: [.. Enumerable.Range(100, 20).Select(i => (byte)i)]);
+
+            await first.StartAsync(Ct);
+            await second.StartAsync(Ct);
+            Assert.True(first.IsListening);
+            Assert.True(second.IsListening);
+
+            await first.StopAsync(Ct);
+            Assert.False(first.IsListening);
+            Assert.True(second.IsListening);
+            await second.StopAsync(Ct);
+        }
+
         [Fact]
         public async Task NextUpdateRandomSpeedsApplyBeforeTheAnnounce()
         {
@@ -842,13 +866,15 @@ namespace RatioMaster.Core.Tests.Sessions
             IRandomSource? random = null,
             Action<FakeTrackerClient>? configureTracker = null,
             ClientIdentity? identity = null,
-            ClientProfile? profile = null)
+            ClientProfile? profile = null,
+            PeerListenerPool? listeners = null,
+            byte[]? infoHash = null)
         {
             var tracker = new FakeTrackerClient();
             configureTracker?.Invoke(tracker);
             var descriptor = new TorrentDescriptor
             {
-                InfoHash = InfoHash,
+                InfoHash = infoHash ?? InfoHash,
                 TotalLength = totalLength,
                 TrackerUrl = "http://tracker.test/announce",
                 Name = "test.iso",
@@ -861,7 +887,8 @@ namespace RatioMaster.Core.Tests.Sessions
                 tracker,
                 new FakeLocalIpProvider(),
                 random ?? new ScriptedRandomSource(),
-                new FakeClock());
+                new FakeClock(),
+                listeners);
             return (session, tracker);
         }
 
