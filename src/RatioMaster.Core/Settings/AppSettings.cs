@@ -1,5 +1,6 @@
 namespace RatioMaster.Core.Settings
 {
+    using System.Collections.ObjectModel;
     using System.Text.Json.Serialization;
 
     using RatioMaster.Core.Sessions;
@@ -62,5 +63,11 @@ namespace RatioMaster.Core.Settings
 
         /// <summary>Gets or sets a value indicating whether the Add dialog's "start immediately" box is ticked by default.</summary>
         public bool StartTorrentsImmediately { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets the port each emulated client listens on, by client name, kept so that its torrents announce
+        /// the same port after a restart (see <see cref="Clients.ClientPortBook"/>).
+        /// </summary>
+        public IReadOnlyDictionary<string, string> ClientPorts { get; set; } = ReadOnlyDictionary<string, string>.Empty;
     }
 }

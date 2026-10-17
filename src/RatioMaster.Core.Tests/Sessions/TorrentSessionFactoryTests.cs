@@ -1,5 +1,7 @@
 namespace RatioMaster.Core.Tests.Sessions
 {
+    using System.Globalization;
+
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.MemoryScan;
     using RatioMaster.Core.Sessions;
@@ -47,6 +49,73 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.Equal("45000", identity.Port);
             Assert.False(string.IsNullOrWhiteSpace(identity.Key));
             Assert.Equal("200", identity.NumWant);
+        }
+
+        /// <summary>
+        /// A real client listens on one port for all of its torrents and keeps it (issue #56), so every torrent of a
+        /// client announces the same port, picked once by that client's own rules.
+        /// </summary>
+        [Fact]
+        public void TheTorrentsOfAClientShareItsPort()
+        {
+            var factory = CreateFactory();
+            var settings = new TorrentSettings { ClientName = "uTorrent 3.6.0" };
+
+            var first = factory.CreateIdentity(settings);
+            var second = factory.CreateIdentity(settings);
+
+            Assert.Equal(first.Port, second.Port);
+            Assert.InRange(int.Parse(first.Port, CultureInfo.InvariantCulture), 10000, 64999); // uTorrent's own range
+            Assert.NotEqual(first.PeerId, second.PeerId); // the rest stays each torrent's own
+        }
+
+        [Fact]
+        public void EachClientHasAPortOfItsOwn()
+        {
+            var factory = CreateFactory();
+
+            var utorrent = factory.CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.6.0" });
+            var qbittorrent = factory.CreateIdentity(new TorrentSettings { ClientName = "qBittorrent 5.2.4" });
+
+            Assert.Equal(["qBittorrent 5.2.4", "uTorrent 3.6.0"], factory.Ports.Snapshot().Keys.Order(StringComparer.Ordinal));
+            Assert.NotEqual(utorrent.Port, qbittorrent.Port);
+        }
+
+        [Fact]
+        public void AClientKeepsItsPortAfterARestart()
+        {
+            var factory = CreateFactory();
+            factory.Ports.Load(new Dictionary<string, string> { ["uTorrent 3.6.0"] = "35443" });
+
+            Assert.Equal("35443", factory.CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.6.0" }).Port);
+        }
+
+        [Fact]
+        public void APortTypedInWinsAndALeftBlankOneIsTheClients()
+        {
+            var factory = CreateFactory();
+            factory.Ports.Load(new Dictionary<string, string> { ["uTorrent 3.6.0"] = "35443" });
+            var custom = new TorrentSettings { ClientName = "uTorrent 3.6.0", IdentityMode = IdentityMode.Custom, CustomPort = "45000" };
+
+            Assert.Equal("45000", factory.CreateIdentity(custom).Port);
+            Assert.Equal("35443", factory.CreateIdentity(custom with { CustomPort = " " }).Port);
+        }
+
+        [Fact]
+        public void TheBookSaysWhenAClientGetsItsPortAndDropsSavedValuesThatAreNoPort()
+        {
+            var factory = CreateFactory();
+            factory.Ports.Load(new Dictionary<string, string> { ["uTorrent 3.6.0"] = "nope", ["Deluge 2.2.0"] = "70000" });
+            var changes = 0;
+            factory.Ports.Changed += (_, _) => changes++;
+
+            factory.CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.6.0" });
+            factory.CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.6.0" });
+
+            Assert.Equal(1, changes);
+            var ports = factory.Ports.Snapshot();
+            Assert.NotEqual("nope", ports["uTorrent 3.6.0"]);
+            Assert.False(ports.ContainsKey("Deluge 2.2.0"));
         }
 
         [Fact]

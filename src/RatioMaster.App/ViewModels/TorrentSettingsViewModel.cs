@@ -32,6 +32,7 @@ namespace RatioMaster.App.ViewModels
         private string clientVersion;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanEditPortAndPeers))]
         private bool useAutomaticIdentity = true;
 
         [ObservableProperty]
@@ -144,6 +145,7 @@ namespace RatioMaster.App.ViewModels
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsLocked))]
+        [NotifyPropertyChangedFor(nameof(CanEditPortAndPeers))]
         private bool isRunning;
 
         public TorrentSettingsViewModel(ClientProfileCatalog catalog, TorrentSessionFactory? factory = null, TorrentSettings? settings = null)
@@ -173,6 +175,13 @@ namespace RatioMaster.App.ViewModels
 
         /// <summary>Gets a value indicating whether the torrent runs: the fields the engine cannot change mid-flight are disabled.</summary>
         public bool IsLocked => this.IsRunning;
+
+        /// <summary>
+        /// Gets a value indicating whether the Port and Peers wanted boxes take a value: only for a custom identity, since an
+        /// automatic one always uses the client's own port and peer count (what was typed there used to be ignored), and
+        /// not while the torrent runs.
+        /// </summary>
+        public bool CanEditPortAndPeers => !this.UseAutomaticIdentity && !this.IsLocked;
 
         public bool IsProxyConfigured => this.ProxyType != ProxyType.None;
 

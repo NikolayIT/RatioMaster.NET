@@ -9,7 +9,8 @@ namespace RatioMaster.Core.Sessions
     /// <summary>
     /// Resolves the client profile and identity for a torrent and builds a ready <see cref="TorrentSession"/>.
     /// Identity comes from the settings when custom, otherwise from the running client's memory when that
-    /// profile supports it, otherwise from the generator.
+    /// profile supports it, otherwise from the generator; the port, unless typed in, is the client's one port
+    /// from <see cref="Ports"/>.
     /// </summary>
     public sealed class TorrentSessionFactory
     {
@@ -43,12 +44,23 @@ namespace RatioMaster.Core.Sessions
 
         public ClientProfileCatalog Catalog => this.catalog;
 
+        /// <summary>Gets the port each client listens on, which the application loads from and saves into its settings.</summary>
+        public ClientPortBook Ports { get; } = new();
+
         /// <summary>Builds the identity a session would use, without creating the session (for the UI preview).</summary>
         public ClientIdentity CreateIdentity(TorrentSettings settings, Action<string>? log = null)
         {
             ArgumentNullException.ThrowIfNull(settings);
             var profile = this.catalog.GetByName(settings.ClientName);
             var generated = this.generator.Generate(profile);
+
+            // One port for all of a client's torrents, kept from run to run, as a real client listens on one port. A
+            // port typed in still wins, and one copied out of the running client below replaces it.
+            if (settings.IdentityMode == IdentityMode.Automatic || string.IsNullOrWhiteSpace(settings.CustomPort))
+            {
+                var picked = generated.Port;
+                generated = generated with { Port = this.Ports.GetOrPick(profile.Name, () => picked) };
+            }
 
             if (settings.IdentityMode == IdentityMode.Custom)
             {

@@ -105,6 +105,8 @@ namespace RatioMaster.App.ViewModels
             this.localIp = localIp;
             this.updateChecker = updateChecker;
             this.settings = settingsStore.Load();
+            factory.Ports.Load(this.settings.ClientPorts);
+            factory.Ports.Changed += (_, _) => dispatcher.Post(this.SaveClientPorts);
 
             this.TorrentsView = new DataGridCollectionView(this.Torrents) { Filter = this.FilterTorrent };
             this.Torrents.CollectionChanged += this.OnTorrentsChanged;
@@ -395,6 +397,13 @@ namespace RatioMaster.App.ViewModels
             item.RemoveRequested += async (s, _) => await this.RemoveAsync((TorrentItemViewModel)s!);
             item.SettingsChanged += (_, _) => this.SaveLastSession();
             return item;
+        }
+
+        /// <summary>Saves the port a client just got, so that its torrents announce the same one after a restart.</summary>
+        private void SaveClientPorts()
+        {
+            this.settings = this.settings with { ClientPorts = this.factory.Ports.Snapshot() };
+            this.settingsStore.Save(this.settings);
         }
 
         private void RememberTorrentDirectory(string path)
@@ -731,7 +740,8 @@ namespace RatioMaster.App.ViewModels
             var saved = await this.dialogs.ShowAsync(dialog);
             if (saved is not null)
             {
-                this.settings = saved;
+                // A client may have got its port while the dialog was open.
+                this.settings = saved with { ClientPorts = this.factory.Ports.Snapshot() };
                 this.settingsStore.Save(this.settings);
                 LogTimeConverter.Use24HourTime = this.settings.Use24HourTime;
                 ThemeApplier.Apply(this.settings.Theme);

@@ -60,9 +60,10 @@ namespace RatioMaster.Core.Tests.Settings
             store.Save(settings);
             var loaded = store.Load();
 
-            // Records compare list members by reference, so compare the collection separately.
-            Assert.Equal(settings with { Columns = [] }, loaded with { Columns = [] });
+            // Records compare collection members by reference, so compare the collections separately.
+            Assert.Equal(settings with { Columns = [], ClientPorts = settings.ClientPorts }, loaded with { Columns = [], ClientPorts = settings.ClientPorts });
             Assert.Equal(settings.Columns, loaded.Columns);
+            Assert.Empty(loaded.ClientPorts);
             Assert.Equal(AppTheme.Dark, loaded.Theme);
             Assert.Equal("Deluge 2.1.1", loaded.DefaultTorrentSettings.ClientName);
             Assert.Equal(ProxyType.Socks5, loaded.DefaultTorrentSettings.Proxy.Type);
@@ -79,6 +80,18 @@ namespace RatioMaster.Core.Tests.Settings
             var corruptPath = this.PathFor("corrupt.json");
             File.WriteAllText(corruptPath, "{ this is not json");
             Assert.Equal(new AppSettings(), new SettingsStore(corruptPath).Load());
+        }
+
+        [Fact]
+        public void TheClientPortsAreSavedAndKeepTheClientNamesAsTheyAre()
+        {
+            var store = new SettingsStore(this.PathFor("settings.json"));
+            store.Save(new AppSettings { ClientPorts = new Dictionary<string, string> { ["uTorrent 3.6.0"] = "35443", ["Deluge 2.2.0"] = "6881" } });
+
+            Assert.Contains("\"Deluge 2.2.0\": \"6881\"", File.ReadAllText(store.FilePath), StringComparison.Ordinal);
+            var ports = store.Load().ClientPorts;
+            Assert.Equal("35443", ports["uTorrent 3.6.0"]);
+            Assert.Equal("6881", ports["Deluge 2.2.0"]);
         }
 
         [Fact]

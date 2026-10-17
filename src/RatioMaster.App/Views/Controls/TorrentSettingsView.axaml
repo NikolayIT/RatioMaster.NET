@@ -166,10 +166,10 @@
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:Strings.Port}" Classes="label" Margin="0,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="1" Width="120" HorizontalAlignment="Left" Margin="0,8,0,0"
-                     Text="{Binding Port}" IsEnabled="{Binding !IsLocked}" />
+                     Text="{Binding Port}" IsEnabled="{Binding CanEditPortAndPeers}" />
             <TextBlock Grid.Row="1" Grid.Column="2" Text="{x:Static res:Strings.LabelPeersWanted}" Classes="label" Margin="12,8,8,0" />
             <TextBox Grid.Row="1" Grid.Column="3" Width="140" Margin="0,8,0,0"
-                     Text="{Binding NumWant}" IsEnabled="{Binding !IsLocked}" />
+                     Text="{Binding NumWant}" IsEnabled="{Binding CanEditPortAndPeers}" />
           </Grid>
           <StackPanel Orientation="Horizontal" Spacing="10">
             <Button Content="{x:Static res:Strings.ButtonRegenerate}" Command="{Binding RegenerateIdentityCommand}"
