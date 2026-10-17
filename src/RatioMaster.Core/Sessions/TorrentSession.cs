@@ -55,6 +55,14 @@ namespace RatioMaster.Core.Sessions
         private int? seeders;
         private int? leechers;
 
+        /// <summary>
+        /// Whether the tracker accepted the started and the completed announce. Until it has, the next update carries
+        /// the event again, as libtorrent does (start_sent, complete_sent): one that got no answer, or was refused, is
+        /// otherwise lost, and with it the tracker's record that the torrent was started or completed.
+        /// </summary>
+        private bool startedSent;
+        private bool completedSent;
+
         /// <summary>When the current key was generated, for the clients that roll theirs while running.</summary>
         private int keyGeneratedAtSecond;
 
@@ -251,6 +259,10 @@ namespace RatioMaster.Core.Sessions
                 this.uploadRandomEnabled = this.settings.UploadRandomEnabled;
                 this.currentInterval = ClampInterval(this.settings.IntervalSeconds);
                 this.InitializeSizeFromFinishedPercent();
+
+                // A torrent that starts complete was completed before, so it never sends completed, as in libtorrent.
+                this.startedSent = false;
+                this.completedSent = this.seedMode;
             }
 
             this.SetState(TorrentSessionState.Starting);
@@ -569,14 +581,25 @@ namespace RatioMaster.Core.Sessions
                 this.SetState(TorrentSessionState.Updating);
             }
 
+            TrackerEvent sending;
+            lock (this.gate)
+            {
+                sending = this.WithPendingEvent(trackerEvent);
+            }
+
             var values = this.BuildAnnounceValues();
-            this.Log(LogLevel.Info, AnnouncingText(trackerEvent));
+            this.Log(LogLevel.Info, AnnouncingText(sending));
             try
             {
                 var outcome = await this.tracker.AnnounceAsync(
-                    this.profile, this.descriptor.TrackerUrl, values, trackerEvent, this.settings.Proxy, this.settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
+                    this.profile, this.descriptor.TrackerUrl, values, sending, this.settings.Proxy, this.settings.IgnoreCertificateErrors, cancellationToken).ConfigureAwait(false);
                 this.TrackerExchangeCompleted?.Invoke(this, outcome.Exchange);
                 this.ApplyAnnounceResponse(outcome.Response);
+                if (!outcome.Response.HasFailure)
+                {
+                    this.MarkSent(sending);
+                }
+
                 return outcome.Response;
             }
             catch (Exception ex) when (ex is TrackerException or IOException or ProxyException)
@@ -584,6 +607,32 @@ namespace RatioMaster.Core.Sessions
                 this.Log(LogLevel.Warning, string.Format(CultureInfo.CurrentCulture, Strings.LogNoConnection, ex.Message));
                 this.ScheduleRetry();
                 return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the event an announce carries: the one asked for, or, on an update, the started or completed the tracker
+        /// has not accepted yet. Call it inside the gate.
+        /// </summary>
+        private TrackerEvent WithPendingEvent(TrackerEvent requested) => requested switch
+        {
+            TrackerEvent.None when !this.startedSent => TrackerEvent.Started,
+            TrackerEvent.None when !this.completedSent && this.left == 0 => TrackerEvent.Completed,
+            _ => requested,
+        };
+
+        private void MarkSent(TrackerEvent sent)
+        {
+            lock (this.gate)
+            {
+                if (sent == TrackerEvent.Started)
+                {
+                    this.startedSent = true;
+                }
+                else if (sent == TrackerEvent.Completed)
+                {
+                    this.completedSent = true;
+                }
             }
         }
 

@@ -445,12 +445,77 @@ namespace RatioMaster.Core.Tests.Sessions
 
             Assert.Equal(TimeSpan.FromSeconds(TorrentSession.RetryDelaySeconds), session.Snapshot.NextUpdateIn);
 
-            // Once the tracker answers, the retry announce happens on its own and the counters start moving.
+            // Once the tracker answers, the retry announce happens on its own and the counters start moving. The
+            // tracker never got the started announce, so the retry is one.
             tracker.AnnounceError = null;
             await TickAsync(session, TorrentSession.RetryDelaySeconds + 1);
-            Assert.Contains(tracker.Announces, a => a.Event == TrackerEvent.None);
+            Assert.Equal([TrackerEvent.Started, TrackerEvent.Started], tracker.Announces.Select(a => a.Event));
             await TickAsync(session, 1);
             Assert.True(session.Snapshot.Uploaded > 0);
+
+            session.RequestUpdate();
+            await TickAsync(session, 1);
+            Assert.Equal(TrackerEvent.None, tracker.Announces.Last().Event);
+        }
+
+        [Fact]
+        public async Task ACompletedAnnounceThatGotNoAnswerIsSentAgain()
+        {
+            var settings = QuietSettings() with { IntervalSeconds = 1800, DownloadRateBytes = 10_000 };
+            var (session, tracker) = Create(settings, totalLength: 500_000);
+            await session.StartAsync(Ct);
+            await TickAsync(session, 49);
+
+            tracker.AnnounceError = new TrackerException("timed out");
+            await TickAsync(session, 1);
+            tracker.AnnounceError = null;
+            Assert.Equal(TrackerEvent.Completed, tracker.Announces.Last().Event);
+            Assert.True(session.Snapshot.NextUpdateIn <= TimeSpan.FromSeconds(TorrentSession.RetryDelaySeconds));
+
+            // The retry a minute later says completed again; once the tracker has it, updates carry no event.
+            await TickAsync(session, TorrentSession.RetryDelaySeconds + 1);
+            Assert.Equal([TrackerEvent.Started, TrackerEvent.Completed, TrackerEvent.Completed], tracker.Announces.Select(a => a.Event));
+            Assert.Equal(0, tracker.Announces.Last().Values.Left);
+            Assert.Equal(500_000, tracker.Announces.Last().Values.Downloaded);
+
+            session.RequestUpdate();
+            await TickAsync(session, 1);
+            Assert.Equal(TrackerEvent.None, tracker.Announces.Last().Event);
+            Assert.Equal(TorrentSessionState.Seeding, session.State);
+        }
+
+        [Fact]
+        public async Task ACompletedAnnounceTheTrackerRefusedIsSentAgain()
+        {
+            var settings = QuietSettings() with { IntervalSeconds = 60, DownloadRateBytes = 10_000 };
+            var (session, tracker) = Create(settings, totalLength: 500_000, configureTracker: t => t.Interval = 60);
+            await session.StartAsync(Ct);
+            await TickAsync(session, 49);
+
+            tracker.FailureReason = "try again later";
+            await TickAsync(session, 1);
+            tracker.FailureReason = null;
+            Assert.Equal(TrackerEvent.Completed, tracker.Announces.Last().Event);
+            Assert.Equal(TorrentSessionState.Seeding, session.State);
+
+            await TickAsync(session, 60);
+            Assert.Equal([TrackerEvent.Started, TrackerEvent.Completed, TrackerEvent.Completed], tracker.Announces.Select(a => a.Event));
+
+            await TickAsync(session, 61);
+            Assert.Equal(TrackerEvent.None, tracker.Announces.Last().Event);
+        }
+
+        [Fact]
+        public async Task ATorrentThatStartsCompleteNeverSaysCompleted()
+        {
+            var settings = QuietSettings() with { FinishedPercent = 100 };
+            var (session, tracker) = Create(settings);
+            await session.StartAsync(Ct);
+
+            session.RequestUpdate();
+            await TickAsync(session, 1);
+
+            Assert.Equal([TrackerEvent.Started, TrackerEvent.None], tracker.Announces.Select(a => a.Event));
         }
 
         [Fact]
