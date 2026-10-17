@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Грешка трекера: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Упозорење трекера: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>парњаци: ({0})</value>
   </data>

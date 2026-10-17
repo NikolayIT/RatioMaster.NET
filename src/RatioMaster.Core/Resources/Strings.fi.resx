@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Seurantapalvelimen virhe: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Seurantapalvelimen varoitus: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>vertaisia: ({0})</value>
   </data>

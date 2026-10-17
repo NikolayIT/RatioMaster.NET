@@ -73,6 +73,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>שגיאת עוקבן: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>אזהרת עוקבן: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>עמיתים: ({0})</value>
   </data>

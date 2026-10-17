@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Lỗi tracker: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Cảnh báo tracker: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>peer: ({0})</value>
   </data>

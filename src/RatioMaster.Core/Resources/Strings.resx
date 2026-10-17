@@ -90,6 +90,10 @@
     <value>Tracker error: {0}</value>
     <comment>Log line and stop reason. {0} = the tracker's failure reason, in the tracker's language.</comment>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Tracker warning: {0}</value>
+    <comment>Log line. {0} = the tracker's warning message, in the tracker's language. Unlike an error, a warning does not stop the torrent.</comment>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>peers: ({0})</value>
     <comment>Log line. {0} = number of peers the tracker returned, 1 or more.</comment>

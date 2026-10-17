@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Eroare de la tracker: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Avertisment de la tracker: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>parteneri: ({0})</value>
   </data>

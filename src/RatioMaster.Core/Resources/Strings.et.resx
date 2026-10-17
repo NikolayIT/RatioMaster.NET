@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Jälgija viga: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Jälgija hoiatus: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>partnereid: ({0})</value>
   </data>

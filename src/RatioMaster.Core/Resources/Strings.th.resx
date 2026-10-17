@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>ข้อผิดพลาดจากแทร็กเกอร์: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>คำเตือนจากแทร็กเกอร์: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>เพียร์: ({0})</value>
   </data>

@@ -655,6 +655,13 @@ namespace RatioMaster.Core.Sessions
                 return;
             }
 
+            // Not an error, so the torrent keeps running, but it can be the reason the tracker did not count an
+            // announce (NexusPHP answers one that came too early with a warning and drops it).
+            if (response.WarningMessage is { Length: > 0 } warning)
+            {
+                this.Log(LogLevel.Warning, string.Format(CultureInfo.CurrentCulture, Strings.LogTrackerWarning, warning));
+            }
+
             foreach (var (key, value) in response.ExtraKeys)
             {
                 this.Log(LogLevel.Info, $"{key}: {value}");

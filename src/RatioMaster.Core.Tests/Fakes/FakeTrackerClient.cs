@@ -24,6 +24,8 @@ namespace RatioMaster.Core.Tests.Fakes
 
         public string? FailureReason { get; set; }
 
+        public string? WarningMessage { get; set; }
+
         /// <summary>Gets or sets when set, throws this on every announce (simulates no connection).</summary>
         public Exception? AnnounceError { get; set; }
 
@@ -105,6 +107,11 @@ namespace RatioMaster.Core.Tests.Fakes
             {
                 dict.Set("failure reason", this.FailureReason);
                 return AnnounceResponse.Parse(dict);
+            }
+
+            if (this.WarningMessage is not null)
+            {
+                dict.Set("warning message", this.WarningMessage);
             }
 
             if (this.Interval is { } interval)

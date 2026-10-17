@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Sporerfeil: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Sporeradvarsel: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>likemenn: ({0})</value>
   </data>

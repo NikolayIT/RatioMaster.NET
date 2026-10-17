@@ -420,6 +420,22 @@ namespace RatioMaster.Core.Tests.Sessions
         }
 
         [Fact]
+        public async Task ATrackerWarningIsLoggedAndTheTorrentKeepsRunning()
+        {
+            var logs = new List<LogEntry>();
+            var (session, _) = Create(configureTracker: t => t.WarningMessage = "There is a minimum announce time of 300 seconds");
+            session.LogEmitted += (_, e) => logs.Add(e);
+
+            await session.StartAsync(Ct);
+            await TickAsync(session, 1);
+
+            var warning = Assert.Single(logs, l => l.Level == LogLevel.Warning);
+            Assert.Equal("Tracker warning: There is a minimum announce time of 300 seconds", warning.Text);
+            Assert.Equal(TorrentSessionState.Downloading, session.State);
+            Assert.Equal(60 * KiB, session.Snapshot.Uploaded);
+        }
+
+        [Fact]
         public async Task NoConnectionKeepsTheSessionRunningAndCountersFrozenUntilTheFirstReply()
         {
             var (session, tracker) = Create(configureTracker: t => t.AnnounceError = new TrackerException("connection refused"));

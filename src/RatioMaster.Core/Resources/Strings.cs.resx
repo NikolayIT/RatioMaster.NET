@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Chyba trackeru: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Varování trackeru: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>peery: ({0})</value>
   </data>

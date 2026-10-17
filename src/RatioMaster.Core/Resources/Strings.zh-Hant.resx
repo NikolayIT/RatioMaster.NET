@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>追蹤器錯誤：{0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>追蹤器警告：{0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>對等節點：({0})</value>
   </data>

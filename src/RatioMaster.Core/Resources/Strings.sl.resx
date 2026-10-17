@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Napaka sledilnika: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Opozorilo sledilnika: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>soležniki: ({0})</value>
   </data>

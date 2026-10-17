@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Galat pelacak: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Peringatan pelacak: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>peer: ({0})</value>
   </data>

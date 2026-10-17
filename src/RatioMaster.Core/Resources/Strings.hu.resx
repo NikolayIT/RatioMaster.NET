@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Trackerhiba: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Trackerfigyelmeztetés: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>peerek: ({0})</value>
   </data>

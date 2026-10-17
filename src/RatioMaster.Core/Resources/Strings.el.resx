@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Σφάλμα ιχνηλάτη: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Προειδοποίηση ιχνηλάτη: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>ομότιμοι: ({0})</value>
   </data>

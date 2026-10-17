@@ -72,6 +72,9 @@
   <data name="LogTrackerError" xml:space="preserve">
     <value>Seklio klaida: {0}</value>
   </data>
+  <data name="LogTrackerWarning" xml:space="preserve">
+    <value>Seklio įspėjimas: {0}</value>
+  </data>
   <data name="LogPeers" xml:space="preserve">
     <value>dalyvių: ({0})</value>
   </data>
