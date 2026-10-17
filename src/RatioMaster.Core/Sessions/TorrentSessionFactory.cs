@@ -74,7 +74,13 @@ namespace RatioMaster.Core.Sessions
                 };
             }
 
-            return this.scanner.TryScan(profile, generated, log) ?? generated;
+            if (this.scanner.TryScan(profile, generated, log) is { } copied)
+            {
+                this.Ports.Remember(profile.Name, copied.Port);
+                return copied;
+            }
+
+            return generated;
         }
 
         /// <summary>Creates a session for a torrent with the given settings.</summary>

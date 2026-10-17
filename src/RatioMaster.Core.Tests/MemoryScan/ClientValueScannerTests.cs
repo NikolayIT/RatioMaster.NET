@@ -4,6 +4,7 @@ namespace RatioMaster.Core.Tests.MemoryScan
 
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.MemoryScan;
+    using RatioMaster.Core.Tests.Fakes;
 
     public class ClientValueScannerTests
     {
@@ -96,28 +97,6 @@ namespace RatioMaster.Core.Tests.MemoryScan
         {
             var text = new string('.', padding) + announce;
             return Encoding.ASCII.GetBytes(text);
-        }
-
-        private sealed class FakeProcessMemoryScanner(byte[] memory, bool canOpen = true) : IProcessMemoryScanner
-        {
-            public bool IsSupported => true;
-
-            public ProcessMemorySession? Open(string processName) => canOpen ? new Session(memory) : null;
-
-            private sealed class Session(byte[] memory) : ProcessMemorySession
-            {
-                public override int Read(long address, byte[] buffer)
-                {
-                    if (address >= memory.Length)
-                    {
-                        return 0;
-                    }
-
-                    var count = (int)Math.Min(buffer.Length, memory.Length - address);
-                    Array.Copy(memory, address, buffer, 0, count);
-                    return count;
-                }
-            }
         }
     }
 }

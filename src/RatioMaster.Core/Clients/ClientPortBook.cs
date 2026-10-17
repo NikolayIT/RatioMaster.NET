@@ -56,6 +56,31 @@ namespace RatioMaster.Core.Clients
             return port;
         }
 
+        /// <summary>
+        /// Records the port the client turned out to listen on, read out of the running client's memory, so that the
+        /// client's other torrents announce it too, also after it has quit.
+        /// </summary>
+        public void Remember(string clientName, string port)
+        {
+            ArgumentNullException.ThrowIfNull(clientName);
+            if (!IsPort(port))
+            {
+                return;
+            }
+
+            lock (this.gate)
+            {
+                if (this.ports.TryGetValue(clientName, out var known) && string.Equals(known, port, StringComparison.Ordinal))
+                {
+                    return;
+                }
+
+                this.ports[clientName] = port;
+            }
+
+            this.Changed?.Invoke(this, EventArgs.Empty);
+        }
+
         /// <summary>Gets a copy of the book, to save.</summary>
         public IReadOnlyDictionary<string, string> Snapshot()
         {

@@ -1,6 +1,7 @@
 namespace RatioMaster.Core.Tests.Sessions
 {
     using System.Globalization;
+    using System.Text;
 
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.MemoryScan;
@@ -118,6 +119,29 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.False(ports.ContainsKey("Deluge 2.2.0"));
         }
 
+        /// <summary>The port of the running client is the one all of its torrents announce, also after it has quit.</summary>
+        [Fact]
+        public void APortCopiedFromTheRunningClientBecomesTheClientsPort()
+        {
+            var memory = Encoding.ASCII.GetBytes(new string('.', 70_000)
+                + "GET /announce?info_hash=%aa&peer_id=-UT360S-abc123&port=54321&uploaded=0&downloaded=0&key=DEADBEEF&numwant=175&compact=1 HTTP/1.1");
+            var running = CreateFactory(new FakeProcessMemoryScanner(memory));
+            running.Ports.Load(new Dictionary<string, string> { ["uTorrent 3.6.0"] = "35443" }); // picked before it ran
+            var changes = 0;
+            running.Ports.Changed += (_, _) => changes++;
+
+            var copied = running.CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.6.0" });
+
+            Assert.Equal(ClientIdentitySource.CopiedFromProcess, copied.Source);
+            Assert.Equal("54321", copied.Port);
+            Assert.Equal("54321", running.Ports.Snapshot()["uTorrent 3.6.0"]);
+            Assert.Equal(1, changes);
+
+            var afterItQuit = CreateFactory();
+            afterItQuit.Ports.Load(running.Ports.Snapshot());
+            Assert.Equal("54321", afterItQuit.CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.6.0" }).Port);
+        }
+
         [Fact]
         public void CreatesASessionForTheResolvedProfile()
         {
@@ -135,10 +159,10 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.Equal(Catalog.DefaultName, session.Profile.Name);
         }
 
-        private static TorrentSessionFactory CreateFactory() => new(
+        private static TorrentSessionFactory CreateFactory(IProcessMemoryScanner? memory = null) => new(
             Catalog,
             new FakeTrackerClient(),
-            new ClientValueScanner(NullProcessMemoryScanner.Instance),
+            new ClientValueScanner(memory ?? NullProcessMemoryScanner.Instance),
             new FakeLocalIpProvider(),
             new DeterministicRandomSource(99));
     }
