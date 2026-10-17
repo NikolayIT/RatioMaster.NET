@@ -291,6 +291,14 @@ namespace RatioMaster.Core.Sessions
 
                 if (completed)
                 {
+                    // The completed announce starts the next interval, as in a real client and in 0.43; otherwise the
+                    // update that was due would follow it within seconds, which a tracker can refuse as too early.
+                    lock (this.gate)
+                    {
+                        this.elapsedInInterval = 0;
+                        this.forceUpdate = false;
+                    }
+
                     await this.DoAnnounceAsync(TrackerEvent.Completed, cancellationToken).ConfigureAwait(false);
                     await this.DoScrapeAsync(cancellationToken).ConfigureAwait(false);
                     this.SetState(TorrentSessionState.Seeding);

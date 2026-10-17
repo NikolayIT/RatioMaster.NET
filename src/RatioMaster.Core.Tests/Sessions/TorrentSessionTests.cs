@@ -105,6 +105,29 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.Equal(2, tracker.ScrapeCount); // start + completed
         }
 
+        /// <summary>
+        /// A real client counts the next interval from the completed announce, and so did 0.43. Otherwise the
+        /// update that was due follows the completed announce within seconds, which a tracker can refuse as too early.
+        /// </summary>
+        [Fact]
+        public async Task TheCompletedAnnounceStartsTheNextInterval()
+        {
+            var settings = QuietSettings() with { IntervalSeconds = 60, DownloadRateBytes = 10_000 };
+            var (session, tracker) = Create(settings, totalLength: 500_000, configureTracker: t => t.Interval = 60);
+            await session.StartAsync(Ct);
+
+            // 500 000 bytes at 10 000 a second: the download completes ten seconds before the update is due.
+            await TickAsync(session, 50);
+            Assert.Equal([TrackerEvent.Started, TrackerEvent.Completed], tracker.Announces.Select(a => a.Event));
+            Assert.Equal(TimeSpan.FromSeconds(59), session.Snapshot.NextUpdateIn);
+
+            await TickAsync(session, 59);
+            Assert.Equal(2, tracker.Announces.Count);
+
+            await TickAsync(session, 1);
+            Assert.Equal(TrackerEvent.None, tracker.Announces.Last().Event);
+        }
+
         [Fact]
         public async Task StartsInSeedModeAtHundredPercent()
         {
@@ -302,8 +325,9 @@ namespace RatioMaster.Core.Tests.Sessions
         [Fact]
         public async Task RegularAnnounceHappensAfterTheInterval()
         {
+            // Big enough not to complete meanwhile: the completed announce would start the interval again.
             var settings = QuietSettings() with { IntervalSeconds = 60 };
-            var (session, tracker) = Create(settings, configureTracker: t => t.Interval = 60);
+            var (session, tracker) = Create(settings, totalLength: 1_000_000_000, configureTracker: t => t.Interval = 60);
             await session.StartAsync(Ct);
 
             await TickAsync(session, 60);
