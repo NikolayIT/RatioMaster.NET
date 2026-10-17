@@ -158,6 +158,63 @@ namespace RatioMaster.Core.Tests.Sessions
         }
 
         [Fact]
+        public async Task TheResumePointFollowsTheDownload()
+        {
+            var (session, _) = Create(totalLength: 1_000_000);
+            await session.StartAsync(Ct);
+            Assert.Null(session.Snapshot.ResumeFinishedPercent); // nothing downloaded yet
+
+            await TickAsync(session, 3);
+
+            Assert.Equal(9.21, session.Snapshot.ResumeFinishedPercent); // 92 160 bytes, 9.216 %, rounded down
+        }
+
+        /// <summary>
+        /// Stopping and starting again, or quitting and coming back, carries on where the download got to, as a real
+        /// client does and 0.43 did, instead of announcing the whole torrent as left again.
+        /// </summary>
+        [Fact]
+        public async Task ATorrentStartedFromItsResumePointCarriesOnWhereItGotTo()
+        {
+            var (first, _) = Create(totalLength: 1_000_000);
+            await first.StartAsync(Ct);
+            await TickAsync(first, 3);
+            var resume = first.Snapshot.ResumeFinishedPercent!.Value;
+
+            var (second, tracker) = Create(QuietSettings() with { FinishedPercent = resume }, totalLength: 1_000_000);
+            await second.StartAsync(Ct);
+
+            // 907 840 bytes were left, and a hundredth of a percent of this torrent is 100 bytes.
+            Assert.InRange(tracker.Announces[0].Values.Left, first.Snapshot.Left, first.Snapshot.Left + 100);
+        }
+
+        [Fact]
+        public async Task ACompletedTorrentResumesAsASeed()
+        {
+            var settings = QuietSettings() with { DownloadRateBytes = 200_000 };
+            var (session, _) = Create(settings, totalLength: 100_000);
+            await session.StartAsync(Ct);
+
+            await TickAsync(session, 1);
+
+            Assert.Equal(100, session.Snapshot.ResumeFinishedPercent);
+        }
+
+        [Theory]
+        [InlineData(999_999, 99.99)] // one byte short must not come back as complete, which would mean seed only
+        [InlineData(2_900, 0.29)] // 0.29 is 0.28999... in binary, so rounding the percentage itself down gives 0.28
+        public async Task TheResumePointIsRoundedDownToWholeHundredths(int downloaded, double expected)
+        {
+            var settings = QuietSettings() with { DownloadRateBytes = downloaded };
+            var (session, _) = Create(settings, totalLength: 1_000_000);
+            await session.StartAsync(Ct);
+
+            await TickAsync(session, 1);
+
+            Assert.Equal(expected, session.Snapshot.ResumeFinishedPercent);
+        }
+
+        [Fact]
         public async Task AnnounceValuesAreFlooredToTheProtocolDenominators()
         {
             var settings = QuietSettings() with { UploadRateBytes = 20_000, DownloadRateBytes = 100 };

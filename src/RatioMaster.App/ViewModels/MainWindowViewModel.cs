@@ -525,7 +525,10 @@ namespace RatioMaster.App.ViewModels
                 return;
             }
 
-            this.settings = this.settings with { DefaultTorrentSettings = torrent.CurrentSettings };
+            // A torrent's Finished (%) follows its download, so it is not a setting to pass on to new torrents: a
+            // completed one would make every new torrent start as a seed that never downloaded anything.
+            var defaults = torrent.CurrentSettings with { FinishedPercent = this.settings.DefaultTorrentSettings.FinishedPercent };
+            this.settings = this.settings with { DefaultTorrentSettings = defaults };
             this.settingsStore.Save(this.settings);
             this.notifications.ShowInformation(Strings.DefaultsUpdatedTitle, Strings.DefaultsUpdatedMessage);
         }

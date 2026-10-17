@@ -131,6 +131,7 @@ namespace RatioMaster.Core.Sessions
                         TotalSize = this.totalSize,
                         Ratio = this.ComputeRatio(),
                         FinishedPercent = this.ComputeFinishedPercent(),
+                        ResumeFinishedPercent = this.ComputeResumeFinishedPercent(),
                         Seeders = this.seeders,
                         Leechers = this.leechers,
                         UploadRateBytes = this.UploadPaused ? 0 : this.currentUploadRate,
@@ -874,6 +875,27 @@ namespace RatioMaster.Core.Sessions
 
             var percent = (this.descriptor.TotalLength - this.left) / (double)this.descriptor.TotalLength * 100;
             return Math.Clamp(percent, 0, 100);
+        }
+
+        /// <summary>
+        /// Counted in whole bytes rather than from <see cref="ComputeFinishedPercent"/>: rounding the double down would
+        /// sometimes lose a hundredth (0.29 is 0.28999... in binary).
+        /// </summary>
+        private double? ComputeResumeFinishedPercent()
+        {
+            if (this.downloaded <= 0)
+            {
+                return null;
+            }
+
+            var total = this.descriptor.TotalLength;
+            if (this.left <= 0 || total <= 0)
+            {
+                return 100;
+            }
+
+            var hundredths = (long)((Int128)(total - this.left) * 10_000 / total);
+            return hundredths / 100d;
         }
 
         private TimeSpan? ComputeStopAfterRemaining()

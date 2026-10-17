@@ -26,6 +26,10 @@ namespace RatioMaster.App.ViewModels
         private TorrentSession? session;
         private TorrentSettings settings;
 
+        /// <summary>The resume point this run last wrote into the settings, and whether the session file has it yet.</summary>
+        private double? appliedResumePercent;
+        private bool resumePointUnsaved;
+
         [ObservableProperty]
         private int index;
 
@@ -113,6 +117,7 @@ namespace RatioMaster.App.ViewModels
             this.clipboard = clipboard;
             this.launcher = launcher;
             this.trackerUrl = descriptor.TrackerUrl;
+            this.progress = Math.Clamp(settings.FinishedPercent, 0, 100);
             this.AddedAt = DateTimeOffset.Now;
 
             this.Log = new LogViewModel(displayName, files, clipboard);
@@ -222,12 +227,14 @@ namespace RatioMaster.App.ViewModels
             this.StopAfterRemaining = stats.StopAfterRemaining;
             this.TotalRunningTime = stats.TotalRunningTime;
             this.Settings.IsRunning = this.IsRunning;
+            this.KeepResumePoint(stats);
         }
 
         [RelayCommand(CanExecute = nameof(CanStart))]
         public void Start()
         {
             this.ApplySettings();
+            this.appliedResumePercent = null;
             this.session = this.CreateSession();
             this.session.Start();
             this.State = TorrentSessionState.Starting;
@@ -348,6 +355,29 @@ namespace RatioMaster.App.ViewModels
             this.PortInUse = session.Identity.Port;
             this.NumWantInUse = session.Identity.NumWant;
             return session;
+        }
+
+        /// <summary>
+        /// Moves Finished (%) along with the download, so the next start carries on from the progress reached, as a
+        /// real client does and 0.43 did: a completed torrent comes back as a seed instead of downloading it all again.
+        /// Only a change this run made is written, so a value typed in after it stopped is kept. The session file gets
+        /// it when the download completes or the torrent stops; until then it is in memory, which quitting saves.
+        /// </summary>
+        private void KeepResumePoint(TorrentStats stats)
+        {
+            if (stats.ResumeFinishedPercent is { } reached && reached != this.appliedResumePercent)
+            {
+                this.appliedResumePercent = reached;
+                this.settings = this.settings with { FinishedPercent = reached };
+                this.Settings.FinishedPercent = reached;
+                this.resumePointUnsaved = true;
+            }
+
+            if (this.resumePointUnsaved && (this.settings.FinishedPercent >= 100 || !stats.IsRunning))
+            {
+                this.resumePointUnsaved = false;
+                this.SettingsChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void ApplyEngineAdjustment(EngineAdjustment adjustment)

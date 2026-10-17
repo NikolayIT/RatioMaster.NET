@@ -20,6 +20,12 @@ namespace RatioMaster.Core.Sessions
 
         public double FinishedPercent { get; init; }
 
+        /// <summary>
+        /// Gets the Finished (%) to start from next time: the progress reached, in hundredths of a percent rounded down,
+        /// so a torrent never resumes as complete before it is. Null while this run has downloaded nothing.
+        /// </summary>
+        public double? ResumeFinishedPercent { get; init; }
+
         public int? Seeders { get; init; }
 
         public int? Leechers { get; init; }
