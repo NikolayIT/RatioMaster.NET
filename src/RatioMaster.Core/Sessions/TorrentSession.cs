@@ -137,8 +137,8 @@ namespace RatioMaster.Core.Sessions
                         ResumeFinishedPercent = this.ComputeResumeFinishedPercent(),
                         Seeders = this.seeders,
                         Leechers = this.leechers,
-                        UploadRateBytes = this.UploadPaused ? 0 : this.currentUploadRate,
-                        DownloadRateBytes = this.currentDownloadRate,
+                        UploadRateBytes = this.Counting && !this.UploadPaused ? this.currentUploadRate : 0,
+                        DownloadRateBytes = this.Counting ? this.currentDownloadRate : 0,
                         TotalRunningTime = TimeSpan.FromSeconds(this.totalRunningSeconds),
                         NextUpdateIn = this.state is TorrentSessionState.Idle or TorrentSessionState.Stopped or TorrentSessionState.Error
                             ? null
@@ -155,6 +155,14 @@ namespace RatioMaster.Core.Sessions
         /// other rule (a random speed on the next update, a live edit of the speed) can upload past it.
         /// </summary>
         private bool UploadPaused => this.settings.StopUploadWhenNoLeechers && this.leechers == 0;
+
+        /// <summary>
+        /// Gets a value indicating whether the counters grow each second: from the tracker's first answer until the session
+        /// stops. Read under <see cref="gate"/>. The speeds in the snapshot are the ones the counters grow at, so a stopped
+        /// torrent, or one whose tracker has not answered yet, shows none.
+        /// </summary>
+        private bool Counting => this.haveInitialPeers
+            && this.state is TorrentSessionState.Downloading or TorrentSessionState.Seeding or TorrentSessionState.Updating;
 
         private string LocalIp { get; set; } = LocalIpProvider.Fallback;
 

@@ -502,12 +502,18 @@ namespace RatioMaster.Core.Tests.Sessions
             await TickAsync(session, 2);
             Assert.Equal(0, session.Snapshot.Uploaded);
 
+            // Nothing grows, so no speed is shown either.
+            Assert.Equal(0, session.Snapshot.UploadRateBytes);
+            Assert.Equal(0, session.Snapshot.DownloadRateBytes);
+
             tracker.AnnounceError = null;
             session.RequestUpdate();
             await TickAsync(session, 1);
             await TickAsync(session, 1);
 
             Assert.Equal(60 * KiB, session.Snapshot.Uploaded);
+            Assert.Equal(60 * KiB, session.Snapshot.UploadRateBytes);
+            Assert.Equal(30 * KiB, session.Snapshot.DownloadRateBytes);
         }
 
         [Fact]
@@ -602,6 +608,44 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.Equal(TrackerEvent.Stopped, tracker.Announces.Last().Event);
             Assert.Equal(TorrentSessionState.Stopped, session.State);
             Assert.Null(session.Snapshot.NextUpdateIn);
+        }
+
+        [Fact]
+        public async Task AStoppedTorrentShowsNoSpeed()
+        {
+            var (session, _) = Create();
+            await session.StartAsync(Ct);
+            await TickAsync(session, 1);
+            Assert.Equal(60 * KiB, session.Snapshot.UploadRateBytes);
+            Assert.Equal(30 * KiB, session.Snapshot.DownloadRateBytes);
+
+            await session.StopAsync(Ct);
+
+            Assert.Equal(0, session.Snapshot.UploadRateBytes);
+            Assert.Equal(0, session.Snapshot.DownloadRateBytes);
+        }
+
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public async Task ATorrentThatStoppedOnItsOwnShowsNoSpeed(bool trackerError)
+        {
+            var settings = QuietSettings() with { Stop = new StopCondition { Type = StopConditionType.AfterSeconds, Value = 3 } };
+            var (session, tracker) = Create(settings);
+            await session.StartAsync(Ct);
+            await TickAsync(session, 1);
+
+            if (trackerError)
+            {
+                tracker.FailureReason = "torrent not registered";
+                session.RequestUpdate();
+            }
+
+            await TickAsync(session, 2);
+
+            Assert.Equal(trackerError ? TorrentSessionState.Error : TorrentSessionState.Stopped, session.State);
+            Assert.Equal(0, session.Snapshot.UploadRateBytes);
+            Assert.Equal(0, session.Snapshot.DownloadRateBytes);
         }
 
         [Fact]

@@ -30,10 +30,10 @@ namespace RatioMaster.Core.Sessions
 
         public int? Leechers { get; init; }
 
-        /// <summary>Gets the current effective upload rate in bytes per second.</summary>
+        /// <summary>Gets the current effective upload rate in bytes per second; 0 while the counters do not grow (stopped, or no answer from the tracker yet).</summary>
         public long UploadRateBytes { get; init; }
 
-        /// <summary>Gets the current effective download rate in bytes per second.</summary>
+        /// <summary>Gets the current effective download rate in bytes per second; 0 while the counters do not grow (stopped, or no answer from the tracker yet).</summary>
         public long DownloadRateBytes { get; init; }
 
         public TimeSpan TotalRunningTime { get; init; }
