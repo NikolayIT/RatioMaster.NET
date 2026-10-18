@@ -1,4 +1,4 @@
----=== 1.3.0 (not released yet) ===---
+---=== 1.3.0 (18-10-2026) ===---
 - RM: Fixed the first update after a download completes: it now comes a whole interval after the completed announce, as in a real client and in 0.43. It used to come when the interval running before the download completed ran out, which could be seconds later, and a tracker can refuse an update that early
 - RM: A started or completed announce that gets no answer, or that the tracker refuses, is sent again with the next update, as real clients do. It used to be lost, and with it the tracker's record that the torrent was started or completed
 - RM: The log shows the tracker's warning messages, as "Tracker warning: ...". They were read but never shown, and a warning can be why the tracker did not count an update (NexusPHP sites answer an update that comes too early with one)
