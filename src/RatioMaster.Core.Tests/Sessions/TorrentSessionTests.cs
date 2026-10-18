@@ -843,6 +843,26 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.All(tracker.Announces, a => Assert.Equal("50000", a.Values.Port));
         }
 
+        /// <summary>The General tab shows the snapshot's key, so it has to follow the roll.</summary>
+        [Fact]
+        public async Task TheSnapshotCarriesTheKeyInUse()
+        {
+            var settings = QuietSettings() with { IntervalSeconds = 60 };
+            var (session, tracker) = Create(
+                settings,
+                configureTracker: t => t.Interval = 60,
+                identity: Identity() with { Source = ClientIdentitySource.Generated });
+
+            await session.StartAsync(Ct);
+            Assert.Equal("KEY12345", session.Snapshot.Key);
+
+            await TickAsync(session, 11 * 60);
+
+            var last = tracker.Announces.Last().Values.Key;
+            Assert.NotEqual("KEY12345", last);
+            Assert.Equal(last, session.Snapshot.Key);
+        }
+
         [Theory]
         [InlineData(ClientIdentitySource.Custom)]
         [InlineData(ClientIdentitySource.CopiedFromProcess)]

@@ -226,6 +226,7 @@ namespace RatioMaster.App.ViewModels
             this.NextUpdateIn = stats.NextUpdateIn;
             this.StopAfterRemaining = stats.StopAfterRemaining;
             this.TotalRunningTime = stats.TotalRunningTime;
+            this.KeyInUse = stats.Key;
             this.Settings.IsRunning = this.IsRunning;
             this.KeepResumePoint(stats);
         }

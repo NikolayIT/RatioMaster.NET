@@ -42,6 +42,9 @@ namespace RatioMaster.Core.Sessions
 
         public TimeSpan? StopAfterRemaining { get; init; }
 
+        /// <summary>Gets the tracker key the announces carry now, which changes while running for the clients that roll theirs.</summary>
+        public string Key { get; init; } = string.Empty;
+
         public bool IsRunning => this.State is TorrentSessionState.Downloading or TorrentSessionState.Seeding
             or TorrentSessionState.Updating or TorrentSessionState.Starting;
     }

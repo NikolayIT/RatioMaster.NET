@@ -144,6 +144,7 @@ namespace RatioMaster.Core.Sessions
                             ? null
                             : TimeSpan.FromSeconds(Math.Max(0, this.currentInterval - this.elapsedInInterval)),
                         StopAfterRemaining = this.ComputeStopAfterRemaining(),
+                        Key = this.identity.Key,
                     };
                 }
             }
