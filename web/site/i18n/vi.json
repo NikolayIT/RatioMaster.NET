@@ -14,6 +14,7 @@
   "news.title": "Tin mới nhất",
   "news.download": "Tải xuống",
   "news.changelog": "Nhật ký thay đổi",
+  "news.v13": "Torrent nay tiếp tục từ chỗ đã đạt được sau khi khởi động lại, mọi torrent của cùng một client dùng chung một cổng như ở client thật, cảnh báo của tracker được hiển thị trong nhật ký, và lệnh Tệp > Thêm torrent từ thư mục... thêm cùng lúc bao nhiêu torrent tùy thích.",
   "news.v12": "Chương trình nay đã có 38 ngôn ngữ, trang web này cũng vậy. Mã của các client mã nguồn đóng đã được phân tích trực tiếp: giả lập mới cho BitComet 2.22 và BitTorrent 7.11.0, uTorrent 3.6.0 ở bản dựng hiện tại, cùng các phiên bản hiện hành của qBittorrent, Deluge, rTorrent, Vuze và BitTornado.",
   "news.v11": "Các giả lập client đã được đối chiếu với mã nguồn của client thật và cập nhật: các bản dựng hiện tại của qBittorrent, Deluge, Vuze, BitTorrent và uTorrent, một giả lập rTorrent mới, và Peer ID của Transmission đã được sửa.",
   "news.v10": "Viết lại hoàn toàn: một tệp duy nhất, độc lập cho Windows, Linux và macOS, hỗ trợ tracker https, giao diện mới với chế độ sáng và tối, cùng giả lập qBittorrent.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET là một ứng dụng nhỏ, chạy độc lập, chuyên làm giả số liệu tải lên và tải xuống của một torrent gửi tới hầu hết các tracker BitTorrent.",
   "download.notAClient": "Điều đó có nghĩa là chương trình <strong>không</strong> dựa vào client BitTorrent của bạn (qBittorrent, uTorrent, Azureus, BitComet và các client khác) và sẽ <strong>không</strong> tải xuống hay tải lên các tệp của torrent. Nó chỉ có thể làm giả số liệu tải xuống và tải lên được báo cáo cho tracker.",
-  "download.emulations": "RatioMaster.NET tích hợp sẵn giả lập cho 32 phiên bản của các client BitTorrent phổ biến nhất: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent và Gnome BT. Phiên bản 1.2 là một tệp duy nhất, độc lập: không cần cài đặt, không cần .NET Framework hay Mono.",
+  "download.emulations": "RatioMaster.NET tích hợp sẵn giả lập cho 32 phiên bản của các client BitTorrent phổ biến nhất: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent và Gnome BT. Phiên bản 1.3 là một tệp duy nhất, độc lập: không cần cài đặt, không cần .NET Framework hay Mono.",
   "download.windowsTitle": "Windows 10 và 11",
   "download.windows": "Tải xuống cho Windows",
   "download.windowsArm": "Windows trên ARM",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Nhật ký thay đổi của chương trình",
   "changelog.full": "Toàn bộ nhật ký thay đổi từ năm 2005 có trong <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: torrent tiếp tục từ mức tải xuống đã đạt được: giá trị “Hoàn thành (%)” bám theo tiến độ và được lưu cùng phiên, nên sau khi khởi động lại, torrent đã hoàn thành sẽ trở lại trạng thái chia sẻ thay vì tải lại toàn bộ.",
+  "changelog.v130.completed": "RM: lần cập nhật đầu tiên sau khi tải xuống hoàn tất nay diễn ra trọn một chu kỳ sau thông báo completed, như ở client thật, và thông báo started hoặc completed không thành công sẽ được gửi lại cùng lần cập nhật kế tiếp.",
+  "changelog.v130.warnings": "RM: nhật ký hiển thị các thông điệp cảnh báo của tracker. Ví dụ, các trang NexusPHP phản hồi lần cập nhật đến quá sớm bằng một cảnh báo và không tính lần cập nhật đó.",
+  "changelog.v130.ports": "RM: mọi torrent của cùng một client thông báo cùng một cổng, được giữ nguyên giữa các lần chạy, và một trình lắng nghe trên cổng đó phản hồi yêu cầu bắt tay của tất cả các torrent này, mỗi yêu cầu bằng Peer ID riêng của torrent tương ứng, như cổng lắng nghe duy nhất của client thật vẫn làm.",
+  "changelog.v130.folder": "Chung: lệnh mới Tệp > Thêm torrent từ thư mục... thêm cùng lúc mọi tệp torrent trong một thư mục. Việc thêm 1.000 torrent nay mất chưa tới một giây, và torrent đã có trong danh sách với cùng tracker sẽ không được thêm lần thứ hai.",
+  "changelog.v130.close": "Chung: khi tùy chọn “Khi đóng cửa sổ, ẩn vào khay hệ thống thay vì thoát” bị tắt, vốn là mặc định trên Linux, việc đóng cửa sổ nay sẽ dừng các torrent rồi thoát chương trình. Trước đây, đóng cửa sổ khiến chương trình vẫn tiếp tục chạy mà không có cửa sổ.",
+  "changelog.v130.display": "Chung: torrent đã dừng không còn hiển thị bất kỳ tốc độ nào, thẻ “Chung” hiển thị khóa tracker mà torrent hiện đang dùng khi gửi thông báo, và việc bắt đầu cùng lúc nhiều torrent uTorrent không còn khiến cửa sổ bận.",
 
   "changelog.v120.languages": "Chung: chương trình hỗ trợ 38 ngôn ngữ. Chương trình khởi động bằng ngôn ngữ hiển thị của hệ thống, và có thể chọn ngôn ngữ khác trong Cài đặt > Chung > Ngôn ngữ. Với tiếng Ả Rập và tiếng Do Thái, cửa sổ được bố trí từ phải sang trái. Kích thước và tốc độ dùng đơn vị của ngôn ngữ đã chọn.",
   "changelog.v120.emulations": "RM: giả lập mới: qBittorrent 5.2.4 (nay là mặc định), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 và BitTorrent 7.11.0, còn uTorrent 3.6.0 chuyển lên bản dựng hiện tại, 47254. BitComet, uTorrent và BitTorrent là các client mã nguồn đóng, nên việc giả lập chúng dựa trên phân tích trực tiếp các client này.",

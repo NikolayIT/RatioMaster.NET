@@ -14,6 +14,7 @@
   "news.title": "最新消息",
   "news.download": "下載",
   "news.changelog": "更新記錄",
+  "news.v13": "現在，Torrent 在重新啟動後會從上次的進度繼續，同一用戶端的所有 Torrent 會像真實用戶端一樣共用一個連接埠，追蹤器警告會顯示在記錄中，還可以透過「檔案 > 從資料夾新增 Torrent...」一次新增任意數量的 Torrent。",
   "news.v12": "程式與本網站現已支援 38 種語言。對於封閉原始碼的用戶端，我們直接分析了用戶端本身的程式碼：新增 BitComet 2.22 與 BitTorrent 7.11.0 模擬，uTorrent 3.6.0 更新至目前的組建，qBittorrent、Deluge、rTorrent、Vuze 與 BitTornado 也都更新至最新版本。",
   "news.v11": "用戶端模擬已對照真實用戶端的原始碼進行核對與更新：qBittorrent、Deluge、Vuze、BitTorrent 與 uTorrent 更新至目前的版本，新增 rTorrent 模擬，並修正了 Transmission 的對等節點 ID。",
   "news.v10": "程式已全面重寫：現在是適用於 Windows、Linux 與 macOS 的單一獨立檔案，支援 https 追蹤器，擁有提供淺色與深色佈景主題的全新介面，並新增了 qBittorrent 模擬。",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET 是一款小巧的獨立應用程式，可向幾乎所有 BitTorrent 追蹤器回報偽造的 Torrent 上傳量與下載量。",
   "download.notAClient": "也就是說，它<strong>不</strong>依賴您的 BitTorrent 用戶端（qBittorrent、uTorrent、Azureus、BitComet 等），也<strong>不會</strong>下載或上傳 Torrent 中的檔案。它只能偽造向追蹤器回報的下載量與上傳量。",
-  "download.emulations": "RatioMaster.NET 內建最常用 BitTorrent 用戶端 32 個版本的模擬：qBittorrent、uTorrent、BitComet、Vuze、BitTorrent、rTorrent、Transmission、ABC、BitLord、BTuga、BitTornado、Burst、BitTyrant、BitSpirit、Deluge、KTorrent 與 Gnome BT。1.2 版只有一個獨立檔案：無須安裝，也不需要 .NET Framework 或 Mono。",
+  "download.emulations": "RatioMaster.NET 內建最常用 BitTorrent 用戶端 32 個版本的模擬：qBittorrent、uTorrent、BitComet、Vuze、BitTorrent、rTorrent、Transmission、ABC、BitLord、BTuga、BitTornado、Burst、BitTyrant、BitSpirit、Deluge、KTorrent 與 Gnome BT。1.3 版只有一個獨立檔案：無須安裝，也不需要 .NET Framework 或 Mono。",
   "download.windowsTitle": "Windows 10 與 11",
   "download.windows": "下載 Windows 版",
   "download.windowsArm": "ARM 版 Windows",
@@ -65,6 +66,14 @@
 
   "changelog.title": "程式更新記錄",
   "changelog.full": "自 2005 年以來的完整更新記錄請見 <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>。",
+
+  "changelog.v130.resume": "RM：Torrent 會從其下載已達到的進度繼續：「已完成 (%)」會隨進度變化，並隨工作階段一起儲存，因此下載完成的 Torrent 在重新啟動後會繼續做種，而不是重新下載全部內容。",
+  "changelog.v130.completed": "RM：下載完成後的第一次更新現在會在 completed 回報之後整整一個回報間隔才送出，與真實用戶端一致；未成功的 started 或 completed 回報會隨下一次更新重新送出。",
+  "changelog.v130.warnings": "RM：記錄中會顯示追蹤器的警告訊息。例如，NexusPHP 網站會對來得太早的更新回應一則警告，並且不計入這次更新。",
+  "changelog.v130.ports": "RM：同一用戶端的所有 Torrent 都會回報同一個連接埠，且該連接埠在每次執行之間保持不變；連接埠上的一個接聽程式會回應所有這些 Torrent 的交握，並分別使用各 Torrent 自己的對等節點 ID，就像真實用戶端唯一的接聽連接埠那樣。",
+  "changelog.v130.folder": "全域：新增「檔案 > 從資料夾新增 Torrent...」，可一次新增資料夾中的所有 Torrent 檔案。現在新增 1,000 個 Torrent 只需不到一秒，而且清單中已有且追蹤器相同的 Torrent 不會被重複新增。",
+  "changelog.v130.close": "全域：當「關閉時最小化到系統匣，而不結束程式」未開啟（Linux 上的預設設定）時，現在關閉視窗會先停止 Torrent，然後結束程式。以往程式會在沒有視窗的情況下繼續執行。",
+  "changelog.v130.display": "全域：已停止的 Torrent 不再顯示任何速度，「一般」索引標籤會顯示 Torrent 目前回報時使用的追蹤器金鑰，而且一次啟動大量使用 uTorrent 模擬的 Torrent 時，視窗不再一直處於忙碌狀態。",
 
   "changelog.v120.languages": "全域：程式支援 38 種語言。啟動時會使用系統的顯示語言，也可在「設定 > 一般 > 語言」中選擇其他語言。阿拉伯文與希伯來文會以由右至左的方式配置視窗，大小與速度則使用所選語言的單位。",
   "changelog.v120.emulations": "RM：新增模擬：qBittorrent 5.2.4（現為預設用戶端）、Deluge 2.2.0、BitTornado 0.3.18、rTorrent 0.16.25、Vuze 5.7.6.0、BitComet 2.22 與 BitTorrent 7.11.0；uTorrent 3.6.0 更新至目前的組建 47254。BitComet、uTorrent 與 BitTorrent 皆為封閉原始碼，因此這些模擬是直接分析用戶端程式本身而來。",

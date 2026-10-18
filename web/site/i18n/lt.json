@@ -14,6 +14,7 @@
   "news.title": "Naujausios žinios",
   "news.download": "Atsisiųsti",
   "news.changelog": "Pakeitimai",
+  "news.v13": "Po paleidimo iš naujo torentai dabar tęsia nuo ten, kur buvo sustoję, visi vieno kliento torentai naudoja vieną bendrą prievadą, kaip tikrajame kliente, seklio įspėjimai rodomi žurnale, o komanda Failas > Pridėti torentus iš aplanko... vienu metu prideda bet kiek torentų.",
   "news.v12": "Programa dabar kalba 38 kalbomis, kaip ir ši svetainė. Uždarojo kodo klientai ištirti pagal jų pačių kodą: naujos BitComet 2.22 ir BitTorrent 7.11.0 emuliacijos, uTorrent 3.6.0 su dabartiniu leidimu ir naujausios qBittorrent, Deluge, rTorrent, Vuze bei BitTornado versijos.",
   "news.v11": "Klientų emuliacijos patikrintos pagal tikrųjų klientų išeitinį kodą ir atnaujintos: dabartiniai qBittorrent, Deluge, Vuze, BitTorrent ir uTorrent leidimai, nauja rTorrent emuliacija ir pataisytas Transmission dalyvio ID.",
   "news.v10": "Visiškai perrašyta programa: vienas savarankiškas failas, skirtas Windows, Linux ir macOS, https sekliai, nauja sąsaja su šviesia ir tamsia tema bei qBittorrent emuliacija.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET – tai nedidelė savarankiška programa, kuri beveik visiems BitTorrent sekliams pateikia suklastotą torento išsiuntimo ir atsiuntimo statistiką.",
   "download.notAClient": "Tai reiškia, kad ji <strong>nepriklauso</strong> nuo jūsų BitTorrent kliento (qBittorrent, uTorrent, Azureus, BitComet ir kitų) ir <strong>neatsisiunčia bei neišsiunčia</strong> torento failų. Ji gali tik suklastoti sekliui pateikiamą atsiuntimo ir išsiuntimo statistiką.",
-  "download.emulations": "RatioMaster.NET turi įtaisytas dažniausiai naudojamų BitTorrent klientų 32 versijų emuliacijas: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent ir Gnome BT. 1.2 versija – tai vienas savarankiškas failas: nieko nereikia diegti, nereikia nei .NET Framework, nei Mono.",
+  "download.emulations": "RatioMaster.NET turi įtaisytas dažniausiai naudojamų BitTorrent klientų 32 versijų emuliacijas: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent ir Gnome BT. 1.3 versija – tai vienas savarankiškas failas: nieko nereikia diegti, nereikia nei .NET Framework, nei Mono.",
   "download.windowsTitle": "Windows 10 ir 11",
   "download.windows": "Atsisiųsti Windows versiją",
   "download.windowsArm": "Windows ARM įrenginiams",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Programos pakeitimų istorija",
   "changelog.full": "Visa pakeitimų istorija nuo 2005 metų pateikta faile <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: torentas tęsia nuo tos vietos, kurią pasiekė jo atsisiuntimas: nustatymas „Baigta (%)“ kinta pagal eigą ir įrašomas kartu su seansu, todėl užbaigtas torentas po paleidimo iš naujo grįžta kaip skleidėjas, užuot viską atsisiuntęs iš naujo.",
+  "changelog.v130.completed": "RM: pirmasis atnaujinimas po atsisiuntimo pabaigos dabar siunčiamas praėjus visam intervalui nuo pranešimo „completed“, kaip tikrajame kliente, o nepavykęs pranešimas „started“ ar „completed“ vėl išsiunčiamas su kitu atnaujinimu.",
+  "changelog.v130.warnings": "RM: žurnale rodomi seklio įspėjimai. Pavyzdžiui, NexusPHP svetainės į per anksti atėjusį atnaujinimą atsako įspėjimu ir jo neįskaito.",
+  "changelog.v130.ports": "RM: visi vieno kliento torentai sekliui nurodo tą patį prievadą, kuris išsaugomas tarp paleidimų, o vienas tame prievade veikiantis klausytojas atsako į visų jų „handshake“ pranešimus, kiekvienu atveju su atitinkamo torento dalyvio ID, kaip ir vienintelis prievadas, kuriame klausosi tikrasis klientas.",
+  "changelog.v130.folder": "Bendra: nauja komanda Failas > Pridėti torentus iš aplanko... vienu metu prideda visus aplanke esančius torentų failus. Pridėti 1000 torentų dabar užtrunka mažiau nei sekundę, o torentas, kuris jau yra sąraše su tuo pačiu sekliu, antrą kartą nepridedamas.",
+  "changelog.v130.close": "Bendra: kai parinktis „Uždarant sumažinti į pranešimų sritį, užuot išėjus“ išjungta (taip numatyta sistemoje Linux), uždarius langą programa dabar išeina, prieš tai sustabdžiusi torentus. Anksčiau programa likdavo veikti be lango.",
+  "changelog.v130.display": "Bendra: sustabdytas torentas neberodo jokio greičio, skirtuke „Bendra“ rodomas seklio raktas, kurį torentas šiuo metu naudoja pranešimuose, o daugelio uTorrent emuliuojančių torentų paleidimas vienu metu nebeblokuoja lango.",
 
   "changelog.v120.languages": "Bendra: programa kalba 38 kalbomis. Ji paleidžiama sistemos rodymo kalba, o kitą kalbą galima pasirinkti per Nustatymai > Bendra > Kalba. Arabų ir hebrajų kalbomis langas išdėstomas iš dešinės į kairę, o dydžiai ir greičiai rodomi pasirinktos kalbos vienetais.",
   "changelog.v120.emulations": "RM: naujos emuliacijos: qBittorrent 5.2.4 (dabar numatytoji), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 ir BitTorrent 7.11.0, o uTorrent 3.6.0 pereina prie dabartinio leidimo 47254. BitComet, uTorrent ir BitTorrent yra uždarojo kodo, todėl jie ištirti pagal pačias klientų programas.",

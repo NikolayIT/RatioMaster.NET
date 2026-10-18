@@ -14,6 +14,7 @@
   "news.title": "Legfrissebb hírek",
   "news.download": "Letöltés",
   "news.changelog": "Változásnapló",
+  "news.v13": "A torrentek mostantól újraindítás után onnan folytatják, ahol tartottak, egy kliens összes torrentje egyetlen közös portot használ, ugyanúgy, mint egy valódi kliensben, a trackerfigyelmeztetések megjelennek a naplóban, a Fájl > Torrentek hozzáadása mappából... menüpont pedig egyszerre tetszőleges számú torrentet ad hozzá.",
   "news.v12": "A program mostantól 38 nyelven beszél, és ez a weboldal is. A zárt forráskódú kliensek működését a saját kódjukból olvastuk ki: új a BitComet 2.22 és a BitTorrent 7.11.0 emulációja, az uTorrent 3.6.0 a jelenlegi buildjére frissült, a qBittorrent, a Deluge, az rTorrent, a Vuze és a BitTornado pedig naprakész.",
   "news.v11": "A kliensemulációkat összevetettük a valódi kliensek forráskódjával, és naprakésszé tettük őket: a qBittorrent, a Deluge, a Vuze, a BitTorrent és az uTorrent aktuális buildjei, új rTorrent-emuláció, valamint a Transmission javított peer ID-ja.",
   "news.v10": "Teljes újraírás: egyetlen önálló fájl Windowsra, Linuxra és macOS-re, https-trackerek, új felület világos és sötét témával, valamint qBittorrent-emuláció.",
@@ -23,7 +24,7 @@
 
   "download.lead": "A RatioMaster.NET egy kis méretű, önálló alkalmazás, amely hamis feltöltési és letöltési statisztikákat jelent egy torrentről szinte az összes BitTorrent-trackernek.",
   "download.notAClient": "Ez azt jelenti, hogy <strong>nem</strong> támaszkodik az Ön BitTorrent-kliensére (qBittorrent, uTorrent, Azureus, BitComet és mások), és <strong>nem</strong> tölti le vagy fel a torrent fájljait. Csak a trackernek jelentett letöltési és feltöltési statisztikát tudja meghamisítani.",
-  "download.emulations": "A RatioMaster.NET a leggyakrabban használt BitTorrent-kliensek 32 verziójának beépített emulációját tartalmazza: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent és Gnome BT. Az 1.2-es verzió egyetlen önálló fájl: nincs mit telepíteni, és nem kell hozzá sem .NET Framework, sem Mono.",
+  "download.emulations": "A RatioMaster.NET a leggyakrabban használt BitTorrent-kliensek 32 verziójának beépített emulációját tartalmazza: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent és Gnome BT. Az 1.3-es verzió egyetlen önálló fájl: nincs mit telepíteni, és nem kell hozzá sem .NET Framework, sem Mono.",
   "download.windowsTitle": "Windows 10 és 11",
   "download.windows": "Letöltés Windowsra",
   "download.windowsArm": "ARM-alapú Windows",
@@ -65,6 +66,14 @@
 
   "changelog.title": "A program változásnaplója",
   "changelog.full": "A 2005 óta vezetett teljes változásnapló a <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a> fájlban található.",
+
+  "changelog.v130.resume": "RM: a torrent onnan folytatja, ahol a letöltése tartott: a Kész (%) beállítás követi az előrehaladást, és a munkamenettel együtt mentődik, így a befejezett torrent újraindítás után seedként tér vissza ahelyett, hogy mindent újra letöltene.",
+  "changelog.v130.completed": "RM: a letöltés befejeződése utáni első frissítés mostantól egy teljes időközzel a „completed” bejelentés után következik, ugyanúgy, mint egy valódi kliensben, a sikertelen „started” vagy „completed” bejelentés pedig a következő frissítéssel újra kimegy.",
+  "changelog.v130.warnings": "RM: a napló megjeleníti a tracker figyelmeztető üzeneteit. A NexusPHP-alapú oldalak például figyelmeztetéssel válaszolnak a túl korán érkező frissítésre, és nem számolják el.",
+  "changelog.v130.ports": "RM: egy kliens összes torrentje ugyanazt a portot jelenti be, amely indításról indításra megmarad, és ezen a porton egyetlen figyelő válaszol mindegyikük kézfogásaira, mindig az adott torrent saját peer ID-jával, ahogy egy valódi kliens egyetlen figyelőportja is teszi.",
+  "changelog.v130.folder": "Általános: az új Fájl > Torrentek hozzáadása mappából... menüpont egyszerre hozzáadja egy mappa összes torrentfájlját. Mostantól 1000 torrent hozzáadása kevesebb mint egy másodpercig tart, a listában ugyanazzal a trackerrel már szereplő torrent pedig nem kerül be másodszor.",
+  "changelog.v130.close": "Általános: ha a „Bezáráskor az értesítési területre helyezés kilépés helyett” beállítás ki van kapcsolva, ami Linuxon az alapértelmezés, az ablak bezárásakor a program mostantól a torrentek leállítása után kilép. Korábban a program ablak nélkül tovább futott.",
+  "changelog.v130.display": "Általános: a leállított torrent már semmilyen sebességet nem mutat, az Általános lap azt a trackerkulcsot jeleníti meg, amellyel a torrent jelenleg a bejelentéseit küldi, és sok uTorrent-emulációs torrent egyszerre történő indítása már nem blokkolja az ablakot.",
 
   "changelog.v120.languages": "Általános: a program 38 nyelven beszél. A rendszer megjelenítési nyelvén indul, másik nyelvet a Beállítások > Általános > Nyelv alatt lehet választani. Arab és héber nyelven az ablak elemei jobbról balra rendeződnek, a méretek és a sebességek pedig a választott nyelv mértékegységeit használják.",
   "changelog.v120.emulations": "RM: új emulációk: qBittorrent 5.2.4 (mostantól ez az alapértelmezett), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 és BitTorrent 7.11.0, az uTorrent 3.6.0 pedig a jelenlegi, 47254-es buildre frissül. A BitComet, az uTorrent és a BitTorrent zárt forráskódú, ezért a működésüket magukból a kliensekből olvastuk ki.",

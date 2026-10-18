@@ -14,6 +14,7 @@
   "news.title": "Son haberler",
   "news.download": "İndir",
   "news.changelog": "Değişiklik günlüğü",
+  "news.v13": "Torrent’ler artık yeniden başlatmanın ardından kaldıkları yerden devam ediyor, aynı istemcinin tüm torrent’leri gerçek bir istemcide olduğu gibi tek bir bağlantı noktasını paylaşıyor, izleyici uyarıları günlükte gösteriliyor ve Dosya > Klasörden torrent ekle... ile istediğiniz sayıda torrent tek seferde eklenebiliyor.",
   "news.v12": "Program artık 38 dil konuşuyor, bu site de öyle. Kapalı kaynaklı istemcilerin kendi kodları doğrudan incelendi: yeni BitComet 2.22 ve BitTorrent 7.11.0 öykünmeleri, güncel derlemesiyle uTorrent 3.6.0 ve qBittorrent, Deluge, rTorrent, Vuze ile BitTornado’nun güncel sürümleri.",
   "news.v11": "İstemci öykünmeleri gerçek istemcilerin kaynak koduyla karşılaştırılıp güncellendi: güncel qBittorrent, Deluge, Vuze, BitTorrent ve uTorrent derlemeleri, yeni bir rTorrent öykünmesi ve düzeltilmiş Transmission kişi kimliği.",
   "news.v10": "Baştan yazıldı: Windows, Linux ve macOS için kendi başına çalışan tek bir dosya, https izleyicileri, açık ve koyu temalı yeni bir arayüz ve qBittorrent öykünmesi.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET, bir torrent’in gönderme ve indirme istatistiklerini neredeyse tüm BitTorrent izleyicilerine sahte olarak bildiren küçük ve bağımsız bir uygulamadır.",
   "download.notAClient": "Yani program BitTorrent istemcinize (qBittorrent, uTorrent, Azureus, BitComet ve diğerleri) <strong>bağlı değildir</strong> ve bir torrent’in dosyalarını <strong>ne indirir ne de gönderir</strong>. Yapabildiği tek şey, izleyiciye sahte indirme ve gönderme istatistikleri bildirmektir.",
-  "download.emulations": "RatioMaster.NET, en yaygın kullanılan BitTorrent istemcilerinin 32 sürümü için yerleşik öykünmeler içerir: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent ve Gnome BT. 1.2 sürümü kendi başına çalışan tek bir dosyadır: kurulacak bir şey yoktur, .NET Framework ve Mono gerekmez.",
+  "download.emulations": "RatioMaster.NET, en yaygın kullanılan BitTorrent istemcilerinin 32 sürümü için yerleşik öykünmeler içerir: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent ve Gnome BT. 1.3 sürümü kendi başına çalışan tek bir dosyadır: kurulacak bir şey yoktur, .NET Framework ve Mono gerekmez.",
   "download.windowsTitle": "Windows 10 ve 11",
   "download.windows": "Windows için indir",
   "download.windowsArm": "ARM tabanlı Windows",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Programın değişiklik günlüğü",
   "changelog.full": "2005’ten bu yana tüm değişiklik günlüğü <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a> dosyasındadır.",
+
+  "changelog.v130.resume": "RM: bir torrent, indirmesinin kaldığı yerden devam ediyor: “Tamamlanan (%)” ayarı ilerlemeyi izliyor ve oturumla birlikte kaydediliyor; böylece tamamlanmış bir torrent, yeniden başlatmanın ardından her şeyi baştan indirmek yerine gönderime geri dönüyor.",
+  "changelog.v130.completed": "RM: indirme tamamlandıktan sonraki ilk güncelleme artık, gerçek bir istemcide olduğu gibi, “completed” duyurusundan tam bir aralık sonra geliyor ve başarısız olan bir “started” ya da “completed” duyurusu sonraki güncellemeyle birlikte yeniden gönderiliyor.",
+  "changelog.v130.warnings": "RM: günlük, izleyicinin uyarı iletilerini gösteriyor. Örneğin NexusPHP siteleri, fazla erken gelen bir güncellemeye uyarıyla yanıt verir ve onu saymaz.",
+  "changelog.v130.ports": "RM: aynı istemcinin tüm torrent’leri, bir çalıştırmadan diğerine korunan aynı bağlantı noktasını duyuruyor ve bu bağlantı noktasındaki tek bir dinleyici hepsinin el sıkışma isteklerini, her birini kendi torrent’inin kişi kimliğiyle yanıtlıyor; gerçek bir istemcinin tek dinleme bağlantı noktası da böyle yapar.",
+  "changelog.v130.folder": "Genel: yeni Dosya > Klasörden torrent ekle... komutu bir klasördeki tüm torrent dosyalarını tek seferde ekliyor. 1.000 torrent eklemek artık bir saniyeden kısa sürüyor ve listede aynı izleyiciyle zaten bulunan bir torrent ikinci kez eklenmiyor.",
+  "changelog.v130.close": "Genel: Linux’ta varsayılan olduğu gibi “Kapatınca çıkmak yerine bildirim alanına küçült” seçeneği kapalıyken, pencere kapatıldığında program artık torrent’leri durdurduktan sonra kapanıyor. Önceden pencereyi kapatmak programı penceresiz olarak çalışır durumda bırakıyordu.",
+  "changelog.v130.display": "Genel: durdurulmuş bir torrent artık hiçbir hız göstermiyor, “Genel” sekmesi torrent’in şu anda duyurularında kullandığı izleyici anahtarını gösteriyor ve uTorrent kullanan çok sayıda torrent’i aynı anda başlatmak artık pencereyi meşgul etmiyor.",
 
   "changelog.v120.languages": "Genel: program 38 dil konuşuyor. Sistemin görüntüleme diliyle açılır; Ayarlar > Genel > Dil ile başka bir dil seçilebilir. Arapça ve İbranicede pencere sağdan sola yerleşir. Boyutlar ve hızlar seçilen dilin birimleriyle gösterilir.",
   "changelog.v120.emulations": "RM: yeni öykünmeler: qBittorrent 5.2.4 (artık varsayılan), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 ve BitTorrent 7.11.0; uTorrent 3.6.0 ise güncel derlemesi olan 47254’e geçti. BitComet, uTorrent ve BitTorrent kapalı kaynaklı olduğu için kodları doğrudan istemcilerin kendilerinden okundu.",

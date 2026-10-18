@@ -16,8 +16,8 @@ import { DEFAULT_LANGUAGE, LANGUAGES, pathOf } from "../src/languages.js";
 const SITE = "https://ratiomaster.net";
 
 // The release the download buttons point at, and the version shown next to the name.
-const RELEASE = "v1.2.0";
-const VERSION = "1.2";
+const RELEASE = "v1.3.0";
+const VERSION = "1.3";
 
 // Texts that also appear inside attributes. They are plain text (no tags) and are escaped wherever they go;
 // every other text is an HTML fragment that may carry the same tags as the English one.

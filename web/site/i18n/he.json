@@ -14,6 +14,7 @@
   "news.title": "חדשות אחרונות",
   "news.download": "הורדה",
   "news.changelog": "יומן שינויים",
+  "news.v13": "טורנטים ממשיכים עכשיו אחרי הפעלה מחדש מהמקום שאליו הגיעו, כל הטורנטים של אותו לקוח חולקים פתחה אחת כמו בלקוח אמיתי, אזהרות העוקבן מוצגות ביומן, והפקודה קובץ > הוסף טורנטים מתיקייה... מוסיפה כמה טורנטים שרוצים בבת אחת.",
   "news.v12": "התוכנה זמינה עכשיו ב-38 שפות, וכך גם האתר הזה. הלקוחות בקוד סגור פוענחו מתוך הקוד שלהם עצמם: אמולציות חדשות של BitComet 2.22 ושל BitTorrent 7.11.0, uTorrent 3.6.0 ב-build הנוכחי שלו, וגרסאות עדכניות של qBittorrent, Deluge, rTorrent, Vuze ו-BitTornado.",
   "news.v11": "אמולציות הלקוחות נבדקו מול קוד המקור של הלקוחות האמיתיים ועודכנו: גרסאות עדכניות של qBittorrent, Deluge, Vuze, BitTorrent ו-uTorrent, אמולציה חדשה של rTorrent ומזהה עמית מתוקן ל-Transmission.",
   "news.v10": "שכתוב מלא: קובץ יחיד ועצמאי עבור Windows, Linux ו-macOS, תמיכה בעוקבני https, ממשק חדש עם ערכת נושא בהירה וערכת נושא כהה, ואמולציה של qBittorrent.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET היא תוכנה קטנה ועצמאית שמזייפת את נתוני ההעלאה וההורדה של טורנט מול כמעט כל עוקבני BitTorrent.",
   "download.notAClient": "כלומר, היא <strong>אינה</strong> תלויה בלקוח ה-BitTorrent שלכם (qBittorrent, uTorrent, Azureus, BitComet ואחרים), והיא <strong>לא</strong> מורידה ולא מעלה את הקבצים של הטורנט. כל מה שהיא יכולה לעשות הוא לזייף את נתוני ההורדה וההעלאה שמדווחים לעוקבן.",
-  "download.emulations": "ב-RatioMaster.NET מובנות אמולציות של 32 גרסאות של לקוחות ה-BitTorrent הנפוצים ביותר: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent ו-Gnome BT. גרסה 1.2 היא קובץ יחיד ועצמאי: אין מה להתקין, ואין צורך ב-.NET Framework או ב-Mono.",
+  "download.emulations": "ב-RatioMaster.NET מובנות אמולציות של 32 גרסאות של לקוחות ה-BitTorrent הנפוצים ביותר: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent ו-Gnome BT. גרסה 1.3 היא קובץ יחיד ועצמאי: אין מה להתקין, ואין צורך ב-.NET Framework או ב-Mono.",
   "download.windowsTitle": "Windows 10 ו-11",
   "download.windows": "הורדה ל-Windows",
   "download.windowsArm": "Windows על ARM",
@@ -65,6 +66,14 @@
 
   "changelog.title": "יומן השינויים של התוכנה",
   "changelog.full": "יומן השינויים המלא מאז 2005 נמצא ב-<a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: טורנט ממשיך מהמקום שאליו הגיעה ההורדה שלו: ההגדרה \"הושלם (%)\" עוקבת אחרי ההתקדמות ונשמרת עם הסשן, כך שטורנט שהושלם חוזר אחרי הפעלה מחדש כזורע, במקום להוריד שוב את הכול.",
+  "changelog.v130.completed": "RM: העדכון הראשון אחרי סיום ההורדה נשלח עכשיו כעבור מרווח שלם מההכרזה על האירוע \"completed\", כמו בלקוח אמיתי, והכרזה על האירוע \"started\" או \"completed\" שלא עברה נשלחת שוב עם העדכון הבא.",
+  "changelog.v130.warnings": "RM: היומן מציג את הודעות האזהרה של העוקבן. אתרי NexusPHP, למשל, משיבים באזהרה על עדכון שמגיע מוקדם מדי ולא סופרים אותו.",
+  "changelog.v130.ports": "RM: כל הטורנטים של אותו לקוח מכריזים על אותה פתחה, שנשמרת מהפעלה להפעלה, ומאזין אחד בפתחה הזו משיב ללחיצות היד של כולם, לכל אחת במזהה העמית של הטורנט שלה, כפי שעושה פתחת ההאזנה היחידה של לקוח אמיתי.",
+  "changelog.v130.folder": "כללי: הפקודה החדשה קובץ > הוסף טורנטים מתיקייה... מוסיפה בבת אחת את כל קובצי הטורנט שבתיקייה. הוספת 1,000 טורנטים לוקחת עכשיו פחות משנייה, וטורנט שכבר נמצא ברשימה עם אותו עוקבן לא מתווסף פעם שנייה.",
+  "changelog.v130.close": "כללי: כשהאפשרות \"מזער לאזור ההודעות בעת סגירת החלון במקום לצאת מהתוכנה\" כבויה, כפי שהיא כברירת מחדל ב-Linux, בסגירת החלון התוכנה עוצרת עכשיו את הטורנטים ויוצאת. בעבר סגירת החלון השאירה את התוכנה פועלת בלי חלון.",
+  "changelog.v130.display": "כללי: טורנט שנעצר כבר לא מציג שום מהירות, הלשונית \"כללי\" מציגה את מפתח העוקבן שאיתו הטורנט מכריז כרגע, והפעלת טורנטים רבים של uTorrent בבת אחת כבר לא משאירה את החלון עסוק.",
 
   "changelog.v120.languages": "כללי: התוכנה זמינה ב-38 שפות. היא נפתחת בשפת התצוגה של המערכת, ואפשר לבחור שפה אחרת דרך הגדרות > כללי > שפה. בערבית ובעברית החלון נפרש מימין לשמאל, וגדלים ומהירויות מוצגים ביחידות של השפה שנבחרה.",
   "changelog.v120.emulations": "RM: אמולציות חדשות: qBittorrent 5.2.4 (עכשיו ברירת המחדל), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 ו-BitTorrent 7.11.0, ו-uTorrent 3.6.0 עובר ל-build הנוכחי שלו, 47254. BitComet, uTorrent ו-BitTorrent הם בקוד סגור, ולכן הם פוענחו מתוך הלקוחות עצמם.",

@@ -14,6 +14,7 @@
   "news.title": "Siste nytt",
   "news.download": "Last ned",
   "news.changelog": "Endringer",
+  "news.v13": "Torrenter fortsetter nå etter en omstart der de slapp, alle torrentene til én klient deler én port som i en ekte klient, sporeradvarsler vises i loggen, og Fil > Legg til torrenter fra en mappe... legger til så mange torrenter du vil på én gang.",
   "news.v12": "Programmet snakker nå 38 språk, og det gjør også dette nettstedet. Klientene med lukket kildekode ble undersøkt ved å lese koden deres: nye emuleringer av BitComet 2.22 og BitTorrent 7.11.0, uTorrent 3.6.0 med gjeldende bygg og gjeldende versjoner av qBittorrent, Deluge, rTorrent, Vuze og BitTornado.",
   "news.v11": "Klientemuleringene ble sjekket mot kildekoden til de ekte klientene og oppdatert: gjeldende bygg av qBittorrent, Deluge, Vuze, BitTorrent og uTorrent, en ny rTorrent-emulering og en rettet likemanns-ID for Transmission.",
   "news.v10": "En fullstendig omskriving: én selvstendig fil for Windows, Linux og macOS, https-sporere, et nytt grensesnitt med lyst og mørkt tema og en qBittorrent-emulering.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET er et lite, selvstendig program som forfalsker opplastings- og nedlastingsstatistikken for en torrent overfor nesten alle BitTorrent-sporere.",
   "download.notAClient": "Det betyr at det <strong>ikke</strong> er avhengig av BitTorrent-klienten din (qBittorrent, uTorrent, Azureus, BitComet med flere), og at det <strong>ikke</strong> laster ned eller opp filene i en torrent. Det kan bare forfalske nedlastings- og opplastingsstatistikken som rapporteres til sporeren.",
-  "download.emulations": "RatioMaster.NET har innebygde emuleringer av 32 versjoner av de mest brukte BitTorrent-klientene: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent og Gnome BT. Versjon 1.2 er én selvstendig fil: ingenting å installere, ikke noe .NET Framework og ikke noe Mono.",
+  "download.emulations": "RatioMaster.NET har innebygde emuleringer av 32 versjoner av de mest brukte BitTorrent-klientene: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent og Gnome BT. Versjon 1.3 er én selvstendig fil: ingenting å installere, ikke noe .NET Framework og ikke noe Mono.",
   "download.windowsTitle": "Windows 10 og 11",
   "download.windows": "Last ned for Windows",
   "download.windowsArm": "Windows på ARM",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Programmets endringslogg",
   "changelog.full": "Hele endringsloggen siden 2005 finnes i <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: en torrent fortsetter nedlastingen der den slapp: Fullført (%) følger fremdriften og lagres sammen med økten, slik at en fullført torrent kommer tilbake som deler etter en omstart i stedet for å laste ned alt på nytt.",
+  "changelog.v130.completed": "RM: den første oppdateringen etter at en nedlasting er fullført, kommer nå et helt intervall etter annonseringen ved fullføring, som i en ekte klient, og en annonsering ved start eller fullføring som ikke kom fram, sendes på nytt med neste oppdatering.",
+  "changelog.v130.warnings": "RM: loggen viser sporerens advarselsmeldinger. NexusPHP-nettsteder svarer for eksempel på en oppdatering som kommer for tidlig, med en advarsel og teller den ikke med.",
+  "changelog.v130.ports": "RM: alle torrentene til én klient annonserer den samme porten, som beholdes fra én kjøring til den neste, og én lytter på porten svarer på håndtrykkene for dem alle, hvert med den aktuelle torrentens egen likemanns-ID, slik den ene lytteporten til en ekte klient gjør.",
+  "changelog.v130.folder": "Generelt: det nye menyvalget Fil > Legg til torrenter fra en mappe... legger til alle torrentfiler i en mappe på én gang. Det tar nå under ett sekund å legge til 1000 torrenter, og en torrent som allerede er i listen med samme sporer, legges ikke til en gang til.",
+  "changelog.v130.close": "Generelt: når alternativet «Skjul vinduet i systemstatusfeltet ved lukking i stedet for å avslutte programmet» er slått av, noe som er standard på Linux, avsluttes programmet nå når vinduet lukkes, etter at torrentene er stoppet. Tidligere fortsatte programmet å kjøre uten vindu.",
+  "changelog.v130.display": "Generelt: en stoppet torrent viser ikke lenger noen hastighet, fanen «Generelt» viser sporernøkkelen som en torrent for øyeblikket annonserer med, og å starte mange uTorrent-torrenter samtidig blokkerer ikke lenger vinduet.",
 
   "changelog.v120.languages": "Generelt: programmet snakker 38 språk. Det starter på systemets visningsspråk, og under Innstillinger > Generelt > Språk kan du velge et annet. På arabisk og hebraisk er vinduet lagt opp fra høyre mot venstre, og størrelser og hastigheter bruker enhetene til det valgte språket.",
   "changelog.v120.emulations": "RM: nye emuleringer: qBittorrent 5.2.4 (nå standard), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 og BitTorrent 7.11.0, og uTorrent 3.6.0 går over til sitt gjeldende bygg, 47254. BitComet, uTorrent og BitTorrent har lukket kildekode, så koden deres ble lest direkte fra selve klientene.",

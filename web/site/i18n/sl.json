@@ -14,6 +14,7 @@
   "news.title": "Novice",
   "news.download": "Prenesi",
   "news.changelog": "Seznam sprememb",
+  "news.v13": "Torrenti po ponovnem zagonu zdaj nadaljujejo tam, kjer so ostali, vsi torrenti enega odjemalca si delijo ista vrata tako kot pri pravem odjemalcu, opozorila sledilnika so prikazana v dnevniku, ukaz Datoteka > Dodaj torrente iz mape... pa naenkrat doda poljubno število torrentov.",
   "news.v12": "Program zdaj govori 38 jezikov, prav tako ta spletna stran. Pri odjemalcih z zaprto kodo smo izhajali neposredno iz njihove lastne kode: novi emulaciji BitComet 2.22 in BitTorrent 7.11.0, uTorrent 3.6.0 v trenutni graditvi ter trenutne različice qBittorrent, Deluge, rTorrent, Vuze in BitTornado.",
   "news.v11": "Emulacije odjemalcev so bile preverjene glede na izvorno kodo pravih odjemalcev in posodobljene: trenutne graditve qBittorrent, Deluge, Vuze, BitTorrent in uTorrent, nova emulacija rTorrent in popravljen ID soležnika za Transmission.",
   "news.v10": "Popolnoma na novo napisan program: ena sama samostojna datoteka za Windows, Linux in macOS, sledilniki https, nov vmesnik s svetlo in temno temo ter emulacija qBittorrent.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET je majhen samostojen program, ki skoraj vsem sledilnikom BitTorrent sporoča ponarejeno statistiko pošiljanja in prejemanja torrenta.",
   "download.notAClient": "To pomeni, da <strong>ni</strong> odvisen od vašega odjemalca BitTorrent (qBittorrent, uTorrent, Azureus, BitComet in drugi) in da datotek torrenta <strong>ne</strong> prejema ne pošilja. Ponareja lahko samo statistiko prejemanja in pošiljanja, ki jo sporoča sledilniku.",
-  "download.emulations": "RatioMaster.NET ima vgrajene emulacije 32 različic najpogosteje uporabljanih odjemalcev BitTorrent: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent in Gnome BT. Različica 1.2 je ena sama samostojna datoteka: ničesar ni treba namestiti, .NET Framework in Mono pa nista potrebna.",
+  "download.emulations": "RatioMaster.NET ima vgrajene emulacije 32 različic najpogosteje uporabljanih odjemalcev BitTorrent: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent in Gnome BT. Različica 1.3 je ena sama samostojna datoteka: ničesar ni treba namestiti, .NET Framework in Mono pa nista potrebna.",
   "download.windowsTitle": "Windows 10 in 11",
   "download.windows": "Prenesi za Windows",
   "download.windowsArm": "Windows na ARM",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Seznam sprememb programa",
   "changelog.full": "Celoten seznam sprememb od leta 2005 je v datoteki <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: torrent nadaljuje tam, do koder je prišlo njegovo prejemanje: vrednost »Dokončano (%)« sledi napredku in se shrani skupaj s sejo, zato se dokončan torrent po ponovnem zagonu vrne kot sejalec, namesto da bi vse znova prejel.",
+  "changelog.v130.completed": "RM: prva posodobitev, ko se prejemanje dokonča, zdaj pride cel interval po obvestilu »completed«, tako kot pri pravem odjemalcu, obvestilo »started« ali »completed«, ki ni uspelo, pa se znova pošlje z naslednjo posodobitvijo.",
+  "changelog.v130.warnings": "RM: dnevnik prikazuje opozorilna sporočila sledilnika. Spletne strani, ki uporabljajo NexusPHP, na primer na prezgodnjo posodobitev odgovorijo z opozorilom in je ne upoštevajo.",
+  "changelog.v130.ports": "RM: vsi torrenti enega odjemalca sledilniku sporočajo ista vrata, ki se ohranijo od zagona do zagona, en poslušalnik na teh vratih pa odgovarja na rokovanja za vse te torrente, za vsakega z njegovim lastnim ID-jem soležnika, tako kot to počnejo edina vrata, na katerih posluša pravi odjemalec.",
+  "changelog.v130.folder": "Splošno: novi ukaz Datoteka > Dodaj torrente iz mape... naenkrat doda vse datoteke torrent v mapi. Dodajanje 1000 torrentov zdaj traja manj kot sekundo, torrent, ki je že na seznamu z istim sledilnikom, pa se ne doda še enkrat.",
+  "changelog.v130.close": "Splošno: ko je možnost »Zapri v sistemsko vrstico namesto izhoda« izklopljena, kar je privzeto v Linuxu, zapiranje okna zdaj ustavi torrente in nato konča program. Prej je program ostajal zagnan brez okna.",
+  "changelog.v130.display": "Splošno: ustavljen torrent ne prikazuje več nobene hitrosti, zavihek »Splošno« kaže ključ sledilnika, ki ga torrent trenutno pošilja v obvestilih, hkratni zagon številnih torrentov z odjemalcem uTorrent pa ne blokira več okna.",
 
   "changelog.v120.languages": "Splošno: program govori 38 jezikov. Zažene se v jeziku prikaza sistema, drugega pa lahko izberete v oknu Nastavitve > Splošno > Jezik. V arabščini in hebrejščini je okno postavljeno od desne proti levi, velikosti in hitrosti pa so prikazane v enotah izbranega jezika.",
   "changelog.v120.emulations": "RM: nove emulacije: qBittorrent 5.2.4 (zdaj privzeti), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 in BitTorrent 7.11.0, uTorrent 3.6.0 pa preide na trenutno graditev 47254. BitComet, uTorrent in BitTorrent imajo zaprto kodo, zato je bila njihova koda preučena neposredno v samih odjemalcih.",

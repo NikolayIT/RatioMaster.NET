@@ -14,6 +14,7 @@
   "news.title": "Ultime notizie",
   "news.download": "Scarica",
   "news.changelog": "Cronologia versioni",
+  "news.v13": "Dopo un riavvio, i torrent ora continuano da dove erano arrivati, tutti i torrent di uno stesso client condividono un’unica porta come in un client reale, gli avvisi del tracker compaiono nel registro, e File > Aggiungi torrent da una cartella… aggiunge in una volta sola tutti i torrent che vuoi.",
   "news.v12": "Il programma ora parla 38 lingue, come anche questo sito. I client a codice chiuso sono stati analizzati a partire dal loro stesso codice: nuove emulazioni di BitComet 2.22 e BitTorrent 7.11.0, uTorrent 3.6.0 alla build attuale e le versioni attuali di qBittorrent, Deluge, rTorrent, Vuze e BitTornado.",
   "news.v11": "Le emulazioni dei client sono state verificate sul codice sorgente dei client reali e aggiornate: build attuali di qBittorrent, Deluge, Vuze, BitTorrent e uTorrent, una nuova emulazione di rTorrent e l’ID peer di Transmission corretto.",
   "news.v10": "Una riscrittura completa: un unico file autonomo per Windows, Linux e macOS, tracker https, una nuova interfaccia con temi chiaro e scuro e un’emulazione di qBittorrent.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET è una piccola applicazione autonoma che comunica statistiche fittizie di upload e download di un torrent a quasi tutti i tracker BitTorrent.",
   "download.notAClient": "Questo significa che <strong>non</strong> dipende dal tuo client BitTorrent (qBittorrent, uTorrent, Azureus, BitComet e altri) e che <strong>non</strong> scarica né invia i file di un torrent. Può soltanto falsificare le statistiche di download e upload comunicate al tracker.",
-  "download.emulations": "RatioMaster.NET include le emulazioni di 32 versioni dei client BitTorrent più diffusi: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent e Gnome BT. La versione 1.2 è un unico file autonomo: niente da installare, né .NET Framework né Mono.",
+  "download.emulations": "RatioMaster.NET include le emulazioni di 32 versioni dei client BitTorrent più diffusi: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent e Gnome BT. La versione 1.3 è un unico file autonomo: niente da installare, né .NET Framework né Mono.",
   "download.windowsTitle": "Windows 10 e 11",
   "download.windows": "Scarica per Windows",
   "download.windowsArm": "Windows su ARM",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Cronologia delle versioni del programma",
   "changelog.full": "La cronologia completa dal 2005 è in <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: un torrent continua dal punto a cui era arrivato il suo download: Completato (%) segue l’avanzamento e viene salvato con la sessione, così dopo un riavvio un torrent completato torna in seed invece di scaricare di nuovo tutto.",
+  "changelog.v130.completed": "RM: il primo aggiornamento che segue il completamento di un download ora arriva un intervallo intero dopo l’annuncio “completed”, come in un client reale, e un annuncio “started” o “completed” che non è andato a buon fine viene inviato di nuovo con l’aggiornamento successivo.",
+  "changelog.v130.warnings": "RM: il registro mostra i messaggi di avviso del tracker. I siti NexusPHP, per esempio, rispondono con un avviso a un aggiornamento che arriva troppo presto e non lo conteggiano.",
+  "changelog.v130.ports": "RM: tutti i torrent di uno stesso client annunciano la stessa porta, mantenuta da un avvio all’altro, e un unico socket in ascolto su di essa risponde agli handshake di tutti questi torrent, ciascuno con il proprio ID peer, come fa l’unica porta di ascolto di un client reale.",
+  "changelog.v130.folder": "Generale: il nuovo comando File > Aggiungi torrent da una cartella… aggiunge in una volta sola tutti i file torrent di una cartella. Ora aggiungere 1.000 torrent richiede meno di un secondo, e un torrent già presente nell’elenco con lo stesso tracker non viene aggiunto una seconda volta.",
+  "changelog.v130.close": "Generale: con l’opzione “Chiudi nell’area di notifica invece di uscire” disattivata, come avviene per impostazione predefinita su Linux, la chiusura della finestra ora termina il programma dopo l’arresto dei torrent. Prima il programma restava in esecuzione senza finestra.",
+  "changelog.v130.display": "Generale: un torrent fermato non mostra più alcuna velocità, la scheda Generale indica la chiave del tracker con cui un torrent annuncia in questo momento, e avviare molti torrent uTorrent contemporaneamente non blocca più la finestra.",
 
   "changelog.v120.languages": "Generale: il programma parla 38 lingue. Si avvia nella lingua di visualizzazione del sistema, e da Impostazioni > Generale > Lingua se ne può scegliere un’altra. In arabo ed ebraico la finestra è disposta da destra a sinistra, e dimensioni e velocità usano le unità della lingua scelta.",
   "changelog.v120.emulations": "RM: nuove emulazioni: qBittorrent 5.2.4 (ora quella predefinita), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 e BitTorrent 7.11.0; uTorrent 3.6.0 passa alla build attuale, la 47254. BitComet, uTorrent e BitTorrent sono a codice chiuso, quindi sono stati analizzati a partire dai client stessi.",

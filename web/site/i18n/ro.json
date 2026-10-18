@@ -14,6 +14,7 @@
   "news.title": "Ultimele noutăți",
   "news.download": "Descărcare",
   "news.changelog": "Modificări",
+  "news.v13": "Torrentele continuă acum, după o repornire, de unde ajunseseră, toate torrentele aceluiași client folosesc în comun un singur port ca la un client real, avertismentele trackerului apar în jurnal, iar Fișier > Adaugă torrente dintr-un folder… adaugă deodată oricâte torrente.",
   "news.v12": "Programul vorbește acum 38 de limbi, la fel ca acest site. Clienții cu sursă închisă au fost studiați direct din propriul lor cod: emulări noi pentru BitComet 2.22 și BitTorrent 7.11.0, uTorrent 3.6.0 la build-ul actual și versiunile actuale de qBittorrent, Deluge, rTorrent, Vuze și BitTornado.",
   "news.v11": "Emulările de clienți au fost verificate cu codul sursă al clienților reali și aduse la zi: build-uri actuale de qBittorrent, Deluge, Vuze, BitTorrent și uTorrent, o emulare nouă pentru rTorrent și ID-ul de partener corectat pentru Transmission.",
   "news.v10": "O rescriere completă: un singur fișier autonom pentru Windows, Linux și macOS, trackere https, o interfață nouă cu temă luminoasă și întunecată și o emulare qBittorrent.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET este o aplicație mică, de sine stătătoare, care raportează statistici false de încărcare și descărcare ale unui torrent către aproape toate trackerele BitTorrent.",
   "download.notAClient": "Asta înseamnă că <strong>nu</strong> depinde de clientul dumneavoastră BitTorrent (qBittorrent, uTorrent, Azureus, BitComet și alții) și <strong>nu</strong> descarcă și nici nu încarcă fișierele unui torrent. Poate doar să falsifice statisticile de descărcare și încărcare raportate trackerului.",
-  "download.emulations": "RatioMaster.NET include emulări pentru 32 de versiuni ale celor mai folosiți clienți BitTorrent: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent și Gnome BT. Versiunea 1.2 este un singur fișier autonom: nu trebuie instalat nimic și nu are nevoie nici de .NET Framework, nici de Mono.",
+  "download.emulations": "RatioMaster.NET include emulări pentru 32 de versiuni ale celor mai folosiți clienți BitTorrent: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent și Gnome BT. Versiunea 1.3 este un singur fișier autonom: nu trebuie instalat nimic și nu are nevoie nici de .NET Framework, nici de Mono.",
   "download.windowsTitle": "Windows 10 și 11",
   "download.windows": "Descărcare pentru Windows",
   "download.windowsArm": "Windows pe ARM",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Istoricul modificărilor",
   "changelog.full": "Istoricul complet al modificărilor, din 2005 încoace, se află în <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: un torrent continuă de unde ajunsese descărcarea lui: Finalizat (%) urmărește progresul și este salvat împreună cu sesiunea, așa că, după o repornire, un torrent finalizat reia distribuirea în loc să descarce totul din nou.",
+  "changelog.v130.completed": "RM: prima actualizare care urmează finalizării unei descărcări are loc acum la un interval întreg după anunțul „completed”, ca la un client real, iar un anunț „started” sau „completed” care a eșuat este trimis din nou odată cu următoarea actualizare.",
+  "changelog.v130.warnings": "RM: jurnalul afișează mesajele de avertisment ale trackerului. Site-urile NexusPHP, de exemplu, răspund cu un avertisment la o actualizare care vine prea devreme și nu o iau în calcul.",
+  "changelog.v130.ports": "RM: toate torrentele aceluiași client anunță același port, păstrat de la o pornire la alta, iar un singur socket de ascultare pe acest port răspunde la handshake-urile tuturor, fiecare cu propriul ID de partener, așa cum face unicul port de ascultare al unui client real.",
+  "changelog.v130.folder": "General: noua comandă Fișier > Adaugă torrente dintr-un folder… adaugă deodată toate fișierele torrent dintr-un folder. Adăugarea a 1.000 de torrente durează acum mai puțin de o secundă, iar un torrent care se află deja în listă cu același tracker nu este adăugat a doua oară.",
+  "changelog.v130.close": "General: când opțiunea „La închidere, ascunde fereastra în zona de notificare fără a ieși din aplicație” este dezactivată, cum este implicit pe Linux, închiderea ferestrei duce acum la ieșirea din program, după oprirea torrentelor. Înainte, programul continua să ruleze fără fereastră.",
+  "changelog.v130.display": "General: un torrent oprit nu mai afișează nicio viteză, fila General arată cheia pentru tracker cu care anunță torrentul în acest moment, iar pornirea simultană a multor torrente uTorrent nu mai blochează fereastra.",
 
   "changelog.v120.languages": "General: programul vorbește 38 de limbi. Pornește în limba de afișare a sistemului, iar din Setări > General > Limbă puteți alege alta. În arabă și ebraică fereastra este așezată de la dreapta la stânga, iar dimensiunile și vitezele folosesc unitățile limbii alese.",
   "changelog.v120.emulations": "RM: emulări noi: qBittorrent 5.2.4 (acum implicit), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 și BitTorrent 7.11.0, iar uTorrent 3.6.0 trece la build-ul actual, 47254. BitComet, uTorrent și BitTorrent au codul sursă închis, așa că a fost analizat direct codul acestor clienți.",

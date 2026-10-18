@@ -14,6 +14,7 @@
   "news.title": "Viimased uudised",
   "news.download": "Laadi alla",
   "news.changelog": "Muudatused",
+  "news.v13": "Torrentid jätkavad nüüd pärast taaskäivitust sealt, kuhu need olid jõudnud, ühe kliendi kõik torrentid kasutavad nagu päris kliendis ühist porti, jälgija hoiatused on logis näha ning Fail > Lisa torrentid kaustast... lisab korraga ükskõik kui palju torrenteid.",
   "news.v12": "Programm räägib nüüd 38 keelt, nagu ka see sait. Suletud lähtekoodiga kliente analüüsiti nende endi koodi põhjal: uued BitComet 2.22 ja BitTorrent 7.11.0 emulatsioonid, uTorrent 3.6.0 praeguse järguga ning ajakohased qBittorrent, Deluge, rTorrent, Vuze ja BitTornado.",
   "news.v11": "Kliendiemulatsioone võrreldi päris klientide lähtekoodiga ja need viidi ajakohaseks: qBittorrenti, Deluge’i, Vuze’i, BitTorrenti ja uTorrenti praegused järgud, uus rTorrenti emulatsioon ja parandatud Transmissioni partneri ID.",
   "news.v10": "Täielik ümberkirjutus: üks iseseisev fail Windowsile, Linuxile ja macOS-ile, https-jälgijad, uus liides heleda ja tumeda kujundusega ning qBittorrenti emulatsioon.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET on väike iseseisev rakendus, mis võltsib peaaegu kõigile BitTorrenti jälgijatele edastatavat torrenti üles- ja allalaadimise statistikat.",
   "download.notAClient": "See tähendab, et see <strong>ei</strong> sõltu teie BitTorrenti kliendist (qBittorrent, uTorrent, Azureus, BitComet ja teised) ning <strong>ei</strong> laadi torrenti faile alla ega üles. See saab ainult võltsida jälgijale teatatud alla- ja üleslaadimise statistikat.",
-  "download.emulations": "RatioMaster.NET sisaldab enimkasutatud BitTorrenti klientide 32 versiooni sisseehitatud emulatsioone: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent ja Gnome BT. Versioon 1.2 on üks iseseisev fail: midagi pole vaja paigaldada ning pole vaja ei .NET Frameworki ega Monot.",
+  "download.emulations": "RatioMaster.NET sisaldab enimkasutatud BitTorrenti klientide 32 versiooni sisseehitatud emulatsioone: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent ja Gnome BT. Versioon 1.3 on üks iseseisev fail: midagi pole vaja paigaldada ning pole vaja ei .NET Frameworki ega Monot.",
   "download.windowsTitle": "Windows 10 ja 11",
   "download.windows": "Laadi alla Windowsile",
   "download.windowsArm": "ARM-põhine Windows",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Programmi muudatuste logi",
   "changelog.full": "Täielik muudatuste logi alates 2005. aastast on failis <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: torrent jätkab sealt, kuhu selle allalaadimine oli jõudnud: Valmis (%) järgib edenemist ja salvestub koos seansiga, nii et lõpuni alla laaditud torrent naaseb pärast taaskäivitust jagajana, selle asemel et kõike uuesti alla laadida.",
+  "changelog.v130.completed": "RM: allalaadimise lõpule järgnev esimene värskendus tuleb nüüd terve intervall pärast sündmuse „completed“ teavitust, nagu päris kliendis, ning sündmuse „started“ või „completed“ teavitus, mis kohale ei jõudnud, saadetakse uuesti koos järgmise värskendusega.",
+  "changelog.v130.warnings": "RM: logi näitab jälgija hoiatusteateid. Näiteks NexusPHP-saidid vastavad liiga vara saabuvale värskendusele hoiatusega ega arvesta seda.",
+  "changelog.v130.ports": "RM: ühe kliendi kõik torrentid kasutavad teavitustes sama porti, mis säilib ühest käivitusest teiseni, ja üks kuular sellel pordil vastab nende kõigi kätlustele, igaühele vastava torrenti enda partneri ID-ga, nagu teeb päris kliendi ainus kuulatav port.",
+  "changelog.v130.folder": "Üldine: uus käsk Fail > Lisa torrentid kaustast... lisab korraga kõik kaustas olevad torrentfailid. 1000 torrenti lisamine võtab nüüd aega alla sekundi ning torrentit, mis on loendis juba sama jälgijaga, teist korda ei lisata.",
+  "changelog.v130.close": "Üldine: kui valik „Sulge süsteemisalve, selle asemel et väljuda“ on välja lülitatud, mis on Linuxis vaikesäte, väljub programm akna sulgemisel nüüd pärast torrentide peatamist. Varem jäi programm ilma aknata tööle.",
+  "changelog.v130.display": "Üldine: peatatud torrent ei näita enam mingit kiirust, vahekaart Üldine näitab jälgija võtit, mida torrent parajasti teavitustes kasutab, ja paljude uTorrenti torrentide korraga käivitamine ei muuda enam akent reageerimatuks.",
 
   "changelog.v120.languages": "Üldine: programm räägib 38 keelt. See käivitub süsteemi kuvakeeles ja teise keele saab valida kohas Sätted > Üldine > Keel. Araabia ja heebrea keele puhul on akna paigutus paremalt vasakule ning suurused ja kiirused kasutavad valitud keele ühikuid.",
   "changelog.v120.emulations": "RM: uued emulatsioonid: qBittorrent 5.2.4 (nüüd vaikimisi), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 ja BitTorrent 7.11.0 ning uTorrent 3.6.0 läheb üle praegusele järgule 47254. BitComet, uTorrent ja BitTorrent on suletud lähtekoodiga, seega analüüsiti nende klientide endi koodi.",

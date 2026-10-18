@@ -14,6 +14,7 @@
   "news.title": "Berita terbaru",
   "news.download": "Unduh",
   "news.changelog": "Catatan perubahan",
+  "news.v13": "Torrent kini melanjutkan dari titik yang sudah dicapainya setelah dimulai ulang, semua torrent dari satu klien memakai satu port bersama seperti pada klien asli, peringatan dari pelacak ditampilkan di log, dan perintah Berkas > Tambah torrent dari folder... menambahkan torrent sebanyak apa pun sekaligus.",
   "news.v12": "Program ini kini tersedia dalam 38 bahasa, begitu pula situs ini. Kode klien bersumber tertutup dianalisis secara langsung: emulasi baru BitComet 2.22 dan BitTorrent 7.11.0, uTorrent 3.6.0 pada build terbarunya, serta versi terkini qBittorrent, Deluge, rTorrent, Vuze, dan BitTornado.",
   "news.v11": "Emulasi klien dicocokkan dengan kode sumber klien aslinya lalu diperbarui: build terkini qBittorrent, Deluge, Vuze, BitTorrent, dan uTorrent, emulasi rTorrent baru, serta ID peer Transmission yang diperbaiki.",
   "news.v10": "Ditulis ulang sepenuhnya: satu berkas mandiri untuk Windows, Linux, dan macOS, pelacak https, antarmuka baru dengan tema terang dan gelap, serta emulasi qBittorrent.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET adalah aplikasi kecil mandiri yang melaporkan statistik palsu tentang unggahan dan unduhan sebuah torrent ke hampir semua pelacak BitTorrent.",
   "download.notAClient": "Artinya, program ini <strong>tidak</strong> bergantung pada klien BitTorrent Anda (qBittorrent, uTorrent, Azureus, BitComet, dan lainnya) dan <strong>tidak</strong> akan mengunduh atau mengunggah berkas sebuah torrent. Program ini hanya dapat memalsukan statistik unduhan dan unggahan yang dilaporkan ke pelacak.",
-  "download.emulations": "RatioMaster.NET memiliki emulasi bawaan untuk 32 versi klien BitTorrent yang paling banyak digunakan: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent, dan Gnome BT. Versi 1.2 berupa satu berkas mandiri: tidak ada yang perlu dipasang, tanpa .NET Framework, dan tanpa Mono.",
+  "download.emulations": "RatioMaster.NET memiliki emulasi bawaan untuk 32 versi klien BitTorrent yang paling banyak digunakan: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent, dan Gnome BT. Versi 1.3 berupa satu berkas mandiri: tidak ada yang perlu dipasang, tanpa .NET Framework, dan tanpa Mono.",
   "download.windowsTitle": "Windows 10 dan 11",
   "download.windows": "Unduh untuk Windows",
   "download.windowsArm": "Windows di ARM",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Catatan perubahan program",
   "changelog.full": "Catatan perubahan lengkap sejak 2005 ada di <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: torrent melanjutkan dari titik yang sudah dicapai unduhannya: pengaturan “Selesai (%)” mengikuti kemajuan dan disimpan bersama sesi, sehingga torrent yang sudah selesai kembali berbagi setelah dimulai ulang, alih-alih mengunduh semuanya lagi.",
+  "changelog.v130.completed": "RM: pembaruan pertama setelah unduhan selesai kini dikirim satu interval penuh setelah pengumuman completed, seperti pada klien asli, dan bila pengumuman started atau completed tidak berhasil, pengumuman tersebut dikirim lagi bersama pembaruan berikutnya.",
+  "changelog.v130.warnings": "RM: log menampilkan pesan peringatan dari pelacak. Situs NexusPHP, misalnya, membalas pembaruan yang datang terlalu awal dengan peringatan dan tidak menghitungnya.",
+  "changelog.v130.ports": "RM: semua torrent dari satu klien mengumumkan port yang sama, yang tetap dipakai setiap kali program dijalankan, dan satu pendengar di port itu membalas handshake dari semua torrent tersebut, masing-masing dengan ID peer milik torrent itu sendiri, seperti yang dilakukan satu-satunya port pendengar pada klien asli.",
+  "changelog.v130.folder": "Umum: perintah baru Berkas > Tambah torrent dari folder... menambahkan semua berkas torrent dalam sebuah folder sekaligus. Menambahkan 1.000 torrent kini memakan waktu kurang dari satu detik, dan torrent yang sudah ada di daftar dengan pelacak yang sama tidak ditambahkan untuk kedua kalinya.",
+  "changelog.v130.close": "Umum: jika opsi “Saat jendela ditutup, sembunyikan aplikasi di baki sistem alih-alih keluar” nonaktif, seperti bawaannya di Linux, kini menutup jendela akan menghentikan torrent lalu keluar dari program. Sebelumnya, menutup jendela membuat program tetap berjalan tanpa jendela.",
+  "changelog.v130.display": "Umum: torrent yang dihentikan tidak lagi menampilkan kecepatan apa pun, tab “Umum” menampilkan kunci pelacak yang saat ini dipakai torrent dalam pengumumannya, dan memulai banyak torrent uTorrent sekaligus tidak lagi membuat jendela sibuk.",
 
   "changelog.v120.languages": "Umum: program ini tersedia dalam 38 bahasa. Saat dijalankan, program menggunakan bahasa tampilan sistem, dan bahasa lain dapat dipilih di Pengaturan > Umum > Bahasa. Untuk bahasa Arab dan Ibrani, jendela ditata dari kanan ke kiri. Ukuran dan kecepatan memakai satuan sesuai bahasa yang dipilih.",
   "changelog.v120.emulations": "RM: emulasi baru: qBittorrent 5.2.4 (kini menjadi bawaan), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22, dan BitTorrent 7.11.0, sementara uTorrent 3.6.0 beralih ke build terbarunya, 47254. BitComet, uTorrent, dan BitTorrent bersumber tertutup, jadi emulasinya dibuat berdasarkan analisis langsung terhadap klien aslinya.",

@@ -14,6 +14,7 @@
   "news.title": "Novinky",
   "news.download": "Stáhnout",
   "news.changelog": "Historie změn",
+  "news.v13": "Torrenty nyní po restartu pokračují tam, kde přestaly, všechny torrenty jednoho klienta sdílejí jeden port jako ve skutečném klientovi, varování trackeru se zobrazují v protokolu a příkaz Soubor > Přidat torrenty ze složky... přidá najednou libovolný počet torrentů.",
   "news.v12": "Program nyní mluví 38 jazyky a tento web také. U klientů s uzavřeným kódem se vycházelo přímo z jejich vlastního kódu: nové emulace BitComet 2.22 a BitTorrent 7.11.0, uTorrent 3.6.0 v aktuálním sestavení a aktuální qBittorrent, Deluge, rTorrent, Vuze a BitTornado.",
   "news.v11": "Emulace klientů byly porovnány se zdrojovým kódem skutečných klientů a aktualizovány: aktuální sestavení qBittorrent, Deluge, Vuze, BitTorrent a uTorrent, nová emulace rTorrent a opravené peer ID klienta Transmission.",
   "news.v10": "Kompletní přepis: jeden samostatný soubor pro Windows, Linux a macOS, trackery https, nové rozhraní se světlým a tmavým motivem a emulace qBittorrent.",
@@ -23,7 +24,7 @@
 
   "download.lead": "RatioMaster.NET je malá samostatná aplikace, která falšuje statistiky odesílání a stahování torrentu hlášené téměř všem trackerům sítě BitTorrent.",
   "download.notAClient": "To znamená, že <strong>nezávisí</strong> na vašem klientovi BitTorrent (qBittorrent, uTorrent, Azureus, BitComet a další) a <strong>nebude</strong> stahovat ani odesílat soubory torrentu. Dokáže pouze falšovat statistiky stahování a odesílání hlášené trackeru.",
-  "download.emulations": "RatioMaster.NET obsahuje vestavěné emulace 32 verzí nejpoužívanějších klientů BitTorrent: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent a Gnome BT. Verze 1.2 je jediný samostatný soubor: nic se neinstaluje a není potřeba .NET Framework ani Mono.",
+  "download.emulations": "RatioMaster.NET obsahuje vestavěné emulace 32 verzí nejpoužívanějších klientů BitTorrent: qBittorrent, uTorrent, BitComet, Vuze, BitTorrent, rTorrent, Transmission, ABC, BitLord, BTuga, BitTornado, Burst, BitTyrant, BitSpirit, Deluge, KTorrent a Gnome BT. Verze 1.3 je jediný samostatný soubor: nic se neinstaluje a není potřeba .NET Framework ani Mono.",
   "download.windowsTitle": "Windows 10 a 11",
   "download.windows": "Stáhnout pro Windows",
   "download.windowsArm": "Windows na ARM",
@@ -65,6 +66,14 @@
 
   "changelog.title": "Historie změn programu",
   "changelog.full": "Úplná historie změn od roku 2005 je v souboru <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v130.resume": "RM: torrent pokračuje od místa, kam se dostalo jeho stahování: nastavení Dokončeno (%) sleduje průběh a ukládá se spolu s relací, takže dokončený torrent se po restartu vrátí jako seed, místo aby vše stahoval znovu.",
+  "changelog.v130.completed": "RM: první aktualizace po dokončení stahování nyní následuje celý interval po oznámení „completed“, stejně jako ve skutečném klientovi, a oznámení „started“ nebo „completed“, které neprošlo, se znovu odešle s další aktualizací.",
+  "changelog.v130.warnings": "RM: protokol zobrazuje varovné zprávy trackeru. Například weby postavené na NexusPHP odpovídají na aktualizaci, která přijde příliš brzy, varováním a nezapočítávají ji.",
+  "changelog.v130.ports": "RM: všechny torrenty jednoho klienta oznamují stejný port, který se zachovává mezi spuštěními, a jeden naslouchající soket na tomto portu odpovídá na handshaky všech těchto torrentů, vždy s vlastním peer ID příslušného torrentu, stejně jako to dělá jediný port, na kterém naslouchá skutečný klient.",
+  "changelog.v130.folder": "Obecné: nový příkaz Soubor > Přidat torrenty ze složky... přidá najednou všechny torrentové soubory ve složce. Přidání 1000 torrentů nyní trvá méně než sekundu a torrent, který už je v seznamu se stejným trackerem, se podruhé nepřidá.",
+  "changelog.v130.close": "Obecné: když je možnost „Zavírat do oznamovací oblasti místo ukončení“ vypnutá, což je výchozí stav v Linuxu, zavření okna nyní po zastavení torrentů ukončí program. Dříve program zůstával spuštěný bez okna.",
+  "changelog.v130.display": "Obecné: zastavený torrent už nezobrazuje žádnou rychlost, karta Obecné ukazuje klíč trackeru, který torrent právě používá v oznámeních, a spuštění mnoha torrentů s emulací uTorrent najednou už neblokuje okno.",
 
   "changelog.v120.languages": "Obecné: program mluví 38 jazyky. Spouští se v jazyce zobrazení systému a jiný jazyk lze zvolit v Nastavení > Obecné > Jazyk. V arabštině a hebrejštině se okno uspořádá zprava doleva a velikosti a rychlosti se zobrazují v jednotkách zvoleného jazyka.",
   "changelog.v120.emulations": "RM: nové emulace: qBittorrent 5.2.4 (nyní výchozí), Deluge 2.2.0, BitTornado 0.3.18, rTorrent 0.16.25, Vuze 5.7.6.0, BitComet 2.22 a BitTorrent 7.11.0; uTorrent 3.6.0 přechází na aktuální sestavení 47254. BitComet, uTorrent a BitTorrent mají uzavřený kód, proto se vycházelo přímo ze samotných klientů.",
