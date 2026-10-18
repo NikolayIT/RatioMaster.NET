@@ -85,11 +85,22 @@ namespace RatioMaster.App.Views
         {
             this.SavePlacement();
 
-            // Close to tray keeps the torrents announcing; quitting happens through File > Exit or the tray menu.
-            if (!e.IsProgrammatic && this.ViewModel is { } viewModel && viewModel.Settings.CloseToTray)
+            if (!e.IsProgrammatic && this.ViewModel is { } viewModel)
             {
+                // Close to tray keeps the torrents announcing; quitting happens through File > Exit or the tray menu.
+                // Otherwise closing the window quits as File > Exit does, which stops the torrents and then closes it:
+                // the app only ends when told to (so that the window can hide in the tray), and a window that just
+                // closed would leave it running with no window, still announcing.
                 e.Cancel = true;
-                this.Hide();
+                if (viewModel.Settings.CloseToTray)
+                {
+                    this.Hide();
+                }
+                else
+                {
+                    viewModel.ExitCommand.Execute(null);
+                }
+
                 return;
             }
 

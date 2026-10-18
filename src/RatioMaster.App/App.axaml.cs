@@ -25,6 +25,7 @@ namespace RatioMaster.App
     {
         private IServiceProvider? services;
         private MainWindowViewModel? mainViewModel;
+        private bool shuttingDown;
 
         public override void Initialize()
         {
@@ -150,6 +151,14 @@ namespace RatioMaster.App
 
         private async Task ShutdownAsync(IClassicDesktopStyleApplicationLifetime desktop)
         {
+            // The window's close button, File > Exit, the tray menu and the system can all ask, also while the torrents
+            // are still stopping.
+            if (this.shuttingDown)
+            {
+                return;
+            }
+
+            this.shuttingDown = true;
             if (this.mainViewModel is { } viewModel)
             {
                 try
