@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Căutarea a eșuat. Asigurați-vă că {0} rulează și are cel puțin un torrent activ.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Procesul {0} nu este căutat din nou deocamdată: o căutare de acum mai puțin de un minut nu a găsit nimic.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Nu se poate citi „{0}”: {1}</value>
   </data>

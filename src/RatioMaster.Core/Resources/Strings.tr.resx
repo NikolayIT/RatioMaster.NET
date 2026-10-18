@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Arama başarısız oldu. {0} istemcisinin en az bir etkin torrent ile çalıştığından emin olun.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>{0} işlemi henüz yeniden aranmıyor: bir dakikadan kısa süre önce yapılan arama hiçbir şey bulamadı.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>“{0}” okunamıyor: {1}</value>
   </data>

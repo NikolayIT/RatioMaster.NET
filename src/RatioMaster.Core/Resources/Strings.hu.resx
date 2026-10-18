@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>A keresés sikertelen. Győződjön meg arról, hogy a(z) {0} fut, és legalább egy aktív torrent van benne.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>A(z) {0} folyamat újbóli keresése egyelőre elmarad: a kevesebb mint egy perccel ezelőtti keresés semmit sem talált.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>A(z) „{0}” fájl nem olvasható: {1}</value>
   </data>

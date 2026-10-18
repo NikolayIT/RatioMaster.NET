@@ -142,6 +142,25 @@ namespace RatioMaster.Core.Tests.Sessions
             Assert.Equal("54321", afterItQuit.CreateIdentity(new TorrentSettings { ClientName = "uTorrent 3.6.0" }).Port);
         }
 
+        /// <summary>Start all with a thousand uTorrent torrents took minutes when each one looked for uTorrent itself.</summary>
+        [Fact]
+        public void TorrentsStartedTogetherLookForTheClientOnceAndTheRegenerateButtonAlwaysLooks()
+        {
+            var process = new FakeProcessMemoryScanner([], canOpen: false);
+            var factory = CreateFactory(process);
+            var settings = new TorrentSettings { ClientName = "uTorrent 3.6.0" };
+            var logs = new List<string>();
+
+            factory.Create(Descriptor, settings);
+            factory.Create(Descriptor, settings, logs.Add);
+            factory.Create(Descriptor, settings);
+            Assert.Equal(1, process.Opens);
+            Assert.Contains(logs, l => l.StartsWith("Not looking for the uTorrent process again yet", StringComparison.Ordinal));
+
+            factory.CreateIdentity(settings);
+            Assert.Equal(2, process.Opens);
+        }
+
         [Fact]
         public void CreatesASessionForTheResolvedProfile()
         {

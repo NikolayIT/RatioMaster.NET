@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Haku epäonnistui. Varmista, että {0} on käynnissä ja siinä on vähintään yksi aktiivinen torrent.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Prosessia {0} ei etsitä vielä uudelleen: alle minuutti sitten tehty haku ei löytänyt mitään.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Tiedostoa ”{0}” ei voi lukea: {1}</value>
   </data>

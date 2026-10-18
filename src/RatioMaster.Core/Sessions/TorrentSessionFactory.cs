@@ -47,8 +47,29 @@ namespace RatioMaster.Core.Sessions
         /// <summary>Gets the port each client listens on, which the application loads from and saves into its settings.</summary>
         public ClientPortBook Ports { get; } = new();
 
-        /// <summary>Builds the identity a session would use, without creating the session (for the UI preview).</summary>
-        public ClientIdentity CreateIdentity(TorrentSettings settings, Action<string>? log = null)
+        /// <summary>
+        /// Builds the identity a session would use, without creating the session (for the UI preview). It looks for the
+        /// running client even when a search a moment ago found nothing: the user may just have started it.
+        /// </summary>
+        public ClientIdentity CreateIdentity(TorrentSettings settings, Action<string>? log = null) =>
+            this.BuildIdentity(settings, log, ignoreRecentMiss: true);
+
+        /// <summary>Creates a session for a torrent with the given settings.</summary>
+        public TorrentSession Create(TorrentDescriptor descriptor, TorrentSettings settings, Action<string>? log = null)
+        {
+            ArgumentNullException.ThrowIfNull(descriptor);
+            ArgumentNullException.ThrowIfNull(settings);
+
+            var profile = this.catalog.GetByName(settings.ClientName);
+
+            // Torrents started together look for the running client once, not once each.
+            var identity = this.BuildIdentity(settings, log, ignoreRecentMiss: false);
+            return new TorrentSession(descriptor, profile, identity, settings, this.tracker, this.localIpProvider, this.random, this.clock, this.listeners);
+        }
+
+        private static string Or(string? value, string fallback) => string.IsNullOrWhiteSpace(value) ? fallback : value;
+
+        private ClientIdentity BuildIdentity(TorrentSettings settings, Action<string>? log, bool ignoreRecentMiss)
         {
             ArgumentNullException.ThrowIfNull(settings);
             var profile = this.catalog.GetByName(settings.ClientName);
@@ -74,7 +95,7 @@ namespace RatioMaster.Core.Sessions
                 };
             }
 
-            if (this.scanner.TryScan(profile, generated, log) is { } copied)
+            if (this.scanner.TryScan(profile, generated, log, ignoreRecentMiss) is { } copied)
             {
                 this.Ports.Remember(profile.Name, copied.Port);
                 return copied;
@@ -82,18 +103,5 @@ namespace RatioMaster.Core.Sessions
 
             return generated;
         }
-
-        /// <summary>Creates a session for a torrent with the given settings.</summary>
-        public TorrentSession Create(TorrentDescriptor descriptor, TorrentSettings settings, Action<string>? log = null)
-        {
-            ArgumentNullException.ThrowIfNull(descriptor);
-            ArgumentNullException.ThrowIfNull(settings);
-
-            var profile = this.catalog.GetByName(settings.ClientName);
-            var identity = this.CreateIdentity(settings, log);
-            return new TorrentSession(descriptor, profile, identity, settings, this.tracker, this.localIpProvider, this.random, this.clock, this.listeners);
-        }
-
-        private static string Or(string? value, string fallback) => string.IsNullOrWhiteSpace(value) ? fallback : value;
     }
 }

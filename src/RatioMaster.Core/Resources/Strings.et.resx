@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Otsing ebaõnnestus. Veenduge, et {0} töötab ja sellel on vähemalt üks aktiivne torrent.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Protsessi {0} veel uuesti ei otsita: vähem kui minut tagasi tehtud otsing ei leidnud midagi.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Faili „{0}“ ei saa lugeda: {1}</value>
   </data>

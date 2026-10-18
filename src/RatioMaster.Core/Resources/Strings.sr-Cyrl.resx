@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Претрага није успела. Проверите да ли је клијент {0} покренут са бар једним активним торентом.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Процес {0} се засад не тражи поново: претрага пре мање од минута није ништа пронашла.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Није могуће прочитати „{0}“: {1}</value>
   </data>

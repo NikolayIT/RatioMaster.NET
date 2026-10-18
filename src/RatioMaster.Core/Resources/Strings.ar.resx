@@ -139,6 +139,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>فشل البحث. يُرجى التأكد من أن {0} قيد التشغيل وفيه تورنت نشط واحد على الأقل.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>لن يُعاد البحث عن العملية {0} بعد: لم يعثر البحث الذي أُجري قبل أقل من دقيقة على شيء.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>تعذّرت قراءة «{0}»: {1}</value>
   </data>

@@ -93,6 +93,101 @@ namespace RatioMaster.Core.Tests.MemoryScan
             Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.6.0"), Fallback));
         }
 
+        /// <summary>Every torrent that starts looks for its client, so a thousand of them must not search a thousand times.</summary>
+        [Fact]
+        public void AClientThatIsNotRunningIsLookedForAgainOnlyAfterAMinute()
+        {
+            var clock = new FakeClock();
+            var process = new FakeProcessMemoryScanner([], canOpen: false);
+            var scanner = new ClientValueScanner(process, clock);
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+            var messages = new List<string>();
+
+            Assert.Null(scanner.TryScan(profile, Fallback));
+            Assert.Null(scanner.TryScan(profile, Fallback, messages.Add));
+            clock.Advance(TimeSpan.FromSeconds(ClientValueScanner.MissWaitSeconds - 1));
+            Assert.Null(scanner.TryScan(profile, Fallback));
+            Assert.Equal(1, process.Opens);
+            Assert.Equal(["Not looking for the uTorrent process again yet: a search less than a minute ago found nothing."], messages);
+
+            clock.Advance(TimeSpan.FromSeconds(1));
+            Assert.Null(scanner.TryScan(profile, Fallback));
+            Assert.Equal(2, process.Opens);
+        }
+
+        [Fact]
+        public void AClientWhoseValuesAreNotFoundIsSearchedAgainOnlyAfterAMinute()
+        {
+            var clock = new FakeClock();
+            var process = new FakeProcessMemoryScanner(Encoding.ASCII.GetBytes("nothing here"));
+            var scanner = new ClientValueScanner(process, clock);
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+
+            Assert.Null(scanner.TryScan(profile, Fallback));
+            Assert.Null(scanner.TryScan(profile, Fallback));
+            Assert.Equal(1, process.Opens);
+
+            clock.Advance(TimeSpan.FromSeconds(ClientValueScanner.MissWaitSeconds));
+            Assert.Null(scanner.TryScan(profile, Fallback));
+            Assert.Equal(2, process.Opens);
+        }
+
+        /// <summary>A running client's values are copied fresh for every torrent, as before.</summary>
+        [Fact]
+        public void AClientThatWasFoundIsSearchedEveryTime()
+        {
+            var process = new FakeProcessMemoryScanner(MemoryWith("&peer_id=-UT360S-abc&key=DEADBEEF&compact=1 x", padding: 0));
+            var scanner = new ClientValueScanner(process, new FakeClock());
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+
+            Assert.NotNull(scanner.TryScan(profile, Fallback));
+            Assert.NotNull(scanner.TryScan(profile, Fallback));
+            Assert.Equal(2, process.Opens);
+        }
+
+        /// <summary>The user starts the client and asks for its values right away: that search cannot wait for the minute.</summary>
+        [Fact]
+        public void ASearchThatIgnoresTheRecentMissLooksAtOnceAndEndsTheWait()
+        {
+            var process = new FakeProcessMemoryScanner(MemoryWith("&peer_id=-UT360S-abc&key=DEADBEEF&compact=1 x", padding: 0), canOpen: false);
+            var scanner = new ClientValueScanner(process, new FakeClock());
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+            Assert.Null(scanner.TryScan(profile, Fallback));
+
+            process.CanOpen = true;
+            Assert.Null(scanner.TryScan(profile, Fallback));
+            Assert.Equal("-UT360S-abc", scanner.TryScan(profile, Fallback, ignoreRecentMiss: true)?.PeerId);
+            Assert.Equal("-UT360S-abc", scanner.TryScan(profile, Fallback)?.PeerId);
+            Assert.Equal(3, process.Opens);
+        }
+
+        [Fact]
+        public void AClockSetBackDoesNotStretchTheWait()
+        {
+            var clock = new FakeClock();
+            var process = new FakeProcessMemoryScanner([], canOpen: false);
+            var scanner = new ClientValueScanner(process, clock);
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+            Assert.Null(scanner.TryScan(profile, Fallback));
+
+            clock.Advance(TimeSpan.FromHours(-1));
+            Assert.Null(scanner.TryScan(profile, Fallback));
+
+            Assert.Equal(2, process.Opens);
+        }
+
+        [Fact]
+        public void EachClientWaitsForItsOwnMiss()
+        {
+            var process = new FakeProcessMemoryScanner([], canOpen: false);
+            var scanner = new ClientValueScanner(process, new FakeClock());
+
+            Assert.Null(scanner.TryScan(Catalog.GetByName("uTorrent 3.6.0"), Fallback));
+            Assert.Null(scanner.TryScan(Catalog.GetByName("BitComet 1.20"), Fallback));
+
+            Assert.Equal(2, process.Opens);
+        }
+
         private static byte[] MemoryWith(string announce, int padding = 70_000)
         {
             var text = new string('.', padding) + announce;

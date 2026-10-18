@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Търсенето е неуспешно. Уверете се, че {0} работи и има поне един активен торент.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Процесът {0} не се търси отново засега: търсене преди по-малко от минута не откри нищо.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Не може да се прочете „{0}“: {1}</value>
   </data>

@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Pretraživanje nije uspjelo. Provjerite je li {0} pokrenut s barem jednim aktivnim torrentom.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Proces {0} zasad se ne traži ponovno: pretraživanje prije manje od minute nije ništa pronašlo.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Nije moguće pročitati „{0}“: {1}</value>
   </data>

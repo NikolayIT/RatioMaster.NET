@@ -177,6 +177,10 @@
     <value>Search failed. Make sure {0} is running with at least one active torrent.</value>
     <comment>{0} = client name such as uTorrent 3.6.0.</comment>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Not looking for the {0} process again yet: a search less than a minute ago found nothing.</value>
+    <comment>Log line when a torrent starts within a minute of a search of the running client that found nothing: the client is looked for at most once a minute. {0} = process name such as uTorrent.</comment>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Cannot read '{0}': {1}</value>
     <comment>{0} = file path, {1} = error text.</comment>

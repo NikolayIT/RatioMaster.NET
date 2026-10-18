@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Pencarian gagal. Pastikan {0} berjalan dengan setidaknya satu torrent aktif.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Proses {0} belum dicari lagi: pencarian kurang dari satu menit yang lalu tidak menemukan apa pun.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Tidak dapat membaca “{0}”: {1}</value>
   </data>

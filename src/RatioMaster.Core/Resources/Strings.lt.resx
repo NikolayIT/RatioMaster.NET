@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Paieška nepavyko. Įsitikinkite, kad {0} veikia ir turi bent vieną aktyvų torentą.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Procesas {0} kol kas iš naujo neieškomas: paieška prieš mažiau nei minutę nieko nerado.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Nepavyko perskaityti „{0}“: {1}</value>
   </data>

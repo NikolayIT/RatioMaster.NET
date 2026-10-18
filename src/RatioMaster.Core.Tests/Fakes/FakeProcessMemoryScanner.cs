@@ -7,7 +7,17 @@ namespace RatioMaster.Core.Tests.Fakes
     {
         public bool IsSupported => true;
 
-        public ProcessMemorySession? Open(string processName) => canOpen ? new Session(memory) : null;
+        /// <summary>Gets or sets a value indicating whether the client is running.</summary>
+        public bool CanOpen { get; set; } = canOpen;
+
+        /// <summary>Gets how many times the client's process was looked for.</summary>
+        public int Opens { get; private set; }
+
+        public ProcessMemorySession? Open(string processName)
+        {
+            this.Opens++;
+            return this.CanOpen ? new Session(memory) : null;
+        }
 
         private sealed class Session(byte[] memory) : ProcessMemorySession
         {

@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>搜尋失敗。請確認 {0} 正在執行，且至少有一個作用中的 Torrent。</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>暫不再次尋找 {0} 處理程序：不到一分鐘前的搜尋沒有找到任何內容。</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>無法讀取「{0}」：{1}</value>
   </data>

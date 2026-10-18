@@ -4,6 +4,7 @@ namespace RatioMaster.Core.MemoryScan
     using System.Text;
     using System.Text.RegularExpressions;
 
+    using RatioMaster.Core.Abstractions;
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.Resources;
 
@@ -13,13 +14,26 @@ namespace RatioMaster.Core.MemoryScan
     /// </summary>
     public sealed partial class ClientValueScanner
     {
+        /// <summary>
+        /// How long a search that found nothing stands before the next one. Every torrent that starts looks for its
+        /// client, on the UI thread, and a search goes through the whole process list, and through the client's memory
+        /// when it runs: starting a thousand uTorrent torrents at once kept the window busy for 11 seconds.
+        /// </summary>
+        internal const int MissWaitSeconds = 60;
+
         private const int BlockSize = 64 * 1024;
 
         private readonly IProcessMemoryScanner scanner;
+        private readonly ISystemClock clock;
+        private readonly Lock gate = new();
 
-        public ClientValueScanner(IProcessMemoryScanner? scanner = null)
+        /// <summary>When the last search for each profile, by name, found nothing.</summary>
+        private readonly Dictionary<string, DateTimeOffset> misses = new(StringComparer.Ordinal);
+
+        public ClientValueScanner(IProcessMemoryScanner? scanner = null, ISystemClock? clock = null)
         {
             this.scanner = scanner ?? ProcessMemoryScanners.ForCurrentPlatform();
+            this.clock = clock ?? SystemClock.Instance;
         }
 
         public bool IsSupported => this.scanner.IsSupported;
@@ -27,8 +41,10 @@ namespace RatioMaster.Core.MemoryScan
         /// <summary>
         /// Scans the client's process and returns the values found, or null when the client is not running,
         /// the platform does not allow it, or nothing matched. <paramref name="fallback"/> fills any missing field.
+        /// After a search that found nothing the client is not looked for again for <see cref="MissWaitSeconds"/>
+        /// seconds, unless <paramref name="ignoreRecentMiss"/> is set: when the user asks, the client may just have started.
         /// </summary>
-        public ClientIdentity? TryScan(ClientProfile profile, ClientIdentity fallback, Action<string>? log = null)
+        public ClientIdentity? TryScan(ClientProfile profile, ClientIdentity fallback, Action<string>? log = null, bool ignoreRecentMiss = false)
         {
             ArgumentNullException.ThrowIfNull(profile);
             ArgumentNullException.ThrowIfNull(fallback);
@@ -39,36 +55,26 @@ namespace RatioMaster.Core.MemoryScan
                 return null;
             }
 
-            log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanLookingForProcess, spec.ProcessName));
-            using var session = this.scanner.Open(spec.ProcessName);
-            if (session is null)
+            if (!ignoreRecentMiss && this.MissedRecently(profile.Name))
             {
-                log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanProcessNotFound, spec.ProcessName));
+                log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanSkippedAfterMiss, spec.ProcessName));
                 return null;
             }
 
-            var buffer = new byte[BlockSize];
-            for (var offset = spec.StartOffset; offset < spec.MaxOffset; offset += BlockSize)
+            var identity = this.Scan(profile, spec, fallback, log);
+            lock (this.gate)
             {
-                var read = session.Read(offset, buffer);
-                if (read <= 0)
+                if (identity is null)
                 {
-                    continue;
+                    this.misses[profile.Name] = this.clock.Now;
                 }
-
-                var text = Encoding.ASCII.GetString(buffer, 0, read);
-                if (!text.Contains(spec.SearchString, StringComparison.Ordinal))
+                else
                 {
-                    continue;
+                    this.misses.Remove(profile.Name);
                 }
-
-                var identity = Extract(text, profile, fallback, log);
-                log?.Invoke(Strings.ScanSucceeded);
-                return identity;
             }
 
-            log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanFailed, profile.Name));
-            return null;
+            return identity;
         }
 
         private static ClientIdentity Extract(string text, ClientProfile profile, ClientIdentity fallback, Action<string>? log)
@@ -130,5 +136,54 @@ namespace RatioMaster.Core.MemoryScan
 
         [GeneratedRegex("&numwant=(.+?)(&| )")]
         private static partial Regex NumWantRegex();
+
+        private ClientIdentity? Scan(ClientProfile profile, ClientMemoryScanSpec spec, ClientIdentity fallback, Action<string>? log)
+        {
+            log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanLookingForProcess, spec.ProcessName));
+            using var session = this.scanner.Open(spec.ProcessName);
+            if (session is null)
+            {
+                log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanProcessNotFound, spec.ProcessName));
+                return null;
+            }
+
+            var buffer = new byte[BlockSize];
+            for (var offset = spec.StartOffset; offset < spec.MaxOffset; offset += BlockSize)
+            {
+                var read = session.Read(offset, buffer);
+                if (read <= 0)
+                {
+                    continue;
+                }
+
+                var text = Encoding.ASCII.GetString(buffer, 0, read);
+                if (!text.Contains(spec.SearchString, StringComparison.Ordinal))
+                {
+                    continue;
+                }
+
+                var identity = Extract(text, profile, fallback, log);
+                log?.Invoke(Strings.ScanSucceeded);
+                return identity;
+            }
+
+            log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanFailed, profile.Name));
+            return null;
+        }
+
+        private bool MissedRecently(string profileName)
+        {
+            lock (this.gate)
+            {
+                if (!this.misses.TryGetValue(profileName, out var missedAt))
+                {
+                    return false;
+                }
+
+                // Measured both ways, so a clock set back since the miss does not stretch the wait.
+                var since = this.clock.Now - missedAt;
+                return since >= TimeSpan.Zero && since < TimeSpan.FromSeconds(MissWaitSeconds);
+            }
+        }
     }
 }

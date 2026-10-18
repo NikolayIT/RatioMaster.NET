@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Échec de la recherche. Vérifiez que {0} est en cours d’exécution avec au moins un torrent actif.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Le processus {0} n’est pas encore recherché à nouveau : une recherche il y a moins d’une minute n’a rien trouvé.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Impossible de lire « {0} » : {1}</value>
   </data>

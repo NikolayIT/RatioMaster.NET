@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Hledání selhalo. Ujistěte se, že je {0} spuštěný a má alespoň jeden aktivní torrent.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Proces {0} se zatím znovu nehledá: hledání před méně než minutou nic nenašlo.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Nelze přečíst „{0}“: {1}</value>
   </data>

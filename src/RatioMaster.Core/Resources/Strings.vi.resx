@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Tìm kiếm thất bại. Hãy đảm bảo {0} đang chạy và có ít nhất một torrent đang hoạt động.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Chưa tìm lại tiến trình {0}: lần tìm kiếm cách đây chưa đầy một phút không tìm thấy gì.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Không thể đọc “{0}”: {1}</value>
   </data>

@@ -139,6 +139,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>החיפוש נכשל. יש לוודא ש-{0} פועל עם טורנט פעיל אחד לפחות.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>התהליך {0} לא יחופש שוב בינתיים: חיפוש שבוצע לפני פחות מדקה לא מצא דבר.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>לא ניתן לקרוא את "{0}": {1}</value>
   </data>

@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>การค้นหาล้มเหลว ตรวจสอบให้แน่ใจว่า {0} กำลังทำงานและมีทอร์เรนต์ที่ใช้งานอยู่อย่างน้อยหนึ่งรายการ</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>ยังไม่ค้นหาโปรเซส {0} อีกครั้ง เนื่องจากการค้นหาเมื่อไม่ถึงหนึ่งนาทีที่แล้วไม่พบสิ่งใด</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>ไม่สามารถอ่าน “{0}” ได้: {1}</value>
   </data>

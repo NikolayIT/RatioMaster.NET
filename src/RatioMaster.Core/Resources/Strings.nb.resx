@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Søket mislyktes. Kontroller at {0} kjører med minst én aktiv torrent.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Ser ikke etter prosessen {0} igjen ennå: et søk for under ett minutt siden fant ingenting.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Kan ikke lese «{0}»: {1}</value>
   </data>

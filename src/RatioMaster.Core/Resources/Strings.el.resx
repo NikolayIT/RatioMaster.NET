@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>Η αναζήτηση απέτυχε. Βεβαιωθείτε ότι το {0} εκτελείται με τουλάχιστον ένα ενεργό torrent.</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>Η διεργασία {0} δεν αναζητείται ξανά ακόμη: μια αναζήτηση πριν από λιγότερο από ένα λεπτό δεν βρήκε τίποτα.</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>Δεν είναι δυνατή η ανάγνωση του «{0}»: {1}</value>
   </data>

@@ -138,6 +138,9 @@
   <data name="ScanFailed" xml:space="preserve">
     <value>खोज विफल रही। सुनिश्चित करें कि {0} कम से कम एक सक्रिय टोरेंट के साथ चल रहा है।</value>
   </data>
+  <data name="ScanSkippedAfterMiss" xml:space="preserve">
+    <value>{0} प्रक्रिया को अभी फिर से नहीं खोजा जा रहा है: एक मिनट से कम समय पहले की गई खोज में कुछ नहीं मिला।</value>
+  </data>
   <data name="TorrentCannotRead" xml:space="preserve">
     <value>“{0}” को पढ़ा नहीं जा सका: {1}</value>
   </data>
