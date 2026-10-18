@@ -18,6 +18,8 @@ namespace RatioMaster.Core.Tests.MemoryScan
             NumWant = "200",
         };
 
+        private static CancellationToken Ct => TestContext.Current.CancellationToken;
+
         [Fact]
         public void CopiesTheValuesOutOfTheRunningClient()
         {
@@ -188,10 +190,83 @@ namespace RatioMaster.Core.Tests.MemoryScan
             Assert.Equal(2, process.Opens);
         }
 
+        /// <summary>
+        /// A start on the UI thread and Regenerate on the thread pool can search at the same time. A slow search that began
+        /// first and found nothing must not bring the wait back after a newer one found the client.
+        /// </summary>
+        [Fact]
+        public async Task AnOlderMissThatEndsLastDoesNotUndoANewerFind()
+        {
+            var client = new FakeProcessMemoryScanner(MemoryWith("&peer_id=-UT360S-abc&key=DEADBEEF&compact=1 x", padding: 0), canOpen: false);
+            using var process = new FirstSearchWaits(client);
+            var scanner = new ClientValueScanner(process, new FakeClock());
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+
+            var older = Task.Run(() => scanner.TryScan(profile, Fallback), Ct);
+            Assert.True(process.Entered.Wait(TimeSpan.FromSeconds(10), Ct));
+            client.CanOpen = true;
+            Assert.NotNull(scanner.TryScan(profile, Fallback, ignoreRecentMiss: true));
+            process.Release.Set();
+            Assert.Null(await older);
+
+            Assert.NotNull(scanner.TryScan(profile, Fallback));
+            Assert.Equal(3, client.Opens);
+        }
+
+        /// <summary>The other way round: the client quit between two searches, and the older find that ends last does not end the wait.</summary>
+        [Fact]
+        public async Task AnOlderFindThatEndsLastDoesNotUndoANewerMiss()
+        {
+            var client = new FakeProcessMemoryScanner(MemoryWith("&peer_id=-UT360S-abc&key=DEADBEEF&compact=1 x", padding: 0));
+            using var process = new FirstSearchWaits(client);
+            var scanner = new ClientValueScanner(process, new FakeClock());
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+
+            var older = Task.Run(() => scanner.TryScan(profile, Fallback), Ct);
+            Assert.True(process.Entered.Wait(TimeSpan.FromSeconds(10), Ct));
+            client.CanOpen = false;
+            Assert.Null(scanner.TryScan(profile, Fallback, ignoreRecentMiss: true));
+            process.Release.Set();
+            Assert.NotNull(await older);
+
+            Assert.Null(scanner.TryScan(profile, Fallback));
+            Assert.Equal(2, client.Opens);
+        }
+
         private static byte[] MemoryWith(string announce, int padding = 70_000)
         {
             var text = new string('.', padding) + announce;
             return Encoding.ASCII.GetBytes(text);
+        }
+
+        /// <summary>Opens the client like <paramref name="client"/>, but the first search then waits until the test lets it go on.</summary>
+        private sealed class FirstSearchWaits(IProcessMemoryScanner client) : IProcessMemoryScanner, IDisposable
+        {
+            private int opens;
+
+            public bool IsSupported => true;
+
+            public ManualResetEventSlim Entered { get; } = new();
+
+            public ManualResetEventSlim Release { get; } = new();
+
+            public ProcessMemorySession? Open(string processName)
+            {
+                var session = client.Open(processName);
+                if (Interlocked.Increment(ref this.opens) == 1)
+                {
+                    this.Entered.Set();
+                    this.Release.Wait();
+                }
+
+                return session;
+            }
+
+            public void Dispose()
+            {
+                this.Entered.Dispose();
+                this.Release.Dispose();
+            }
         }
     }
 }

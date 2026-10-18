@@ -27,8 +27,10 @@ namespace RatioMaster.Core.MemoryScan
         private readonly ISystemClock clock;
         private readonly Lock gate = new();
 
-        /// <summary>When the last search for each profile, by name, found nothing.</summary>
-        private readonly Dictionary<string, DateTimeOffset> misses = new(StringComparer.Ordinal);
+        /// <summary>The newest search that ended for each profile, by name: its number, and when it found nothing (null when it found the client).</summary>
+        private readonly Dictionary<string, (long Search, DateTimeOffset? MissedAt)> results = new(StringComparer.Ordinal);
+
+        private long searches;
 
         public ClientValueScanner(IProcessMemoryScanner? scanner = null, ISystemClock? clock = null)
         {
@@ -55,7 +57,18 @@ namespace RatioMaster.Core.MemoryScan
                 return null;
             }
 
-            if (!ignoreRecentMiss && this.MissedRecently(profile.Name))
+            bool skip;
+            long search = 0;
+            lock (this.gate)
+            {
+                skip = !ignoreRecentMiss && this.MissedRecently(profile.Name);
+                if (!skip)
+                {
+                    search = ++this.searches;
+                }
+            }
+
+            if (skip)
             {
                 log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanSkippedAfterMiss, spec.ProcessName));
                 return null;
@@ -64,13 +77,11 @@ namespace RatioMaster.Core.MemoryScan
             var identity = this.Scan(profile, spec, fallback, log);
             lock (this.gate)
             {
-                if (identity is null)
+                // Searches can overlap (a start on the UI thread, Regenerate on the thread pool). The one that began last
+                // saw the client last, so an older one that ends after it does not undo what it found.
+                if (!this.results.TryGetValue(profile.Name, out var newest) || newest.Search < search)
                 {
-                    this.misses[profile.Name] = this.clock.Now;
-                }
-                else
-                {
-                    this.misses.Remove(profile.Name);
+                    this.results[profile.Name] = (search, identity is null ? this.clock.Now : null);
                 }
             }
 
@@ -171,19 +182,17 @@ namespace RatioMaster.Core.MemoryScan
             return null;
         }
 
+        /// <summary>Gets whether the newest search for the profile found nothing less than a minute ago. Call it inside the gate.</summary>
         private bool MissedRecently(string profileName)
         {
-            lock (this.gate)
+            if (!this.results.TryGetValue(profileName, out var newest) || newest.MissedAt is not { } missedAt)
             {
-                if (!this.misses.TryGetValue(profileName, out var missedAt))
-                {
-                    return false;
-                }
-
-                // Measured both ways, so a clock set back since the miss does not stretch the wait.
-                var since = this.clock.Now - missedAt;
-                return since >= TimeSpan.Zero && since < TimeSpan.FromSeconds(MissWaitSeconds);
+                return false;
             }
+
+            // Measured both ways, so a clock set back since the miss does not stretch the wait.
+            var since = this.clock.Now - missedAt;
+            return since >= TimeSpan.Zero && since < TimeSpan.FromSeconds(MissWaitSeconds);
         }
     }
 }
