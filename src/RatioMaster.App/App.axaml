@@ -42,8 +42,10 @@
 
   <TrayIcon.Icons>
     <TrayIcons>
+      <!-- Avalonia creates the icon while this file loads, before the view model is the DataContext, and its macOS
+           backend throws on a null tooltip (issue #62), so until then the tooltip is the name. -->
       <TrayIcon Icon="avares://RatioMaster.NET/Assets/app.ico"
-                ToolTipText="{Binding TrayToolTip}"
+                ToolTipText="{Binding TrayToolTip, FallbackValue=RatioMaster.NET}"
                 Command="{Binding RestoreCommand}">
         <TrayIcon.Menu>
           <NativeMenu>
