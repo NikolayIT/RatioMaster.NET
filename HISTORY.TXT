@@ -1,4 +1,4 @@
----=== 1.3.1 (not released yet) ===---
+---=== 1.3.1 (20-10-2026) ===---
 - Global: The program starts on macOS again (issue #62). 1.3.0 closed half a second after it was started there, before its window appeared: the Avalonia version it came with sets up the tray icon before the tooltip is known, and Avalonia's macOS code throws on a tray icon with no tooltip
 ---=== 1.3.0 (18-10-2026) ===---
 - RM: Fixed the first update after a download completes: it now comes a whole interval after the completed announce, as in a real client and in 0.43. It used to come when the interval running before the download completed ran out, which could be seconds later, and a tracker can refuse an update that early

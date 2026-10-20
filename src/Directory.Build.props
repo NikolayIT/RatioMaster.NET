@@ -14,7 +14,7 @@
     <DebugType>embedded</DebugType>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
-    <Version>1.3.0</Version>
+    <Version>1.3.1</Version>
     <Authors>Nikolay Kostov</Authors>
     <Company>Nikolay.IT</Company>
     <Product>RatioMaster.NET</Product>
