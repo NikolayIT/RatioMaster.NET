@@ -18,6 +18,13 @@
     <PublishTrimmed>false</PublishTrimmed>
     <!-- Keep the published folder to just the executable: no side-car pdbs from packages. -->
     <AllowedReferenceRelatedFileExtensions>none</AllowedReferenceRelatedFileExtensions>
+    <!-- .NET runs in globalization-invariant mode with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1, which a Linux without
+         the ICU library needs, and there it refuses to create any culture but the invariant one unless this is false,
+         so the program closed before its window appeared (issue #62). The cultures it creates have invariant formats
+         but find their translations, except Chinese and Serbian on Linux: the mode writes their script in capitals
+         (zh-HANT), and the translations in the bundle are looked up case-sensitively there. Outside that mode this is
+         already the default. -->
+    <PredefinedCulturesOnly>false</PredefinedCulturesOnly>
   </PropertyGroup>
 
   <ItemGroup>

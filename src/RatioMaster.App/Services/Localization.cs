@@ -35,7 +35,7 @@ namespace RatioMaster.App.Services
             var culture = CultureInfo.GetCultureInfo(Current.Code);
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             CultureInfo.CurrentUICulture = culture;
-            IsRightToLeft = culture.TextInfo.IsRightToLeft;
+            IsRightToLeft = Current.IsRightToLeft;
         }
     }
 }

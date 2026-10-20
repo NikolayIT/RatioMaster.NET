@@ -81,5 +81,12 @@ namespace RatioMaster.Core.Tests.Localization
             Assert.All(codes, code => Assert.Equal(code, CultureInfo.GetCultureInfo(code).Name));
             Assert.True(UiLanguages.All.Count >= 31, "at least 30 translations plus English");
         }
+
+        [Fact]
+        public void WritesRightToLeftExactlyTheLanguagesWhoseCultureDoes()
+        {
+            Assert.All(UiLanguages.All, l => Assert.Equal(CultureInfo.GetCultureInfo(l.Code).TextInfo.IsRightToLeft, l.IsRightToLeft));
+            Assert.Equal(["he", "ar"], UiLanguages.All.Where(l => l.IsRightToLeft).Select(l => l.Code));
+        }
     }
 }
