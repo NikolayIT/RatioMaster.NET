@@ -14,6 +14,7 @@
   "news.title": "Tin mới nhất",
   "news.download": "Tải xuống",
   "news.changelog": "Nhật ký thay đổi",
+  "news.v131": "Bản sửa lỗi cho macOS, nơi phiên bản 1.3.0 tự đóng nửa giây sau khi khởi động, trước khi cửa sổ của nó xuất hiện. Không có gì thay đổi trên Windows và Linux.",
   "news.v13": "Torrent nay tiếp tục từ chỗ đã đạt được sau khi khởi động lại, mọi torrent của cùng một client dùng chung một cổng như ở client thật, cảnh báo của tracker được hiển thị trong nhật ký, và lệnh Tệp > Thêm torrent từ thư mục... thêm cùng lúc bao nhiêu torrent tùy thích.",
   "news.v12": "Chương trình nay đã có 38 ngôn ngữ, trang web này cũng vậy. Mã của các client mã nguồn đóng đã được phân tích trực tiếp: giả lập mới cho BitComet 2.22 và BitTorrent 7.11.0, uTorrent 3.6.0 ở bản dựng hiện tại, cùng các phiên bản hiện hành của qBittorrent, Deluge, rTorrent, Vuze và BitTornado.",
   "news.v11": "Các giả lập client đã được đối chiếu với mã nguồn của client thật và cập nhật: các bản dựng hiện tại của qBittorrent, Deluge, Vuze, BitTorrent và uTorrent, một giả lập rTorrent mới, và Peer ID của Transmission đã được sửa.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Nhật ký thay đổi của chương trình",
   "changelog.full": "Toàn bộ nhật ký thay đổi từ năm 2005 có trong <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Chung: chương trình lại khởi động được trên macOS. Phiên bản 1.3.0 tự đóng trên đó nửa giây sau khi khởi động, trước khi cửa sổ của nó xuất hiện.",
 
   "changelog.v130.resume": "RM: torrent tiếp tục từ mức tải xuống đã đạt được: giá trị “Hoàn thành (%)” bám theo tiến độ và được lưu cùng phiên, nên sau khi khởi động lại, torrent đã hoàn thành sẽ trở lại trạng thái chia sẻ thay vì tải lại toàn bộ.",
   "changelog.v130.completed": "RM: lần cập nhật đầu tiên sau khi tải xuống hoàn tất nay diễn ra trọn một chu kỳ sau thông báo completed, như ở client thật, và thông báo started hoặc completed không thành công sẽ được gửi lại cùng lần cập nhật kế tiếp.",

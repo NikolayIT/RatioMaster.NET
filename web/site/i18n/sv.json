@@ -14,6 +14,7 @@
   "news.title": "Senaste nytt",
   "news.download": "Ladda ned",
   "news.changelog": "Ändringar",
+  "news.v131": "En korrigering för macOS, där version 1.3.0 avslutades av sig själv en halv sekund efter start, innan fönstret visades. På Windows och Linux ändras ingenting.",
   "news.v13": "Torrenter fortsätter nu efter en omstart där de slutade, alla torrenter för en och samma klient delar på en port som i en riktig klient, trackervarningar visas i loggen, och Arkiv > Lägg till torrenter från en mapp... lägger till hur många torrenter som helst på en gång.",
   "news.v12": "Programmet talar nu 38 språk, och det gör den här webbplatsen också. Klienterna med stängd källkod granskades utifrån sin egen kod: nya emuleringar av BitComet 2.22 och BitTorrent 7.11.0, uTorrent 3.6.0 i aktuell build och aktuella versioner av qBittorrent, Deluge, rTorrent, Vuze och BitTornado.",
   "news.v11": "Klientemuleringarna har kontrollerats mot de riktiga klienternas källkod och uppdaterats: aktuella builds av qBittorrent, Deluge, Vuze, BitTorrent och uTorrent, en ny rTorrent-emulering och ett rättat peer-ID för Transmission.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Programmets ändringslogg",
   "changelog.full": "Hela ändringsloggen sedan 2005 finns i <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Allmänt: programmet startar på macOS igen. Där avslutades version 1.3.0 av sig själv en halv sekund efter start, innan fönstret visades.",
 
   "changelog.v130.resume": "RM: en torrent fortsätter från den punkt som dess nedladdning hade nått: Klart (%) följer förloppet och sparas tillsammans med sessionen, så att en färdig torrent kommer tillbaka som seedare efter en omstart i stället för att ladda ned allt igen.",
   "changelog.v130.completed": "RM: den första uppdateringen efter att en nedladdning har slutförts kommer nu ett helt intervall efter annonseringen vid slutförande, som i en riktig klient, och en annonsering vid start eller slutförande som inte gick fram skickas igen med nästa uppdatering.",

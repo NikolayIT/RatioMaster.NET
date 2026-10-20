@@ -63,10 +63,16 @@
       <h2>{{news.title}}</h2>
       <ul class="news">
         <li>
+          <time datetime="2026-10-20">{{@date 2026-10-20}}</time>
+          <strong>RatioMaster.NET 1.3.1</strong>
+          {{news.v131}}<br>
+          <a href="#download">{{news.download}}</a> &middot; <a href="#changelog">{{news.changelog}}</a>
+        </li>
+        <li>
           <time datetime="2026-10-18">{{@date 2026-10-18}}</time>
           <strong>RatioMaster.NET 1.3</strong>
           {{news.v13}}<br>
-          <a href="#download">{{news.download}}</a> &middot; <a href="#changelog">{{news.changelog}}</a>
+          <a href="https://github.com/NikolayIT/RatioMaster.NET/releases/tag/v1.3.0">{{news.download}}</a> &middot; <a href="#changelog">{{news.changelog}}</a>
         </li>
         <li>
           <time datetime="2026-10-11">{{@date 2026-10-11}}</time>
@@ -169,6 +175,13 @@
       <h2>{{changelog.title}}</h2>
 
       <article class="release">
+        <h3>1.3.1 <time datetime="2026-10-20">{{@date 2026-10-20}}</time></h3>
+        <ul>
+          <li>{{changelog.v131.macos}}</li>
+        </ul>
+      </article>
+
+      <article class="release">
         <h3>1.3.0 <time datetime="2026-10-18">{{@date 2026-10-18}}</time></h3>
         <ul>
           <li>{{changelog.v130.resume}}</li>
@@ -181,8 +194,8 @@
         </ul>
       </article>
 
-      <article class="release">
-        <h3>1.2.0 <time datetime="2026-10-11">{{@date 2026-10-11}}</time></h3>
+      <details class="release">
+        <summary><h3>1.2.0 <time datetime="2026-10-11">{{@date 2026-10-11}}</time></h3></summary>
         <ul>
           <li>{{changelog.v120.languages}}</li>
           <li>{{changelog.v120.emulations}}</li>
@@ -194,7 +207,7 @@
           <li>{{changelog.v120.removed}}</li>
           <li>{{changelog.v120.columns}}</li>
         </ul>
-      </article>
+      </details>
 
       <details class="release">
         <summary><h3>1.1.0 <time datetime="2026-09-07">{{@date 2026-09-07}}</time></h3></summary>

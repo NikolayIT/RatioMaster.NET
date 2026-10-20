@@ -14,6 +14,7 @@
   "news.title": "最新消息",
   "news.download": "下載",
   "news.changelog": "更新記錄",
+  "news.v131": "修正了 1.3.0 版在 macOS 上啟動半秒後、視窗出現之前就自行結束的問題。在 Windows 與 Linux 上沒有任何變更。",
   "news.v13": "現在，Torrent 在重新啟動後會從上次的進度繼續，同一用戶端的所有 Torrent 會像真實用戶端一樣共用一個連接埠，追蹤器警告會顯示在記錄中，還可以透過「檔案 > 從資料夾新增 Torrent...」一次新增任意數量的 Torrent。",
   "news.v12": "程式與本網站現已支援 38 種語言。對於封閉原始碼的用戶端，我們直接分析了用戶端本身的程式碼：新增 BitComet 2.22 與 BitTorrent 7.11.0 模擬，uTorrent 3.6.0 更新至目前的組建，qBittorrent、Deluge、rTorrent、Vuze 與 BitTornado 也都更新至最新版本。",
   "news.v11": "用戶端模擬已對照真實用戶端的原始碼進行核對與更新：qBittorrent、Deluge、Vuze、BitTorrent 與 uTorrent 更新至目前的版本，新增 rTorrent 模擬，並修正了 Transmission 的對等節點 ID。",
@@ -66,6 +67,8 @@
 
   "changelog.title": "程式更新記錄",
   "changelog.full": "自 2005 年以來的完整更新記錄請見 <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>。",
+
+  "changelog.v131.macos": "全域：程式在 macOS 上又可以啟動了。1.3.0 版在 macOS 上啟動半秒後、視窗出現之前就會自行結束。",
 
   "changelog.v130.resume": "RM：Torrent 會從其下載已達到的進度繼續：「已完成 (%)」會隨進度變化，並隨工作階段一起儲存，因此下載完成的 Torrent 在重新啟動後會繼續做種，而不是重新下載全部內容。",
   "changelog.v130.completed": "RM：下載完成後的第一次更新現在會在 completed 回報之後整整一個回報間隔才送出，與真實用戶端一致；未成功的 started 或 completed 回報會隨下一次更新重新送出。",

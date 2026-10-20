@@ -14,6 +14,7 @@
   "news.title": "Novosti",
   "news.download": "Preuzmi",
   "news.changelog": "Popis promjena",
+  "news.v131": "Ispravak za macOS, gdje se verzija 1.3.0 zatvarala pola sekunde nakon pokretanja, prije nego što se pojavio njezin prozor. Na sustavima Windows i Linux ništa se ne mijenja.",
   "news.v13": "Torrenti nakon ponovnog pokretanja sada nastavljaju ondje gdje su stali, svi torrenti jednog klijenta dijele jedan port kao kod stvarnog klijenta, upozorenja trackera prikazuju se u zapisniku, a naredba Datoteka > Dodaj torrente iz mape... odjednom dodaje proizvoljan broj torrenata.",
   "news.v12": "Program sada govori 38 jezika, kao i ova stranica. Klijenti zatvorenog koda proučeni su izravnom analizom njihova koda: nove emulacije klijenata BitComet 2.22 i BitTorrent 7.11.0, uTorrent 3.6.0 u trenutačnom izdanju te aktualni qBittorrent, Deluge, rTorrent, Vuze i BitTornado.",
   "news.v11": "Emulacije klijenata provjerene su prema izvornom kodu stvarnih klijenata i ažurirane: aktualna izdanja klijenata qBittorrent, Deluge, Vuze, BitTorrent i uTorrent, nova emulacija klijenta rTorrent i ispravljen peer ID za Transmission.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Popis promjena programa",
   "changelog.full": "Potpuni popis promjena od 2005. godine nalazi se u datoteci <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Općenito: program se opet pokreće na sustavu macOS. Verzija 1.3.0 ondje se zatvarala pola sekunde nakon pokretanja, prije nego što se pojavio njezin prozor.",
 
   "changelog.v130.resume": "RM: torrent nastavlja od mjesta do kojeg je stiglo njegovo preuzimanje: vrijednost „Dovršeno (%)“ prati napredak i sprema se zajedno sa sesijom, pa se dovršeni torrent nakon ponovnog pokretanja vraća kao seeder umjesto da sve ponovno preuzima.",
   "changelog.v130.completed": "RM: prvo ažuriranje po dovršetku preuzimanja sada stiže cijeli interval nakon najave „completed“, kao kod stvarnog klijenta, a najava „started“ ili „completed“ koja nije prošla šalje se ponovno sa sljedećim ažuriranjem.",

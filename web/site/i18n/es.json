@@ -14,6 +14,7 @@
   "news.title": "Últimas noticias",
   "news.download": "Descargar",
   "news.changelog": "Historial de cambios",
+  "news.v131": "Una corrección para macOS, donde la versión 1.3.0 se cerraba medio segundo después de iniciarse, antes de que apareciera su ventana. En Windows y Linux no cambia nada.",
   "news.v13": "Los torrents ahora continúan tras un reinicio desde donde se habían quedado, todos los torrents de un mismo cliente comparten un único puerto como en un cliente real, las advertencias del tracker aparecen en el registro, y Archivo > Agregar torrents desde una carpeta... agrega a la vez todos los torrents que quiera.",
   "news.v12": "El programa ya habla 38 idiomas, y este sitio también. Los clientes de código cerrado se estudiaron a partir de su propio código: nuevas emulaciones de BitComet 2.22 y BitTorrent 7.11.0, uTorrent 3.6.0 en su compilación actual y las versiones actuales de qBittorrent, Deluge, rTorrent, Vuze y BitTornado.",
   "news.v11": "Las emulaciones de clientes se cotejaron con el código fuente de los clientes reales y se pusieron al día: compilaciones actuales de qBittorrent, Deluge, Vuze, BitTorrent y uTorrent, una nueva emulación de rTorrent y el peer ID de Transmission corregido.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Historial de cambios del programa",
   "changelog.full": "El historial de cambios completo desde 2005 está en <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "General: el programa vuelve a iniciarse en macOS. Allí, la versión 1.3.0 se cerraba medio segundo después de iniciarse, antes de que apareciera su ventana.",
 
   "changelog.v130.resume": "RM: un torrent continúa desde donde se había quedado su descarga: Completado (%) sigue el progreso y se guarda con la sesión, así que, tras un reinicio, un torrent completado vuelve a sembrar en lugar de descargarlo todo de nuevo.",
   "changelog.v130.completed": "RM: la primera actualización tras completarse una descarga llega ahora un intervalo entero después del anuncio del evento completed, como en un cliente real, y un anuncio del evento started o completed que falló se envía de nuevo con la siguiente actualización.",

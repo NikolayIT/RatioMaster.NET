@@ -14,6 +14,7 @@
   "news.title": "Últimas notícias",
   "news.download": "Baixar",
   "news.changelog": "Histórico de versões",
+  "news.v131": "Uma correção para macOS, onde a versão 1.3.0 fechava meio segundo depois de ser aberta, antes de sua janela aparecer. Nada muda no Windows e no Linux.",
   "news.v13": "Após uma reinicialização, os torrents agora continuam de onde pararam, todos os torrents de um mesmo cliente compartilham uma única porta como em um cliente real, os avisos do rastreador aparecem no log, e Arquivo > Adicionar torrents de uma pasta... adiciona de uma vez quantos torrents você quiser.",
   "news.v12": "O programa agora fala 38 idiomas, e este site também. Os clientes de código fechado foram analisados a partir do próprio código: novas emulações do BitComet 2.22 e do BitTorrent 7.11.0, o uTorrent 3.6.0 no build atual e as versões atuais do qBittorrent, Deluge, rTorrent, Vuze e BitTornado.",
   "news.v11": "As emulações de clientes foram conferidas com o código-fonte dos clientes reais e atualizadas: builds atuais do qBittorrent, Deluge, Vuze, BitTorrent e uTorrent, uma nova emulação do rTorrent e o peer ID do Transmission corrigido.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Histórico de versões do programa",
   "changelog.full": "O histórico completo desde 2005 está em <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Geral: o programa volta a abrir no macOS. Lá, a versão 1.3.0 fechava meio segundo depois de ser aberta, antes de sua janela aparecer.",
 
   "changelog.v130.resume": "RM: um torrent continua de onde seu download parou: Concluído (%) acompanha o progresso e é salvo com a sessão, então, após uma reinicialização, um torrent concluído volta a semear em vez de baixar tudo de novo.",
   "changelog.v130.completed": "RM: a primeira atualização depois que um download é concluído agora acontece um intervalo inteiro após o anúncio do evento completed, como em um cliente real, e um anúncio do evento started ou completed que falhou é enviado novamente com a próxima atualização.",

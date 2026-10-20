@@ -14,6 +14,7 @@
   "news.title": "最新ニュース",
   "news.download": "ダウンロード",
   "news.changelog": "更新履歴",
+  "news.v131": "バージョン 1.3.0 が macOS で起動してから 0.5 秒後、ウィンドウが表示される前に終了してしまう問題を修正しました。Windows と Linux では変更はありません。",
   "news.v13": "再起動後も Torrent が前回の続きから再開するようになり、同じクライアントの Torrent はすべて、実際のクライアントと同じく 1 つのポートを共有します。また、トラッカーの警告がログに表示されるほか、「ファイル > フォルダーから Torrent を追加...」で任意の数の Torrent を一度に追加できます。",
   "news.v12": "プログラムとこのサイトが 38 言語に対応しました。クローズドソースのクライアントは、クライアント本体のコードを直接解析しました。BitComet 2.22 と BitTorrent 7.11.0 のエミュレーションを新たに追加し、uTorrent 3.6.0 を現行ビルドに更新したほか、qBittorrent、Deluge、rTorrent、Vuze、BitTornado も最新版に対応しています。",
   "news.v11": "クライアントのエミュレーションを実際のクライアントのソースコードと照合し、最新の状態に更新しました。qBittorrent、Deluge、Vuze、BitTorrent、uTorrent の現行ビルドに対応し、rTorrent のエミュレーションを新たに追加したほか、Transmission のピア ID も修正しました。",
@@ -66,6 +67,8 @@
 
   "changelog.title": "プログラムの更新履歴",
   "changelog.full": "2005 年以降のすべての更新履歴は <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a> にあります。",
+
+  "changelog.v131.macos": "全体：macOS でプログラムが再び起動できるようになりました。バージョン 1.3.0 は、macOS では起動してから 0.5 秒後、ウィンドウが表示される前に終了してしまっていました。",
 
   "changelog.v130.resume": "RM：Torrent はダウンロードが進んだところから続行するようになりました。「完了 (%)」が進捗に合わせて変わり、セッションと一緒に保存されるため、ダウンロードが完了した Torrent は再起動後、すべてをダウンロードし直すのではなく、シードとして再開します。",
   "changelog.v130.completed": "RM：ダウンロード完了後の最初の更新は、実際のクライアントと同様に、completed アナウンスからアナウンス間隔 1 回分をまるごと空けて行われるようになりました。また、届かなかった started または completed アナウンスは、次の更新で再び送信されます。",

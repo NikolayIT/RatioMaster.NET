@@ -14,6 +14,7 @@
   "news.title": "Lajmet e fundit",
   "news.download": "Shkarko",
   "news.changelog": "Ndryshimet",
+  "news.v131": "Rregullim për macOS, ku versioni 1.3.0 mbyllej gjysmë sekonde pas nisjes, para se të shfaqej dritarja e tij. Në Windows dhe Linux nuk ndryshon asgjë.",
   "news.v13": "Pas rinisjes, torrentët tani vazhdojnë nga aty ku kishin mbetur, të gjithë torrentët e një klienti ndajnë të njëjtën portë, si në një klient të vërtetë, paralajmërimet e gjurmuesit shfaqen në ditar dhe komanda Skedari > Shto torrentë nga një dosje... shton njëherësh sa torrentë të doni.",
   "news.v12": "Programi tani flet 38 gjuhë, po ashtu edhe ky sajt. Klientët me kod të mbyllur u studiuan drejtpërdrejt nga kodi i tyre: emulime të reja për BitComet 2.22 dhe BitTorrent 7.11.0, uTorrent 3.6.0 në ndërtimin e tij aktual, si dhe versionet aktuale të qBittorrent, Deluge, rTorrent, Vuze dhe BitTornado.",
   "news.v11": "Emulimet e klientëve u krahasuan me kodin burimor të klientëve të vërtetë dhe u përditësuan: ndërtimet aktuale të qBittorrent, Deluge, Vuze, BitTorrent dhe uTorrent, një emulim i ri për rTorrent dhe një ID kolegu e rregulluar për Transmission.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Historiku i ndryshimeve të programit",
   "changelog.full": "Historiku i plotë i ndryshimeve që nga viti 2005 gjendet te <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Të përgjithshme: programi niset përsëri në macOS. Versioni 1.3.0 mbyllej atje gjysmë sekonde pas nisjes, para se të shfaqej dritarja e tij.",
 
   "changelog.v130.resume": "RM: një torrent vazhdon nga aty ku kishte arritur shkarkimi i tij: cilësimi “Përfunduar (%)” ndjek ecurinë dhe ruhet bashkë me seancën, kështu që pas rinisjes një torrent i përfunduar kthehet në shpërndarje, në vend që të shkarkojë gjithçka përsëri.",
   "changelog.v130.completed": "RM: përditësimi i parë pas përfundimit të një shkarkimi tani vjen një interval të plotë pas lajmërimit “completed”, si në një klient të vërtetë, dhe një lajmërim “started” ose “completed” që dështoi dërgohet sërish me përditësimin e radhës.",

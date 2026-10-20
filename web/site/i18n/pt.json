@@ -14,6 +14,7 @@
   "news.title": "Últimas notícias",
   "news.download": "Transferir",
   "news.changelog": "Histórico de versões",
+  "news.v131": "Uma correção para macOS, onde a versão 1.3.0 se fechava meio segundo depois de ser iniciada, antes de a sua janela aparecer. No Windows e no Linux, nada muda.",
   "news.v13": "Após um reinício, os torrents continuam agora de onde tinham ficado, todos os torrents de um mesmo cliente partilham uma única porta como num cliente real, os avisos do rastreador aparecem no registo, e Ficheiro > Adicionar torrents de uma pasta... adiciona de uma só vez quantos torrents quiser.",
   "news.v12": "O programa passa a falar 38 idiomas, tal como este site. Os clientes de código fechado foram analisados a partir do seu próprio código: novas emulações do BitComet 2.22 e do BitTorrent 7.11.0, o uTorrent 3.6.0 na compilação atual e as versões atuais do qBittorrent, Deluge, rTorrent, Vuze e BitTornado.",
   "news.v11": "As emulações de clientes foram confrontadas com o código-fonte dos clientes reais e atualizadas: compilações atuais do qBittorrent, Deluge, Vuze, BitTorrent e uTorrent, uma nova emulação do rTorrent e o peer ID do Transmission corrigido.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Histórico de versões do programa",
   "changelog.full": "O histórico completo desde 2005 está em <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Geral: o programa volta a iniciar-se no macOS. Aí, a versão 1.3.0 fechava-se meio segundo depois de ser iniciada, antes de a sua janela aparecer.",
 
   "changelog.v130.resume": "RM: um torrent continua a partir do ponto a que a sua transferência tinha chegado: Concluído (%) acompanha o progresso e é guardado com a sessão, por isso, após um reinício, um torrent concluído volta a semear em vez de transferir tudo de novo.",
   "changelog.v130.completed": "RM: a primeira atualização após a conclusão de uma transferência passa a ocorrer um intervalo inteiro depois do anúncio do evento completed, como num cliente real, e um anúncio do evento started ou completed que falhou é reenviado com a atualização seguinte.",

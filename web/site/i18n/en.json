@@ -14,6 +14,7 @@
   "news.title": "Latest news",
   "news.download": "Download",
   "news.changelog": "Changelog",
+  "news.v131": "A fix for macOS, where version 1.3.0 closed half a second after it was started, before its window appeared. Nothing changes on Windows and Linux.",
   "news.v13": "Torrents now continue from where they got to after a restart, all torrents of one client share one port as in a real client, tracker warnings show in the log, and File > Add torrents from folder... adds any number of torrents at once.",
   "news.v12": "The program now speaks 38 languages, and so does this site. The closed-source clients were read from their own code: new BitComet 2.22 and BitTorrent 7.11.0 emulations, uTorrent 3.6.0 at its current build, and current qBittorrent, Deluge, rTorrent, Vuze and BitTornado.",
   "news.v11": "The client emulations were checked against the real clients’ source code and brought up to date: current qBittorrent, Deluge, Vuze, BitTorrent and uTorrent builds, a new rTorrent emulation, and a fixed Transmission peer id.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Program changelog",
   "changelog.full": "The full changelog since 2005 is in <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Global: the program starts on macOS again. Version 1.3.0 closed there half a second after it was started, before its window appeared.",
 
   "changelog.v130.resume": "RM: a torrent continues from where its download got to: Finished (%) follows the progress and is saved with the session, so a completed torrent comes back as a seed after a restart instead of downloading everything again.",
   "changelog.v130.completed": "RM: the first update after a download completes now comes a whole interval after the completed announce, as in a real client, and a started or completed announce that did not get through is sent again with the next update.",

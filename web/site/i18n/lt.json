@@ -14,6 +14,7 @@
   "news.title": "Naujausios žinios",
   "news.download": "Atsisiųsti",
   "news.changelog": "Pakeitimai",
+  "news.v131": "Pataisymas, skirtas macOS sistemai, kurioje 1.3.0 versija užsidarydavo praėjus pusei sekundės po paleidimo, prieš pasirodant jos langui. Windows ir Linux sistemose niekas nesikeičia.",
   "news.v13": "Po paleidimo iš naujo torentai dabar tęsia nuo ten, kur buvo sustoję, visi vieno kliento torentai naudoja vieną bendrą prievadą, kaip tikrajame kliente, seklio įspėjimai rodomi žurnale, o komanda Failas > Pridėti torentus iš aplanko... vienu metu prideda bet kiek torentų.",
   "news.v12": "Programa dabar kalba 38 kalbomis, kaip ir ši svetainė. Uždarojo kodo klientai ištirti pagal jų pačių kodą: naujos BitComet 2.22 ir BitTorrent 7.11.0 emuliacijos, uTorrent 3.6.0 su dabartiniu leidimu ir naujausios qBittorrent, Deluge, rTorrent, Vuze bei BitTornado versijos.",
   "news.v11": "Klientų emuliacijos patikrintos pagal tikrųjų klientų išeitinį kodą ir atnaujintos: dabartiniai qBittorrent, Deluge, Vuze, BitTorrent ir uTorrent leidimai, nauja rTorrent emuliacija ir pataisytas Transmission dalyvio ID.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Programos pakeitimų istorija",
   "changelog.full": "Visa pakeitimų istorija nuo 2005 metų pateikta faile <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Bendra: programa vėl paleidžiama macOS sistemoje. 1.3.0 versija ten užsidarydavo praėjus pusei sekundės po paleidimo, prieš pasirodant jos langui.",
 
   "changelog.v130.resume": "RM: torentas tęsia nuo tos vietos, kurią pasiekė jo atsisiuntimas: nustatymas „Baigta (%)“ kinta pagal eigą ir įrašomas kartu su seansu, todėl užbaigtas torentas po paleidimo iš naujo grįžta kaip skleidėjas, užuot viską atsisiuntęs iš naujo.",
   "changelog.v130.completed": "RM: pirmasis atnaujinimas po atsisiuntimo pabaigos dabar siunčiamas praėjus visam intervalui nuo pranešimo „completed“, kaip tikrajame kliente, o nepavykęs pranešimas „started“ ar „completed“ vėl išsiunčiamas su kitu atnaujinimu.",

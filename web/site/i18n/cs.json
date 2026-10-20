@@ -14,6 +14,7 @@
   "news.title": "Novinky",
   "news.download": "Stáhnout",
   "news.changelog": "Historie změn",
+  "news.v131": "Oprava pro macOS, kde se verze 1.3.0 zavírala půl sekundy po spuštění, než se objevilo její okno. V systémech Windows a Linux se nic nemění.",
   "news.v13": "Torrenty nyní po restartu pokračují tam, kde přestaly, všechny torrenty jednoho klienta sdílejí jeden port jako ve skutečném klientovi, varování trackeru se zobrazují v protokolu a příkaz Soubor > Přidat torrenty ze složky... přidá najednou libovolný počet torrentů.",
   "news.v12": "Program nyní mluví 38 jazyky a tento web také. U klientů s uzavřeným kódem se vycházelo přímo z jejich vlastního kódu: nové emulace BitComet 2.22 a BitTorrent 7.11.0, uTorrent 3.6.0 v aktuálním sestavení a aktuální qBittorrent, Deluge, rTorrent, Vuze a BitTornado.",
   "news.v11": "Emulace klientů byly porovnány se zdrojovým kódem skutečných klientů a aktualizovány: aktuální sestavení qBittorrent, Deluge, Vuze, BitTorrent a uTorrent, nová emulace rTorrent a opravené peer ID klienta Transmission.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Historie změn programu",
   "changelog.full": "Úplná historie změn od roku 2005 je v souboru <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Obecné: program se v systému macOS opět spouští. Verze 1.3.0 se tam zavírala půl sekundy po spuštění, než se objevilo její okno.",
 
   "changelog.v130.resume": "RM: torrent pokračuje od místa, kam se dostalo jeho stahování: nastavení Dokončeno (%) sleduje průběh a ukládá se spolu s relací, takže dokončený torrent se po restartu vrátí jako seed, místo aby vše stahoval znovu.",
   "changelog.v130.completed": "RM: první aktualizace po dokončení stahování nyní následuje celý interval po oznámení „completed“, stejně jako ve skutečném klientovi, a oznámení „started“ nebo „completed“, které neprošlo, se znovu odešle s další aktualizací.",

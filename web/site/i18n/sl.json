@@ -14,6 +14,7 @@
   "news.title": "Novice",
   "news.download": "Prenesi",
   "news.changelog": "Seznam sprememb",
+  "news.v131": "Popravek za macOS, kjer se je različica 1.3.0 zapirala pol sekunde po zagonu, preden se je prikazalo njeno okno. V sistemih Windows in Linux se nič ne spremeni.",
   "news.v13": "Torrenti po ponovnem zagonu zdaj nadaljujejo tam, kjer so ostali, vsi torrenti enega odjemalca si delijo ista vrata tako kot pri pravem odjemalcu, opozorila sledilnika so prikazana v dnevniku, ukaz Datoteka > Dodaj torrente iz mape... pa naenkrat doda poljubno število torrentov.",
   "news.v12": "Program zdaj govori 38 jezikov, prav tako ta spletna stran. Pri odjemalcih z zaprto kodo smo izhajali neposredno iz njihove lastne kode: novi emulaciji BitComet 2.22 in BitTorrent 7.11.0, uTorrent 3.6.0 v trenutni graditvi ter trenutne različice qBittorrent, Deluge, rTorrent, Vuze in BitTornado.",
   "news.v11": "Emulacije odjemalcev so bile preverjene glede na izvorno kodo pravih odjemalcev in posodobljene: trenutne graditve qBittorrent, Deluge, Vuze, BitTorrent in uTorrent, nova emulacija rTorrent in popravljen ID soležnika za Transmission.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Seznam sprememb programa",
   "changelog.full": "Celoten seznam sprememb od leta 2005 je v datoteki <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Splošno: program se v sistemu macOS spet zažene. Različica 1.3.0 se je tam zapirala pol sekunde po zagonu, preden se je prikazalo njeno okno.",
 
   "changelog.v130.resume": "RM: torrent nadaljuje tam, do koder je prišlo njegovo prejemanje: vrednost »Dokončano (%)« sledi napredku in se shrani skupaj s sejo, zato se dokončan torrent po ponovnem zagonu vrne kot sejalec, namesto da bi vse znova prejel.",
   "changelog.v130.completed": "RM: prva posodobitev, ko se prejemanje dokonča, zdaj pride cel interval po obvestilu »completed«, tako kot pri pravem odjemalcu, obvestilo »started« ali »completed«, ki ni uspelo, pa se znova pošlje z naslednjo posodobitvijo.",

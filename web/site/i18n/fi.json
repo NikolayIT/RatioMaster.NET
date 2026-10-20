@@ -14,6 +14,7 @@
   "news.title": "Uusimmat uutiset",
   "news.download": "Lataa",
   "news.changelog": "Muutosloki",
+  "news.v131": "Korjaus macOS:lle, jossa versio 1.3.0 sulkeutui itsestään puoli sekuntia käynnistämisen jälkeen, ennen kuin sen ikkuna tuli näkyviin. Windowsissa ja Linuxissa mikään ei muutu.",
   "news.v13": "Torrentit jatkavat nyt uudelleenkäynnistyksen jälkeen siitä, mihin ne jäivät, saman asiakasohjelman kaikki torrentit käyttävät yhteistä porttia kuten oikeassa asiakasohjelmassa, seurantapalvelimen varoitukset näkyvät lokissa, ja Tiedosto > Lisää torrentit kansiosta... lisää kerralla kuinka monta torrentia tahansa.",
   "news.v12": "Ohjelma puhuu nyt 38 kieltä, ja niin puhuu tämä sivustokin. Suljetun lähdekoodin asiakasohjelmien toiminta selvitettiin niiden omasta koodista: mukana ovat BitComet 2.22:n ja BitTorrent 7.11.0:n uudet emuloinnit, uTorrent 3.6.0 nykyisellä koontiversiollaan sekä ajantasaiset qBittorrent, Deluge, rTorrent, Vuze ja BitTornado.",
   "news.v11": "Asiakasohjelmien emuloinnit tarkistettiin oikeiden ohjelmien lähdekoodia vasten ja päivitettiin: ajantasaiset qBittorrent-, Deluge-, Vuze-, BitTorrent- ja uTorrent-koontiversiot, uusi rTorrent-emulointi ja korjattu Transmissionin vertais-ID.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Ohjelman muutosloki",
   "changelog.full": "Koko muutosloki vuodesta 2005 alkaen on tiedostossa <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Yleistä: ohjelma käynnistyy taas macOS:ssä. Versio 1.3.0 sulkeutui siellä itsestään puoli sekuntia käynnistämisen jälkeen, ennen kuin sen ikkuna tuli näkyviin.",
 
   "changelog.v130.resume": "RM: torrent jatkaa siitä, mihin sen lataus oli edennyt: Valmis (%) seuraa edistymistä ja tallentuu istunnon mukana, joten valmiiksi ladattu torrent palaa uudelleenkäynnistyksen jälkeen jakajana sen sijaan, että lataisi kaiken uudestaan.",
   "changelog.v130.completed": "RM: ensimmäinen päivitys latauksen valmistuttua tulee nyt kokonaisen ilmoitusvälin kuluttua ilmoituksesta ”completed”, kuten oikeassa asiakasohjelmassa, ja ilmoitus ”started” tai ”completed”, joka ei mennyt perille, lähetetään uudelleen seuraavan päivityksen yhteydessä.",

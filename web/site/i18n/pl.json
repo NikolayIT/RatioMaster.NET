@@ -14,6 +14,7 @@
   "news.title": "Aktualności",
   "news.download": "Pobierz",
   "news.changelog": "Historia zmian",
+  "news.v131": "Poprawka dla systemu macOS, w którym wersja 1.3.0 zamykała się pół sekundy po uruchomieniu, zanim pojawiło się jej okno. W systemach Windows i Linux nic się nie zmienia.",
   "news.v13": "Po ponownym uruchomieniu torrenty kontynuują teraz od miejsca, w którym się zatrzymały, wszystkie torrenty jednego klienta współdzielą jeden port, tak jak w prawdziwym kliencie, ostrzeżenia trackera pojawiają się w dzienniku, a polecenie Plik > Dodaj torrenty z folderu... dodaje naraz dowolną liczbę torrentów.",
   "news.v12": "Program mówi teraz w 38 językach, tak jak ta strona. Klienty o zamkniętym kodzie przeanalizowano na podstawie ich własnego kodu: nowe emulacje BitComet 2.22 i BitTorrent 7.11.0, uTorrent 3.6.0 w obecnej kompilacji oraz aktualne wersje qBittorrent, Deluge, rTorrent, Vuze i BitTornado.",
   "news.v11": "Emulacje klientów porównano z kodem źródłowym prawdziwych klientów i zaktualizowano: aktualne kompilacje qBittorrent, Deluge, Vuze, BitTorrent i uTorrent, nowa emulacja rTorrent i poprawiony peer ID klienta Transmission.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Historia zmian programu",
   "changelog.full": "Pełna historia zmian od 2005 roku znajduje się w pliku <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Ogólne: program znów się uruchamia w systemie macOS. Wersja 1.3.0 zamykała się tam pół sekundy po uruchomieniu, zanim pojawiło się jej okno.",
 
   "changelog.v130.resume": "RM: torrent kontynuuje od miejsca, do którego doszło jego pobieranie: ustawienie Ukończono (%) podąża za postępem i jest zapisywane wraz z sesją, dzięki czemu ukończony torrent wraca po ponownym uruchomieniu jako seed, zamiast pobierać wszystko od nowa.",
   "changelog.v130.completed": "RM: pierwsza aktualizacja po ukończeniu pobierania następuje teraz po upływie pełnego interwału od rozgłoszenia zdarzenia „completed”, tak jak w prawdziwym kliencie, a rozgłoszenie zdarzenia „started” lub „completed”, które się nie powiodło, jest wysyłane ponownie z następną aktualizacją.",

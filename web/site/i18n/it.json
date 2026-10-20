@@ -14,6 +14,7 @@
   "news.title": "Ultime notizie",
   "news.download": "Scarica",
   "news.changelog": "Cronologia versioni",
+  "news.v131": "Una correzione per macOS, dove la versione 1.3.0 si chiudeva mezzo secondo dopo l’avvio, prima che comparisse la sua finestra. Su Windows e Linux non cambia nulla.",
   "news.v13": "Dopo un riavvio, i torrent ora continuano da dove erano arrivati, tutti i torrent di uno stesso client condividono un’unica porta come in un client reale, gli avvisi del tracker compaiono nel registro, e File > Aggiungi torrent da una cartella… aggiunge in una volta sola tutti i torrent che vuoi.",
   "news.v12": "Il programma ora parla 38 lingue, come anche questo sito. I client a codice chiuso sono stati analizzati a partire dal loro stesso codice: nuove emulazioni di BitComet 2.22 e BitTorrent 7.11.0, uTorrent 3.6.0 alla build attuale e le versioni attuali di qBittorrent, Deluge, rTorrent, Vuze e BitTornado.",
   "news.v11": "Le emulazioni dei client sono state verificate sul codice sorgente dei client reali e aggiornate: build attuali di qBittorrent, Deluge, Vuze, BitTorrent e uTorrent, una nuova emulazione di rTorrent e l’ID peer di Transmission corretto.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Cronologia delle versioni del programma",
   "changelog.full": "La cronologia completa dal 2005 è in <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Generale: il programma torna ad avviarsi su macOS. Lì la versione 1.3.0 si chiudeva mezzo secondo dopo l’avvio, prima che comparisse la sua finestra.",
 
   "changelog.v130.resume": "RM: un torrent continua dal punto a cui era arrivato il suo download: Completato (%) segue l’avanzamento e viene salvato con la sessione, così dopo un riavvio un torrent completato torna in seed invece di scaricare di nuovo tutto.",
   "changelog.v130.completed": "RM: il primo aggiornamento che segue il completamento di un download ora arriva un intervallo intero dopo l’annuncio “completed”, come in un client reale, e un annuncio “started” o “completed” che non è andato a buon fine viene inviato di nuovo con l’aggiornamento successivo.",

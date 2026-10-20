@@ -14,6 +14,7 @@
   "news.title": "Viimased uudised",
   "news.download": "Laadi alla",
   "news.changelog": "Muudatused",
+  "news.v131": "Parandus macOS-ile, kus versioon 1.3.0 sulgus iseenesest pool sekundit pärast käivitamist, enne kui selle aken ilmus. Windowsis ja Linuxis ei muutu midagi.",
   "news.v13": "Torrentid jätkavad nüüd pärast taaskäivitust sealt, kuhu need olid jõudnud, ühe kliendi kõik torrentid kasutavad nagu päris kliendis ühist porti, jälgija hoiatused on logis näha ning Fail > Lisa torrentid kaustast... lisab korraga ükskõik kui palju torrenteid.",
   "news.v12": "Programm räägib nüüd 38 keelt, nagu ka see sait. Suletud lähtekoodiga kliente analüüsiti nende endi koodi põhjal: uued BitComet 2.22 ja BitTorrent 7.11.0 emulatsioonid, uTorrent 3.6.0 praeguse järguga ning ajakohased qBittorrent, Deluge, rTorrent, Vuze ja BitTornado.",
   "news.v11": "Kliendiemulatsioone võrreldi päris klientide lähtekoodiga ja need viidi ajakohaseks: qBittorrenti, Deluge’i, Vuze’i, BitTorrenti ja uTorrenti praegused järgud, uus rTorrenti emulatsioon ja parandatud Transmissioni partneri ID.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Programmi muudatuste logi",
   "changelog.full": "Täielik muudatuste logi alates 2005. aastast on failis <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Üldine: programm käivitub macOS-is taas. Versioon 1.3.0 sulgus seal iseenesest pool sekundit pärast käivitamist, enne kui selle aken ilmus.",
 
   "changelog.v130.resume": "RM: torrent jätkab sealt, kuhu selle allalaadimine oli jõudnud: Valmis (%) järgib edenemist ja salvestub koos seansiga, nii et lõpuni alla laaditud torrent naaseb pärast taaskäivitust jagajana, selle asemel et kõike uuesti alla laadida.",
   "changelog.v130.completed": "RM: allalaadimise lõpule järgnev esimene värskendus tuleb nüüd terve intervall pärast sündmuse „completed“ teavitust, nagu päris kliendis, ning sündmuse „started“ või „completed“ teavitus, mis kohale ei jõudnud, saadetakse uuesti koos järgmise värskendusega.",

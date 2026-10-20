@@ -14,6 +14,7 @@
   "news.title": "Son haberler",
   "news.download": "İndir",
   "news.changelog": "Değişiklik günlüğü",
+  "news.v131": "macOS için bir düzeltme: 1.3.0 sürümü orada açıldıktan yarım saniye sonra, penceresi görünmeden önce kendiliğinden kapanıyordu. Windows ve Linux’ta hiçbir şey değişmiyor.",
   "news.v13": "Torrent’ler artık yeniden başlatmanın ardından kaldıkları yerden devam ediyor, aynı istemcinin tüm torrent’leri gerçek bir istemcide olduğu gibi tek bir bağlantı noktasını paylaşıyor, izleyici uyarıları günlükte gösteriliyor ve Dosya > Klasörden torrent ekle... ile istediğiniz sayıda torrent tek seferde eklenebiliyor.",
   "news.v12": "Program artık 38 dil konuşuyor, bu site de öyle. Kapalı kaynaklı istemcilerin kendi kodları doğrudan incelendi: yeni BitComet 2.22 ve BitTorrent 7.11.0 öykünmeleri, güncel derlemesiyle uTorrent 3.6.0 ve qBittorrent, Deluge, rTorrent, Vuze ile BitTornado’nun güncel sürümleri.",
   "news.v11": "İstemci öykünmeleri gerçek istemcilerin kaynak koduyla karşılaştırılıp güncellendi: güncel qBittorrent, Deluge, Vuze, BitTorrent ve uTorrent derlemeleri, yeni bir rTorrent öykünmesi ve düzeltilmiş Transmission kişi kimliği.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Programın değişiklik günlüğü",
   "changelog.full": "2005’ten bu yana tüm değişiklik günlüğü <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a> dosyasındadır.",
+
+  "changelog.v131.macos": "Genel: program macOS üzerinde yine açılıyor. 1.3.0 sürümü orada açıldıktan yarım saniye sonra, penceresi görünmeden önce kendiliğinden kapanıyordu.",
 
   "changelog.v130.resume": "RM: bir torrent, indirmesinin kaldığı yerden devam ediyor: “Tamamlanan (%)” ayarı ilerlemeyi izliyor ve oturumla birlikte kaydediliyor; böylece tamamlanmış bir torrent, yeniden başlatmanın ardından her şeyi baştan indirmek yerine gönderime geri dönüyor.",
   "changelog.v130.completed": "RM: indirme tamamlandıktan sonraki ilk güncelleme artık, gerçek bir istemcide olduğu gibi, “completed” duyurusundan tam bir aralık sonra geliyor ve başarısız olan bir “started” ya da “completed” duyurusu sonraki güncellemeyle birlikte yeniden gönderiliyor.",

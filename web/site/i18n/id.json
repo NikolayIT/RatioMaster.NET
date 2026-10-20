@@ -14,6 +14,7 @@
   "news.title": "Berita terbaru",
   "news.download": "Unduh",
   "news.changelog": "Catatan perubahan",
+  "news.v131": "Perbaikan untuk macOS: di sana, versi 1.3.0 tertutup sendiri setengah detik setelah dijalankan, sebelum jendelanya muncul. Tidak ada yang berubah di Windows dan Linux.",
   "news.v13": "Torrent kini melanjutkan dari titik yang sudah dicapainya setelah dimulai ulang, semua torrent dari satu klien memakai satu port bersama seperti pada klien asli, peringatan dari pelacak ditampilkan di log, dan perintah Berkas > Tambah torrent dari folder... menambahkan torrent sebanyak apa pun sekaligus.",
   "news.v12": "Program ini kini tersedia dalam 38 bahasa, begitu pula situs ini. Kode klien bersumber tertutup dianalisis secara langsung: emulasi baru BitComet 2.22 dan BitTorrent 7.11.0, uTorrent 3.6.0 pada build terbarunya, serta versi terkini qBittorrent, Deluge, rTorrent, Vuze, dan BitTornado.",
   "news.v11": "Emulasi klien dicocokkan dengan kode sumber klien aslinya lalu diperbarui: build terkini qBittorrent, Deluge, Vuze, BitTorrent, dan uTorrent, emulasi rTorrent baru, serta ID peer Transmission yang diperbaiki.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Catatan perubahan program",
   "changelog.full": "Catatan perubahan lengkap sejak 2005 ada di <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Umum: program kembali dapat dijalankan di macOS. Di sana, versi 1.3.0 tertutup sendiri setengah detik setelah dijalankan, sebelum jendelanya muncul.",
 
   "changelog.v130.resume": "RM: torrent melanjutkan dari titik yang sudah dicapai unduhannya: pengaturan “Selesai (%)” mengikuti kemajuan dan disimpan bersama sesi, sehingga torrent yang sudah selesai kembali berbagi setelah dimulai ulang, alih-alih mengunduh semuanya lagi.",
   "changelog.v130.completed": "RM: pembaruan pertama setelah unduhan selesai kini dikirim satu interval penuh setelah pengumuman completed, seperti pada klien asli, dan bila pengumuman started atau completed tidak berhasil, pengumuman tersebut dikirim lagi bersama pembaruan berikutnya.",

@@ -14,6 +14,7 @@
   "news.title": "最新消息",
   "news.download": "下载",
   "news.changelog": "更新日志",
+  "news.v131": "修正了 1.3.0 版在 macOS 上启动半秒后、窗口出现之前就自行退出的问题。在 Windows 和 Linux 上没有任何变化。",
   "news.v13": "现在，Torrent 在重启后会从上次的进度继续，同一客户端的所有 Torrent 会像真实客户端一样共用一个端口，Tracker 警告会显示在日志中，还可以通过“文件 > 从文件夹添加 Torrent...”一次添加任意数量的 Torrent。",
   "news.v12": "程序和本网站现已支持 38 种语言。对于闭源客户端，我们直接分析了客户端本身的代码：新增 BitComet 2.22 和 BitTorrent 7.11.0 模拟，uTorrent 3.6.0 更新至当前内部版本，qBittorrent、Deluge、rTorrent、Vuze 和 BitTornado 也都更新到了最新版本。",
   "news.v11": "客户端模拟已对照真实客户端的源代码进行核对和更新：qBittorrent、Deluge、Vuze、BitTorrent 和 uTorrent 更新至当前版本，新增 rTorrent 模拟，并修正了 Transmission 的 Peer ID。",
@@ -66,6 +67,8 @@
 
   "changelog.title": "程序更新日志",
   "changelog.full": "自 2005 年以来的完整更新日志见 <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>。",
+
+  "changelog.v131.macos": "全局：程序在 macOS 上又能启动了。1.3.0 版在 macOS 上启动半秒后、窗口出现之前就会自行退出。",
 
   "changelog.v130.resume": "RM：Torrent 会从其下载已达到的进度继续：“已完成 (%)”会随进度变化，并随会话一起保存，因此下载完成的 Torrent 在重启后会继续做种，而不是重新下载全部内容。",
   "changelog.v130.completed": "RM：下载完成后的第一次更新现在会在 completed 汇报之后整整一个汇报间隔才发出，与真实客户端一致；未成功的 started 或 completed 汇报会随下一次更新重新发送。",

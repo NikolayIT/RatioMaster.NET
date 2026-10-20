@@ -14,6 +14,7 @@
   "news.title": "Ultimele noutăți",
   "news.download": "Descărcare",
   "news.changelog": "Modificări",
+  "news.v131": "O corecție pentru macOS, unde versiunea 1.3.0 se închidea la o jumătate de secundă după pornire, înainte să apară fereastra. Pe Windows și Linux nu se schimbă nimic.",
   "news.v13": "Torrentele continuă acum, după o repornire, de unde ajunseseră, toate torrentele aceluiași client folosesc în comun un singur port ca la un client real, avertismentele trackerului apar în jurnal, iar Fișier > Adaugă torrente dintr-un folder… adaugă deodată oricâte torrente.",
   "news.v12": "Programul vorbește acum 38 de limbi, la fel ca acest site. Clienții cu sursă închisă au fost studiați direct din propriul lor cod: emulări noi pentru BitComet 2.22 și BitTorrent 7.11.0, uTorrent 3.6.0 la build-ul actual și versiunile actuale de qBittorrent, Deluge, rTorrent, Vuze și BitTornado.",
   "news.v11": "Emulările de clienți au fost verificate cu codul sursă al clienților reali și aduse la zi: build-uri actuale de qBittorrent, Deluge, Vuze, BitTorrent și uTorrent, o emulare nouă pentru rTorrent și ID-ul de partener corectat pentru Transmission.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Istoricul modificărilor",
   "changelog.full": "Istoricul complet al modificărilor, din 2005 încoace, se află în <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "General: programul pornește din nou pe macOS. Acolo, versiunea 1.3.0 se închidea la o jumătate de secundă după pornire, înainte să apară fereastra.",
 
   "changelog.v130.resume": "RM: un torrent continuă de unde ajunsese descărcarea lui: Finalizat (%) urmărește progresul și este salvat împreună cu sesiunea, așa că, după o repornire, un torrent finalizat reia distribuirea în loc să descarce totul din nou.",
   "changelog.v130.completed": "RM: prima actualizare care urmează finalizării unei descărcări are loc acum la un interval întreg după anunțul „completed”, ca la un client real, iar un anunț „started” sau „completed” care a eșuat este trimis din nou odată cu următoarea actualizare.",

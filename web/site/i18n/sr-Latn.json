@@ -14,6 +14,7 @@
   "news.title": "Najnovije vesti",
   "news.download": "Preuzmi",
   "news.changelog": "Istorija izmena",
+  "news.v131": "Ispravka za macOS, gde se verzija 1.3.0 zatvarala pola sekunde posle pokretanja, pre nego što se pojavio njen prozor. Na sistemima Windows i Linux ništa se ne menja.",
   "news.v13": "Torenti posle ponovnog pokretanja sada nastavljaju tamo gde su stali, svi torenti jednog klijenta dele jedan port kao kod pravog klijenta, upozorenja trekera prikazuju se u dnevniku, a komanda Datoteka > Dodaj torente iz fascikle... odjednom dodaje proizvoljan broj torenata.",
   "news.v12": "Program sada govori 38 jezika, kao i ovaj sajt. Klijenti zatvorenog koda proučeni su na osnovu njihovog sopstvenog koda: nove emulacije klijenata BitComet 2.22 i BitTorrent 7.11.0, uTorrent 3.6.0 u trenutnom izdanju, kao i aktuelni qBittorrent, Deluge, rTorrent, Vuze i BitTornado.",
   "news.v11": "Emulacije klijenata proverene su prema izvornom kodu pravih klijenata i ažurirane: aktuelna izdanja klijenata qBittorrent, Deluge, Vuze, BitTorrent i uTorrent, nova emulacija klijenta rTorrent i ispravljen ID parnjaka za Transmission.",
@@ -66,6 +67,8 @@
 
   "changelog.title": "Istorija izmena programa",
   "changelog.full": "Potpuna istorija izmena od 2005. godine nalazi se u datoteci <a href=\"https://github.com/NikolayIT/RatioMaster.NET/blob/master/HISTORY.TXT\">HISTORY.TXT</a>.",
+
+  "changelog.v131.macos": "Opšte: program se opet pokreće na sistemu macOS. Verzija 1.3.0 se tamo zatvarala pola sekunde posle pokretanja, pre nego što se pojavio njen prozor.",
 
   "changelog.v130.resume": "RM: torent nastavlja od mesta do kojeg je stiglo njegovo preuzimanje: vrednost „Završeno (%)“ prati napredak i čuva se zajedno sa sesijom, pa se završeni torent posle ponovnog pokretanja vraća kao sejač, umesto da sve preuzima iznova.",
   "changelog.v130.completed": "RM: prvo ažuriranje po završetku preuzimanja sada stiže čitav interval posle najave „completed“, kao kod pravog klijenta, a najava „started“ ili „completed“ koja nije prošla šalje se ponovo sa sledećim ažuriranjem.",
