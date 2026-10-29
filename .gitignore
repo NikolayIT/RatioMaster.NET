@@ -115,3 +115,5 @@ node_modules/
 
 # Visual Studio workspace state
 .vs/
+/.direnv
+result
