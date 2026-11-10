@@ -123,6 +123,14 @@ namespace RatioMaster.App.ViewModels
             this.Log = new LogViewModel(displayName, files, clipboard);
             this.Tracker = new TrackerHistoryViewModel();
             this.Settings = new TorrentSettingsViewModel(factory.Catalog, factory, settings);
+            this.Settings.PropertyChanged += (_, args) =>
+            {
+                if (args.PropertyName == nameof(TorrentSettingsViewModel.IsSpeedSettingsValid))
+                {
+                    this.StartCommand.NotifyCanExecuteChanged();
+                    this.ApplySettingsCommand.NotifyCanExecuteChanged();
+                }
+            };
         }
 
         /// <summary>Raised when the row wants to be removed from the list.</summary>
@@ -154,7 +162,7 @@ namespace RatioMaster.App.ViewModels
         public bool IsRunning => this.State is TorrentSessionState.Starting or TorrentSessionState.Downloading
             or TorrentSessionState.Seeding or TorrentSessionState.Updating;
 
-        public bool CanStart => !this.IsRunning && this.State != TorrentSessionState.Stopping;
+        public bool CanStart => !this.IsRunning && this.State != TorrentSessionState.Stopping && this.Settings.IsSpeedSettingsValid;
 
         public string StatusText => this.State switch
         {
@@ -234,6 +242,11 @@ namespace RatioMaster.App.ViewModels
         [RelayCommand(CanExecute = nameof(CanStart))]
         public void Start()
         {
+            if (!this.CanStart)
+            {
+                return;
+            }
+
             // A session that stopped on its own (a stop condition, a tracker error) since the last refresh may have got
             // further than that refresh saw, up to complete: carry on from where it really got to.
             if (this.session is { } previous)
@@ -280,7 +293,9 @@ namespace RatioMaster.App.ViewModels
         public void Remove() => this.RemoveRequested?.Invoke(this, EventArgs.Empty);
 
         /// <summary>Pushes the editor's values into the settings, and into a running session where allowed.</summary>
-        [RelayCommand]
+        public bool CanApplySettings => this.Settings.IsSpeedSettingsValid;
+
+        [RelayCommand(CanExecute = nameof(CanApplySettings))]
         public void ApplySettings()
         {
             this.settings = this.Settings.ToSettings();
@@ -330,13 +345,13 @@ namespace RatioMaster.App.ViewModels
             if (uploadKb is { } up)
             {
                 settings = settings with { UploadRateBytes = (long)(up * 1024) };
-                this.Settings.UploadKb = up;
+                this.Settings.UploadKb = (decimal)up;
             }
 
             if (downloadKb is { } down)
             {
                 settings = settings with { DownloadRateBytes = (long)(down * 1024) };
-                this.Settings.DownloadKb = down;
+                this.Settings.DownloadKb = (decimal)down;
             }
 
             this.settings = settings;

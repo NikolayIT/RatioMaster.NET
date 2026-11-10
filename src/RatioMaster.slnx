@@ -8,4 +8,5 @@
   <Project Path="RatioMaster.Core/RatioMaster.Core.csproj" />
   <Project Path="RatioMaster.App/RatioMaster.App.csproj" />
   <Project Path="RatioMaster.Core.Tests/RatioMaster.Core.Tests.csproj" />
+  <Project Path="RatioMaster.App.Tests/RatioMaster.App.Tests.csproj" />
 </Solution>

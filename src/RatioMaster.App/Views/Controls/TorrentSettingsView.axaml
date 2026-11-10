@@ -13,7 +13,7 @@
     <Style Selector="Expander /template/ ToggleButton#ExpanderHeader">
       <Setter Property="FontWeight" Value="SemiBold" />
     </Style>
-    <Style Selector="TextBox.num">
+    <Style Selector="TextBox.num, NumericUpDown.num">
       <Setter Property="Width" Value="90" />
     </Style>
     <Style Selector="TextBox.wide">
@@ -54,27 +54,29 @@
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Strings.LabelUploadSpeed}" Classes="label" />
-            <TextBox Grid.Row="0" Grid.Column="1" Classes="num" Text="{Binding UploadKb}" />
+            <NumericUpDown Grid.Row="0" Grid.Column="1" Classes="num" Value="{Binding UploadKb}" Minimum="0" Maximum="1000000000" ClipValueToMinMax="True" FormatString="0.##" />
             <CheckBox Grid.Row="0" Grid.Column="2" Margin="12,0,4,0" Content="{x:Static res:Strings.RandomExtra}"
                       IsChecked="{Binding UploadRandomEnabled}" />
             <TextBlock Grid.Row="0" Grid.Column="3" Text="{x:Static res:Strings.RangeMin}" Classes="label" />
-            <TextBox Grid.Row="0" Grid.Column="4" Width="60" Text="{Binding UploadRandomMinKb}"
-                     IsEnabled="{Binding UploadRandomEnabled}" />
+            <NumericUpDown Grid.Row="0" Grid.Column="4" Width="88" Value="{Binding UploadRandomMinKb}"
+                     IsEnabled="{Binding UploadRandomEnabled}" Minimum="0" Maximum="2147483647" ClipValueToMinMax="True" FormatString="0" />
             <TextBlock Grid.Row="0" Grid.Column="5" Text="{x:Static res:Strings.RangeMax}" Classes="label" Margin="8,0,8,0" />
-            <TextBox Grid.Row="0" Grid.Column="6" Width="60" Text="{Binding UploadRandomMaxKb}"
-                     IsEnabled="{Binding UploadRandomEnabled}" />
+            <NumericUpDown Grid.Row="0" Grid.Column="6" Width="88" Value="{Binding UploadRandomMaxKb}"
+                     IsEnabled="{Binding UploadRandomEnabled}" Minimum="0" Maximum="2147483647" ClipValueToMinMax="True" FormatString="0" />
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:Strings.LabelDownloadSpeed}" Classes="label" Margin="0,8,8,0" />
-            <TextBox Grid.Row="1" Grid.Column="1" Classes="num" Text="{Binding DownloadKb}" Margin="0,8,0,0" />
+            <NumericUpDown Grid.Row="1" Grid.Column="1" Classes="num" Value="{Binding DownloadKb}" Margin="0,8,0,0" Minimum="0" Maximum="1000000000" ClipValueToMinMax="True" FormatString="0.##" />
             <CheckBox Grid.Row="1" Grid.Column="2" Margin="12,8,4,0" Content="{x:Static res:Strings.RandomExtra}"
                       IsChecked="{Binding DownloadRandomEnabled}" />
             <TextBlock Grid.Row="1" Grid.Column="3" Text="{x:Static res:Strings.RangeMin}" Classes="label" Margin="0,8,8,0" />
-            <TextBox Grid.Row="1" Grid.Column="4" Width="60" Text="{Binding DownloadRandomMinKb}" Margin="0,8,0,0"
-                     IsEnabled="{Binding DownloadRandomEnabled}" />
+            <NumericUpDown Grid.Row="1" Grid.Column="4" Width="88" Value="{Binding DownloadRandomMinKb}" Margin="0,8,0,0"
+                     IsEnabled="{Binding DownloadRandomEnabled}" Minimum="0" Maximum="2147483647" ClipValueToMinMax="True" FormatString="0" />
             <TextBlock Grid.Row="1" Grid.Column="5" Text="{x:Static res:Strings.RangeMax}" Classes="label" Margin="8,8,8,0" />
-            <TextBox Grid.Row="1" Grid.Column="6" Width="60" Text="{Binding DownloadRandomMaxKb}" Margin="0,8,0,0"
-                     IsEnabled="{Binding DownloadRandomEnabled}" />
+            <NumericUpDown Grid.Row="1" Grid.Column="6" Width="88" Value="{Binding DownloadRandomMaxKb}" Margin="0,8,0,0"
+                     IsEnabled="{Binding DownloadRandomEnabled}" Minimum="0" Maximum="2147483647" ClipValueToMinMax="True" FormatString="0" />
           </Grid>
+          <TextBlock Text="+ random: min/max are extra kB/s added to the base speed each second."
+                     Classes="subtle" TextWrapping="Wrap" />
 
           <CheckBox Content="{x:Static res:Strings.PauseNoLeechers}"
                     IsChecked="{Binding StopUploadWhenNoLeechers}" />
@@ -93,21 +95,25 @@
             </Grid.ColumnDefinitions>
             <CheckBox Grid.Row="0" Grid.Column="0" Content="{x:Static res:Strings.Upload}" IsChecked="{Binding NextUpdateRandomUpload}" />
             <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static res:Strings.RangeMin}" Classes="label" />
-            <TextBox Grid.Row="0" Grid.Column="2" Width="70" Text="{Binding NextUpdateUploadMinKb}"
-                     IsEnabled="{Binding NextUpdateRandomUpload}" />
+            <NumericUpDown Grid.Row="0" Grid.Column="2" Width="88" Value="{Binding NextUpdateUploadMinKb}"
+                     IsEnabled="{Binding NextUpdateRandomUpload}" Minimum="0" Maximum="2147483647" ClipValueToMinMax="True" FormatString="0" />
             <TextBlock Grid.Row="0" Grid.Column="3" Text="{x:Static res:Strings.RangeMax}" Classes="label" Margin="8,0,8,0" />
-            <TextBox Grid.Row="0" Grid.Column="4" Width="70" Text="{Binding NextUpdateUploadMaxKb}"
-                     IsEnabled="{Binding NextUpdateRandomUpload}" />
+            <NumericUpDown Grid.Row="0" Grid.Column="4" Width="88" Value="{Binding NextUpdateUploadMaxKb}"
+                     IsEnabled="{Binding NextUpdateRandomUpload}" Minimum="0" Maximum="2147483647" ClipValueToMinMax="True" FormatString="0" />
 
             <CheckBox Grid.Row="1" Grid.Column="0" Content="{x:Static res:Strings.Download}" Margin="0,8,0,0"
                       IsChecked="{Binding NextUpdateRandomDownload}" />
             <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Static res:Strings.RangeMin}" Classes="label" Margin="0,8,8,0" />
-            <TextBox Grid.Row="1" Grid.Column="2" Width="70" Text="{Binding NextUpdateDownloadMinKb}" Margin="0,8,0,0"
-                     IsEnabled="{Binding NextUpdateRandomDownload}" />
+            <NumericUpDown Grid.Row="1" Grid.Column="2" Width="88" Value="{Binding NextUpdateDownloadMinKb}" Margin="0,8,0,0"
+                     IsEnabled="{Binding NextUpdateRandomDownload}" Minimum="0" Maximum="2147483647" ClipValueToMinMax="True" FormatString="0" />
             <TextBlock Grid.Row="1" Grid.Column="3" Text="{x:Static res:Strings.RangeMax}" Classes="label" Margin="8,8,8,0" />
-            <TextBox Grid.Row="1" Grid.Column="4" Width="70" Text="{Binding NextUpdateDownloadMaxKb}" Margin="0,8,0,0"
-                     IsEnabled="{Binding NextUpdateRandomDownload}" />
+            <NumericUpDown Grid.Row="1" Grid.Column="4" Width="88" Value="{Binding NextUpdateDownloadMaxKb}" Margin="0,8,0,0"
+                     IsEnabled="{Binding NextUpdateRandomDownload}" Minimum="0" Maximum="2147483647" ClipValueToMinMax="True" FormatString="0" />
           </Grid>
+          <TextBlock Text="Tracker-update min/max are in kB/s. Each enabled range replaces the base speed; it does not add to it."
+                     Classes="subtle" TextWrapping="Wrap" />
+          <TextBlock Text="{Binding SpeedValidationMessage}" Foreground="{DynamicResource LogErrorBrush}"
+                     TextWrapping="Wrap" IsVisible="{Binding !IsSpeedSettingsValid}" />
         </StackPanel>
       </Expander>
 

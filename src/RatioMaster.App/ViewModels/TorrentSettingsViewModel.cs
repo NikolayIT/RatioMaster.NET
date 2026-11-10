@@ -19,6 +19,8 @@ namespace RatioMaster.App.ViewModels
     /// </summary>
     public sealed partial class TorrentSettingsViewModel : ViewModelBase
     {
+        private const decimal MaxSpeedKb = 1_000_000_000m;
+
         private readonly ClientProfileCatalog catalog;
         private readonly TorrentSessionFactory? factory;
         private bool suppressVersionReset;
@@ -54,46 +56,46 @@ namespace RatioMaster.App.ViewModels
         private bool isGeneratingIdentity;
 
         [ObservableProperty]
-        private double uploadKb = 60;
+        private decimal? uploadKb = 60m;
 
         [ObservableProperty]
-        private double downloadKb = 30;
+        private decimal? downloadKb = 30m;
 
         [ObservableProperty]
         private bool uploadRandomEnabled = true;
 
         [ObservableProperty]
-        private int uploadRandomMinKb = 1;
+        private decimal? uploadRandomMinKb = 1m;
 
         [ObservableProperty]
-        private int uploadRandomMaxKb = 10;
+        private decimal? uploadRandomMaxKb = 10m;
 
         [ObservableProperty]
         private bool downloadRandomEnabled = true;
 
         [ObservableProperty]
-        private int downloadRandomMinKb = 1;
+        private decimal? downloadRandomMinKb = 1m;
 
         [ObservableProperty]
-        private int downloadRandomMaxKb = 10;
+        private decimal? downloadRandomMaxKb = 10m;
 
         [ObservableProperty]
         private bool nextUpdateRandomUpload;
 
         [ObservableProperty]
-        private int nextUpdateUploadMinKb = 10;
+        private decimal? nextUpdateUploadMinKb = 10m;
 
         [ObservableProperty]
-        private int nextUpdateUploadMaxKb = 50;
+        private decimal? nextUpdateUploadMaxKb = 50m;
 
         [ObservableProperty]
         private bool nextUpdateRandomDownload;
 
         [ObservableProperty]
-        private int nextUpdateDownloadMinKb = 10;
+        private decimal? nextUpdateDownloadMinKb = 10m;
 
         [ObservableProperty]
-        private int nextUpdateDownloadMaxKb = 100;
+        private decimal? nextUpdateDownloadMaxKb = 100m;
 
         [ObservableProperty]
         private double finishedPercent;
@@ -183,6 +185,44 @@ namespace RatioMaster.App.ViewModels
         /// </summary>
         public bool CanEditPortAndPeers => !this.UseAutomaticIdentity && !this.IsLocked;
 
+        /// <summary>
+        /// Cleared numeric fields have a null value. Disabled random ranges are ignored until enabled.
+        /// </summary>
+        public bool IsSpeedSettingsValid =>
+            IsValidSpeed(this.UploadKb) &&
+            IsValidSpeed(this.DownloadKb) &&
+            (!this.UploadRandomEnabled || IsValidRange(this.UploadRandomMinKb, this.UploadRandomMaxKb)) &&
+            (!this.DownloadRandomEnabled || IsValidRange(this.DownloadRandomMinKb, this.DownloadRandomMaxKb)) &&
+            (!this.NextUpdateRandomUpload || IsValidRange(this.NextUpdateUploadMinKb, this.NextUpdateUploadMaxKb)) &&
+            (!this.NextUpdateRandomDownload || IsValidRange(this.NextUpdateDownloadMinKb, this.NextUpdateDownloadMaxKb));
+
+        /// <summary>Reports friendly input errors without exposing .NET conversion exceptions in the form.</summary>
+        public string? SpeedValidationMessage
+        {
+            get
+            {
+                if (this.IsSpeedSettingsValid)
+                {
+                    return null;
+                }
+
+                if (!IsValidSpeed(this.UploadKb) || !IsValidSpeed(this.DownloadKb))
+                {
+                    return "Enter a non-negative upload and download speed (kB/s).";
+                }
+
+                if ((this.UploadRandomEnabled && (!IsValidRangeNumber(this.UploadRandomMinKb) || !IsValidRangeNumber(this.UploadRandomMaxKb))) ||
+                    (this.DownloadRandomEnabled && (!IsValidRangeNumber(this.DownloadRandomMinKb) || !IsValidRangeNumber(this.DownloadRandomMaxKb))) ||
+                    (this.NextUpdateRandomUpload && (!IsValidRangeNumber(this.NextUpdateUploadMinKb) || !IsValidRangeNumber(this.NextUpdateUploadMaxKb))) ||
+                    (this.NextUpdateRandomDownload && (!IsValidRangeNumber(this.NextUpdateDownloadMinKb) || !IsValidRangeNumber(this.NextUpdateDownloadMaxKb))))
+                {
+                    return "Enter whole, non-negative min/max speeds (kB/s) for each enabled option.";
+                }
+
+                return "The minimum speed must not exceed the maximum speed (kB/s).";
+            }
+        }
+
         public bool IsProxyConfigured => this.ProxyType != ProxyType.None;
 
         public bool IsStopValueVisible => this.StopType != StopConditionType.Never;
@@ -212,8 +252,8 @@ namespace RatioMaster.App.ViewModels
             this.Port = settings.CustomPort ?? string.Empty;
             this.NumWant = settings.CustomNumWant ?? string.Empty;
 
-            this.UploadKb = settings.UploadRateBytes / 1024d;
-            this.DownloadKb = settings.DownloadRateBytes / 1024d;
+            this.UploadKb = settings.UploadRateBytes / 1024m;
+            this.DownloadKb = settings.DownloadRateBytes / 1024m;
             this.UploadRandomEnabled = settings.UploadRandomEnabled;
             this.UploadRandomMinKb = settings.UploadRandomMinKb;
             this.UploadRandomMaxKb = settings.UploadRandomMaxKb;
@@ -256,20 +296,20 @@ namespace RatioMaster.App.ViewModels
             CustomKey = NullIfBlank(this.Key),
             CustomPort = NullIfBlank(this.Port),
             CustomNumWant = NullIfBlank(this.NumWant),
-            UploadRateBytes = (long)Math.Max(0, this.UploadKb * 1024),
-            DownloadRateBytes = (long)Math.Max(0, this.DownloadKb * 1024),
+            UploadRateBytes = (long)(Math.Clamp(this.UploadKb ?? 0m, 0m, MaxSpeedKb) * 1024m),
+            DownloadRateBytes = (long)(Math.Clamp(this.DownloadKb ?? 0m, 0m, MaxSpeedKb) * 1024m),
             UploadRandomEnabled = this.UploadRandomEnabled,
-            UploadRandomMinKb = this.UploadRandomMinKb,
-            UploadRandomMaxKb = this.UploadRandomMaxKb,
+            UploadRandomMinKb = AsRangeInteger(this.UploadRandomMinKb),
+            UploadRandomMaxKb = AsRangeInteger(this.UploadRandomMaxKb),
             DownloadRandomEnabled = this.DownloadRandomEnabled,
-            DownloadRandomMinKb = this.DownloadRandomMinKb,
-            DownloadRandomMaxKb = this.DownloadRandomMaxKb,
+            DownloadRandomMinKb = AsRangeInteger(this.DownloadRandomMinKb),
+            DownloadRandomMaxKb = AsRangeInteger(this.DownloadRandomMaxKb),
             NextUpdateRandomUpload = this.NextUpdateRandomUpload,
-            NextUpdateUploadMinKb = this.NextUpdateUploadMinKb,
-            NextUpdateUploadMaxKb = this.NextUpdateUploadMaxKb,
+            NextUpdateUploadMinKb = AsRangeInteger(this.NextUpdateUploadMinKb),
+            NextUpdateUploadMaxKb = AsRangeInteger(this.NextUpdateUploadMaxKb),
             NextUpdateRandomDownload = this.NextUpdateRandomDownload,
-            NextUpdateDownloadMinKb = this.NextUpdateDownloadMinKb,
-            NextUpdateDownloadMaxKb = this.NextUpdateDownloadMaxKb,
+            NextUpdateDownloadMinKb = AsRangeInteger(this.NextUpdateDownloadMinKb),
+            NextUpdateDownloadMaxKb = AsRangeInteger(this.NextUpdateDownloadMaxKb),
             FinishedPercent = Math.Clamp(this.FinishedPercent, 0, 100),
             IntervalSeconds = this.IntervalSeconds,
             Stop = new StopCondition { Type = this.StopType, Value = this.StopValue },
@@ -288,6 +328,55 @@ namespace RatioMaster.App.ViewModels
                 Password = this.ProxyPassword,
             },
         };
+
+        private static bool IsValidSpeed(decimal? value) => value is >= 0 and <= MaxSpeedKb;
+
+        private static bool IsValidRangeNumber(decimal? value) =>
+            value.HasValue &&
+            value.Value >= 0 &&
+            value.Value <= int.MaxValue &&
+            decimal.Truncate(value.Value) == value.Value;
+
+        private static bool IsValidRange(decimal? min, decimal? max) =>
+            IsValidRangeNumber(min) && IsValidRangeNumber(max) && min!.Value <= max!.Value;
+
+        // Disabled ranges may have unfinished values; never let them overflow during serialization.
+        private static int AsRangeInteger(decimal? value) =>
+            (int)Math.Clamp(decimal.Truncate(value ?? 0m), 0m, int.MaxValue);
+
+        private void NotifySpeedValidationChanged()
+        {
+            this.OnPropertyChanged(nameof(this.IsSpeedSettingsValid));
+            this.OnPropertyChanged(nameof(this.SpeedValidationMessage));
+        }
+
+        partial void OnUploadKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnDownloadKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnUploadRandomEnabledChanged(bool value) => this.NotifySpeedValidationChanged();
+
+        partial void OnUploadRandomMinKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnUploadRandomMaxKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnDownloadRandomEnabledChanged(bool value) => this.NotifySpeedValidationChanged();
+
+        partial void OnDownloadRandomMinKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnDownloadRandomMaxKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnNextUpdateRandomUploadChanged(bool value) => this.NotifySpeedValidationChanged();
+
+        partial void OnNextUpdateUploadMinKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnNextUpdateUploadMaxKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnNextUpdateRandomDownloadChanged(bool value) => this.NotifySpeedValidationChanged();
+
+        partial void OnNextUpdateDownloadMinKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
+        partial void OnNextUpdateDownloadMaxKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
 
         private static double DefaultStopValue(StopConditionType type) => type switch
         {
