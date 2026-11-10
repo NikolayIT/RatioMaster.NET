@@ -351,18 +351,31 @@ namespace RatioMaster.App.ViewModels
         }
 
         partial void OnUploadKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnDownloadKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnUploadRandomEnabledChanged(bool value) => this.NotifySpeedValidationChanged();
+
         partial void OnUploadRandomMinKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnUploadRandomMaxKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnDownloadRandomEnabledChanged(bool value) => this.NotifySpeedValidationChanged();
+
         partial void OnDownloadRandomMinKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnDownloadRandomMaxKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnNextUpdateRandomUploadChanged(bool value) => this.NotifySpeedValidationChanged();
+
         partial void OnNextUpdateUploadMinKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnNextUpdateUploadMaxKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnNextUpdateRandomDownloadChanged(bool value) => this.NotifySpeedValidationChanged();
+
         partial void OnNextUpdateDownloadMinKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
+
         partial void OnNextUpdateDownloadMaxKbChanged(decimal? value) => this.NotifySpeedValidationChanged();
 
         private static double DefaultStopValue(StopConditionType type) => type switch
