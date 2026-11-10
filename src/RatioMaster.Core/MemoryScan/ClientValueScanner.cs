@@ -20,6 +20,7 @@ namespace RatioMaster.Core.MemoryScan
         /// when it runs: starting a thousand uTorrent torrents at once kept the window busy for 11 seconds.
         /// </summary>
         internal const int MissWaitSeconds = 60;
+        internal const int HitWaitSeconds = 5;
 
         private const int BlockSize = 64 * 1024;
 
@@ -27,8 +28,7 @@ namespace RatioMaster.Core.MemoryScan
         private readonly ISystemClock clock;
         private readonly Lock gate = new();
 
-        /// <summary>The newest search that ended for each profile, by name: its number, and when it found nothing (null when it found the client).</summary>
-        private readonly Dictionary<string, (long Search, DateTimeOffset? MissedAt)> results = new(StringComparer.Ordinal);
+        private readonly Dictionary<string, (long Search, DateTimeOffset CheckedAt, ScanValues? Values)> results = new(StringComparer.Ordinal);
 
         private long searches;
 
@@ -43,8 +43,8 @@ namespace RatioMaster.Core.MemoryScan
         /// <summary>
         /// Scans the client's process and returns the values found, or null when the client is not running,
         /// the platform does not allow it, or nothing matched. <paramref name="fallback"/> fills any missing field.
-        /// After a search that found nothing the client is not looked for again for <see cref="MissWaitSeconds"/>
-        /// seconds, unless <paramref name="ignoreRecentMiss"/> is set: when the user asks, the client may just have started.
+        /// A recent result is reused for <see cref="HitWaitSeconds"/> seconds, or <see cref="MissWaitSeconds"/>
+        /// seconds when nothing was found. Explicit regeneration bypasses both waits.
         /// </summary>
         public ClientIdentity? TryScan(ClientProfile profile, ClientIdentity fallback, Action<string>? log = null, bool ignoreRecentMiss = false)
         {
@@ -57,38 +57,56 @@ namespace RatioMaster.Core.MemoryScan
                 return null;
             }
 
-            bool skip;
+            bool skipMiss = false;
+            ScanValues? cached = null;
             long search = 0;
             lock (this.gate)
             {
-                skip = !ignoreRecentMiss && this.MissedRecently(profile.Name);
-                if (!skip)
+                if (!ignoreRecentMiss &&
+                    this.results.TryGetValue(profile.Name, out var previous) &&
+                    this.IsRecent(previous.CheckedAt, previous.Values is null ? MissWaitSeconds : HitWaitSeconds))
+                {
+                    if (previous.Values is { } found)
+                    {
+                        cached = found;
+                    }
+                    else
+                    {
+                        skipMiss = true;
+                    }
+                }
+
+                if (!skipMiss && cached is null)
                 {
                     search = ++this.searches;
                 }
             }
 
-            if (skip)
+            if (cached is not null)
+            {
+                return ApplyFallback(cached, fallback);
+            }
+
+            if (skipMiss)
             {
                 log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanSkippedAfterMiss, spec.ProcessName));
                 return null;
             }
 
-            var identity = this.Scan(profile, spec, fallback, log);
+            var values = this.Scan(profile, spec, log);
             lock (this.gate)
             {
-                // Searches can overlap (a start on the UI thread, Regenerate on the thread pool). The one that began last
-                // saw the client last, so an older one that ends after it does not undo what it found.
+                // A newer forced scan must win even if an earlier scan finishes last.
                 if (!this.results.TryGetValue(profile.Name, out var newest) || newest.Search < search)
                 {
-                    this.results[profile.Name] = (search, identity is null ? this.clock.Now : null);
+                    this.results[profile.Name] = (search, this.clock.Now, values);
                 }
             }
 
-            return identity;
+            return values is null ? null : ApplyFallback(values, fallback);
         }
 
-        private static ClientIdentity Extract(string text, ClientProfile profile, ClientIdentity fallback, Action<string>? log)
+        private static ScanValues Extract(string text, ClientProfile profile, Action<string>? log)
         {
             var peerId = Match(PeerIdRegex(), text);
             var key = Match(KeyRegex(), text);
@@ -120,15 +138,17 @@ namespace RatioMaster.Core.MemoryScan
                 numWant = profile.DefaultNumWant.ToString(CultureInfo.InvariantCulture);
             }
 
-            return new ClientIdentity
-            {
-                PeerId = peerId ?? fallback.PeerId,
-                Key = key ?? fallback.Key,
-                Port = port ?? fallback.Port,
-                NumWant = numWant ?? fallback.NumWant,
-                Source = ClientIdentitySource.CopiedFromProcess,
-            };
+            return new ScanValues(peerId, key, port, numWant);
         }
+
+        private static ClientIdentity ApplyFallback(ScanValues values, ClientIdentity fallback) => new()
+        {
+            PeerId = values.PeerId ?? fallback.PeerId,
+            Key = values.Key ?? fallback.Key,
+            Port = values.Port ?? fallback.Port,
+            NumWant = values.NumWant ?? fallback.NumWant,
+            Source = ClientIdentitySource.CopiedFromProcess,
+        };
 
         private static string? Match(Regex regex, string text)
         {
@@ -148,7 +168,7 @@ namespace RatioMaster.Core.MemoryScan
         [GeneratedRegex("&numwant=(.+?)(&| )")]
         private static partial Regex NumWantRegex();
 
-        private ClientIdentity? Scan(ClientProfile profile, ClientMemoryScanSpec spec, ClientIdentity fallback, Action<string>? log)
+        private ScanValues? Scan(ClientProfile profile, ClientMemoryScanSpec spec, Action<string>? log)
         {
             log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanLookingForProcess, spec.ProcessName));
             using var session = this.scanner.Open(spec.ProcessName);
@@ -173,26 +193,22 @@ namespace RatioMaster.Core.MemoryScan
                     continue;
                 }
 
-                var identity = Extract(text, profile, fallback, log);
+                var values = Extract(text, profile, log);
                 log?.Invoke(Strings.ScanSucceeded);
-                return identity;
+                return values;
             }
 
             log?.Invoke(string.Format(CultureInfo.CurrentCulture, Strings.ScanFailed, profile.Name));
             return null;
         }
 
-        /// <summary>Gets whether the newest search for the profile found nothing less than a minute ago. Call it inside the gate.</summary>
-        private bool MissedRecently(string profileName)
+        private bool IsRecent(DateTimeOffset checkedAt, int seconds)
         {
-            if (!this.results.TryGetValue(profileName, out var newest) || newest.MissedAt is not { } missedAt)
-            {
-                return false;
-            }
-
-            // Measured both ways, so a clock set back since the miss does not stretch the wait.
-            var since = this.clock.Now - missedAt;
-            return since >= TimeSpan.Zero && since < TimeSpan.FromSeconds(MissWaitSeconds);
+            // A clock adjustment backwards should not extend a cached result.
+            var since = this.clock.Now - checkedAt;
+            return since >= TimeSpan.Zero && since < TimeSpan.FromSeconds(seconds);
         }
+
+        private sealed record ScanValues(string? PeerId, string? Key, string? Port, string? NumWant);
     }
 }
