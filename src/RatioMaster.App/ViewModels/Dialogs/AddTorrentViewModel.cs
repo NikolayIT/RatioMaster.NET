@@ -52,6 +52,13 @@ namespace RatioMaster.App.ViewModels.Dialogs
             this.files = files;
             this.defaults = defaults;
             this.startImmediately = startImmediately;
+            this.Settings.PropertyChanged += (_, args) =>
+            {
+                if (args.PropertyName == nameof(TorrentSettingsViewModel.IsSpeedSettingsValid))
+                {
+                    this.AddCommand.NotifyCanExecuteChanged();
+                }
+            };
         }
 
         public TorrentSettingsViewModel Settings { get; }
@@ -71,7 +78,7 @@ namespace RatioMaster.App.ViewModels.Dialogs
             _ => string.Format(CultureInfo.CurrentCulture, Strings.AddManyTorrents, this.Torrents.Count),
         };
 
-        public bool CanAdd => this.Torrents.Count > 0;
+        public bool CanAdd => this.Torrents.Count > 0 && this.Settings.IsSpeedSettingsValid;
 
         /// <summary>
         /// Gets the reason the chosen tracker cannot be announced to (no tracker, udp://, malformed), or null when it is fine.

@@ -55,6 +55,13 @@ namespace RatioMaster.App.ViewModels.Dialogs
             this.Title = Strings.Settings;
             this.original = settings;
             this.Defaults = defaults;
+            this.Defaults.PropertyChanged += (_, args) =>
+            {
+                if (args.PropertyName == nameof(TorrentSettingsViewModel.IsSpeedSettingsValid))
+                {
+                    this.SaveCommand.NotifyCanExecuteChanged();
+                }
+            };
             this.theme = settings.Theme;
             this.use24HourTime = settings.Use24HourTime;
             this.checkForUpdatesOnStartup = settings.CheckForUpdatesOnStartup;
@@ -94,7 +101,9 @@ namespace RatioMaster.App.ViewModels.Dialogs
 
         public string ClientSummary => string.Format(CultureInfo.CurrentCulture, Strings.ClientsSummary, this.ClientCount);
 
-        [RelayCommand]
+        public bool CanSave => this.Defaults.IsSpeedSettingsValid;
+
+        [RelayCommand(CanExecute = nameof(CanSave))]
         private void Save() => this.Close(this.original with
         {
             Theme = this.Theme,
