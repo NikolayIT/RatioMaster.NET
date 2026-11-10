@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>リーチャー/シーダー &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>アップロード/ダウンロード比 ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>停止：{0}</value>
   </data>

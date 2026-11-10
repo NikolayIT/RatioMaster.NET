@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>лічери/сідери &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>співвідношення віддачі/завантаження ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Зупинено: {0}</value>
   </data>

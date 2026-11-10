@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>pijavice/sejači &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>odnos otpremanja/preuzimanja ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Zaustavljeno: {0}</value>
   </data>

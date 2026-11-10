@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>pijavke/sejalci &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>razmerje oddano/preneseno ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Ustavljen: {0}</value>
   </data>

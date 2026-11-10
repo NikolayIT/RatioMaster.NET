@@ -12,6 +12,7 @@ namespace RatioMaster.Core.Sessions
         UploadedAboveMb,
         DownloadedAboveMb,
         LeecherSeederRatioBelow,
+        UploadDownloadRatioAtLeast,
     }
 
     /// <summary>An auto-stop condition.</summary>

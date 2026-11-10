@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>ลีชเชอร์/ซีดเดอร์ &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>อัตราส่วนอัปโหลด/ดาวน์โหลด ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>ไม่หยุดเอง</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>เมื่อลีชเชอร์/ซีดเดอร์ &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>เมื่ออัตราส่วนอัปโหลด/ดาวน์โหลด ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>วินาที</value>

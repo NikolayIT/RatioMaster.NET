@@ -112,6 +112,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>المُنزِّلون/البذور &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>نسبة الرفع/التنزيل ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>تم الإيقاف: {0}</value>
   </data>

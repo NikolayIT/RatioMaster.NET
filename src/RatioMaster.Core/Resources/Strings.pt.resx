@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>leechers/sementes &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>rácio envio/transferência ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Parado: {0}</value>
   </data>

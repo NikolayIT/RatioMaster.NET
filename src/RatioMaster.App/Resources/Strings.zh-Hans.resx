@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>下载者/做种者 &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>上传/下载比率 ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>无</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>下载者/做种者 &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>当上传/下载比率 ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>秒</value>

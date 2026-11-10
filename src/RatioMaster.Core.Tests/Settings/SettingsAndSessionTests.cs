@@ -71,6 +71,24 @@ namespace RatioMaster.Core.Tests.Settings
         }
 
         [Fact]
+        public void UploadDownloadRatioStopRoundTripsWithOldStopTypeValuesUnchanged()
+        {
+            Assert.Equal(6, (int)StopConditionType.LeecherSeederRatioBelow);
+            Assert.Equal(7, (int)StopConditionType.UploadDownloadRatioAtLeast);
+
+            var settings = new TorrentSettings
+            {
+                Stop = new StopCondition { Type = StopConditionType.UploadDownloadRatioAtLeast, Value = 1.75 },
+            };
+            var json = System.Text.Json.JsonSerializer.Serialize(settings, CoreJsonContext.Default.TorrentSettings);
+            var restored = System.Text.Json.JsonSerializer.Deserialize(json, CoreJsonContext.Default.TorrentSettings);
+
+            Assert.NotNull(restored);
+            Assert.Equal(StopConditionType.UploadDownloadRatioAtLeast, restored.Stop.Type);
+            Assert.Equal(1.75, restored.Stop.Value);
+        }
+
+        [Fact]
         public void SettingsFallBackToDefaultsWhenMissingOrCorrupt()
         {
             var missing = new SettingsStore(this.PathFor("nope.json"));

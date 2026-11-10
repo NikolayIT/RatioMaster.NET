@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>下載者/做種者 &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>上傳/下載比率 ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>已停止：{0}</value>
   </data>

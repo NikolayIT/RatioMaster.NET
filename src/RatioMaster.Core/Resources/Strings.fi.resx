@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>lataajat/jakajat &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>lähetys-/lataussuhde ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Pysäytetty: {0}</value>
   </data>

@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>Λήπτες/διαμοιραστές &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Αναλογία αποστολής/λήψης ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>Ποτέ</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>Όταν λήπτες/διαμοιραστές &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Όταν η αναλογία αποστολής/λήψης ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>δευτερόλεπτα</value>

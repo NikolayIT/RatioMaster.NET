@@ -112,6 +112,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>עלוקות/זורעים &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>יחס העלאה/הורדה ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>נעצר: {0}</value>
   </data>

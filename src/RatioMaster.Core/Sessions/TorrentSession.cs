@@ -781,6 +781,8 @@ namespace RatioMaster.Core.Sessions
                     return string.Format(CultureInfo.CurrentCulture, Strings.StopReasonDownloadedAbove, Threshold(stop.Value));
                 case StopConditionType.LeecherSeederRatioBelow when this.seeders is { } sd and > 0 && this.leechers is { } lc && lc / (double)sd < stop.Value:
                     return string.Format(CultureInfo.CurrentCulture, Strings.StopReasonRatioBelow, Threshold(stop.Value, "0.###"));
+                case StopConditionType.UploadDownloadRatioAtLeast when stop.Value > 0 && this.ComputeRatio() is { } ratio && ratio >= stop.Value:
+                    return string.Format(CultureInfo.CurrentCulture, Strings.StopReasonUploadDownloadRatioAtLeast, Threshold(stop.Value, "0.###"));
                 default:
                     return null;
             }

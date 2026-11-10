@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>пијавице/сејачи &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>однос отпремања/преузимања ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Заустављено: {0}</value>
   </data>
