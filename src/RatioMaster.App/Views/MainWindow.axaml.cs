@@ -85,7 +85,21 @@ namespace RatioMaster.App.Views
 
         protected override void OnClosing(WindowClosingEventArgs e)
         {
-            this.SavePlacement();
+            if (this.WindowsSessionEnding)
+            {
+                try
+                {
+                    this.SavePlacement();
+                }
+                catch (Exception)
+                {
+                    // A layout save failure must not interrupt Windows sign-out.
+                }
+            }
+            else
+            {
+                this.SavePlacement();
+            }
 
             if (!e.IsProgrammatic && !this.WindowsSessionEnding && this.ViewModel is { } viewModel)
             {
