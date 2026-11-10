@@ -19,10 +19,11 @@ namespace RatioMaster.App.ViewModels
     /// </summary>
     public sealed partial class TorrentSettingsViewModel : ViewModelBase
     {
+        private const decimal MaxSpeedKb = 1_000_000_000m;
+
         private readonly ClientProfileCatalog catalog;
         private readonly TorrentSessionFactory? factory;
         private bool suppressVersionReset;
-        private const decimal MaxSpeedKb = 1_000_000_000m;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(ClientName))]
