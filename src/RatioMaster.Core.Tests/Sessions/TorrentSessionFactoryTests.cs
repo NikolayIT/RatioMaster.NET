@@ -162,6 +162,29 @@ namespace RatioMaster.Core.Tests.Sessions
         }
 
         [Fact]
+        public void StartingAThousandTorrentsUsesOneSuccessfulMemoryScan()
+        {
+            var memory = Encoding.ASCII.GetBytes(new string('.', 70_000)
+                + "GET /announce?info_hash=%aa&peer_id=-UT360S-abc123&port=54321&uploaded=0&downloaded=0&key=DEADBEEF&numwant=175&compact=1 HTTP/1.1");
+            var process = new FakeProcessMemoryScanner(memory);
+            var factory = CreateFactory(process);
+            var settings = new TorrentSettings { ClientName = "uTorrent 3.6.0" };
+
+            for (var i = 0; i < 1000; i++)
+            {
+                var hash = new byte[20];
+                System.Buffers.Binary.BinaryPrimitives.WriteInt32LittleEndian(hash, i);
+                var session = factory.Create(Descriptor with { InfoHash = hash }, settings);
+
+                Assert.Equal(ClientIdentitySource.CopiedFromProcess, session.Identity.Source);
+                Assert.Equal("-UT360S-abc123", session.Identity.PeerId);
+                Assert.Equal("54321", session.Identity.Port);
+            }
+
+            Assert.Equal(1, process.Opens);
+        }
+
+        [Fact]
         public void CreatesASessionForTheResolvedProfile()
         {
             var session = CreateFactory().Create(Descriptor, new TorrentSettings { ClientName = "Deluge 2.1.1" });
