@@ -115,6 +115,45 @@ namespace RatioMaster.Core.Tests.Sessions
         }
 
         [Fact]
+        public async Task AGeneratedKeyRotationIsSharedAcrossTrackerRows()
+        {
+            var tracker = new FakeTrackerClient { Interval = 60 };
+            var factory = new TorrentSessionFactory(
+                Catalog,
+                tracker,
+                new ClientValueScanner(NullProcessMemoryScanner.Instance),
+                new FakeLocalIpProvider(),
+                new DeterministicRandomSource(99));
+            var settings = new TorrentSettings
+            {
+                ClientName = "uTorrent 3.6.0",
+                IntervalSeconds = 60,
+                UseTcpListener = false,
+            };
+            var first = factory.Create(Descriptor, settings);
+            var second = factory.Create(Descriptor with { TrackerUrl = "http://another.test/announce" }, settings);
+            var originalKey = first.Identity.Key;
+            await first.StartAsync(TestContext.Current.CancellationToken);
+            await second.StartAsync(TestContext.Current.CancellationToken);
+
+            for (var i = 0; i < 11 * 60; i++)
+            {
+                await first.TickAsync(TestContext.Current.CancellationToken);
+            }
+
+            Assert.NotEqual(originalKey, first.Identity.Key);
+            Assert.Equal(first.Identity.Key, second.Identity.Key);
+            var rotatedKey = first.Identity.Key;
+
+            for (var i = 0; i < 11 * 60; i++)
+            {
+                await second.TickAsync(TestContext.Current.CancellationToken);
+            }
+
+            Assert.Equal(rotatedKey, second.Identity.Key);
+        }
+
+        [Fact]
         public void EachClientHasAPortOfItsOwn()
         {
             var factory = CreateFactory();

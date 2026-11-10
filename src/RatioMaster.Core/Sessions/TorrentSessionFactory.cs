@@ -25,7 +25,7 @@ namespace RatioMaster.Core.Sessions
         private readonly ISystemClock clock;
         private readonly PeerListenerPool listeners;
         private readonly Lock identityGate = new();
-        private readonly Dictionary<(string ClientName, string InfoHash), ClientIdentity> torrentIdentities = [];
+        private readonly Dictionary<(string ClientName, string InfoHash), SharedTorrentIdentity> torrentIdentities = [];
 
         public TorrentSessionFactory(
             ClientProfileCatalog catalog,
@@ -68,23 +68,23 @@ namespace RatioMaster.Core.Sessions
 
             // Torrents started together look for the running client once, not once each.
             var identity = this.BuildIdentity(settings, log, ignoreRecentMiss: false);
+            var session = new TorrentSession(descriptor, profile, identity, settings, this.tracker, this.localIpProvider, this.random, this.clock, this.listeners);
             if (settings.IdentityMode == IdentityMode.Automatic)
             {
                 var key = (profile.Name, Convert.ToHexString(descriptor.InfoHash));
                 lock (this.identityGate)
                 {
-                    if (this.torrentIdentities.TryGetValue(key, out var existing))
+                    if (!this.torrentIdentities.TryGetValue(key, out var shared))
                     {
-                        identity = existing;
+                        shared = new SharedTorrentIdentity(identity);
+                        this.torrentIdentities[key] = shared;
                     }
-                    else
-                    {
-                        this.torrentIdentities[key] = identity;
-                    }
+
+                    session.UseSharedIdentity(shared);
                 }
             }
 
-            return new TorrentSession(descriptor, profile, identity, settings, this.tracker, this.localIpProvider, this.random, this.clock, this.listeners);
+            return session;
         }
 
         private static string Or(string? value, string fallback) => string.IsNullOrWhiteSpace(value) ? fallback : value;

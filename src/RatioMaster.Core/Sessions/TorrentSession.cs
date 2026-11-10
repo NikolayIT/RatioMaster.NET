@@ -33,6 +33,7 @@ namespace RatioMaster.Core.Sessions
         private readonly Lock gate = new();
 
         private ClientIdentity identity;
+        private SharedTorrentIdentity? sharedIdentity;
         private TorrentSettings settings;
         private TorrentSessionState state = TorrentSessionState.Idle;
         private string? stopReason;
@@ -106,11 +107,13 @@ namespace RatioMaster.Core.Sessions
 
         public event EventHandler<EngineAdjustment>? Adjusted;
 
+        internal void UseSharedIdentity(SharedTorrentIdentity identity) => this.sharedIdentity = identity;
+
         public TorrentDescriptor Descriptor => this.descriptor;
 
         public ClientProfile Profile => this.profile;
 
-        public ClientIdentity Identity => this.identity;
+        public ClientIdentity Identity => this.sharedIdentity?.Current ?? this.identity;
 
         public TorrentSettings Settings => this.settings;
 
@@ -144,7 +147,7 @@ namespace RatioMaster.Core.Sessions
                             ? null
                             : TimeSpan.FromSeconds(Math.Max(0, this.currentInterval - this.elapsedInInterval)),
                         StopAfterRemaining = this.ComputeStopAfterRemaining(),
-                        Key = this.identity.Key,
+                        Key = this.Identity.Key,
                     };
                 }
             }
@@ -521,6 +524,11 @@ namespace RatioMaster.Core.Sessions
         /// </summary>
         private bool RefreshKeyIfDue()
         {
+            if (this.sharedIdentity is { } shared)
+            {
+                return shared.RefreshKeyIfDue(this.profile, this.random, this.totalRunningSeconds);
+            }
+
             if (this.profile.KeyRefresh != KeyRefreshPolicy.Timed
                 || this.identity.Source != ClientIdentitySource.Generated)
             {
@@ -545,9 +553,9 @@ namespace RatioMaster.Core.Sessions
         private string CurrentNumWant() =>
             this.left == 0
             && this.profile.SeedingNumWant is { } seeding
-            && this.identity.NumWant == this.profile.DefaultNumWant.ToString(CultureInfo.InvariantCulture)
+            && this.Identity.NumWant == this.profile.DefaultNumWant.ToString(CultureInfo.InvariantCulture)
                 ? seeding.ToString(CultureInfo.InvariantCulture)
-                : this.identity.NumWant;
+                : this.Identity.NumWant;
 
         private AnnounceValues BuildAnnounceValues()
         {
@@ -564,15 +572,16 @@ namespace RatioMaster.Core.Sessions
                     this.left = this.totalSize - this.downloaded;
                 }
 
+                var identity = this.Identity;
                 values = new AnnounceValues
                 {
                     InfoHashEncoded = InfoHashEncoder.Encode(this.descriptor.InfoHash, this.profile.HashUpperCase, this.profile.Unreserved),
-                    PeerId = this.identity.PeerId,
-                    Port = this.identity.Port,
+                    PeerId = identity.PeerId,
+                    Port = identity.Port,
                     Uploaded = this.uploaded,
                     Downloaded = this.downloaded,
                     Left = this.left,
-                    Key = this.identity.Key,
+                    Key = identity.Key,
                     NumWant = this.CurrentNumWant(),
                     LocalIp = this.LocalIp,
                 };
@@ -854,13 +863,13 @@ namespace RatioMaster.Core.Sessions
                 return;
             }
 
-            if (!int.TryParse(this.identity.Port, NumberStyles.Integer, CultureInfo.InvariantCulture, out var port))
+            if (!int.TryParse(this.Identity.Port, NumberStyles.Integer, CultureInfo.InvariantCulture, out var port))
             {
                 return;
             }
 
             // Shared with every other torrent announced with this port, as a real client's one listening port is.
-            this.listener = this.listeners.Join(port, this.descriptor.InfoHash, this.identity.PeerId, message => this.Log(LogLevel.Info, message));
+            this.listener = this.listeners.Join(port, this.descriptor.InfoHash, this.Identity.PeerId, message => this.Log(LogLevel.Info, message));
         }
 
         private async Task CloseListenerAsync()
