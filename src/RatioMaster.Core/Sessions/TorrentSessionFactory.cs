@@ -1,5 +1,7 @@
 namespace RatioMaster.Core.Sessions
 {
+    using System.Collections.Generic;
+
     using RatioMaster.Core.Abstractions;
     using RatioMaster.Core.Clients;
     using RatioMaster.Core.MemoryScan;
@@ -22,6 +24,8 @@ namespace RatioMaster.Core.Sessions
         private readonly IRandomSource random;
         private readonly ISystemClock clock;
         private readonly PeerListenerPool listeners;
+        private readonly Lock identityGate = new();
+        private readonly Dictionary<(string ClientName, string InfoHash), ClientIdentity> torrentIdentities = [];
 
         public TorrentSessionFactory(
             ClientProfileCatalog catalog,
@@ -64,6 +68,22 @@ namespace RatioMaster.Core.Sessions
 
             // Torrents started together look for the running client once, not once each.
             var identity = this.BuildIdentity(settings, log, ignoreRecentMiss: false);
+            if (settings.IdentityMode == IdentityMode.Automatic)
+            {
+                var key = (profile.Name, Convert.ToHexString(descriptor.InfoHash));
+                lock (this.identityGate)
+                {
+                    if (this.torrentIdentities.TryGetValue(key, out var existing))
+                    {
+                        identity = existing;
+                    }
+                    else
+                    {
+                        this.torrentIdentities[key] = identity;
+                    }
+                }
+            }
+
             return new TorrentSession(descriptor, profile, identity, settings, this.tracker, this.localIpProvider, this.random, this.clock, this.listeners);
         }
 

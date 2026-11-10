@@ -74,6 +74,35 @@ namespace RatioMaster.Core.Tests.Networking
         }
 
         [Fact]
+        public async Task DuplicateInfoHashesAnswerWithTheFirstRegisteredPeerId()
+        {
+            var pool = new PeerListenerPool();
+            var port = GetFreePort();
+            var infoHash = MakeInfoHash(5);
+            var first = pool.Join(port, infoHash, PeerId)!;
+            await using var second = pool.Join(port, infoHash, OtherPeerId);
+
+            Assert.Equal(PeerId, Encoding.ASCII.GetString(await HandshakeAsync(port, infoHash), 48, 20));
+
+            await first.DisposeAsync();
+            Assert.Equal(OtherPeerId, Encoding.ASCII.GetString(await HandshakeAsync(port, infoHash), 48, 20));
+        }
+
+        [Fact]
+        public async Task IgnoresAnInfoHashThatOnlyAppearsInTheRemotePeerId()
+        {
+            var port = GetFreePort();
+            var infoHash = MakeInfoHash(15);
+            await using var registration = new PeerListenerPool().Join(port, infoHash, PeerId);
+            Assert.NotNull(registration);
+
+            var handshake = BuildHandshake(MakeInfoHash(60), "-OTHERPEER-1234567890");
+            infoHash.CopyTo(handshake, 48);
+
+            await AssertNoReplyAsync(port, infoHash, handshake);
+        }
+
+        [Fact]
         public async Task IgnoresAHandshakeForAnotherTorrent()
         {
             var port = GetFreePort();
@@ -160,12 +189,12 @@ namespace RatioMaster.Core.Tests.Networking
             return response;
         }
 
-        private static async Task AssertNoReplyAsync(int port, byte[] infoHash)
+        private static async Task AssertNoReplyAsync(int port, byte[] infoHash, byte[]? handshake = null)
         {
             using var client = new TcpClient();
             await client.ConnectAsync(IPAddress.Loopback, port, Ct);
             await using var stream = client.GetStream();
-            await stream.WriteAsync(BuildHandshake(infoHash, "-OTHERPEER-1234567890"), Ct);
+            await stream.WriteAsync(handshake ?? BuildHandshake(infoHash, "-OTHERPEER-1234567890"), Ct);
 
             // The listener must not reply. The connection is closed instead, which surfaces either as a
             // zero-byte read or, on Windows, as a connection reset. Both mean no handshake was returned.

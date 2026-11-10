@@ -201,21 +201,24 @@ namespace RatioMaster.Core.Networking
             }
         }
 
-        /// <summary>Gets the torrent a handshake asks for; when one torrent is on the port twice, the later one answers.</summary>
+        /// <summary>Matches only the info hash in a valid BitTorrent handshake.</summary>
         private PeerListenerRegistration? FindTorrent(ReadOnlySpan<byte> data)
         {
-            if (data.IndexOf(Protocol) < 0)
+            if (data.Length < HandshakeReadLength ||
+                data[0] != Protocol.Length ||
+                !data.Slice(1, Protocol.Length).SequenceEqual(Protocol))
             {
                 return null;
             }
 
+            var infoHash = data.Slice(1 + Protocol.Length + 8, 20);
             lock (this.gate)
             {
-                for (var i = this.torrents.Count - 1; i >= 0; i--)
+                foreach (var torrent in this.torrents)
                 {
-                    if (data.IndexOf(this.torrents[i].InfoHash) >= 0)
+                    if (infoHash.SequenceEqual(torrent.InfoHash))
                     {
-                        return this.torrents[i];
+                        return torrent;
                     }
                 }
             }

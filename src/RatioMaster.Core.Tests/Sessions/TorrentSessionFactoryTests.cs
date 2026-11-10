@@ -71,6 +71,50 @@ namespace RatioMaster.Core.Tests.Sessions
         }
 
         [Fact]
+        public void SameTorrentWithTwoTrackersSharesItsAutomaticIdentity()
+        {
+            var factory = CreateFactory();
+            var settings = new TorrentSettings { ClientName = "uTorrent 3.6.0" };
+            var first = factory.Create(Descriptor, settings);
+            var second = factory.Create(Descriptor with { TrackerUrl = "http://another.test/announce" }, settings);
+
+            Assert.Equal(first.Identity.PeerId, second.Identity.PeerId);
+            Assert.Equal(first.Identity.Key, second.Identity.Key);
+            Assert.Equal(first.Identity.Port, second.Identity.Port);
+        }
+
+        [Fact]
+        public void DifferentInfoHashesAndClientsKeepSeparateIdentities()
+        {
+            var factory = CreateFactory();
+            var settings = new TorrentSettings { ClientName = "uTorrent 3.6.0" };
+            var first = factory.Create(Descriptor, settings);
+            var differentHash = factory.Create(Descriptor with { InfoHash = Enumerable.Repeat((byte)7, 20).ToArray() }, settings);
+            var differentClient = factory.Create(Descriptor, settings with { ClientName = "qBittorrent 5.2.4" });
+
+            Assert.NotEqual(first.Identity.PeerId, differentHash.Identity.PeerId);
+            Assert.NotEqual(first.Identity.PeerId, differentClient.Identity.PeerId);
+        }
+
+        [Fact]
+        public void ExplicitCustomIdentityIsNotReplacedByTheAutomaticIdentity()
+        {
+            var factory = CreateFactory();
+            var automatic = new TorrentSettings { ClientName = "uTorrent 3.6.0" };
+            factory.Create(Descriptor, automatic);
+
+            var custom = factory.Create(Descriptor, automatic with
+            {
+                IdentityMode = IdentityMode.Custom,
+                CustomPeerId = "-RM1000-abcdefghijkl",
+                CustomKey = "CUSTOM123",
+            });
+
+            Assert.Equal("-RM1000-abcdefghijkl", custom.Identity.PeerId);
+            Assert.Equal("CUSTOM123", custom.Identity.Key);
+        }
+
+        [Fact]
         public void EachClientHasAPortOfItsOwn()
         {
             var factory = CreateFactory();
