@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>λήπτες/διαμοιραστές &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>αναλογία αποστολής/λήψης ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Διακόπηκε: {0}</value>
   </data>

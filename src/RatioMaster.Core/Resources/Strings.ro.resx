@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>leecheri/seederi &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>raport încărcare/descărcare ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Oprit: {0}</value>
   </data>

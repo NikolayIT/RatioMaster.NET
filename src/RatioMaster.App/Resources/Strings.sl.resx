@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>Pijavke/sejalci &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Razmerje oddano/preneseno ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>Nikoli</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>Ko je razmerje pijavk in sejalcev &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Ko razmerje oddano/preneseno ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>s</value>

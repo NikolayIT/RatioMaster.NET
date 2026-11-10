@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>Siuntėjai/skleidėjai &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Įkėlimo / atsisiuntimo santykis ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>Niekada</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>Kai siuntėjai/skleidėjai &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Kai įkėlimo / atsisiuntimo santykis ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>s</value>

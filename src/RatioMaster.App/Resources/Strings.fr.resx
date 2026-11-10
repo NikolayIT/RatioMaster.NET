@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>Leechers/seeders &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Ratio envoi/réception ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>Jamais</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>Si le ratio leechers/seeders est &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Lorsque le ratio envoi/réception ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>secondes</value>

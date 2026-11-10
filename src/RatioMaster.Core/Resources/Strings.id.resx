@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>leecher/seeder &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>rasio unggah/unduh ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Dihentikan: {0}</value>
   </data>

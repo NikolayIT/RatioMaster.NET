@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>Leechere/seedere &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Upload/download-forhold ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>Aldrig</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>Når leechere/seedere &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Når upload/download-forholdet ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>sekunder</value>

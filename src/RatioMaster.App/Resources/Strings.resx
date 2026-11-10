@@ -379,6 +379,10 @@
     <value>Leechers/seeders &lt; {0}</value>
     <comment>General tab: stops when leechers divided by seeders drops below {0}.</comment>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Upload/download ratio ≥ {0}</value>
+    <comment>Stop summary: upload divided by download at or above {0}.</comment>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>Never</value>
     <comment>"Stop" drop-down in the torrent settings: never stop on its own.</comment>
@@ -406,6 +410,10 @@
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>When leechers/seeders &lt;</value>
     <comment>"Stop" drop-down: followed by a number box and the word "ratio".</comment>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>When upload/download ratio ≥</value>
+    <comment>Followed by the target ratio.</comment>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>seconds</value>

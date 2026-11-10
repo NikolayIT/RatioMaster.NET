@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>Shkarkues/mbjellës &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Raporti ngarkim/shkarkim ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>Kurrë</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>Kur shkarkues/mbjellës &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>Kur raporti ngarkim/shkarkim ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>s</value>

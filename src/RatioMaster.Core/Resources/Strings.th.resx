@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>ลีชเชอร์/ซีดเดอร์ &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>อัตราส่วนอัปโหลด/ดาวน์โหลด ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>หยุดแล้ว: {0}</value>
   </data>

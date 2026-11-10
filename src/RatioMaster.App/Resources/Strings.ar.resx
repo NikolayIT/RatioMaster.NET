@@ -298,6 +298,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>المُنزِّلون/البذور &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>نسبة الرفع/التنزيل ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>أبدًا</value>
   </data>
@@ -318,6 +321,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>عندما تكون نسبة المُنزِّلين/البذور &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>عندما تكون نسبة الرفع/التنزيل ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>ث</value>

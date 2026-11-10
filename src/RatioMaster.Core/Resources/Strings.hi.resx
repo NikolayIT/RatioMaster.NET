@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>लीचर/सीडर &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>अपलोड/डाउनलोड अनुपात ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>रोका गया: {0}</value>
   </data>

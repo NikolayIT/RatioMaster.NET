@@ -298,6 +298,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>עלוקות/זורעים &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>יחס העלאה/הורדה ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>אף פעם</value>
   </data>
@@ -318,6 +321,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>כשיחס עלוקות/זורעים &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>כאשר יחס ההעלאה/הורדה ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>שנ'</value>

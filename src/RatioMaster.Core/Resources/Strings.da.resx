@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>leechere/seedere &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>upload/download-forhold ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Stoppet: {0}</value>
   </data>

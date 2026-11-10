@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>pijawki/seedy &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>stosunek wysyłania do pobierania ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Zatrzymano: {0}</value>
   </data>

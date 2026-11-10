@@ -294,6 +294,9 @@
   <data name="StopSummaryRatioBelow" xml:space="preserve">
     <value>リーチャー/シーダー &lt; {0}</value>
   </data>
+  <data name="StopSummaryUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>アップロード/ダウンロード比 ≥ {0}</value>
+  </data>
   <data name="StopTypeNever" xml:space="preserve">
     <value>なし</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="StopTypeLeecherSeederRatioBelow" xml:space="preserve">
     <value>リーチャー/シーダー &lt;</value>
+  </data>
+  <data name="StopTypeUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>アップロード/ダウンロード比が ≥</value>
   </data>
   <data name="UnitSeconds" xml:space="preserve">
     <value>秒</value>

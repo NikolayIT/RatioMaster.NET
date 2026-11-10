@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>shkarkues/mbjellës &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>raporti ngarkim/shkarkim ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>U ndal: {0}</value>
   </data>

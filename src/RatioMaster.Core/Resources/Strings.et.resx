@@ -111,6 +111,9 @@
   <data name="StopReasonRatioBelow" xml:space="preserve">
     <value>allalaadijad/jagajad &lt; {0}</value>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>üles-/allalaadimise suhe ≥ {0}</value>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Peatatud: {0}</value>
   </data>

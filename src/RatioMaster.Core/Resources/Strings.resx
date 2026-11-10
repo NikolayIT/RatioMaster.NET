@@ -142,6 +142,10 @@
     <value>leechers/seeders &lt; {0}</value>
     <comment>Stop reason, shown after "Stopped: ". {0} = a ratio such as 1.5.</comment>
   </data>
+  <data name="StopReasonUploadDownloadRatioAtLeast" xml:space="preserve">
+    <value>upload/download ratio ≥ {0}</value>
+    <comment>Stop reason: upload divided by download at or above {0}.</comment>
+  </data>
   <data name="LogStopped" xml:space="preserve">
     <value>Stopped: {0}</value>
     <comment>Log line. {0} = stop reason.</comment>
