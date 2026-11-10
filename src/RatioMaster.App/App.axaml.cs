@@ -67,6 +67,21 @@ namespace RatioMaster.App
                 viewModel.RestoreRequested += (_, _) => window.RestoreFromTray();
                 desktop.ShutdownRequested += async (_, e) =>
                 {
+                    if (OperatingSystem.IsWindows())
+                    {
+                        window.AllowSystemShutdown();
+                        try
+                        {
+                            viewModel.SaveBeforeShutdown();
+                        }
+                        catch (Exception)
+                        {
+                            // Saving must not prevent Windows from signing out or shutting down.
+                        }
+
+                        return;
+                    }
+
                     e.Cancel = true;
                     await this.ShutdownAsync(desktop);
                 };

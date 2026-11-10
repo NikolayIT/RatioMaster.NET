@@ -266,12 +266,18 @@ namespace RatioMaster.App.ViewModels
             }
         }
 
-        /// <summary>Stops every torrent (sending the stopped announce) and persists state. Called when quitting.</summary>
-        public async Task ShutdownAsync(TimeSpan timeout)
+        /// <summary>Saves state without waiting for tracker requests during OS shutdown.</summary>
+        public void SaveBeforeShutdown()
         {
             this.timer.Stop();
             this.SaveLastSession();
             this.settingsStore.Save(this.settings);
+        }
+
+        /// <summary>Stops every torrent (sending the stopped announce) and persists state. Called when quitting.</summary>
+        public async Task ShutdownAsync(TimeSpan timeout)
+        {
+            this.SaveBeforeShutdown();
 
             using var cts = new CancellationTokenSource(timeout);
             var stops = this.Torrents.Select(async t =>

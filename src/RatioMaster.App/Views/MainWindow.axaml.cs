@@ -28,6 +28,7 @@ namespace RatioMaster.App.Views
         private readonly Dictionary<DataGridColumn, DataGridLength> defaultColumnWidths = [];
 
         private MainWindowViewModel? viewModel;
+        private bool systemShutdownRequested;
         private double detailsPaneHeight = 300;
         private PixelPoint? normalPosition;
         private Size? normalSize;
@@ -68,6 +69,9 @@ namespace RatioMaster.App.Views
 
         private MainWindowViewModel? ViewModel => this.viewModel;
 
+        /// <summary>Bypasses close-to-tray when Windows is ending the user session.</summary>
+        public void AllowSystemShutdown() => this.systemShutdownRequested = true;
+
         private RowDefinition DetailsRow => this.ContentGrid.RowDefinitions[2];
 
         private DataGridColumn NameColumn => this.TorrentGrid.Columns[0];
@@ -85,7 +89,7 @@ namespace RatioMaster.App.Views
         {
             this.SavePlacement();
 
-            if (!e.IsProgrammatic && this.ViewModel is { } viewModel)
+            if (!e.IsProgrammatic && !this.systemShutdownRequested && this.ViewModel is { } viewModel)
             {
                 // Close to tray keeps the torrents announcing; quitting happens through File > Exit or the tray menu.
                 // Otherwise closing the window quits as File > Exit does, which stops the torrents and then closes it:
