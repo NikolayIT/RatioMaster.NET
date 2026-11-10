@@ -266,6 +266,13 @@ namespace RatioMaster.App.ViewModels
             }
         }
 
+        /// <summary>Saves immediately without waiting for tracker announces during a system shutdown.</summary>
+        public void SaveForSystemShutdown()
+        {
+            this.SaveLastSession(force: true);
+            this.settingsStore.Save(this.settings);
+        }
+
         /// <summary>Stops every torrent (sending the stopped announce) and persists state. Called when quitting.</summary>
         public async Task ShutdownAsync(TimeSpan timeout)
         {
@@ -852,9 +859,9 @@ namespace RatioMaster.App.ViewModels
             }
         }
 
-        private void SaveLastSession()
+        private void SaveLastSession(bool force = false)
         {
-            if (this.deferredListChanges > 0)
+            if (!force && this.deferredListChanges > 0)
             {
                 return;
             }
