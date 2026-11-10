@@ -134,17 +134,76 @@ namespace RatioMaster.Core.Tests.MemoryScan
             Assert.Equal(2, process.Opens);
         }
 
-        /// <summary>A running client's values are copied fresh for every torrent, as before.</summary>
         [Fact]
-        public void AClientThatWasFoundIsSearchedEveryTime()
+        public void AClientThatWasFoundIsReusedBriefly()
+        {
+            var clock = new FakeClock();
+            var process = new FakeProcessMemoryScanner(MemoryWith("&peer_id=-UT360S-abc&key=DEADBEEF&compact=1 x", padding: 0));
+            var scanner = new ClientValueScanner(process, clock);
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+
+            Assert.NotNull(scanner.TryScan(profile, Fallback));
+            Assert.NotNull(scanner.TryScan(profile, Fallback));
+            clock.Advance(TimeSpan.FromSeconds(ClientValueScanner.HitWaitSeconds - 1));
+            Assert.NotNull(scanner.TryScan(profile, Fallback));
+            Assert.Equal(1, process.Opens);
+
+            clock.Advance(TimeSpan.FromSeconds(1));
+            Assert.NotNull(scanner.TryScan(profile, Fallback));
+            Assert.Equal(2, process.Opens);
+        }
+
+        [Fact]
+        public void CachedScansPreserveEachTorrentsGeneratedFallbackFields()
+        {
+            var process = new FakeProcessMemoryScanner(MemoryWith("&peer_id=-UT360S-abc&compact=1 x", padding: 0));
+            var scanner = new ClientValueScanner(process, new FakeClock());
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+            var alternate = Fallback with { Key = "SECONDKEY", Port = "4567", NumWant = "88" };
+
+            var first = scanner.TryScan(profile, Fallback);
+            var second = scanner.TryScan(profile, alternate);
+
+            Assert.NotNull(first);
+            Assert.NotNull(second);
+            Assert.Equal("-UT360S-abc", second.PeerId);
+            Assert.Equal("FALLBACK", first.Key);
+            Assert.Equal("SECONDKEY", second.Key);
+            Assert.Equal("4567", second.Port);
+            Assert.Equal("88", second.NumWant);
+            Assert.Equal(1, process.Opens);
+        }
+
+        [Fact]
+        public void RegenerateBypassesASuccessfulCachedScan()
         {
             var process = new FakeProcessMemoryScanner(MemoryWith("&peer_id=-UT360S-abc&key=DEADBEEF&compact=1 x", padding: 0));
             var scanner = new ClientValueScanner(process, new FakeClock());
             var profile = Catalog.GetByName("uTorrent 3.6.0");
 
             Assert.NotNull(scanner.TryScan(profile, Fallback));
-            Assert.NotNull(scanner.TryScan(profile, Fallback));
+            process.CanOpen = false;
+
+            Assert.Null(scanner.TryScan(profile, Fallback, ignoreRecentMiss: true));
+            Assert.Null(scanner.TryScan(profile, Fallback));
             Assert.Equal(2, process.Opens);
+        }
+
+        [Fact]
+        public void AThousandTorrentsOnlyScanARunningClientOnce()
+        {
+            var process = new FakeProcessMemoryScanner(MemoryWith("&peer_id=-UT360S-abc&port=54321&key=DEADBEEF&numwant=175&compact=1 x", padding: 0));
+            var scanner = new ClientValueScanner(process, new FakeClock());
+            var profile = Catalog.GetByName("uTorrent 3.6.0");
+
+            for (var i = 0; i < 1000; i++)
+            {
+                var copied = scanner.TryScan(profile, Fallback);
+                Assert.NotNull(copied);
+                Assert.Equal("-UT360S-abc", copied.PeerId);
+            }
+
+            Assert.Equal(1, process.Opens);
         }
 
         /// <summary>The user starts the client and asks for its values right away: that search cannot wait for the minute.</summary>
@@ -160,7 +219,7 @@ namespace RatioMaster.Core.Tests.MemoryScan
             Assert.Null(scanner.TryScan(profile, Fallback));
             Assert.Equal("-UT360S-abc", scanner.TryScan(profile, Fallback, ignoreRecentMiss: true)?.PeerId);
             Assert.Equal("-UT360S-abc", scanner.TryScan(profile, Fallback)?.PeerId);
-            Assert.Equal(3, process.Opens);
+            Assert.Equal(2, process.Opens);
         }
 
         [Fact]
@@ -210,7 +269,7 @@ namespace RatioMaster.Core.Tests.MemoryScan
             Assert.Null(await older);
 
             Assert.NotNull(scanner.TryScan(profile, Fallback));
-            Assert.Equal(3, client.Opens);
+            Assert.Equal(2, client.Opens);
         }
 
         /// <summary>The other way round: the client quit between two searches, and the older find that ends last does not end the wait.</summary>
