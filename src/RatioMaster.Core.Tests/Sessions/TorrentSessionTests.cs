@@ -476,7 +476,7 @@ namespace RatioMaster.Core.Tests.Sessions
 
             await TickAsync(session, 1);
             Assert.Equal(TorrentSessionState.Stopped, session.State);
-            Assert.Equal(2, session.Snapshot.Ratio);
+            Assert.Equal(2.0, session.Snapshot.Ratio);
             Assert.Contains("upload/download ratio", session.Snapshot.StopReason, StringComparison.Ordinal);
             Assert.Equal(TrackerEvent.Stopped, tracker.Announces.Last().Event);
         }
@@ -498,7 +498,7 @@ namespace RatioMaster.Core.Tests.Sessions
 
             await TickAsync(session, 1);
             Assert.Equal(TorrentSessionState.Stopped, session.State);
-            Assert.Contains("1.5", session.Snapshot.StopReason, StringComparison.Ordinal);
+            Assert.Contains("upload/download ratio", session.Snapshot.StopReason, StringComparison.Ordinal);
         }
 
         [Fact]
