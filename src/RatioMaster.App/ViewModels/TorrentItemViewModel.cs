@@ -186,6 +186,7 @@ namespace RatioMaster.App.ViewModels
                     StopConditionType.LeechersBelow => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryLeechersBelow, whole),
                     StopConditionType.UploadedAboveMb => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryUploadedAbove, whole),
                     StopConditionType.DownloadedAboveMb => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryDownloadedAbove, whole),
+                    StopConditionType.UploadDownloadRatioAtLeast => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryUploadDownloadRatioAtLeast, value.ToString("0.###", CultureInfo.CurrentCulture)),
                     _ => string.Format(CultureInfo.CurrentCulture, Strings.StopSummaryRatioBelow, value.ToString("0.###", CultureInfo.CurrentCulture)),
                 };
             }

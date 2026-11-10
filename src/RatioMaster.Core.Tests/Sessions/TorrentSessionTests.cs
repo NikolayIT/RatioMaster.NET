@@ -461,6 +461,77 @@ namespace RatioMaster.Core.Tests.Sessions
         }
 
         [Fact]
+        public async Task StopsWhenUploadDownloadRatioReachesTheTarget()
+        {
+            var settings = QuietSettings() with
+            {
+                Stop = new StopCondition { Type = StopConditionType.UploadDownloadRatioAtLeast, Value = 2 },
+            };
+            var (session, tracker) = Create(settings, totalLength: 10_000_000);
+            await session.StartAsync(Ct);
+
+            await TickAsync(session, 3);
+            Assert.Equal(TorrentSessionState.Downloading, session.State);
+            Assert.Null(session.Snapshot.Ratio);
+
+            await TickAsync(session, 1);
+            Assert.Equal(TorrentSessionState.Stopped, session.State);
+            Assert.Equal(2, session.Snapshot.Ratio);
+            Assert.Contains("upload/download ratio", session.Snapshot.StopReason, StringComparison.Ordinal);
+            Assert.Equal(TrackerEvent.Stopped, tracker.Announces.Last().Event);
+        }
+
+        [Fact]
+        public async Task UploadDownloadRatioStopWorksAtFractionalTarget()
+        {
+            var settings = QuietSettings() with
+            {
+                UploadRateBytes = 60 * KiB,
+                DownloadRateBytes = 40 * KiB,
+                Stop = new StopCondition { Type = StopConditionType.UploadDownloadRatioAtLeast, Value = 1.5 },
+            };
+            var (session, _) = Create(settings, totalLength: 10_000_000);
+            await session.StartAsync(Ct);
+
+            await TickAsync(session, 2);
+            Assert.Equal(TorrentSessionState.Downloading, session.State);
+
+            await TickAsync(session, 1);
+            Assert.Equal(TorrentSessionState.Stopped, session.State);
+            Assert.Contains("1.5", session.Snapshot.StopReason, StringComparison.Ordinal);
+        }
+
+        [Fact]
+        public async Task UploadDownloadRatioStopDoesNotTriggerWithoutDownloads()
+        {
+            var settings = QuietSettings() with
+            {
+                FinishedPercent = 100,
+                Stop = new StopCondition { Type = StopConditionType.UploadDownloadRatioAtLeast, Value = 1 },
+            };
+            var (session, _) = Create(settings);
+            await session.StartAsync(Ct);
+
+            await TickAsync(session, 10);
+            Assert.Equal(TorrentSessionState.Seeding, session.State);
+            Assert.Null(session.Snapshot.Ratio);
+        }
+
+        [Fact]
+        public async Task UploadDownloadRatioStopIgnoresNonPositiveTargets()
+        {
+            var settings = QuietSettings() with
+            {
+                Stop = new StopCondition { Type = StopConditionType.UploadDownloadRatioAtLeast, Value = 0 },
+            };
+            var (session, _) = Create(settings, totalLength: 10_000_000);
+            await session.StartAsync(Ct);
+
+            await TickAsync(session, 10);
+            Assert.Equal(TorrentSessionState.Downloading, session.State);
+        }
+
+        [Fact]
         public async Task TrackerFailureStopsWithErrorUnlessIgnored()
         {
             var (session, tracker) = Create(configureTracker: t => t.FailureReason = "torrent not registered");
